@@ -1,6 +1,8 @@
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Work from "@/components/Work";
+import StrategicWorkflow from "@/components/StrategicWorkflow";
+import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 export default function HomePage() {
@@ -9,6 +11,8 @@ export default function HomePage() {
       <Hero />
       <Work />
       <Services />
+      <StrategicWorkflow />
+      <CTA />
       <Footer />
     </main>
   );

@@ -70,7 +70,7 @@ export default function Work() {
             {/* CTA */}
             <Link
               href={`/work/${flagship.slug}`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-base text-white font-semibold transition-all duration-300 group border border-cyber-accent/30 bg-cyber-accent/10 hover:bg-cyber-accent/20"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-base text-white font-semibold transition-all duration-300 group border border-cyber-accent/30 bg-cyber-accent/10 hover:bg-cyber-accent/20"
             >
               <span>View Full Case Study</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
