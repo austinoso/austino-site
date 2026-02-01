@@ -18,8 +18,8 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-cyber-dark/95 backdrop-blur-lg border-b border-cyber-gray-800"
-          : "bg-transparent"
+          ? "bg-[#050505]/95 backdrop-blur-lg border-b border-cyber-gray-800/30"
+          : "bg-[#050505]/80 backdrop-blur-md"
       }`}
       role="navigation"
       aria-label="Main navigation"
@@ -38,21 +38,21 @@ export default function Navigation() {
           <div className="flex items-center gap-8">
             <Link
               href="/#services"
-              className="text-cyber-gray-300 hover:text-cyber-accent transition-colors"
+              className="text-white hover:text-cyber-accent transition-colors"
               aria-label="View services section"
             >
               Services
             </Link>
             <Link
               href="/#labs"
-              className="text-cyber-gray-300 hover:text-cyber-accent transition-colors"
+              className="text-white hover:text-cyber-accent transition-colors"
               aria-label="View internal labs section"
             >
               Labs
             </Link>
             <Link
               href="/work"
-              className="text-cyber-gray-300 hover:text-cyber-accent transition-colors"
+              className="text-white hover:text-cyber-accent transition-colors"
               aria-label="View work"
             >
               Work

@@ -16,7 +16,7 @@ const TECH_STACK = [
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen bg-[#050505] overflow-hidden"
+      className="relative min-h-screen bg-[#050505] overflow-hidden flex flex-col"
       aria-labelledby="hero-heading"
     >
       {/* Large radial gradient for 3D depth effect */}
@@ -24,42 +24,6 @@ export default function Hero() {
         className="absolute inset-0 bg-gradient-radial from-[#0A0E14] via-[#050505] to-[#050505] opacity-90"
         aria-hidden="true"
       />
-
-      {/* Floating Navigation Pill - Sticky */}
-      <div className="sticky top-8 z-50 flex justify-center px-6 mb-16">
-        <nav
-          className="rounded-full px-10"
-          style={{
-            padding: "10px 32px",
-            backdropFilter: "blur(16px)",
-            backgroundColor: "rgba(255, 255, 255, 0.04)",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-          }}
-          aria-label="Main navigation"
-        >
-          <div className="flex items-center gap-8">
-            <Link
-              href="/#labs"
-              className="text-sm text-cyber-gray-400 hover:text-white transition-colors"
-            >
-              Labs
-            </Link>
-            <Link
-              href="/work"
-              className="text-sm text-cyber-gray-400 hover:text-white transition-colors"
-            >
-              Work
-            </Link>
-            <Link
-              href="/contact"
-              className="text-sm text-white hover:text-cyber-accent transition-colors font-medium px-4 py-2 rounded-full"
-              style={{ border: "1px solid rgba(64, 224, 255, 0.3)" }}
-            >
-              Connect
-            </Link>
-          </div>
-        </nav>
-      </div>
 
       {/* Background Layer - Subtle geometric depth element */}
       <div
@@ -75,13 +39,13 @@ export default function Hero() {
       </div>
 
       {/* Main Content - Asymmetric 60/40 Split */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-20 pb-32">
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 flex-1 flex items-center">
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-center w-full">
           {/* Left Column (60%) - The Pitch */}
-          <div className="lg:col-span-3 space-y-10">
+          <div className="lg:col-span-3 space-y-6">
             {/* Ribbon - Left-aligned with refined spacing */}
             <p className="font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em] font-normal">
-              EST. 2021 // 6+ YEARS SENIOR TENURE // PRODUCT ORCHESTRATION
+              EST. 2020 // 6+ YEARS SENIOR TENURE // PRODUCT ORCHESTRATION
             </p>
 
             {/* H1 - Bold and Direct with tighter line-height */}
@@ -93,15 +57,13 @@ export default function Hero() {
             </h1>
 
             {/* Sub-headline with better spacing */}
-            <div className="pt-6">
-              <p className="text-xl md:text-2xl text-cyber-gray-300 max-w-2xl leading-relaxed">
-                Helping businesses scale through strategic software builds,
-                seamless tool integrations, and rapid MVP engineering.
-              </p>
-            </div>
+            <p className="text-xl md:text-2xl text-cyber-gray-300 max-w-2xl leading-relaxed">
+              Helping businesses scale through strategic software builds,
+              seamless tool integrations, and rapid MVP engineering.
+            </p>
 
             {/* Availability Badge */}
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="w-2 h-2 rounded-full bg-cyber-accent animate-pulse" />
                 <div className="absolute inset-0 w-2 h-2 rounded-full bg-cyber-accent animate-ping opacity-75" />
@@ -112,7 +74,7 @@ export default function Hero() {
             </div>
 
             {/* Primary CTA with hover glow */}
-            <div className="pt-6">
+            <div className="pt-2">
               <Link
                 href="/contact"
                 className="inline-block px-8 py-4 bg-white text-[#050505] font-semibold rounded-lg transition-all text-base shadow-lg shadow-white/10"
@@ -175,7 +137,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom tech stack marquee */}
-      <div className="relative z-10 mt-20 py-6">
+      <div className="relative z-10 py-6 mt-auto">
         <div className="overflow-hidden" aria-label="Technology stack">
           <div className="flex animate-marquee">
             {[...Array(4)].map((_, setIndex) => (

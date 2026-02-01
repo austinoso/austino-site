@@ -290,7 +290,7 @@ Style:
   - Weight: font-normal (400)
 
 Usage: Section labels, metadata, technical stamps
-Example: "FLAGSHIP_PROJECT", "EST. 2021 // 6+ YEARS SENIOR TENURE"
+Example: "FLAGSHIP_PROJECT", "EST. 2020 // 6+ YEARS SENIOR TENURE"
 ```
 
 ### Metadata Labels
