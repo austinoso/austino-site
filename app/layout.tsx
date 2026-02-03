@@ -15,23 +15,32 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Senior Product Engineer | Custom Software Development & MVPs",
+  title: "austino | Technical Partner for Web Apps & Custom Tools",
   description:
-    "Specializing in building MVPs, custom business solutions, and automation tools. 6 years of experience delivering production-grade software for startups and enterprises.",
+    "Partnering with founders and teams to build custom software, web apps, and digital tools. Focused on technical logistics and feasibility to ensure every project launches on a solid foundation.",
   keywords: [
     "software development",
     "MVP development",
     "custom solutions",
     "automation tools",
     "senior engineer",
+    "technical consulting",
+    "web applications",
+    "SaaS products",
+    "founder partner",
+    "product engineering",
+    "workflow automation",
+    "technical advisory",
+    "full-stack development",
+    "web development",
   ],
-  authors: [{ name: "Your Name" }],
+  authors: [{ name: "Austin O." }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Senior Product Engineer | Custom Software Development",
+    title: "austino | Technical Partner for Web Apps & Custom Tools",
     description:
-      "Building MVPs, custom business solutions, and automation tools with 6 years of experience.",
+      "Partnering with founders and teams to build custom software, web apps, and digital tools. Focused on technical logistics and feasibility to ensure every project launches on a solid foundation.",
   },
 };
 
