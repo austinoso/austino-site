@@ -4,6 +4,56 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useState, FormEvent } from "react";
 
+// Shared styles
+const INPUT_BASE_CLASS =
+  "w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20";
+const LABEL_CLASS = "block text-sm font-mono text-cyber-gray-400 mb-2";
+const SECTION_HEADER_CLASS =
+  "font-mono text-[10px] text-cyber-accent tracking-[0.2em] uppercase mb-4";
+
+// Form field configurations
+const PROJECT_TYPES = [
+  { value: "web-development", label: "Web Development" },
+  { value: "mvp", label: "MVP Development" },
+  { value: "custom-solution", label: "Custom Business Solution" },
+  { value: "automation", label: "Automation Tool" },
+  { value: "api", label: "API Development" },
+  { value: "consulting", label: "Technical Consulting" },
+  { value: "other", label: "Other" },
+];
+
+const BUDGET_RANGES = [
+  { value: "1-5k", label: "$1k - $5k" },
+  { value: "5k-10k", label: "$5k - $10k" },
+  { value: "10k-25k", label: "$10k - $25k" },
+  { value: "25k-50k", label: "$25k - $50k" },
+  { value: "50k+", label: "$50k+" },
+  { value: "flexible", label: "Flexible" },
+];
+
+const TIMELINES = [
+  { value: "asap", label: "ASAP (1-2 months)" },
+  { value: "standard", label: "Standard (2-4 months)" },
+  { value: "extended", label: "Extended (4-6 months)" },
+  { value: "ongoing", label: "Ongoing Partnership" },
+];
+
+const RESPONSE_ITEMS = [
+  "Response within 24 hours",
+  "Free 30-min discovery call",
+  "Technical feasibility assessment",
+  "Custom proposal with timeline",
+];
+
+const SERVICE_SCOPE = [
+  "Web Development",
+  "MVP Development",
+  "Custom Business Tools",
+  "Process Automation",
+  "API Development",
+  "Technical Consulting",
+];
+
 export default function ContactPage() {
   const [formState, setFormState] = useState({
     name: "",
@@ -60,6 +110,106 @@ export default function ContactPage() {
     }));
   };
 
+  // Reusable components
+  const FormField = ({
+    id,
+    label,
+    required = false,
+    type = "text",
+    placeholder,
+    as = "input",
+    rows,
+    children,
+  }: {
+    id: string;
+    label: string;
+    required?: boolean;
+    type?: string;
+    placeholder?: string;
+    as?: "input" | "textarea" | "select";
+    rows?: number;
+    children?: React.ReactNode;
+  }) => (
+    <div>
+      <label htmlFor={id} className={LABEL_CLASS}>
+        {label} {required && "*"}
+      </label>
+      {as === "input" && (
+        <input
+          type={type}
+          id={id}
+          name={id}
+          required={required}
+          value={formState[id as keyof typeof formState]}
+          onChange={handleChange}
+          className={INPUT_BASE_CLASS}
+          placeholder={placeholder}
+          aria-required={required}
+        />
+      )}
+      {as === "textarea" && (
+        <textarea
+          id={id}
+          name={id}
+          required={required}
+          value={formState[id as keyof typeof formState]}
+          onChange={handleChange}
+          rows={rows}
+          className={`${INPUT_BASE_CLASS} resize-none`}
+          placeholder={placeholder}
+          aria-required={required}
+        />
+      )}
+      {as === "select" && (
+        <select
+          id={id}
+          name={id}
+          required={required}
+          value={formState[id as keyof typeof formState]}
+          onChange={handleChange}
+          className={`${INPUT_BASE_CLASS} pr-12`}
+          aria-required={required}
+        >
+          {children}
+        </select>
+      )}
+    </div>
+  );
+
+  const InfoSection = ({
+    title,
+    items,
+    variant = "arrow",
+  }: {
+    title: string;
+    items: string[];
+    variant?: "arrow" | "dot";
+  }) => (
+    <section>
+      <div className="mb-5">
+        <p className={SECTION_HEADER_CLASS}>
+          // {title.toUpperCase().replace(/ /g, "_")}
+        </p>
+        <h2 className="text-2xl font-bold text-white">{title}</h2>
+      </div>
+      <ul className="space-y-3 text-cyber-gray-300 text-sm" role="list">
+        {items.map((item, index) => (
+          <li key={index} className="flex items-center gap-3">
+            {variant === "arrow" ? (
+              <span className="text-cyber-accent">→</span>
+            ) : (
+              <div
+                className="w-1.5 h-1.5 rounded-full bg-cyber-accent"
+                aria-hidden="true"
+              />
+            )}
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+
   return (
     <main className="relative min-h-screen bg-[#050505]">
       <Navigation />
@@ -89,80 +239,16 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Left Column - Info */}
           <aside className="lg:col-span-1 space-y-10">
-            <section>
-              <div className="mb-5">
-                <p className="font-mono text-[10px] text-cyber-accent tracking-[0.2em] uppercase mb-4">
-                  // WHAT_TO_EXPECT
-                </p>
-                <h2 className="text-2xl font-bold text-white">
-                  Response Protocol
-                </h2>
-              </div>
-              <ul className="space-y-3 text-cyber-gray-300 text-sm" role="list">
-                <li className="flex items-center gap-3">
-                  <span className="text-cyber-accent">→</span>
-                  <span>Response within 24 hours</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-cyber-accent">→</span>
-                  <span>Free 30-min discovery call</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-cyber-accent">→</span>
-                  <span>Technical feasibility assessment</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-cyber-accent">→</span>
-                  <span>Custom proposal with timeline</span>
-                </li>
-              </ul>
-            </section>
-
-            <section>
-              <div className="mb-5">
-                <p className="font-mono text-[10px] text-cyber-accent tracking-[0.2em] uppercase mb-4">
-                  // IDEAL_PROJECTS
-                </p>
-                <h2 className="text-2xl font-bold text-white">Service Scope</h2>
-              </div>
-              <ul className="space-y-2 text-cyber-gray-300 text-sm" role="list">
-                <li className="flex items-center gap-2">
-                  <div
-                    className="w-1.5 h-1.5 rounded-full bg-cyber-accent"
-                    aria-hidden="true"
-                  />
-                  <span>MVP Development</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div
-                    className="w-1.5 h-1.5 rounded-full bg-cyber-accent"
-                    aria-hidden="true"
-                  />
-                  <span>Custom Business Tools</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div
-                    className="w-1.5 h-1.5 rounded-full bg-cyber-accent"
-                    aria-hidden="true"
-                  />
-                  <span>Process Automation</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div
-                    className="w-1.5 h-1.5 rounded-full bg-cyber-accent"
-                    aria-hidden="true"
-                  />
-                  <span>API Development</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div
-                    className="w-1.5 h-1.5 rounded-full bg-cyber-accent"
-                    aria-hidden="true"
-                  />
-                  <span>Technical Consulting</span>
-                </li>
-              </ul>
-            </section>
+            <InfoSection
+              title="Response Protocol"
+              items={RESPONSE_ITEMS}
+              variant="arrow"
+            />
+            <InfoSection
+              title="Service Scope"
+              items={SERVICE_SCOPE}
+              variant="dot"
+            />
           </aside>
 
           {/* Right Column - Form */}
@@ -174,199 +260,97 @@ export default function ContactPage() {
             >
               {/* Basic Info */}
               <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-mono text-cyber-gray-400 mb-2"
-                  >
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formState.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
-                    placeholder="John Smith"
-                    aria-required="true"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-mono text-cyber-gray-400 mb-2"
-                  >
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formState.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
-                    placeholder="john@company.com"
-                    aria-required="true"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="company"
-                  className="block text-sm font-mono text-cyber-gray-400 mb-2"
-                >
-                  Company / Organization
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formState.company}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
-                  placeholder="Acme Inc."
+                <FormField
+                  id="name"
+                  label="Your Name"
+                  required
+                  placeholder="John Smith"
+                />
+                <FormField
+                  id="email"
+                  label="Email Address"
+                  type="email"
+                  required
+                  placeholder="john@company.com"
                 />
               </div>
+
+              <FormField
+                id="company"
+                label="Company / Organization"
+                placeholder="Acme Inc."
+              />
 
               {/* Project Details */}
               <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="projectType"
-                    className="block text-sm font-mono text-cyber-gray-400 mb-2"
-                  >
-                    Project Type *
-                  </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    required
-                    value={formState.projectType}
-                    onChange={handleChange}
-                    className="w-full pl-4 pr-12 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
-                    aria-required="true"
-                  >
-                    <option value="">Select project type</option>
-                    <option value="mvp">MVP Development</option>
-                    <option value="custom-solution">
-                      Custom Business Solution
+                <FormField
+                  id="projectType"
+                  label="Project Type"
+                  required
+                  as="select"
+                >
+                  <option value="">Select project type</option>
+                  {PROJECT_TYPES.map((type) => (
+                    <option key={type.value} value={type.value}>
+                      {type.label}
                     </option>
-                    <option value="automation">Automation Tool</option>
-                    <option value="api">API Development</option>
-                    <option value="consulting">Technical Consulting</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label
-                    htmlFor="budget"
-                    className="block text-sm font-mono text-cyber-gray-400 mb-2"
-                  >
-                    Estimated Budget *
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    required
-                    value={formState.budget}
-                    onChange={handleChange}
-                    className="w-full pl-4 pr-12 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
-                    aria-required="true"
-                  >
-                    <option value="">Select budget range</option>
-                    <option value="10k-25k">$10k - $25k</option>
-                    <option value="25k-50k">$25k - $50k</option>
-                    <option value="50k-100k">$50k - $100k</option>
-                    <option value="100k+">$100k+</option>
-                    <option value="flexible">Flexible</option>
-                  </select>
-                </div>
+                  ))}
+                </FormField>
+
+                <FormField
+                  id="budget"
+                  label="Estimated Budget"
+                  required
+                  as="select"
+                >
+                  <option value="">Select budget range</option>
+                  {BUDGET_RANGES.map((range) => (
+                    <option key={range.value} value={range.value}>
+                      {range.label}
+                    </option>
+                  ))}
+                </FormField>
               </div>
 
-              <div>
-                <label
-                  htmlFor="timeline"
-                  className="block text-sm font-mono text-cyber-gray-400 mb-2"
-                >
-                  Desired Timeline *
-                </label>
-                <select
-                  id="timeline"
-                  name="timeline"
-                  required
-                  value={formState.timeline}
-                  onChange={handleChange}
-                  className="w-full pl-4 pr-12 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
-                  aria-required="true"
-                >
-                  <option value="">Select timeline</option>
-                  <option value="asap">ASAP (1-2 months)</option>
-                  <option value="standard">Standard (2-4 months)</option>
-                  <option value="extended">Extended (4-6 months)</option>
-                  <option value="ongoing">Ongoing Partnership</option>
-                </select>
-              </div>
+              <FormField
+                id="timeline"
+                label="Desired Timeline"
+                required
+                as="select"
+              >
+                <option value="">Select timeline</option>
+                {TIMELINES.map((timeline) => (
+                  <option key={timeline.value} value={timeline.value}>
+                    {timeline.label}
+                  </option>
+                ))}
+              </FormField>
 
               {/* Discovery Questions */}
-              <div>
-                <label
-                  htmlFor="description"
-                  className="block text-sm font-mono text-cyber-gray-400 mb-2"
-                >
-                  Project Description *
-                </label>
-                <textarea
-                  id="description"
-                  name="description"
-                  required
-                  value={formState.description}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all resize-none hover:border-white/20"
-                  placeholder="Describe your project, the problem you're solving, and your target users..."
-                  aria-required="true"
-                />
-              </div>
+              <FormField
+                id="description"
+                label="Project Description"
+                required
+                as="textarea"
+                rows={4}
+                placeholder="Describe your project, the problem you're solving, and your target users..."
+              />
 
-              <div>
-                <label
-                  htmlFor="currentChallenges"
-                  className="block text-sm font-mono text-cyber-gray-400 mb-2"
-                >
-                  Current Challenges
-                </label>
-                <textarea
-                  id="currentChallenges"
-                  name="currentChallenges"
-                  value={formState.currentChallenges}
-                  onChange={handleChange}
-                  rows={3}
-                  className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all resize-none hover:border-white/20"
-                  placeholder="What problems or bottlenecks are you facing right now?"
-                />
-              </div>
+              <FormField
+                id="currentChallenges"
+                label="Current Challenges"
+                as="textarea"
+                rows={3}
+                placeholder="What problems or bottlenecks are you facing right now?"
+              />
 
-              <div>
-                <label
-                  htmlFor="successMetrics"
-                  className="block text-sm font-mono text-cyber-gray-400 mb-2"
-                >
-                  Success Metrics
-                </label>
-                <textarea
-                  id="successMetrics"
-                  name="successMetrics"
-                  value={formState.successMetrics}
-                  onChange={handleChange}
-                  rows={3}
-                  className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all resize-none hover:border-white/20"
-                  placeholder="How will you measure the success of this project?"
-                />
-              </div>
+              <FormField
+                id="successMetrics"
+                label="Success Metrics"
+                as="textarea"
+                rows={3}
+                placeholder="How will you measure the success of this project?"
+              />
 
               {/* Submit Button */}
               <div className="pt-4">
