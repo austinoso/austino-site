@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 export default function CTA() {
   return (
     <section
-      className="relative w-full py-16 sm:py-24 md:py-32 bg-[#050505]"
+      className="relative w-full py-12 sm:py-16 md:py-20 bg-[#050505]"
       aria-labelledby="cta-heading"
     >
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8">

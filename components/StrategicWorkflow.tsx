@@ -37,7 +37,7 @@ export default function StrategicWorkflow() {
   return (
     <section
       id="workflow"
-      className="relative w-full py-16 sm:py-24 md:py-32 bg-[#050505]"
+      className="relative w-full py-12 sm:py-16 md:py-20 bg-[#050505]"
       aria-labelledby="workflow-heading"
     >
       {/* Background glow */}
@@ -61,26 +61,38 @@ export default function StrategicWorkflow() {
 
         {/* Horizontal Timeline Layout */}
         <div className="relative">
-          {/* Horizontal Spine/Roadmap Line */}
+          {/* Horizontal Spine/Roadmap Line - Desktop */}
           <div
             className="hidden lg:block absolute h-px bg-[#1A1A1A]"
             style={{ top: "32px", left: "32px", right: "32px" }}
             aria-hidden="true"
           />
 
+          {/* Vertical Spine/Timeline Line - Mobile/Tablet */}
+          <div
+            className="lg:hidden absolute w-px bg-[#1A1A1A] left-8 top-8 bottom-8"
+            aria-hidden="true"
+          />
+
           {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="group relative">
-                {/* Vertical Connector from Badge Down */}
+              <div key={index} className="group relative pl-20 lg:pl-0">
+                {/* Vertical Connector from Badge Down - Desktop */}
                 <div
                   className="hidden lg:block absolute w-px bg-[#1A1A1A]"
                   style={{ top: "64px", height: "24px", left: "32px" }}
                   aria-hidden="true"
                 />
 
+                {/* Horizontal Connector from Timeline to Badge - Mobile/Tablet */}
+                <div
+                  className="lg:hidden absolute h-px bg-[#1A1A1A] left-8 top-8 w-6"
+                  aria-hidden="true"
+                />
+
                 {/* Step Number Badge */}
-                <div className="flex justify-start mb-12">
+                <div className="flex justify-start mb-6 lg:mb-12 absolute lg:relative left-0 top-0">
                   <div
                     className="w-16 h-16 rounded-full border-2 flex items-center justify-center font-mono text-base font-bold transition-all duration-300 relative z-10"
                     style={{
@@ -96,22 +108,22 @@ export default function StrategicWorkflow() {
                 </div>
 
                 {/* Content */}
-                <div>
+                <div className="pt-2 lg:pt-0">
                   {/* Step Label */}
                   <p
-                    className="font-mono text-[8pt] mb-5 font-semibold tracking-wider"
+                    className="font-mono text-[8pt] mb-3 sm:mb-5 font-semibold tracking-wider"
                     style={{ color: "#40E0FF" }}
                   >
                     [ {step.label} ]
                   </p>
 
                   {/* Step Title */}
-                  <h3 className="text-2xl md:text-2xl text-white font-bold mb-4 leading-tight tracking-tight group-hover:text-cyber-accent transition-colors duration-300">
+                  <h3 className="text-xl sm:text-2xl text-white font-bold mb-3 sm:mb-4 leading-tight tracking-tight group-hover:text-cyber-accent transition-colors duration-300">
                     {step.title}
                   </h3>
 
                   {/* Step Description */}
-                  <p className="text-base text-cyber-gray-400 leading-relaxed group-hover:text-cyber-gray-300 transition-colors duration-300">
+                  <p className="text-sm sm:text-base text-cyber-gray-400 leading-relaxed group-hover:text-cyber-gray-300 transition-colors duration-300">
                     {step.description}
                   </p>
                 </div>

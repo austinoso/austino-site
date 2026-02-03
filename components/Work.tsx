@@ -9,7 +9,7 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="relative py-16 sm:py-24 md:py-32 bg-[#050505]"
+      className="relative py-12 sm:py-16 md:py-20 bg-[#050505]"
       aria-labelledby="work-heading"
     >
       {/* Transitional Mesh Gradient - Cyan to Purple/Navy */}

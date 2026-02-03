@@ -41,7 +41,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative w-full py-16 sm:py-24 md:py-32 bg-[#050505]"
+      className="relative w-full py-12 sm:py-16 md:py-20 bg-[#050505]"
       aria-labelledby="services-heading"
     >
       {/* Continuation of Work section glow */}
@@ -64,11 +64,11 @@ export default function Services() {
         </div>
 
         {/* Three-Pillar Grid with Space Between */}
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-0">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-4 sm:gap-6 lg:gap-0">
           {pillars.map((pillar, index) => (
             <div
               key={index}
-              className="group relative py-8 lg:py-16 px-4 lg:px-12 transition-all duration-300 flex-1"
+              className="group relative py-4 sm:py-6 lg:py-16 px-4 lg:px-12 transition-all duration-300 flex-1"
               style={{ maxWidth: index === 0 ? "none" : undefined }}
             >
               {/* Hover gradient overlay */}
