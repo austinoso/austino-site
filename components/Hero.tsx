@@ -39,25 +39,25 @@ export default function Hero() {
       </div>
 
       {/* Main Content - Asymmetric 60/40 Split */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 flex-1 flex items-center">
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-center w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-32 sm:pt-36 md:pt-40 lg:pt-32 flex-1 flex items-center">
+        <div className="grid lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-20 items-center w-full">
           {/* Left Column (60%) - The Pitch */}
-          <div className="lg:col-span-3 space-y-6">
+          <div className="lg:col-span-3 space-y-4 sm:space-y-6">
             {/* Ribbon - Left-aligned with refined spacing */}
-            <p className="font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em] font-normal">
+            <p className="font-mono text-[9px] sm:text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em] font-normal">
               EST. 2020 // 6+ YEARS SENIOR TENURE // PRODUCT ORCHESTRATION
             </p>
 
             {/* H1 - Bold and Direct with tighter line-height */}
             <h1
               id="hero-heading"
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight"
             >
               Strategic Engineering. Production-Ready Results.
             </h1>
 
             {/* Sub-headline with better spacing */}
-            <p className="text-xl md:text-2xl text-cyber-gray-300 max-w-2xl leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-cyber-gray-300 max-w-2xl leading-relaxed">
               Helping businesses scale through strategic software builds,
               seamless tool integrations, and rapid MVP engineering.
             </p>
@@ -74,10 +74,10 @@ export default function Hero() {
             </div>
 
             {/* Primary CTA with hover glow */}
-            <div className="pt-2">
+            <div className="pt-2 sm:pt-4">
               <Link
                 href="/contact"
-                className="inline-block px-8 py-4 bg-white text-[#050505] font-semibold rounded-lg transition-all text-base shadow-lg shadow-white/10"
+                className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#050505] font-semibold rounded-lg transition-all text-sm sm:text-base shadow-lg shadow-white/10"
                 aria-label="Start a conversation"
               >
                 Start a Project

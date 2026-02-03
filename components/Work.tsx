@@ -9,7 +9,7 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="relative py-32 px-6 bg-[#050505]"
+      className="relative py-16 sm:py-24 md:py-32 bg-[#050505]"
       aria-labelledby="work-heading"
     >
       {/* Transitional Mesh Gradient - Cyan to Purple/Navy */}
@@ -24,9 +24,9 @@ export default function Work() {
       />
 
       {/* Flagship Showcase */}
-      <div className="max-w-[1600px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 relative z-10">
         {/* Featured Work Breadcrumb */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <p className="font-mono text-[8pt] text-cyber-accent tracking-wider">
             // FEATURED_WORK
           </p>
@@ -34,25 +34,25 @@ export default function Work() {
 
         {/* 40/60 Asymmetric Split */}
         <div
-          className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center"
-          style={{ marginBottom: "80px" }}
+          className="grid grid-cols-1 lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-16 items-center"
+          style={{ marginBottom: "60px" }}
         >
           {/* Left 40% - Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             <div>
               <h2
                 id="work-heading"
-                className="text-4xl md:text-5xl font-bold text-white mb-5 leading-tight tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-5 leading-tight tracking-tight"
               >
                 {flagship.title}
               </h2>
-              <p className="text-lg text-cyber-gray-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
                 {flagship.excerpt}
               </p>
             </div>
 
             {/* Feature Strip */}
-            <div className="space-y-3 font-mono text-sm text-cyber-gray-400">
+            <div className="space-y-2 sm:space-y-3 font-mono text-xs sm:text-sm text-cyber-gray-400">
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-cyber-accent" />
                 <span>Real-time Data Sync</span>
@@ -70,7 +70,7 @@ export default function Work() {
             {/* CTA */}
             <Link
               href={`/work/${flagship.slug}`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-base text-black font-semibold transition-all duration-300 group bg-cyber-accent hover:bg-white hover:shadow-[0_0_20px_rgba(64,224,255,0.4)]"
+              className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base text-black font-semibold transition-all duration-300 group bg-cyber-accent hover:bg-white hover:shadow-[0_0_20px_rgba(64,224,255,0.4)]"
             >
               <span>View Full Case Study</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

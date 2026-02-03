@@ -41,7 +41,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative w-full py-32 bg-[#050505]"
+      className="relative w-full py-16 sm:py-24 md:py-32 bg-[#050505]"
       aria-labelledby="services-heading"
     >
       {/* Continuation of Work section glow */}
@@ -55,20 +55,20 @@ export default function Services() {
         aria-hidden="true"
       />
 
-      <div className="max-w-[1600px] mx-auto px-6 relative">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 relative">
         {/* Horizontal Service Breadcrumb */}
-        <div className="mb-12">
+        <div className="mb-8 sm:mb-12">
           <p className="font-mono text-[8pt] text-cyber-accent tracking-wider">
             // CORE_CAPABILITIES
           </p>
         </div>
 
         {/* Three-Pillar Grid with Space Between */}
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-0 -m-12">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-0">
           {pillars.map((pillar, index) => (
             <div
               key={index}
-              className="group relative py-16 px-0 lg:px-12 transition-all duration-300 flex-1"
+              className="group relative py-8 lg:py-16 px-4 lg:px-12 transition-all duration-300 flex-1"
               style={{ maxWidth: index === 0 ? "none" : undefined }}
             >
               {/* Hover gradient overlay */}
@@ -115,12 +115,12 @@ export default function Services() {
                 </p>
 
                 {/* Header */}
-                <h3 className="text-3xl text-white font-bold mb-6 leading-tight tracking-tight group-hover:text-cyber-accent transition-colors duration-300">
+                <h3 className="text-2xl md:text-3xl text-white font-bold mb-4 md:mb-6 leading-tight tracking-tight group-hover:text-cyber-accent transition-colors duration-300">
                   {pillar.title}
                 </h3>
 
                 {/* Body */}
-                <p className="text-base text-cyber-gray-300 leading-relaxed mb-6 group-hover:text-white transition-colors duration-300">
+                <p className="text-sm md:text-base text-cyber-gray-300 leading-relaxed mb-6 group-hover:text-white transition-colors duration-300">
                   {pillar.description}
                 </p>
 

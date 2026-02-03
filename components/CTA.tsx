@@ -4,37 +4,37 @@ import { ArrowRight } from "lucide-react";
 export default function CTA() {
   return (
     <section
-      className="relative w-full py-32 bg-[#050505]"
+      className="relative w-full py-16 sm:py-24 md:py-32 bg-[#050505]"
       aria-labelledby="cta-heading"
     >
-      <div className="container mx-auto px-8 md:px-0">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8">
         {/* Breadcrumb Header */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <span className="text-[8pt] font-mono text-cyber-cyan tracking-wide">
             // READY_TO_BUILD
           </span>
         </div>
 
         {/* Main CTA Content */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12 lg:gap-8">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 sm:gap-12 lg:gap-8">
           {/* Left: Headline & Description */}
           <div className="flex-1 max-w-3xl">
             <h2
               id="cta-heading"
-              className="text-5xl lg:text-7xl font-bold mb-6 text-white leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white leading-tight"
             >
               Let's build something
               <br />
               <span className="text-cyber-cyan">worth shipping.</span>
             </h2>
-            <p className="text-lg text-cyber-gray-400 max-w-2xl">
+            <p className="text-base sm:text-lg text-cyber-gray-400 max-w-2xl">
               Whether you need a technical partner to bring your product to
               life, optimize your operations, or validate your roadmap—I'm here
               to help you move fast and build smart.
             </p>
 
             {/* Status Indicator */}
-            <div className="mt-8 inline-flex items-center gap-2 text-[9pt] font-mono">
+            <div className="mt-6 sm:mt-8 inline-flex items-center gap-2 text-[9pt] font-mono">
               <span className="text-cyber-gray-500">[ STATUS:</span>
               <span className="text-green-400">ACCEPTING_NEW_PROJECTS</span>
               <span className="text-cyber-gray-500">// 2026_Q1 ]</span>
@@ -42,25 +42,25 @@ export default function CTA() {
           </div>
 
           {/* Right: CTA Button */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 w-full lg:w-auto">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-cyber-accent text-black font-semibold text-lg rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.5)]"
+              className="group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-cyber-accent text-black font-semibold text-base sm:text-lg rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.5)] w-full lg:w-auto"
             >
               <span>Start a Conversation</span>
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
 
             {/* Response Time Note */}
-            <p className="mt-4 text-xs font-mono text-cyber-gray-600 text-right">
+            <p className="mt-3 sm:mt-4 text-xs font-mono text-cyber-gray-600 text-center lg:text-right">
               // RESPONSE_TIME: ~24HRS
             </p>
           </div>
         </div>
 
         {/* Bottom Divider */}
-        <div className="mt-16 pt-8 border-t border-cyber-gray-800">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm font-mono text-cyber-gray-600">
+        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-cyber-gray-800">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-xs sm:text-sm font-mono text-cyber-gray-600">
             <span>// CURRENT_AVAILABILITY: LIMITED_SLOTS</span>
             <span>// BOOKING: FIRST_COME_FIRST_SERVE</span>
           </div>

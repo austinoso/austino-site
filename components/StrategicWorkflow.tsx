@@ -37,7 +37,7 @@ export default function StrategicWorkflow() {
   return (
     <section
       id="workflow"
-      className="relative w-full py-32 bg-[#050505]"
+      className="relative w-full py-16 sm:py-24 md:py-32 bg-[#050505]"
       aria-labelledby="workflow-heading"
     >
       {/* Background glow */}
@@ -51,9 +51,9 @@ export default function StrategicWorkflow() {
         aria-hidden="true"
       />
 
-      <div className="max-w-[1600px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 relative z-10">
         {/* Section Header */}
-        <div className="mb-20">
+        <div className="mb-12 sm:mb-16 md:mb-20">
           <p className="font-mono text-[8pt] text-cyber-accent tracking-wider">
             // STRATEGIC_WORKFLOW
           </p>
