@@ -41,14 +41,14 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative w-full pb-24 bg-[#050505]"
+      className="relative w-full py-32 bg-[#050505]"
       aria-labelledby="services-heading"
     >
       {/* Continuation of Work section glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
+          backgroundImage:
             "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(64, 224, 255, 0.08) 0%, rgba(88, 28, 135, 0.05) 40%, rgba(15, 23, 42, 0.02) 70%, transparent 100%)",
           filter: "blur(150px)",
         }}

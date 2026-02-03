@@ -89,19 +89,23 @@ export default function Hero() {
           <div className="lg:col-span-2 relative">
             {/* 3D Mockup Container */}
             <div className="relative">
-              {/* Floating Glass Image - No frame */}
+              {/* Floating Glass Image - Enhanced visibility */}
               <div
-                className="relative transform lg:rotate-2"
+                className="relative transform lg:rotate-2 p-4 rounded-2xl"
                 style={{
                   transformStyle: "preserve-3d",
+                  backgroundColor: "#1a2c38",
+                  boxShadow:
+                    "0 0 60px rgba(64, 224, 255, 0.15), 0 20px 40px rgba(0, 0, 0, 0.4)",
                 }}
               >
                 {/* Mockup Content - Stake Sight Demo with floating glass effect */}
                 <div
-                  className="relative aspect-video overflow-hidden shadow-2xl"
+                  className="relative aspect-video overflow-hidden"
                   style={{
-                    borderRadius: "12px",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    borderRadius: "8px",
+                    border: "2px solid rgba(64, 224, 255, 0.2)",
+                    boxShadow: "inset 0 0 20px rgba(64, 224, 255, 0.1)",
                   }}
                 >
                   <Image
@@ -118,7 +122,7 @@ export default function Hero() {
               <div
                 className="absolute -inset-40 -z-10"
                 style={{
-                  background:
+                  backgroundImage:
                     "radial-gradient(ellipse 1200px 800px at 60% 50%, rgba(64, 224, 255, 0.08) 0%, rgba(64, 224, 255, 0.02) 50%, transparent 70%)",
                   filter: "blur(200px)",
                 }}

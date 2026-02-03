@@ -1,11 +1,13 @@
 import type { Project } from "@/content/projects/stake-sight";
 import stakeSight from "@/content/projects/stake-sight";
+import myMassageCottage from "@/content/projects/my-massage-cottage";
 
 // Import all projects here as you add them
 // import newProject from "@/content/projects/new-project";
 
 const allProjects: Project[] = [
   stakeSight,
+  myMassageCottage,
   // Add new projects here
 ];
 

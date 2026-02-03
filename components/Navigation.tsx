@@ -28,11 +28,11 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           <Link
             href="/"
-            className="text-xl font-bold text-white hover:text-cyber-accent transition-colors"
+            className="text-xl font-bold hover:opacity-80 transition-opacity"
             aria-label="Home - Senior Product Engineer"
           >
-            <span className="text-gradient">DEV</span>
-            <span className="text-cyber-gray-300">.STUDIO</span>
+            <span className="text-white">austin</span>
+            <span className="text-cyber-accent">o</span>
           </Link>
 
           <div className="flex items-center gap-8">
@@ -42,13 +42,6 @@ export default function Navigation() {
               aria-label="View services section"
             >
               Services
-            </Link>
-            <Link
-              href="/#labs"
-              className="text-white hover:text-cyber-accent transition-colors"
-              aria-label="View internal labs section"
-            >
-              Labs
             </Link>
             <Link
               href="/work"

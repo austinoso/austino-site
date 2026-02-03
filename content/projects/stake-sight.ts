@@ -8,6 +8,7 @@ export interface Project {
   category: string;
   readTime: string;
   icon: LucideIcon;
+  image?: string;
   publishedDate: string;
   challenge: string;
   solution: string;
@@ -27,6 +28,7 @@ const stakeSight: Project = {
   category: "Full-Stack Platform",
   readTime: "14 min read",
   icon: Target,
+  image: "/assets/stake-sight-demo.PNG",
   publishedDate: "January 20, 2026",
   challenge:
     "Build a comprehensive commercial platform that combines a high-performance browser extension capable of managing 10,000+ data points with a complete licensing infrastructure, payment processing, and administrative tools—all from scratch.",

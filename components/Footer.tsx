@@ -9,19 +9,19 @@ export default function Footer() {
       role="contentinfo"
       aria-label="Site footer"
     >
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           {/* Brand */}
           <div className="md:col-span-1">
             <Link
               href="/"
-              className="text-xl font-bold text-white hover:text-cyber-accent transition-colors inline-block mb-4"
+              className="text-2xl font-extrabold hover:opacity-80 transition-opacity inline-block mb-4"
               aria-label="Home - Senior Product Engineer"
             >
-              <span className="text-gradient">DEV</span>
-              <span className="text-cyber-gray-300">.STUDIO</span>
+              <span className="text-white">austin</span>
+              <span className="text-cyber-accent">o</span>
             </Link>
-            <p className="text-sm text-cyber-gray-400 leading-relaxed">
+            <p className="text-base text-cyber-gray-400 leading-relaxed">
               Building production-ready software that scales. 6 years of
               experience delivering MVPs and custom solutions.
             </p>
@@ -32,12 +32,14 @@ export default function Footer() {
             className="md:col-span-1"
             aria-label="Footer navigation - Services"
           >
-            <h3 className="text-white font-semibold mb-4">Services</h3>
-            <ul className="space-y-2" role="list">
+            <h3 className="text-white font-semibold mb-4 text-base">
+              Services
+            </h3>
+            <ul className="space-y-3" role="list">
               <li>
                 <Link
                   href="/#services"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                  className="text-base text-cyber-gray-400 hover:text-cyber-accent transition-colors"
                   aria-label="View MVP Development services"
                 >
                   MVP Development
@@ -46,7 +48,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/#services"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                  className="text-base text-cyber-gray-400 hover:text-cyber-accent transition-colors"
                   aria-label="View Custom Solutions services"
                 >
                   Custom Solutions
@@ -55,7 +57,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/#services"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                  className="text-base text-cyber-gray-400 hover:text-cyber-accent transition-colors"
                   aria-label="View Automation services"
                 >
                   Automation Tools
@@ -64,7 +66,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/#services"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                  className="text-base text-cyber-gray-400 hover:text-cyber-accent transition-colors"
                   aria-label="View Technical Consulting services"
                 >
                   Technical Consulting
@@ -78,26 +80,20 @@ export default function Footer() {
             className="md:col-span-1"
             aria-label="Footer navigation - Resources"
           >
-            <h3 className="text-white font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2" role="list">
+            <h3 className="text-white font-semibold mb-4 text-base">
+              Resources
+            </h3>
+            <ul className="space-y-3" role="list">
               <li>
                 <Link
-                  href="/case-studies"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                  href="/work"
+                  className="text-base text-cyber-gray-400 hover:text-cyber-accent transition-colors"
                   aria-label="View all work"
                 >
                   Work
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/#labs"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
-                  aria-label="View Internal Labs projects"
-                >
-                  Internal Labs
-                </Link>
-              </li>
+
               <li>
                 <a
                   href="https://github.com"
@@ -195,26 +191,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-cyber-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-cyber-gray-400">
-            © {currentYear} DEV.STUDIO. All rights reserved.
+        <div className="pt-8 border-t border-cyber-gray-800">
+          <p className="text-sm text-cyber-gray-400 text-center">
+            © {currentYear} austino. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <a
-              href="#"
-              className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
-              aria-label="Privacy policy"
-            >
-              Privacy
-            </a>
-            <a
-              href="#"
-              className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
-              aria-label="Terms of service"
-            >
-              Terms
-            </a>
-          </div>
         </div>
       </div>
     </footer>

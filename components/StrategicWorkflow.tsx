@@ -37,7 +37,7 @@ export default function StrategicWorkflow() {
   return (
     <section
       id="workflow"
-      className="relative w-full py-24 bg-[#050505]"
+      className="relative w-full py-32 bg-[#050505]"
       aria-labelledby="workflow-heading"
     >
       {/* Background glow */}

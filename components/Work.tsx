@@ -9,14 +9,14 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="relative pt-24 pb-24 px-6 bg-[#050505]"
+      className="relative py-32 px-6 bg-[#050505]"
       aria-labelledby="work-heading"
     >
       {/* Transitional Mesh Gradient - Cyan to Purple/Navy */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
+          backgroundImage:
             "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(64, 224, 255, 0.08) 0%, rgba(88, 28, 135, 0.05) 40%, rgba(15, 23, 42, 0.02) 70%, transparent 100%)",
           filter: "blur(150px)",
         }}
@@ -70,7 +70,7 @@ export default function Work() {
             {/* CTA */}
             <Link
               href={`/work/${flagship.slug}`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-base text-white font-semibold transition-all duration-300 group border border-cyber-accent/30 bg-cyber-accent/10 hover:bg-cyber-accent/20"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-base text-black font-semibold transition-all duration-300 group bg-cyber-accent hover:bg-white hover:shadow-[0_0_20px_rgba(64,224,255,0.4)]"
             >
               <span>View Full Case Study</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

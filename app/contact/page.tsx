@@ -61,16 +61,24 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen bg-[#050505]">
       <Navigation />
 
       <div className="max-w-5xl mx-auto px-6 py-32">
+        {/* Breadcrumb Header */}
+        <div className="mb-12">
+          <p className="font-mono text-[10px] text-cyber-gray-400 tracking-[0.2em] uppercase">
+            // CONTACT_FORM
+          </p>
+        </div>
+
         {/* Header */}
-        <header className="text-center mb-16 space-y-4">
-          <h1 className="section-heading">
-            Let's Build <span className="text-gradient">Something Great</span>
+        <header className="mb-16 space-y-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            Let's Build Something{" "}
+            <span className="text-cyber-accent">Worth Shipping.</span>
           </h1>
-          <p className="section-subheading mx-auto">
+          <p className="text-xl text-cyber-gray-300 max-w-2xl">
             Share your project vision and let's explore how we can turn your
             ideas into production-ready software that drives real business
             value.
@@ -78,81 +86,45 @@ export default function ContactPage() {
         </header>
 
         {/* Contact Form */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-12">
           {/* Left Column - Info */}
-          <aside className="lg:col-span-1 space-y-6">
-            <section className="bento-card">
-              <h2 className="text-xl font-bold text-white mb-4">
-                What to Expect
-              </h2>
+          <aside className="lg:col-span-1 space-y-10">
+            <section>
+              <div className="mb-5">
+                <p className="font-mono text-[10px] text-cyber-accent tracking-[0.2em] uppercase mb-4">
+                  // WHAT_TO_EXPECT
+                </p>
+                <h2 className="text-2xl font-bold text-white">
+                  Response Protocol
+                </h2>
+              </div>
               <ul className="space-y-3 text-cyber-gray-300 text-sm" role="list">
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="w-5 h-5 text-cyber-accent flex-shrink-0 mt-0.5"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
+                <li className="flex items-center gap-3">
+                  <span className="text-cyber-accent">→</span>
                   <span>Response within 24 hours</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="w-5 h-5 text-cyber-accent flex-shrink-0 mt-0.5"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
+                <li className="flex items-center gap-3">
+                  <span className="text-cyber-accent">→</span>
                   <span>Free 30-min discovery call</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="w-5 h-5 text-cyber-accent flex-shrink-0 mt-0.5"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
+                <li className="flex items-center gap-3">
+                  <span className="text-cyber-accent">→</span>
                   <span>Technical feasibility assessment</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="w-5 h-5 text-cyber-accent flex-shrink-0 mt-0.5"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
+                <li className="flex items-center gap-3">
+                  <span className="text-cyber-accent">→</span>
                   <span>Custom proposal with timeline</span>
                 </li>
               </ul>
             </section>
 
-            <section className="bento-card">
-              <h2 className="text-xl font-bold text-white mb-4">
-                Ideal Projects
-              </h2>
+            <section>
+              <div className="mb-5">
+                <p className="font-mono text-[10px] text-cyber-accent tracking-[0.2em] uppercase mb-4">
+                  // IDEAL_PROJECTS
+                </p>
+                <h2 className="text-2xl font-bold text-white">Service Scope</h2>
+              </div>
               <ul className="space-y-2 text-cyber-gray-300 text-sm" role="list">
                 <li className="flex items-center gap-2">
                   <div
@@ -197,7 +169,7 @@ export default function ContactPage() {
           <div className="lg:col-span-2">
             <form
               onSubmit={handleSubmit}
-              className="bento-card space-y-6"
+              className="space-y-6"
               aria-label="Project inquiry form"
             >
               {/* Basic Info */}
@@ -205,7 +177,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-cyber-gray-300 mb-2"
+                    className="block text-sm font-mono text-cyber-gray-400 mb-2"
                   >
                     Your Name *
                   </label>
@@ -216,7 +188,7 @@ export default function ContactPage() {
                     required
                     value={formState.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-cyber-gray-700 border border-cyber-gray-600 rounded-lg text-white placeholder-cyber-gray-400 focus:outline-none focus:ring-2 focus:ring-cyber-accent focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
                     placeholder="John Smith"
                     aria-required="true"
                   />
@@ -224,7 +196,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-cyber-gray-300 mb-2"
+                    className="block text-sm font-mono text-cyber-gray-400 mb-2"
                   >
                     Email Address *
                   </label>
@@ -235,7 +207,7 @@ export default function ContactPage() {
                     required
                     value={formState.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-cyber-gray-700 border border-cyber-gray-600 rounded-lg text-white placeholder-cyber-gray-400 focus:outline-none focus:ring-2 focus:ring-cyber-accent focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
                     placeholder="john@company.com"
                     aria-required="true"
                   />
@@ -245,7 +217,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="company"
-                  className="block text-sm font-medium text-cyber-gray-300 mb-2"
+                  className="block text-sm font-mono text-cyber-gray-400 mb-2"
                 >
                   Company / Organization
                 </label>
@@ -255,7 +227,7 @@ export default function ContactPage() {
                   name="company"
                   value={formState.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-cyber-gray-700 border border-cyber-gray-600 rounded-lg text-white placeholder-cyber-gray-400 focus:outline-none focus:ring-2 focus:ring-cyber-accent focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
                   placeholder="Acme Inc."
                 />
               </div>
@@ -265,7 +237,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="projectType"
-                    className="block text-sm font-medium text-cyber-gray-300 mb-2"
+                    className="block text-sm font-mono text-cyber-gray-400 mb-2"
                   >
                     Project Type *
                   </label>
@@ -275,7 +247,7 @@ export default function ContactPage() {
                     required
                     value={formState.projectType}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-cyber-gray-700 border border-cyber-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyber-accent focus:border-transparent transition-all"
+                    className="w-full pl-4 pr-12 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
                     aria-required="true"
                   >
                     <option value="">Select project type</option>
@@ -292,7 +264,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="budget"
-                    className="block text-sm font-medium text-cyber-gray-300 mb-2"
+                    className="block text-sm font-mono text-cyber-gray-400 mb-2"
                   >
                     Estimated Budget *
                   </label>
@@ -302,7 +274,7 @@ export default function ContactPage() {
                     required
                     value={formState.budget}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-cyber-gray-700 border border-cyber-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyber-accent focus:border-transparent transition-all"
+                    className="w-full pl-4 pr-12 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
                     aria-required="true"
                   >
                     <option value="">Select budget range</option>
@@ -318,7 +290,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="timeline"
-                  className="block text-sm font-medium text-cyber-gray-300 mb-2"
+                  className="block text-sm font-mono text-cyber-gray-400 mb-2"
                 >
                   Desired Timeline *
                 </label>
@@ -328,7 +300,7 @@ export default function ContactPage() {
                   required
                   value={formState.timeline}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-cyber-gray-700 border border-cyber-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyber-accent focus:border-transparent transition-all"
+                  className="w-full pl-4 pr-12 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all hover:border-white/20"
                   aria-required="true"
                 >
                   <option value="">Select timeline</option>
@@ -343,7 +315,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="description"
-                  className="block text-sm font-medium text-cyber-gray-300 mb-2"
+                  className="block text-sm font-mono text-cyber-gray-400 mb-2"
                 >
                   Project Description *
                 </label>
@@ -354,7 +326,7 @@ export default function ContactPage() {
                   value={formState.description}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-3 bg-cyber-gray-700 border border-cyber-gray-600 rounded-lg text-white placeholder-cyber-gray-400 focus:outline-none focus:ring-2 focus:ring-cyber-accent focus:border-transparent transition-all resize-none"
+                  className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all resize-none hover:border-white/20"
                   placeholder="Describe your project, the problem you're solving, and your target users..."
                   aria-required="true"
                 />
@@ -363,7 +335,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="currentChallenges"
-                  className="block text-sm font-medium text-cyber-gray-300 mb-2"
+                  className="block text-sm font-mono text-cyber-gray-400 mb-2"
                 >
                   Current Challenges
                 </label>
@@ -373,7 +345,7 @@ export default function ContactPage() {
                   value={formState.currentChallenges}
                   onChange={handleChange}
                   rows={3}
-                  className="w-full px-4 py-3 bg-cyber-gray-700 border border-cyber-gray-600 rounded-lg text-white placeholder-cyber-gray-400 focus:outline-none focus:ring-2 focus:ring-cyber-accent focus:border-transparent transition-all resize-none"
+                  className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all resize-none hover:border-white/20"
                   placeholder="What problems or bottlenecks are you facing right now?"
                 />
               </div>
@@ -381,7 +353,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="successMetrics"
-                  className="block text-sm font-medium text-cyber-gray-300 mb-2"
+                  className="block text-sm font-mono text-cyber-gray-400 mb-2"
                 >
                   Success Metrics
                 </label>
@@ -391,7 +363,7 @@ export default function ContactPage() {
                   value={formState.successMetrics}
                   onChange={handleChange}
                   rows={3}
-                  className="w-full px-4 py-3 bg-cyber-gray-700 border border-cyber-gray-600 rounded-lg text-white placeholder-cyber-gray-400 focus:outline-none focus:ring-2 focus:ring-cyber-accent focus:border-transparent transition-all resize-none"
+                  className="w-full px-4 py-3 bg-[#0A0E14] border border-white/10 rounded-lg text-white placeholder-cyber-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-accent focus:border-cyber-accent transition-all resize-none hover:border-white/20"
                   placeholder="How will you measure the success of this project?"
                 />
               </div>
@@ -401,7 +373,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full cyber-button disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full px-8 py-4 bg-cyber-accent text-black font-semibold text-lg rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.5)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   aria-label="Submit project inquiry"
                 >
                   {isSubmitting ? (
