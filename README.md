@@ -147,19 +147,7 @@ colors: {
 
 ## 🔧 Technologies
 
-- **Framework**: Next.js 14.1.0
+- **Framework**: Next.js 16.1.x
 - **Language**: TypeScript 5.x
 - **Styling**: Tailwind CSS 3.3.0
 - **Fonts**: Inter, JetBrains Mono (Google Fonts)
-
-## 📝 License
-
-This project is for personal/commercial use. Modify as needed for your agency.
-
-## 🤝 Contributing
-
-This is a personal agency template. Feel free to fork and customize for your own use.
-
----
-
-Built with ⚡ by Senior Product Engineers
