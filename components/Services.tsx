@@ -5,22 +5,22 @@ export default function Services() {
   const pillars = [
     {
       id: "01",
-      disciplineLabel: "01 // CORE_DISCIPLINE",
+      disciplineLabel: "01 // DEVELOPMENT",
       serviceLabel: "AVAILABLE // PRODUCT_ENGINEERING",
       title: "Product Engineering",
       description:
-        "Transforming complex visions into production-ready software. I provide the full-stack architecture needed to go from a concept to a live product in weeks, not months.",
+        "Transforming ideas into functional web applications and SaaS products. From database architecture to user interface design, every build is focused on stability, security, and real-world readiness.",
       tags: "MVPS // WEB DEV & DESIGN // UI-UX_SYSTEMS",
       ctaText: "START_A_BUILD",
       ctaLink: "/contact",
     },
     {
       id: "02",
-      disciplineLabel: "02 // SYSTEM_ORCHESTRATION",
+      disciplineLabel: "02 // WORKFLOW AUTOMATION",
       serviceLabel: "AVAILABLE // SYSTEMS_AUTOMATION",
       title: "Systems & Automation",
       description:
-        "Eliminating operational friction by bridging the gap between your tools. I build custom automation scripts, data tools, and API integrations that make your software ecosystem work as a single unit.",
+        "Bridging the gap between fragmented apps with custom scripts and integrations. Automating repetitive tasks and manual data entry ensures your software ecosystem works as a single, efficient unit.",
       tags: "DATA_SCRAPING // CUSTOM_TOOLS // API_ORCHESTRATION",
       ctaText: "OPTIMIZE_WORKFLOW",
       ctaLink: "/contact",
@@ -31,7 +31,7 @@ export default function Services() {
       serviceLabel: "AVAILABLE // TECHNICAL_ADVISORY",
       title: "Technical Advisory",
       description:
-        'Acting as the "Dev in the room" for business decisions. I provide technical due diligence, software research, and API feasibility audits to ensure your technology choices support your long-term goals.',
+        "Helping to make informed decisions before a single line of code is written. Detailed research and feasibility checks provide the clarity needed to ensure every project starts on a solid foundation.",
       tags: "PLATFORM_AUDITS // TECH_ROADMAPPING // RISK_MITIGATION",
       ctaText: "REQUEST_AUDIT",
       ctaLink: "/contact",

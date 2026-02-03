@@ -225,8 +225,7 @@ export default function ContactPage() {
         {/* Header */}
         <header className="mb-16 space-y-6">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-            Let's Build Something{" "}
-            <span className="text-cyber-accent">Worth Shipping.</span>
+            Let's Build Something Real.
           </h1>
           <p className="text-xl text-cyber-gray-300 max-w-2xl">
             Share your project vision and let's explore how we can turn your

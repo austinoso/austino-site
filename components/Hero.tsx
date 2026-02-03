@@ -45,7 +45,7 @@ export default function Hero() {
           <div className="lg:col-span-3 space-y-4 sm:space-y-6">
             {/* Ribbon - Left-aligned with refined spacing */}
             <p className="font-mono text-[9px] sm:text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em] font-normal">
-              EST. 2020 // 6+ YEARS SENIOR TENURE // PRODUCT ORCHESTRATION
+              EST. 2020 // 6+ YEARS EXPERIENCE // FULL-STACK DEVELOPMENT
             </p>
 
             {/* H1 - Bold and Direct with tighter line-height */}
@@ -53,13 +53,14 @@ export default function Hero() {
               id="hero-heading"
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight"
             >
-              Strategic Engineering. Production-Ready Results.
+              A Technical Partner for Your Next Idea.
             </h1>
 
             {/* Sub-headline with better spacing */}
             <p className="text-lg sm:text-xl md:text-2xl text-cyber-gray-300 max-w-2xl leading-relaxed">
-              Helping businesses scale through strategic software builds,
-              seamless tool integrations, and rapid MVP engineering.
+              I work with clients to build custom software, web apps, and
+              digital tools—focusing on logistics and feasibility so your
+              project launches on a solid foundation.
             </p>
 
             {/* Availability Badge */}
