@@ -469,7 +469,6 @@ export default function ContactPage() {
                     onSuccess={(token) => setTurnstileToken(token)}
                     onError={() => setTurnstileToken("")}
                     onExpire={() => setTurnstileToken("")}
-                    theme="dark"
                   />
                 </div>
 
