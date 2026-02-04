@@ -10,7 +10,7 @@ export async function OPTIONS() {
 
 export async function POST(req: NextRequest) {
   console.log("Contact API called");
-  
+
   try {
     // Check if API key is configured
     if (!process.env.RESEND_API_KEY) {
@@ -25,7 +25,9 @@ export async function POST(req: NextRequest) {
     if (!process.env.TURNSTILE_SECRET_KEY) {
       console.error("TURNSTILE_SECRET_KEY is not configured");
       return NextResponse.json(
-        { error: "Security service is not configured. Please contact support." },
+        {
+          error: "Security service is not configured. Please contact support.",
+        },
         { status: 500 },
       );
     }

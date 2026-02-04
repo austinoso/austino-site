@@ -215,7 +215,7 @@ export default function ContactPage() {
 
       let data;
       const contentType = response.headers.get("content-type");
-      
+
       if (contentType && contentType.includes("application/json")) {
         data = await response.json();
       } else {
