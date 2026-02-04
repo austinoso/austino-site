@@ -18,8 +18,8 @@ module.exports = {
           "gray-700": "#2A2E38",
           "gray-600": "#383D48",
           "gray-500": "#4F5462",
-          "gray-400": "#6B7280",
-          "gray-300": "#9CA3AF",
+          "gray-400": "#9CA3AF", // Lightened for better contrast (was #6B7280)
+          "gray-300": "#D1D5DB", // Lightened for better contrast (was #9CA3AF)
         },
       },
       fontFamily: {
