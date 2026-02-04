@@ -3,6 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Handle OPTIONS for CORS preflight
+export async function OPTIONS() {
+  return NextResponse.json({}, { status: 200 });
+}
+
 export async function POST(req: NextRequest) {
   console.log("Contact API called");
   
