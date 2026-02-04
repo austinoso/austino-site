@@ -80,7 +80,7 @@ export default async function CaseStudyPage({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-cyber-accent text-black font-semibold rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.5)]"
               >
-                Visit Live Site
+                {study.linkText || "Visit Live Site"}
                 <svg
                   className="w-4 h-4"
                   fill="none"

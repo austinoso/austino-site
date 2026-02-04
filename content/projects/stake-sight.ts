@@ -11,6 +11,7 @@ export interface Project {
   image?: string;
   publishedDate: string;
   link?: string;
+  linkText?: string;
   challenge: string;
   solution: string;
   results: string[];
