@@ -10,6 +10,7 @@ export interface Project {
   icon: LucideIcon;
   image?: string;
   publishedDate: string;
+  link?: string;
   challenge: string;
   solution: string;
   results: string[];
@@ -30,6 +31,7 @@ const stakeSight: Project = {
   icon: Target,
   image: "/assets/stake-sight-demo.PNG",
   publishedDate: "January 20, 2026",
+  link: "https://getstakesight.com/",
   challenge:
     "Build a comprehensive commercial platform that combines a high-performance browser extension capable of managing 10,000+ data points with a complete licensing infrastructure, payment processing, and administrative tools—all from scratch.",
   solution:

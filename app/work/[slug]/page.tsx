@@ -70,6 +70,33 @@ export default async function CaseStudyPage({
           <p className="text-xl text-cyber-gray-300 leading-relaxed max-w-4xl">
             {study.excerpt}
           </p>
+
+          {/* Project Link */}
+          {study.link && (
+            <div className="mt-8">
+              <a
+                href={study.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-cyber-accent text-black font-semibold rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.5)]"
+              >
+                Visit Live Site
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </a>
+            </div>
+          )}
         </header>
 
         {/* Image & Results Side by Side */}
