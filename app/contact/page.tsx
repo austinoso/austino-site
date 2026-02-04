@@ -213,7 +213,17 @@ export default function ContactPage() {
         }),
       });
 
-      const data = await response.json();
+      let data;
+      const contentType = response.headers.get("content-type");
+      
+      if (contentType && contentType.includes("application/json")) {
+        data = await response.json();
+      } else {
+        // Response is not JSON (likely HTML error page)
+        const text = await response.text();
+        console.error("Non-JSON response:", text);
+        throw new Error("Server error. Please try again later.");
+      }
 
       if (!response.ok) {
         throw new Error(data.error || "Failed to send message");
