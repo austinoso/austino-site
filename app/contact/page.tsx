@@ -3,6 +3,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useState, FormEvent } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 // Shared styles
 const INPUT_BASE_CLASS =
@@ -54,6 +55,115 @@ const SERVICE_SCOPE = [
   "Technical Consulting",
 ];
 
+// Reusable FormField component (moved outside to prevent re-creation on each render)
+const FormField = ({
+  id,
+  label,
+  required = false,
+  type = "text",
+  placeholder,
+  as = "input",
+  rows,
+  children,
+  value,
+  onChange,
+}: {
+  id: string;
+  label: string;
+  required?: boolean;
+  type?: string;
+  placeholder?: string;
+  as?: "input" | "textarea" | "select";
+  rows?: number;
+  children?: React.ReactNode;
+  value: string;
+  onChange: (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => void;
+}) => (
+  <div>
+    <label htmlFor={id} className={LABEL_CLASS}>
+      {label} {required && "*"}
+    </label>
+    {as === "input" && (
+      <input
+        type={type}
+        id={id}
+        name={id}
+        required={required}
+        value={value}
+        onChange={onChange}
+        className={INPUT_BASE_CLASS}
+        placeholder={placeholder}
+        aria-required={required}
+      />
+    )}
+    {as === "textarea" && (
+      <textarea
+        id={id}
+        name={id}
+        required={required}
+        value={value}
+        onChange={onChange}
+        rows={rows}
+        className={`${INPUT_BASE_CLASS} resize-none`}
+        placeholder={placeholder}
+        aria-required={required}
+      />
+    )}
+    {as === "select" && (
+      <select
+        id={id}
+        name={id}
+        required={required}
+        value={value}
+        onChange={onChange}
+        className={`${INPUT_BASE_CLASS} pr-12`}
+        aria-required={required}
+      >
+        {children}
+      </select>
+    )}
+  </div>
+);
+
+// Reusable InfoSection component
+const InfoSection = ({
+  title,
+  items,
+  variant = "arrow",
+}: {
+  title: string;
+  items: string[];
+  variant?: "arrow" | "dot";
+}) => (
+  <section>
+    <div className="mb-5">
+      <p className={SECTION_HEADER_CLASS}>
+        // {title.toUpperCase().replace(/ /g, "_")}
+      </p>
+      <h2 className="text-2xl font-bold text-white">{title}</h2>
+    </div>
+    <ul className="space-y-3 text-cyber-gray-300 text-sm" role="list">
+      {items.map((item, index) => (
+        <li key={index} className="flex items-center gap-3">
+          {variant === "arrow" ? (
+            <span className="text-cyber-accent">→</span>
+          ) : (
+            <div
+              className="w-1.5 h-1.5 rounded-full bg-cyber-accent"
+              aria-hidden="true"
+            />
+          )}
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+);
+
 export default function ContactPage() {
   const [formState, setFormState] = useState({
     name: "",
@@ -71,32 +181,75 @@ export default function ContactPage() {
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage("");
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Check for turnstile token
+    if (!turnstileToken) {
+      setErrorMessage("Please complete the security verification");
+      setIsSubmitting(false);
+      setSubmitStatus("error");
+      setTimeout(() => {
+        setSubmitStatus("idle");
+        setErrorMessage("");
+      }, 5000);
+      return;
+    }
 
-    setIsSubmitting(false);
-    setSubmitStatus("success");
-
-    // Reset form after success
-    setTimeout(() => {
-      setFormState({
-        name: "",
-        email: "",
-        company: "",
-        projectType: "",
-        budget: "",
-        timeline: "",
-        description: "",
-        currentChallenges: "",
-        successMetrics: "",
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formState,
+          turnstileToken,
+        }),
       });
-      setSubmitStatus("idle");
-    }, 3000);
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setIsSubmitting(false);
+      setSubmitStatus("success");
+
+      // Reset form after success
+      setTimeout(() => {
+        setFormState({
+          name: "",
+          email: "",
+          company: "",
+          projectType: "",
+          budget: "",
+          timeline: "",
+          description: "",
+          currentChallenges: "",
+          successMetrics: "",
+        });
+        setSubmitStatus("idle");
+      }, 3000);
+    } catch (error) {
+      setIsSubmitting(false);
+      setSubmitStatus("error");
+      setErrorMessage(
+        error instanceof Error ? error.message : "An unexpected error occurred",
+      );
+
+      // Reset error status after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle");
+        setErrorMessage("");
+      }, 5000);
+    }
   };
 
   const handleChange = (
@@ -109,106 +262,6 @@ export default function ContactPage() {
       [e.target.name]: e.target.value,
     }));
   };
-
-  // Reusable components
-  const FormField = ({
-    id,
-    label,
-    required = false,
-    type = "text",
-    placeholder,
-    as = "input",
-    rows,
-    children,
-  }: {
-    id: string;
-    label: string;
-    required?: boolean;
-    type?: string;
-    placeholder?: string;
-    as?: "input" | "textarea" | "select";
-    rows?: number;
-    children?: React.ReactNode;
-  }) => (
-    <div>
-      <label htmlFor={id} className={LABEL_CLASS}>
-        {label} {required && "*"}
-      </label>
-      {as === "input" && (
-        <input
-          type={type}
-          id={id}
-          name={id}
-          required={required}
-          value={formState[id as keyof typeof formState]}
-          onChange={handleChange}
-          className={INPUT_BASE_CLASS}
-          placeholder={placeholder}
-          aria-required={required}
-        />
-      )}
-      {as === "textarea" && (
-        <textarea
-          id={id}
-          name={id}
-          required={required}
-          value={formState[id as keyof typeof formState]}
-          onChange={handleChange}
-          rows={rows}
-          className={`${INPUT_BASE_CLASS} resize-none`}
-          placeholder={placeholder}
-          aria-required={required}
-        />
-      )}
-      {as === "select" && (
-        <select
-          id={id}
-          name={id}
-          required={required}
-          value={formState[id as keyof typeof formState]}
-          onChange={handleChange}
-          className={`${INPUT_BASE_CLASS} pr-12`}
-          aria-required={required}
-        >
-          {children}
-        </select>
-      )}
-    </div>
-  );
-
-  const InfoSection = ({
-    title,
-    items,
-    variant = "arrow",
-  }: {
-    title: string;
-    items: string[];
-    variant?: "arrow" | "dot";
-  }) => (
-    <section>
-      <div className="mb-5">
-        <p className={SECTION_HEADER_CLASS}>
-          // {title.toUpperCase().replace(/ /g, "_")}
-        </p>
-        <h2 className="text-2xl font-bold text-white">{title}</h2>
-      </div>
-      <ul className="space-y-3 text-cyber-gray-300 text-sm" role="list">
-        {items.map((item, index) => (
-          <li key={index} className="flex items-center gap-3">
-            {variant === "arrow" ? (
-              <span className="text-cyber-accent">→</span>
-            ) : (
-              <div
-                className="w-1.5 h-1.5 rounded-full bg-cyber-accent"
-                aria-hidden="true"
-              />
-            )}
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
 
   return (
     <main className="relative min-h-screen bg-[#050505]">
@@ -264,6 +317,8 @@ export default function ContactPage() {
                   label="Your Name"
                   required
                   placeholder="John Smith"
+                  value={formState.name}
+                  onChange={handleChange}
                 />
                 <FormField
                   id="email"
@@ -271,6 +326,8 @@ export default function ContactPage() {
                   type="email"
                   required
                   placeholder="john@company.com"
+                  value={formState.email}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -278,6 +335,8 @@ export default function ContactPage() {
                 id="company"
                 label="Company / Organization"
                 placeholder="Acme Inc."
+                value={formState.company}
+                onChange={handleChange}
               />
 
               {/* Project Details */}
@@ -287,6 +346,8 @@ export default function ContactPage() {
                   label="Project Type"
                   required
                   as="select"
+                  value={formState.projectType}
+                  onChange={handleChange}
                 >
                   <option value="">Select project type</option>
                   {PROJECT_TYPES.map((type) => (
@@ -301,6 +362,8 @@ export default function ContactPage() {
                   label="Estimated Budget"
                   required
                   as="select"
+                  value={formState.budget}
+                  onChange={handleChange}
                 >
                   <option value="">Select budget range</option>
                   {BUDGET_RANGES.map((range) => (
@@ -316,6 +379,8 @@ export default function ContactPage() {
                 label="Desired Timeline"
                 required
                 as="select"
+                value={formState.timeline}
+                onChange={handleChange}
               >
                 <option value="">Select timeline</option>
                 {TIMELINES.map((timeline) => (
@@ -333,6 +398,8 @@ export default function ContactPage() {
                 as="textarea"
                 rows={4}
                 placeholder="Describe your project, the problem you're solving, and your target users..."
+                value={formState.description}
+                onChange={handleChange}
               />
 
               <FormField
@@ -341,6 +408,8 @@ export default function ContactPage() {
                 as="textarea"
                 rows={3}
                 placeholder="What problems or bottlenecks are you facing right now?"
+                value={formState.currentChallenges}
+                onChange={handleChange}
               />
 
               <FormField
@@ -349,6 +418,8 @@ export default function ContactPage() {
                 as="textarea"
                 rows={3}
                 placeholder="How will you measure the success of this project?"
+                value={formState.successMetrics}
+                onChange={handleChange}
               />
 
               {/* Submit Button */}
@@ -388,6 +459,20 @@ export default function ContactPage() {
                   )}
                 </button>
 
+                {/* Turnstile Security Verification */}
+                <div className="flex justify-center mt-4">
+                  <Turnstile
+                    siteKey={
+                      process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
+                      "1x00000000000000000000AA"
+                    }
+                    onSuccess={(token) => setTurnstileToken(token)}
+                    onError={() => setTurnstileToken("")}
+                    onExpire={() => setTurnstileToken("")}
+                    theme="dark"
+                  />
+                </div>
+
                 {submitStatus === "success" && (
                   <div
                     className="mt-4 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-400 text-center"
@@ -405,7 +490,9 @@ export default function ContactPage() {
                     role="alert"
                     aria-live="polite"
                   >
-                    Something went wrong. Please try again or email directly.
+                    ✗{" "}
+                    {errorMessage ||
+                      "Something went wrong. Please try again or email directly."}
                   </div>
                 )}
               </div>

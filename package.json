@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@marsidev/react-turnstile": "^1.4.1",
     "lucide-react": "^0.563.0",
     "next": "^16.1.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "resend": "^6.9.1"
   },
   "devDependencies": {
     "@types/node": "^20",
