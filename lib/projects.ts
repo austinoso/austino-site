@@ -6,8 +6,8 @@ import myMassageCottage from "@/content/projects/my-massage-cottage";
 // import newProject from "@/content/projects/new-project";
 
 const allProjects: Project[] = [
-  stakeSight,
   myMassageCottage,
+  stakeSight,
   // Add new projects here
 ];
 

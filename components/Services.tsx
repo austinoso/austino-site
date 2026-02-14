@@ -5,23 +5,23 @@ export default function Services() {
   const pillars = [
     {
       id: "01",
-      disciplineLabel: "01 // DEVELOPMENT",
+      disciplineLabel: "01 // Websites & Digital Foundations",
       serviceLabel: "AVAILABLE // PRODUCT_ENGINEERING",
       title: "Product Engineering",
       description:
-        "Transforming ideas into functional web applications and SaaS products. From database architecture to user interface design, every build is focused on stability, security, and real-world readiness.",
+        "I build fast, professional websites that don't just look good—they work. I focus on removing the technical friction that costs you customers, like slow load times and broken mobile layouts",
       tags: "MVPS // WEB DEV & DESIGN // UI-UX_SYSTEMS",
       ctaText: "START_A_BUILD",
       ctaLink: "/contact",
     },
     {
       id: "02",
-      disciplineLabel: "02 // WORKFLOW AUTOMATION",
+      disciplineLabel: "02 // Custom Tools & SaaS Projects",
       serviceLabel: "AVAILABLE // SYSTEMS_AUTOMATION",
-      title: "Systems & Automation",
+      title: "Custom Tools & SaaS Projects",
       description:
-        "Bridging the gap between fragmented apps with custom scripts and integrations. Automating repetitive tasks and manual data entry ensures your software ecosystem works as a single, efficient unit.",
-      tags: "DATA_SCRAPING // CUSTOM_TOOLS // API_ORCHESTRATION",
+        "For founders and teams with a specific problem to solve. I specialize in building production-grade MVPs, custom browser extensions, and specialized software with a focus on logic and long-term stability.",
+      tags: "CUSTOM_SOLUTION_ARCHITECTURE // MVP_DEVELOPMENT // SCALABLE_CODEBASES",
       ctaText: "OPTIMIZE_WORKFLOW",
       ctaLink: "/contact",
     },
@@ -29,9 +29,9 @@ export default function Services() {
       id: "03",
       disciplineLabel: "03 // STRATEGIC_ADVISORY",
       serviceLabel: "AVAILABLE // TECHNICAL_ADVISORY",
-      title: "Technical Advisory",
+      title: "Systems & Automation",
       description:
-        "Helping to make informed decisions before a single line of code is written. Detailed research and feasibility checks provide the clarity needed to ensure every project starts on a solid foundation.",
+        'If you’re doing the same task twice, you’re losing money. I connect your existing apps and build the "glue" that automates your manual work, so your business runs in the background while you focus on the big picture.',
       tags: "PLATFORM_AUDITS // TECH_ROADMAPPING // RISK_MITIGATION",
       ctaText: "REQUEST_AUDIT",
       ctaLink: "/contact",

@@ -1,70 +1,157 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function CTA() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const headingWordsRef = useRef<(HTMLSpanElement | null)[]>([]);
+
+  const headlineWords = "Ready when you are.".split(" ");
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      /* Label */
+      const label = sectionRef.current?.querySelector("[data-label]");
+      if (label) {
+        gsap.from(label, {
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: { trigger: label, start: "top 85%" },
+        });
+      }
+
+      /* Word-by-word headline */
+      const words = headingWordsRef.current.filter(Boolean);
+      if (words.length) {
+        gsap.set(words, { y: "100%", opacity: 0 });
+        gsap.to(words, {
+          y: "0%",
+          opacity: 1,
+          duration: 0.5,
+          ease: "power3.out",
+          stagger: 0.06,
+          scrollTrigger: { trigger: words[0], start: "top 82%" },
+        });
+      }
+
+      /* Body + button */
+      const body = sectionRef.current?.querySelectorAll("[data-fade]");
+      if (body?.length) {
+        gsap.from(body, {
+          y: 16,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power3.out",
+          stagger: 0.1,
+          scrollTrigger: { trigger: body[0], start: "top 88%" },
+        });
+      }
+
+      /* Divider line grow */
+      const line = sectionRef.current?.querySelector("[data-line]");
+      if (line) {
+        gsap.from(line, {
+          scaleX: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          transformOrigin: "left center",
+          scrollTrigger: { trigger: line, start: "top 92%" },
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
-      className="relative w-full py-12 sm:py-16 md:py-20 bg-[#050505]"
+      ref={sectionRef}
+      className="relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]"
       aria-labelledby="cta-heading"
     >
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-8">
-        {/* Breadcrumb Header */}
+      {/* Noise grain */}
+      <div
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          backgroundSize: "128px 128px",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
+        {/* Header */}
         <div className="mb-6 sm:mb-8">
-          <span className="text-[8pt] font-mono text-cyber-cyan tracking-wide">
-            // READY_TO_BUILD
-          </span>
+          <p
+            data-label
+            className="font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em] mb-4"
+          >
+            Get Started
+          </p>
+          <h2
+            id="cta-heading"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight"
+          >
+            {headlineWords.map((word, i) => (
+              <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+                <span
+                  ref={(el) => {
+                    headingWordsRef.current[i] = el;
+                  }}
+                  className="inline-block"
+                >
+                  {word}
+                </span>
+              </span>
+            ))}
+          </h2>
         </div>
 
-        {/* Main CTA Content */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 sm:gap-12 lg:gap-8">
-          {/* Left: Headline & Description */}
-          <div className="flex-1 max-w-3xl">
-            <h2
-              id="cta-heading"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white leading-tight"
+        {/* Body + CTA */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
+          <div className="max-w-xl">
+            <p
+              data-fade
+              className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed"
             >
-              Let's build something
-              <br />
-              <span className="text-cyber-cyan">worth shipping.</span>
-            </h2>
-            <p className="text-base sm:text-lg text-cyber-gray-400 max-w-2xl">
-              Whether you need a technical partner to bring your product to
-              life, optimize your operations, or validate your roadmap—I'm here
-              to help you move fast and build smart.
+              Tell me what&apos;s slowing your business down. I&apos;ll put
+              together a clear plan — no jargon, no obligations.
             </p>
 
-            {/* Status Indicator */}
-            <div className="mt-6 sm:mt-8 inline-flex items-center gap-2 text-[9pt] font-mono">
-              <span className="text-cyber-gray-500">[ STATUS:</span>
-              <span className="text-green-400">ACCEPTING_NEW_PROJECTS</span>
-              <span className="text-cyber-gray-500">// 2026_Q1 ]</span>
+            <div data-fade className="mt-5 flex items-center gap-3">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+              <span className="text-xs font-mono text-cyber-gray-500">
+                Accepting new projects
+              </span>
             </div>
           </div>
 
-          {/* Right: CTA Button */}
-          <div className="flex-shrink-0 w-full lg:w-auto">
+          <div data-fade className="flex-shrink-0">
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-cyber-accent text-black font-semibold text-base sm:text-lg rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.5)] w-full lg:w-auto"
+              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)] w-full sm:w-auto"
             >
               <span>Start a Conversation</span>
-              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-
-            {/* Response Time Note */}
-            <p className="mt-3 sm:mt-4 text-xs font-mono text-cyber-gray-600 text-center lg:text-right">
-              // RESPONSE_TIME: ~24HRS
+            <p className="mt-3 text-[11px] font-mono text-cyber-gray-500 text-center sm:text-right">
+              Usually responds within 24 hours
             </p>
           </div>
         </div>
 
-        {/* Bottom Divider */}
-        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-cyber-gray-800">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-xs sm:text-sm font-mono text-cyber-gray-600">
-            <span>// CURRENT_AVAILABILITY: LIMITED_SLOTS</span>
-            <span>// BOOKING: FIRST_COME_FIRST_SERVE</span>
-          </div>
-        </div>
+        {/* Divider */}
+        <div
+          data-line
+          className="mt-14 sm:mt-20 border-t border-white/[0.06]"
+        />
       </div>
     </section>
   );

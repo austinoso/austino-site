@@ -1,119 +1,183 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { getAllProjects } from "@/lib/projects";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Work() {
-  const [flagship] = getAllProjects(); // Get first project (Stake Sight)
+  const projects = getAllProjects();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const headingWordsRef = useRef<(HTMLSpanElement | null)[]>([]);
+  const labelRef = useRef<HTMLParagraphElement>(null);
+
+  const headlineWords = "Recent work.".split(" ");
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      /* Label fade */
+      if (labelRef.current) {
+        gsap.from(labelRef.current, {
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
+        });
+      }
+
+      /* Word-by-word headline */
+      const words = headingWordsRef.current.filter(Boolean);
+      if (words.length) {
+        gsap.set(words, { y: "100%", opacity: 0 });
+        gsap.to(words, {
+          y: "0%",
+          opacity: 1,
+          duration: 0.5,
+          ease: "power3.out",
+          stagger: 0.06,
+          scrollTrigger: { trigger: words[0], start: "top 82%" },
+        });
+      }
+
+      /* Cards stagger in */
+      const cards = sectionRef.current?.querySelectorAll("[data-card]");
+      if (cards?.length) {
+        gsap.from(cards, {
+          y: 24,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power3.out",
+          stagger: 0.12,
+          scrollTrigger: { trigger: cards[0], start: "top 85%" },
+        });
+      }
+
+      /* Footer link */
+      const link = sectionRef.current?.querySelector("[data-footer-link]");
+      if (link) {
+        gsap.from(link, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          scrollTrigger: { trigger: link, start: "top 92%" },
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="work"
-      className="relative py-12 sm:py-16 md:py-20 bg-[#050505]"
+      className="relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]"
       aria-labelledby="work-heading"
     >
-      {/* Transitional Mesh Gradient - Cyan to Purple/Navy */}
+      {/* Noise grain */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
-          backgroundImage:
-            "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(64, 224, 255, 0.08) 0%, rgba(88, 28, 135, 0.05) 40%, rgba(15, 23, 42, 0.02) 70%, transparent 100%)",
-          filter: "blur(150px)",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          backgroundSize: "128px 128px",
         }}
         aria-hidden="true"
       />
 
-      {/* Flagship Showcase */}
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 relative z-10">
-        {/* Featured Work Breadcrumb */}
-        <div className="mb-6 sm:mb-8">
-          <p className="font-mono text-[8pt] text-cyber-accent tracking-wider">
-            // FEATURED_WORK
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
+        {/* Header */}
+        <div className="mb-14 sm:mb-20">
+          <p
+            ref={labelRef}
+            className="font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em] mb-4"
+          >
+            Projects
           </p>
+          <h2
+            id="work-heading"
+            className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight"
+          >
+            {headlineWords.map((word, i) => (
+              <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+                <span
+                  ref={(el) => {
+                    headingWordsRef.current[i] = el;
+                  }}
+                  className="inline-block"
+                >
+                  {word}
+                </span>
+              </span>
+            ))}
+          </h2>
         </div>
 
-        {/* 40/60 Asymmetric Split */}
-        <div
-          className="grid grid-cols-1 lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-16 items-center"
-          style={{ marginBottom: "60px" }}
-        >
-          {/* Left 40% - Content */}
-          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
-            <div>
-              <h2
-                id="work-heading"
-                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-5 leading-tight tracking-tight"
-              >
-                {flagship.title}
-              </h2>
-              <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
-                {flagship.excerpt}
-              </p>
-            </div>
-
-            {/* Feature Strip */}
-            <div className="space-y-2 sm:space-y-3 font-mono text-xs sm:text-sm text-cyber-gray-400">
-              <div className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-cyber-accent" />
-                <span>Real-time Data Sync</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-cyber-accent" />
-                <span>Automated Crypto Payments</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-cyber-accent" />
-                <span>Admin Suite</span>
-              </div>
-            </div>
-
-            {/* CTA */}
+        {/* Project cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 mb-12">
+          {projects.map((project) => (
             <Link
-              href={`/work/${flagship.slug}`}
-              className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base text-black font-semibold transition-all duration-300 group bg-cyber-accent hover:bg-white hover:shadow-[0_0_20px_rgba(64,224,255,0.4)]"
-            >
-              <span>View Full Case Study</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-
-          {/* Right 60% - Floating Mockup */}
-          <div className="lg:col-span-3 relative">
-            <div
-              className="relative rounded-xl overflow-hidden transition-transform duration-500 hover:scale-[1.02] aspect-[16/10]"
+              key={project.slug}
+              href={`/work/${project.slug}`}
+              data-card
+              className="group rounded-xl border border-white/[0.06] bg-[#111318] overflow-hidden transition-colors duration-300 hover:border-white/[0.12]"
               style={{
-                boxShadow: "0 40px 100px rgba(0, 0, 0, 0.6)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
+                boxShadow:
+                  "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
               }}
             >
-              {/* Glow effect */}
-              <div
-                className="absolute inset-0 opacity-50 z-0"
-                style={{
-                  background:
-                    "radial-gradient(circle at center, rgba(64, 224, 255, 0.2) 0%, transparent 70%)",
-                  filter: "blur(60px)",
-                }}
-                aria-hidden="true"
-              />
+              {/* Thumbnail */}
+              {project.image && (
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111318] via-transparent to-transparent opacity-60" />
+                </div>
+              )}
 
-              <Image
-                src="/assets/stake-sight-demo.PNG"
-                alt="Stake Sight Platform Demo"
-                fill
-                className="relative z-10 object-cover"
-              />
-            </div>
-          </div>
+              {/* Content */}
+              <div className="p-5 sm:p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[10px] font-mono text-cyber-accent uppercase tracking-[0.15em]">
+                    {project.category}
+                  </span>
+                  <span className="text-cyber-gray-500 text-[10px]">·</span>
+                  <span className="text-[10px] font-mono text-cyber-gray-500">
+                    {project.readTime}
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-white leading-snug tracking-tight mb-2 group-hover:text-cyber-accent transition-colors duration-300">
+                  {project.title.split(":")[0]}
+                </h3>
+                <p className="text-sm text-cyber-gray-400 leading-relaxed line-clamp-2">
+                  {project.excerpt}
+                </p>
+
+                <div className="flex items-center gap-1.5 mt-4 text-xs font-mono text-cyber-gray-500 group-hover:text-cyber-accent transition-colors duration-300">
+                  <span>Read case study</span>
+                  <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
 
-        {/* Explore More Work Link - Bottom Right */}
-        <div className="flex justify-end">
+        {/* Footer link */}
+        <div data-footer-link className="flex justify-end">
           <Link
             href="/work"
-            className="inline-flex items-center gap-1.5 text-cyber-gray-500 hover:text-cyber-accent transition-colors duration-300 font-mono text-[10px] uppercase tracking-wider"
+            className="inline-flex items-center gap-1.5 text-cyber-gray-500 hover:text-cyber-accent transition-colors duration-300 font-mono text-[10px] uppercase tracking-[0.15em]"
           >
-            <span>Explore More Work →</span>
+            <span>See all work</span>
+            <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
       </div>
