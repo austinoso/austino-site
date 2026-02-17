@@ -1,4 +1,4 @@
-import { Zap, Search, BarChart3 } from "lucide-react";
+import { Zap, Search, LayoutTemplate } from "lucide-react";
 import Image from "next/image";
 import { scores } from "./data";
 
@@ -22,11 +22,11 @@ export default function WebDevelopment() {
         </p>
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">
-            <Zap className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
+            <LayoutTemplate className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm font-medium text-white">Built For Speed</p>
+              <p className="text-sm font-medium text-white">Strategic Layout</p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Sub-second loads so visitors stay, not bounce
+                Every section and CTA designed to move visitors toward action
               </p>
             </div>
           </div>
@@ -40,11 +40,12 @@ export default function WebDevelopment() {
             </div>
           </div>
           <div data-feature className="flex items-start gap-3">
-            <BarChart3 className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
+            <Zap className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm font-medium text-white">Data You Can Use</p>
+              <p className="text-sm font-medium text-white">Built For Speed</p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Know what&apos;s working and what&apos;s not
+                Fast loads keep visitors on the page and Google ranking you
+                higher
               </p>
             </div>
           </div>

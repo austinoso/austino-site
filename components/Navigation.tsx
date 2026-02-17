@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,11 +34,10 @@ export default function Navigation() {
 
   const scrollToSolutions = useCallback(
     (e: React.MouseEvent) => {
-      if (pathname === "/") {
-        e.preventDefault();
-        closeMenu();
+      e.preventDefault();
+      closeMenu();
 
-        // Use GSAP ScrollSmoother if available (desktop), otherwise native scroll
+      const doScroll = () => {
         const smoother = (window as unknown as Record<string, unknown>)
           .__smoother as
           | {
@@ -56,9 +56,25 @@ export default function Navigation() {
             el.scrollIntoView({ behavior: "smooth" });
           }
         }
+      };
+
+      if (pathname === "/") {
+        doScroll();
+      } else {
+        router.push("/");
+        // Wait for navigation and DOM to settle, then scroll
+        const wait = setInterval(() => {
+          const el = document.getElementById("solutions");
+          if (el) {
+            clearInterval(wait);
+            setTimeout(doScroll, 100);
+          }
+        }, 50);
+        // Safety timeout
+        setTimeout(() => clearInterval(wait), 5000);
       }
     },
-    [pathname],
+    [pathname, router],
   );
 
   return (
@@ -88,10 +104,10 @@ export default function Navigation() {
             <Link
               href="/#solutions"
               className="text-sm text-cyber-gray-400 hover:text-white transition-colors duration-300 font-mono tracking-wide"
-              aria-label="View services section"
+              aria-label="View solutions section"
               onClick={scrollToSolutions}
             >
-              Services
+              Solutions
             </Link>
             <Link
               href="/work"
@@ -135,7 +151,7 @@ export default function Navigation() {
             className="text-lg text-cyber-gray-300 hover:text-white transition-colors py-4 border-b border-white/[0.06] font-mono"
             onClick={scrollToSolutions}
           >
-            Services
+            Solutions
           </Link>
           <Link
             href="/work"

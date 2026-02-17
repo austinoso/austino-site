@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
@@ -73,7 +73,7 @@ export default function CTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]"
+      className="relative w-full py-16 sm:py-24 md:py-28 bg-[#050505] border-t border-white/[0.04]"
       aria-labelledby="cta-heading"
     >
       {/* Noise grain */}
@@ -110,48 +110,51 @@ export default function CTA() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight"
           >
             {headlineWords.map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
-                <span
-                  ref={(el) => {
-                    headingWordsRef.current[i] = el;
-                  }}
-                  className="inline-block"
-                >
-                  {word}
-                </span>
-              </span>
+              <Fragment key={i}>
+                <span className="inline-block overflow-hidden pb-[0.15em]">
+                  <span
+                    ref={(el) => {
+                      headingWordsRef.current[i] = el;
+                    }}
+                    className="inline-block"
+                  >
+                    {word}
+                  </span>
+                </span>{" "}
+              </Fragment>
             ))}
           </h2>
         </div>
 
         {/* Body + CTA */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
-          <div className="max-w-xl">
-            <p
-              data-fade
-              className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed"
-            >
-              Tell me what&apos;s slowing your business down. I&apos;ll put
-              together a clear plan — no jargon, no obligations.
-            </p>
+        <div className="max-w-2xl">
+          <p
+            data-fade
+            className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed"
+          >
+            Tell me what&apos;s slowing your business down. I&apos;ll put
+            together a clear plan — no jargon, no obligations.
+          </p>
 
-            <div data-fade className="mt-5 flex items-center gap-3">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
-              <span className="text-xs font-mono text-cyber-gray-500">
-                Accepting new projects
-              </span>
-            </div>
+          <div data-fade className="mt-5 flex items-center gap-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+            <span className="text-xs font-mono text-cyber-gray-500">
+              Accepting new projects
+            </span>
           </div>
 
-          <div data-fade className="flex-shrink-0">
+          <div
+            data-fade
+            className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4"
+          >
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)] w-full sm:w-auto"
+              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)]"
             >
               <span>Start a Conversation</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-            <p className="mt-3 text-[11px] font-mono text-cyber-gray-500 text-center sm:text-right">
+            <p className="text-[11px] font-mono text-cyber-gray-500">
               Usually responds within 24 hours
             </p>
           </div>

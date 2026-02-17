@@ -1,29 +1,364 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/* ── Card graphics — monotone UI mockups with subtle accent ── */
+
+/* Card 1: Spreadsheet with cell-by-cell data entry cursor + scroll */
+function DataEntryGraphic() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
+
+  /* All unique rows the animation cycles through. The first 6 are
+     duplicated as a seamless buffer at the end so the viewport is
+     always full and the loop reset is completely invisible. */
+  const mainRows = [
+    { w1: "45%", w2: "30%", w3: "20%" },
+    { w1: "35%", w2: "40%", w3: "15%" },
+    { w1: "50%", w2: "25%", w3: "20%" },
+    { w1: "40%", w2: "35%", w3: "18%" },
+    { w1: "38%", w2: "28%", w3: "22%" },
+    { w1: "42%", w2: "32%", w3: "16%" },
+    { w1: "48%", w2: "22%", w3: "24%" },
+    { w1: "36%", w2: "38%", w3: "19%" },
+  ];
+
+  /* Buffer = first 6 rows repeated (viewport ≈ 5 rows, +1 margin) */
+  const rows = [...mainRows, ...mainRows.slice(0, 6)];
+  const SCROLL_COUNT = mainRows.length; /* scroll this many before reset */
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const card = el.closest(".group") as HTMLElement;
+    if (!card) return;
+
+    const bright = "rgba(64, 224, 255, 0.30)";
+    const filled = "rgba(64, 224, 255, 0.10)";
+    let alive = true;
+    let delayId: gsap.core.Tween | null = null;
+
+    const runCycle = () => {
+      if (!alive) return;
+      if (tlRef.current) tlRef.current.kill();
+
+      const scrollEl = scrollRef.current;
+      if (!scrollEl) return;
+
+      const allCells = scrollEl.querySelectorAll<HTMLDivElement>("[data-cell]");
+      const rowEls = scrollEl.querySelectorAll("[data-row]");
+      if (!allCells.length || rowEls.length < 2) return;
+
+      const r0 = rowEls[0].getBoundingClientRect();
+      const r1 = rowEls[1].getBoundingClientRect();
+      const rowH = r1.top - r0.top;
+
+      /* Snap to top — invisible because buffer = start rows */
+      gsap.set(scrollEl, { y: 0 });
+      allCells.forEach((c) => gsap.set(c, { clearProps: "backgroundColor" }));
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          /* Buffer rows are now visible — they are identical copies
+             of the first rows, so we can snap back instantly. */
+          gsap.set(scrollEl, { y: 0 });
+          allCells.forEach((c) =>
+            gsap.set(c, { clearProps: "backgroundColor" }),
+          );
+          /* Restart immediately — no gap, no visible seam */
+          if (alive) runCycle();
+        },
+      });
+      tlRef.current = tl;
+
+      for (let r = 0; r < SCROLL_COUNT; r++) {
+        for (let c = 0; c < 3; c++) {
+          const cell = allCells[r * 3 + c];
+          if (!cell) continue;
+
+          tl.to(
+            cell,
+            {
+              backgroundColor: bright,
+              duration: 0.1,
+              ease: "power2.in",
+            },
+            c === 0 ? "+=0.06" : "+=0.14",
+          );
+
+          tl.to(
+            cell,
+            {
+              backgroundColor: filled,
+              duration: 0.14,
+            },
+            "+=0.12",
+          );
+        }
+
+        /* Scroll up one row after all 3 cells filled */
+        tl.to(
+          scrollEl,
+          {
+            y: -(r + 1) * rowH,
+            duration: 0.35,
+            ease: "power2.inOut",
+          },
+          "+=0.15",
+        );
+      }
+    };
+
+    const startAnim = () => {
+      alive = true;
+      runCycle();
+    };
+
+    const stopAnim = () => {
+      alive = false;
+      if (tlRef.current) {
+        tlRef.current.kill();
+        tlRef.current = null;
+      }
+      if (delayId) {
+        delayId.kill();
+        delayId = null;
+      }
+      const allCells = el.querySelectorAll<HTMLDivElement>("[data-cell]");
+      allCells.forEach((c) => gsap.set(c, { clearProps: "backgroundColor" }));
+      if (scrollRef.current) gsap.set(scrollRef.current, { y: 0 });
+    };
+
+    card.addEventListener("mouseenter", startAnim);
+    card.addEventListener("mouseleave", stopAnim);
+
+    return () => {
+      card.removeEventListener("mouseenter", startAnim);
+      card.removeEventListener("mouseleave", stopAnim);
+      stopAnim();
+    };
+  }, []);
+
+  return (
+    <div ref={containerRef} className="relative w-full h-36 overflow-hidden">
+      {/* Top + bottom fade */}
+      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-[#0A0B0F] to-transparent z-10 pointer-events-none group-hover:from-[#0D0E14] transition-colors duration-300" />
+      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#0A0B0F] to-transparent z-10 pointer-events-none group-hover:from-[#0D0E14] transition-colors duration-300" />
+      <div className="h-full px-5 pt-2">
+        {/* Header */}
+        <div className="flex gap-2 mb-1.5 px-2">
+          <span className="text-[8px] font-mono text-white/[0.15] w-[45%]">
+            Name
+          </span>
+          <span className="text-[8px] font-mono text-white/[0.15] w-[30%]">
+            Email
+          </span>
+          <span className="text-[8px] font-mono text-white/[0.15] w-[20%]">
+            Time
+          </span>
+        </div>
+        <div className="h-px w-full bg-white/[0.04] mb-1" />
+        {/* Rows — GSAP handles scroll + cell highlights */}
+        <div className="overflow-hidden h-[5.5rem]">
+          <div ref={scrollRef} className="space-y-1">
+            {rows.map((row, i) => (
+              <div
+                key={i}
+                data-row
+                className="flex items-center gap-2 px-2 py-1 rounded-md"
+              >
+                <div
+                  data-cell
+                  className="h-1.5 rounded-full bg-white/[0.06]"
+                  style={{ width: row.w1 }}
+                />
+                <div
+                  data-cell
+                  className="h-1.5 rounded-full bg-white/[0.04]"
+                  style={{ width: row.w2 }}
+                />
+                <div
+                  data-cell
+                  className="h-1.5 rounded-full bg-white/[0.04]"
+                  style={{ width: row.w3 }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* Card 2: Scattered app windows — nothing connected */
+function DisconnectedToolsGraphic() {
+  return (
+    <div className="relative w-full h-36 overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-[#0A0B0F] to-transparent z-10 pointer-events-none group-hover:from-[#0D0E14] transition-colors duration-300" />
+      <div className="h-full px-5 pt-4 pb-3 relative">
+        {/* App window 1 — calendar */}
+        <div className="absolute top-4 left-5 w-[45%] rounded-md border border-white/[0.06] bg-white/[0.02] p-2 transition-transform duration-500 group-hover:-translate-x-1 group-hover:-rotate-1">
+          <div className="flex gap-1 mb-2">
+            <div className="w-1 h-1 rounded-full bg-white/[0.1]" />
+            <div className="w-1 h-1 rounded-full bg-white/[0.1]" />
+            <div className="w-1 h-1 rounded-full bg-white/[0.1]" />
+          </div>
+          <div className="grid grid-cols-4 gap-1">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div
+                key={i}
+                className={`h-2 rounded-sm ${
+                  i === 3
+                    ? "bg-cyber-accent/15 group-hover:bg-cyber-accent/25 transition-colors duration-500"
+                    : "bg-white/[0.04]"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* App window 2 — email */}
+        <div className="absolute top-8 right-5 w-[42%] rounded-md border border-white/[0.06] bg-white/[0.02] p-2 transition-transform duration-500 group-hover:translate-x-1 group-hover:rotate-1">
+          <div className="flex gap-1 mb-2">
+            <div className="w-1 h-1 rounded-full bg-white/[0.1]" />
+            <div className="w-1 h-1 rounded-full bg-white/[0.1]" />
+            <div className="w-1 h-1 rounded-full bg-white/[0.1]" />
+          </div>
+          <div className="space-y-1.5">
+            <div className="h-1.5 w-3/4 rounded-full bg-white/[0.06]" />
+            <div className="h-1.5 w-1/2 rounded-full bg-white/[0.04]" />
+            <div className="h-1.5 w-2/3 rounded-full bg-white/[0.04]" />
+          </div>
+        </div>
+
+        {/* App window 3 — spreadsheet */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-[50%] rounded-md border border-white/[0.06] bg-white/[0.02] p-2 transition-transform duration-500 group-hover:translate-y-1">
+          <div className="flex gap-1 mb-2">
+            <div className="w-1 h-1 rounded-full bg-white/[0.1]" />
+            <div className="w-1 h-1 rounded-full bg-white/[0.1]" />
+            <div className="w-1 h-1 rounded-full bg-white/[0.1]" />
+          </div>
+          <div className="grid grid-cols-3 gap-1">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="h-1.5 rounded-sm bg-white/[0.04]" />
+            ))}
+          </div>
+        </div>
+
+        {/* Dashed lines between — fade on hover */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none transition-opacity duration-500 group-hover:opacity-30"
+          aria-hidden="true"
+        >
+          <line
+            x1="42%"
+            y1="38%"
+            x2="55%"
+            y2="42%"
+            stroke="rgba(255,255,255,0.06)"
+            strokeWidth="1"
+            strokeDasharray="3 2"
+          />
+          <line
+            x1="55%"
+            y1="58%"
+            x2="50%"
+            y2="68%"
+            stroke="rgba(255,255,255,0.06)"
+            strokeWidth="1"
+            strokeDasharray="3 2"
+          />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+/* Card 3: Browser frame with stuck loading bar */
+function BrokenSiteGraphic() {
+  return (
+    <div className="relative w-full h-36 overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-[#0A0B0F] to-transparent z-10 pointer-events-none group-hover:from-[#0D0E14] transition-colors duration-300" />
+      <div className="h-full px-5 pt-2 pb-3">
+        {/* Browser frame */}
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.015] overflow-hidden h-full">
+          {/* Browser chrome */}
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 border-b border-white/[0.04] bg-white/[0.02]">
+            <div className="flex gap-1">
+              <div className="w-1.5 h-1.5 rounded-full bg-white/[0.08]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-white/[0.08]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-white/[0.08]" />
+            </div>
+            <div className="flex-1 mx-2 h-3 rounded bg-white/[0.03] flex items-center px-2">
+              <div className="h-1 w-10 rounded-full bg-white/[0.06]" />
+            </div>
+          </div>
+
+          {/* Loading bar */}
+          <div className="h-0.5 w-full bg-white/[0.02] relative">
+            <div className="h-full w-[20%] bg-cyber-accent/30 group-hover:bg-cyber-accent/50 group-hover:w-[35%] transition-all duration-700" />
+          </div>
+
+          {/* Skeleton rows — pulse loop on hover */}
+          <div className="p-2.5 space-y-1.5">
+            <div
+              className="h-3.5 w-2/3 rounded bg-white/[0.04] group-hover:animate-skeleton-pulse"
+              style={{ animationDelay: "0ms" }}
+            />
+            <div
+              className="h-2 w-1/2 rounded bg-white/[0.03] group-hover:animate-skeleton-pulse"
+              style={{ animationDelay: "200ms" }}
+            />
+            <div
+              className="h-2 w-3/4 rounded bg-white/[0.03] group-hover:animate-skeleton-pulse"
+              style={{ animationDelay: "400ms" }}
+            />
+            <div className="flex gap-1.5 pt-0.5">
+              <div
+                className="h-5 flex-1 rounded bg-white/[0.03] group-hover:animate-skeleton-pulse"
+                style={{ animationDelay: "600ms" }}
+              />
+              <div
+                className="h-5 flex-1 rounded bg-white/[0.03] group-hover:animate-skeleton-pulse"
+                style={{ animationDelay: "800ms" }}
+              />
+              <div
+                className="h-5 w-5 rounded bg-white/[0.03] group-hover:animate-skeleton-pulse"
+                style={{ animationDelay: "1000ms" }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const painPoints = [
   {
-    num: "01",
-    question: "Your evening is spent on data entry",
+    title: "Buried in data entry",
     description:
-      "Appointments get booked, but then you're manually entering them into your calendar, your billing system, and maybe a spreadsheet. That's 3 touches for 1 event.",
+      "The same information, entered in multiple places. It's tedious work that adds up fast.",
+    graphic: <DataEntryGraphic />,
   },
   {
-    num: "02",
-    question: "Your tools don't talk to each other",
+    title: "Disconnected tools",
     description:
-      "You've got a booking app, a payment processor, an email tool, and a spreadsheet. None of them sync. So you're the integration layer — copying and pasting between tabs.",
+      "When your tools don't talk to each other, you end up being the middleman between all of them.",
+    graphic: <DisconnectedToolsGraphic />,
   },
   {
-    num: "03",
-    question: "Your website isn't working for you",
+    title: "A slow and complex website",
     description:
-      "It loads slow, doesn't rank locally, and customers can't book from it. Instead of bringing clients in, it's turning them away — and you might not even know it.",
+      "Clients are searching for businesses like yours right now. If your site is slow or hard to use, they're finding someone else.",
+    graphic: <BrokenSiteGraphic />,
   },
 ];
 
@@ -31,14 +366,12 @@ export default function PainPoints() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingWordsRef = useRef<(HTMLSpanElement | null)[]>([]);
   const labelRef = useRef<HTMLParagraphElement>(null);
-  const timelineTrackRef = useRef<HTMLDivElement>(null);
-  const timelineProgressRef = useRef<HTMLDivElement>(null);
-  const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const closerRef = useRef<HTMLDivElement>(null);
-  const closerLineRef = useRef<HTMLDivElement>(null);
 
-  const headlineWords = "You didn't start a business to do IT work.".split(" ");
+  const headlineWords = "Running a business shouldn't feel like this.".split(
+    " ",
+  );
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -69,169 +402,45 @@ export default function PainPoints() {
         });
       }
 
-      /* ── Timeline progress line ── */
-      if (timelineTrackRef.current && timelineProgressRef.current) {
-        gsap.set(timelineProgressRef.current, { scaleY: 0 });
-
-        ScrollTrigger.create({
-          trigger: timelineTrackRef.current,
-          start: "top 70%",
-          end: "bottom 40%",
-          scrub: 0.8,
-          animation: gsap.to(timelineProgressRef.current, {
-            scaleY: 1,
-            ease: "none",
-          }),
-        });
-      }
-
-      /* ── Row entrance + node pulse ── */
-      rowRefs.current.forEach((row, i) => {
-        if (!row) return;
-
-        const node = nodeRefs.current[i];
-        const num = row.querySelector<HTMLElement>("[data-num]");
-        const title = row.querySelector<HTMLElement>("[data-title]");
-        const desc = row.querySelector<HTMLElement>("[data-desc]");
-        const glow = node?.querySelector<HTMLElement>("[data-glow]");
-        const ring = node?.querySelector<HTMLElement>("[data-ring]");
-
-        // Initial states
-        gsap.set(row, { opacity: 0, x: 40 });
-        if (node) gsap.set(node, { scale: 0 });
-
-        // Entrance timeline
-        const tl = gsap.timeline({
-          scrollTrigger: { trigger: row, start: "top 78%" },
-        });
-
-        // Node pops in
-        if (node) {
-          tl.to(node, {
-            scale: 1,
-            duration: 0.5,
-            ease: "back.out(2.5)",
-          });
-        }
-
-        // Row slides in
-        tl.to(
-          row,
-          { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" },
-          "-=0.3",
-        );
-
-        // Number scales up
-        if (num) {
-          tl.from(
-            num,
-            { scale: 0.5, opacity: 0, duration: 0.4, ease: "back.out(2)" },
-            "-=0.5",
-          );
-        }
-
-        // Title slides in
-        if (title) {
-          tl.from(
-            title,
-            { y: 15, opacity: 0, duration: 0.5, ease: "power3.out" },
-            "-=0.3",
-          );
-        }
-
-        // Description fades in
-        if (desc) {
-          tl.from(
-            desc,
-            { opacity: 0, duration: 0.5, ease: "power2.out" },
-            "-=0.2",
-          );
-        }
-
-        // Active state — glow + brighten when in viewport center
-        ScrollTrigger.create({
-          trigger: row,
-          start: "top 65%",
-          end: "bottom 35%",
-          onEnter: () => activateRow(row, node, glow, ring, true),
-          onLeave: () => activateRow(row, node, glow, ring, false),
-          onEnterBack: () => activateRow(row, node, glow, ring, true),
-          onLeaveBack: () => activateRow(row, node, glow, ring, false),
+      /* ── Card staggered entrance ── */
+      cardRefs.current.forEach((card, i) => {
+        if (!card) return;
+        gsap.set(card, { opacity: 0, y: 40 });
+        gsap.to(card, {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power3.out",
+          delay: i * 0.12,
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+          },
         });
       });
 
       /* ── Closer ── */
-      if (closerLineRef.current && closerRef.current) {
-        const closerTl = gsap.timeline({
+      if (closerRef.current) {
+        gsap.from(closerRef.current, {
+          opacity: 0,
+          y: 20,
+          duration: 0.7,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: closerRef.current,
             start: "top 88%",
           },
         });
-
-        closerTl.from(closerLineRef.current, {
-          scaleX: 0,
-          duration: 0.8,
-          ease: "power2.inOut",
-        });
-
-        const closerText =
-          closerRef.current.querySelector("[data-closer-text]");
-        if (closerText) {
-          closerTl.from(
-            closerText,
-            { opacity: 0, y: 12, duration: 0.6, ease: "power2.out" },
-            "-=0.2",
-          );
-        }
       }
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
-  function activateRow(
-    row: HTMLDivElement | null,
-    node: HTMLDivElement | null,
-    glow: HTMLElement | null | undefined,
-    ring: HTMLElement | null | undefined,
-    active: boolean,
-  ) {
-    if (row) {
-      gsap.to(row, {
-        opacity: active ? 1 : 0.3,
-        duration: 0.5,
-        ease: "power2.out",
-        overwrite: "auto",
-      });
-    }
-    if (glow) {
-      gsap.to(glow, {
-        opacity: active ? 1 : 0,
-        scale: active ? 1 : 0.5,
-        duration: 0.5,
-        ease: "power2.out",
-        overwrite: "auto",
-      });
-    }
-    if (ring) {
-      gsap.to(ring, {
-        borderColor: active ? "rgba(64,224,255,0.8)" : "rgba(64,224,255,0.15)",
-        backgroundColor: active
-          ? "rgba(64,224,255,0.15)"
-          : "rgba(64,224,255,0.03)",
-        scale: active ? 1.15 : 1,
-        duration: 0.5,
-        ease: "power2.out",
-        overwrite: "auto",
-      });
-    }
-  }
-
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]"
+      className="relative w-full py-16 sm:py-24 md:py-28 bg-[#050505]"
       aria-labelledby="pain-points-heading"
     >
       {/* Noise grain */}
@@ -246,126 +455,79 @@ export default function PainPoints() {
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
         {/* Header */}
-        <div className="mb-16 sm:mb-24 relative">
+        <div className="mb-14 sm:mb-20">
           <p
             ref={labelRef}
-            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4 relative"
+            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
           >
             The Problem
           </p>
 
           <h2
             id="pain-points-heading"
-            className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight max-w-2xl relative"
+            className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight max-w-2xl"
           >
             {headlineWords.map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
-                <span
-                  ref={(el) => {
-                    headingWordsRef.current[i] = el;
-                  }}
-                  className="inline-block"
-                >
-                  {word}
-                </span>
-              </span>
+              <Fragment key={i}>
+                <span className="inline-block overflow-hidden pb-[0.15em]">
+                  <span
+                    ref={(el) => {
+                      headingWordsRef.current[i] = el;
+                    }}
+                    className="inline-block"
+                  >
+                    {word}
+                  </span>
+                </span>{" "}
+              </Fragment>
             ))}
           </h2>
         </div>
 
-        {/* Timeline layout */}
-        <div className="relative" ref={timelineTrackRef}>
-          {/* Vertical track line */}
-          <div
-            className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-white/[0.06]"
-            aria-hidden="true"
-          />
-          {/* Progress fill */}
-          <div
-            ref={timelineProgressRef}
-            className="absolute left-4 sm:left-6 top-0 bottom-0 w-px origin-top"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(64,224,255,0.6), rgba(64,224,255,0.15))",
-            }}
-            aria-hidden="true"
-          />
-
-          {/* Rows */}
-          <div className="space-y-16 sm:space-y-20">
-            {painPoints.map((point, index) => (
+        {/* Card grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {painPoints.map((point, index) => (
+            <div
+              key={index}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
+              className="group relative rounded-2xl border border-white/[0.06] bg-[#0A0B0F] overflow-hidden transition-colors duration-300 hover:border-white/[0.12] hover:bg-[#0D0E14] flex flex-col"
+            >
+              {/* Accent glow on hover */}
               <div
-                key={index}
-                className="relative grid grid-cols-[2rem_1fr] sm:grid-cols-[3rem_1fr] gap-6 sm:gap-10"
-              >
-                {/* Node on the line */}
-                <div
-                  ref={(el) => {
-                    nodeRefs.current[index] = el;
-                  }}
-                  className="relative flex items-start justify-center pt-1"
-                >
-                  {/* Glow behind node */}
-                  <div
-                    data-glow
-                    className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full pointer-events-none"
-                    style={{
-                      background:
-                        "radial-gradient(circle, rgba(64,224,255,0.25), transparent 70%)",
-                      opacity: 0,
-                    }}
-                  />
-                  {/* Ring */}
-                  <div
-                    data-ring
-                    className="relative h-3 w-3 rounded-full border-2 border-cyber-accent/15 bg-cyber-accent/[0.03]"
-                  />
-                </div>
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at 50% 0%, rgba(64,224,255,0.06), transparent 70%)",
+                }}
+                aria-hidden="true"
+              />
 
-                {/* Content */}
-                <div
-                  ref={(el) => {
-                    rowRefs.current[index] = el;
-                  }}
-                  style={{ opacity: 0 }}
-                >
-                  <span
-                    data-num
-                    className="inline-block font-mono text-sm font-semibold text-cyber-accent/60 mb-3 tracking-wider"
-                  >
-                    {point.num}
-                  </span>
-                  <h3
-                    data-title
-                    className="text-xl sm:text-2xl font-semibold text-white leading-snug mb-3"
-                  >
-                    {point.question}
-                  </h3>
-                  <p
-                    data-desc
-                    className="text-sm sm:text-base text-cyber-gray-300 leading-relaxed max-w-xl"
-                  >
-                    {point.description}
-                  </p>
-                </div>
+              {/* Text content */}
+              <div className="relative p-6 sm:p-7 pb-0 flex-1">
+                {/* Title */}
+                <h3 className="text-lg sm:text-xl font-semibold text-white leading-snug mb-3">
+                  {point.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-cyber-gray-300/80 leading-relaxed">
+                  {point.description}
+                </p>
               </div>
-            ))}
-          </div>
+
+              {/* Graphic accent — bottom of card */}
+              <div className="relative mt-auto" aria-hidden="true">
+                {point.graphic}
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Closer */}
-        <div
-          ref={closerRef}
-          className="mt-16 sm:mt-24 ml-10 sm:ml-[4.75rem] max-w-xl"
-        >
-          <div
-            ref={closerLineRef}
-            className="h-px w-full bg-gradient-to-r from-cyber-accent/40 to-transparent mb-6 origin-left"
-          />
-          <p
-            data-closer-text
-            className="text-lg sm:text-xl text-cyber-gray-300 leading-relaxed"
-          >
+        <div ref={closerRef} className="mt-14 sm:mt-20 max-w-xl">
+          <p className="text-lg sm:text-xl text-cyber-gray-300 leading-relaxed">
             Every hour you spend on busywork is an hour not spent growing your
             business.{" "}
             <span className="text-white font-medium">

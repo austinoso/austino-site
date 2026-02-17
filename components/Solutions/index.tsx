@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -187,7 +187,7 @@ export default function Solutions() {
     <section
       ref={sectionRef}
       id="solutions"
-      className="relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]"
+      className="relative w-full py-16 sm:py-24 md:py-28 bg-[#050505]"
       aria-labelledby="solutions-heading"
     >
       {/* Noise grain */}
@@ -224,16 +224,18 @@ export default function Solutions() {
             className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight"
           >
             {headlineWords.map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
-                <span
-                  ref={(el) => {
-                    headingWordsRef.current[i] = el;
-                  }}
-                  className="inline-block"
-                >
-                  {word}
-                </span>
-              </span>
+              <Fragment key={i}>
+                <span className="inline-block overflow-hidden pb-[0.15em]">
+                  <span
+                    ref={(el) => {
+                      headingWordsRef.current[i] = el;
+                    }}
+                    className="inline-block"
+                  >
+                    {word}
+                  </span>
+                </span>{" "}
+              </Fragment>
             ))}
           </h2>
         </div>

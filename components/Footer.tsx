@@ -37,9 +37,9 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Services */}
-          <nav aria-label="Footer navigation - Services">
-            <h3 className="text-sm font-semibold text-white mb-4">Services</h3>
+          {/* Solutions */}
+          <nav aria-label="Footer navigation - Solutions">
+            <h3 className="text-sm font-semibold text-white mb-4">Solutions</h3>
             <ul className="space-y-2.5" role="list">
               <li>
                 <Link

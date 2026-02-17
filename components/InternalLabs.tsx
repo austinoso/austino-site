@@ -31,7 +31,7 @@ export default function InternalLabs() {
   return (
     <section
       id="labs"
-      className="relative py-24 px-6 bg-cyber-gray-900"
+      className="relative py-16 sm:py-20 px-6 bg-cyber-gray-900"
       aria-labelledby="labs-heading"
     >
       <div className="max-w-7xl mx-auto">

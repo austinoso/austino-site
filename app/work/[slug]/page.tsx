@@ -135,7 +135,9 @@ export default async function CaseStudyPage({
                       >
                         <path d="M11.5 1a3.5 3.5 0 00-3.5 3.5V7H3a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2V9a2 2 0 00-2-2H9V4.5a2.5 2.5 0 015 0V6h1V4.5A3.5 3.5 0 0011.5 1z" />
                       </svg>
-                      {study.link.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                      {study.link
+                        .replace(/^https?:\/\//, "")
+                        .replace(/\/$/, "")}
                     </div>
                   </div>
                 )}
@@ -166,7 +168,11 @@ export default async function CaseStudyPage({
             <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-5">
               Results
             </p>
-            <ul className="space-y-3.5" role="list" aria-label="Project results">
+            <ul
+              className="space-y-3.5"
+              role="list"
+              aria-label="Project results"
+            >
               {study.results.map((result: string, index: number) => (
                 <li key={index} className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#4ADE80] flex-shrink-0 mt-0.5" />
@@ -235,16 +241,18 @@ export default async function CaseStudyPage({
 
         {/* Detailed Sections */}
         <div className="space-y-12 sm:space-y-16 mb-20 sm:mb-28">
-          {study.sections.map((section: { heading: string; content: string }, index: number) => (
-            <section key={index} className="max-w-3xl">
-              <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 leading-snug tracking-tight">
-                {section.heading}
-              </h2>
-              <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
-                {section.content}
-              </p>
-            </section>
-          ))}
+          {study.sections.map(
+            (section: { heading: string; content: string }, index: number) => (
+              <section key={index} className="max-w-3xl">
+                <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 leading-snug tracking-tight">
+                  {section.heading}
+                </h2>
+                <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
+                  {section.content}
+                </p>
+              </section>
+            ),
+          )}
         </div>
 
         {/* CTA */}

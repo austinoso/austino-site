@@ -122,13 +122,13 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-32 sm:pt-36 lg:pt-40 pb-20 sm:pb-28 md:pb-36">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 md:pb-24">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
           {/* ─── Copy ─── */}
           <div className="lg:col-span-6 space-y-5">
             <p
               ref={ribbonRef}
-              className="font-mono text-xs text-cyber-gray-400 uppercase tracking-[0.2em]"
+              className="font-mono text-xs text-cyber-gray-400 uppercase tracking-[0.1em] sm:tracking-[0.2em]"
             >
               Performance &middot; Conversions &middot; Automation
             </p>
@@ -170,7 +170,7 @@ export default function Hero() {
           </div>
 
           {/* ─── Visual ─── */}
-          <div className="lg:col-span-6 mb-12 lg:mb-16">
+          <div className="lg:col-span-6 mb-8 sm:mb-10 lg:mb-0">
             <div className="relative">
               {/* Browser mockup */}
               <div
@@ -214,10 +214,11 @@ export default function Hero() {
                 </div>
               </div>
 
+              {/* Overlapping cards — staggered on mobile, floating on sm+ */}
               {/* Workflow automation card */}
               <div
                 ref={workflowRef}
-                className="absolute -bottom-10 -left-4 sm:-left-6 w-[200px] rounded-xl border border-white/[0.08] bg-[#111318]/95 p-4"
+                className="absolute -bottom-10 left-0 w-[48%] lg:-bottom-10 lg:-left-6 lg:w-[200px] rounded-xl border border-white/[0.08] bg-[#111318]/95 p-3 lg:p-4 z-10"
                 style={{
                   boxShadow:
                     "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
@@ -266,7 +267,7 @@ export default function Hero() {
               {/* Performance metrics card */}
               <div
                 ref={metricsRef}
-                className="absolute -bottom-8 -right-4 sm:-right-8 w-[210px] rounded-xl border border-white/[0.08] bg-[#111318]/95 p-4"
+                className="absolute -bottom-4 right-0 w-[48%] lg:-bottom-8 lg:-right-8 lg:w-[210px] rounded-xl border border-white/[0.08] bg-[#111318]/95 p-3 lg:p-4 z-20"
                 style={{
                   boxShadow:
                     "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",

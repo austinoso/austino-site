@@ -8,7 +8,7 @@ export default function Automation() {
       className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center"
     >
       {/* Terminal mockup */}
-      <div data-visual className="lg:col-span-7 lg:order-1">
+      <div data-visual className="lg:col-span-7 lg:order-1 order-2">
         <div
           className="rounded-xl border border-white/[0.08] bg-[#0A0E14] overflow-hidden font-mono"
           style={{
@@ -67,7 +67,7 @@ export default function Automation() {
         </div>
       </div>
 
-      <div data-content className="lg:col-span-5 lg:order-2 space-y-5">
+      <div data-content className="lg:col-span-5 lg:order-2 order-1 space-y-5">
         <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]">
           Automation
         </p>

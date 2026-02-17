@@ -1,4 +1,4 @@
-import { Bot, Radio, Lightbulb } from "lucide-react";
+import { Shield, PhoneCall, TrendingUp } from "lucide-react";
 import { statusItems } from "./data";
 
 export default function OngoingSupport() {
@@ -12,40 +12,42 @@ export default function OngoingSupport() {
           Ongoing Partnership
         </p>
         <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight">
-          Your technical partner for what comes next.
+          A developer in your corner, long after launch.
         </h3>
         <p className="text-base text-cyber-gray-300 leading-relaxed">
-          I don&apos;t disappear after launch. As your business evolves, I stay
-          on as your go-to technical resource — recommending tools, monitoring
-          performance, and building new capabilities when you&apos;re ready.
+          Once your site is live, you can keep me on as your go-to technical
+          resource — monitoring performance, recommending tools, and building
+          new capabilities whenever you&apos;re ready to grow.
         </p>
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">
-            <Bot className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="text-sm font-medium text-white">Modern Features</p>
-              <p className="text-xs text-cyber-gray-400 mt-0.5">
-                AI chatbots, integrations, new capabilities
-              </p>
-            </div>
-          </div>
-          <div data-feature className="flex items-start gap-3">
-            <Radio className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
+            <Shield className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
             <div>
               <p className="text-sm font-medium text-white">
-                Ongoing Monitoring
+                Managed &amp; Monitored
               </p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Constant watch on your site&apos;s health
+                Updates, uptime, and security — handled for you
               </p>
             </div>
           </div>
           <div data-feature className="flex items-start gap-3">
-            <Lightbulb className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
+            <PhoneCall className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm font-medium text-white">System Advice</p>
+              <p className="text-sm font-medium text-white">
+                On-Call Consultant
+              </p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Vet software before it enters your stack
+                Need advice or want to try something new? I&apos;m a call away
+              </p>
+            </div>
+          </div>
+          <div data-feature className="flex items-start gap-3">
+            <TrendingUp className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="text-sm font-medium text-white">Growth Ready</p>
+              <p className="text-xs text-cyber-gray-400 mt-0.5">
+                As your business scales, I build the features to match
               </p>
             </div>
           </div>

@@ -32,6 +32,8 @@ module.exports = {
         "slide-up": "slideUp 0.5s ease-out",
         marquee: "marquee 24s linear infinite",
         float: "float 6s ease-in-out infinite",
+        "scroll-rows": "scroll-rows 4s linear infinite",
+        "skeleton-pulse": "skeleton-pulse 2s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -54,6 +56,14 @@ module.exports = {
           "0%": { backgroundPosition: "0% center" },
           "50%": { backgroundPosition: "100% center" },
           "100%": { backgroundPosition: "0% center" },
+        },
+        "scroll-rows": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-50%)" },
+        },
+        "skeleton-pulse": {
+          "0%, 100%": { opacity: "0.3" },
+          "50%": { opacity: "0.8" },
         },
       },
       backgroundImage: {

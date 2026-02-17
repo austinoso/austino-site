@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import Link from "next/link";
 import { getAllProjects } from "@/lib/projects";
 import Image from "next/image";
@@ -76,7 +76,7 @@ export default function Work() {
     <section
       ref={sectionRef}
       id="work"
-      className="relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]"
+      className="relative w-full py-16 sm:py-24 md:py-28 bg-[#070709] border-t border-white/[0.04]"
       aria-labelledby="work-heading"
     >
       {/* Noise grain */}
@@ -103,16 +103,18 @@ export default function Work() {
             className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight"
           >
             {headlineWords.map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
-                <span
-                  ref={(el) => {
-                    headingWordsRef.current[i] = el;
-                  }}
-                  className="inline-block"
-                >
-                  {word}
-                </span>
-              </span>
+              <Fragment key={i}>
+                <span className="inline-block overflow-hidden pb-[0.15em]">
+                  <span
+                    ref={(el) => {
+                      headingWordsRef.current[i] = el;
+                    }}
+                    className="inline-block"
+                  >
+                    {word}
+                  </span>
+                </span>{" "}
+              </Fragment>
             ))}
           </h2>
         </div>
@@ -171,13 +173,13 @@ export default function Work() {
         </div>
 
         {/* Footer link */}
-        <div data-footer-link className="flex justify-end">
+        <div data-footer-link className="flex justify-center sm:justify-end">
           <Link
             href="/work"
-            className="inline-flex items-center gap-1.5 text-cyber-gray-500 hover:text-cyber-accent transition-colors duration-300 font-mono text-[10px] uppercase tracking-[0.15em]"
+            className="inline-flex items-center gap-2 text-cyber-gray-400 hover:text-cyber-accent transition-colors duration-300 font-mono text-xs uppercase tracking-[0.15em] border border-white/[0.08] rounded-lg px-5 py-2.5 hover:border-cyber-accent/30"
           >
             <span>See all work</span>
-            <ArrowRight className="w-3 h-3" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
       </div>
