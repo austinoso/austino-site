@@ -1,8 +1,10 @@
 "use client";
 
-import { Fragment, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onHeroReady } from "@/lib/heroReady";
+import WordReveal from "@/components/ui/WordReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -364,77 +366,62 @@ const painPoints = [
 
 export default function PainPoints() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const headingWordsRef = useRef<(HTMLSpanElement | null)[]>([]);
   const labelRef = useRef<HTMLParagraphElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const closerRef = useRef<HTMLDivElement>(null);
 
-  const headlineWords = "Running a business shouldn't feel like this.".split(
-    " ",
-  );
-
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      /* ── Label fade ── */
-      if (labelRef.current) {
-        gsap.from(labelRef.current, {
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
-        });
-      }
+    let ctx: gsap.Context | null = null;
 
-      /* ── Word-by-word headline reveal ── */
-      const words = headingWordsRef.current.filter(Boolean);
-      if (words.length) {
-        gsap.set(words, { y: "100%", opacity: 0 });
-        gsap.to(words, {
-          y: "0%",
-          opacity: 1,
-          duration: 0.5,
-          ease: "power3.out",
-          stagger: 0.06,
-          scrollTrigger: {
-            trigger: words[0],
-            start: "top 82%",
-          },
-        });
-      }
+    /* Hide immediately so nothing is visible before hero finishes */
+    if (labelRef.current) gsap.set(labelRef.current, { opacity: 0 });
+    const cards = cardRefs.current.filter(Boolean);
+    if (cards.length) gsap.set(cards, { opacity: 0, y: 16 });
+    if (closerRef.current) gsap.set(closerRef.current, { opacity: 0, y: 12 });
 
-      /* ── Card staggered entrance ── */
-      cardRefs.current.forEach((card, i) => {
-        if (!card) return;
-        gsap.set(card, { opacity: 0, y: 40 });
-        gsap.to(card, {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: "power3.out",
-          delay: i * 0.12,
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-          },
-        });
-      });
+    onHeroReady(() => {
+      ctx = gsap.context(() => {
+        /* ── Label fade ── */
+        if (labelRef.current) {
+          gsap.to(labelRef.current, {
+            opacity: 1,
+            duration: 0.4,
+            ease: "power2.out",
+            scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
+          });
+        }
 
-      /* ── Closer ── */
-      if (closerRef.current) {
-        gsap.from(closerRef.current, {
-          opacity: 0,
-          y: 20,
-          duration: 0.7,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: closerRef.current,
-            start: "top 88%",
-          },
-        });
-      }
-    }, sectionRef);
+        /* ── Cards fade in ── */
+        if (cards.length) {
+          gsap.to(cards, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: cards[0],
+              start: "top 85%",
+            },
+          });
+        }
 
-    return () => ctx.revert();
+        /* ── Closer ── */
+        if (closerRef.current) {
+          gsap.to(closerRef.current, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: closerRef.current,
+              start: "top 88%",
+            },
+          });
+        }
+      }, sectionRef);
+    });
+
+    return () => ctx?.revert();
   }, []);
 
   return (
@@ -463,25 +450,11 @@ export default function PainPoints() {
             The Problem
           </p>
 
-          <h2
+          <WordReveal
+            text="Running a business shouldn't feel like this."
             id="pain-points-heading"
             className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight max-w-2xl"
-          >
-            {headlineWords.map((word, i) => (
-              <Fragment key={i}>
-                <span className="inline-block overflow-hidden pb-[0.15em]">
-                  <span
-                    ref={(el) => {
-                      headingWordsRef.current[i] = el;
-                    }}
-                    className="inline-block"
-                  >
-                    {word}
-                  </span>
-                </span>{" "}
-              </Fragment>
-            ))}
-          </h2>
+          />
         </div>
 
         {/* Card grid */}

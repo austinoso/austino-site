@@ -1,73 +1,65 @@
 "use client";
 
-import { Fragment, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onHeroReady } from "@/lib/heroReady";
+import WordReveal from "@/components/ui/WordReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const headingWordsRef = useRef<(HTMLSpanElement | null)[]>([]);
-
-  const headlineWords = "Ready when you are.".split(" ");
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      /* Label */
-      const label = sectionRef.current?.querySelector("[data-label]");
-      if (label) {
-        gsap.from(label, {
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: { trigger: label, start: "top 85%" },
-        });
-      }
+    let ctx: gsap.Context | null = null;
 
-      /* Word-by-word headline */
-      const words = headingWordsRef.current.filter(Boolean);
-      if (words.length) {
-        gsap.set(words, { y: "100%", opacity: 0 });
-        gsap.to(words, {
-          y: "0%",
-          opacity: 1,
-          duration: 0.5,
-          ease: "power3.out",
-          stagger: 0.06,
-          scrollTrigger: { trigger: words[0], start: "top 82%" },
-        });
-      }
+    /* Hide immediately */
+    const label = sectionRef.current?.querySelector("[data-label]");
+    if (label) gsap.set(label, { opacity: 0 });
+    const body = sectionRef.current?.querySelectorAll("[data-fade]");
+    if (body?.length) gsap.set(body, { opacity: 0, y: 10 });
+    const line = sectionRef.current?.querySelector("[data-line]");
+    if (line) gsap.set(line, { scaleX: 0, transformOrigin: "left center" });
 
-      /* Body + button */
-      const body = sectionRef.current?.querySelectorAll("[data-fade]");
-      if (body?.length) {
-        gsap.from(body, {
-          y: 16,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power3.out",
-          stagger: 0.1,
-          scrollTrigger: { trigger: body[0], start: "top 88%" },
-        });
-      }
+    onHeroReady(() => {
+      ctx = gsap.context(() => {
+        /* Label */
+        if (label) {
+          gsap.to(label, {
+            opacity: 1,
+            duration: 0.4,
+            ease: "power2.out",
+            scrollTrigger: { trigger: label, start: "top 85%" },
+          });
+        }
 
-      /* Divider line grow */
-      const line = sectionRef.current?.querySelector("[data-line]");
-      if (line) {
-        gsap.from(line, {
-          scaleX: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          transformOrigin: "left center",
-          scrollTrigger: { trigger: line, start: "top 92%" },
-        });
-      }
-    }, sectionRef);
+        /* Body + button */
+        if (body?.length) {
+          gsap.to(body, {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.out",
+            scrollTrigger: { trigger: body[0], start: "top 88%" },
+          });
+        }
 
-    return () => ctx.revert();
+        /* Divider line grow */
+        if (line) {
+          gsap.to(line, {
+            scaleX: 1,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: { trigger: line, start: "top 92%" },
+          });
+        }
+      }, sectionRef);
+    });
+
+    return () => ctx?.revert();
   }, []);
 
   return (
@@ -105,25 +97,11 @@ export default function CTA() {
           >
             Get Started
           </p>
-          <h2
+          <WordReveal
+            text="Ready when you are."
             id="cta-heading"
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight"
-          >
-            {headlineWords.map((word, i) => (
-              <Fragment key={i}>
-                <span className="inline-block overflow-hidden pb-[0.15em]">
-                  <span
-                    ref={(el) => {
-                      headingWordsRef.current[i] = el;
-                    }}
-                    className="inline-block"
-                  >
-                    {word}
-                  </span>
-                </span>{" "}
-              </Fragment>
-            ))}
-          </h2>
+          />
         </div>
 
         {/* Body + CTA */}

@@ -1,75 +1,68 @@
 "use client";
 
-import { Fragment, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { getAllProjects } from "@/lib/projects";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onHeroReady } from "@/lib/heroReady";
+import WordReveal from "@/components/ui/WordReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Work() {
   const projects = getAllProjects();
   const sectionRef = useRef<HTMLDivElement>(null);
-  const headingWordsRef = useRef<(HTMLSpanElement | null)[]>([]);
   const labelRef = useRef<HTMLParagraphElement>(null);
 
-  const headlineWords = "Recent work.".split(" ");
-
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      /* Label fade */
-      if (labelRef.current) {
-        gsap.from(labelRef.current, {
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
-        });
-      }
+    let ctx: gsap.Context | null = null;
 
-      /* Word-by-word headline */
-      const words = headingWordsRef.current.filter(Boolean);
-      if (words.length) {
-        gsap.set(words, { y: "100%", opacity: 0 });
-        gsap.to(words, {
-          y: "0%",
-          opacity: 1,
-          duration: 0.5,
-          ease: "power3.out",
-          stagger: 0.06,
-          scrollTrigger: { trigger: words[0], start: "top 82%" },
-        });
-      }
+    /* Hide immediately so nothing is visible before hero finishes */
+    if (labelRef.current) gsap.set(labelRef.current, { opacity: 0 });
+    const cards = sectionRef.current?.querySelectorAll("[data-card]");
+    if (cards?.length) gsap.set(cards, { opacity: 0, y: 12 });
+    const link = sectionRef.current?.querySelector("[data-footer-link]");
+    if (link) gsap.set(link, { opacity: 0 });
 
-      /* Cards stagger in */
-      const cards = sectionRef.current?.querySelectorAll("[data-card]");
-      if (cards?.length) {
-        gsap.from(cards, {
-          y: 24,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power3.out",
-          stagger: 0.12,
-          scrollTrigger: { trigger: cards[0], start: "top 85%" },
-        });
-      }
+    onHeroReady(() => {
+      ctx = gsap.context(() => {
+        /* Label fade */
+        if (labelRef.current) {
+          gsap.to(labelRef.current, {
+            opacity: 1,
+            duration: 0.4,
+            ease: "power2.out",
+            scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
+          });
+        }
 
-      /* Footer link */
-      const link = sectionRef.current?.querySelector("[data-footer-link]");
-      if (link) {
-        gsap.from(link, {
-          opacity: 0,
-          duration: 0.5,
-          ease: "power2.out",
-          scrollTrigger: { trigger: link, start: "top 92%" },
-        });
-      }
-    }, sectionRef);
+        /* Cards fade in */
+        if (cards?.length) {
+          gsap.to(cards, {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.out",
+            scrollTrigger: { trigger: cards[0], start: "top 85%" },
+          });
+        }
 
-    return () => ctx.revert();
+        /* Footer link */
+        if (link) {
+          gsap.to(link, {
+            opacity: 1,
+            duration: 0.4,
+            ease: "power2.out",
+            scrollTrigger: { trigger: link, start: "top 92%" },
+          });
+        }
+      }, sectionRef);
+    });
+
+    return () => ctx?.revert();
   }, []);
 
   return (
@@ -98,25 +91,11 @@ export default function Work() {
           >
             Projects
           </p>
-          <h2
+          <WordReveal
+            text="Recent work."
             id="work-heading"
             className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight"
-          >
-            {headlineWords.map((word, i) => (
-              <Fragment key={i}>
-                <span className="inline-block overflow-hidden pb-[0.15em]">
-                  <span
-                    ref={(el) => {
-                      headingWordsRef.current[i] = el;
-                    }}
-                    className="inline-block"
-                  >
-                    {word}
-                  </span>
-                </span>{" "}
-              </Fragment>
-            ))}
-          </h2>
+          />
         </div>
 
         {/* Project cards */}

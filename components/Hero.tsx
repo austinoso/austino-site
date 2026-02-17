@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { signalHeroReady } from "@/lib/heroReady";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -47,21 +48,22 @@ export default function Hero() {
       }
 
       const tl = gsap.timeline({
-        defaults: { ease: "power3.out", duration: 0.8 },
+        defaults: { ease: "power3.out", duration: 0.6 },
       });
 
-      tl.to(ribbonRef.current, { opacity: 1, y: 0, duration: 0.6 })
-        .to(headlineRef.current, { opacity: 1, y: 0, duration: 0.9 }, "-=0.35")
+      tl.to(ribbonRef.current, { opacity: 1, y: 0, duration: 0.4 })
+        .to(headlineRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.25")
         .to(
           descriptionRef.current,
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.45",
+          { opacity: 1, y: 0, duration: 0.5 },
+          "-=0.35",
         )
-        .to(trustRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.4")
-        .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.4")
-        .to(mockupRef.current, { opacity: 1, y: 0, duration: 0.9 }, "-=0.5")
-        .to(metricsRef.current, { opacity: 1, y: 0, duration: 0.7 }, "-=0.5")
-        .to(workflowRef.current, { opacity: 1, y: 0, duration: 0.7 }, "-=0.5");
+        .to(trustRef.current, { opacity: 1, y: 0, duration: 0.4 }, "-=0.3")
+        .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.4 }, "-=0.3")
+        .call(signalHeroReady)
+        .to(mockupRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.35")
+        .to(metricsRef.current, { opacity: 1, y: 0, duration: 0.5 }, "-=0.4")
+        .to(workflowRef.current, { opacity: 1, y: 0, duration: 0.5 }, "-=0.4");
 
       /* Draw the score ring + count up */
       if (scoreRingRef.current) {

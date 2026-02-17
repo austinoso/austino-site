@@ -1,8 +1,10 @@
 "use client";
 
-import { Fragment, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onHeroReady } from "@/lib/heroReady";
+import WordReveal from "@/components/ui/WordReveal";
 
 import WebDevelopment from "./WebDevelopment";
 import Automation from "./Automation";
@@ -12,41 +14,50 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Solutions() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const headingWordsRef = useRef<(HTMLSpanElement | null)[]>([]);
   const labelRef = useRef<HTMLParagraphElement>(null);
 
-  const headlineWords = "How I solve it.".split(" ");
-
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      /* Label fade */
-      if (labelRef.current) {
-        gsap.from(labelRef.current, {
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
-        });
-      }
+    let ctx: gsap.Context | null = null;
 
-      /* Word-by-word headline */
-      const words = headingWordsRef.current.filter(Boolean);
-      if (words.length) {
-        gsap.set(words, { y: "100%", opacity: 0 });
-        gsap.to(words, {
-          y: "0%",
-          opacity: 1,
-          duration: 0.5,
-          ease: "power3.out",
-          stagger: 0.06,
-          scrollTrigger: { trigger: words[0], start: "top 82%" },
-        });
+    /* Hide label immediately */
+    if (labelRef.current) gsap.set(labelRef.current, { opacity: 0 });
+
+    /* Hide subsection elements immediately */
+    const subs =
+      sectionRef.current?.querySelectorAll<HTMLElement>("[data-subsection]");
+    subs?.forEach((sub, i) => {
+      const content = sub.querySelector("[data-content]");
+      const visual = sub.querySelector("[data-visual]");
+      const features = sub.querySelectorAll("[data-feature]");
+      const flipped = i === 1;
+      if (content) gsap.set(content, { opacity: 0, x: flipped ? 20 : -20 });
+      if (visual) gsap.set(visual, { opacity: 0, x: flipped ? -20 : 20 });
+      if (features.length) gsap.set(features, { opacity: 0, y: 8 });
+      if (i === 1) {
+        const lines = sub.querySelectorAll("[data-line]");
+        if (lines.length) gsap.set(lines, { opacity: 0, y: 4 });
       }
+      if (i === 2) {
+        const rows = sub.querySelectorAll("[data-row]");
+        if (rows.length) gsap.set(rows, { opacity: 0, x: 10 });
+      }
+    });
+    const closer = sectionRef.current?.querySelector("[data-closer]");
+    if (closer) gsap.set(closer, { opacity: 0, y: 10 });
+
+    onHeroReady(() => {
+      ctx = gsap.context(() => {
+        /* Label fade */
+        if (labelRef.current) {
+          gsap.to(labelRef.current, {
+            opacity: 1,
+            duration: 0.4,
+            ease: "power2.out",
+            scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
+          });
+        }
 
       /* Subsection animations */
-      const subs =
-        sectionRef.current?.querySelectorAll<HTMLElement>("[data-subsection]");
-
       subs?.forEach((sub, i) => {
         const content = sub.querySelector("[data-content]");
         const visual = sub.querySelector("[data-visual]");
@@ -55,10 +66,10 @@ export default function Solutions() {
 
         /* Content slides in */
         if (content) {
-          gsap.from(content, {
-            x: flipped ? 30 : -30,
-            opacity: 0,
-            duration: 0.9,
+          gsap.to(content, {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
             ease: "power3.out",
             scrollTrigger: { trigger: sub, start: "top 75%" },
           });
@@ -66,23 +77,22 @@ export default function Solutions() {
 
         /* Visual slides in from opposite side */
         if (visual) {
-          gsap.from(visual, {
-            x: flipped ? -30 : 30,
-            opacity: 0,
-            duration: 0.9,
+          gsap.to(visual, {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
             ease: "power3.out",
             scrollTrigger: { trigger: sub, start: "top 75%" },
           });
         }
 
-        /* Features stagger */
+        /* Features */
         if (features.length) {
-          gsap.from(features, {
-            y: 14,
-            opacity: 0,
-            duration: 0.5,
+          gsap.to(features, {
+            y: 0,
+            opacity: 1,
+            duration: 0.4,
             ease: "power2.out",
-            stagger: 0.1,
             scrollTrigger: { trigger: features[0], start: "top 90%" },
           });
         }
@@ -120,12 +130,11 @@ export default function Solutions() {
           /* Terminal: typewriter line-by-line */
           const lines = sub.querySelectorAll("[data-line]");
           if (lines.length) {
-            gsap.set(lines, { opacity: 0, y: 4 });
             gsap.to(lines, {
               opacity: 1,
               y: 0,
-              duration: 0.25,
-              stagger: 0.15,
+              duration: 0.2,
+              stagger: 0.08,
               ease: "power1.out",
               scrollTrigger: { trigger: visual, start: "top 72%" },
             });
@@ -155,11 +164,10 @@ export default function Solutions() {
 
           const rows = sub.querySelectorAll("[data-row]");
           if (rows.length) {
-            gsap.from(rows, {
-              x: 16,
-              opacity: 0,
+            gsap.to(rows, {
+              x: 0,
+              opacity: 1,
               duration: 0.4,
-              stagger: 0.1,
               ease: "power2.out",
               scrollTrigger: { trigger: rows[0], start: "top 90%" },
             });
@@ -168,19 +176,19 @@ export default function Solutions() {
       });
 
       /* Closer fade */
-      const closer = sectionRef.current?.querySelector("[data-closer]");
       if (closer) {
-        gsap.from(closer, {
-          y: 16,
-          opacity: 0,
-          duration: 0.6,
+        gsap.to(closer, {
+          y: 0,
+          opacity: 1,
+          duration: 0.4,
           ease: "power2.out",
           scrollTrigger: { trigger: closer, start: "top 90%" },
         });
       }
-    }, sectionRef);
+      }, sectionRef);
+    });
 
-    return () => ctx.revert();
+    return () => ctx?.revert();
   }, []);
 
   return (
@@ -219,25 +227,11 @@ export default function Solutions() {
           >
             The Solution
           </p>
-          <h2
+          <WordReveal
+            text="How I solve it."
             id="solutions-heading"
             className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight"
-          >
-            {headlineWords.map((word, i) => (
-              <Fragment key={i}>
-                <span className="inline-block overflow-hidden pb-[0.15em]">
-                  <span
-                    ref={(el) => {
-                      headingWordsRef.current[i] = el;
-                    }}
-                    className="inline-block"
-                  >
-                    {word}
-                  </span>
-                </span>{" "}
-              </Fragment>
-            ))}
-          </h2>
+          />
         </div>
 
         <div className="space-y-24 sm:space-y-32">
