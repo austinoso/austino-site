@@ -166,6 +166,18 @@ export default function Solutions() {
           }
         }
       });
+
+      /* Closer fade */
+      const closer = sectionRef.current?.querySelector("[data-closer]");
+      if (closer) {
+        gsap.from(closer, {
+          y: 16,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: { trigger: closer, start: "top 90%" },
+        });
+      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -174,6 +186,7 @@ export default function Solutions() {
   return (
     <section
       ref={sectionRef}
+      id="solutions"
       className="relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]"
       aria-labelledby="solutions-heading"
     >
@@ -187,12 +200,22 @@ export default function Solutions() {
         aria-hidden="true"
       />
 
+      {/* Accent glows — extends beyond section for soft bleed */}
+      <div
+        className="absolute -top-32 -bottom-32 left-0 right-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 40% at 25% 35%, rgba(64,224,255,0.04), transparent), radial-gradient(ellipse 80% 40% at 75% 60%, rgba(64,224,255,0.035), transparent), radial-gradient(ellipse 60% 25% at 50% 50%, rgba(120,75,255,0.025), transparent)",
+        }}
+        aria-hidden="true"
+      />
+
       <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
         {/* Header */}
-        <div className="mb-16 sm:mb-24">
+        <div className="mb-14 sm:mb-20">
           <p
             ref={labelRef}
-            className="font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em] mb-4"
+            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
           >
             The Solution
           </p>
@@ -219,6 +242,19 @@ export default function Solutions() {
           <WebDevelopment />
           <Automation />
           <OngoingSupport />
+        </div>
+
+        {/* Closer — consultative positioning */}
+        <div
+          data-closer
+          className="mt-20 sm:mt-28 pt-10 border-t border-white/[0.06] max-w-xl"
+        >
+          <p className="text-lg sm:text-xl text-cyber-gray-300 leading-relaxed">
+            Every business is different.{" "}
+            <span className="text-white font-medium">
+              I&apos;ll recommend exactly what you need &mdash; nothing more.
+            </span>
+          </p>
         </div>
       </div>
     </section>

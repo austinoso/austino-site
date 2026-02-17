@@ -94,7 +94,7 @@ export default function Work() {
         <div className="mb-14 sm:mb-20">
           <p
             ref={labelRef}
-            className="font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em] mb-4"
+            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
           >
             Projects
           </p>

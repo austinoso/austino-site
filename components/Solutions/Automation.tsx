@@ -68,7 +68,7 @@ export default function Automation() {
       </div>
 
       <div data-content className="lg:col-span-5 lg:order-2 space-y-5">
-        <p className="font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em]">
+        <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]">
           Automation
         </p>
         <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight">

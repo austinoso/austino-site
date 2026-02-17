@@ -28,8 +28,12 @@ export default function SmoothScroll({
         smoothTouch: 0.1, // Light smooth on mobile
       });
 
+      // Expose for Navigation anchor scrolling
+      (window as unknown as Record<string, unknown>).__smoother = smoother;
+
       return () => {
         smoother.kill();
+        delete (window as unknown as Record<string, unknown>).__smoother;
       };
     }
   }, []);

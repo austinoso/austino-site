@@ -86,12 +86,22 @@ export default function CTA() {
         aria-hidden="true"
       />
 
+      {/* Accent glow — extends beyond section for soft bleed */}
+      <div
+        className="absolute -top-32 -bottom-32 left-0 right-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(64,224,255,0.05), transparent)",
+        }}
+        aria-hidden="true"
+      />
+
       <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
         {/* Header */}
         <div className="mb-6 sm:mb-8">
           <p
             data-label
-            className="font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em] mb-4"
+            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
           >
             Get Started
           </p>

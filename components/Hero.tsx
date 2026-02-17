@@ -100,7 +100,7 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen bg-[#050505] overflow-hidden flex flex-col"
+      className="relative bg-[#050505] overflow-hidden"
       aria-labelledby="hero-heading"
     >
       {/* Ambient gradients — very subtle */}
@@ -122,56 +122,55 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-28 sm:pt-32 lg:pt-36 pb-16 flex-1 flex items-center">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-32 sm:pt-36 lg:pt-40 pb-20 sm:pb-28 md:pb-36">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
           {/* ─── Copy ─── */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-6 space-y-5">
             <p
               ref={ribbonRef}
-              className="font-mono text-[10px] sm:text-[11px] text-cyber-gray-500 uppercase tracking-[0.24em]"
+              className="font-mono text-xs text-cyber-gray-400 uppercase tracking-[0.2em]"
             >
-              SYSTEMS ARCHITECTURE // WEB ENGINEERING // AUTOMATION
+              Performance &middot; Conversions &middot; Automation
             </p>
 
             <h1
               ref={headlineRef}
               id="hero-heading"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight"
             >
-              High-Performance Web Systems &amp; Custom Business Automation.
+              Websites that work as hard as you do.
             </h1>
 
             <p
               ref={descriptionRef}
-              className="text-lg sm:text-xl md:text-2xl text-cyber-gray-300 max-w-2xl leading-relaxed"
+              className="text-base sm:text-lg text-cyber-gray-300 max-w-lg leading-relaxed"
             >
-              I bridge the gap between complex business problems and streamlined
-              tech systems. Based in Northern California, serving clients
-              worldwide.
+              I build fast, high-converting sites that turn visitors into
+              customers — then automate the follow-ups, bookings, and busywork
+              so you can focus on running your business.
             </p>
 
             <div
               ref={trustRef}
-              className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-cyber-gray-200"
+              className="inline-flex items-center gap-2.5 text-sm text-cyber-gray-400"
             >
-              <span className="h-2 w-2 rounded-full bg-cyber-accent" />
-              Guaranteed 90+ Lighthouse scores for speed, SEO, and
-              accessibility.
+              <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
+              Based in Northern California, serving clients everywhere.
             </div>
 
-            <div ref={ctaRef} className="pt-2">
+            <div ref={ctaRef} className="pt-1">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 px-7 py-3.5 bg-white text-[#050505] font-semibold rounded-lg transition-all text-sm sm:text-base shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-cyber-accent/20"
-                aria-label="Start a project"
+                className="inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-lg transition-all text-sm shadow-lg shadow-cyber-accent/20 hover:shadow-xl hover:shadow-cyber-accent/30 hover:brightness-110"
+                aria-label="Get a free consultation"
               >
-                Start a Project
+                Get a Free Consultation
               </Link>
             </div>
           </div>
 
           {/* ─── Visual ─── */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-6 mb-12 lg:mb-16">
             <div className="relative">
               {/* Browser mockup */}
               <div

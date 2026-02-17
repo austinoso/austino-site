@@ -9,7 +9,7 @@ export default function WebDevelopment() {
       className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center"
     >
       <div data-content className="lg:col-span-5 space-y-5">
-        <p className="font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em]">
+        <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]">
           Web Development
         </p>
         <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight">
@@ -70,14 +70,14 @@ export default function WebDevelopment() {
               </div>
               <div className="flex-1 flex justify-center">
                 <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
-                  stakesight.com
+                  mymassagecottage.com
                 </div>
               </div>
             </div>
             <div className="relative aspect-[16/9]">
               <Image
-                src="/assets/stake-sight-demo.PNG"
-                alt="Stake Sight — client website preview"
+                src="/assets/my-massage-cottage-demo.jpg"
+                alt="My Massage Cottage — client website preview"
                 fill
                 className="object-cover object-top"
               />

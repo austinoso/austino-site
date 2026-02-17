@@ -8,16 +8,16 @@ export default function OngoingSupport() {
       className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center"
     >
       <div data-content className="lg:col-span-5 space-y-5">
-        <p className="font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em]">
-          Ongoing Support
+        <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]">
+          Ongoing Partnership
         </p>
         <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight">
-          Your partner for what comes next.
+          Your technical partner for what comes next.
         </h3>
         <p className="text-base text-cyber-gray-300 leading-relaxed">
-          You shouldn&apos;t have to be a software expert to grow your business.
-          I serve as your technical point of contact whenever you want to
-          improve your digital setup.
+          I don&apos;t disappear after launch. As your business evolves, I stay
+          on as your go-to technical resource — recommending tools, monitoring
+          performance, and building new capabilities when you&apos;re ready.
         </p>
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">

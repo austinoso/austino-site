@@ -1,439 +1,740 @@
-# Site Design System - Complete Guide
+# Site Design System — Complete Guide
 
 ## Core Design Philosophy
 
-This site embodies a **Premium Technical Studio** aesthetic - sophisticated, minimalist, and deeply technical. Every element should feel intentional, precise, and production-grade.
+This site embodies a **Premium Solo Consultancy** aesthetic — sophisticated, minimal, and technically precise. Every element should feel intentional, lean, and hand-crafted.
 
 ### Brand Positioning
 
-- **Not** a typical developer portfolio
-- **Is** a high-end product engineering studio
-- Focus: Business outcomes over technical features
-- Tone: Confident, strategic, technically precise
+- **Not** a typical developer portfolio or agency site
+- **Is** a boutique technical consultancy for small business owners
+- Focus: Business outcomes over technical jargon
+- Tone: Confident, consultative, approachable but premium
+- ICP: Local/small business owners (massage therapists, trades, retail, etc.)
+- No pricing shown on-site — consultative discovery model
 
 ---
 
 ## Visual Foundation
 
-### Color Palette
+### Color Palette (Tailwind `cyber` token)
 
 ```
-Primary Background:   #050505 (Deep Black)
-Secondary Background: #0A0E14 (Subtle Dark Gray)
-Accent Primary:       #40E0FF (Cyan)
-Text Primary:         #FFFFFF (White)
-Text Secondary:       #9CA3AF (cyber-gray-300)
-Text Tertiary:        #6B7280 (cyber-gray-400)
-Text Quaternary:      #4F5462 (cyber-gray-500)
+Primary Background:   #050505 (Deep Black — used on every section)
+Card Background:      #111318 (Dark gray — cards, inputs, mockups)
+Card Surface Dark:    #0D0F13 (Chrome bars, UI chrome)
+Accent Primary:       #40E0FF (Cyan — CTAs, labels, interactive)
+Success Green:        #4ADE80 (Status dots, score indicators)
 
-Border Light:         rgba(255, 255, 255, 0.08-0.1)
-Border Emphasis:      rgba(64, 224, 255, 0.3)
-Glow Ambient:         rgba(64, 224, 255, 0.02-0.08)
+Text Primary:         #FFFFFF (white)
+Text Secondary:       #D1D5DB (cyber-gray-300 — descriptions, body)
+Text Tertiary:        #9CA3AF (cyber-gray-400 — nav links, secondary body)
+Text Quaternary:      #4F5462 (cyber-gray-500 — timestamps, tags, fine print)
+
+Border Light:         rgba(255, 255, 255, 0.06) — border-white/[0.06]
+Border Hover:         rgba(255, 255, 255, 0.12) — border-white/[0.12]
+Accent Glow Range:    rgba(64, 224, 255, 0.025–0.05)
+Purple Glow (subtle): rgba(120, 75, 255, 0.025)
 ```
 
 ### Typography System
 
 **Font Families:**
 
-- Primary: Inter (headings, body)
-- Technical: JetBrains Mono (codes, ribbons, system text)
+- Primary: Inter (headings, body) — `font-sans`
+- Technical: JetBrains Mono (labels, nav links, metadata, tags) — `font-mono`
 
-**Typography Scale (Refactoring UI Compliant):**
+**Typography Scale (as implemented):**
 
 ```
-System Ribbon/Label:
-  - Size: 10px (text-[10px])
-  - Font: JetBrains Mono
-  - Weight: font-normal (400)
-  - Letter-spacing: tracking-[0.2em]
-  - Transform: uppercase
-  - Color: cyber-gray-500
-  - Usage: Technical stamps, metadata, section labels
+Section Label:
+  - Class: font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]
+  - Usage: "The Problem", "The Solution", "Projects", "Get Started"
+  - All sections use this consistently
+
+Hero Ribbon:
+  - Class: font-mono text-xs text-cyber-gray-400 uppercase tracking-[0.2em]
+  - Usage: "Performance · Conversions · Automation"
 
 Metadata/Small Mono:
-  - Size: 11px (text-[11px])
-  - Font: JetBrains Mono
-  - Weight: font-semibold (600)
-  - Letter-spacing: tracking-wider
-  - Color: cyber-accent
-  - Usage: Card metadata, technical identifiers
+  - Class: font-mono text-[11px] text-cyber-accent font-semibold tracking-wider
+  - Usage: Card metadata ("[ 01 / BUILD_LAYER ]")
+
+Category Tags:
+  - Class: font-mono text-[10px] text-cyber-accent uppercase tracking-[0.15em]
+  - Usage: Work card categories
+
+Timestamp Tags:
+  - Class: font-mono text-[10px] text-cyber-gray-500
+  - Usage: Read time, small metadata
 
 Extra Small:
-  - Size: 12px (text-xs)
-  - Weight: font-normal (400)
-  - Line-height: leading-normal
-  - Color: cyber-gray-500
-  - Usage: Tags, footer text, fine print
+  - Class: text-xs font-mono text-cyber-gray-500
+  - Usage: "Accepting new projects", "Usually responds within 24 hours"
 
 Small:
-  - Size: 14px (text-sm)
-  - Weight: font-normal (400)
-  - Line-height: leading-normal
-  - Color: cyber-gray-400
-  - Usage: Navigation, feature lists, secondary information
+  - Class: text-sm text-cyber-gray-400 leading-relaxed
+  - Usage: Footer body text, nav links
 
 Base:
-  - Size: 16px (text-base)
-  - Weight: font-normal (400) or font-semibold (600)
-  - Line-height: leading-relaxed (1.625)
-  - Color: cyber-gray-400 or cyber-gray-300
-  - Usage: Body text, descriptions, standard content
+  - Class: text-base sm:text-lg text-cyber-gray-300 leading-relaxed
+  - Usage: Body text, descriptions (responsive)
 
 Large:
-  - Size: 18px (text-lg)
-  - Weight: font-normal (400)
-  - Line-height: leading-relaxed
-  - Color: cyber-gray-300
-  - Usage: Important body text, subheadings
+  - Class: text-lg sm:text-xl text-cyber-gray-300 leading-relaxed
+  - Usage: Section closers, important callouts
 
-Extra Large:
-  - Size: 20px (text-xl)
-  - Weight: font-normal (400)
-  - Line-height: leading-relaxed
-  - Color: cyber-gray-300
-  - Usage: Hero subtitles, section descriptions
-
-2XL:
-  - Size: 24px (text-2xl)
-  - Weight: font-normal (400)
-  - Line-height: leading-relaxed
-  - Color: cyber-gray-300
-  - Usage: Large hero subtitles
-
-H3 (Card/Service Title):
-  - Size: 30px (text-3xl)
-  - Weight: font-bold (700)
-  - Line-height: leading-tight (1.25)
-  - Letter-spacing: tracking-tight
-  - Color: white
-  - Usage: Service titles, card headings
+H3 (Card/Sub-section Title):
+  - Class: text-xl sm:text-2xl font-semibold text-white leading-snug tracking-tight
+  - Usage: Pain point titles, sub-service headings, work card titles
 
 H2 (Section Heading):
-  - Size: 36-48px (text-4xl md:text-5xl)
-  - Weight: font-bold (700)
-  - Line-height: leading-tight
-  - Letter-spacing: tracking-tight
-  - Color: white
-  - Usage: Section headings, work showcase titles
+  - Class: text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight
+  - Usage: "How I solve it.", "Recent work.", "Ready when you are."
 
-H1 (Hero/Primary):
-  - Size: 48-72px (text-5xl md:text-6xl lg:text-7xl)
-  - Weight: font-bold (700)
-  - Line-height: leading-tight (1.25)
-  - Letter-spacing: tracking-tight
-  - Color: white
-  - Usage: Hero headlines, primary page titles
+H1 (Hero):
+  - Class: text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight
+  - Usage: "Websites that work as hard as you do."
+
+CTA Heading (larger variant):
+  - Class: text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight
+  - Usage: CTA section only
 ```
 
 **Font Weight Usage:**
 
-- **font-normal (400):** All body text, descriptions
-- **font-semibold (600):** Buttons, CTAs, emphasis, small mono labels
-- **font-bold (700):** All headings (H1, H2, H3)
+- **font-normal (400):** All body text, descriptions, labels
+- **font-medium (500):** Inline emphasis spans within body text
+- **font-semibold (600):** Headings (H1–H3), buttons, CTAs, small mono labels
+- **font-extrabold (800):** Logo only ("austino")
 
 **Text Color Hierarchy:**
 
-1. `text-white` → Primary headings, navigation active state
-2. `text-cyber-gray-300` (#9CA3AF) → Important body text, large descriptions
-3. `text-cyber-gray-400` (#6B7280) → Secondary text, feature lists, standard body
-4. `text-cyber-gray-500` (#4F5462) → Tertiary text, ribbons, tags, footer
-5. `text-cyber-accent` (#40E0FF) → Interactive elements, highlights, metadata
+1. `text-white` → Headings, logo, inline emphasis, nav active/hover
+2. `text-cyber-gray-300` (#D1D5DB) → Body text, descriptions, closers
+3. `text-cyber-gray-400` (#9CA3AF) → Nav links, secondary body, trust line
+4. `text-cyber-gray-500` (#4F5462) → Fine print, timestamps, tags, footer text
+5. `text-cyber-accent` (#40E0FF) → CTAs, interactive highlights, hover states
+6. `text-cyber-accent/70` → Section labels (consistent across all sections)
+7. `text-cyber-accent/60` → Timeline node numbers
 
 **Line Height Standards:**
 
-- `leading-tight` (1.25) → Headings H1, H2, H3
+- `leading-tight` (1.25) → Headings H1, H2
+- `leading-snug` (1.375) → H3, card titles
 - `leading-relaxed` (1.625) → Body text, descriptions, paragraphs
 - `leading-normal` → Small text, navigation, tags
-
-```
 
 ### Spacing System
 
 ```
+Section Vertical (responsive):
+  - Standard: py-20 sm:py-28 md:py-36
+  - Hero: pt-32 sm:pt-36 lg:pt-40 pb-20 sm:pb-28 md:pb-36
 
-Section Vertical:
+Container Horizontal (responsive):
+  - Standard: px-6 sm:px-8 md:px-12
+  - Max-width: max-w-6xl mx-auto (all sections)
 
-- Hero: pt-20 pb-32 (80px top, 128px bottom)
-- Work: py-24 (96px)
-- Services: py-32 (128px)
-- Standard: py-20 (80px)
-
-Container Horizontal:
-
-- Standard sections: px-6 md:px-12 (24px mobile, 48px desktop)
-- Wide sections (Work): Custom max-width with px-6
-
-Container Max Width:
-
-- Standard (Hero, Services): max-w-7xl (1280px)
-- Wide (Work showcase): max-w-[1600px]
-
-Grid Gaps:
-
-- Between columns: gap-12 lg:gap-16 or gap-12 lg:gap-20
-- Between cards: gap-6 (24px)
-- Between elements: space-y-6 or space-y-10
+Section Header Spacing:
+  - Label to heading: mb-4
+  - Header block to content: mb-14 sm:mb-20
 
 Element Spacing:
+  - Sub-sections: space-y-24 sm:space-y-32
+  - Within sub-sections: space-y-5
+  - Cards grid: gap-5 sm:gap-6
 
-- Large gaps: space-y-10 (40px)
-- Standard gaps: space-y-6 (24px)
-- Small gaps: space-y-3 (12px)
-- Micro gaps: space-y-2 (8px)
+Closer Spacing:
+  - Top margin: mt-20 sm:mt-28
+  - Border-top: pt-10 border-t border-white/[0.06]
+```
 
-Section Spacing:
+---
 
-- Between major sections: mb-24 (96px)
-- Between content blocks: mb-12 (48px)
-- Between related elements: mb-5 or mb-6 (20-24px)
+## Landing Page Structure
 
-````
+The homepage renders in this exact order:
+
+```
+Navigation (fixed)
+Hero
+PainPoints
+Solutions
+Work
+CTA
+Footer
+```
+
+All wrapped in `SmoothScroll` (GSAP ScrollSmoother on desktop ≥ 1024px).
+
+### Section-by-Section Breakdown
+
+---
+
+### 1. Navigation — `components/Navigation.tsx`
+
+**Behavior:**
+
+- `fixed top-0 left-0 right-0 z-50`
+- Transparent at top (`bg-transparent`)
+- On scroll (>20px): `bg-[#050505]/90 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_1px_12px_rgba(0,0,0,0.4)]`
+- Transition: `duration-500`
+
+**Layout:**
+
+- Container: `max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-4`
+- Logo left, links + CTA right
+
+**Logo:**
+
+- `text-xl font-extrabold` — "austin" in white, "o" in `text-cyber-accent`
+
+**Desktop Links:**
+
+- Font: `text-sm font-mono tracking-wide text-cyber-gray-400`
+- Hover: `text-white`
+- Items: Services (→ `/#solutions`), Work (→ `/work`)
+
+**CTA Button:**
+
+- `px-5 py-2 bg-cyber-accent text-[#050505] text-sm font-semibold rounded-lg`
+- Hover: `brightness-110 shadow-[0_0_20px_rgba(64,224,255,0.3)]`
+- Label: "Get Started" → `/contact`
+
+**Services Anchor Scroll:**
+
+- On homepage: prevents default Next.js navigation
+- Uses `window.__smoother.scrollTo("#solutions", true, "top top")` (GSAP ScrollSmoother)
+- Falls back to native `scrollIntoView` on mobile / when smoother unavailable
+
+**Mobile Menu:**
+
+- Toggle: `Menu` / `X` icons from lucide-react (size 20)
+- Background: `bg-[#050505]/95 backdrop-blur-xl`
+- Fade animation: opacity + translate-y
+- Links: `text-lg font-mono text-cyber-gray-300`
+- Body scroll locked when open
+
+---
+
+### 2. Hero — `components/Hero.tsx`
+
+**Container:**
+
+- `relative bg-[#050505] overflow-hidden`
+- Content: `max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-32 sm:pt-36 lg:pt-40 pb-20 sm:pb-28 md:pb-36`
+
+**Atmospheric Layers (bottom to top):**
+
+1. Ambient gradient: `radial-gradient(ellipse 80% 60% at 70% 40%, rgba(64,224,255,0.05), transparent), radial-gradient(ellipse 60% 50% at 20% 50%, rgba(120,75,255,0.03), transparent)` — `absolute inset-0`
+2. Noise grain: SVG fractalNoise at `opacity-[0.035]`
+
+**Grid:** `lg:grid-cols-12 gap-10 lg:gap-14 items-center`
+
+- Copy: `lg:col-span-6`
+- Visual: `lg:col-span-6`
+
+**Copy Side:**
+
+- Ribbon: `font-mono text-xs text-cyber-gray-400 uppercase tracking-[0.2em]` — "Performance · Conversions · Automation"
+- H1: `text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight` — "Websites that work as hard as you do."
+- Description: `text-base sm:text-lg text-cyber-gray-300 max-w-lg leading-relaxed`
+- Trust line: green dot `h-1.5 w-1.5 bg-[#4ADE80]` + `text-sm text-cyber-gray-400` — "Based in Northern California, serving clients everywhere."
+- CTA: `px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-lg text-sm shadow-lg shadow-cyber-accent/20` — "Get a Free Consultation"
+
+**Visual Side:**
+
+- Browser mockup card: `rounded-2xl border border-white/[0.08] bg-[#111318]` with heavy box-shadow
+- Chrome bar: 3 colored dots + `mymassagecottage.com` URL in mono
+- Screenshot: `aspect-[16/10]` with `object-cover`
+- Floating cards (absolute positioned):
+  - **Workflows Active** (bottom-left): 3 auto-completed tasks
+  - **Lighthouse Score** (bottom-right): animated ring counting to 100, with Performance/Accessibility/SEO all at 100
+
+**Animations (GSAP timeline, no ScrollTrigger — plays on mount):**
+
+- Staggered fadeUp for ribbon → headline → description → trust → CTA → mockup → metrics → workflow
+- Score ring: strokeDashoffset draw animation
+- Score counter: counts 0 → 100
+
+---
+
+### 3. PainPoints — `components/PainPoints.tsx`
+
+**Container:**
+
+- `relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]`
+- **No accent glow** (intentionally flat for visual contrast)
+- Noise grain only
+
+**Header:**
+
+- Label: `font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]` — "The Problem"
+- H2: `text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight max-w-2xl`
+- Headline: "You didn't start a business to do IT work." (word-by-word reveal)
+
+**Timeline Layout:**
+
+- Vertical track: `left-4 sm:left-6 w-px bg-white/[0.06]`
+- Progress fill: scrub-driven `scaleY` animation, gradient from cyan 60% to 15%
+- Grid per row: `grid-cols-[2rem_1fr] sm:grid-cols-[3rem_1fr] gap-6 sm:gap-10`
+
+**Nodes:**
+
+- Ring: `h-3 w-3 rounded-full border-2 border-cyber-accent/15 bg-cyber-accent/[0.03]`
+- Glow behind node (hidden by default, animates in on active)
+- Active state: ring scales 1.15, border brightens, glow appears
+- Inactive rows dim to `opacity: 0.3`
+
+**Pain Points (3 items):**
+
+1. "Your evening is spent on data entry"
+2. "Your tools don't talk to each other"
+3. "Your website isn't working for you"
+
+**Closer:**
+
+- Gradient line: `h-px bg-gradient-to-r from-cyber-accent/40 to-transparent`
+- Text: `text-lg sm:text-xl text-cyber-gray-300` — "Every hour you spend on busywork is an hour not spent growing your business. **That's what I fix.**"
+
+**Animations (GSAP + ScrollTrigger):**
+
+- Label fade-in
+- Word-by-word headline reveal (stagger 0.06)
+- Timeline progress: scrub 0.8 from `top 70%` to `bottom 40%`
+- Rows: slide from right (x: 40), stagger entrance
+- Nodes: scale from 0 with back.out(2.5) ease
+- Active/inactive state cycling per row
+
+---
+
+### 4. Solutions — `components/Solutions/index.tsx`
+
+**Container:**
+
+- `relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]`
+- `id="solutions"` (anchor target for nav)
+
+**Atmospheric Layers:**
+
+1. Noise grain: `opacity-[0.035]`
+2. Accent glow overlay: `absolute -top-32 -bottom-32 left-0 right-0` (bleeds past boundaries for soft transitions)
+   - 3 radial gradients: cyan at 4% top-left, cyan at 3.5% bottom-right, purple at 2.5% center
+
+**Header:**
+
+- Label: `font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]` — "The Solution"
+- H2: "How I solve it." (word-by-word)
+
+**Sub-sections (3):** `space-y-24 sm:space-y-32`
+
+1. **WebDevelopment** — `components/Solutions/WebDevelopment.tsx`
+   - Shows mymassagecottage.com project as visual proof
+   - Grid layout with content + browser mockup
+
+2. **Automation** — `components/Solutions/Automation.tsx`
+   - Terminal-style visual with typewriter animation
+   - Shows workflow automation examples
+
+3. **OngoingSupport** — `components/Solutions/OngoingSupport.tsx`
+   - Titled "Ongoing Partnership" (not "Ongoing Support")
+   - Dashboard visual with counters and status rows
+   - Copy: "I don't disappear after launch..."
+
+**Closer:**
+
+- `mt-20 sm:mt-28 pt-10 border-t border-white/[0.06] max-w-xl`
+- Text: "Every business is different. **I'll recommend exactly what you need — nothing more.**"
+- No pricing shown
+
+**Animations (GSAP + ScrollTrigger):**
+
+- Label + headline: same pattern as PainPoints
+- Sub-sections: content slides from left/right (alternating), visuals from opposite
+- Features: stagger fadeUp
+- Section-specific: performance bars fill, score counters, terminal typewriter, dashboard counters
+
+---
+
+### 5. Work — `components/Work.tsx`
+
+**Container:**
+
+- `relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]`
+- `id="work"`
+- **No accent glow** (flat section for contrast)
+
+**Header:**
+
+- Label: `font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]` — "Projects"
+- H2: "Recent work." (word-by-word)
+
+**Project Cards Grid:** `grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6`
+
+**Card Style:**
+
+- `rounded-xl border border-white/[0.06] bg-[#111318] overflow-hidden`
+- Hover: `border-white/[0.12]`
+- Shadow: `0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)`
+- Thumbnail: `aspect-[16/9]` with gradient overlay
+- Image hover: `scale-[1.03]` over 500ms
+- Content padding: `p-5 sm:p-6`
+- Category + read time at top
+- Title: `text-lg font-semibold text-white` → accent on hover
+- Excerpt: `text-sm text-cyber-gray-400 line-clamp-2`
+- Footer: "Read case study" with arrow
+
+**Footer Link:**
+
+- "See all work →" right-aligned
+- `font-mono text-[10px] uppercase tracking-[0.15em] text-cyber-gray-500 hover:text-cyber-accent`
+
+---
+
+### 6. CTA — `components/CTA.tsx`
+
+**Container:**
+
+- `relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]`
+
+**Atmospheric Layers:**
+
+1. Noise grain: `opacity-[0.035]`
+2. Accent glow: `absolute -top-32 -bottom-32` — single centered ellipse at 5% opacity
+
+**Header:**
+
+- Label: `font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]` — "Get Started"
+- H2 (larger): `text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold` — "Ready when you are."
+
+**Body Layout:** `flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16`
+
+- Left: description text + availability indicator (green dot + "Accepting new projects")
+- Right: CTA button + response time
+
+**CTA Button:**
+
+- `px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg`
+- Hover: `bg-white shadow-[0_0_30px_rgba(64,224,255,0.4)]`
+- Label: "Start a Conversation" with ArrowRight icon
+- Below: `text-[11px] font-mono text-cyber-gray-500` — "Usually responds within 24 hours"
+
+**Divider:** `border-t border-white/[0.06]` below everything
+
+---
+
+### 7. Footer — `components/Footer.tsx`
+
+**Container:**
+
+- `border-t border-white/[0.06] bg-[#050505]`
+- `max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-12 sm:py-16`
+
+**Grid:** `grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8`
+
+**Columns:**
+
+1. **Brand:** Logo + tagline ("Helping small businesses work smarter...")
+2. **Services:** Web Development, Automation, Ongoing Partnership (all → `/#solutions`)
+3. **Resources:** Work, Contact
+4. **Connect:** GitHub link
+
+**Bottom Bar:** Copyright + "All rights reserved"
 
 ---
 
 ## Layout Patterns
 
-### 1. Asymmetric Split (60/40)
-
-**When to use:** Hero sections, feature highlights
+### 1. 50/50 Grid (Hero, Solutions sub-sections)
 
 ```tsx
-Left (60%): Content, pitch, call-to-action
-Right (40%): Visual proof, mockup, graphic
-Grid: lg:grid-cols-5 (3 cols left, 2 cols right)
-Gap: gap-12 lg:gap-20
-Alignment: items-center
-````
+Grid: lg:grid-cols-12 gap-10 lg:gap-14 items-center
+Left:  lg:col-span-6 (content)
+Right: lg:col-span-6 (visual)
+```
 
-**Example (Hero):**
+Solutions alternates: odd sub-sections = content left, even = content right (flipped).
+
+### 2. Vertical Timeline (PainPoints)
 
 ```tsx
-<div className="max-w-7xl mx-auto px-6 md:px-12 pt-20 pb-32">
-  <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-center">
-    <div className="lg:col-span-3 space-y-10">{/* Content */}</div>
-    <div className="lg:col-span-2">{/* Visual */}</div>
-  </div>
-</div>
+Grid per row: grid-cols-[2rem_1fr] sm:grid-cols-[3rem_1fr] gap-6 sm:gap-10
+Vertical line: absolute left-4 sm:left-6 w-px
+Nodes: positioned on the line
+Content: right of the line
 ```
 
-### 2. Three-Column Grid (Services)
-
-**When to use:** Service offerings, feature pillars
+### 3. Card Grid (Work)
 
 ```tsx
-Grid: lg:grid-cols-3
-Card Padding: py-20 px-6 lg:px-8
-Dividers: Vertical borders between columns
-Max-width: max-w-7xl
+Grid: grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6
+Cards: rounded-xl border border-white/[0.06] bg-[#111318]
 ```
 
-**Example:**
+### 4. Split CTA (CTA section)
 
 ```tsx
-<div className="max-w-7xl mx-auto px-6 md:px-12">
-  <div className="grid grid-cols-1 lg:grid-cols-3">
-    {items.map((item, index) => (
-      <div className="py-20 px-6 lg:px-8">{/* Service content */}</div>
-    ))}
-  </div>
-</div>
-```
-
-### 3. Vertical Stack
-
-**When to use:** Text-heavy sections, timeline
-
-```
-Max-width: max-w-4xl mx-auto
-Alignment: Left-aligned
-Spacing: space-y-8
-```
-
-### 4. Centered Hero
-
-**When to use:** Landing sections, big announcements
-
-```
-Text: Centered
-Max-width: max-w-6xl
-Supporting text: max-w-3xl
+Layout: flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16
+Left: text content
+Right: button + meta
 ```
 
 ---
 
 ## Component Patterns
 
-### Glass Cards
+### Section Labels (Consistent Across All Sections)
 
 ```tsx
-Style:
-  - Background: rgba(26, 29, 35, 0.6) with backdrop-blur
-  - Border: 1px solid rgba(255, 255, 255, 0.08)
-  - Border-radius: 12px or 16px
-  - Padding: p-6 to p-8
-
-Hover State:
-  - Border: Glow to cyan (border-cyber-accent/50)
-  - Shadow: shadow-lg shadow-cyber-accent/10
-  - Transition: 300ms ease
+<p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
+  Label Text
+</p>
 ```
 
-### System Ribbons
+All sections use `text-cyber-accent/70` (not `text-cyber-gray-500`).
+
+### Section Headings (Word-by-Word Reveal)
 
 ```tsx
-Style:
-  - Font: JetBrains Mono
-  - Size: text-[10px] (10px)
-  - Letter-spacing: tracking-[0.2em]
-  - Text: Uppercase
-  - Color: cyber-gray-500
-  - Weight: font-normal (400)
-
-Usage: Section labels, metadata, technical stamps
-Example: "FLAGSHIP_PROJECT", "EST. 2020 // 6+ YEARS SENIOR TENURE"
+<h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
+  {words.map((word, i) => (
+    <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+      <span
+        ref={(el) => {
+          ref.current[i] = el;
+        }}
+        className="inline-block"
+      >
+        {word}
+      </span>
+    </span>
+  ))}
+</h2>
 ```
 
-### Metadata Labels
+### Project Cards
 
 ```tsx
-Style:
-  - Font: JetBrains Mono
-  - Size: text-[11px] (11px)
-  - Letter-spacing: tracking-wider
-  - Weight: font-semibold (600)
-  - Color: cyber-accent
+<div
+  className="group rounded-xl border border-white/[0.06] bg-[#111318] overflow-hidden
+  transition-colors duration-300 hover:border-white/[0.12]"
+  style={{
+    boxShadow:
+      "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
+  }}
+>
+  {/* 16:9 thumbnail with gradient overlay */}
+  {/* Content: category + time | title | excerpt | "Read case study →" */}
+</div>
+```
 
-Usage: Card identifiers, technical tags
-Example: "[ 01 / BUILD_LAYER ]"
+### Browser Mockup
+
+```tsx
+<div
+  className="rounded-2xl border border-white/[0.08] bg-[#111318] overflow-hidden"
+  style={{
+    boxShadow:
+      "0 32px 60px -12px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.03)",
+  }}
+>
+  {/* Chrome bar: 3 dots + URL */}
+  <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0D0F13]">
+    <div className="flex items-center gap-1.5">
+      <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+      <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
+      <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
+    </div>
+    {/* URL bar */}
+  </div>
+  {/* Screenshot */}
+</div>
 ```
 
 ### Buttons
 
-**Primary CTA:**
+**Primary CTA (Accent):**
 
 ```tsx
-Background: White (bg-white)
-Text: #050505 (text-[#050505])
-Padding: px-8 py-4
-Font: text-base font-semibold
-Border-radius: rounded-lg
-Shadow: shadow-lg shadow-white/10
-Hover: Subtle scale or shadow increase
+className="px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-lg text-sm
+  shadow-lg shadow-cyber-accent/20 hover:brightness-110 hover:shadow-xl hover:shadow-cyber-accent/30"
 ```
 
-**Secondary CTA:**
+**Primary CTA (Large — CTA section):**
 
 ```tsx
-Background: bg-cyber-accent/10
-Border: border border-cyber-accent/30
-Text: text-white font-semibold
-Padding: px-6 py-3
-Border-radius: rounded-full
-Hover: bg-cyber-accent/20
+className="px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg
+  transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)]"
 ```
 
-### Navigation
+**Nav CTA:**
 
 ```tsx
-Floating Pill:
-  - Background: rgba(255, 255, 255, 0.04)
-  - Border: 1px solid rgba(255, 255, 255, 0.1)
-  - Backdrop-filter: blur(16px)
-  - Border-radius: rounded-full
-  - Padding: 10px 32px
-  - Position: sticky top-8
-
-Nav Links:
-  - Font: text-sm
-  - Color: text-cyber-gray-400
-  - Hover: text-white
-  - Spacing: gap-8
-
-Connect Button:
-  - Color: text-white font-medium
-  - Border: border-cyber-accent/30
-  - Padding: px-4 py-2
-  - Hover: text-cyber-accent
+className="px-5 py-2 bg-cyber-accent text-[#050505] text-sm font-semibold rounded-lg
+  hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)]"
 ```
 
-### Indicators
+### Availability Indicator
 
 ```tsx
-Active Dot:
-  - Size: w-2 h-2
-  - Color: bg-cyber-accent
-  - Animation: animate-pulse
-  - Additional: animate-ping layer for emphasis
-
-Status Text:
-  - Font: JetBrains Mono
-  - Size: text-sm
-  - Letter-spacing: tracking-wide
-  - Color: cyber-gray-400
+<span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+<span className="text-xs font-mono text-cyber-gray-500">Accepting new projects</span>
 ```
 
 ---
 
 ## Atmospheric Effects
 
-### Ambient Glow
+### Glow Strategy: Alternating Sections
+
+Sections alternate between **glow** and **flat** to create depth contrast:
+
+| Section    | Glow? | Notes                                       |
+| ---------- | ----- | ------------------------------------------- |
+| Hero       | ✅    | Own ambient gradients (cyan + purple)       |
+| PainPoints | ❌    | Flat — noise grain only                     |
+| Solutions  | ✅    | Accent glow with `-top-32 -bottom-32` bleed |
+| Work       | ❌    | Flat — noise grain only                     |
+| CTA        | ✅    | Centered accent glow with bleed             |
+
+### Glow Implementation
+
+**Bleed containers** extend past section boundaries to avoid harsh borders:
 
 ```tsx
-Soft Mesh Gradient (Subtle):
-  - Position: absolute inset-0 pointer-events-none
-  - Background: radial-gradient(ellipse 120% 80% at 50% 0%, rgba(64,224,255,0.08) 0%, rgba(88,28,135,0.05) 40%, rgba(15,23,42,0.02) 70%, transparent 100%)
-  - Filter: blur(150px)
-  - Usage: Behind Work and Services sections
-
-Hero Background:
-  - Background: bg-gradient-radial from-[#0A0E14] via-[#050505] to-[#050505]
-  - Opacity: 90%
-  - Usage: Hero section depth
-
-Image Glow (Mockup):
-  - Position: absolute -inset-40 -z-10
-  - Background: radial-gradient(ellipse 1200px 800px at 60% 50%, rgba(64,224,255,0.08) 0%, rgba(64,224,255,0.02) 50%, transparent 70%)
-  - Filter: blur(200px)
-  - Usage: Behind hero mockup image
+<div
+  className="absolute -top-32 -bottom-32 left-0 right-0 pointer-events-none"
+  style={{
+    background:
+      "radial-gradient(ellipse 80% 40% at 25% 35%, rgba(64,224,255,0.04), transparent), ...",
+  }}
+  aria-hidden="true"
+/>
 ```
 
-**Key Principle:** Keep glows subtle (0.02-0.08 opacity range) to avoid overwhelming content
+**Key principles:**
+
+- Opacity range: 0.025–0.05 (very subtle)
+- Use viewport-relative ellipse sizes (e.g., `80% 40%`)
+- Place at offset positions (not centered) for organic feel
+- Optional purple accent at ~0.025 for depth
+- Never apply `filter: blur()` — the gradient itself is soft enough
+
+### Noise Grain (Every Section)
+
+```tsx
+<div
+  className="absolute inset-0 opacity-[0.035] pointer-events-none"
+  style={{
+    backgroundImage: `url("data:image/svg+xml,...")`,
+    backgroundSize: "128px 128px",
+  }}
+  aria-hidden="true"
+/>
+```
+
+SVG-based fractalNoise texture tiled at 128px. Applied to every section for consistent film-grain feel.
 
 ---
 
-## Animation Guidelines
+## Animation System (GSAP)
+
+### Dependencies
+
+- `gsap` core
+- `gsap/ScrollTrigger` — scroll-driven animations
+- `gsap/ScrollSmoother` — smooth scrolling (Club plugin, desktop only ≥ 1024px)
+
+### SmoothScroll Wrapper
+
+All page content is wrapped in `SmoothScroll` component:
+
+- Creates `ScrollSmoother` instance on desktop
+- Exposes instance on `window.__smoother` for cross-component access (e.g., Navigation anchor scroll)
+- Mobile bypasses ScrollSmoother entirely
+
+### Animation Patterns
+
+**Hero animations (on mount, no ScrollTrigger):**
+
+```tsx
+const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.8 } });
+tl.to(el1, { opacity: 1, y: 0 }).to(el2, { opacity: 1, y: 0 }, "-=0.35"); // overlap previous
+// ...
+```
+
+**Section animations (ScrollTrigger):**
+
+```tsx
+// Label fade
+gsap.from(label, {
+  opacity: 0,
+  duration: 0.6,
+  ease: "power2.out",
+  scrollTrigger: { trigger: label, start: "top 85%" },
+});
+
+// Word-by-word reveal
+gsap.set(words, { y: "100%", opacity: 0 });
+gsap.to(words, {
+  y: "0%",
+  opacity: 1,
+  duration: 0.5,
+  ease: "power3.out",
+  stagger: 0.06,
+  scrollTrigger: { trigger: words[0], start: "top 82%" },
+});
+
+// Content slide-in
+gsap.from(content, {
+  x: -30,
+  opacity: 0,
+  duration: 0.9,
+  ease: "power3.out",
+  scrollTrigger: { trigger: sub, start: "top 75%" },
+});
+
+// Counter animation
+gsap.to(counter, {
+  v: target,
+  duration: 1.2,
+  ease: "power2.out",
+  scrollTrigger: { trigger: el, start: "top 88%" },
+  onUpdate: () => {
+    el.textContent = Math.round(counter.v).toString();
+  },
+});
+```
+
+**Scrub animations (PainPoints timeline):**
+
+```tsx
+ScrollTrigger.create({
+  trigger: track,
+  start: "top 70%",
+  end: "bottom 40%",
+  scrub: 0.8,
+  animation: gsap.to(progress, { scaleY: 1, ease: "none" }),
+});
+```
+
+### Easing Reference
+
+- `power3.out` — primary entrance ease (headings, content)
+- `power2.out` — secondary (labels, counters, bars)
+- `power1.out` — subtle (terminal lines)
+- `back.out(2.5)` — springy (timeline nodes)
+- `none` — linear scrub
 
 ### Timing
 
-- Quick: 150ms (micro-interactions)
-- Standard: 300ms (cards, buttons)
-- Slow: 600ms+ (page transitions)
-- Ambient: 8s-24s (background effects)
-
-### Easing
-
-- Default: ease-in-out
-- Entry: ease-out
-- Exit: ease-in
-- Elastic: cubic-bezier(0.4, 0, 0.6, 1)
-
-### Hover States
-
-```tsx
-Cards:
-  - Transform: translateY(-2px) scale(1.01)
-  - Glow: Opacity 0 → 100%
-  - Transition: 300ms ease
-
-Buttons:
-  - Transform: scale(1.02)
-  - Shadow: Increase intensity
-  - Transition: 200ms ease
-
-Images:
-  - Transform: scale(1.05)
-  - Transition: 400ms ease
-```
+- Label fade: 0.6s
+- Word reveal: 0.5s per word, 0.06s stagger
+- Content slide: 0.9s
+- Feature stagger: 0.5s with 0.1s stagger
+- Counter: 1.2–1.4s
+- Terminal typewriter: 0.25s with 0.15s stagger
 
 ---
 
@@ -441,165 +742,66 @@ Images:
 
 ### Writing Style
 
-- **Headlines:** Direct, outcome-focused, no fluff
-- **Body Text:** Clear, specific, benefit-driven
-- **Technical Terms:** Use sparingly, explain when necessary
-- **Tone:** Confident but not arrogant, precise but not cold
+- **Headlines:** Short, declarative, relatable ("You didn't start a business to do IT work.")
+- **Body Text:** Plain language, specific scenarios, no jargon
+- **Tone:** Consultative — talking to the business owner, not about them
+- **Closers:** Each major section ends with a closer that bridges to the next
 
-### Content Hierarchy
+### Content Hierarchy Per Section
 
-1. System ribbon (context)
-2. Headline (main message)
-3. Sub-headline (supporting detail)
-4. Body text (explanation)
-5. Call-to-action (next step)
+1. Section label (mono, accent, uppercase — provides context)
+2. Headline (word-by-word reveal — main message)
+3. Content (descriptions, timelines, cards — the substance)
+4. Closer (bridge text, usually with an inline bold emphasis)
 
 ### Word Choice
 
 **Use:**
 
-- Strategic, Production-ready, Scale, Engineering
-- Custom, Tailored, Rapid, Seamless
-- Architecture, Integration, Orchestration
+- "I build", "I fix", "I'll recommend" (first person, consultative)
+- Business-owner language: "bookings", "busywork", "data entry", "follow-ups"
+- Clear benefits: "turn visitors into customers", "work smarter"
 
 **Avoid:**
 
-- Awesome, Amazing, Revolutionary
-- Best, Perfect, Ultimate
-- Generic developer-speak
-
----
-
-## Section Templates
-
-### Standard Section Structure
-
-```tsx
-<section className="relative py-24 px-6 bg-[#050505]">
-  {/* Atmospheric glow (optional) */}
-  <div
-    className="absolute inset-0 pointer-events-none"
-    style={{
-      background: "radial-gradient(...)",
-      filter: "blur(150px)",
-    }}
-  />
-
-  <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-    {/* System Ribbon */}
-    <p className="font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em] mb-12">
-      SECTION_LABEL
-    </p>
-
-    {/* H2 + Description */}
-    <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-5">
-      Section Headline
-    </h2>
-    <p className="text-lg text-cyber-gray-300 leading-relaxed">
-      Supporting description text.
-    </p>
-
-    {/* Content Grid */}
-    <div className="grid lg:grid-cols-3 gap-6 mt-12">
-      {/* Cards or content */}
-    </div>
-  </div>
-</section>
-```
-
-### Hero Section Structure
-
-```tsx
-<section className="relative min-h-screen bg-[#050505]">
-  {/* Background gradient */}
-  <div className="absolute inset-0 bg-gradient-radial from-[#0A0E14] via-[#050505] to-[#050505] opacity-90" />
-
-  {/* Navigation */}
-  <div className="sticky top-8 z-50 flex justify-center px-6 mb-16">
-    {/* Floating nav pill */}
-  </div>
-
-  {/* Main Content */}
-  <div className="max-w-7xl mx-auto px-6 md:px-12 pt-20 pb-32">
-    <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-center">
-      <div className="lg:col-span-3 space-y-10">
-        {/* System ribbon */}
-        {/* H1 headline */}
-        {/* Description */}
-        {/* CTA */}
-      </div>
-      <div className="lg:col-span-2">{/* Mockup/visual */}</div>
-    </div>
-  </div>
-
-  {/* Tech stack marquee */}
-</section>
-```
-
-### Service Card Structure
-
-```tsx
-<div className="py-20 px-6 lg:px-8 relative group">
-  {/* Hover overlay */}
-  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" />
-
-  {/* Vertical divider */}
-  <div className="absolute right-0 top-0 bottom-0 w-px bg-white/12" />
-
-  <div className="relative h-full flex flex-col">
-    {/* Metadata */}
-    <p className="font-mono text-[11px] text-cyber-accent font-semibold tracking-wider mb-8">
-      [ 01 / LAYER_NAME ]
-    </p>
-
-    {/* Title */}
-    <h3 className="text-3xl text-white font-bold leading-tight tracking-tight mb-6">
-      Service Title
-    </h3>
-
-    {/* Description */}
-    <p className="text-base text-cyber-gray-400 leading-relaxed mb-auto">
-      Service description text.
-    </p>
-
-    {/* Tags */}
-    <p className="font-mono text-xs text-cyber-gray-500 mt-8 pt-8 border-t border-white/8 tracking-wide">
-      TAGS // SEPARATED // BY_SLASHES
-    </p>
-  </div>
-</div>
-```
+- Agency-speak: "We deliver", "Our team"
+- Tech jargon: "CI/CD", "microservices", "containerization"
+- Superlatives: "Best", "Revolutionary", "Industry-leading"
 
 ---
 
 ## Accessibility
 
-- All interactive elements must have focus states
-- Color is never the only indicator
-- Alt text for all images
-- Semantic HTML (section, article, nav, etc.)
-- ARIA labels for icon-only buttons
-- Keyboard navigation support
-- Minimum contrast ratios: AA (4.5:1 for text)
+- All interactive elements have focus states
+- Color is never the only indicator (e.g., green dot + text for status)
+- `alt` text on all images
+- Semantic HTML: `<section>`, `<nav>`, `<footer>`, `<h1>`–`<h3>`
+- `aria-labelledby` on sections linking to heading `id`s
+- `aria-label` on icon-only buttons, nav, footer
+- `aria-hidden="true"` on decorative elements (glows, grain)
+- `aria-expanded` on mobile menu toggle
+- `role="contentinfo"` on footer, `role="navigation"` on nav
+- Body scroll locked when mobile menu is open
 
 ---
 
 ## Responsive Breakpoints
 
 ```
-Mobile:   < 768px  (base styles)
-Tablet:   768px+   (md:)
-Desktop:  1024px+  (lg:)
-Wide:     1280px+  (xl:)
-Ultra:    1536px+  (2xl:)
+Mobile:    < 640px  (base styles)
+Small:     640px+   (sm:)
+Tablet:    768px+   (md:)
+Desktop:   1024px+  (lg:)  ← ScrollSmoother activates here
+Wide:      1280px+  (xl:)
 ```
 
-### Mobile-First Approach
+### Key Responsive Behaviors
 
-- Start with mobile layout
-- Add complexity at larger breakpoints
-- Reduce padding/spacing on mobile
-- Stack layouts vertically on mobile
+- **Navigation:** Desktop links hidden below `md:`, mobile menu shown
+- **Hero grid:** Stacks vertically below `lg:`, 12-col grid on desktop
+- **Section padding:** `py-20 sm:py-28 md:py-36` — progressively more spacious
+- **Typography:** Responsive sizing via `sm:` / `md:` prefixes
+- **ScrollSmoother:** Only enabled `>= 1024px` for performance
 
 ---
 
@@ -607,84 +809,89 @@ Ultra:    1536px+  (2xl:)
 
 ### ✅ Do:
 
-- Use ample white space (negative space)
-- Align to strict grid
-- Keep animations subtle
-- Use monospace for technical elements
-- Left-align body text
-- Emphasize business outcomes
-- Test on multiple screen sizes
-- Use only 3 font weights: 400, 600, 700
-- Stick to defined text color hierarchy (white, gray-300, gray-400, gray-500)
-- Keep glow effects subtle (0.02-0.08 opacity)
-- Use Tailwind classes instead of inline styles
-- Use consistent spacing scale (space-y-6, space-y-10)
+- Use `bg-[#050505]` on every section (never `bg-black` or `bg-transparent`)
+- Use `max-w-6xl` for container width (not `max-w-7xl`)
+- Use `font-semibold` for headings (not `font-bold`)
+- Use `text-cyber-accent/70` for section labels
+- Use responsive padding: `px-6 sm:px-8 md:px-12`
+- Use responsive vertical: `py-20 sm:py-28 md:py-36`
+- Alternate glow/flat sections for depth
+- Add noise grain to every section
+- Use GSAP ScrollTrigger for scroll animations
+- Add `aria-hidden="true"` to decorative elements
+- Use `border-white/[0.06]` for borders (bracket notation)
+- Use word-by-word reveal for section headlines
+- End sections with a "closer" paragraph
 
 ### ❌ Don't:
 
+- Show pricing or package tiers
+- Use `font-bold (700)` for headings (we use `font-semibold`)
+- Use `max-w-7xl` (our container is `max-w-6xl`)
+- Use `filter: blur()` on glows (gradient is soft enough)
+- Make glows above 0.05 opacity (too intense)
 - Center-align large blocks of text
-- Use emojis in production sections
-- Overuse animations
-- Mix font families excessively
-- Create perfectly symmetrical layouts
-- Use bright, saturated colors (except accent)
-- Ignore mobile experience
-- Use font weights outside 400/600/700
-- Use inline styles for typography (use Tailwind)
-- Make glows too intense (avoid 0.12+ opacity)
-- Skip responsive padding (px-6 md:px-12)
+- Use generic developer jargon
+- Skip the noise grain texture
+- Use Next.js `<Link>` for same-page anchor scrolling (breaks ScrollSmoother)
+- Create sections without responsive padding
 
 ---
 
 ## Implementation Checklist
 
-When building a new section:
+When building a new section or page:
 
-- [ ] Add system ribbon with appropriate label (text-[10px], font-mono, uppercase, tracking-[0.2em])
-- [ ] Set responsive section spacing (py-24 to py-32, px-6 md:px-12)
-- [ ] Use correct max-width (max-w-7xl for standard, max-w-[1600px] for wide)
-- [ ] Include subtle atmospheric glow if appropriate (opacity 0.02-0.08)
-- [ ] Use consistent typography scale (text-base, text-lg, text-xl, text-2xl, text-3xl, text-4xl, text-5xl)
-- [ ] Apply proper font weights (400, 600, or 700 only)
-- [ ] Use text color hierarchy (white → gray-300 → gray-400 → gray-500)
-- [ ] Use Tailwind line-heights (leading-tight for headings, leading-relaxed for body)
-- [ ] Use Tailwind letter-spacing (tracking-tight for headings, tracking-wide/wider for mono)
-- [ ] Add hover states to interactive elements
-- [ ] Test mobile responsive behavior
-- [ ] Verify accessibility (focus states, ARIA labels)
-- [ ] Check color contrast ratios
-- [ ] Ensure content is left-aligned
-- [ ] Add appropriate spacing (space-y-6 or space-y-10)
-- [ ] Use gap-12 lg:gap-16 or gap-12 lg:gap-20 for grid spacing
+- [ ] Section wrapper: `relative w-full py-20 sm:py-28 md:py-36 bg-[#050505]`
+- [ ] Add noise grain overlay (`opacity-[0.035]`)
+- [ ] Add accent glow if this is a "glow" section (alternate pattern)
+- [ ] Container: `max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative`
+- [ ] Section label: `font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4`
+- [ ] Heading: `text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight`
+- [ ] Use word-by-word reveal animation for headings
+- [ ] Body text: `text-base sm:text-lg text-cyber-gray-300 leading-relaxed`
+- [ ] Use GSAP + ScrollTrigger for scroll animations
+- [ ] Add `aria-labelledby` linking section to heading `id`
+- [ ] Add `aria-hidden="true"` on decorative elements
+- [ ] End section with a closer paragraph if appropriate
+- [ ] Test responsive behavior at all breakpoints
+- [ ] Verify color contrast meets AA (4.5:1 for text)
 
 ## Quick Reference
 
 **Headings:**
 
-- H1: `text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight`
-- H2: `text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight`
-- H3: `text-3xl font-bold text-white leading-tight tracking-tight`
+- H1/H2: `text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight`
+- H3: `text-xl sm:text-2xl font-semibold text-white leading-snug tracking-tight`
 
 **Body Text:**
 
-- Large: `text-xl md:text-2xl text-cyber-gray-300 leading-relaxed`
-- Standard: `text-base text-cyber-gray-400 leading-relaxed`
-- Description: `text-lg text-cyber-gray-300 leading-relaxed`
+- Standard: `text-base sm:text-lg text-cyber-gray-300 leading-relaxed`
+- Small: `text-sm text-cyber-gray-400 leading-relaxed`
+- Closer: `text-lg sm:text-xl text-cyber-gray-300 leading-relaxed`
 
 **Special Text:**
 
-- System Ribbon: `font-mono text-[10px] text-cyber-gray-500 uppercase tracking-[0.2em] font-normal`
+- Section Label: `font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]`
 - Metadata: `font-mono text-[11px] text-cyber-accent font-semibold tracking-wider`
-- Tags: `font-mono text-xs text-cyber-gray-500 tracking-wide`
+- Tags: `font-mono text-[10px] text-cyber-gray-500`
+- Fine Print: `text-xs font-mono text-cyber-gray-500`
 
 **Buttons:**
 
-- Primary: `px-8 py-4 bg-white text-[#050505] font-semibold rounded-lg text-base shadow-lg shadow-white/10`
-- Secondary: `px-6 py-3 bg-cyber-accent/10 border border-cyber-accent/30 text-white font-semibold rounded-full hover:bg-cyber-accent/20`
+- Primary: `px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-lg text-sm`
+- Nav: `px-5 py-2 bg-cyber-accent text-[#050505] text-sm font-semibold rounded-lg`
+
+**Cards:**
+
+- Background: `bg-[#111318]`
+- Border: `border border-white/[0.06]`
+- Hover border: `border-white/[0.12]`
+- Radius: `rounded-xl`
 
 **Spacing:**
 
-- Section: `py-24` or `py-32`, `px-6 md:px-12`
-- Container: `max-w-7xl mx-auto` or `max-w-[1600px] mx-auto`
-- Element stacking: `space-y-6` or `space-y-10`
-- Grid gaps: `gap-12 lg:gap-16` or `gap-12 lg:gap-20`
+- Section: `py-20 sm:py-28 md:py-36`
+- Container: `max-w-6xl mx-auto px-6 sm:px-8 md:px-12`
+- Sub-sections: `space-y-24 sm:space-y-32`
+- Header to content: `mb-14 sm:mb-20`
