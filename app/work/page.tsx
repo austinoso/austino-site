@@ -2,120 +2,120 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { getAllProjects } from "@/lib/projects";
 
-export default function CaseStudiesPage() {
+export default function WorkPage() {
   const projects = getAllProjects();
 
   return (
     <main className="relative min-h-screen bg-[#050505]">
       <Navigation />
 
-      <div className="max-w-7xl mx-auto px-6 py-32">
-        {/* Breadcrumb Header */}
-        <div className="mb-8">
-          <p className="font-mono text-[8pt] text-cyber-accent tracking-wider">
-            // PORTFOLIO
-          </p>
-        </div>
+      {/* Noise grain */}
+      <div
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          backgroundSize: "128px 128px",
+        }}
+        aria-hidden="true"
+      />
 
+      {/* Accent glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 40% at 60% 10%, rgba(64,224,255,0.04), transparent), radial-gradient(ellipse 60% 30% at 20% 60%, rgba(120,75,255,0.025), transparent)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-32 sm:pt-36 lg:pt-40 pb-20 sm:pb-28 md:pb-36">
         {/* Header */}
-        <div className="mb-16 space-y-6">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-            Selected <span className="text-cyber-accent">Work</span>
+        <div className="mb-14 sm:mb-20">
+          <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
+            Projects
+          </p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight mb-5">
+            Work that speaks for itself.
           </h1>
-          <p className="text-xl text-cyber-gray-400 max-w-2xl">
-            Production systems and commercial platforms built from the ground
-            up. Technical deep-dives into architecture, challenges, and
-            solutions.
+          <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-xl">
+            Real projects for real businesses. Each case study walks through the
+            problem, the approach, and the results.
           </p>
         </div>
 
-        {/* Work Grid - Large Mockups */}
+        {/* Project Cards */}
         <div
-          className="grid md:grid-cols-2 gap-8 lg:gap-12"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6"
           role="list"
           aria-label="Work projects"
         >
-          {projects.map((project, index) => (
-            <article
-              key={project.slug}
-              className="group relative"
-              role="listitem"
-            >
-              <Link href={`/work/${project.slug}`} className="block">
-                <div
-                  className="relative rounded-xl overflow-hidden transition-all duration-300 group-hover:border-white/10"
-                  style={{
-                    backgroundColor: "rgba(10, 14, 20, 0.4)",
-                    border: "1px solid rgba(255, 255, 255, 0.06)",
-                  }}
-                >
-                  {/* Image with Overlay on Hover */}
-                  <div className="relative aspect-video overflow-hidden">
+          {projects.map((project) => (
+            <article key={project.slug} role="listitem">
+              <Link
+                href={`/work/${project.slug}`}
+                className="group block rounded-xl border border-white/[0.06] bg-[#111318] overflow-hidden transition-colors duration-300 hover:border-white/[0.12]"
+                style={{
+                  boxShadow:
+                    "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
+                }}
+              >
+                {/* Thumbnail */}
+                {project.image && (
+                  <div className="relative aspect-[16/9] overflow-hidden">
                     <Image
-                      src={project.image || "/assets/stake-sight-demo.PNG"}
+                      src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                     />
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
-                      <div className="inline-flex items-center gap-2 px-6 py-3 bg-cyber-accent text-black font-semibold rounded-lg transition-all duration-300 hover:bg-white">
-                        <span>View Project</span>
-                        <svg
-                          className="w-5 h-5"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                      </div>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#111318] via-transparent to-transparent opacity-60" />
+                  </div>
+                )}
+
+                {/* Content */}
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-[10px] font-mono text-cyber-accent uppercase tracking-[0.15em]">
+                      {project.category}
+                    </span>
+                    <span className="text-cyber-gray-500 text-[10px]">·</span>
+                    <span className="text-[10px] font-mono text-cyber-gray-500">
+                      {project.readTime}
+                    </span>
                   </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    {/* Project Number & Category */}
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="font-mono text-[8pt] text-cyber-accent tracking-wider">
-                        // PROJECT_{String(index + 1).padStart(2, "0")}
+                  <h2 className="text-lg sm:text-xl font-semibold text-white leading-snug tracking-tight mb-2 group-hover:text-cyber-accent transition-colors duration-300">
+                    {project.title.split(":")[0]}
+                  </h2>
+
+                  <p className="text-sm text-cyber-gray-400 leading-relaxed line-clamp-2 mb-4">
+                    {project.excerpt}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.techStack.slice(0, 4).map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-[10px] font-mono px-2 py-0.5 bg-white/[0.04] border border-white/[0.06] text-cyber-gray-400 rounded"
+                      >
+                        {tech}
                       </span>
-                      <span className="text-[10px] font-mono text-cyber-gray-500 tracking-wider">
-                        [ {project.category.toUpperCase().replace(/ /g, "_")} ]
+                    ))}
+                    {project.techStack.length > 4 && (
+                      <span className="text-[10px] font-mono px-2 py-0.5 text-cyber-gray-500">
+                        +{project.techStack.length - 4}
                       </span>
-                    </div>
+                    )}
+                  </div>
 
-                    {/* Title */}
-                    <h2 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight group-hover:text-cyber-accent transition-colors">
-                      {project.title}
-                    </h2>
-
-                    {/* Excerpt */}
-                    <p className="text-sm text-cyber-gray-400 leading-relaxed mb-4">
-                      {project.excerpt}
-                    </p>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.techStack.slice(0, 4).map((tech) => (
-                        <span
-                          key={tech}
-                          className="text-[11px] font-mono px-2.5 py-1 bg-black/30 border border-white/5 text-cyber-gray-400 rounded"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.techStack.length > 4 && (
-                        <span className="text-[11px] font-mono px-2.5 py-1 text-cyber-gray-500">
-                          +{project.techStack.length - 4} more
-                        </span>
-                      )}
-                    </div>
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-cyber-gray-500 group-hover:text-cyber-accent transition-colors duration-300">
+                    <span>Read case study</span>
+                    <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </Link>
@@ -123,24 +123,31 @@ export default function CaseStudiesPage() {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-32 text-center max-w-3xl mx-auto space-y-6">
-          <p className="font-mono text-[8pt] text-cyber-accent tracking-wider">
-            // READY_TO_BUILD
-          </p>
-          <h2 className="text-4xl font-bold text-white">
-            Want Results Like These?
-          </h2>
-          <p className="text-lg text-cyber-gray-400">
-            Let's discuss how we can apply these proven strategies and technical
-            approaches to solve your unique business challenges.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-cyber-accent text-black font-semibold text-lg rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.5)]"
-          >
-            Start a Conversation
-          </Link>
+        {/* CTA */}
+        <div className="mt-20 sm:mt-28 pt-10 border-t border-white/[0.06]">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
+            <div className="max-w-xl">
+              <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
+                Your Project
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-tight tracking-tight mb-4">
+                Want results like these?
+              </h2>
+              <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
+                Tell me what&apos;s slowing your business down. I&apos;ll put
+                together a clear plan — no jargon, no obligations.
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)] w-full sm:w-auto"
+              >
+                <span>Start a Conversation</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 

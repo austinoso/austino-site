@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/projects";
 
 export default async function CaseStudyPage({
@@ -22,67 +22,76 @@ export default async function CaseStudyPage({
     <main className="relative min-h-screen bg-[#050505]">
       <Navigation />
 
-      {/* Background Gradient */}
+      {/* Noise grain */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
-          backgroundImage:
-            "radial-gradient(ellipse 100% 60% at 50% 0%, rgba(64, 224, 255, 0.06) 0%, rgba(88, 28, 135, 0.03) 40%, transparent 70%)",
-          filter: "blur(100px)",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          backgroundSize: "128px 128px",
         }}
         aria-hidden="true"
       />
 
-      <article className="relative max-w-[1400px] mx-auto px-6 py-32">
+      {/* Accent glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 40% at 50% 5%, rgba(64,224,255,0.04), transparent), radial-gradient(ellipse 60% 30% at 80% 50%, rgba(120,75,255,0.025), transparent)",
+        }}
+        aria-hidden="true"
+      />
+
+      <article className="relative max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-32 sm:pt-36 lg:pt-40 pb-20 sm:pb-28 md:pb-36">
         {/* Back Navigation */}
         <Link
           href="/work"
-          className="inline-flex items-center gap-2 font-mono text-[11px] text-cyber-accent hover:text-white transition-colors mb-12 tracking-wider"
+          className="inline-flex items-center gap-2 text-sm font-mono text-cyber-gray-400 hover:text-white transition-colors duration-300 mb-10 sm:mb-14 tracking-wide"
           aria-label="Back to all work"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
-          <span>BACK_TO_WORK</span>
+          <span>Back to Work</span>
         </Link>
 
         {/* Header */}
-        <header className="mb-16">
+        <header className="mb-14 sm:mb-20">
           {/* Metadata */}
-          <div className="flex flex-wrap items-center gap-4 mb-6">
-            <span className="font-mono text-[11px] text-cyber-accent tracking-wider font-semibold">
-              // {study.category.toUpperCase().replace(/ /g, "_")}
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <span className="text-[10px] font-mono text-cyber-accent uppercase tracking-[0.15em]">
+              {study.category}
             </span>
-            <span className="text-cyber-gray-500">•</span>
-            <span className="font-mono text-[10px] text-cyber-gray-500 tracking-[0.2em] uppercase">
+            <span className="text-cyber-gray-500 text-[10px]">·</span>
+            <span className="text-[10px] font-mono text-cyber-gray-500">
               {study.readTime}
             </span>
-            <span className="text-cyber-gray-500">•</span>
-            <time className="font-mono text-[10px] text-cyber-gray-500 tracking-[0.2em] uppercase">
+            <span className="text-cyber-gray-500 text-[10px]">·</span>
+            <time className="text-[10px] font-mono text-cyber-gray-500">
               {study.publishedDate}
             </time>
           </div>
 
           {/* Title */}
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white mb-5 leading-tight tracking-tight">
             {study.title}
           </h1>
 
           {/* Excerpt */}
-          <p className="text-xl text-cyber-gray-300 leading-relaxed max-w-4xl">
+          <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-3xl">
             {study.excerpt}
           </p>
 
           {/* Project Link */}
           {study.link && (
-            <div className="mt-8">
+            <div className="mt-6">
               <a
                 href={study.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-cyber-accent text-black font-semibold rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.5)]"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)]"
               >
                 {study.linkText || "Visit Live Site"}
                 <svg
-                  className="w-4 h-4"
+                  className="w-3.5 h-3.5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -99,101 +108,114 @@ export default async function CaseStudyPage({
           )}
         </header>
 
-        {/* Image & Results Side by Side */}
-        <div className="grid lg:grid-cols-5 gap-8 mb-16 items-start">
-          {/* Image - 60% width (3 columns) */}
-          {study.image && (
-            <div className="lg:col-span-3">
-              <div
-                className="relative rounded-xl overflow-hidden"
-                style={{
-                  boxShadow: "0 40px 100px rgba(0, 0, 0, 0.6)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                }}
-              >
-                {/* Glow effect */}
-                <div
-                  className="absolute inset-0 opacity-50 z-0"
-                  style={{
-                    background:
-                      "radial-gradient(circle at center, rgba(64, 224, 255, 0.15) 0%, transparent 70%)",
-                    filter: "blur(60px)",
-                  }}
-                  aria-hidden="true"
-                />
-                <Image
-                  src={study.image}
-                  alt={study.title}
-                  width={1400}
-                  height={788}
-                  className="w-full h-auto relative z-10"
-                  priority
-                />
+        {/* Hero Image */}
+        {study.image && (
+          <div className="mb-14 sm:mb-20">
+            <div
+              className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#111318]"
+              style={{
+                boxShadow:
+                  "0 32px 60px -12px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.03)",
+              }}
+            >
+              {/* Chrome bar */}
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0D0F13]">
+                <div className="flex items-center gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
+                </div>
+                {study.link && (
+                  <div className="flex-1 flex justify-center">
+                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-400 font-mono">
+                      <svg
+                        className="w-2.5 h-2.5 opacity-40"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                      >
+                        <path d="M11.5 1a3.5 3.5 0 00-3.5 3.5V7H3a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2V9a2 2 0 00-2-2H9V4.5a2.5 2.5 0 015 0V6h1V4.5A3.5 3.5 0 0011.5 1z" />
+                      </svg>
+                      {study.link.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          )}
 
-          {/* Results - 40% width (2 columns) */}
+              <Image
+                src={study.image}
+                alt={study.title}
+                width={1400}
+                height={788}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Results + Challenge/Solution Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 mb-14 sm:mb-20">
+          {/* Results */}
           <section
-            className="lg:col-span-2 relative p-8 rounded-xl"
+            className="lg:col-span-1 p-6 sm:p-8 rounded-xl border border-white/[0.06] bg-[#111318]"
             style={{
-              backgroundColor: "rgba(10, 14, 20, 0.6)",
-              border: "1px solid rgba(255, 255, 255, 0.08)",
+              boxShadow:
+                "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
             }}
           >
-            <h2 className="font-mono text-[11px] text-cyber-accent tracking-wider font-semibold mb-6">
-              // RESULTS_&_IMPACT
-            </h2>
-            <ul className="space-y-4" role="list" aria-label="Project results">
+            <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-5">
+              Results
+            </p>
+            <ul className="space-y-3.5" role="list" aria-label="Project results">
               {study.results.map((result: string, index: number) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-cyber-accent flex-shrink-0 mt-0.5" />
-                  <span className="text-cyber-gray-300 leading-relaxed">
+                <li key={index} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#4ADE80] flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-cyber-gray-300 leading-relaxed">
                     {result}
                   </span>
                 </li>
               ))}
             </ul>
           </section>
-        </div>
 
-        {/* Challenge & Solution Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {/* Challenge */}
           <section
-            className="relative p-8 rounded-xl"
+            className="p-6 sm:p-8 rounded-xl border border-white/[0.06] bg-[#111318]"
             style={{
-              backgroundColor: "rgba(10, 14, 20, 0.6)",
-              border: "1px solid rgba(255, 255, 255, 0.08)",
+              boxShadow:
+                "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
             }}
           >
-            <h2 className="font-mono text-[11px] text-cyber-accent tracking-wider font-semibold mb-4">
-              // THE_CHALLENGE
-            </h2>
-            <p className="text-cyber-gray-300 leading-relaxed text-lg">
+            <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-5">
+              The Challenge
+            </p>
+            <p className="text-sm sm:text-base text-cyber-gray-300 leading-relaxed">
               {study.challenge}
             </p>
           </section>
+
+          {/* Solution */}
           <section
-            className="relative p-8 rounded-xl"
+            className="p-6 sm:p-8 rounded-xl border border-white/[0.06] bg-[#111318]"
             style={{
-              backgroundColor: "rgba(10, 14, 20, 0.6)",
-              border: "1px solid rgba(255, 255, 255, 0.08)",
+              boxShadow:
+                "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
             }}
           >
-            <h2 className="font-mono text-[11px] text-cyber-accent tracking-wider font-semibold mb-4">
-              // THE_SOLUTION
-            </h2>
-            <p className="text-cyber-gray-300 leading-relaxed text-lg">
+            <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-5">
+              The Approach
+            </p>
+            <p className="text-sm sm:text-base text-cyber-gray-300 leading-relaxed">
               {study.solution}
             </p>
           </section>
         </div>
 
         {/* Tech Stack */}
-        <section className="mb-16">
-          <h2 className="font-mono text-[11px] text-cyber-accent tracking-wider font-semibold mb-4">
-            // TECH_STACK
-          </h2>
+        <section className="mb-14 sm:mb-20">
+          <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
+            Tech Stack
+          </p>
           <div
             className="flex flex-wrap gap-2"
             role="list"
@@ -202,7 +224,7 @@ export default async function CaseStudyPage({
             {study.techStack.map((tech: string, index: number) => (
               <span
                 key={index}
-                className="px-3 py-1.5 bg-black/20 border border-white/5 text-cyber-gray-400 rounded font-mono text-xs"
+                className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.06] text-cyber-gray-400 rounded font-mono text-xs"
                 role="listitem"
               >
                 {tech}
@@ -212,13 +234,13 @@ export default async function CaseStudyPage({
         </section>
 
         {/* Detailed Sections */}
-        <div className="space-y-12 mb-20">
-          {study.sections.map((section: any, index: number) => (
-            <section key={index} className="max-w-4xl">
-              <h2 className="text-3xl font-bold text-white mb-5 leading-tight tracking-tight">
+        <div className="space-y-12 sm:space-y-16 mb-20 sm:mb-28">
+          {study.sections.map((section: { heading: string; content: string }, index: number) => (
+            <section key={index} className="max-w-3xl">
+              <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 leading-snug tracking-tight">
                 {section.heading}
               </h2>
-              <p className="text-cyber-gray-300 leading-relaxed text-lg">
+              <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
                 {section.content}
               </p>
             </section>
@@ -226,41 +248,31 @@ export default async function CaseStudyPage({
         </div>
 
         {/* CTA */}
-        <aside
-          className="relative p-12 rounded-xl text-center overflow-hidden"
-          style={{
-            backgroundColor: "rgba(10, 14, 20, 0.8)",
-            border: "1px solid rgba(64, 224, 255, 0.2)",
-          }}
-        >
-          {/* Background glow */}
-          <div
-            className="absolute inset-0 opacity-30"
-            style={{
-              background:
-                "radial-gradient(circle at center, rgba(64, 224, 255, 0.15) 0%, transparent 70%)",
-              filter: "blur(60px)",
-            }}
-            aria-hidden="true"
-          />
-
-          <div className="relative z-10">
-            <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
-              Need Similar Results?
-            </h2>
-            <p className="text-cyber-gray-300 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
-              Let's discuss how we can apply these strategies to your project
-              and create measurable impact for your business.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base text-black font-semibold transition-all duration-300 bg-cyber-accent hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.5)]"
-              aria-label="Contact to discuss your project"
-            >
-              Schedule a Discovery Call
-            </Link>
+        <div className="pt-10 border-t border-white/[0.06]">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
+            <div className="max-w-xl">
+              <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
+                Your Project
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-tight tracking-tight mb-4">
+                Need similar results?
+              </h2>
+              <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
+                Tell me what&apos;s slowing your business down. I&apos;ll put
+                together a clear plan — no jargon, no obligations.
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)] w-full sm:w-auto"
+              >
+                <span>Start a Conversation</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
-        </aside>
+        </div>
       </article>
 
       <Footer />
