@@ -1,8 +1,8 @@
 export const scores = [
-  { label: "Performance", value: 98 },
+  { label: "Performance", value: 100 },
   { label: "Accessibility", value: 100 },
   { label: "SEO", value: 100 },
-  { label: "Best Practices", value: 97 },
+  { label: "Best Practices", value: 100 },
 ];
 
 export const terminalOutput = [

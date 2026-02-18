@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { getAllProjects } from "@/lib/projects";
+
+export const metadata: Metadata = {
+  title: "Work | austino",
+  description:
+    "Real projects for real businesses. Case studies showing the problem, the approach, and the results.",
+};
 
 export default function WorkPage() {
   const projects = getAllProjects();
@@ -134,8 +141,8 @@ export default function WorkPage() {
                 Want results like these?
               </h2>
               <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
-                Tell me what&apos;s slowing your business down. I&apos;ll put
-                together a clear plan — no jargon, no obligations.
+                Have a project in mind? Let&apos;s talk about what&apos;s
+                possible — no pressure, no commitments.
               </p>
             </div>
             <div className="flex-shrink-0">

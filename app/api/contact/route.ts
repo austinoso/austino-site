@@ -3,14 +3,21 @@ import { NextRequest, NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 // Handle OPTIONS for CORS preflight
 export async function OPTIONS() {
   return NextResponse.json({}, { status: 200 });
 }
 
 export async function POST(req: NextRequest) {
-  console.log("Contact API called");
-
   try {
     // Check if API key is configured
     if (!process.env.RESEND_API_KEY) {
@@ -33,19 +40,26 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    console.log("Request body received");
     const {
       name,
       email,
       company,
-      projectType,
       budget,
       timeline,
       description,
-      currentChallenges,
-      successMetrics,
       turnstileToken,
     } = body;
+
+    // Sanitize user input for HTML email
+    const safeName = escapeHtml(name || "");
+    const safeEmail = escapeHtml(email || "");
+    const safeCompany = company ? escapeHtml(company) : "";
+    const safeBudget = budget ? escapeHtml(budget) : "";
+    const safeTimeline = timeline ? escapeHtml(timeline) : "";
+    const safeDescription = escapeHtml(description || "").replace(
+      /\n/g,
+      "<br>",
+    );
 
     // Verify Turnstile token
     if (!turnstileToken) {
@@ -129,20 +143,20 @@ export async function POST(req: NextRequest) {
               
               <div class="field">
                 <div class="label">Name</div>
-                <div class="value">${name}</div>
+                <div class="value">${safeName}</div>
               </div>
 
               <div class="field">
                 <div class="label">Email</div>
-                <div class="value"><a href="mailto:${email}">${email}</a></div>
+                <div class="value"><a href="mailto:${safeEmail}">${safeEmail}</a></div>
               </div>
 
               ${
-                company
+                safeCompany
                   ? `
               <div class="field">
                 <div class="label">Company</div>
-                <div class="value">${company}</div>
+                <div class="value">${safeCompany}</div>
               </div>
               `
                   : ""
@@ -151,33 +165,22 @@ export async function POST(req: NextRequest) {
               <h2>Project Details</h2>
 
               ${
-                projectType
-                  ? `
-              <div class="field">
-                <div class="label">Project Type</div>
-                <div class="value">${projectType}</div>
-              </div>
-              `
-                  : ""
-              }
-
-              ${
-                budget
+                safeBudget
                   ? `
               <div class="field">
                 <div class="label">Budget</div>
-                <div class="value">${budget}</div>
+                <div class="value">${safeBudget}</div>
               </div>
               `
                   : ""
               }
 
               ${
-                timeline
+                safeTimeline
                   ? `
               <div class="field">
                 <div class="label">Timeline</div>
-                <div class="value">${timeline}</div>
+                <div class="value">${safeTimeline}</div>
               </div>
               `
                   : ""
@@ -185,30 +188,8 @@ export async function POST(req: NextRequest) {
 
               <div class="field">
                 <div class="label">Project Description</div>
-                <div class="value">${description.replace(/\n/g, "<br>")}</div>
+                <div class="value">${safeDescription}</div>
               </div>
-
-              ${
-                currentChallenges
-                  ? `
-              <div class="field">
-                <div class="label">Current Challenges</div>
-                <div class="value">${currentChallenges.replace(/\n/g, "<br>")}</div>
-              </div>
-              `
-                  : ""
-              }
-
-              ${
-                successMetrics
-                  ? `
-              <div class="field">
-                <div class="label">Success Metrics</div>
-                <div class="value">${successMetrics.replace(/\n/g, "<br>")}</div>
-              </div>
-              `
-                  : ""
-              }
 
               <div class="footer">
                 <p>Submitted on ${new Date().toLocaleString("en-US", {

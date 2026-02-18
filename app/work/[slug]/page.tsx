@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -5,6 +6,20 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/projects";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const study = getProjectBySlug(slug);
+  if (!study) return { title: "Project Not Found | austino" };
+  return {
+    title: `${study.title} | austino`,
+    description: study.excerpt,
+  };
+}
 
 export default async function CaseStudyPage({
   params,
@@ -266,8 +281,9 @@ export default async function CaseStudyPage({
                 Need similar results?
               </h2>
               <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
-                Tell me what&apos;s slowing your business down. I&apos;ll put
-                together a clear plan — no jargon, no obligations.
+                I&apos;d love to help your business achieve something similar.
+                Reach out and I&apos;ll share a clear plan tailored to your
+                needs.
               </p>
             </div>
             <div className="flex-shrink-0">

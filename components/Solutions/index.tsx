@@ -57,134 +57,134 @@ export default function Solutions() {
           });
         }
 
-      /* Subsection animations */
-      subs?.forEach((sub, i) => {
-        const content = sub.querySelector("[data-content]");
-        const visual = sub.querySelector("[data-visual]");
-        const features = sub.querySelectorAll("[data-feature]");
-        const flipped = i === 1;
+        /* Subsection animations */
+        subs?.forEach((sub, i) => {
+          const content = sub.querySelector("[data-content]");
+          const visual = sub.querySelector("[data-visual]");
+          const features = sub.querySelectorAll("[data-feature]");
+          const flipped = i === 1;
 
-        /* Content slides in */
-        if (content) {
-          gsap.to(content, {
-            x: 0,
-            opacity: 1,
-            duration: 0.6,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sub, start: "top 75%" },
-          });
-        }
+          /* Content slides in */
+          if (content) {
+            gsap.to(content, {
+              x: 0,
+              opacity: 1,
+              duration: 0.6,
+              ease: "power3.out",
+              scrollTrigger: { trigger: sub, start: "top 75%" },
+            });
+          }
 
-        /* Visual slides in from opposite side */
-        if (visual) {
-          gsap.to(visual, {
-            x: 0,
-            opacity: 1,
-            duration: 0.6,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sub, start: "top 75%" },
-          });
-        }
+          /* Visual slides in from opposite side */
+          if (visual) {
+            gsap.to(visual, {
+              x: 0,
+              opacity: 1,
+              duration: 0.6,
+              ease: "power3.out",
+              scrollTrigger: { trigger: sub, start: "top 75%" },
+            });
+          }
 
-        /* Features */
-        if (features.length) {
-          gsap.to(features, {
+          /* Features */
+          if (features.length) {
+            gsap.to(features, {
+              y: 0,
+              opacity: 1,
+              duration: 0.4,
+              ease: "power2.out",
+              scrollTrigger: { trigger: features[0], start: "top 90%" },
+            });
+          }
+
+          /* ── Section-specific visual animations ── */
+
+          if (i === 0) {
+            /* Performance card: bars fill + numbers count */
+            sub.querySelectorAll("[data-bar]").forEach((bar) => {
+              gsap.from(bar, {
+                scaleX: 0,
+                duration: 1,
+                ease: "power2.out",
+                transformOrigin: "left center",
+                scrollTrigger: { trigger: bar, start: "top 88%" },
+              });
+            });
+
+            sub.querySelectorAll<HTMLElement>("[data-score]").forEach((el) => {
+              const target = parseInt(el.dataset.score || "0");
+              const counter = { v: 0 };
+              gsap.to(counter, {
+                v: target,
+                duration: 1.2,
+                ease: "power2.out",
+                scrollTrigger: { trigger: el, start: "top 88%" },
+                onUpdate: () => {
+                  el.textContent = Math.round(counter.v).toString();
+                },
+              });
+            });
+          }
+
+          if (i === 1) {
+            /* Terminal: typewriter line-by-line */
+            const lines = sub.querySelectorAll("[data-line]");
+            if (lines.length) {
+              gsap.to(lines, {
+                opacity: 1,
+                y: 0,
+                duration: 0.2,
+                stagger: 0.08,
+                ease: "power1.out",
+                scrollTrigger: { trigger: visual, start: "top 72%" },
+              });
+            }
+          }
+
+          if (i === 2) {
+            /* Dashboard: counters + status row stagger */
+            sub.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => {
+              const target = parseFloat(el.dataset.count || "0");
+              const suffix = el.dataset.suffix || "";
+              const decimal = el.dataset.decimal === "true";
+              const counter = { v: 0 };
+              gsap.to(counter, {
+                v: target,
+                duration: 1.4,
+                ease: "power2.out",
+                scrollTrigger: { trigger: el, start: "top 85%" },
+                onUpdate: () => {
+                  el.textContent =
+                    (decimal
+                      ? counter.v.toFixed(1)
+                      : Math.round(counter.v).toString()) + suffix;
+                },
+              });
+            });
+
+            const rows = sub.querySelectorAll("[data-row]");
+            if (rows.length) {
+              gsap.to(rows, {
+                x: 0,
+                opacity: 1,
+                duration: 0.4,
+                ease: "power2.out",
+                scrollTrigger: { trigger: rows[0], start: "top 90%" },
+              });
+            }
+          }
+        });
+
+        /* Closer fade */
+        if (closer) {
+          gsap.to(closer, {
             y: 0,
             opacity: 1,
             duration: 0.4,
             ease: "power2.out",
-            scrollTrigger: { trigger: features[0], start: "top 90%" },
+            scrollTrigger: { trigger: closer, start: "top 90%" },
           });
         }
-
-        /* ── Section-specific visual animations ── */
-
-        if (i === 0) {
-          /* Performance card: bars fill + numbers count */
-          sub.querySelectorAll("[data-bar]").forEach((bar) => {
-            gsap.from(bar, {
-              scaleX: 0,
-              duration: 1,
-              ease: "power2.out",
-              transformOrigin: "left center",
-              scrollTrigger: { trigger: bar, start: "top 88%" },
-            });
-          });
-
-          sub.querySelectorAll<HTMLElement>("[data-score]").forEach((el) => {
-            const target = parseInt(el.dataset.score || "0");
-            const counter = { v: 0 };
-            gsap.to(counter, {
-              v: target,
-              duration: 1.2,
-              ease: "power2.out",
-              scrollTrigger: { trigger: el, start: "top 88%" },
-              onUpdate: () => {
-                el.textContent = Math.round(counter.v).toString();
-              },
-            });
-          });
-        }
-
-        if (i === 1) {
-          /* Terminal: typewriter line-by-line */
-          const lines = sub.querySelectorAll("[data-line]");
-          if (lines.length) {
-            gsap.to(lines, {
-              opacity: 1,
-              y: 0,
-              duration: 0.2,
-              stagger: 0.08,
-              ease: "power1.out",
-              scrollTrigger: { trigger: visual, start: "top 72%" },
-            });
-          }
-        }
-
-        if (i === 2) {
-          /* Dashboard: counters + status row stagger */
-          sub.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => {
-            const target = parseFloat(el.dataset.count || "0");
-            const suffix = el.dataset.suffix || "";
-            const decimal = el.dataset.decimal === "true";
-            const counter = { v: 0 };
-            gsap.to(counter, {
-              v: target,
-              duration: 1.4,
-              ease: "power2.out",
-              scrollTrigger: { trigger: el, start: "top 85%" },
-              onUpdate: () => {
-                el.textContent =
-                  (decimal
-                    ? counter.v.toFixed(1)
-                    : Math.round(counter.v).toString()) + suffix;
-              },
-            });
-          });
-
-          const rows = sub.querySelectorAll("[data-row]");
-          if (rows.length) {
-            gsap.to(rows, {
-              x: 0,
-              opacity: 1,
-              duration: 0.4,
-              ease: "power2.out",
-              scrollTrigger: { trigger: rows[0], start: "top 90%" },
-            });
-          }
-        }
-      });
-
-      /* Closer fade */
-      if (closer) {
-        gsap.to(closer, {
-          y: 0,
-          opacity: 1,
-          duration: 0.4,
-          ease: "power2.out",
-          scrollTrigger: { trigger: closer, start: "top 90%" },
-        });
-      }
       }, sectionRef);
     });
 

@@ -104,9 +104,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
           {/* ─── Copy ─── */}
           <div ref={copyRef} className="lg:col-span-6 space-y-5">
-            <p
-              className="font-mono text-xs text-cyber-gray-400 uppercase tracking-[0.1em] sm:tracking-[0.2em]"
-            >
+            <p className="font-mono text-xs text-cyber-gray-400 uppercase tracking-[0.1em] sm:tracking-[0.2em]">
               Performance &middot; Conversions &middot; Automation
             </p>
 
@@ -118,17 +116,13 @@ export default function Hero() {
               immediate
             />
 
-            <p
-              className="text-base sm:text-lg text-cyber-gray-300 max-w-lg leading-relaxed"
-            >
+            <p className="text-base sm:text-lg text-cyber-gray-300 max-w-lg leading-relaxed">
               I build fast, high-converting sites that turn visitors into
               customers — then automate the follow-ups, bookings, and busywork
               so you can focus on running your business.
             </p>
 
-            <div
-              className="inline-flex items-center gap-2.5 text-sm text-cyber-gray-400"
-            >
+            <div className="inline-flex items-center gap-2.5 text-sm text-cyber-gray-400">
               <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
               Based in Northern California, serving clients everywhere.
             </div>

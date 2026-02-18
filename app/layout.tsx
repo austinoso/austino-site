@@ -17,32 +17,28 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "austino | Technical Partner for Web Apps & Custom Tools",
+  title: "austino | Websites, Automation & Tech Support for Small Businesses",
   description:
-    "Partnering with founders and teams to build custom software, web apps, and digital tools. Focused on technical logistics and feasibility to ensure every project launches on a solid foundation.",
+    "I build fast, high-converting websites, automate the busywork, and provide ongoing tech support — so small business owners can focus on what they do best.",
   keywords: [
-    "software development",
-    "MVP development",
-    "custom solutions",
-    "automation tools",
-    "senior engineer",
-    "technical consulting",
-    "web applications",
-    "SaaS products",
-    "founder partner",
-    "product engineering",
+    "small business web development",
+    "local business website",
+    "business automation",
+    "booking system integration",
     "workflow automation",
-    "technical advisory",
-    "full-stack development",
-    "web development",
+    "small business tech support",
+    "website maintenance",
+    "web developer for small business",
+    "Northern California web developer",
+    "custom business tools",
   ],
   authors: [{ name: "Austin O." }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "austino | Technical Partner for Web Apps & Custom Tools",
+    title: "austino | Websites, Automation & Tech Support for Small Businesses",
     description:
-      "Partnering with founders and teams to build custom software, web apps, and digital tools. Focused on technical logistics and feasibility to ensure every project launches on a solid foundation.",
+      "I build fast, high-converting websites, automate the busywork, and provide ongoing tech support — so small business owners can focus on what they do best.",
   },
 };
 
@@ -53,10 +49,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}
-        suppressHydrationWarning
-      >
+      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
         <SmoothScroll>
           <div className="min-h-screen bg-cyber-dark">{children}</div>
         </SmoothScroll>
