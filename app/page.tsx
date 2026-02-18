@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import PainPoints from "@/components/PainPoints";
@@ -10,7 +11,9 @@ export default function HomePage() {
   return (
     <main className="relative">
       <Navigation />
-      <Hero />
+      <Suspense>
+        <Hero />
+      </Suspense>
       <PainPoints />
       <Solutions />
       <Work />

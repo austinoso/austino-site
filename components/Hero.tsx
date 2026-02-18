@@ -1,11 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
 import { gsap } from "gsap";
 import { signalHeroReady } from "@/lib/heroReady";
 import WordReveal from "@/components/ui/WordReveal";
-import { Mail, Calendar, FileText, Star } from "lucide-react";
+import {
+  Mail,
+  Calendar,
+  FileText,
+  Star,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Cinematic hero: 5-scene loop that demos the full user → automation */
@@ -32,7 +40,96 @@ export default function Hero() {
   const statConv = useRef<HTMLSpanElement>(null);
   const statScore = useRef<HTMLSpanElement>(null);
 
+  /* Debug mode */
+  const searchParams = useSearchParams();
+  const isDebug = searchParams.get("debug") !== null;
+  const [debugScene, setDebugScene] = useState(0);
+
+  const SCENE_LABELS = [
+    "Scene 1 — Landing Page",
+    "Scene 2 — Booking Form",
+    "Scene 3 — Confirmation",
+    "Scene 4 — Automation",
+    "Scene 5 — Results",
+  ];
+
+  const prevScene = useCallback(
+    () => setDebugScene((s) => Math.max(0, s - 1)),
+    [],
+  );
+  const nextScene = useCallback(
+    () => setDebugScene((s) => Math.min(4, s + 1)),
+    [],
+  );
+
+  /* ── Debug mode: show one scene at a time with all elements visible ── */
   useEffect(() => {
+    if (!isDebug) return;
+    const scenes = [s1, s2, s3, s4, s5].map((r) => r.current!);
+    const cursor = cursorRef.current;
+    if (!scenes.every(Boolean) || !cursor) return;
+
+    // Show copy & visual immediately
+    if (copyRef.current) gsap.set(copyRef.current, { opacity: 1, y: 0 });
+    if (visualRef.current) gsap.set(visualRef.current, { opacity: 1, y: 0 });
+    signalHeroReady();
+
+    // Hide all scenes, then show only the active one
+    scenes.forEach((s) => gsap.set(s, { opacity: 0, xPercent: 0, scale: 1 }));
+    gsap.set(scenes[debugScene], { opacity: 1 });
+
+    // Reset cursor
+    gsap.set(cursor, { opacity: 0, scale: 1 });
+
+    const mobile = !window.matchMedia("(min-width: 640px)").matches;
+
+    // Scene-specific element states (show everything in "completed" state)
+    switch (debugScene) {
+      case 0: // Landing page — show cursor at "Book Now"
+        gsap.set(cursor, {
+          opacity: 1,
+          left: mobile ? "7%" : "8%",
+          top: mobile ? "58%" : "62%",
+        });
+        break;
+      case 1: // Booking form — all fields filled, cursor at confirm
+        gsap.set(".hv", { opacity: 1 });
+        gsap.set(cursor, {
+          opacity: 1,
+          left: mobile ? "38%" : "46%",
+          top: mobile ? "86%" : "91%",
+        });
+        break;
+      case 2: // Confirmation — checkmark drawn, text visible
+        gsap.set(".hv", { opacity: 0 });
+        gsap.set(".hconfirm-circle", { strokeDashoffset: 0 });
+        gsap.set(".hconfirm-check", { strokeDashoffset: 0 });
+        gsap.set(".hconfirm-text", { opacity: 1, y: 0 });
+        gsap.set(".hconfirm-details", { opacity: 1 });
+        break;
+      case 3: // Automation — all tasks visible with checks
+        gsap.set(".hv", { opacity: 0 });
+        gsap.set(".hconfirm-circle", { strokeDashoffset: 150.8 });
+        gsap.set(".hconfirm-check", { strokeDashoffset: 35 });
+        gsap.set(".hconfirm-text", { opacity: 0 });
+        gsap.set(".hconfirm-details", { opacity: 0 });
+        gsap.set(".htask", { opacity: 1, x: 0 });
+        gsap.set(".htask-check", { strokeDashoffset: 0 });
+        break;
+      case 4: // Results — ring filled, counters at final values
+        gsap.set(".hv", { opacity: 0 });
+        gsap.set(".htask", { opacity: 0 });
+        gsap.set(".hstat-ring", { strokeDashoffset: 0 });
+        if (statLeads.current) statLeads.current.textContent = "47";
+        if (statConv.current) statConv.current.textContent = "23%";
+        if (statScore.current) statScore.current.textContent = "100";
+        break;
+    }
+  }, [isDebug, debugScene]);
+
+  /* ── Normal animation (skipped in debug mode) ── */
+  useEffect(() => {
+    if (isDebug) return;
     const scenes = [s1, s2, s3, s4, s5].map((r) => r.current!);
     const cursor = cursorRef.current;
     if (!scenes.every(Boolean) || !cursor) return;
@@ -63,219 +160,246 @@ export default function Hero() {
       /* ═══════════════════════════════════════════════ */
       /*  Master looping timeline                        */
       /* ═══════════════════════════════════════════════ */
+      const isMobile = !window.matchMedia("(min-width: 640px)").matches;
       let firstPlay = true;
       const buildTimeline = () => {
-      const tl = gsap.timeline({
-        delay: firstPlay ? 1.5 : 0.8,
-        onComplete: () => {
-          tl.kill();
-          buildTimeline();
-        },
-      });
-      firstPlay = false;
-
-      /* ── Reset state ── */
-      tl.set(scenes[0], { opacity: 1, xPercent: 0, scale: 1 });
-      tl.set(scenes.slice(1), { opacity: 0, xPercent: 0, scale: 1 });
-      tl.set(cursor, { opacity: 0, left: "60%", top: "20%", scale: 1 });
-      tl.set(".hv", { opacity: 0 });
-      tl.set(".hconfirm-circle", { strokeDashoffset: 150.8 });
-      tl.set(".hconfirm-check", { strokeDashoffset: 35 });
-      tl.set(".hconfirm-text", { opacity: 0, y: 8 });
-      tl.set(".hconfirm-details", { opacity: 0 });
-      tl.set(".htask", { opacity: 0, x: 20 });
-      tl.set(".htask-check", { strokeDashoffset: 20 });
-      tl.set(".hstat-ring", { strokeDashoffset: 97.4 });
-      tl.call(() => {
-        if (statLeads.current) statLeads.current.textContent = "0";
-        if (statConv.current) statConv.current.textContent = "0%";
-        if (statScore.current) statScore.current.textContent = "0";
-      });
-
-      /* ───────────────────────────────────────── */
-      /*  ACT 1 — The Customer Experience          */
-      /* ───────────────────────────────────────── */
-
-      /* Scene 1: Landing page — cursor glides to CTA and clicks */
-      tl.addLabel("scene1", "+=0.6");
-      // Cursor enters
-      tl.to(cursor, { opacity: 1, duration: 0.35 }, "scene1+=0.4");
-      // Cursor glides to "Book Now" button
-      tl.to(
-        cursor,
-        { left: "8%", top: "62%", duration: 1.3, ease: "power2.inOut" },
-        ">0.1",
-      );
-      // Click
-      tl.to(cursor, { scale: 0.7, duration: 0.07 });
-      tl.to(cursor, { scale: 1, duration: 0.15, ease: "back.out(3)" });
-      tl.to({}, { duration: 0.35 });
-      tl.to(cursor, { opacity: 0, duration: 0.15 });
-
-      /* Transition 1 → 2: slide */
-      tl.addLabel("t12", "+=0.12");
-      tl.to(
-        scenes[0],
-        { xPercent: -30, opacity: 0, duration: 0.5, ease: "power2.inOut" },
-        "t12",
-      );
-      tl.fromTo(
-        scenes[1],
-        { xPercent: 30, opacity: 0 },
-        { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
-        "t12",
-      );
-
-      /* Scene 2: Booking form — fields auto-fill */
-      tl.addLabel("scene2", "+=0.25");
-      tl.to(".hv", { opacity: 1, duration: 0.25, stagger: 0.4 }, "scene2");
-      // Cursor clicks "Confirm Booking"
-      tl.set(cursor, { left: "40%", top: "85%" }, "+=0.35");
-      tl.to(cursor, { opacity: 1, duration: 0.3 });
-      tl.to(cursor, { scale: 0.7, duration: 0.07 });
-      tl.to(cursor, { scale: 1, duration: 0.15, ease: "back.out(3)" });
-      tl.to(cursor, { opacity: 0, duration: 0.15 }, "+=0.2");
-
-      /* Transition 2 → 3: slide */
-      tl.addLabel("t23", "+=0.12");
-      tl.to(
-        scenes[1],
-        { xPercent: -30, opacity: 0, duration: 0.5, ease: "power2.inOut" },
-        "t23",
-      );
-      tl.fromTo(
-        scenes[2],
-        { xPercent: 30, opacity: 0 },
-        { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
-        "t23",
-      );
-
-      /* Scene 3: Confirmation — checkmark draws */
-      tl.addLabel("scene3", "+=0.12");
-      tl.to(
-        ".hconfirm-circle",
-        { strokeDashoffset: 0, duration: 0.55, ease: "power2.out" },
-        "scene3",
-      );
-      tl.to(
-        ".hconfirm-check",
-        { strokeDashoffset: 0, duration: 0.35, ease: "power2.out" },
-        "scene3+=0.3",
-      );
-      tl.to(
-        ".hconfirm-text",
-        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
-        "scene3+=0.5",
-      );
-      tl.to(".hconfirm-details", { opacity: 1, duration: 0.3 }, "scene3+=0.7");
-      tl.to({}, { duration: 1.0 }); // hold
-
-      /* ───────────────────────────────────────── */
-      /*  ACT 2 — Behind the Scenes                */
-      /* ───────────────────────────────────────── */
-
-      /* Transition 3 → 4: morph (scale pivot) */
-      tl.addLabel("t34", "+=0.12");
-      tl.to(
-        scenes[2],
-        { scale: 0.92, opacity: 0, duration: 0.4, ease: "power2.in" },
-        "t34",
-      );
-      tl.fromTo(
-        scenes[3],
-        { scale: 1.06, opacity: 0, xPercent: 0 },
-        { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" },
-        "t34+=0.3",
-      );
-
-      /* Scene 4: Automation cascade */
-      tl.addLabel("scene4", "+=0.2");
-      tl.to(
-        ".htask",
-        { opacity: 1, x: 0, duration: 0.3, stagger: 0.45, ease: "power2.out" },
-        "scene4",
-      );
-      tl.to(
-        ".htask-check",
-        {
-          strokeDashoffset: 0,
-          duration: 0.25,
-          stagger: 0.45,
-          ease: "power2.out",
-        },
-        "scene4+=0.2",
-      );
-      tl.to({}, { duration: 0.8 }); // hold
-
-      /* Transition 4 → 5: slide */
-      tl.addLabel("t45", "+=0.12");
-      tl.to(
-        scenes[3],
-        { xPercent: -30, opacity: 0, duration: 0.5, ease: "power2.inOut" },
-        "t45",
-      );
-      tl.fromTo(
-        scenes[4],
-        { xPercent: 30, opacity: 0 },
-        { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
-        "t45",
-      );
-
-      /* Scene 5: Results — counters tick up */
-      tl.addLabel("scene5", "+=0.2");
-      tl.to(
-        ".hstat-ring",
-        { strokeDashoffset: 0, duration: 1.2, ease: "power2.out" },
-        "scene5",
-      );
-      const counters = { leads: 0, conv: 0, score: 0 };
-      tl.fromTo(
-        counters,
-        { leads: 0, conv: 0, score: 0 },
-        {
-          leads: 47,
-          conv: 23,
-          score: 100,
-          duration: 1.2,
-          ease: "power2.out",
-          onUpdate: () => {
-            if (statLeads.current)
-              statLeads.current.textContent = Math.round(
-                counters.leads,
-              ).toString();
-            if (statConv.current)
-              statConv.current.textContent =
-                Math.round(counters.conv).toString() + "%";
-            if (statScore.current)
-              statScore.current.textContent = Math.round(
-                counters.score,
-              ).toString();
+        const tl = gsap.timeline({
+          delay: firstPlay ? 1.5 : 0,
+          onComplete: () => {
+            // Cross-fade scene 5 → scene 0, THEN rebuild
+            const xfade = gsap.timeline({
+              onComplete: () => {
+                xfade.kill();
+                // Reset all hidden elements imperatively before new timeline
+                gsap.set(scenes.slice(1), {
+                  opacity: 0,
+                  xPercent: 0,
+                  scale: 1,
+                });
+                gsap.set(cursor, {
+                  opacity: 0,
+                  left: "60%",
+                  top: "20%",
+                  scale: 1,
+                });
+                gsap.set(".hv", { opacity: 0 });
+                gsap.set(".hconfirm-circle", { strokeDashoffset: 150.8 });
+                gsap.set(".hconfirm-check", { strokeDashoffset: 35 });
+                gsap.set(".hconfirm-text", { opacity: 0, y: 8 });
+                gsap.set(".hconfirm-details", { opacity: 0 });
+                gsap.set(".htask", { opacity: 0, x: 20 });
+                gsap.set(".htask-check", { strokeDashoffset: 20 });
+                gsap.set(".hstat-ring", { strokeDashoffset: 97.4 });
+                if (statLeads.current) statLeads.current.textContent = "0";
+                if (statConv.current) statConv.current.textContent = "0%";
+                if (statScore.current) statScore.current.textContent = "0";
+                buildTimeline();
+              },
+            });
+            xfade.to(
+              scenes[4],
+              { opacity: 0, duration: 0.6, ease: "power2.inOut" },
+              0,
+            );
+            xfade.fromTo(
+              scenes[0],
+              { xPercent: 0, opacity: 0, scale: 1 },
+              { opacity: 1, duration: 0.6 },
+              0.15,
+            );
           },
-        },
-        "scene5",
-      );
-      tl.to({}, { duration: 1.5 }); // hold
+        });
+        firstPlay = false;
 
-      /* Cross-fade 5 → 1 (seamless loop) */
-      tl.addLabel("loop");
-      tl.to(
-        scenes[4],
-        { opacity: 0, duration: 0.6, ease: "power2.inOut" },
-        "loop",
-      );
-      tl.fromTo(
-        scenes[0],
-        { xPercent: 0, opacity: 0, scale: 1 },
-        { opacity: 1, duration: 0.6 },
-        "loop+=0.15",
-      );
+        /* ───────────────────────────────────────── */
+        /*  ACT 1 — The Customer Experience          */
+        /* ───────────────────────────────────────── */
+
+        /* Scene 1: Landing page — cursor glides to CTA and clicks */
+        tl.addLabel("scene1", "+=0.6");
+        // Cursor enters
+        tl.to(cursor, { opacity: 1, duration: 0.35 }, "scene1+=0.4");
+        // Cursor glides to "Book Now" button
+        tl.to(
+          cursor,
+          {
+            left: isMobile ? "7%" : "8%",
+            top: isMobile ? "58%" : "62%",
+            duration: 1.3,
+            ease: "power2.inOut",
+          },
+          ">0.1",
+        );
+        // Click
+        tl.to(cursor, { scale: 0.7, duration: 0.07 });
+        tl.to(cursor, { scale: 1, duration: 0.15, ease: "back.out(3)" });
+        tl.to({}, { duration: 0.35 });
+        tl.to(cursor, { opacity: 0, duration: 0.15 });
+
+        /* Transition 1 → 2: slide */
+        tl.addLabel("t12", "+=0.12");
+        tl.to(
+          scenes[0],
+          { xPercent: -30, opacity: 0, duration: 0.5, ease: "power2.inOut" },
+          "t12",
+        );
+        tl.fromTo(
+          scenes[1],
+          { xPercent: 30, opacity: 0 },
+          { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
+          "t12",
+        );
+
+        /* Scene 2: Booking form — fields auto-fill */
+        tl.addLabel("scene2", "+=0.25");
+        tl.to(".hv", { opacity: 1, duration: 0.25, stagger: 0.4 }, "scene2");
+        // Cursor clicks "Confirm Booking"
+        tl.set(
+          cursor,
+          { left: isMobile ? "38%" : "46%", top: isMobile ? "86%" : "91%" },
+          "+=0.35",
+        );
+        tl.to(cursor, { opacity: 1, duration: 0.3 });
+        tl.to(cursor, { scale: 0.7, duration: 0.07 });
+        tl.to(cursor, { scale: 1, duration: 0.15, ease: "back.out(3)" });
+        tl.to(cursor, { opacity: 0, duration: 0.15 }, "+=0.2");
+
+        /* Transition 2 → 3: slide */
+        tl.addLabel("t23", "+=0.12");
+        tl.to(
+          scenes[1],
+          { xPercent: -30, opacity: 0, duration: 0.5, ease: "power2.inOut" },
+          "t23",
+        );
+        tl.fromTo(
+          scenes[2],
+          { xPercent: 30, opacity: 0 },
+          { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
+          "t23",
+        );
+
+        /* Scene 3: Confirmation — checkmark draws */
+        tl.addLabel("scene3", "+=0.12");
+        tl.to(
+          ".hconfirm-circle",
+          { strokeDashoffset: 0, duration: 0.55, ease: "power2.out" },
+          "scene3",
+        );
+        tl.to(
+          ".hconfirm-check",
+          { strokeDashoffset: 0, duration: 0.35, ease: "power2.out" },
+          "scene3+=0.3",
+        );
+        tl.to(
+          ".hconfirm-text",
+          { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
+          "scene3+=0.5",
+        );
+        tl.to(
+          ".hconfirm-details",
+          { opacity: 1, duration: 0.3 },
+          "scene3+=0.7",
+        );
+        tl.to({}, { duration: 1.0 }); // hold
+
+        /* ───────────────────────────────────────── */
+        /*  ACT 2 — Behind the Scenes                */
+        /* ───────────────────────────────────────── */
+
+        /* Transition 3 → 4: morph (scale pivot) */
+        tl.addLabel("t34", "+=0.12");
+        tl.to(
+          scenes[2],
+          { scale: 0.92, opacity: 0, duration: 0.4, ease: "power2.in" },
+          "t34",
+        );
+        tl.fromTo(
+          scenes[3],
+          { scale: 1.06, opacity: 0, xPercent: 0 },
+          { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" },
+          "t34+=0.3",
+        );
+
+        /* Scene 4: Automation cascade */
+        tl.addLabel("scene4", "+=0.2");
+        tl.to(
+          ".htask",
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.35,
+            stagger: 0.65,
+            ease: "power2.out",
+          },
+          "scene4",
+        );
+        tl.to(
+          ".htask-check",
+          {
+            strokeDashoffset: 0,
+            duration: 0.3,
+            stagger: 0.65,
+            ease: "power2.out",
+          },
+          "scene4+=0.25",
+        );
+        tl.to({}, { duration: 0.8 }); // hold
+
+        /* Transition 4 → 5: slide */
+        tl.addLabel("t45", "+=0.12");
+        tl.to(
+          scenes[3],
+          { xPercent: -30, opacity: 0, duration: 0.5, ease: "power2.inOut" },
+          "t45",
+        );
+        tl.fromTo(
+          scenes[4],
+          { xPercent: 30, opacity: 0 },
+          { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
+          "t45",
+        );
+
+        /* Scene 5: Results — counters tick up */
+        tl.addLabel("scene5", "+=0.2");
+        tl.to(
+          ".hstat-ring",
+          { strokeDashoffset: 0, duration: 1.2, ease: "power2.out" },
+          "scene5",
+        );
+        const counters = { leads: 0, conv: 0, score: 0 };
+        tl.fromTo(
+          counters,
+          { leads: 0, conv: 0, score: 0 },
+          {
+            leads: 47,
+            conv: 23,
+            score: 100,
+            duration: 1.2,
+            ease: "power2.out",
+            onUpdate: () => {
+              if (statLeads.current)
+                statLeads.current.textContent = Math.round(
+                  counters.leads,
+                ).toString();
+              if (statConv.current)
+                statConv.current.textContent =
+                  Math.round(counters.conv).toString() + "%";
+              if (statScore.current)
+                statScore.current.textContent = Math.round(
+                  counters.score,
+                ).toString();
+            },
+          },
+          "scene5",
+        );
+        tl.to({}, { duration: 1.5 }); // hold — then onComplete handles cross-fade
       }; // end buildTimeline
 
       buildTimeline();
     }, heroRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isDebug]);
 
   /* ── Render ── */
   return (
@@ -374,9 +498,12 @@ export default function Hero() {
               </div>
 
               {/* ══ Stage ══ */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0C10]">
+              <div className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-[#0A0C10]">
                 {/* ━━ Scene 1 — Landing Page ━━ */}
-                <div ref={s1} className="absolute inset-0 p-4 sm:p-5 flex flex-col">
+                <div
+                  ref={s1}
+                  className="absolute inset-0 p-4 sm:p-5 flex flex-col"
+                >
                   {/* Nav */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
@@ -428,18 +555,18 @@ export default function Hero() {
                   className="absolute inset-0 p-3 sm:p-4 flex flex-col"
                   style={{ opacity: 0 }}
                 >
-                  <p className="text-[11px] sm:text-[13px] font-semibold text-white mb-2 sm:mb-3">
+                  <p className="text-[13px] sm:text-[15px] font-semibold text-white mb-2 sm:mb-3">
                     Book Your Appointment
                   </p>
                   <div className="space-y-1.5 sm:space-y-2 flex-1">
                     {/* Name */}
                     <div>
-                      <span className="text-[6px] sm:text-[7px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                      <span className="text-[7px] sm:text-[8px] text-cyber-gray-500 uppercase tracking-wider font-mono">
                         Name
                       </span>
-                      <div className="mt-0.5 px-2 py-1 sm:py-1.5 rounded bg-white/[0.04] border border-white/[0.06]">
+                      <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
                         <span
-                          className="hv text-[8px] sm:text-[9px] text-white"
+                          className="hv text-[11px] sm:text-[13px] text-white leading-none"
                           style={{ opacity: 0 }}
                         >
                           Sarah Martinez
@@ -449,12 +576,12 @@ export default function Hero() {
                     {/* Date & Time — side by side */}
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <span className="text-[6px] sm:text-[7px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                        <span className="text-[7px] sm:text-[8px] text-cyber-gray-500 uppercase tracking-wider font-mono">
                           Date
                         </span>
-                        <div className="mt-0.5 px-2 py-1 sm:py-1.5 rounded bg-white/[0.04] border border-white/[0.06]">
+                        <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
                           <span
-                            className="hv text-[8px] sm:text-[9px] text-white"
+                            className="hv text-[11px] sm:text-[13px] text-white leading-none"
                             style={{ opacity: 0 }}
                           >
                             Feb 20
@@ -462,12 +589,12 @@ export default function Hero() {
                         </div>
                       </div>
                       <div>
-                        <span className="text-[6px] sm:text-[7px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                        <span className="text-[7px] sm:text-[8px] text-cyber-gray-500 uppercase tracking-wider font-mono">
                           Time
                         </span>
-                        <div className="mt-0.5 px-2 py-1 sm:py-1.5 rounded bg-white/[0.04] border border-white/[0.06]">
+                        <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
                           <span
-                            className="hv text-[8px] sm:text-[9px] text-white"
+                            className="hv text-[10px] sm:text-[13px] text-white leading-none"
                             style={{ opacity: 0 }}
                           >
                             2:00 PM
@@ -477,12 +604,12 @@ export default function Hero() {
                     </div>
                     {/* Service */}
                     <div>
-                      <span className="text-[6px] sm:text-[7px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                      <span className="text-[7px] sm:text-[8px] text-cyber-gray-500 uppercase tracking-wider font-mono">
                         Service
                       </span>
-                      <div className="mt-0.5 px-2 py-1 sm:py-1.5 rounded bg-white/[0.04] border border-white/[0.06]">
+                      <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
                         <span
-                          className="hv text-[8px] sm:text-[9px] text-white"
+                          className="hv text-[10px] sm:text-[13px] text-white leading-none"
                           style={{ opacity: 0 }}
                         >
                           Premium Session · 60 min · $150
@@ -492,7 +619,7 @@ export default function Hero() {
                   </div>
                   {/* Confirm button */}
                   <div className="mt-2 flex justify-center">
-                    <button className="px-3 sm:px-4 py-1 sm:py-1.5 bg-cyber-accent rounded text-[7px] sm:text-[8px] font-semibold text-[#050505]">
+                    <button className="px-4 sm:px-5 py-1.5 sm:py-2 bg-cyber-accent rounded text-[8px] sm:text-[10px] font-semibold text-[#050505]">
                       Confirm Booking
                     </button>
                   </div>
@@ -598,10 +725,10 @@ export default function Hero() {
                         className="htask flex items-center gap-2 sm:gap-2.5 px-2 sm:px-2.5 py-1.5 sm:py-2 rounded-lg bg-white/[0.03] border border-white/[0.05]"
                         style={{ opacity: 0 }}
                       >
-                        <div className="flex-shrink-0 h-4 w-4 sm:h-5 sm:w-5 rounded bg-[#4ADE80]/10 flex items-center justify-center">
+                        <div className="flex-shrink-0 h-5 w-5 sm:h-6 sm:w-6 rounded bg-[#4ADE80]/10 flex items-center justify-center">
                           <svg
                             viewBox="0 0 16 16"
-                            className="w-2 h-2 sm:w-2.5 sm:h-2.5"
+                            className="w-2.5 h-2.5 sm:w-3 sm:h-3"
                           >
                             <path
                               className="htask-check"
@@ -617,14 +744,11 @@ export default function Hero() {
                           </svg>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-[8px] sm:text-[9px] font-semibold text-white">
+                          <p className="text-[10px] sm:text-[12px] font-semibold text-white">
                             {task.text}
                           </p>
-                          <p className="text-[6px] sm:text-[7px] text-cyber-gray-500">
-                            {task.detail}
-                          </p>
                         </div>
-                        <task.Icon className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-cyber-gray-500 flex-shrink-0" />
+                        <task.Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyber-gray-500 flex-shrink-0" />
                       </div>
                     ))}
                   </div>
@@ -636,90 +760,101 @@ export default function Hero() {
                   className="absolute inset-0 p-4 sm:p-5 flex flex-col"
                   style={{ opacity: 0 }}
                 >
-                  <p className="text-[9px] sm:text-[11px] font-mono text-cyber-gray-400 uppercase tracking-wider mb-1 sm:mb-2">
-                    This month
-                  </p>
-                  <p className="text-[13px] sm:text-[15px] font-semibold text-white mb-4 sm:mb-6">
-                    Your Results
-                  </p>
-                  <div className="flex-1 flex items-center justify-center">
-                    <div className="grid grid-cols-3 gap-3 sm:gap-4 w-full">
-                      {/* Lighthouse */}
-                      <div className="text-center">
-                        <div className="relative h-12 w-12 sm:h-14 sm:w-14 mx-auto mb-1.5 sm:mb-2">
-                          <svg
-                            viewBox="0 0 36 36"
-                            className="h-full w-full -rotate-90"
-                          >
-                            <circle
-                              cx="18"
-                              cy="18"
-                              r="15.5"
-                              fill="none"
-                              stroke="rgba(255,255,255,0.06)"
-                              strokeWidth="3"
-                            />
-                            <circle
-                              className="hstat-ring"
-                              cx="18"
-                              cy="18"
-                              r="15.5"
-                              fill="none"
-                              stroke="#4ADE80"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeDasharray="97.4"
-                              strokeDashoffset="97.4"
-                            />
-                          </svg>
-                          <span
-                            ref={statScore}
-                            className="absolute inset-0 flex items-center justify-center text-[10px] sm:text-[12px] font-bold text-white"
-                          >
-                            0
-                          </span>
-                        </div>
-                        <p className="text-[7px] sm:text-[9px] text-cyber-gray-500">
-                          Lighthouse
-                        </p>
-                      </div>
-                      {/* Leads */}
-                      <div className="text-center flex flex-col justify-center">
-                        <p className="text-[22px] sm:text-[28px] font-semibold text-white leading-none">
-                          <span ref={statLeads}>0</span>
-                        </p>
-                        <p className="text-[7px] sm:text-[9px] text-cyber-gray-500 mt-1 sm:mt-1.5">
-                          Leads
-                        </p>
-                      </div>
-                      {/* Conversion rate */}
-                      <div className="text-center flex flex-col justify-center">
-                        <p className="text-[22px] sm:text-[28px] font-semibold text-[#4ADE80] leading-none">
-                          ↑<span ref={statConv}>0%</span>
-                        </p>
-                        <p className="text-[7px] sm:text-[9px] text-cyber-gray-500 mt-1 sm:mt-1.5">
-                          Conv. Rate
-                        </p>
-                      </div>
+                  {/* Header row */}
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <div>
+                      <p className="text-[8px] sm:text-[10px] font-mono text-cyber-gray-500 uppercase tracking-wider">
+                        Monthly Overview
+                      </p>
+                      <p className="text-[13px] sm:text-[16px] font-semibold text-white mt-0.5">
+                        Your Results
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#4ADE80]/10 border border-[#4ADE80]/20">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]"></span>
+                      <span className="text-[7px] sm:text-[8px] font-mono text-[#4ADE80]">
+                        Live
+                      </span>
                     </div>
                   </div>
-                  <p className="text-[8px] sm:text-[10px] text-center text-cyber-gray-500 mt-auto">
-                    All automated. Zero busywork.
-                  </p>
+
+                  {/* Stat cards */}
+                  <div className="flex-1 grid grid-cols-3 gap-2 sm:gap-3">
+                    {/* Lighthouse */}
+                    <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-2.5 sm:p-3 flex flex-col items-center justify-center">
+                      <div className="relative h-14 w-14 sm:h-16 sm:w-16 mb-1.5">
+                        <svg
+                          viewBox="0 0 36 36"
+                          className="h-full w-full -rotate-90"
+                        >
+                          <circle
+                            cx="18"
+                            cy="18"
+                            r="15.5"
+                            fill="none"
+                            stroke="rgba(255,255,255,0.06)"
+                            strokeWidth="2.5"
+                          />
+                          <circle
+                            className="hstat-ring"
+                            cx="18"
+                            cy="18"
+                            r="15.5"
+                            fill="none"
+                            stroke="#4ADE80"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeDasharray="97.4"
+                            strokeDashoffset="97.4"
+                          />
+                        </svg>
+                        <span
+                          ref={statScore}
+                          className="absolute inset-0 flex items-center justify-center text-[12px] sm:text-[14px] font-bold text-white"
+                        >
+                          0
+                        </span>
+                      </div>
+                      <p className="text-[7px] sm:text-[8px] text-cyber-gray-500 font-mono uppercase tracking-wider">
+                        Lighthouse
+                      </p>
+                    </div>
+                    {/* Leads */}
+                    <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-2.5 sm:p-3 flex flex-col items-center justify-center">
+                      <p className="text-[24px] sm:text-[30px] font-semibold text-white leading-none mb-1.5">
+                        <span ref={statLeads}>0</span>
+                      </p>
+                      <p className="text-[7px] sm:text-[8px] text-cyber-gray-500 font-mono uppercase tracking-wider">
+                        New Leads
+                      </p>
+                    </div>
+                    {/* Conversion rate */}
+                    <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-2.5 sm:p-3 flex flex-col items-center justify-center">
+                      <p className="text-[24px] sm:text-[30px] font-semibold text-[#4ADE80] leading-none mb-1.5">
+                        <span ref={statConv}>0%</span>
+                      </p>
+                      <p className="text-[7px] sm:text-[8px] text-cyber-gray-500 font-mono uppercase tracking-wider">
+                        Conv. Rate
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Footer tagline */}
+                  <div className="mt-2.5 sm:mt-3 pt-2 sm:pt-2.5 border-t border-white/[0.06] flex items-center justify-center gap-1.5">
+                    <span className="h-1 w-1 rounded-full bg-[#4ADE80]"></span>
+                    <p className="text-[7px] sm:text-[9px] font-mono text-cyber-gray-500 uppercase tracking-wider">
+                      All automated · Zero busywork
+                    </p>
+                  </div>
                 </div>
 
                 {/* ━━ Cursor ━━ */}
                 <div
                   ref={cursorRef}
                   className="absolute z-30 pointer-events-none"
-                  style={{ opacity: 0 }}
+                  style={{ opacity: 0, left: "60%", top: "20%" }}
                 >
-                  <svg
-                    width="14"
-                    height="18"
-                    viewBox="0 0 16 20"
-                    fill="none"
-                  >
+                  <svg width="14" height="18" viewBox="0 0 16 20" fill="none">
                     <path
                       d="M1 1v14.5l4-4 3.5 7 2-1L7 10.5l5.5 0z"
                       fill="white"
@@ -728,6 +863,31 @@ export default function Hero() {
                     />
                   </svg>
                 </div>
+
+                {/* ━━ Debug overlay ━━ */}
+                {isDebug && (
+                  <div className="absolute inset-x-0 bottom-0 z-40 flex items-center justify-between px-3 py-2 bg-black/80 backdrop-blur-sm border-t border-white/10">
+                    <button
+                      onClick={prevScene}
+                      disabled={debugScene === 0}
+                      className="flex items-center gap-1 px-2 py-1 rounded text-[10px] font-mono text-white bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                    >
+                      <ChevronLeft className="w-3 h-3" />
+                      Prev
+                    </button>
+                    <span className="text-[10px] font-mono text-cyber-accent">
+                      {debugScene + 1}/5 — {SCENE_LABELS[debugScene]}
+                    </span>
+                    <button
+                      onClick={nextScene}
+                      disabled={debugScene === 4}
+                      className="flex items-center gap-1 px-2 py-1 rounded text-[10px] font-mono text-white bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                    >
+                      Next
+                      <ChevronRight className="w-3 h-3" />
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
