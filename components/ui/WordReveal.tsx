@@ -16,6 +16,10 @@ interface WordRevealProps {
   as?: "h1" | "h2" | "h3" | "h4" | "p" | "span";
   /** Optional id for the element (e.g. for aria-labelledby) */
   id?: string;
+  /** Play immediately without waiting for heroReady or ScrollTrigger */
+  immediate?: boolean;
+  /** Delay before animation starts (seconds) */
+  delay?: number;
 }
 
 export default function WordReveal({
@@ -23,6 +27,8 @@ export default function WordReveal({
   className = "",
   as: Tag = "h2",
   id,
+  immediate = false,
+  delay = 0,
 }: WordRevealProps) {
   const wordsRef = useRef<(HTMLSpanElement | null)[]>([]);
   const words = text.split(" ");
@@ -35,16 +41,25 @@ export default function WordReveal({
 
     let tween: gsap.core.Tween | null = null;
 
-    onHeroReady(() => {
+    const play = () => {
       tween = gsap.to(els, {
         y: "0%",
         opacity: 1,
-        duration: 0.4,
+        duration: 0.5,
         ease: "power3.out",
-        stagger: 0.04,
-        scrollTrigger: { trigger: els[0], start: "top 85%" },
+        stagger: 0.06,
+        delay,
+        ...(immediate
+          ? {}
+          : { scrollTrigger: { trigger: els[0], start: "top 85%" } }),
       });
-    });
+    };
+
+    if (immediate) {
+      play();
+    } else {
+      onHeroReady(play);
+    }
 
     return () => {
       tween?.scrollTrigger?.kill();

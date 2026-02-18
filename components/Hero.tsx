@@ -5,95 +5,71 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { signalHeroReady } from "@/lib/heroReady";
+import WordReveal from "@/components/ui/WordReveal";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-  const ribbonRef = useRef<HTMLParagraphElement>(null);
-  const headlineRef = useRef<HTMLHeadingElement>(null);
-  const descriptionRef = useRef<HTMLParagraphElement>(null);
-  const trustRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const mockupRef = useRef<HTMLDivElement>(null);
-  const metricsRef = useRef<HTMLDivElement>(null);
-  const workflowRef = useRef<HTMLDivElement>(null);
+  const copyRef = useRef<HTMLDivElement>(null);
+  const visualRef = useRef<HTMLDivElement>(null);
   const scoreRingRef = useRef<SVGCircleElement>(null);
   const scoreTextRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     const ctx = gsap.context(() => {
-      const els = [
-        ribbonRef.current,
-        headlineRef.current,
-        descriptionRef.current,
-        trustRef.current,
-        ctaRef.current,
-        mockupRef.current,
-        metricsRef.current,
-        workflowRef.current,
-      ];
+      /* ── Copy column: gentle fade up ── */
+      if (copyRef.current) {
+        gsap.set(copyRef.current, { opacity: 0, y: 18 });
+        gsap.to(copyRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          onComplete: signalHeroReady,
+        });
+      }
 
-      gsap.set(els, { opacity: 0, y: 20 });
+      /* ── Visual column: fade up as one block, slight delay ── */
+      if (visualRef.current) {
+        gsap.set(visualRef.current, { opacity: 0, y: 24 });
+        gsap.to(visualRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          delay: 0.3,
+          ease: "power2.out",
+        });
+      }
 
-      /* Score ring — start fully offset */
+      /* ── Score ring draw + counter — the payoff animation ── */
       const circumference = 2 * Math.PI * 15.5; // ≈97.4
       if (scoreRingRef.current) {
         gsap.set(scoreRingRef.current, {
           strokeDasharray: circumference,
           strokeDashoffset: circumference,
         });
-      }
-
-      const tl = gsap.timeline({
-        defaults: { ease: "power3.out", duration: 0.6 },
-      });
-
-      tl.to(ribbonRef.current, { opacity: 1, y: 0, duration: 0.4 })
-        .to(headlineRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.25")
-        .to(
-          descriptionRef.current,
-          { opacity: 1, y: 0, duration: 0.5 },
-          "-=0.35",
-        )
-        .to(trustRef.current, { opacity: 1, y: 0, duration: 0.4 }, "-=0.3")
-        .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.4 }, "-=0.3")
-        .call(signalHeroReady)
-        .to(mockupRef.current, { opacity: 1, y: 0, duration: 0.6 }, "-=0.35")
-        .to(metricsRef.current, { opacity: 1, y: 0, duration: 0.5 }, "-=0.4")
-        .to(workflowRef.current, { opacity: 1, y: 0, duration: 0.5 }, "-=0.4");
-
-      /* Draw the score ring + count up */
-      if (scoreRingRef.current) {
-        tl.to(
-          scoreRingRef.current,
-          { strokeDashoffset: 0, duration: 1.2, ease: "power2.out" },
-          "-=0.6",
-        );
+        gsap.to(scoreRingRef.current, {
+          strokeDashoffset: 0,
+          duration: 1.4,
+          delay: 0.6,
+          ease: "power2.out",
+        });
       }
       if (scoreTextRef.current) {
         const counter = { v: 0 };
-        tl.to(
-          counter,
-          {
-            v: 100,
-            duration: 1.2,
-            ease: "power2.out",
-            onUpdate: () => {
-              if (scoreTextRef.current) {
-                scoreTextRef.current.textContent = Math.round(
-                  counter.v,
-                ).toString();
-              }
-            },
+        gsap.to(counter, {
+          v: 100,
+          duration: 1.4,
+          delay: 0.6,
+          ease: "power2.out",
+          onUpdate: () => {
+            if (scoreTextRef.current) {
+              scoreTextRef.current.textContent = Math.round(
+                counter.v,
+              ).toString();
+            }
           },
-          "<",
-        );
+        });
       }
-
-      /* Float animations disabled for now */
     }, heroRef);
 
     return () => ctx.revert();
@@ -127,24 +103,22 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 md:pb-24">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
           {/* ─── Copy ─── */}
-          <div className="lg:col-span-6 space-y-5">
+          <div ref={copyRef} className="lg:col-span-6 space-y-5">
             <p
-              ref={ribbonRef}
               className="font-mono text-xs text-cyber-gray-400 uppercase tracking-[0.1em] sm:tracking-[0.2em]"
             >
               Performance &middot; Conversions &middot; Automation
             </p>
 
-            <h1
-              ref={headlineRef}
+            <WordReveal
+              text="Websites that work as hard as you do."
+              as="h1"
               id="hero-heading"
               className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight"
-            >
-              Websites that work as hard as you do.
-            </h1>
+              immediate
+            />
 
             <p
-              ref={descriptionRef}
               className="text-base sm:text-lg text-cyber-gray-300 max-w-lg leading-relaxed"
             >
               I build fast, high-converting sites that turn visitors into
@@ -153,14 +127,13 @@ export default function Hero() {
             </p>
 
             <div
-              ref={trustRef}
               className="inline-flex items-center gap-2.5 text-sm text-cyber-gray-400"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
               Based in Northern California, serving clients everywhere.
             </div>
 
-            <div ref={ctaRef} className="pt-1">
+            <div className="pt-1">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-lg transition-all text-sm shadow-lg shadow-cyber-accent/20 hover:shadow-xl hover:shadow-cyber-accent/30 hover:brightness-110"
@@ -172,11 +145,10 @@ export default function Hero() {
           </div>
 
           {/* ─── Visual ─── */}
-          <div className="lg:col-span-6 mb-8 sm:mb-10 lg:mb-0">
+          <div ref={visualRef} className="lg:col-span-6 mb-8 sm:mb-10 lg:mb-0">
             <div className="relative">
               {/* Browser mockup */}
               <div
-                ref={mockupRef}
                 className="relative rounded-2xl border border-white/[0.08] bg-[#111318] overflow-hidden"
                 style={{
                   boxShadow:
@@ -219,7 +191,6 @@ export default function Hero() {
               {/* Overlapping cards — staggered on mobile, floating on sm+ */}
               {/* Workflow automation card */}
               <div
-                ref={workflowRef}
                 className="absolute -bottom-10 left-0 w-[48%] lg:-bottom-10 lg:-left-6 lg:w-[200px] rounded-xl border border-white/[0.08] bg-[#111318]/95 p-3 lg:p-4 z-10"
                 style={{
                   boxShadow:
@@ -268,7 +239,6 @@ export default function Hero() {
 
               {/* Performance metrics card */}
               <div
-                ref={metricsRef}
                 className="absolute -bottom-4 right-0 w-[48%] lg:-bottom-8 lg:-right-8 lg:w-[210px] rounded-xl border border-white/[0.08] bg-[#111318]/95 p-3 lg:p-4 z-20"
                 style={{
                   boxShadow:

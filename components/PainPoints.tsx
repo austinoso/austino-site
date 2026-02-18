@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { onHeroReady } from "@/lib/heroReady";
-import WordReveal from "@/components/ui/WordReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -366,7 +365,7 @@ const painPoints = [
 
 export default function PainPoints() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const labelRef = useRef<HTMLParagraphElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const closerRef = useRef<HTMLDivElement>(null);
 
@@ -374,20 +373,21 @@ export default function PainPoints() {
     let ctx: gsap.Context | null = null;
 
     /* Hide immediately so nothing is visible before hero finishes */
-    if (labelRef.current) gsap.set(labelRef.current, { opacity: 0 });
+    if (headerRef.current) gsap.set(headerRef.current, { opacity: 0, y: 12 });
     const cards = cardRefs.current.filter(Boolean);
     if (cards.length) gsap.set(cards, { opacity: 0, y: 16 });
     if (closerRef.current) gsap.set(closerRef.current, { opacity: 0, y: 12 });
 
     onHeroReady(() => {
       ctx = gsap.context(() => {
-        /* ── Label fade ── */
-        if (labelRef.current) {
-          gsap.to(labelRef.current, {
+        /* ── Header fade up ── */
+        if (headerRef.current) {
+          gsap.to(headerRef.current, {
             opacity: 1,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
+            y: 0,
+            duration: 0.5,
+            ease: "power3.out",
+            scrollTrigger: { trigger: headerRef.current, start: "top 85%" },
           });
         }
 
@@ -442,19 +442,16 @@ export default function PainPoints() {
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
         {/* Header */}
-        <div className="mb-14 sm:mb-20">
-          <p
-            ref={labelRef}
-            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
-          >
+        <div ref={headerRef} className="mb-14 sm:mb-20">
+          <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
             The Problem
           </p>
-
-          <WordReveal
-            text="Running a business shouldn't feel like this."
+          <h2
             id="pain-points-heading"
             className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight max-w-2xl"
-          />
+          >
+            Running a business shouldn&apos;t feel like this.
+          </h2>
         </div>
 
         {/* Card grid */}
