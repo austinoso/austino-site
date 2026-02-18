@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
@@ -50,6 +51,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
+        <Script
+          defer
+          src="/stats/script.js"
+          data-website-id="acac45ad-5413-4bdd-9e96-5d60f56a21ff"
+          strategy="afterInteractive"
+        />
         <SmoothScroll>
           <div className="min-h-screen bg-cyber-dark">{children}</div>
         </SmoothScroll>

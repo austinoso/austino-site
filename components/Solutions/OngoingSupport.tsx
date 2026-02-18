@@ -66,10 +66,10 @@ export default function OngoingSupport() {
           <div className="px-5 py-4 border-b border-white/[0.06] flex items-center justify-between">
             <div>
               <p className="text-sm font-semibold text-white">
-                Site Health Dashboard
+                Business Dashboard
               </p>
               <p className="text-[11px] text-cyber-gray-500 font-mono mt-0.5">
-                Last updated: 2 minutes ago
+                Last 30 days
               </p>
             </div>
             <div className="flex items-center gap-1.5">
@@ -85,32 +85,32 @@ export default function OngoingSupport() {
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-4">
                 <p className="text-[10px] text-cyber-gray-500 uppercase tracking-wider font-mono mb-1">
-                  Uptime
+                  Visitors
                 </p>
                 <p
-                  data-count="99.9"
+                  data-count="2847"
+                  data-suffix=""
+                  className="text-2xl font-bold text-white font-mono"
+                >
+                  0
+                </p>
+                <p className="text-[10px] text-[#4ADE80] mt-1">
+                  ↑ 34% from last month
+                </p>
+              </div>
+              <div className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-4">
+                <p className="text-[10px] text-cyber-gray-500 uppercase tracking-wider font-mono mb-1">
+                  Conversion Rate
+                </p>
+                <p
+                  data-count="4.8"
                   data-suffix="%"
                   data-decimal="true"
                   className="text-2xl font-bold text-white font-mono"
                 >
                   0%
                 </p>
-                <p className="text-[10px] text-[#4ADE80] mt-1">
-                  ↑ 0.1% from last month
-                </p>
-              </div>
-              <div className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-4">
-                <p className="text-[10px] text-cyber-gray-500 uppercase tracking-wider font-mono mb-1">
-                  Avg Response
-                </p>
-                <p
-                  data-count="127"
-                  data-suffix="ms"
-                  className="text-2xl font-bold text-white font-mono"
-                >
-                  0ms
-                </p>
-                <p className="text-[10px] text-[#4ADE80] mt-1">↓ 23ms faster</p>
+                <p className="text-[10px] text-[#4ADE80] mt-1">↑ 1.2% higher</p>
               </div>
             </div>
 

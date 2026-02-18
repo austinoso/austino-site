@@ -128,6 +128,7 @@ export default function CTA() {
             <Link
               href="/contact"
               className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)]"
+              data-umami-event="cta-start-conversation"
             >
               <span>Start a Conversation</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

@@ -132,6 +132,7 @@ export default function Hero() {
                 href="/contact"
                 className="inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-lg transition-all text-sm shadow-lg shadow-cyber-accent/20 hover:shadow-xl hover:shadow-cyber-accent/30 hover:brightness-110"
                 aria-label="Get a free consultation"
+                data-umami-event="hero-cta"
               >
                 Get a Free Consultation
               </Link>

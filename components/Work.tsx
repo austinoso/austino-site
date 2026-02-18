@@ -105,6 +105,8 @@ export default function Work() {
               key={project.slug}
               href={`/work/${project.slug}`}
               data-card
+              data-umami-event="project-card"
+              data-umami-event-project={project.slug}
               className="group rounded-xl border border-white/[0.06] bg-[#111318] overflow-hidden transition-colors duration-300 hover:border-white/[0.12]"
               style={{
                 boxShadow:
@@ -156,6 +158,7 @@ export default function Work() {
           <Link
             href="/work"
             className="inline-flex items-center gap-2 text-cyber-gray-400 hover:text-cyber-accent transition-colors duration-300 font-mono text-xs uppercase tracking-[0.15em] border border-white/[0.08] rounded-lg px-5 py-2.5 hover:border-cyber-accent/30"
+            data-umami-event="see-all-work"
           >
             <span>See all work</span>
             <ArrowRight className="w-3.5 h-3.5" />

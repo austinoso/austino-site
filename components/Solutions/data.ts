@@ -22,8 +22,8 @@ export const terminalOutput = [
 ];
 
 export const statusItems = [
-  { name: "Website Performance", value: "Optimal", accent: true },
-  { name: "SSL Certificate", value: "Valid · 89 days", accent: false },
-  { name: "Search Console", value: "Indexed", accent: true },
-  { name: "Backup System", value: "Last: 4 hours ago", accent: false },
+  { name: "Google Ranking", value: "#3 locally", accent: true },
+  { name: "Bookings This Month", value: "64 new", accent: true },
+  { name: "Page Speed", value: "0.8s load", accent: true },
+  { name: "Uptime", value: "99.9%", accent: false },
 ];

@@ -79,6 +79,21 @@ export default function ContactPage() {
       setIsSubmitting(false);
       setSubmitStatus("success");
 
+      // Track successful form submission in Umami
+      if (
+        typeof window !== "undefined" &&
+        (window as unknown as Record<string, unknown>).umami
+      ) {
+        (
+          (window as unknown as Record<string, unknown>).umami as {
+            track: (event: string, data?: Record<string, string>) => void;
+          }
+        ).track("contact-form-submit", {
+          budget: formState.budget,
+          timeline: formState.timeline,
+        });
+      }
+
       setTimeout(() => {
         setFormState({
           name: "",

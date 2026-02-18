@@ -100,6 +100,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
               aria-label="GitHub profile"
+              data-umami-event="footer-github"
             >
               <svg
                 className="w-4 h-4"

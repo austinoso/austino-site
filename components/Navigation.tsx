@@ -105,6 +105,7 @@ export default function Navigation() {
               href="/#solutions"
               className="text-sm text-cyber-gray-400 hover:text-white transition-colors duration-300 font-mono tracking-wide"
               aria-label="View solutions section"
+              data-umami-event="nav-solutions"
               onClick={scrollToSolutions}
             >
               Solutions
@@ -113,6 +114,7 @@ export default function Navigation() {
               href="/work"
               className="text-sm text-cyber-gray-400 hover:text-white transition-colors duration-300 font-mono tracking-wide"
               aria-label="View work"
+              data-umami-event="nav-work"
             >
               Work
             </Link>
@@ -120,6 +122,7 @@ export default function Navigation() {
               href="/contact"
               className="inline-flex items-center px-5 py-2 bg-cyber-accent text-[#050505] text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)]"
               aria-label="Contact for project inquiry"
+              data-umami-event="nav-get-started"
             >
               Get Started
             </Link>
@@ -149,6 +152,7 @@ export default function Navigation() {
           <Link
             href="/#solutions"
             className="text-lg text-cyber-gray-300 hover:text-white transition-colors py-4 border-b border-white/[0.06] font-mono"
+            data-umami-event="mobile-nav-solutions"
             onClick={scrollToSolutions}
           >
             Solutions
@@ -156,6 +160,7 @@ export default function Navigation() {
           <Link
             href="/work"
             className="text-lg text-cyber-gray-300 hover:text-white transition-colors py-4 border-b border-white/[0.06] font-mono"
+            data-umami-event="mobile-nav-work"
             onClick={closeMenu}
           >
             Work
@@ -164,6 +169,7 @@ export default function Navigation() {
             <Link
               href="/contact"
               className="block px-6 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-lg transition-all text-center text-sm hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)]"
+              data-umami-event="mobile-nav-get-started"
               onClick={closeMenu}
             >
               Get Started
