@@ -1,22 +1,44 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { signalHeroReady } from "@/lib/heroReady";
 import WordReveal from "@/components/ui/WordReveal";
+import { Mail, Calendar, FileText, Star } from "lucide-react";
+
+/* ------------------------------------------------------------------ */
+/*  Cinematic hero: 5-scene loop that demos the full user → automation */
+/*  journey inside a single browser frame.                             */
+/* ------------------------------------------------------------------ */
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
-  const scoreRingRef = useRef<SVGCircleElement>(null);
-  const scoreTextRef = useRef<HTMLSpanElement>(null);
+
+  /* Scenes */
+  const s1 = useRef<HTMLDivElement>(null);
+  const s2 = useRef<HTMLDivElement>(null);
+  const s3 = useRef<HTMLDivElement>(null);
+  const s4 = useRef<HTMLDivElement>(null);
+  const s5 = useRef<HTMLDivElement>(null);
+
+  /* Cursor */
+  const cursorRef = useRef<HTMLDivElement>(null);
+
+  /* Stat counters (scene 5) */
+  const statLeads = useRef<HTMLSpanElement>(null);
+  const statConv = useRef<HTMLSpanElement>(null);
+  const statScore = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    const scenes = [s1, s2, s3, s4, s5].map((r) => r.current!);
+    const cursor = cursorRef.current;
+    if (!scenes.every(Boolean) || !cursor) return;
+
     const ctx = gsap.context(() => {
-      /* ── Copy column: gentle fade up ── */
+      /* ── Entry animations (copy + visual fade-up) ── */
       if (copyRef.current) {
         gsap.set(copyRef.current, { opacity: 0, y: 18 });
         gsap.to(copyRef.current, {
@@ -27,8 +49,6 @@ export default function Hero() {
           onComplete: signalHeroReady,
         });
       }
-
-      /* ── Visual column: fade up as one block, slight delay ── */
       if (visualRef.current) {
         gsap.set(visualRef.current, { opacity: 0, y: 24 });
         gsap.to(visualRef.current, {
@@ -40,48 +60,231 @@ export default function Hero() {
         });
       }
 
-      /* ── Score ring draw + counter — the payoff animation ── */
-      const circumference = 2 * Math.PI * 15.5; // ≈97.4
-      if (scoreRingRef.current) {
-        gsap.set(scoreRingRef.current, {
-          strokeDasharray: circumference,
-          strokeDashoffset: circumference,
-        });
-        gsap.to(scoreRingRef.current, {
+      /* ═══════════════════════════════════════════════ */
+      /*  Master looping timeline                        */
+      /* ═══════════════════════════════════════════════ */
+      let firstPlay = true;
+      const buildTimeline = () => {
+      const tl = gsap.timeline({
+        delay: firstPlay ? 1.5 : 0.8,
+        onComplete: () => {
+          tl.kill();
+          buildTimeline();
+        },
+      });
+      firstPlay = false;
+
+      /* ── Reset state ── */
+      tl.set(scenes[0], { opacity: 1, xPercent: 0, scale: 1 });
+      tl.set(scenes.slice(1), { opacity: 0, xPercent: 0, scale: 1 });
+      tl.set(cursor, { opacity: 0, left: "60%", top: "20%", scale: 1 });
+      tl.set(".hv", { opacity: 0 });
+      tl.set(".hconfirm-circle", { strokeDashoffset: 150.8 });
+      tl.set(".hconfirm-check", { strokeDashoffset: 35 });
+      tl.set(".hconfirm-text", { opacity: 0, y: 8 });
+      tl.set(".hconfirm-details", { opacity: 0 });
+      tl.set(".htask", { opacity: 0, x: 20 });
+      tl.set(".htask-check", { strokeDashoffset: 20 });
+      tl.set(".hstat-ring", { strokeDashoffset: 97.4 });
+      tl.call(() => {
+        if (statLeads.current) statLeads.current.textContent = "0";
+        if (statConv.current) statConv.current.textContent = "0%";
+        if (statScore.current) statScore.current.textContent = "0";
+      });
+
+      /* ───────────────────────────────────────── */
+      /*  ACT 1 — The Customer Experience          */
+      /* ───────────────────────────────────────── */
+
+      /* Scene 1: Landing page — cursor glides to CTA and clicks */
+      tl.addLabel("scene1", "+=0.6");
+      // Cursor enters
+      tl.to(cursor, { opacity: 1, duration: 0.35 }, "scene1+=0.4");
+      // Cursor glides to "Book Now" button
+      tl.to(
+        cursor,
+        { left: "8%", top: "62%", duration: 1.3, ease: "power2.inOut" },
+        ">0.1",
+      );
+      // Click
+      tl.to(cursor, { scale: 0.7, duration: 0.07 });
+      tl.to(cursor, { scale: 1, duration: 0.15, ease: "back.out(3)" });
+      tl.to({}, { duration: 0.35 });
+      tl.to(cursor, { opacity: 0, duration: 0.15 });
+
+      /* Transition 1 → 2: slide */
+      tl.addLabel("t12", "+=0.12");
+      tl.to(
+        scenes[0],
+        { xPercent: -30, opacity: 0, duration: 0.5, ease: "power2.inOut" },
+        "t12",
+      );
+      tl.fromTo(
+        scenes[1],
+        { xPercent: 30, opacity: 0 },
+        { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
+        "t12",
+      );
+
+      /* Scene 2: Booking form — fields auto-fill */
+      tl.addLabel("scene2", "+=0.25");
+      tl.to(".hv", { opacity: 1, duration: 0.25, stagger: 0.4 }, "scene2");
+      // Cursor clicks "Confirm Booking"
+      tl.set(cursor, { left: "40%", top: "85%" }, "+=0.35");
+      tl.to(cursor, { opacity: 1, duration: 0.3 });
+      tl.to(cursor, { scale: 0.7, duration: 0.07 });
+      tl.to(cursor, { scale: 1, duration: 0.15, ease: "back.out(3)" });
+      tl.to(cursor, { opacity: 0, duration: 0.15 }, "+=0.2");
+
+      /* Transition 2 → 3: slide */
+      tl.addLabel("t23", "+=0.12");
+      tl.to(
+        scenes[1],
+        { xPercent: -30, opacity: 0, duration: 0.5, ease: "power2.inOut" },
+        "t23",
+      );
+      tl.fromTo(
+        scenes[2],
+        { xPercent: 30, opacity: 0 },
+        { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
+        "t23",
+      );
+
+      /* Scene 3: Confirmation — checkmark draws */
+      tl.addLabel("scene3", "+=0.12");
+      tl.to(
+        ".hconfirm-circle",
+        { strokeDashoffset: 0, duration: 0.55, ease: "power2.out" },
+        "scene3",
+      );
+      tl.to(
+        ".hconfirm-check",
+        { strokeDashoffset: 0, duration: 0.35, ease: "power2.out" },
+        "scene3+=0.3",
+      );
+      tl.to(
+        ".hconfirm-text",
+        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
+        "scene3+=0.5",
+      );
+      tl.to(".hconfirm-details", { opacity: 1, duration: 0.3 }, "scene3+=0.7");
+      tl.to({}, { duration: 1.0 }); // hold
+
+      /* ───────────────────────────────────────── */
+      /*  ACT 2 — Behind the Scenes                */
+      /* ───────────────────────────────────────── */
+
+      /* Transition 3 → 4: morph (scale pivot) */
+      tl.addLabel("t34", "+=0.12");
+      tl.to(
+        scenes[2],
+        { scale: 0.92, opacity: 0, duration: 0.4, ease: "power2.in" },
+        "t34",
+      );
+      tl.fromTo(
+        scenes[3],
+        { scale: 1.06, opacity: 0, xPercent: 0 },
+        { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" },
+        "t34+=0.3",
+      );
+
+      /* Scene 4: Automation cascade */
+      tl.addLabel("scene4", "+=0.2");
+      tl.to(
+        ".htask",
+        { opacity: 1, x: 0, duration: 0.3, stagger: 0.45, ease: "power2.out" },
+        "scene4",
+      );
+      tl.to(
+        ".htask-check",
+        {
           strokeDashoffset: 0,
-          duration: 1.4,
-          delay: 0.6,
+          duration: 0.25,
+          stagger: 0.45,
           ease: "power2.out",
-        });
-      }
-      if (scoreTextRef.current) {
-        const counter = { v: 0 };
-        gsap.to(counter, {
-          v: 100,
-          duration: 1.4,
-          delay: 0.6,
+        },
+        "scene4+=0.2",
+      );
+      tl.to({}, { duration: 0.8 }); // hold
+
+      /* Transition 4 → 5: slide */
+      tl.addLabel("t45", "+=0.12");
+      tl.to(
+        scenes[3],
+        { xPercent: -30, opacity: 0, duration: 0.5, ease: "power2.inOut" },
+        "t45",
+      );
+      tl.fromTo(
+        scenes[4],
+        { xPercent: 30, opacity: 0 },
+        { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
+        "t45",
+      );
+
+      /* Scene 5: Results — counters tick up */
+      tl.addLabel("scene5", "+=0.2");
+      tl.to(
+        ".hstat-ring",
+        { strokeDashoffset: 0, duration: 1.2, ease: "power2.out" },
+        "scene5",
+      );
+      const counters = { leads: 0, conv: 0, score: 0 };
+      tl.fromTo(
+        counters,
+        { leads: 0, conv: 0, score: 0 },
+        {
+          leads: 47,
+          conv: 23,
+          score: 100,
+          duration: 1.2,
           ease: "power2.out",
           onUpdate: () => {
-            if (scoreTextRef.current) {
-              scoreTextRef.current.textContent = Math.round(
-                counter.v,
+            if (statLeads.current)
+              statLeads.current.textContent = Math.round(
+                counters.leads,
               ).toString();
-            }
+            if (statConv.current)
+              statConv.current.textContent =
+                Math.round(counters.conv).toString() + "%";
+            if (statScore.current)
+              statScore.current.textContent = Math.round(
+                counters.score,
+              ).toString();
           },
-        });
-      }
+        },
+        "scene5",
+      );
+      tl.to({}, { duration: 1.5 }); // hold
+
+      /* Cross-fade 5 → 1 (seamless loop) */
+      tl.addLabel("loop");
+      tl.to(
+        scenes[4],
+        { opacity: 0, duration: 0.6, ease: "power2.inOut" },
+        "loop",
+      );
+      tl.fromTo(
+        scenes[0],
+        { xPercent: 0, opacity: 0, scale: 1 },
+        { opacity: 1, duration: 0.6 },
+        "loop+=0.15",
+      );
+      }; // end buildTimeline
+
+      buildTimeline();
     }, heroRef);
 
     return () => ctx.revert();
   }, []);
 
+  /* ── Render ── */
   return (
     <section
       ref={heroRef}
       className="relative bg-[#050505] overflow-hidden"
       aria-labelledby="hero-heading"
     >
-      {/* Ambient gradients — very subtle */}
+      {/* Ambient gradients */}
       <div
         className="absolute inset-0"
         style={{
@@ -90,7 +293,7 @@ export default function Hero() {
         }}
         aria-hidden="true"
       />
-      {/* Noise grain texture */}
+      {/* Noise grain */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
@@ -139,179 +342,391 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* ─── Visual ─── */}
+          {/* ─── Visual: Cinematic Demo ─── */}
           <div ref={visualRef} className="lg:col-span-6 mb-8 sm:mb-10 lg:mb-0">
-            <div className="relative">
-              {/* Browser mockup */}
-              <div
-                className="relative rounded-2xl border border-white/[0.08] bg-[#111318] overflow-hidden"
-                style={{
-                  boxShadow:
-                    "0 32px 60px -12px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.03)",
-                }}
-              >
-                {/* Chrome bar */}
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0D0F13]">
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-                  </div>
-                  <div className="flex-1 flex justify-center">
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-400 font-mono">
-                      <svg
-                        className="w-2.5 h-2.5 opacity-40"
-                        viewBox="0 0 16 16"
-                        fill="currentColor"
-                      >
-                        <path d="M11.5 1a3.5 3.5 0 00-3.5 3.5V7H3a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2V9a2 2 0 00-2-2H9V4.5a2.5 2.5 0 015 0V6h1V4.5A3.5 3.5 0 0011.5 1z" />
-                      </svg>
-                      mymassagecottage.com
-                    </div>
-                  </div>
+            <div
+              className="relative rounded-2xl border border-white/[0.08] bg-[#111318] overflow-hidden"
+              style={{
+                boxShadow:
+                  "0 32px 60px -12px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.03)",
+              }}
+              aria-hidden="true"
+            >
+              {/* Chrome bar */}
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0D0F13]">
+                <div className="flex items-center gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
                 </div>
-
-                {/* Screenshot */}
-                <div className="relative aspect-[16/10]">
-                  <Image
-                    src="/assets/my-massage-cottage-demo.jpg"
-                    alt="My Massage Cottage — client website preview"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </div>
-
-              {/* Overlapping cards — staggered on mobile, floating on sm+ */}
-              {/* Workflow automation card */}
-              <div
-                className="absolute -bottom-10 left-0 w-[48%] lg:-bottom-10 lg:-left-6 lg:w-[200px] rounded-xl border border-white/[0.08] bg-[#111318]/95 p-3 lg:p-4 z-10"
-                style={{
-                  boxShadow:
-                    "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
-                  backdropFilter: "blur(12px)",
-                }}
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="flex h-6 w-6 items-center justify-center rounded-md bg-cyber-accent/10">
+                <div className="flex-1 flex justify-center">
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-400 font-mono">
                     <svg
-                      className="w-3 h-3 text-cyber-accent"
+                      className="w-2.5 h-2.5 opacity-40"
                       viewBox="0 0 16 16"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      fill="currentColor"
                     >
-                      <path d="M2 4h12M2 8h8M2 12h10" />
+                      <path d="M11.5 1a3.5 3.5 0 00-3.5 3.5V7H3a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2V9a2 2 0 00-2-2H9V4.5a2.5 2.5 0 015 0V6h1V4.5A3.5 3.5 0 0011.5 1z" />
                     </svg>
+                    bloomstudio.com
                   </div>
-                  <p className="text-[11px] font-semibold text-white">
-                    Workflows Active
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  {[
-                    { task: "Invoice sent", status: "Auto" },
-                    { task: "Booking confirmed", status: "Auto" },
-                    { task: "Follow-up scheduled", status: "Auto" },
-                  ].map((w) => (
-                    <div
-                      key={w.task}
-                      className="flex items-center justify-between"
-                    >
-                      <span className="text-[10px] text-cyber-gray-400">
-                        {w.task}
-                      </span>
-                      <span className="text-[9px] font-medium text-cyber-accent/80 bg-cyber-accent/[0.08] px-1.5 py-0.5 rounded">
-                        {w.status}
-                      </span>
-                    </div>
-                  ))}
                 </div>
               </div>
 
-              {/* Performance metrics card */}
-              <div
-                className="absolute -bottom-4 right-0 w-[48%] lg:-bottom-8 lg:-right-8 lg:w-[210px] rounded-xl border border-white/[0.08] bg-[#111318]/95 p-3 lg:p-4 z-20"
-                style={{
-                  boxShadow:
-                    "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
-                  backdropFilter: "blur(12px)",
-                }}
-              >
-                {/* Score ring + label */}
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="relative h-11 w-11 flex-shrink-0">
-                    <svg
-                      viewBox="0 0 36 36"
-                      className="h-full w-full -rotate-90"
-                    >
-                      <circle
-                        cx="18"
-                        cy="18"
-                        r="15.5"
-                        fill="none"
-                        stroke="rgba(255,255,255,0.06)"
-                        strokeWidth="3"
-                      />
-                      <circle
-                        ref={scoreRingRef}
-                        cx="18"
-                        cy="18"
-                        r="15.5"
-                        fill="none"
-                        stroke="#4ADE80"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                    <span
-                      ref={scoreTextRef}
-                      className="absolute inset-0 flex items-center justify-center text-xs font-bold text-white"
-                    >
-                      0
-                    </span>
+              {/* ══ Stage ══ */}
+              <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0C10]">
+                {/* ━━ Scene 1 — Landing Page ━━ */}
+                <div ref={s1} className="absolute inset-0 p-4 sm:p-5 flex flex-col">
+                  {/* Nav */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] sm:text-[12px] font-semibold text-white tracking-tight">
+                        Bloom Studio
+                      </span>
+                    </div>
+                    <div className="hidden sm:flex items-center gap-4">
+                      <span className="text-[8px] text-cyber-gray-500">
+                        Services
+                      </span>
+                      <span className="text-[8px] text-cyber-gray-500">
+                        About
+                      </span>
+                      <span className="text-[8px] text-cyber-gray-500">
+                        Contact
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[11px] font-semibold text-white leading-tight">
-                      Lighthouse
+
+                  {/* Hero area */}
+                  <div className="mt-5 sm:mt-7 flex-1">
+                    <p className="text-[16px] sm:text-[20px] font-semibold text-white leading-tight">
+                      Look Good.
+                      <br />
+                      Feel Great.
                     </p>
-                    <p className="text-[10px] text-cyber-gray-400">
-                      Overall Score
+                    <p className="text-[8px] sm:text-[10px] text-cyber-gray-400 mt-2 max-w-[75%] leading-relaxed">
+                      Premium services tailored to you.
+                      <br />
+                      Book your next appointment online.
                     </p>
+                    <button className="mt-3 sm:mt-4 px-3 sm:px-4 py-1.5 sm:py-2 bg-cyber-accent rounded text-[8px] sm:text-[9px] font-semibold text-[#050505]">
+                      Book Now
+                    </button>
+                  </div>
+
+                  {/* Abstract service cards */}
+                  <div className="flex gap-2 mt-auto">
+                    <div className="h-10 sm:h-12 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
+                    <div className="h-10 sm:h-12 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
+                    <div className="h-10 sm:h-12 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
                   </div>
                 </div>
 
-                {/* Metric rows */}
-                <div className="space-y-2 border-t border-white/[0.06] pt-3">
-                  {[
-                    { label: "Performance", value: "100" },
-                    { label: "Accessibility", value: "100" },
-                    { label: "SEO", value: "100" },
-                  ].map((m) => (
-                    <div
-                      key={m.label}
-                      className="flex items-center justify-between"
-                    >
-                      <span className="text-[10px] text-cyber-gray-400">
-                        {m.label}
+                {/* ━━ Scene 2 — Booking Form ━━ */}
+                <div
+                  ref={s2}
+                  className="absolute inset-0 p-3 sm:p-4 flex flex-col"
+                  style={{ opacity: 0 }}
+                >
+                  <p className="text-[11px] sm:text-[13px] font-semibold text-white mb-2 sm:mb-3">
+                    Book Your Appointment
+                  </p>
+                  <div className="space-y-1.5 sm:space-y-2 flex-1">
+                    {/* Name */}
+                    <div>
+                      <span className="text-[6px] sm:text-[7px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                        Name
                       </span>
-                      <div className="flex items-center gap-1">
-                        <span className="text-[10px] font-semibold text-[#4ADE80]">
-                          {m.value}
-                        </span>
-                        <svg
-                          className="w-2.5 h-2.5 text-[#4ADE80]"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
+                      <div className="mt-0.5 px-2 py-1 sm:py-1.5 rounded bg-white/[0.04] border border-white/[0.06]">
+                        <span
+                          className="hv text-[8px] sm:text-[9px] text-white"
+                          style={{ opacity: 0 }}
                         >
-                          <path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 111.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z" />
-                        </svg>
+                          Sarah Martinez
+                        </span>
                       </div>
                     </div>
-                  ))}
+                    {/* Date & Time — side by side */}
+                    <div className="grid grid-cols-2 gap-2">
+                      <div>
+                        <span className="text-[6px] sm:text-[7px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                          Date
+                        </span>
+                        <div className="mt-0.5 px-2 py-1 sm:py-1.5 rounded bg-white/[0.04] border border-white/[0.06]">
+                          <span
+                            className="hv text-[8px] sm:text-[9px] text-white"
+                            style={{ opacity: 0 }}
+                          >
+                            Feb 20
+                          </span>
+                        </div>
+                      </div>
+                      <div>
+                        <span className="text-[6px] sm:text-[7px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                          Time
+                        </span>
+                        <div className="mt-0.5 px-2 py-1 sm:py-1.5 rounded bg-white/[0.04] border border-white/[0.06]">
+                          <span
+                            className="hv text-[8px] sm:text-[9px] text-white"
+                            style={{ opacity: 0 }}
+                          >
+                            2:00 PM
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Service */}
+                    <div>
+                      <span className="text-[6px] sm:text-[7px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                        Service
+                      </span>
+                      <div className="mt-0.5 px-2 py-1 sm:py-1.5 rounded bg-white/[0.04] border border-white/[0.06]">
+                        <span
+                          className="hv text-[8px] sm:text-[9px] text-white"
+                          style={{ opacity: 0 }}
+                        >
+                          Premium Session · 60 min · $150
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Confirm button */}
+                  <div className="mt-2 flex justify-center">
+                    <button className="px-3 sm:px-4 py-1 sm:py-1.5 bg-cyber-accent rounded text-[7px] sm:text-[8px] font-semibold text-[#050505]">
+                      Confirm Booking
+                    </button>
+                  </div>
+                </div>
+
+                {/* ━━ Scene 3 — Confirmation ━━ */}
+                <div
+                  ref={s3}
+                  className="absolute inset-0 flex flex-col items-center justify-center p-3 sm:p-4"
+                  style={{ opacity: 0 }}
+                >
+                  <svg
+                    viewBox="0 0 52 52"
+                    className="w-12 h-12 sm:w-16 sm:h-16 mb-2 sm:mb-3"
+                  >
+                    <circle
+                      className="hconfirm-circle"
+                      cx="26"
+                      cy="26"
+                      r="24"
+                      fill="none"
+                      stroke="#4ADE80"
+                      strokeWidth="2"
+                      strokeDasharray="150.8"
+                      strokeDashoffset="150.8"
+                    />
+                    <path
+                      className="hconfirm-check"
+                      d="M15 27l7 7 15-15"
+                      fill="none"
+                      stroke="#4ADE80"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeDasharray="35"
+                      strokeDashoffset="35"
+                    />
+                  </svg>
+                  <p
+                    className="hconfirm-text text-[14px] sm:text-[17px] font-semibold text-white"
+                    style={{ opacity: 0 }}
+                  >
+                    Booking Confirmed!
+                  </p>
+                  <div
+                    className="hconfirm-details mt-3 sm:mt-4 space-y-1 sm:space-y-1.5 text-center"
+                    style={{ opacity: 0 }}
+                  >
+                    <p className="text-[9px] sm:text-[11px] text-cyber-gray-300">
+                      Sarah M. · Feb 20 · 2:00 PM
+                    </p>
+                    <p className="text-[9px] sm:text-[11px] text-cyber-gray-400">
+                      Premium Session · 60 min
+                    </p>
+                    <p className="text-[8px] sm:text-[9px] text-cyber-gray-500 mt-2 sm:mt-3">
+                      ✉ Confirmation sent to sarah@email.com
+                    </p>
+                  </div>
+                </div>
+
+                {/* ━━ Scene 4 — Automation Cascade ━━ */}
+                <div
+                  ref={s4}
+                  className="absolute inset-0 p-3 sm:p-4"
+                  style={{ opacity: 0 }}
+                >
+                  <div className="flex items-center gap-1.5 mb-1.5 sm:mb-2">
+                    <div className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+                    <p className="text-[8px] sm:text-[10px] font-mono text-cyber-gray-400 uppercase tracking-wider">
+                      Behind the scenes
+                    </p>
+                  </div>
+                  <p className="text-[11px] sm:text-[13px] font-semibold text-white mb-2 sm:mb-3">
+                    Automation Running
+                  </p>
+                  <div className="space-y-1.5 sm:space-y-2">
+                    {(
+                      [
+                        {
+                          Icon: Mail,
+                          text: "Confirmation email sent",
+                          detail: "sarah@email.com",
+                        },
+                        {
+                          Icon: FileText,
+                          text: "Invoice generated",
+                          detail: "$150.00",
+                        },
+                        {
+                          Icon: Calendar,
+                          text: "Google Calendar updated",
+                          detail: "Feb 20, 2:00 PM",
+                        },
+                        {
+                          Icon: Star,
+                          text: "Follow-up scheduled",
+                          detail: "Review request · 3 days",
+                        },
+                      ] as const
+                    ).map((task, i) => (
+                      <div
+                        key={i}
+                        className="htask flex items-center gap-2 sm:gap-2.5 px-2 sm:px-2.5 py-1.5 sm:py-2 rounded-lg bg-white/[0.03] border border-white/[0.05]"
+                        style={{ opacity: 0 }}
+                      >
+                        <div className="flex-shrink-0 h-4 w-4 sm:h-5 sm:w-5 rounded bg-[#4ADE80]/10 flex items-center justify-center">
+                          <svg
+                            viewBox="0 0 16 16"
+                            className="w-2 h-2 sm:w-2.5 sm:h-2.5"
+                          >
+                            <path
+                              className="htask-check"
+                              d="M3 8l4 4 6-7"
+                              fill="none"
+                              stroke="#4ADE80"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeDasharray="20"
+                              strokeDashoffset="20"
+                            />
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[8px] sm:text-[9px] font-semibold text-white">
+                            {task.text}
+                          </p>
+                          <p className="text-[6px] sm:text-[7px] text-cyber-gray-500">
+                            {task.detail}
+                          </p>
+                        </div>
+                        <task.Icon className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-cyber-gray-500 flex-shrink-0" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* ━━ Scene 5 — Results ━━ */}
+                <div
+                  ref={s5}
+                  className="absolute inset-0 p-4 sm:p-5 flex flex-col"
+                  style={{ opacity: 0 }}
+                >
+                  <p className="text-[9px] sm:text-[11px] font-mono text-cyber-gray-400 uppercase tracking-wider mb-1 sm:mb-2">
+                    This month
+                  </p>
+                  <p className="text-[13px] sm:text-[15px] font-semibold text-white mb-4 sm:mb-6">
+                    Your Results
+                  </p>
+                  <div className="flex-1 flex items-center justify-center">
+                    <div className="grid grid-cols-3 gap-3 sm:gap-4 w-full">
+                      {/* Lighthouse */}
+                      <div className="text-center">
+                        <div className="relative h-12 w-12 sm:h-14 sm:w-14 mx-auto mb-1.5 sm:mb-2">
+                          <svg
+                            viewBox="0 0 36 36"
+                            className="h-full w-full -rotate-90"
+                          >
+                            <circle
+                              cx="18"
+                              cy="18"
+                              r="15.5"
+                              fill="none"
+                              stroke="rgba(255,255,255,0.06)"
+                              strokeWidth="3"
+                            />
+                            <circle
+                              className="hstat-ring"
+                              cx="18"
+                              cy="18"
+                              r="15.5"
+                              fill="none"
+                              stroke="#4ADE80"
+                              strokeWidth="3"
+                              strokeLinecap="round"
+                              strokeDasharray="97.4"
+                              strokeDashoffset="97.4"
+                            />
+                          </svg>
+                          <span
+                            ref={statScore}
+                            className="absolute inset-0 flex items-center justify-center text-[10px] sm:text-[12px] font-bold text-white"
+                          >
+                            0
+                          </span>
+                        </div>
+                        <p className="text-[7px] sm:text-[9px] text-cyber-gray-500">
+                          Lighthouse
+                        </p>
+                      </div>
+                      {/* Leads */}
+                      <div className="text-center flex flex-col justify-center">
+                        <p className="text-[22px] sm:text-[28px] font-semibold text-white leading-none">
+                          <span ref={statLeads}>0</span>
+                        </p>
+                        <p className="text-[7px] sm:text-[9px] text-cyber-gray-500 mt-1 sm:mt-1.5">
+                          Leads
+                        </p>
+                      </div>
+                      {/* Conversion rate */}
+                      <div className="text-center flex flex-col justify-center">
+                        <p className="text-[22px] sm:text-[28px] font-semibold text-[#4ADE80] leading-none">
+                          ↑<span ref={statConv}>0%</span>
+                        </p>
+                        <p className="text-[7px] sm:text-[9px] text-cyber-gray-500 mt-1 sm:mt-1.5">
+                          Conv. Rate
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-[8px] sm:text-[10px] text-center text-cyber-gray-500 mt-auto">
+                    All automated. Zero busywork.
+                  </p>
+                </div>
+
+                {/* ━━ Cursor ━━ */}
+                <div
+                  ref={cursorRef}
+                  className="absolute z-30 pointer-events-none"
+                  style={{ opacity: 0 }}
+                >
+                  <svg
+                    width="14"
+                    height="18"
+                    viewBox="0 0 16 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M1 1v14.5l4-4 3.5 7 2-1L7 10.5l5.5 0z"
+                      fill="white"
+                      stroke="#333"
+                      strokeWidth="0.5"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
