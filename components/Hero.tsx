@@ -183,6 +183,9 @@ export default function Hero() {
                   scale: 1,
                 });
                 gsap.set(".hv", { opacity: 0 });
+                gsap.set(".hbtn-book, .hbtn-confirm", {
+                  scale: 1,
+                });
                 gsap.set(".hconfirm-circle", { strokeDashoffset: 150.8 });
                 gsap.set(".hconfirm-check", { strokeDashoffset: 35 });
                 gsap.set(".hconfirm-text", { opacity: 0, y: 8 });
@@ -232,7 +235,13 @@ export default function Hero() {
         );
         // Click
         tl.to(cursor, { scale: 0.7, duration: 0.07 });
+        tl.to(".hbtn-book", { scale: 0.96, duration: 0.1 }, "<");
         tl.to(cursor, { scale: 1, duration: 0.15, ease: "back.out(3)" });
+        tl.to(
+          ".hbtn-book",
+          { scale: 1, duration: 0.25, ease: "power2.out" },
+          "<",
+        );
         tl.to({}, { duration: 0.35 });
         tl.to(cursor, { opacity: 0, duration: 0.15 });
 
@@ -261,7 +270,13 @@ export default function Hero() {
         );
         tl.to(cursor, { opacity: 1, duration: 0.3 });
         tl.to(cursor, { scale: 0.7, duration: 0.07 });
+        tl.to(".hbtn-confirm", { scale: 0.96, duration: 0.1 }, "<");
         tl.to(cursor, { scale: 1, duration: 0.15, ease: "back.out(3)" });
+        tl.to(
+          ".hbtn-confirm",
+          { scale: 1, duration: 0.25, ease: "power2.out" },
+          "<",
+        );
         tl.to(cursor, { opacity: 0, duration: 0.15 }, "+=0.2");
 
         /* Transition 2 → 3: slide */
@@ -536,7 +551,7 @@ export default function Hero() {
                       <br />
                       Book your next appointment online.
                     </p>
-                    <button className="mt-3 sm:mt-4 px-3 sm:px-4 py-1.5 sm:py-2 bg-cyber-accent rounded text-[8px] sm:text-[9px] font-semibold text-[#050505]">
+                    <button className="hbtn-book mt-3 sm:mt-4 px-3 sm:px-4 py-1.5 sm:py-2 bg-cyber-accent rounded text-[8px] sm:text-[9px] font-semibold text-[#050505]">
                       Book Now
                     </button>
                   </div>
@@ -619,7 +634,7 @@ export default function Hero() {
                   </div>
                   {/* Confirm button */}
                   <div className="mt-2 flex justify-center">
-                    <button className="px-4 sm:px-5 py-1.5 sm:py-2 bg-cyber-accent rounded text-[8px] sm:text-[10px] font-semibold text-[#050505]">
+                    <button className="hbtn-confirm px-4 sm:px-5 py-1.5 sm:py-2 bg-cyber-accent rounded text-[8px] sm:text-[10px] font-semibold text-[#050505]">
                       Confirm Booking
                     </button>
                   </div>
