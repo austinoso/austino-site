@@ -55,6 +55,7 @@ export default function RootLayout({
           defer
           src="/stats/script.js"
           data-website-id="acac45ad-5413-4bdd-9e96-5d60f56a21ff"
+          data-domains="austino.dev,www.austino.dev"
           strategy="afterInteractive"
         />
         <SmoothScroll>
