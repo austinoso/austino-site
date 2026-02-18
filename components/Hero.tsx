@@ -443,7 +443,7 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 md:pb-24">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center w-full">
           {/* ─── Copy ─── */}
           <div ref={copyRef} className="lg:col-span-6 space-y-5">
             <p className="font-mono text-xs text-cyber-gray-400 uppercase tracking-[0.1em] sm:tracking-[0.2em]">
