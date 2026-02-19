@@ -13,6 +13,7 @@ import {
   Star,
   ChevronLeft,
   ChevronRight,
+  ArrowRight,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
@@ -432,21 +433,33 @@ export default function Hero() {
         }}
         aria-hidden="true"
       />
+      {/* Bottom gradient fade */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 pointer-events-none z-[5]"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent, #0B0D10)",
+        }}
+        aria-hidden="true"
+      />
+
       {/* Noise grain */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
           backgroundSize: "128px 128px",
+          contain: "strict",
+          willChange: "transform",
         }}
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 md:pb-24">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-36 sm:pt-44 lg:pt-48 pb-20 sm:pb-28 lg:pb-32">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center w-full">
           {/* ─── Copy ─── */}
-          <div ref={copyRef} className="lg:col-span-6 space-y-5">
-            <p className="font-mono text-xs text-cyber-gray-400 uppercase tracking-[0.1em] sm:tracking-[0.2em]">
+          <div ref={copyRef} className="lg:col-span-6 flex flex-col">
+            <p className="font-mono text-[11px] sm:text-xs text-cyber-accent/70 uppercase tracking-[0.18em] sm:tracking-[0.25em] mb-4">
               Performance &middot; Conversions &middot; Automation
             </p>
 
@@ -454,35 +467,45 @@ export default function Hero() {
               text="Websites that work as hard as you do."
               as="h1"
               id="hero-heading"
-              className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight"
+              className="text-[2rem] sm:text-4xl md:text-5xl font-extrabold text-white leading-[1.1] tracking-tight"
               immediate
             />
 
-            <p className="text-base sm:text-lg text-cyber-gray-300 max-w-lg leading-relaxed">
+            <p className="mt-5 text-[15px] sm:text-base text-cyber-gray-300 max-w-md leading-relaxed">
               I build fast, high-converting sites that turn visitors into
               customers — then automate the follow-ups, bookings, and busywork
               so you can focus on running your business.
             </p>
 
-            <div className="inline-flex items-center gap-2.5 text-sm text-cyber-gray-400">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
-              Based in Northern California, serving clients everywhere.
-            </div>
-
-            <div className="pt-1">
+            <div className="mt-8">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-lg transition-all text-sm shadow-lg shadow-cyber-accent/20 hover:shadow-xl hover:shadow-cyber-accent/30 hover:brightness-110"
+                className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-xl transition-all text-sm shadow-lg shadow-cyber-accent/20 hover:shadow-xl hover:shadow-cyber-accent/30 hover:brightness-110"
                 aria-label="Get a free consultation"
                 data-umami-event="hero-cta"
               >
                 Get a Free Consultation
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
+            </div>
+
+            <div className="mt-6 inline-flex items-center gap-2 text-[13px] text-cyber-gray-400/80">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
+              Based in Northern California, serving clients everywhere.
             </div>
           </div>
 
           {/* ─── Visual: Cinematic Demo ─── */}
           <div ref={visualRef} className="lg:col-span-6 mb-8 sm:mb-10 lg:mb-0">
+            <div className="relative">
+              {/* Glow behind the browser */}
+              <div
+                className="absolute -inset-4 sm:-inset-6 rounded-3xl opacity-40 blur-2xl pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, rgba(64,224,255,0.12), transparent 70%)",
+                }}
+              />
             <div
               className="relative rounded-2xl border border-white/[0.08] bg-[#111318] overflow-hidden"
               style={{
@@ -904,6 +927,7 @@ export default function Hero() {
                   </div>
                 )}
               </div>
+            </div>
             </div>
           </div>
         </div>

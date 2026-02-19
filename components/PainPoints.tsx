@@ -148,10 +148,9 @@ function DataEntryGraphic() {
 
   return (
     <div ref={containerRef} className="relative w-full h-36 overflow-hidden">
-      {/* Top + bottom fade */}
-      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-[#0A0B0F] to-transparent z-10 pointer-events-none group-hover:from-[#0D0E14] transition-colors duration-300" />
+      {/* Bottom fade */}
       <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#0A0B0F] to-transparent z-10 pointer-events-none group-hover:from-[#0D0E14] transition-colors duration-300" />
-      <div className="h-full px-5 pt-2">
+      <div className="h-full px-6 sm:px-7 pt-2">
         {/* Header */}
         <div className="flex gap-2 mb-1.5 px-2">
           <span className="text-[8px] font-mono text-white/[0.15] w-[45%]">
@@ -202,8 +201,7 @@ function DataEntryGraphic() {
 function DisconnectedToolsGraphic() {
   return (
     <div className="relative w-full h-36 overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-[#0A0B0F] to-transparent z-10 pointer-events-none group-hover:from-[#0D0E14] transition-colors duration-300" />
-      <div className="h-full px-5 pt-4 pb-3 relative">
+      <div className="h-full px-6 sm:px-7 pt-4 pb-3 relative">
         {/* App window 1 — calendar */}
         <div className="absolute top-4 left-5 w-[45%] rounded-md border border-white/[0.06] bg-white/[0.02] p-2 transition-transform duration-500 group-hover:-translate-x-1 group-hover:-rotate-1">
           <div className="flex gap-1 mb-2">
@@ -286,8 +284,7 @@ function DisconnectedToolsGraphic() {
 function BrokenSiteGraphic() {
   return (
     <div className="relative w-full h-36 overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-[#0A0B0F] to-transparent z-10 pointer-events-none group-hover:from-[#0D0E14] transition-colors duration-300" />
-      <div className="h-full px-5 pt-2 pb-3">
+      <div className="h-full px-6 sm:px-7 pt-2 pb-3">
         {/* Browser frame */}
         <div className="rounded-lg border border-white/[0.06] bg-white/[0.015] overflow-hidden h-full">
           {/* Browser chrome */}
@@ -387,7 +384,7 @@ export default function PainPoints() {
             y: 0,
             duration: 0.5,
             ease: "power3.out",
-            scrollTrigger: { trigger: headerRef.current, start: "top 85%" },
+            scrollTrigger: { trigger: headerRef.current, start: "top 95%" },
           });
         }
 
@@ -400,7 +397,7 @@ export default function PainPoints() {
             ease: "power3.out",
             scrollTrigger: {
               trigger: cards[0],
-              start: "top 85%",
+              start: "top 95%",
             },
           });
         }
@@ -436,6 +433,8 @@ export default function PainPoints() {
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
           backgroundSize: "128px 128px",
+          contain: "strict",
+          willChange: "transform",
         }}
         aria-hidden="true"
       />
@@ -448,14 +447,14 @@ export default function PainPoints() {
           </p>
           <h2
             id="pain-points-heading"
-            className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight max-w-2xl"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight max-w-2xl"
           >
             Running a business shouldn&apos;t feel like this.
           </h2>
         </div>
 
         {/* Card grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {painPoints.map((point, index) => (
             <div
               key={index}
@@ -475,9 +474,9 @@ export default function PainPoints() {
               />
 
               {/* Text content */}
-              <div className="relative p-6 sm:p-7 pb-0 flex-1">
+              <div className="relative px-6 sm:px-7 pt-6 sm:pt-7">
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-semibold text-white leading-snug mb-3">
+                <h3 className="text-lg sm:text-xl font-semibold text-white leading-snug mb-2.5">
                   {point.title}
                 </h3>
 
@@ -488,7 +487,7 @@ export default function PainPoints() {
               </div>
 
               {/* Graphic accent — bottom of card */}
-              <div className="relative mt-auto" aria-hidden="true">
+              <div className="relative mt-auto pt-4 pb-5 sm:pb-6" aria-hidden="true">
                 {point.graphic}
               </div>
             </div>
