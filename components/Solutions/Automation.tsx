@@ -125,7 +125,7 @@ export default function Automation() {
           href="/services/automation"
           className="inline-flex items-center gap-2 text-sm font-mono text-cyber-accent hover:text-white transition-colors duration-300 mt-6"
         >
-          Learn more <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+          Explore automation <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
       </div>
     </div>
