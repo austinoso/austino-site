@@ -116,23 +116,9 @@ export default function Navigation() {
       closeMenu();
 
       const doScroll = () => {
-        const smoother = (window as unknown as Record<string, unknown>)
-          .__smoother as
-          | {
-              scrollTo?: (
-                target: string | Element,
-                smooth?: boolean,
-                position?: string,
-              ) => void;
-            }
-          | undefined;
-        if (smoother?.scrollTo) {
-          smoother.scrollTo("#solutions", true, "top top");
-        } else {
-          const el = document.getElementById("solutions");
-          if (el) {
-            el.scrollIntoView({ behavior: "smooth" });
-          }
+        const el = document.getElementById("solutions");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
         }
       };
 
