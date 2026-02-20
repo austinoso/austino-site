@@ -369,14 +369,12 @@ export default function PainPoints() {
   useEffect(() => {
     let ctx: gsap.Context | null = null;
 
-    /* Hide immediately so nothing is visible before hero finishes */
-    if (headerRef.current) gsap.set(headerRef.current, { opacity: 0, y: 12 });
-    const cards = cardRefs.current.filter(Boolean);
-    if (cards.length) gsap.set(cards, { opacity: 0, y: 16 });
-    if (closerRef.current) gsap.set(closerRef.current, { opacity: 0, y: 12 });
+    /* gsap.set calls removed — initial styles are now in JSX
+       to prevent CLS (elements render hidden from first paint). */
 
     onHeroReady(() => {
       ctx = gsap.context(() => {
+        const cards = cardRefs.current.filter(Boolean);
         /* ── Header fade up ── */
         if (headerRef.current) {
           gsap.to(headerRef.current, {
@@ -441,7 +439,7 @@ export default function PainPoints() {
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
         {/* Header */}
-        <div ref={headerRef} className="mb-14 sm:mb-20">
+        <div ref={headerRef} className="mb-14 sm:mb-20" style={{ opacity: 0, transform: 'translateY(12px)' }}>
           <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
             The Problem
           </p>
@@ -462,6 +460,7 @@ export default function PainPoints() {
                 cardRefs.current[index] = el;
               }}
               className="group relative rounded-2xl border border-white/[0.06] bg-[#0A0B0F] overflow-hidden transition-colors duration-300 hover:border-white/[0.12] hover:bg-[#0D0E14] flex flex-col"
+              style={{ opacity: 0, transform: 'translateY(16px)' }}
             >
               {/* Accent glow on hover */}
               <div
@@ -498,7 +497,7 @@ export default function PainPoints() {
         </div>
 
         {/* Closer */}
-        <div ref={closerRef} className="mt-14 sm:mt-20 max-w-xl">
+        <div ref={closerRef} className="mt-14 sm:mt-20 max-w-xl" style={{ opacity: 0, transform: 'translateY(12px)' }}>
           <p className="text-lg sm:text-xl text-cyber-gray-300 leading-relaxed">
             Every hour you spend on busywork is an hour not spent growing your
             business.{" "}
