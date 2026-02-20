@@ -1,11 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
-
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function SmoothScroll({
   children,
@@ -24,24 +19,35 @@ export default function SmoothScroll({
 
     // Only run on desktop for performance
     const isDesktop = window.innerWidth >= 1024;
+    if (!isDesktop) return;
 
-    if (isDesktop) {
-      const smoother = ScrollSmoother.create({
+    let smoother: { kill: () => void } | null = null;
+
+    // Dynamically import GSAP plugins to reduce initial JS bundle
+    Promise.all([
+      import("gsap"),
+      import("gsap/ScrollTrigger"),
+      import("gsap/ScrollSmoother"),
+    ]).then(([{ gsap }, { ScrollTrigger }, { ScrollSmoother }]) => {
+      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+      smoother = ScrollSmoother.create({
         wrapper: smoothWrapperRef.current!,
         content: smoothContentRef.current!,
-        smooth: 0.8, // Snappier feel, less lag
-        effects: true, // Enable data-speed attributes
-        smoothTouch: 0.1, // Light smooth on mobile
+        smooth: 0.8,
+        effects: true,
+        smoothTouch: 0.1,
       });
 
-      // Expose for Navigation anchor scrolling
       (window as unknown as Record<string, unknown>).__smoother = smoother;
+    });
 
-      return () => {
+    return () => {
+      if (smoother) {
         smoother.kill();
         delete (window as unknown as Record<string, unknown>).__smoother;
-      };
-    }
+      }
+    };
   }, []);
 
   return (
