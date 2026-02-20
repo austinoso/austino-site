@@ -3,20 +3,22 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import "./globals.css";
+import JsonLd from "@/components/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "optional",
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
-  display: "optional",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://austino.dev"),
   title: "austino | Websites, Automation & Tech Support for Small Businesses",
   description:
     "I build fast, high-converting websites, automate the busywork, and provide ongoing tech support — so small business owners can focus on what they do best.",
@@ -33,9 +35,20 @@ export const metadata: Metadata = {
     "custom business tools",
   ],
   authors: [{ name: "Austin O." }],
+  alternates: {
+    canonical: "https://austino.dev",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: "https://austino.dev",
+    siteName: "austino",
+    title: "austino | Websites, Automation & Tech Support for Small Businesses",
+    description:
+      "I build fast, high-converting websites, automate the busywork, and provide ongoing tech support — so small business owners can focus on what they do best.",
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "austino | Websites, Automation & Tech Support for Small Businesses",
     description:
       "I build fast, high-converting websites, automate the busywork, and provide ongoing tech support — so small business owners can focus on what they do best.",
@@ -63,6 +76,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <JsonLd />
         <div className="min-h-screen bg-cyber-dark">{children}</div>
         <Analytics />
       </body>
