@@ -20,12 +20,9 @@ export default function Work() {
   useEffect(() => {
     let ctx: gsap.Context | null = null;
 
-    /* Hide immediately so nothing is visible before hero finishes */
-    if (labelRef.current) gsap.set(labelRef.current, { opacity: 0 });
+    /* Initial styles set via JSX to prevent CLS */
     const cards = sectionRef.current?.querySelectorAll("[data-card]");
-    if (cards?.length) gsap.set(cards, { opacity: 0, y: 12 });
     const link = sectionRef.current?.querySelector("[data-footer-link]");
-    if (link) gsap.set(link, { opacity: 0 });
 
     onHeroReady(() => {
       ctx = gsap.context(() => {
@@ -90,6 +87,7 @@ export default function Work() {
           <p
             ref={labelRef}
             className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
+            style={{ opacity: 0 }}
           >
             Projects
           </p>
@@ -111,6 +109,8 @@ export default function Work() {
               data-umami-event-project={project.slug}
               className="group rounded-xl border border-white/[0.06] bg-[#111318] overflow-hidden transition-colors duration-300 hover:border-white/[0.12]"
               style={{
+                opacity: 0,
+                transform: "translateY(12px)",
                 boxShadow:
                   "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
               }}
@@ -159,7 +159,11 @@ export default function Work() {
         </div>
 
         {/* Footer link */}
-        <div data-footer-link className="flex justify-center sm:justify-end">
+        <div
+          data-footer-link
+          className="flex justify-center sm:justify-end"
+          style={{ opacity: 0 }}
+        >
           <Link
             href="/work"
             className="inline-flex items-center gap-2 text-cyber-gray-400 hover:text-cyber-accent transition-colors duration-300 font-mono text-xs uppercase tracking-[0.15em] border border-white/[0.08] rounded-lg px-5 py-2.5 hover:border-cyber-accent/30"

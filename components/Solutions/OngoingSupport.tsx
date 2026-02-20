@@ -66,7 +66,8 @@ export default function OngoingSupport() {
           href="/services/ongoing-support"
           className="inline-flex items-center gap-2 text-sm font-mono text-cyber-accent hover:text-white transition-colors duration-300 mt-6"
         >
-          Explore ongoing support <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+          Explore ongoing support{" "}
+          <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
       </div>
 

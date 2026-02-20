@@ -64,7 +64,8 @@ export default function WebDevelopment() {
           href="/services/web-development"
           className="inline-flex items-center gap-2 text-sm font-mono text-cyber-accent hover:text-white transition-colors duration-300 mt-6"
         >
-          Explore web development <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+          Explore web development{" "}
+          <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
       </div>
 

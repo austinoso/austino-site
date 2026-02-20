@@ -16,13 +16,10 @@ export default function CTA() {
   useEffect(() => {
     let ctx: gsap.Context | null = null;
 
-    /* Hide immediately */
+    /* Initial styles set via JSX to prevent CLS */
     const label = sectionRef.current?.querySelector("[data-label]");
-    if (label) gsap.set(label, { opacity: 0 });
     const body = sectionRef.current?.querySelectorAll("[data-fade]");
-    if (body?.length) gsap.set(body, { opacity: 0, y: 10 });
     const line = sectionRef.current?.querySelector("[data-line]");
-    if (line) gsap.set(line, { scaleX: 0, transformOrigin: "left center" });
 
     onHeroReady(() => {
       ctx = gsap.context(() => {
@@ -96,6 +93,7 @@ export default function CTA() {
           <p
             data-label
             className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
+            style={{ opacity: 0 }}
           >
             Get Started
           </p>
@@ -111,12 +109,17 @@ export default function CTA() {
           <p
             data-fade
             className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed"
+            style={{ opacity: 0, transform: "translateY(10px)" }}
           >
             Tell me what&apos;s slowing your business down. I&apos;ll put
             together a clear plan — no jargon, no obligations.
           </p>
 
-          <div data-fade className="mt-5 flex items-center gap-3">
+          <div
+            data-fade
+            className="mt-5 flex items-center gap-3"
+            style={{ opacity: 0, transform: "translateY(10px)" }}
+          >
             <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
             <span className="text-xs font-mono text-cyber-gray-500">
               Accepting new projects
@@ -126,6 +129,7 @@ export default function CTA() {
           <div
             data-fade
             className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4"
+            style={{ opacity: 0, transform: "translateY(10px)" }}
           >
             <Link
               href="/contact"
@@ -148,6 +152,7 @@ export default function CTA() {
         <div
           data-line
           className="mt-14 sm:mt-20 border-t border-white/[0.06]"
+          style={{ transform: "scaleX(0)", transformOrigin: "left center" }}
         />
       </div>
     </section>

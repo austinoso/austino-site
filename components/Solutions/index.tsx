@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { onHeroReady } from "@/lib/heroReady";
@@ -16,34 +16,48 @@ export default function Solutions() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLParagraphElement>(null);
 
-  useEffect(() => {
-    let ctx: gsap.Context | null = null;
-
-    /* Hide label immediately */
-    if (labelRef.current) gsap.set(labelRef.current, { opacity: 0 });
-
-    /* Hide subsection elements immediately */
+  /* ── Hide subsection elements before first paint to prevent CLS ── */
+  useLayoutEffect(() => {
     const subs =
       sectionRef.current?.querySelectorAll<HTMLElement>("[data-subsection]");
     subs?.forEach((sub, i) => {
-      const content = sub.querySelector("[data-content]");
-      const visual = sub.querySelector("[data-visual]");
-      const features = sub.querySelectorAll("[data-feature]");
+      const content = sub.querySelector("[data-content]") as HTMLElement;
+      const visual = sub.querySelector("[data-visual]") as HTMLElement;
+      const features = sub.querySelectorAll<HTMLElement>("[data-feature]");
       const flipped = i === 1;
-      if (content) gsap.set(content, { opacity: 0, x: flipped ? 20 : -20 });
-      if (visual) gsap.set(visual, { opacity: 0, x: flipped ? -20 : 20 });
-      if (features.length) gsap.set(features, { opacity: 0, y: 8 });
+      if (content) {
+        content.style.opacity = "0";
+        content.style.transform = `translateX(${flipped ? 20 : -20}px)`;
+      }
+      if (visual) {
+        visual.style.opacity = "0";
+        visual.style.transform = `translateX(${flipped ? -20 : 20}px)`;
+      }
+      features.forEach((f) => {
+        f.style.opacity = "0";
+        f.style.transform = "translateY(8px)";
+      });
       if (i === 1) {
-        const lines = sub.querySelectorAll("[data-line]");
-        if (lines.length) gsap.set(lines, { opacity: 0, y: 4 });
+        sub.querySelectorAll<HTMLElement>("[data-line]").forEach((l) => {
+          l.style.opacity = "0";
+          l.style.transform = "translateY(4px)";
+        });
       }
       if (i === 2) {
-        const rows = sub.querySelectorAll("[data-row]");
-        if (rows.length) gsap.set(rows, { opacity: 0, x: 10 });
+        sub.querySelectorAll<HTMLElement>("[data-row]").forEach((r) => {
+          r.style.opacity = "0";
+          r.style.transform = "translateX(10px)";
+        });
       }
     });
+  }, []);
+
+  useEffect(() => {
+    let ctx: gsap.Context | null = null;
+
+    const subs =
+      sectionRef.current?.querySelectorAll<HTMLElement>("[data-subsection]");
     const closer = sectionRef.current?.querySelector("[data-closer]");
-    if (closer) gsap.set(closer, { opacity: 0, y: 10 });
 
     onHeroReady(() => {
       ctx = gsap.context(() => {
@@ -226,6 +240,7 @@ export default function Solutions() {
           <p
             ref={labelRef}
             className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
+            style={{ opacity: 0 }}
           >
             The Solution
           </p>
@@ -246,6 +261,7 @@ export default function Solutions() {
         <div
           data-closer
           className="mt-20 sm:mt-28 pt-10 border-t border-white/[0.06] max-w-xl"
+          style={{ opacity: 0, transform: "translateY(10px)" }}
         >
           <p className="text-lg sm:text-xl text-cyber-gray-300 leading-relaxed">
             Every business is different.{" "}

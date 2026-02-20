@@ -150,7 +150,6 @@ export default function Hero() {
           gsap.set(copyRef.current, { opacity: 1, y: 0 });
           signalHeroReady();
         } else {
-          gsap.set(copyRef.current, { opacity: 0, y: 18 });
           gsap.to(copyRef.current, {
             opacity: 1,
             y: 0,
@@ -164,7 +163,6 @@ export default function Hero() {
         if (prefersReducedMotion) {
           gsap.set(visualRef.current, { opacity: 1, y: 0 });
         } else {
-          gsap.set(visualRef.current, { opacity: 0, y: 24 });
           gsap.to(visualRef.current, {
             opacity: 1,
             y: 0,
@@ -517,7 +515,11 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-36 sm:pt-44 lg:pt-48 pb-20 sm:pb-28 lg:pb-32">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center w-full">
           {/* ─── Copy ─── */}
-          <div ref={copyRef} className="lg:col-span-6 flex flex-col">
+          <div
+            ref={copyRef}
+            className="lg:col-span-6 flex flex-col"
+            style={{ opacity: 0, transform: "translateY(18px)" }}
+          >
             <p className="font-mono text-[11px] sm:text-xs text-cyber-accent/70 uppercase tracking-[0.18em] sm:tracking-[0.25em] mb-4">
               Performance &middot; Conversions &middot; Automation
             </p>
@@ -558,7 +560,11 @@ export default function Hero() {
           </div>
 
           {/* ─── Visual: Cinematic Demo ─── */}
-          <div ref={visualRef} className="lg:col-span-6 mb-8 sm:mb-10 lg:mb-0">
+          <div
+            ref={visualRef}
+            className="lg:col-span-6 mb-8 sm:mb-10 lg:mb-0"
+            style={{ opacity: 0, transform: "translateY(24px)" }}
+          >
             <div className="relative">
               {/* Glow behind the browser */}
               <div
