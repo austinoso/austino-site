@@ -153,13 +153,13 @@ function DataEntryGraphic() {
       <div className="h-full px-6 sm:px-7 pt-2">
         {/* Header */}
         <div className="flex gap-2 mb-1.5 px-2">
-          <span className="text-[8px] font-mono text-white/[0.15] w-[45%]">
+          <span className="text-[8px] font-mono text-white/[0.35] w-[45%]">
             Name
           </span>
-          <span className="text-[8px] font-mono text-white/[0.15] w-[30%]">
+          <span className="text-[8px] font-mono text-white/[0.35] w-[30%]">
             Email
           </span>
-          <span className="text-[8px] font-mono text-white/[0.15] w-[20%]">
+          <span className="text-[8px] font-mono text-white/[0.35] w-[20%]">
             Time
           </span>
         </div>
@@ -487,7 +487,10 @@ export default function PainPoints() {
               </div>
 
               {/* Graphic accent — bottom of card */}
-              <div className="relative mt-auto pt-4 pb-5 sm:pb-6" aria-hidden="true">
+              <div
+                className="relative mt-auto pt-4 pb-5 sm:pb-6"
+                aria-hidden="true"
+              >
                 {point.graphic}
               </div>
             </div>

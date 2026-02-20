@@ -148,7 +148,10 @@ export default function Work() {
 
                 <div className="flex items-center gap-1.5 mt-4 text-xs font-mono text-cyber-gray-500 group-hover:text-cyber-accent transition-colors duration-300">
                   <span>Read case study</span>
-                  <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight
+                    className="w-3 h-3 transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
                 </div>
               </div>
             </Link>
@@ -163,7 +166,7 @@ export default function Work() {
             data-umami-event="see-all-work"
           >
             <span>See all work</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
           </Link>
         </div>
       </div>

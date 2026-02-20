@@ -34,7 +34,7 @@ export default async function CaseStudyPage({
   }
 
   return (
-    <main className="relative min-h-screen bg-[#050505]">
+    <main id="main-content" className="relative min-h-screen bg-[#050505]">
       <Navigation />
 
       {/* Noise grain */}
@@ -64,7 +64,7 @@ export default async function CaseStudyPage({
           className="inline-flex items-center gap-2 text-sm font-mono text-cyber-gray-400 hover:text-white transition-colors duration-300 mb-10 sm:mb-14 tracking-wide"
           aria-label="Back to all work"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
+          <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
           <span>Back to Work</span>
         </Link>
 
@@ -190,7 +190,10 @@ export default async function CaseStudyPage({
             >
               {study.results.map((result: string, index: number) => (
                 <li key={index} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#4ADE80] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2
+                    className="w-4 h-4 text-[#4ADE80] flex-shrink-0 mt-0.5"
+                    aria-hidden="true"
+                  />
                   <span className="text-sm text-cyber-gray-300 leading-relaxed">
                     {result}
                   </span>
@@ -292,7 +295,10 @@ export default async function CaseStudyPage({
                 className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)] w-full sm:w-auto"
               >
                 <span>Start a Conversation</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
               </Link>
             </div>
           </div>

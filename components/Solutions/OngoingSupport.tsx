@@ -1,4 +1,5 @@
-import { Shield, PhoneCall, TrendingUp } from "lucide-react";
+import { Shield, PhoneCall, TrendingUp, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { statusItems } from "./data";
 
 export default function OngoingSupport() {
@@ -21,7 +22,10 @@ export default function OngoingSupport() {
         </p>
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">
-            <Shield className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
+            <Shield
+              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            />
             <div>
               <p className="text-sm font-medium text-white">
                 Managed &amp; Monitored
@@ -32,7 +36,10 @@ export default function OngoingSupport() {
             </div>
           </div>
           <div data-feature className="flex items-start gap-3">
-            <PhoneCall className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
+            <PhoneCall
+              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            />
             <div>
               <p className="text-sm font-medium text-white">
                 On-Call Consultant
@@ -43,7 +50,10 @@ export default function OngoingSupport() {
             </div>
           </div>
           <div data-feature className="flex items-start gap-3">
-            <TrendingUp className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
+            <TrendingUp
+              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            />
             <div>
               <p className="text-sm font-medium text-white">Growth Ready</p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
@@ -52,6 +62,12 @@ export default function OngoingSupport() {
             </div>
           </div>
         </div>
+        <Link
+          href="/services/ongoing-support"
+          className="inline-flex items-center gap-2 text-sm font-mono text-cyber-accent hover:text-white transition-colors duration-300 mt-6"
+        >
+          Learn more <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+        </Link>
       </div>
 
       {/* Dashboard mockup */}

@@ -133,7 +133,10 @@ export default function CTA() {
               data-umami-event="cta-start-conversation"
             >
               <span>Start a Conversation</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </Link>
             <p className="text-[11px] font-mono text-cyber-gray-500">
               Usually responds within 24 hours

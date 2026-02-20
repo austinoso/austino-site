@@ -1,4 +1,5 @@
-import { Settings, Link2, ClipboardList } from "lucide-react";
+import { Settings, Link2, ClipboardList, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { terminalOutput } from "./data";
 
 export default function Automation() {
@@ -80,7 +81,10 @@ export default function Automation() {
         </p>
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">
-            <Settings className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
+            <Settings
+              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            />
             <div>
               <p className="text-sm font-medium text-white">Custom Tooling</p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
@@ -89,7 +93,10 @@ export default function Automation() {
             </div>
           </div>
           <div data-feature className="flex items-start gap-3">
-            <Link2 className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
+            <Link2
+              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            />
             <div>
               <p className="text-sm font-medium text-white">
                 Software Integration
@@ -100,7 +107,10 @@ export default function Automation() {
             </div>
           </div>
           <div data-feature className="flex items-start gap-3">
-            <ClipboardList className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5" />
+            <ClipboardList
+              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            />
             <div>
               <p className="text-sm font-medium text-white">
                 Workflow Digitization
@@ -111,6 +121,12 @@ export default function Automation() {
             </div>
           </div>
         </div>
+        <Link
+          href="/services/automation"
+          className="inline-flex items-center gap-2 text-sm font-mono text-cyber-accent hover:text-white transition-colors duration-300 mt-6"
+        >
+          Learn more <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+        </Link>
       </div>
     </div>
   );

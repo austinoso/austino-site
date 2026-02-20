@@ -17,9 +17,9 @@ module.exports = {
           "gray-800": "#1E2128",
           "gray-700": "#2A2E38",
           "gray-600": "#383D48",
-          "gray-500": "#4F5462",
-          "gray-400": "#9CA3AF", // Lightened for better contrast (was #6B7280)
-          "gray-300": "#D1D5DB", // Lightened for better contrast (was #9CA3AF)
+          "gray-500": "#737A8C", // Lightened for WCAG AA contrast on dark bg (was #4F5462)
+          "gray-400": "#9CA3AF", // Passes 4.5:1 on #050505
+          "gray-300": "#D1D5DB", // Passes 4.5:1 on #050505
         },
       },
       fontFamily: {

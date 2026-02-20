@@ -130,7 +130,7 @@ export default function ContactPage() {
     "w-full px-4 py-3 bg-[#111318] border border-white/[0.06] rounded-lg text-white text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-white/[0.12]";
 
   return (
-    <main className="relative min-h-screen bg-[#050505]">
+    <main id="main-content" className="relative min-h-screen bg-[#050505]">
       <Navigation />
 
       {/* Noise grain */}
@@ -352,7 +352,11 @@ export default function ContactPage() {
                 </button>
 
                 {/* Turnstile */}
-                <div className="mt-4">
+                <div
+                  className="mt-4"
+                  role="group"
+                  aria-label="Security verification"
+                >
                   <Turnstile
                     siteKey={
                       process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
@@ -389,7 +393,10 @@ export default function ContactPage() {
           </div>
 
           {/* Sidebar — 1/3 */}
-          <aside className="lg:col-span-1 space-y-8">
+          <aside
+            className="lg:col-span-1 space-y-8"
+            aria-label="Additional information"
+          >
             {/* What happens next */}
             <div
               className="p-6 rounded-xl border border-white/[0.06] bg-[#111318]"

@@ -39,6 +39,15 @@ export default function WordReveal({
 
     gsap.set(els, { y: "100%", opacity: 0 });
 
+    // Ensure content is visible if reduced motion is preferred
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReducedMotion) {
+      gsap.set(els, { y: "0%", opacity: 1 });
+      return;
+    }
+
     let tween: gsap.core.Tween | null = null;
 
     const play = () => {

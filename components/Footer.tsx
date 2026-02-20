@@ -42,27 +42,27 @@ export default function Footer() {
           {/* Solutions */}
           <nav aria-label="Footer navigation - Solutions">
             <h3 className="text-sm font-semibold text-white mb-4">Solutions</h3>
-            <ul className="space-y-2.5" role="list">
+            <ul className="space-y-1" role="list">
               <li>
                 <Link
-                  href="/#solutions"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                  href="/services/web-development"
+                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors py-1 inline-block"
                 >
                   Web Development
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/#solutions"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                  href="/services/automation"
+                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors py-1 inline-block"
                 >
                   Automation
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/#solutions"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                  href="/services/ongoing-support"
+                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors py-1 inline-block"
                 >
                   Ongoing Partnership
                 </Link>
@@ -73,11 +73,11 @@ export default function Footer() {
           {/* Resources */}
           <nav aria-label="Footer navigation - Resources">
             <h3 className="text-sm font-semibold text-white mb-4">Resources</h3>
-            <ul className="space-y-2.5" role="list">
+            <ul className="space-y-1" role="list">
               <li>
                 <Link
                   href="/work"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors py-1 inline-block"
                 >
                   Work
                 </Link>
@@ -85,7 +85,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors py-1 inline-block"
                 >
                   Contact
                 </Link>

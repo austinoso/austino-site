@@ -16,7 +16,7 @@ export default function WorkPage() {
   const projects = getAllProjects();
 
   return (
-    <main className="relative min-h-screen bg-[#050505]">
+    <main id="main-content" className="relative min-h-screen bg-[#050505]">
       <Navigation />
 
       {/* Noise grain */}
@@ -122,7 +122,10 @@ export default function WorkPage() {
 
                   <div className="flex items-center gap-1.5 text-xs font-mono text-cyber-gray-500 group-hover:text-cyber-accent transition-colors duration-300">
                     <span>Read case study</span>
-                    <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight
+                      className="w-3 h-3 transition-transform group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
               </Link>
@@ -151,7 +154,10 @@ export default function WorkPage() {
                 className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)] w-full sm:w-auto"
               >
                 <span>Start a Conversation</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
               </Link>
             </div>
           </div>

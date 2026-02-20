@@ -16,6 +16,12 @@ export default function SmoothScroll({
   const smoothContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Skip smooth scrolling for users who prefer reduced motion
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReducedMotion) return;
+
     // Only run on desktop for performance
     const isDesktop = window.innerWidth >= 1024;
 

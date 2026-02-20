@@ -11,6 +11,19 @@
   html {
     scroll-behavior: smooth;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
   
   body {
     @apply bg-[#0B0D10] text-gray-100 antialiased;
@@ -43,11 +56,23 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-cyber-accent to-blue-400;
   }
+}
 
-  .dot-grid {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
+/* ── Global focus-visible ring for all interactive elements ── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #40E0FF;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* Custom select dropdown styling */

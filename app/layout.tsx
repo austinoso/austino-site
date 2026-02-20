@@ -58,6 +58,12 @@ export default function RootLayout({
           data-domains="austino.dev,www.austino.dev"
           strategy="afterInteractive"
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-cyber-accent focus:text-[#0B0D10] focus:font-semibold focus:rounded-lg focus:text-sm focus:outline-none"
+        >
+          Skip to main content
+        </a>
         <SmoothScroll>
           <div className="min-h-screen bg-cyber-dark">{children}</div>
         </SmoothScroll>
