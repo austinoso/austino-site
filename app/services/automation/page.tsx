@@ -300,12 +300,7 @@ export default function AutomationPage() {
               years — before you count the errors and the missed follow-ups.
               That&apos;s a lot to spend on a task code can handle in seconds.
             </p>
-            <div className="flex items-center gap-2 pt-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
-              <span className="text-xs font-mono text-cyber-gray-500">
-                Build once · Runs forever · Zero errors
-              </span>
-            </div>
+
             <Link
               href="/contact"
               className="inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)]"
@@ -369,7 +364,7 @@ export default function AutomationPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 lg:items-center">
             {/* Left: scenario tabs */}
-            <div className="lg:col-span-4 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
+            <div className="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-2">
               {scenarios.map((s, i) => {
                 const Icon = s.icon;
                 const isActive = i === activeScenario;
@@ -377,7 +372,7 @@ export default function AutomationPage() {
                   <button
                     key={s.title}
                     onClick={() => setActiveScenario(i)}
-                    className={`group flex items-center gap-3 px-4 py-3.5 rounded-lg text-left transition-all duration-300 whitespace-nowrap lg:whitespace-normal flex-shrink-0 lg:flex-shrink ${
+                    className={`group flex flex-col lg:flex-row items-center lg:items-center gap-2 lg:gap-3 px-3 py-3.5 lg:px-4 lg:py-3.5 rounded-lg text-center lg:text-left transition-all duration-300 ${
                       isActive
                         ? "bg-white/[0.05] border border-cyber-accent/20"
                         : "bg-transparent border border-transparent hover:bg-white/[0.03] hover:border-white/[0.06]"
@@ -399,7 +394,7 @@ export default function AutomationPage() {
                       />
                     </div>
                     <span
-                      className={`text-sm font-medium transition-colors duration-300 ${
+                      className={`text-xs lg:text-sm font-medium transition-colors duration-300 leading-tight ${
                         isActive
                           ? "text-white"
                           : "text-cyber-gray-400 group-hover:text-cyber-gray-300"

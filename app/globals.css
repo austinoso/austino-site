@@ -75,6 +75,40 @@ select:focus-visible,
   background-size: 24px 24px;
 }
 
+/* ── Stylized horizontal scroll (mobile scenario tabs, etc.) ── */
+.styled-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(64, 224, 255, 0.25) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+.styled-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+.styled-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 9999px;
+}
+.styled-scroll::-webkit-scrollbar-thumb {
+  background: rgba(64, 224, 255, 0.2);
+  border-radius: 9999px;
+}
+.styled-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(64, 224, 255, 0.4);
+}
+
+/* Scroll fade masks for horizontal overflow containers */
+.scroll-fade {
+  mask-image: linear-gradient(to right, transparent, black 1.5rem, black calc(100% - 1.5rem), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 1.5rem, black calc(100% - 1.5rem), transparent);
+}
+
+@media (min-width: 1024px) {
+  .scroll-fade {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+
 /* Custom select dropdown styling */
 select {
   appearance: none;

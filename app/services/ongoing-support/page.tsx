@@ -144,12 +144,6 @@ export default function OngoingSupportPage() {
               expectations shift, competitors redesign, and what was
               cutting-edge last year becomes the baseline tomorrow.
             </p>
-            <div className="flex items-center gap-2 pt-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
-              <span className="text-xs font-mono text-cyber-gray-500">
-                Monitored · Analyzed · Improved — without you asking
-              </span>
-            </div>
             <Link
               href="/contact"
               className="inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)]"
