@@ -353,7 +353,7 @@ export default function Navigation() {
         aria-label="Mobile navigation menu"
         aria-modal={isMobileMenuOpen}
         aria-hidden={!isMobileMenuOpen}
-        className={`md:hidden fixed inset-0 top-[56px] bg-[#050505]/95 backdrop-blur-xl transition-all duration-300 ${
+        className={`md:hidden fixed inset-0 top-[56px] bg-[#050505] transition-all duration-300 ${
           isMobileMenuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
