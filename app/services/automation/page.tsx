@@ -19,9 +19,7 @@ import {
   CheckCircle2,
   Zap,
   ChevronDown,
-  MessageSquare,
   Search,
-  FileText,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -778,61 +776,130 @@ export default function AutomationPage() {
             tell me what&apos;s slowing you down.
           </p>
 
-          <div className="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-6">
-            {[
-              {
-                step: "01",
-                icon: MessageSquare,
-                title: "Audit",
-                description:
-                  "We walk through your daily operations. I identify every task that\u2019s repetitive, manual, or error-prone.",
-              },
-              {
-                step: "02",
-                icon: FileText,
-                title: "Blueprint",
-                description:
-                  "I map out what gets automated, which tools connect, and what the workflow looks like.",
-              },
-              {
-                step: "03",
-                icon: Settings,
-                title: "Build & Connect",
-                description:
-                  "I build the automations, connect your existing tools, and test every edge case before it goes live.",
-              },
-              {
-                step: "04",
-                icon: Zap,
-                title: "Go Live & Monitor",
-                description:
-                  "We flip the switch. I monitor everything for the first week and fine-tune based on real data.",
-              },
-            ].map((item) => (
-              <div
-                key={item.step}
-                data-step
-                className="relative rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8"
-                style={{
-                  boxShadow:
-                    "0 2px 24px -4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
-                }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex items-center justify-center h-8 w-8 rounded-full bg-cyber-accent/10 border border-cyber-accent/20">
-                    <span className="text-xs font-mono text-cyber-accent font-semibold">
+          {/* ── Mobile: vertical timeline ── */}
+          <div className="relative lg:hidden">
+            <div
+              className="absolute left-[15px] sm:left-[19px] top-0 bottom-0 w-px"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent, rgba(100,255,218,0.2) 10%, rgba(100,255,218,0.2) 90%, transparent)",
+              }}
+            />
+            <div className="space-y-10 sm:space-y-12">
+              {[
+                {
+                  step: "01",
+                  title: "Audit",
+                  description:
+                    "We walk through your daily operations. I pinpoint every task that\u2019s costing you time and can be automated.",
+                },
+                {
+                  step: "02",
+                  title: "Blueprint",
+                  description:
+                    "I map out the full workflow \u2014 which tools connect, what triggers what, and how it all fits together.",
+                },
+                {
+                  step: "03",
+                  title: "Build & Connect",
+                  description:
+                    "I build the automations, connect your existing tools, and test every edge case before it goes live.",
+                },
+                {
+                  step: "04",
+                  title: "Go Live & Monitor",
+                  description:
+                    "We flip the switch. I monitor everything for the first week and fine-tune based on real data.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.step}
+                  data-step
+                  className="relative flex items-start gap-5 sm:gap-8"
+                >
+                  <div className="relative z-10 flex-shrink-0 flex items-center justify-center h-[30px] w-[30px] sm:h-[38px] sm:w-[38px] rounded-full bg-cyber-dark border border-cyber-accent/30 shadow-[0_0_12px_rgba(100,255,218,0.08)]">
+                    <span className="text-[10px] sm:text-xs font-mono text-cyber-accent font-semibold">
                       {item.step}
                     </span>
                   </div>
-                  <p className="text-sm font-semibold text-white">
-                    {item.title}
-                  </p>
+                  <div className="pt-0.5 sm:pt-1.5">
+                    <p className="text-sm sm:text-base font-semibold text-white mb-1.5">
+                      {item.title}
+                    </p>
+                    <p className="text-sm text-cyber-gray-400 leading-relaxed max-w-md">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm text-cyber-gray-400 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* ── Desktop: horizontal timeline ── */}
+          <div className="hidden lg:block relative">
+            {/* Horizontal connecting line */}
+            <div className="grid grid-cols-4 gap-0 mb-8">
+              {[
+                {
+                  step: "01",
+                  title: "Audit",
+                  description:
+                    "We walk through your daily operations. I pinpoint every task that\u2019s costing you time and can be automated.",
+                },
+                {
+                  step: "02",
+                  title: "Blueprint",
+                  description:
+                    "I map out the full workflow \u2014 which tools connect, what triggers what, and how it all fits together.",
+                },
+                {
+                  step: "03",
+                  title: "Build & Connect",
+                  description:
+                    "I build the automations, connect your existing tools, and test every edge case before it goes live.",
+                },
+                {
+                  step: "04",
+                  title: "Go Live & Monitor",
+                  description:
+                    "We flip the switch. I monitor everything for the first week and fine-tune based on real data.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={item.step}
+                  data-step
+                  className="relative flex flex-col items-start"
+                >
+                  {/* Marker row with connecting line */}
+                  <div className="relative flex items-center w-full mb-5">
+                    <div className="relative z-10 flex-shrink-0 flex items-center justify-center h-[38px] w-[38px] rounded-full bg-cyber-dark border border-cyber-accent/30 shadow-[0_0_12px_rgba(100,255,218,0.08)]">
+                      <span className="text-xs font-mono text-cyber-accent font-semibold">
+                        {item.step}
+                      </span>
+                    </div>
+                    {/* Line segment to next step */}
+                    {i < 3 && (
+                      <div
+                        className="flex-1 h-px ml-3"
+                        style={{
+                          background:
+                            "linear-gradient(to right, rgba(100,255,218,0.25), rgba(100,255,218,0.08))",
+                        }}
+                      />
+                    )}
+                  </div>
+                  {/* Content below the marker */}
+                  <div className="pr-8">
+                    <p className="text-base font-semibold text-white mb-2">
+                      {item.title}
+                    </p>
+                    <p className="text-sm text-cyber-gray-400 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
