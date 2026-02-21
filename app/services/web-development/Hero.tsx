@@ -1,6 +1,46 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Eye,
+  MousePointerClick,
+  CalendarCheck,
+  UserCheck,
+} from "lucide-react";
+
+const steps = [
+  {
+    icon: Eye,
+    label: "Visitor",
+    metric: "finds you online",
+    color: "text-cyber-gray-400",
+    barWidth: "100%",
+    barColor: "bg-white/[0.08]",
+  },
+  {
+    icon: MousePointerClick,
+    label: "Engaged",
+    metric: "stays & explores",
+    color: "text-cyber-gray-300",
+    barWidth: "72%",
+    barColor: "bg-cyber-accent/20",
+  },
+  {
+    icon: CalendarCheck,
+    label: "Lead",
+    metric: "books or contacts",
+    color: "text-cyber-accent",
+    barWidth: "38%",
+    barColor: "bg-cyber-accent/40",
+  },
+  {
+    icon: UserCheck,
+    label: "Customer",
+    metric: "pays & returns",
+    color: "text-[#4ADE80]",
+    barWidth: "21%",
+    barColor: "bg-[#4ADE80]/50",
+  },
+];
 
 export default function Hero() {
   return (
@@ -28,82 +68,68 @@ export default function Hero() {
         </Link>
       </div>
 
-      {/* Browser mockup + score overlay */}
+      {/* Conversion funnel visual */}
       <div data-hero-visual className="lg:col-span-6">
-        <div className="relative pb-12 sm:pb-16">
-          <div
-            className="rounded-xl border border-white/[0.08] bg-[#111318] overflow-hidden"
-            style={{
-              boxShadow:
-                "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
-            }}
-          >
-            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13]">
-              <div className="flex items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/70" />
-              </div>
-              <div className="flex-1 flex justify-center">
-                <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
-                  mymassagecottage.com
-                </div>
-              </div>
-            </div>
-            <div className="relative aspect-[16/9]">
-              <Image
-                src="/assets/my-massage-cottage-demo.jpg"
-                alt="My Massage Cottage — client website preview"
-                fill
-                className="object-cover object-top"
-                priority
-              />
+        <div
+          className="rounded-xl border border-white/[0.08] bg-[#111318] overflow-hidden"
+          style={{
+            boxShadow:
+              "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
+          }}
+        >
+          <div className="px-5 py-3.5 border-b border-white/[0.06] bg-[#0D0F13] flex items-center justify-between">
+            <p className="text-[11px] font-semibold text-white">
+              How your site turns visitors into customers
+            </p>
+            <div className="flex items-center gap-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
+              <span className="text-[9px] text-[#4ADE80] font-medium font-mono">
+                Optimized
+              </span>
             </div>
           </div>
 
-          {/* Lighthouse overlay */}
-          <div
-            className="absolute -bottom-4 -right-2 sm:-right-6 w-[220px] sm:w-[240px] rounded-xl border border-white/[0.08] bg-[#111318]/95 overflow-hidden"
-            style={{
-              boxShadow:
-                "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
-              backdropFilter: "blur(12px)",
-            }}
-          >
-            <div className="px-4 py-3 border-b border-white/[0.06] flex items-center justify-between">
-              <p className="text-[11px] font-semibold text-white">
-                Performance
-              </p>
-              <div className="flex items-center gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
-                <span className="text-[9px] text-[#4ADE80] font-medium">
-                  All passed
-                </span>
-              </div>
-            </div>
-            <div className="p-4 space-y-2">
-              {[
-                { label: "Performance", value: 100 },
-                { label: "Accessibility", value: 100 },
-                { label: "SEO", value: 100 },
-                { label: "Best Practices", value: 100 },
-              ].map((s) => (
-                <div key={s.label} className="flex items-center gap-2">
-                  <span className="text-[10px] text-cyber-gray-400 w-20 flex-shrink-0">
-                    {s.label}
-                  </span>
-                  <div className="flex-1 h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-[#4ADE80]"
-                      style={{ width: `${s.value}%` }}
+          <div className="p-5 sm:p-6 space-y-4">
+            {steps.map((step, i) => (
+              <div key={step.label}>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 rounded-lg border border-white/[0.06] bg-white/[0.03] flex items-center justify-center flex-shrink-0">
+                    <step.icon
+                      className={`w-4 h-4 ${step.color}`}
+                      aria-hidden="true"
                     />
                   </div>
-                  <span className="text-[10px] font-bold text-white w-6 text-right font-mono">
-                    {s.value}
-                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <p className={`text-sm font-semibold ${step.color}`}>
+                        {step.label}
+                      </p>
+                      <p className="text-[11px] text-cyber-gray-500 font-mono">
+                        {step.metric}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
+                <div className="h-2 rounded-full bg-white/[0.04] overflow-hidden ml-11">
+                  <div
+                    className={`h-full rounded-full ${step.barColor}`}
+                    style={{ width: step.barWidth }}
+                  />
+                </div>
+                {i < steps.length - 1 && (
+                  <div className="flex justify-center ml-11 my-1">
+                    <div className="w-px h-3 bg-white/[0.06]" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="px-5 sm:px-6 py-3.5 border-t border-white/[0.06] bg-[#0D0F13]">
+            <p className="text-[11px] text-cyber-gray-500 leading-relaxed">
+              Every section of your site should push visitors one step closer to
+              becoming a customer.
+            </p>
           </div>
         </div>
       </div>

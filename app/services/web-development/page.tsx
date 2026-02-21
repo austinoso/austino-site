@@ -10,9 +10,8 @@ import { ArrowLeft } from "lucide-react";
 
 import Hero from "./Hero";
 import FirstImpressions from "./FirstImpressions";
-import BeforeAfter from "./BeforeAfter";
 import WhatYouGet from "./WhatYouGet";
-import RealResults from "./RealResults";
+import SpecialistDifference from "./SpecialistDifference";
 import FAQ from "./FAQ";
 import FinalCTA from "./FinalCTA";
 
@@ -132,7 +131,6 @@ export default function WebDevelopmentPage() {
 
         <Hero />
         <FirstImpressions />
-        <RealResults />
       </article>
 
       {/* ── Full-bleed background zone — What You Get ── */}
@@ -166,12 +164,12 @@ export default function WebDevelopmentPage() {
         />
 
         <div className="relative max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-16 sm:py-20">
-          <BeforeAfter />
           <WhatYouGet />
         </div>
       </div>
 
       <article className="relative max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-24 sm:pt-32 pb-20 sm:pb-28 md:pb-36">
+        <SpecialistDifference />
         <FAQ />
         <FinalCTA />
       </article>

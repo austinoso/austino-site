@@ -9,12 +9,8 @@ const faqs = [
     a: "If your current site loads in under a second, ranks on Google, and brings in new customers every week \u2014 you probably don\u2019t need one. But if it\u2019s mostly a digital business card that sits there, a rebuild isn\u2019t a cost \u2014 it\u2019s an upgrade to a tool that actively works for you.",
   },
   {
-    q: "Can\u2019t I just use Wix or Squarespace?",
-    a: "You can, and for some businesses that\u2019s fine. But template builders ship bloated code that slows your site, limit how Google can read your content, and make you look like every other business that bought the same theme. If ranking locally and converting visitors matters to you, custom code gives you an edge templates can\u2019t.",
-  },
-  {
     q: "How long does it take to build a site?",
-    a: "Most projects take 3\u20136 weeks from kickoff to launch. That includes discovery, design, development, content, and revisions. I\u2019ll give you a clear timeline before we kick things off.",
+    a: "Most projects take 2\u20134 weeks from kickoff to launch. That includes discovery, design, development, content, and revisions. I\u2019ll give you a clear timeline before we kick things off.",
   },
   {
     q: "What if I need something changed on the site?",
@@ -69,7 +65,7 @@ export default function FAQ() {
               id={`webdev-faq-panel-${i}`}
               role="region"
               aria-labelledby={`webdev-faq-btn-${i}`}
-              hidden={openFaq !== i}
+              aria-hidden={openFaq !== i}
               className={`overflow-hidden transition-all duration-300 ${
                 openFaq === i ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
               }`}

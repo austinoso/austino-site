@@ -1,4 +1,5 @@
 import { X, Check } from "lucide-react";
+import Image from "next/image";
 
 const beforeItems = [
   "Slow load times that frustrate visitors",
@@ -150,53 +151,36 @@ export default function BeforeAfter() {
               </p>
             </div>
 
-            {/* Mini browser mockup — polished site */}
-            <div className="rounded-lg border border-cyber-accent/10 bg-[#0A0C0F] mb-6 overflow-hidden">
-              <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/[0.04]">
-                <span className="h-2 w-2 rounded-full bg-[#FF5F57]/60" />
-                <span className="h-2 w-2 rounded-full bg-[#FEBC2E]/60" />
-                <span className="h-2 w-2 rounded-full bg-[#28C840]/60" />
-              </div>
-              <div className="p-3 sm:p-4 h-[200px]">
-                {/* Clean nav */}
-                <div className="flex items-center justify-between mb-4 pb-2 border-b border-cyber-accent/[0.06]">
-                  <div className="h-3 w-14 rounded-sm bg-cyber-accent/20" />
-                  <div className="flex items-center gap-4">
-                    <div className="h-2 w-8 rounded-sm bg-white/[0.08]" />
-                    <div className="h-2 w-8 rounded-sm bg-white/[0.08]" />
-                    <div className="h-2 w-8 rounded-sm bg-white/[0.08]" />
-                    <div className="h-5 w-14 rounded bg-cyber-accent/25" />
+            {/* Browser mockup — real client site */}
+            <div className="relative mb-6">
+              <div className="rounded-lg border border-cyber-accent/10 bg-[#0A0C0F] overflow-hidden">
+                <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/[0.04]">
+                  <span className="h-2 w-2 rounded-full bg-[#FF5F57]/60" />
+                  <span className="h-2 w-2 rounded-full bg-[#FEBC2E]/60" />
+                  <span className="h-2 w-2 rounded-full bg-[#28C840]/60" />
+                  <div className="flex-1 flex justify-center">
+                    <span className="text-[9px] text-cyber-gray-500 font-mono">
+                      mymassagecottage.com
+                    </span>
                   </div>
                 </div>
-                {/* Hero — clear hierarchy */}
-                <div className="mb-4">
-                  <div className="h-2 w-20 rounded-sm bg-cyber-accent/15 mb-2.5" />
-                  <div className="h-3.5 w-3/4 rounded-sm bg-white/[0.12] mb-1.5" />
-                  <div className="h-3.5 w-1/2 rounded-sm bg-white/[0.10] mb-3" />
-                  <div className="h-2 w-full rounded-sm bg-white/[0.05] mb-1" />
-                  <div className="h-2 w-4/5 rounded-sm bg-white/[0.04] mb-3" />
-                  <div className="h-6 w-24 rounded bg-cyber-accent/30" />
+                <div className="relative aspect-[16/9]">
+                  <Image
+                    src="/assets/my-massage-cottage-demo.jpg"
+                    alt="My Massage Cottage — client website built with custom code"
+                    fill
+                    className="object-cover object-top"
+                  />
                 </div>
-                {/* Feature cards — clean grid */}
-                <div className="grid grid-cols-3 gap-2 mb-3">
-                  {[1, 2, 3].map((i) => (
-                    <div
-                      key={i}
-                      className="rounded bg-white/[0.03] border border-white/[0.04] p-2"
-                    >
-                      <div className="h-2 w-2 rounded-full bg-cyber-accent/25 mb-1.5" />
-                      <div className="h-2 w-full rounded-sm bg-white/[0.06] mb-1" />
-                      <div className="h-1.5 w-3/4 rounded-sm bg-white/[0.03]" />
-                    </div>
-                  ))}
-                </div>
-                {/* Performance badge */}
-                <div className="flex items-center gap-2 rounded bg-[#4ADE80]/[0.06] border border-[#4ADE80]/15 px-2.5 py-1.5">
-                  <span className="h-2 w-2 rounded-full bg-[#4ADE80]/60" />
-                  <span className="text-[8px] text-[#4ADE80]/70 font-mono">
-                    Performance 100 · Accessibility 100 · SEO 100
-                  </span>
-                </div>
+              </div>
+
+              {/* Lighthouse scores badge */}
+              <div className="flex items-center gap-2 rounded-lg bg-[#4ADE80]/[0.06] border border-[#4ADE80]/15 px-3 py-2 mt-3">
+                <span className="h-2 w-2 rounded-full bg-[#4ADE80]/60 flex-shrink-0" />
+                <span className="text-[10px] text-[#4ADE80]/80 font-mono">
+                  Performance 100 · Accessibility 100 · SEO 100 · Best Practices
+                  100
+                </span>
               </div>
             </div>
 

@@ -1,40 +1,28 @@
 import {
   Code,
-  Palette,
   Search,
-  Smartphone,
   Gauge,
   BarChart3,
   Shield,
   Accessibility,
   ArrowRight,
+  type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
-const deliverables = [
+const deliverables: { icon: LucideIcon; title: string; detail: string }[] = [
   {
     icon: Code,
-    title: "Custom code, no templates",
+    title: "Custom-built for your brand",
     detail:
-      "Built from scratch in Next.js. No page builders, no bloat, no shared themes — just clean code written for your business.",
-  },
-  {
-    icon: Palette,
-    title: "Design tailored to your brand",
-    detail:
-      "Layout, typography, and color all designed around your services and audience. Every section has a job.",
+      "Hand-coded from scratch — no templates, no page builders. Layout, typography, color, and responsive behavior all designed around your business from the ground up.",
   },
   {
     icon: Search,
     title: "Technical SEO baked in",
     detail:
       "Schema markup, meta tags, sitemap, proper heading structure, and optimized images — so Google knows exactly what you do and where you do it.",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile-first responsive design",
-    detail:
-      "Designed for phones first, then scaled up. Looks sharp on every screen size.",
   },
   {
     icon: Gauge,
@@ -58,45 +46,96 @@ const deliverables = [
     icon: Accessibility,
     title: "ADA accessibility built in",
     detail:
-      "Every site I build follows WCAG accessibility standards \u2014 proper contrast, keyboard navigation, screen reader support. It\u2019s not an afterthought. It\u2019s baked into the code from day one.",
+      "Every site follows WCAG standards \u2014 proper contrast, keyboard navigation, screen reader support. Baked into the code from day one.",
   },
 ];
+
+const cardStyle = {
+  boxShadow:
+    "0 2px 24px -4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
+};
+
+function FeatureCard({
+  icon: Icon,
+  title,
+  detail,
+}: (typeof deliverables)[number]) {
+  return (
+    <div
+      className="group relative rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 sm:p-6 transition-colors hover:border-cyber-accent/15 hover:bg-white/[0.03] flex flex-col"
+      style={cardStyle}
+    >
+      <div className="flex items-center gap-3 mb-3">
+        <div className="flex-shrink-0 w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center">
+          <Icon
+            className="w-[18px] h-[18px] text-cyber-accent"
+            aria-hidden="true"
+          />
+        </div>
+        <p className="text-[15px] font-semibold text-white">{title}</p>
+      </div>
+      <p className="text-sm text-cyber-gray-400 leading-relaxed">{detail}</p>
+    </div>
+  );
+}
 
 export default function WhatYouGet() {
   return (
     <section data-fade>
       <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
-        Here&apos;s exactly what I build to fix it.
+        Here&apos;s exactly what I build.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-10">
         Every site is hand-coded, designed around your business, and built to
         perform. No templates, no shortcuts.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-        {deliverables.map((item) => (
-          <div
-            key={item.title}
-            className="group relative rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 sm:p-6 transition-colors hover:border-cyber-accent/15 hover:bg-white/[0.03]"
-            style={{
-              boxShadow:
-                "0 2px 24px -4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
-            }}
-          >
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center">
-                <item.icon className="w-[18px] h-[18px] text-cyber-accent" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-[15px] font-semibold text-white mb-1">
-                  {item.title}
-                </p>
-                <p className="text-sm text-cyber-gray-400 leading-relaxed">
-                  {item.detail}
-                </p>
-              </div>
+      {/* Browser screenshot */}
+      <div
+        className="rounded-xl border border-white/[0.08] bg-[#111318] overflow-hidden mb-6 sm:mb-8"
+        style={{
+          boxShadow:
+            "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
+        }}
+      >
+        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13]">
+          <div className="flex items-center gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/70" />
+          </div>
+          <div className="flex-1 flex justify-center">
+            <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
+              mymassagecottage.com
             </div>
           </div>
+        </div>
+        <Image
+          src="/assets/my-massage-cottage-demo.jpg"
+          alt="My Massage Cottage — client website built with custom code"
+          width={1200}
+          height={900}
+          className="w-full h-auto"
+        />
+      </div>
+
+      {/* Case study footnote */}
+      <p className="text-sm text-cyber-gray-400 mb-10 sm:mb-12">
+        Built in <span className="text-white font-medium">2 weeks</span> and
+        ranking on{" "}
+        <span className="text-white font-medium">page 1 of Google</span>.{" "}
+        <Link
+          href="/work/my-massage-cottage"
+          className="text-cyber-accent hover:underline"
+        >
+          Read the case study &rarr;
+        </Link>
+      </p>
+
+      {/* Feature cards — 3 col grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-12">
+        {deliverables.map((d) => (
+          <FeatureCard key={d.title} {...d} />
         ))}
       </div>
 
