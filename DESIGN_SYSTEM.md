@@ -237,10 +237,9 @@ All wrapped in `SmoothScroll` (GSAP ScrollSmoother on desktop ≥ 1024px).
 
 **Copy Side:**
 
-- Ribbon: `font-mono text-xs text-cyber-gray-400 uppercase tracking-[0.2em]` — "Performance · Conversions · Automation"
-- H1: `text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight` — "Websites that work as hard as you do."
-- Description: `text-base sm:text-lg text-cyber-gray-300 max-w-lg leading-relaxed`
-- Trust line: green dot `h-1.5 w-1.5 bg-[#4ADE80]` + `text-sm text-cyber-gray-400` — "Based in Northern California, serving clients everywhere."
+- H1: `text-[2rem] sm:text-5xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.2] tracking-tight` — "Websites that keep your doors open 24/7."
+- Description: `text-base text-cyber-gray-300 max-w-md leading-relaxed`
+- Trust line: `h-1.5 w-1.5 bg-cyber-accent/60` dot + `text-[13px] text-cyber-gray-400/80` — "Based in California's Central Valley, serving clients everywhere."
 - CTA: `px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-lg text-sm shadow-lg shadow-cyber-accent/20` — "Get a Free Consultation"
 
 **Visual Side:**

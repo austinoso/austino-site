@@ -456,8 +456,8 @@ export default function ContactPage() {
                 </span>
               </div>
               <p className="text-sm text-cyber-gray-400 leading-relaxed">
-                Based in Northern California, serving clients everywhere.
-                Usually responds within 24 hours.
+                Based in California&apos;s Central Valley, serving clients
+                everywhere. Usually responds within 24 hours.
               </p>
             </div>
 

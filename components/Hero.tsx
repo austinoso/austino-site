@@ -491,28 +491,24 @@ export default function Hero() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center w-full">
           {/* ─── Copy ─── */}
           <div ref={copyRef} className="lg:col-span-6 flex flex-col hero-entry">
-            <p className="font-mono text-[11px] sm:text-xs text-cyber-accent/70 uppercase tracking-[0.18em] sm:tracking-[0.25em] mb-4">
-              Performance &middot; Conversions &middot; Automation
-            </p>
-
             <WordReveal
-              text="Websites that work as hard as you do."
+              text="Websites that keep your doors open 24/7."
               as="h1"
               id="hero-heading"
-              className="text-[2rem] sm:text-4xl md:text-5xl font-extrabold text-white leading-[1.1] tracking-tight"
+              className="text-[2rem] sm:text-5xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.2] tracking-tight"
               immediate
             />
 
-            <p className="mt-5 text-[15px] sm:text-base text-cyber-gray-300 max-w-md leading-relaxed">
-              I build fast, high-converting sites that turn visitors into
-              customers — then automate the follow-ups, bookings, and busywork
-              so you can focus on running your business.
+            <p className="mt-6 text-base text-cyber-gray-300 max-w-md leading-relaxed">
+              I pair custom websites with smart software that handles the
+              repetitive stuff — so your business keeps running, even when
+              you&apos;re off the clock.
             </p>
 
             <div className="mt-8">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-xl transition-all text-sm shadow-lg shadow-cyber-accent/20 hover:shadow-xl hover:shadow-cyber-accent/30 hover:brightness-110"
+                className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-xl transition-all text-[15px] shadow-lg shadow-cyber-accent/20 hover:shadow-xl hover:shadow-cyber-accent/30 hover:brightness-110"
                 aria-label="Get a free consultation"
                 data-umami-event="hero-cta"
               >
@@ -524,9 +520,10 @@ export default function Hero() {
               </Link>
             </div>
 
-            <div className="mt-6 inline-flex items-center gap-2 text-[13px] text-cyber-gray-400/80">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
-              Based in Northern California, serving clients everywhere.
+            <div className="mt-5 inline-flex items-center gap-2 text-[13px] text-cyber-gray-400/80">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyber-accent/60" />
+              Based in California&apos;s Central Valley, serving clients
+              everywhere.
             </div>
           </div>
 

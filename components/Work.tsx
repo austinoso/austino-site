@@ -66,7 +66,7 @@ export default function Work() {
     <section
       ref={sectionRef}
       id="work"
-      className="relative w-full py-16 sm:py-24 md:py-28 bg-[#050505] border-t border-white/[0.04]"
+      className="relative w-full pt-14 pb-16 sm:pt-20 sm:pb-24 md:pt-20 md:pb-28 bg-[#050505] border-t border-white/[0.04]"
       aria-labelledby="work-heading"
     >
       {/* Noise grain */}

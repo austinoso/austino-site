@@ -209,7 +209,7 @@ export default function Solutions() {
     <section
       ref={sectionRef}
       id="solutions"
-      className="relative w-full py-16 sm:py-24 md:py-28 bg-[#050505]"
+      className="relative w-full pt-14 pb-16 sm:pt-20 sm:pb-24 md:pt-20 md:pb-28 bg-[#050505]"
       aria-labelledby="solutions-heading"
     >
       {/* Noise grain */}
@@ -260,7 +260,7 @@ export default function Solutions() {
         {/* Closer — consultative positioning */}
         <div
           data-closer
-          className="mt-20 sm:mt-28 pt-10 border-t border-white/[0.06] max-w-xl"
+          className="mt-16 sm:mt-20 pt-10 border-t border-white/[0.06] max-w-xl"
           style={{ opacity: 0, transform: "translateY(10px)" }}
         >
           <p className="text-lg sm:text-xl text-cyber-gray-300 leading-relaxed">

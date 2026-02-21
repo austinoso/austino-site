@@ -422,7 +422,7 @@ export default function PainPoints() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-16 sm:py-24 md:py-28 bg-[#050505]"
+      className="relative w-full pt-14 pb-16 sm:pt-20 sm:pb-24 md:pt-20 md:pb-28 bg-[#050505]"
       aria-labelledby="pain-points-heading"
     >
       {/* Noise grain */}

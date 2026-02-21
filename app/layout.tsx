@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "small business tech support",
     "website maintenance",
     "web developer for small business",
-    "Northern California web developer",
+    "Central Valley web developer",
     "custom business tools",
   ],
   authors: [{ name: "Austin O." }],
