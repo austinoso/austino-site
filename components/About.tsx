@@ -127,7 +127,6 @@ export default function About() {
                 <p className="text-sm text-cyber-gray-400 leading-relaxed mt-2">
                   Six years of experience building websites, automation, and
                   internal tools for startups and small businesses.
-                  California&apos;s Central Valley.
                 </p>
               </div>
             </div>
@@ -156,8 +155,7 @@ export default function About() {
                 </p>
                 <p className="text-sm text-cyber-gray-400 leading-relaxed mt-2">
                   Over three years of experience in stress management, perimeter
-                  security, and unsolicited desk visits. Also California&apos;s
-                  Central Valley.
+                  security, and unsolicited desk visits.
                 </p>
               </div>
             </div>
