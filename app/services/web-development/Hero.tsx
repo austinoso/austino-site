@@ -13,19 +13,11 @@ export default function Hero() {
           Your website could be closing more deals.
         </h1>
         <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
-          Google uses{" "}
-          <a
-            href="https://web.dev/articles/vitals"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-cyber-accent underline decoration-cyber-accent/30 hover:decoration-cyber-accent transition-colors"
-          >
-            Core Web Vitals
-          </a>{" "}
-          — load speed, responsiveness, and visual stability — as direct ranking
-          signals. A site that scores well doesn&apos;t just rank higher, it
-          converts better. Faster pages mean more trust, fewer bounces, and more
-          customers walking through your door.
+          Your customers expect to find answers, book appointments, and place
+          orders — all from your website. Let&apos;s be honest, most people
+          would rather do everything online than make a call. That&apos;s not
+          just good for them — it saves you from answering the same questions on
+          repeat.
         </p>
         <Link
           href="/contact"

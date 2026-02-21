@@ -1,4 +1,4 @@
-import { LogOut, Palette, ShieldCheck, Smartphone, Zap } from "lucide-react";
+import { LogOut, PhoneOff, ShieldCheck, Smartphone, Zap } from "lucide-react";
 
 export default function FirstImpressions() {
   return (
@@ -81,31 +81,32 @@ export default function FirstImpressions() {
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
-              <Palette className="w-4 h-4 text-cyber-accent" aria-hidden />
+              <PhoneOff className="w-4 h-4 text-cyber-accent" aria-hidden />
             </div>
-            <p className="text-base font-semibold text-white">Visual Design</p>
+            <p className="text-base font-semibold text-white">Phone Anxiety</p>
           </div>
 
           <p className="text-[15px] text-cyber-gray-300 leading-relaxed flex-1 mb-5">
-            People judge visual quality before reading a single word. Clean
-            layout and modern typography build instant trust.
+            Most younger customers would rather leave your site than pick up the
+            phone. If they can&apos;t book or get answers online, they&apos;ll
+            find someone where they can.
           </p>
 
           <div className="flex items-baseline gap-2.5 pt-4 border-t border-white/[0.06]">
             <p className="text-2xl font-semibold text-white font-mono tracking-tight leading-none">
-              50ms
+              81%
             </p>
             <div className="flex-1 min-w-0">
               <p className="text-xs text-cyber-gray-400 leading-snug">
-                to form a first impression
+                need to build up courage before making a call
               </p>
               <a
-                href="https://www.academia.edu/534960/Attention_web_designers_You_have_50_milliseconds_to_make_a_good_first_impression_"
+                href="https://www.bankmycell.com/blog/why-millennials-ignore-calls"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[10px] text-cyber-accent/60 hover:text-cyber-accent transition-colors font-mono mt-0.5 inline-block"
               >
-                Lindgaard et al., 2006 ↗
+                BankMyCell ↗
               </a>
             </div>
           </div>
