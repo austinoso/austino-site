@@ -34,7 +34,7 @@ const deliverables: { icon: LucideIcon; title: string; detail: string }[] = [
     icon: BarChart3,
     title: "Analytics and tracking",
     detail:
-      "Google Analytics and Search Console set up from day one so you can see exactly where traffic comes from and what converts.",
+      "Analytics and search tracking set up from day one so you can see exactly where traffic comes from and what converts.",
   },
   {
     icon: Shield,
