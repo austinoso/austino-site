@@ -622,7 +622,7 @@ export default function OngoingSupportPage() {
               <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
                 Get Started
               </p>
-              <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-tight tracking-tight text-balance mb-4">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4">
                 Let&apos;s keep your site ahead of the curve.
               </h2>
               <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">

@@ -80,7 +80,10 @@ export default function WordReveal({
     <Tag id={id} className={className}>
       {words.map((word, i) => (
         <Fragment key={i}>
-          <span className="inline-block overflow-hidden pb-[0.15em]">
+          <span
+            className="inline-block"
+            style={{ clipPath: "inset(-0.15em 0)" }}
+          >
             <span
               ref={(el) => {
                 wordsRef.current[i] = el;
