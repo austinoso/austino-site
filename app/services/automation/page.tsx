@@ -22,23 +22,9 @@ import {
   ChevronDown,
   Search,
 } from "lucide-react";
+import AutomationDashboard from "@/components/Solutions/AutomationDashboard";
 
 gsap.registerPlugin(ScrollTrigger);
-
-/* ── Terminal visual data ── */
-const terminalLines = [
-  { text: "▶ New booking received — Jane D.", color: "text-cyber-accent" },
-  { text: "  ↳ Added to Google Sheets", color: "text-[#4ADE80]" },
-  { text: "  ↳ Confirmation SMS sent", color: "text-[#4ADE80]" },
-  { text: "  ↳ Reminder scheduled (24h before)", color: "text-[#4ADE80]" },
-  { text: "  ↳ Review request queued (2h after)", color: "text-[#4ADE80]" },
-  { text: "▶ Daily revenue report generated", color: "text-cyber-accent" },
-  { text: "  ↳ Emailed to owner@business.com", color: "text-[#4ADE80]" },
-  { text: "▶ Low inventory alert — Product #412", color: "text-[#FEBC2E]" },
-  { text: "  ↳ Reorder request sent to supplier", color: "text-[#4ADE80]" },
-  { text: "  ↳ Team notified via Slack", color: "text-[#4ADE80]" },
-  { text: "─── All tasks completed in 0.3s ───", color: "text-cyber-gray-500" },
-];
 
 /* ── FAQ data ── */
 const faqs = [
@@ -309,41 +295,9 @@ export default function AutomationPage() {
             </Link>
           </div>
 
-          {/* Terminal visual */}
+          {/* Live automation dashboard */}
           <div data-hero-visual className="lg:col-span-7">
-            <div
-              className="rounded-xl border border-white/[0.08] bg-[#111318] overflow-hidden"
-              style={{
-                boxShadow:
-                  "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
-              }}
-            >
-              <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13]">
-                <div className="flex items-center gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/70" />
-                </div>
-                <div className="flex-1 flex justify-center">
-                  <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
-                    automation-workflow.log
-                  </div>
-                </div>
-              </div>
-              <div className="p-5 font-mono text-xs sm:text-sm space-y-1.5 min-h-[280px]">
-                {terminalLines.map((line, i) => (
-                  <div key={i} className={`${line.color} leading-relaxed`}>
-                    {line.text}
-                  </div>
-                ))}
-                <div className="pt-2 flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
-                  <span className="text-cyber-gray-500">
-                    Listening for new events...
-                  </span>
-                </div>
-              </div>
-            </div>
+            <AutomationDashboard />
           </div>
         </section>
 
@@ -558,14 +512,17 @@ export default function AutomationPage() {
                     <span className="text-xs font-mono text-cyber-gray-600 mt-0.5 w-5 flex-shrink-0 text-right">
                       {i + 1}.
                     </span>
-                    <p className={`text-sm leading-relaxed ${i === 5 ? "text-red-400/70" : "text-cyber-gray-500"}`}>
+                    <p
+                      className={`text-sm leading-relaxed ${i === 5 ? "text-red-400/70" : "text-cyber-gray-500"}`}
+                    >
                       {step}
                     </p>
                   </div>
                 ))}
               </div>
               <p className="mt-6 text-xs font-mono text-cyber-gray-600 tracking-wide">
-                ~20 min every time &middot; multiply that by every customer, every week
+                ~20 min every time &middot; multiply that by every customer,
+                every week
               </p>
             </div>
 
@@ -573,7 +530,10 @@ export default function AutomationPage() {
             <div className="hidden lg:flex flex-col items-center">
               <div className="w-px flex-1 bg-gradient-to-b from-transparent via-cyber-gray-700 to-transparent" />
               <div className="my-4 flex items-center justify-center w-8 h-8 rounded-full border border-cyber-accent/30">
-                <Zap className="w-3.5 h-3.5 text-cyber-accent" aria-hidden="true" />
+                <Zap
+                  className="w-3.5 h-3.5 text-cyber-accent"
+                  aria-hidden="true"
+                />
               </div>
               <div className="w-px flex-1 bg-gradient-to-b from-transparent via-cyber-gray-700 to-transparent" />
             </div>
@@ -582,7 +542,10 @@ export default function AutomationPage() {
             <div className="lg:hidden flex items-center gap-4">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-cyber-gray-700 to-transparent" />
               <div className="flex items-center justify-center w-8 h-8 rounded-full border border-cyber-accent/30">
-                <Zap className="w-3.5 h-3.5 text-cyber-accent" aria-hidden="true" />
+                <Zap
+                  className="w-3.5 h-3.5 text-cyber-accent"
+                  aria-hidden="true"
+                />
               </div>
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-cyber-gray-700 to-transparent" />
             </div>
@@ -601,9 +564,7 @@ export default function AutomationPage() {
                     <span className="text-xs font-mono text-cyber-accent mt-0.5 w-5 flex-shrink-0 text-right">
                       {i + 1}.
                     </span>
-                    <p className="text-sm text-white leading-relaxed">
-                      {step}
-                    </p>
+                    <p className="text-sm text-white leading-relaxed">{step}</p>
                   </div>
                 ))}
               </div>
