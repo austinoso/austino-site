@@ -14,7 +14,7 @@ const steps = [
     metric: "finds you online",
     color: "text-cyber-gray-400",
     barWidth: "100%",
-    barColor: "bg-white/[0.08]",
+    barColor: "bg-cyber-accent/10",
   },
   {
     icon: MousePointerClick,
