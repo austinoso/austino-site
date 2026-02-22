@@ -10,74 +10,40 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import FeatureCard from "@/components/ui/FeatureCard";
 
-const deliverables: { icon: LucideIcon; title: string; detail: string }[] = [
+const deliverables: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Code,
     title: "Custom-built for your brand",
-    detail:
-      "Hand-coded from scratch — no templates, no page builders. Layout, typography, color, and responsive behavior all designed around your business from the ground up.",
+    body: "Hand-coded from scratch — no templates, no page builders. Layout, typography, color, and responsive behavior all designed around your business from the ground up.",
   },
   {
     icon: Search,
     title: "Technical SEO baked in",
-    detail:
-      "Schema markup, meta tags, sitemap, proper heading structure, and optimized images — so Google knows exactly what you do and where you do it.",
+    body: "Schema markup, meta tags, sitemap, proper heading structure, and optimized images — so Google knows exactly what you do and where you do it.",
   },
   {
     icon: Gauge,
     title: "Sub-second load times",
-    detail:
-      "Optimized images, minimal JavaScript, edge-cached delivery. Your site loads before they blink.",
+    body: "Optimized images, minimal JavaScript, edge-cached delivery. Your site loads before they blink.",
   },
   {
     icon: BarChart3,
     title: "Analytics and tracking",
-    detail:
-      "Analytics and search tracking set up from day one so you can see exactly where traffic comes from and what converts.",
+    body: "Analytics and search tracking set up from day one so you can see exactly where traffic comes from and what converts.",
   },
   {
     icon: Shield,
     title: "Hosting and SSL included",
-    detail:
-      "Deployed to a global CDN with HTTPS, automatic backups, and 99.9% uptime. No separate hosting bill.",
+    body: "Deployed to a global CDN with HTTPS, automatic backups, and 99.9% uptime. No separate hosting bill.",
   },
   {
     icon: Accessibility,
     title: "ADA accessibility built in",
-    detail:
-      "Every site follows WCAG standards \u2014 proper contrast, keyboard navigation, screen reader support. Baked into the code from day one.",
+    body: "Every site follows WCAG standards \u2014 proper contrast, keyboard navigation, screen reader support. Baked into the code from day one.",
   },
 ];
-
-const cardStyle = {
-  boxShadow:
-    "0 2px 24px -4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
-};
-
-function FeatureCard({
-  icon: Icon,
-  title,
-  detail,
-}: (typeof deliverables)[number]) {
-  return (
-    <div
-      className="group relative rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 sm:p-6 transition-colors hover:border-cyber-accent/15 hover:bg-white/[0.03] flex flex-col"
-      style={cardStyle}
-    >
-      <div className="flex items-center gap-3 mb-3">
-        <div className="flex-shrink-0 w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center">
-          <Icon
-            className="w-[18px] h-[18px] text-cyber-accent"
-            aria-hidden="true"
-          />
-        </div>
-        <p className="text-[15px] font-semibold text-white">{title}</p>
-      </div>
-      <p className="text-sm text-cyber-gray-400 leading-relaxed">{detail}</p>
-    </div>
-  );
-}
 
 export default function WhatYouGet() {
   return (
@@ -135,7 +101,7 @@ export default function WhatYouGet() {
       {/* Feature cards — 3 col grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-12">
         {deliverables.map((d) => (
-          <FeatureCard key={d.title} {...d} />
+          <FeatureCard key={d.title} icon={d.icon} title={d.title} body={d.body} />
         ))}
       </div>
 

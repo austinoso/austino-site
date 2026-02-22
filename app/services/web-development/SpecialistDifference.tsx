@@ -1,5 +1,6 @@
 import { CheckCircle2, Clock, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import FeatureCard from "@/components/ui/FeatureCard";
 
 const sections: {
   icon: LucideIcon;
@@ -29,11 +30,6 @@ const sections: {
   },
 ];
 
-const cardStyle = {
-  boxShadow:
-    "0 2px 24px -4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
-};
-
 export default function SpecialistDifference() {
   return (
     <section data-fade className="mb-24 sm:mb-32">
@@ -46,36 +42,15 @@ export default function SpecialistDifference() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
         {sections.map((section, si) => (
-          <div
+          <FeatureCard
             key={si}
-            className="relative rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8 overflow-hidden flex flex-col"
-            style={cardStyle}
-          >
-            {/* Accent glow */}
-            <div
-              className="absolute -top-16 -right-16 w-48 h-48 rounded-full pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(64,224,255,0.05) 0%, transparent 70%)",
-              }}
-            />
-
-            <div className="relative flex-1 flex flex-col">
-              <div className="w-10 h-10 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.06] flex items-center justify-center mb-5">
-                <section.icon
-                  className="w-[18px] h-[18px] text-cyber-accent"
-                  aria-hidden="true"
-                />
-              </div>
-
-              <h3 className="text-base sm:text-lg font-semibold text-white mb-3">
-                {section.heading}
-              </h3>
-              <p className="text-[15px] text-cyber-gray-300 leading-relaxed mb-6 flex-1">
-                {section.body}
-              </p>
-
-              <div className="space-y-2.5 pt-5 border-t border-white/[0.06]">
+            icon={section.icon}
+            title={section.heading}
+            body={section.body}
+            layout="stacked"
+            accent={true}
+            footer={
+              <div className="space-y-2.5">
                 {section.points.map((point, pi) => (
                   <div key={pi} className="flex items-start gap-2.5">
                     <CheckCircle2
@@ -86,8 +61,8 @@ export default function SpecialistDifference() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
+            }
+          />
         ))}
       </div>
     </section>

@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import FeatureCard from "@/components/ui/FeatureCard";
 import {
   ArrowLeft,
   ArrowRight,
@@ -266,48 +267,24 @@ export default function OngoingSupportPage() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {[
-              {
-                icon: Shield,
-                title: "Accessibility is no longer optional",
-                description:
-                  "ADA lawsuits against websites are rising every year. Beyond legal risk, inaccessible sites lose customers who can't navigate them. It's not just the right thing \u2014 it's a business decision.",
-              },
-              {
-                icon: Smartphone,
-                title: "Mobile-first became mobile-only",
-                description:
-                  "Over 50% of local searches happen on phones. Google now indexes your mobile site first. If your mobile experience is an afterthought, your rankings reflect that.",
-              },
-              {
-                icon: Target,
-                title: "Google never stops changing",
-                description:
-                  "Google makes thousands of ranking changes every year. What got you to page 1 last year might not keep you there. Someone needs to be watching.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8"
-                style={{
-                  boxShadow:
-                    "0 2px 24px -4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
-                }}
-              >
-                <div className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.06] w-fit mb-5">
-                  <item.icon
-                    className="w-4 h-4 text-cyber-accent"
-                    aria-hidden="true"
-                  />
-                </div>
-                <h3 className="text-sm font-semibold text-white mb-3 leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-cyber-gray-400 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+            <FeatureCard
+              icon={Shield}
+              title="Accessibility is no longer optional"
+              body="ADA lawsuits against websites are rising every year. Beyond legal risk, inaccessible sites lose customers who can't navigate them. It's not just the right thing — it's a business decision."
+              layout="stacked"
+            />
+            <FeatureCard
+              icon={Smartphone}
+              title="Mobile-first became mobile-only"
+              body="Over 50% of local searches happen on phones. Google now indexes your mobile site first. If your mobile experience is an afterthought, your rankings reflect that."
+              layout="stacked"
+            />
+            <FeatureCard
+              icon={Target}
+              title="Google never stops changing"
+              body="Google makes thousands of ranking changes every year. What got you to page 1 last year might not keep you there. Someone needs to be watching."
+              layout="stacked"
+            />
           </div>
         </section>
 

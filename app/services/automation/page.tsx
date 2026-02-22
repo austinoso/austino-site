@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import FeatureCard from "@/components/ui/FeatureCard";
 import {
   ArrowLeft,
   ArrowRight,
@@ -499,45 +500,24 @@ export default function AutomationPage() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
-            {[
-              {
-                icon: Clock,
-                title: "24/7/365",
-                description:
-                  "Runs at 2am on Christmas just as reliably as 10am on a Tuesday. No overtime, no holidays.",
-              },
-              {
-                icon: Zap,
-                title: "Milliseconds, not minutes",
-                description:
-                  "A task that takes a person 15 minutes takes code about 200 milliseconds. That gap adds up fast.",
-              },
-              {
-                icon: CheckCircle2,
-                title: "Zero human error",
-                description:
-                  "No fat-fingered numbers. No skipped rows. No 'I forgot to send that email.' Every time, exactly right.",
-              },
-            ].map((point) => (
-              <div
-                key={point.title}
-                className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8"
-                style={{
-                  boxShadow:
-                    "0 2px 24px -4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
-                }}
-              >
-                <div className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.06] w-fit mb-5">
-                  <point.icon className="w-4 h-4 text-cyber-accent" />
-                </div>
-                <h3 className="text-sm font-semibold text-white mb-2">
-                  {point.title}
-                </h3>
-                <p className="text-sm text-cyber-gray-400 leading-relaxed">
-                  {point.description}
-                </p>
-              </div>
-            ))}
+            <FeatureCard
+              icon={Clock}
+              title="24/7/365"
+              body="Runs at 2am on Christmas just as reliably as 10am on a Tuesday. No overtime, no holidays."
+              layout="stacked"
+            />
+            <FeatureCard
+              icon={Zap}
+              title="Milliseconds, not minutes"
+              body="A task that takes a person 15 minutes takes code about 200 milliseconds. That gap adds up fast."
+              layout="stacked"
+            />
+            <FeatureCard
+              icon={CheckCircle2}
+              title="Zero human error"
+              body="No fat-fingered numbers. No skipped rows. No 'I forgot to send that email.' Every time, exactly right."
+              layout="stacked"
+            />
           </div>
         </section>
 
