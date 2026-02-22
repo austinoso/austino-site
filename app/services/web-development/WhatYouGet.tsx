@@ -101,7 +101,12 @@ export default function WhatYouGet() {
       {/* Feature cards — 3 col grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-12">
         {deliverables.map((d) => (
-          <FeatureCard key={d.title} icon={d.icon} title={d.title} body={d.body} />
+          <FeatureCard
+            key={d.title}
+            icon={d.icon}
+            title={d.title}
+            body={d.body}
+          />
         ))}
       </div>
 

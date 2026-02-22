@@ -84,9 +84,7 @@ export default function FeatureCard({
                 aria-hidden="true"
               />
             </div>
-            <p className="text-[15px] font-semibold text-white">
-              {title}
-            </p>
+            <p className="text-[15px] font-semibold text-white">{title}</p>
           </div>
         )}
 
