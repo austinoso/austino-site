@@ -13,6 +13,7 @@ import {
   Terminal,
   Loader2,
   Zap,
+  ChevronDown,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -359,6 +360,7 @@ export default function RealExamples() {
   const [activeTool, setActiveTool] = useState(0);
   const [visibleLogs, setVisibleLogs] = useState<VisibleLog[]>([]);
   const [isRunning, setIsRunning] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const sectionRef = useRef<HTMLElement>(null);
   const dashRef = useRef<HTMLDivElement>(null);
@@ -573,9 +575,9 @@ export default function RealExamples() {
 
         {/* Body: sidebar + main */}
         <div className="flex flex-col lg:flex-row min-h-[350px] sm:min-h-[400px] lg:min-h-[420px]">
-          {/* ── Sidebar ──────────────────────────── */}
-          <div className="lg:w-52 xl:w-56 flex-shrink-0 border-b lg:border-b-0 lg:border-r border-white/[0.06] bg-[#0C1018]">
-            <div className="flex lg:flex-col gap-1 p-2 overflow-x-auto lg:overflow-visible">
+          {/* ── Sidebar (desktop) ────────────────── */}
+          <div className="hidden lg:block lg:w-52 xl:w-56 flex-shrink-0 lg:border-r border-white/[0.06] bg-[#0C1018]">
+            <div className="flex flex-col gap-1 p-2">
               {TOOLS.map((entry, i) => {
                 const SideIcon = entry.icon;
                 const on = i === activeTool;
@@ -584,7 +586,7 @@ export default function RealExamples() {
                     key={entry.id}
                     onClick={() => selectTool(i)}
                     style={{ animationDelay: `${i * 70}ms` }}
-                    className={`group flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-left transition-all duration-200 flex-shrink-0 lg:flex-shrink lg:w-full animate-feed-in ${
+                    className={`group flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-left transition-all duration-200 w-full animate-feed-in ${
                       on
                         ? "bg-white/[0.06] border border-white/[0.08]"
                         : "bg-transparent border border-transparent hover:bg-white/[0.03] hover:border-white/[0.04]"
@@ -621,10 +623,120 @@ export default function RealExamples() {
             </div>
           </div>
 
+          {/* ── Mobile dropdown ───────────────────── */}
+          <div className="lg:hidden border-b border-white/[0.06] bg-[#0C1018] relative">
+            <div
+              onClick={() => setMobileOpen((v) => !v)}
+              role="button"
+              tabIndex={0}
+              className="w-full flex items-center gap-2.5 px-4 py-3 text-left cursor-pointer"
+            >
+              {(() => {
+                const ActiveIcon = TOOLS[activeTool].icon;
+                return (
+                  <ActiveIcon className="w-3.5 h-3.5 text-cyber-accent flex-shrink-0" />
+                );
+              })()}
+              <span className="text-xs font-medium text-white truncate">
+                {TOOLS[activeTool].name}
+              </span>
+              <span
+                className={`text-[9px] font-mono px-1.5 py-0.5 rounded-full flex-shrink-0 ${
+                  TOOLS[activeTool].mode === "auto"
+                    ? "text-emerald-400/70 bg-emerald-400/10"
+                    : "text-amber-400/70 bg-amber-400/10"
+                }`}
+              >
+                {TOOLS[activeTool].mode}
+              </span>
+              <ChevronDown
+                className={`w-5 h-5 text-cyber-accent flex-shrink-0 transition-transform duration-200 animate-chevron-glow drop-shadow-[0_0_4px_rgba(64,224,255,0.5)] ${
+                  mobileOpen ? "rotate-180" : ""
+                }`}
+              />
+              {/* Auto running indicator / Manual run button */}
+              {tool.mode === "auto" ? (
+                <span className="flex items-center gap-1 text-[10px] font-mono text-emerald-400/60 flex-shrink-0 ml-auto mr-2">
+                  <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
+                  running
+                </span>
+              ) : (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleRun();
+                  }}
+                  disabled={isRunning}
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium transition-all duration-300 flex-shrink-0 ml-auto mr-2 ${
+                    isRunning
+                      ? "bg-white/[0.04] text-cyber-gray-500 cursor-not-allowed"
+                      : "bg-cyber-accent/15 text-cyber-accent hover:bg-cyber-accent/25 border border-cyber-accent/20 hover:border-cyber-accent/40"
+                  }`}
+                >
+                  {isRunning ? (
+                    <>
+                      <Loader2 className="w-3 h-3 animate-spin" aria-hidden />
+                      Running&hellip;
+                    </>
+                  ) : (
+                    <>
+                      <Play className="w-3 h-3" aria-hidden />
+                      {tool.runLabel ?? "Run"}
+                    </>
+                  )}
+                </button>
+              )}
+            </div>
+            {mobileOpen && (
+              <div className="absolute inset-x-0 top-full z-20 bg-[#0C1018] border-b border-white/[0.06] shadow-lg">
+                {TOOLS.map((entry, i) => {
+                  const MIcon = entry.icon;
+                  const on = i === activeTool;
+                  return (
+                    <button
+                      key={entry.id}
+                      onClick={() => {
+                        selectTool(i);
+                        setMobileOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-left transition-colors ${
+                        on
+                          ? "bg-white/[0.06]"
+                          : "hover:bg-white/[0.03]"
+                      }`}
+                    >
+                      <MIcon
+                        className={`w-3.5 h-3.5 flex-shrink-0 ${
+                          on ? "text-cyber-accent" : "text-cyber-gray-500"
+                        }`}
+                      />
+                      <span
+                        className={`text-xs font-medium truncate ${
+                          on ? "text-white" : "text-cyber-gray-400"
+                        }`}
+                      >
+                        {entry.name}
+                      </span>
+                      <span
+                        className={`ml-auto text-[9px] font-mono px-1.5 py-0.5 rounded-full flex-shrink-0 ${
+                          entry.mode === "auto"
+                            ? "text-emerald-400/70 bg-emerald-400/10"
+                            : "text-amber-400/70 bg-amber-400/10"
+                        }`}
+                      >
+                        {entry.mode}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
           {/* ── Main panel ───────────────────────── */}
           <div className="flex-1 flex flex-col min-w-0">
-            {/* Tool bar */}
-            <div className="px-4 sm:px-5 py-3 border-b border-white/[0.06] flex items-center justify-between gap-3">
+            {/* Tool bar – hidden on mobile where dropdown already shows the name */}
+            <div className="hidden lg:flex px-4 sm:px-5 py-3 border-b border-white/[0.06] items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 min-w-0">
                 <div className="w-6 h-6 rounded-md bg-cyber-accent/10 flex items-center justify-center flex-shrink-0">
                   <ToolIcon

@@ -29,6 +29,7 @@ module.exports = {
       animation: {
         "skeleton-pulse": "skeleton-pulse 2s ease-in-out infinite",
         "feed-in": "feed-in 0.4s ease-out forwards",
+        "chevron-glow": "chevron-glow 3s ease-in-out infinite",
       },
       keyframes: {
         "skeleton-pulse": {
@@ -38,6 +39,10 @@ module.exports = {
         "feed-in": {
           "0%": { opacity: "0", transform: "translateY(-8px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "chevron-glow": {
+          "0%, 100%": { opacity: "0.5" },
+          "50%": { opacity: "1" },
         },
       },
     },
