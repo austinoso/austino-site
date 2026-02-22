@@ -269,7 +269,7 @@ const TOOLS: Tool[] = [
     name: "Review Collector",
     icon: Star,
     mode: "auto",
-    desc: "Reaches out to recent customers post-visit, collects feedback, and routes 4–5\u2605 reviews straight to your Google Business profile.",
+    desc: "Follows up with customers after their visit, collects feedback, and funnels positive reviews to your Google Business profile automatically.",
     logs: [
       {
         id: 1,
