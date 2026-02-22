@@ -464,10 +464,9 @@ export default function RealExamples() {
     startTool(activeTool, true);
   }, [activeTool, startTool]);
 
-  /* ── Scroll entrance + dashboard boot ───────── */
+  /* ── Scroll entrance ─────────────────────────── */
   useEffect(() => {
     const ctx = gsap.context(() => {
-      /* Section fade-in */
       gsap.fromTo(
         sectionRef.current!,
         { y: 24, opacity: 0 },
@@ -480,22 +479,30 @@ export default function RealExamples() {
           scrollTrigger: { trigger: sectionRef.current!, start: "top 85%" },
         },
       );
-
-      /* Boot automation on scroll */
-      ScrollTrigger.create({
-        trigger: dashRef.current!,
-        start: "top 80%",
-        once: true,
-        onEnter: () => {
-          if (booted.current) return;
-          booted.current = true;
-          startTool(0);
-        },
-      });
     }, sectionRef);
 
+    return () => ctx.revert();
+  }, []);
+
+  /* ── Boot first tool when dashboard enters viewport ────── */
+  useEffect(() => {
+    const el = dashRef.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !booted.current) {
+          booted.current = true;
+          startTool(0);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.1 },
+    );
+    io.observe(el);
+
     return () => {
-      ctx.revert();
+      io.disconnect();
       flush();
     };
   }, [startTool, flush]);
