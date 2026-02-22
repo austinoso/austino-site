@@ -102,33 +102,30 @@ function accentLine(a: string) {
 }
 
 /* ── Component ────────────────────────────────────────────── */
+/* Start with a full feed so the dashboard looks populated on first paint */
+const INITIAL_ITEMS: FeedItem[] = TASKS.slice(0, MAX_VISIBLE).map((_, i) => ({
+  id: i,
+  taskIdx: i,
+  status: "done",
+}));
+const INITIAL_COUNT = 47;
+
 export default function AutomationDashboard() {
-  const [items, setItems] = useState<FeedItem[]>([]);
-  const [taskCount, setTaskCount] = useState(0);
-  const idRef = useRef(0);
-  const taskRef = useRef(0);
+  const [items, setItems] = useState<FeedItem[]>(INITIAL_ITEMS);
+  const [taskCount, setTaskCount] = useState(INITIAL_COUNT);
+  const idRef = useRef(MAX_VISIBLE);
+  const taskRef = useRef(MAX_VISIBLE);
 
   useEffect(() => {
     /* Respect reduced-motion preference */
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-
-    if (prefersReduced) {
-      setItems(
-        TASKS.slice(0, MAX_VISIBLE).map((_, i) => ({
-          id: i,
-          taskIdx: i,
-          status: "done",
-        })),
-      );
-      setTaskCount(47);
-      return;
-    }
+    if (prefersReduced) return;
 
     const doneTimeouts: ReturnType<typeof setTimeout>[] = [];
 
-    /* Add new task on each tick */
+    /* Continue cycling new tasks into the already-full feed */
     const interval = setInterval(() => {
       const id = idRef.current++;
       const taskIdx = taskRef.current++ % TASKS.length;
@@ -152,20 +149,6 @@ export default function AutomationDashboard() {
       }, DONE_DELAY);
       doneTimeouts.push(t);
     }, ADD_INTERVAL);
-
-    /* Kick off the first item quickly */
-    const firstId = idRef.current++;
-    const firstIdx = taskRef.current++ % TASKS.length;
-    setItems([{ id: firstId, taskIdx: firstIdx, status: "processing" }]);
-    setTaskCount(1);
-    const firstDone = setTimeout(() => {
-      setItems((prev) =>
-        prev.map((item) =>
-          item.id === firstId ? { ...item, status: "done" } : item,
-        ),
-      );
-    }, DONE_DELAY);
-    doneTimeouts.push(firstDone);
 
     return () => {
       clearInterval(interval);
