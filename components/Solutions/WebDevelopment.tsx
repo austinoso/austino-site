@@ -1,4 +1,4 @@
-import { Zap, Search, LayoutTemplate, ArrowRight } from "lucide-react";
+import { Heart, Search, LayoutTemplate, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { scores } from "./data";
@@ -14,12 +14,12 @@ export default function WebDevelopment() {
           Web Development
         </p>
         <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight">
-          Websites that turn visitors into customers.
+          A website that outranks, outloads, and outconverts.
         </h3>
         <p className="text-base text-cyber-gray-300 leading-relaxed">
-          Your website should be bringing in customers around the clock. I build
-          fast, search-optimized sites that load instantly, rank locally, and
-          make it easy for people to take action.
+          While your competitors sit on slow templates, your site will load
+          instantly, rank higher on Google, and turn visitors into paying
+          customers — around the clock.
         </p>
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">
@@ -30,7 +30,23 @@ export default function WebDevelopment() {
             <div>
               <p className="text-sm font-medium text-white">Strategic Layout</p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Every section and CTA designed to move visitors toward action
+                Every section engineered to move visitors toward action before
+                they bounce
+              </p>
+            </div>
+          </div>
+          <div data-feature className="flex items-start gap-3">
+            <Heart
+              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            />
+            <div>
+              <p className="text-sm font-medium text-white">
+                Features Customers Love
+              </p>
+              <p className="text-xs text-cyber-gray-400 mt-0.5">
+                Online booking, ordering, payments &mdash; the convenience that
+                keeps people coming back
               </p>
             </div>
           </div>
@@ -42,20 +58,7 @@ export default function WebDevelopment() {
             <div>
               <p className="text-sm font-medium text-white">Found On Google</p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Technical SEO so local customers find you first
-              </p>
-            </div>
-          </div>
-          <div data-feature className="flex items-start gap-3">
-            <Zap
-              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
-              aria-hidden="true"
-            />
-            <div>
-              <p className="text-sm font-medium text-white">Built For Speed</p>
-              <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Fast loads keep visitors on the page and Google ranking you
-                higher
+                Technical SEO so you show up before your competitors do
               </p>
             </div>
           </div>

@@ -13,12 +13,13 @@ export default function OngoingSupport() {
           Ongoing Partnership
         </p>
         <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight">
-          A developer in your corner, long after launch.
+          They stay still. You don&apos;t.
         </h3>
         <p className="text-base text-cyber-gray-300 leading-relaxed">
-          Once your site is live, you can keep me on as your go-to technical
-          resource — monitoring performance, recommending tools, and building
-          new capabilities whenever you&apos;re ready to grow.
+          Most businesses launch a site and walk away. I stay on as your
+          dedicated technical partner — monitoring performance, improving
+          what&apos;s working, and building new capabilities so you keep pulling
+          further ahead every month.
         </p>
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">
@@ -28,10 +29,11 @@ export default function OngoingSupport() {
             />
             <div>
               <p className="text-sm font-medium text-white">
-                Managed &amp; Monitored
+                Proactive Optimization
               </p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Updates, uptime, and security — handled for you
+                I track rankings, traffic, and engagement &mdash; fixing issues
+                before they cost you customers
               </p>
             </div>
           </div>
@@ -57,7 +59,8 @@ export default function OngoingSupport() {
             <div>
               <p className="text-sm font-medium text-white">Growth Ready</p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                As your business scales, I build the features to match
+                As your business scales, your site evolves to match — always a
+                step ahead
               </p>
             </div>
           </div>

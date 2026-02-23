@@ -241,10 +241,10 @@ export default function Solutions() {
             className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
             style={{ opacity: 0 }}
           >
-            The Solution
+            The Edge
           </p>
           <WordReveal
-            text="How I solve it."
+            text="How you take the lead."
             id="solutions-heading"
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight"
           />
@@ -263,9 +263,9 @@ export default function Solutions() {
           style={{ opacity: 0, transform: "translateY(10px)" }}
         >
           <p className="text-lg sm:text-xl text-cyber-gray-300 leading-relaxed">
-            Every business is different.{" "}
+            I only work with one business per niche in your area.{" "}
             <span className="text-white font-medium">
-              I&apos;ll recommend exactly what you need &mdash; nothing more.
+              Your competition won&apos;t get this from me.
             </span>
           </p>
         </div>

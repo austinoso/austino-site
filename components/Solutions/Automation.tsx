@@ -18,11 +18,12 @@ export default function Automation() {
           Automation
         </p>
         <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight">
-          Replacing manual chores with smart systems.
+          Speed your competitors don&apos;t have.
         </h3>
         <p className="text-base text-cyber-gray-300 leading-relaxed">
-          Most local businesses lose hours every day to busy work that can be
-          automated. I find those bottlenecks and build the bridges to fix them.
+          While other businesses do follow-ups, scheduling, and data entry by
+          hand, yours runs on autopilot. I find the bottlenecks and build the
+          systems that eliminate them.
         </p>
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">

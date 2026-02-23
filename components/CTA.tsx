@@ -94,10 +94,10 @@ export default function CTA() {
             className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
             style={{ opacity: 0 }}
           >
-            Get Started
+            Your Move
           </p>
           <WordReveal
-            text="Ready when you are."
+            text="Your competition isn't waiting. Neither should you."
             id="cta-heading"
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight"
           />
@@ -110,8 +110,9 @@ export default function CTA() {
             className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed"
             style={{ opacity: 0, transform: "translateY(10px)" }}
           >
-            Tell me what&apos;s slowing your business down. I&apos;ll put
-            together a clear plan — no jargon, no obligations.
+            I take one client per niche in your area. If the spot is open,
+            let&apos;s talk about making your online presence the one everyone
+            else is trying to catch up to.
           </p>
 
           <div
@@ -121,7 +122,7 @@ export default function CTA() {
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
             <span className="text-xs font-mono text-cyber-gray-500">
-              Accepting new projects
+              Availability is limited
             </span>
           </div>
 

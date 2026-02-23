@@ -496,17 +496,17 @@ export default function Hero() {
           {/* ─── Copy ─── */}
           <div ref={copyRef} className="lg:col-span-6 flex flex-col hero-entry">
             <WordReveal
-              text="Websites that keep your doors open 24/7."
+              text="Websites built to outperform."
               as="h1"
               id="hero-heading"
-              className="text-[2rem] sm:text-5xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.2] tracking-tight"
+              className="text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.2] tracking-tight"
               immediate
             />
 
             <p className="mt-6 text-base text-cyber-gray-300 max-w-md leading-relaxed">
-              I pair custom websites with smart software that handles the
-              repetitive stuff — so your business keeps running, even when
-              you&apos;re off the clock.
+              I pair high-performance engineering with smart automation to give
+              local businesses a technical edge. No bloated templates—just fast,
+              clean code that helps you rank higher and work smarter.
             </p>
 
             <div className="mt-8">
@@ -524,8 +524,8 @@ export default function Hero() {
               </Link>
             </div>
 
-            <div className="mt-5 inline-flex items-center gap-2 text-[13px] text-cyber-gray-400/80">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyber-accent/60" />
+            <div className="mt-5 inline-flex items-start gap-2 text-[13px] text-cyber-gray-400/80">
+              <span className="mt-[7px] flex-shrink-0 h-1.5 w-1.5 rounded-full bg-cyber-accent/60" />
               Based in California&apos;s Central Valley, serving clients
               everywhere.
             </div>

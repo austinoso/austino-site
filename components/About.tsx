@@ -73,7 +73,7 @@ export default function About() {
             About
           </p>
           <WordReveal
-            text="Custom-coded quality, without the agency markup."
+            text="Built to outpace your competition."
             id="about-heading"
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight"
           />
@@ -82,11 +82,12 @@ export default function About() {
             className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed mt-6 sm:mt-8"
             style={{ opacity: 0, transform: "translateY(12px)" }}
           >
-            Too many small businesses are held back by slow, outdated websites
-            or overpaying for work that doesn&apos;t fit. I build fast,
-            frictionless digital tools — websites, automation, internal systems
-            — so you can stop wrestling with tech and get back to growing your
-            business.
+            Most agencies hand you a site and disappear. I don&apos;t. I partner
+            with one business per niche — yours — and keep pushing until your
+            digital presence doesn&apos;t just compete, it dominates. Continuous
+            optimization, ongoing support, and a refusal to settle for
+            &ldquo;good enough&rdquo; mean your website keeps getting better
+            while your competitors&apos; stays the same.
           </p>
         </div>
 
@@ -124,8 +125,9 @@ export default function About() {
                   Developer &amp; Founder
                 </p>
                 <p className="text-sm text-cyber-gray-400 leading-relaxed mt-2">
-                  Six years of experience building websites, automation, and
-                  internal tools for startups and small businesses.
+                  Six years building digital presences that outpace the
+                  competition — websites, automation, and internal tools
+                  engineered for businesses that refuse to settle.
                 </p>
               </div>
             </div>
