@@ -1,153 +1,17 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { onHeroReady } from "@/lib/heroReady";
-
-gsap.registerPlugin(ScrollTrigger);
-
 /* ── Card graphics — monotone UI mockups with subtle accent ── */
 
-/* Card 1: Spreadsheet with cell-by-cell data entry cursor + scroll */
+/* Card 1: Spreadsheet with rows of data entry */
 function DataEntryGraphic() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const tlRef = useRef<gsap.core.Timeline | null>(null);
-
-  /* All unique rows the animation cycles through. The first 6 are
-     duplicated as a seamless buffer at the end so the viewport is
-     always full and the loop reset is completely invisible. */
-  const mainRows = [
+  const rows = [
     { w1: "45%", w2: "30%", w3: "20%" },
     { w1: "35%", w2: "40%", w3: "15%" },
     { w1: "50%", w2: "25%", w3: "20%" },
     { w1: "40%", w2: "35%", w3: "18%" },
     { w1: "38%", w2: "28%", w3: "22%" },
-    { w1: "42%", w2: "32%", w3: "16%" },
-    { w1: "48%", w2: "22%", w3: "24%" },
-    { w1: "36%", w2: "38%", w3: "19%" },
   ];
 
-  /* Buffer = first 6 rows repeated (viewport ≈ 5 rows, +1 margin) */
-  const rows = [...mainRows, ...mainRows.slice(0, 6)];
-  const SCROLL_COUNT = mainRows.length; /* scroll this many before reset */
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-
-    const card = el.closest(".group") as HTMLElement;
-    if (!card) return;
-
-    const bright = "rgba(64, 224, 255, 0.30)";
-    const filled = "rgba(64, 224, 255, 0.10)";
-    let alive = true;
-    let delayId: gsap.core.Tween | null = null;
-
-    const runCycle = () => {
-      if (!alive) return;
-      if (tlRef.current) tlRef.current.kill();
-
-      const scrollEl = scrollRef.current;
-      if (!scrollEl) return;
-
-      const allCells = scrollEl.querySelectorAll<HTMLDivElement>("[data-cell]");
-      const rowEls = scrollEl.querySelectorAll("[data-row]");
-      if (!allCells.length || rowEls.length < 2) return;
-
-      const r0 = rowEls[0].getBoundingClientRect();
-      const r1 = rowEls[1].getBoundingClientRect();
-      const rowH = r1.top - r0.top;
-
-      /* Snap to top — invisible because buffer = start rows */
-      gsap.set(scrollEl, { y: 0 });
-      allCells.forEach((c) => gsap.set(c, { clearProps: "backgroundColor" }));
-
-      const tl = gsap.timeline({
-        onComplete: () => {
-          /* Buffer rows are now visible — they are identical copies
-             of the first rows, so we can snap back instantly. */
-          gsap.set(scrollEl, { y: 0 });
-          allCells.forEach((c) =>
-            gsap.set(c, { clearProps: "backgroundColor" }),
-          );
-          /* Restart immediately — no gap, no visible seam */
-          if (alive) runCycle();
-        },
-      });
-      tlRef.current = tl;
-
-      for (let r = 0; r < SCROLL_COUNT; r++) {
-        for (let c = 0; c < 3; c++) {
-          const cell = allCells[r * 3 + c];
-          if (!cell) continue;
-
-          tl.to(
-            cell,
-            {
-              backgroundColor: bright,
-              duration: 0.1,
-              ease: "power2.in",
-            },
-            c === 0 ? "+=0.06" : "+=0.14",
-          );
-
-          tl.to(
-            cell,
-            {
-              backgroundColor: filled,
-              duration: 0.14,
-            },
-            "+=0.12",
-          );
-        }
-
-        /* Scroll up one row after all 3 cells filled */
-        tl.to(
-          scrollEl,
-          {
-            y: -(r + 1) * rowH,
-            duration: 0.35,
-            ease: "power2.inOut",
-          },
-          "+=0.15",
-        );
-      }
-    };
-
-    const startAnim = () => {
-      alive = true;
-      runCycle();
-    };
-
-    const stopAnim = () => {
-      alive = false;
-      if (tlRef.current) {
-        tlRef.current.kill();
-        tlRef.current = null;
-      }
-      if (delayId) {
-        delayId.kill();
-        delayId = null;
-      }
-      const allCells = el.querySelectorAll<HTMLDivElement>("[data-cell]");
-      allCells.forEach((c) => gsap.set(c, { clearProps: "backgroundColor" }));
-      if (scrollRef.current) gsap.set(scrollRef.current, { y: 0 });
-    };
-
-    card.addEventListener("mouseenter", startAnim);
-    card.addEventListener("mouseleave", stopAnim);
-
-    return () => {
-      card.removeEventListener("mouseenter", startAnim);
-      card.removeEventListener("mouseleave", stopAnim);
-      stopAnim();
-    };
-  }, []);
-
   return (
-    <div ref={containerRef} className="relative w-full h-36 overflow-hidden">
+    <div className="relative w-full h-36 overflow-hidden">
       {/* Bottom fade */}
       <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#0A0B0F] to-transparent z-10 pointer-events-none group-hover:from-[#0D0E14] transition-colors duration-300" />
       <div className="h-full px-6 sm:px-7 pt-2">
@@ -164,27 +28,23 @@ function DataEntryGraphic() {
           </span>
         </div>
         <div className="h-px w-full bg-white/[0.04] mb-1" />
-        {/* Rows — GSAP handles scroll + cell highlights */}
+        {/* Rows — static display */}
         <div className="overflow-hidden h-[5.5rem]">
-          <div ref={scrollRef} className="space-y-1">
+          <div className="space-y-1">
             {rows.map((row, i) => (
               <div
                 key={i}
-                data-row
                 className="flex items-center gap-2 px-2 py-1 rounded-md"
               >
                 <div
-                  data-cell
-                  className="h-1.5 rounded-full bg-white/[0.06]"
+                  className={`h-1.5 rounded-full ${i < 2 ? "bg-cyber-accent/10" : "bg-white/[0.06]"}`}
                   style={{ width: row.w1 }}
                 />
                 <div
-                  data-cell
                   className="h-1.5 rounded-full bg-white/[0.04]"
                   style={{ width: row.w2 }}
                 />
                 <div
-                  data-cell
                   className="h-1.5 rounded-full bg-white/[0.04]"
                   style={{ width: row.w3 }}
                 />
@@ -361,67 +221,8 @@ const painPoints = [
 ];
 
 export default function PainPoints() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const closerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let ctx: gsap.Context | null = null;
-
-    /* gsap.set calls removed — initial styles are now in JSX
-       to prevent CLS (elements render hidden from first paint). */
-
-    onHeroReady(() => {
-      ctx = gsap.context(() => {
-        const cards = cardRefs.current.filter(Boolean);
-        /* ── Header fade up ── */
-        if (headerRef.current) {
-          gsap.to(headerRef.current, {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            scrollTrigger: { trigger: headerRef.current, start: "top 95%" },
-          });
-        }
-
-        /* ── Cards fade in ── */
-        if (cards.length) {
-          gsap.to(cards, {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: cards[0],
-              start: "top 95%",
-            },
-          });
-        }
-
-        /* ── Closer ── */
-        if (closerRef.current) {
-          gsap.to(closerRef.current, {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: closerRef.current,
-              start: "top 88%",
-            },
-          });
-        }
-      }, sectionRef);
-    });
-
-    return () => ctx?.revert();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       className="relative w-full pt-14 pb-16 sm:pt-20 sm:pb-24 md:pt-20 md:pb-28 bg-[#050505]"
       aria-labelledby="pain-points-heading"
     >
@@ -432,18 +233,13 @@ export default function PainPoints() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
           backgroundSize: "128px 128px",
           contain: "strict",
-          willChange: "transform",
         }}
         aria-hidden="true"
       />
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
         {/* Header */}
-        <div
-          ref={headerRef}
-          className="mb-14 sm:mb-20"
-          style={{ opacity: 0, transform: "translateY(12px)" }}
-        >
+        <div className="mb-14 sm:mb-20">
           <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
             The Problem
           </p>
@@ -460,11 +256,7 @@ export default function PainPoints() {
           {painPoints.map((point, index) => (
             <div
               key={index}
-              ref={(el) => {
-                cardRefs.current[index] = el;
-              }}
               className="group relative rounded-2xl border border-white/[0.06] bg-[#0A0B0F] overflow-hidden transition-colors duration-300 hover:border-white/[0.12] hover:bg-[#0D0E14] flex flex-col"
-              style={{ opacity: 0, transform: "translateY(16px)" }}
             >
               {/* Accent glow on hover */}
               <div
@@ -501,11 +293,7 @@ export default function PainPoints() {
         </div>
 
         {/* Closer */}
-        <div
-          ref={closerRef}
-          className="mt-14 sm:mt-20 max-w-xl"
-          style={{ opacity: 0, transform: "translateY(12px)" }}
-        >
+        <div className="mt-14 sm:mt-20 max-w-xl">
           <p className="text-lg sm:text-xl text-cyber-gray-300 leading-relaxed">
             Every hour you spend on busywork is an hour not spent growing your
             business.{" "}
