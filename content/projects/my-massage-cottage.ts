@@ -12,7 +12,7 @@ const myMassageCottage: Project = {
   icon: Sparkles,
   image: "/assets/mymassagecottage-demo.PNG",
   publishedDate: "January 15, 2026",
-  link: "https://mymassagecottage.austino.dev/",
+  link: "https://mymassagecottage.com/",
   linkText: "Visit Live Site",
   challenge:
     "Launch a new massage therapy business with a complete digital presence that handles bookings, payments, and customer notifications automatically—allowing the owner to focus entirely on their clients instead of managing technology.",
