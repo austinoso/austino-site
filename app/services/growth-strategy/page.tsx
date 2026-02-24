@@ -12,14 +12,14 @@ import {
   ArrowRight,
   Eye,
   TrendingUp,
-  MessageSquare,
-  Smartphone,
+  FileText,
   BarChart3,
   Target,
   Sparkles,
   Users,
   ChevronDown,
-  Shield,
+  Search,
+  PenTool,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,28 +27,28 @@ gsap.registerPlugin(ScrollTrigger);
 /* ── FAQ data ── */
 const faqs = [
   {
-    q: "What if I don\u2019t need changes every month?",
-    a: "That\u2019s fine \u2014 this isn\u2019t about making changes for the sake of it. Some months I\u2019m optimizing a conversion flow. Other months I\u2019m monitoring data and confirming everything\u2019s running strong. You\u2019re paying for someone who\u2019s always watching, not someone who\u2019s always changing.",
+    q: "What kind of content do you create?",
+    a: "Service deep-dives, FAQ pages, educational content, and location-specific landing pages \u2014 all written to match how your customers actually search. I handle the research and drafting. I just need 60 seconds of your expertise via a voice memo or a quick call to add the human touch Google rewards.",
   },
   {
-    q: "How is this different from a maintenance plan?",
-    a: "Maintenance keeps things from breaking. This is about making things better. I\u2019m proactively reading your analytics, spotting opportunities, and implementing improvements \u2014 not just applying security patches.",
+    q: "How is this different from SEO?",
+    a: "Traditional SEO is often a checklist \u2014 meta tags, keywords, backlinks. This is about becoming the authority in your space. I\u2019m building actual pages with real value that both Google and your customers reward. The SEO happens as a byproduct of doing useful work.",
+  },
+  {
+    q: "What if I don\u2019t need changes every month?",
+    a: "That\u2019s fine \u2014 this isn\u2019t about making changes for the sake of it. Some months I\u2019m building a new service page. Other months the data says everything\u2019s performing well, so I\u2019m monitoring and planning the next move. You\u2019re paying for a strategist who\u2019s always watching, not someone who\u2019s always tinkering.",
   },
   {
     q: "Can I cancel anytime?",
-    a: "Yes. There are no long-term contracts. If you\u2019re not seeing value, you can stop. That said, the compounding nature of this work means the longer we work together, the more your site does for you.",
-  },
-  {
-    q: "What kind of reporting do I get?",
-    a: "You get a clear monthly summary: what changed, what the data shows, and what I\u2019m planning next. No jargon, no fluff \u2014 just results tied to your business goals.",
+    a: "Yes \u2014 no long-term contracts. That said, this kind of growth isn\u2019t overnight. Google takes time to index new pages and build trust in your site. Most clients start seeing real movement by month two or three, and it compounds from there. Every page I publish keeps working long after it goes live.",
   },
   {
     q: "Do I need this if I just launched a new site?",
-    a: "Especially then. The first few months after launch are when your data is freshest and your ranking momentum is building. That\u2019s the most impactful time to have someone optimizing in real-time.",
+    a: "Especially then. The first few months after launch are when your ranking momentum is building fastest. That\u2019s the most impactful time to have someone reading the data, fixing what\u2019s underperforming, and publishing the pages that establish your authority early.",
   },
 ];
 
-export default function OngoingSupportPage() {
+export default function GrowthStrategyPage() {
   const mainRef = useRef<HTMLElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -134,16 +134,17 @@ export default function OngoingSupportPage() {
         <section className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-24 sm:mb-32">
           <div data-hero-copy className="lg:col-span-6 space-y-6">
             <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]">
-              Ongoing Partnership
+              Growth Strategy
             </p>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight text-balance">
-              The web changed. Did your site?
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
+              Launched is just the starting line.
             </h1>
             <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
-              Your site won&apos;t break — I built it with clean, hand-coded
-              architecture. But the web doesn&apos;t stand still. Customer
-              expectations shift, competitors redesign, and what was
-              cutting-edge last year becomes the baseline tomorrow.
+              A beautiful website is just the starting line. Without someone
+              reading the data, improving what&apos;s underperforming, and
+              building new content that ranks — your competitors will pass you.
+              I stay on as your web strategist, turning your site into a growth
+              engine.
             </p>
             <Link
               href="/contact"
@@ -171,7 +172,7 @@ export default function OngoingSupportPage() {
                 </div>
                 <div className="flex-1 flex justify-center">
                   <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
-                    analytics-dashboard
+                    growth-dashboard
                   </div>
                 </div>
               </div>
@@ -179,9 +180,9 @@ export default function OngoingSupportPage() {
                 {/* Metric cards */}
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    { label: "Page Speed", value: "98", change: "+14" },
+                    { label: "Organic Traffic", value: "2,847", change: "+34%" },
                     { label: "Bounce Rate", value: "31%", change: "−12%" },
-                    { label: "Avg. Session", value: "3:42", change: "+45s" },
+                    { label: "Keywords Top 10", value: "47", change: "+18 new" },
                   ].map((m) => (
                     <div
                       key={m.label}
@@ -203,24 +204,21 @@ export default function OngoingSupportPage() {
                 {/* Recent actions log */}
                 <div className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-4">
                   <p className="text-[10px] text-cyber-gray-500 uppercase tracking-wider font-mono mb-3">
-                    Recent Optimizations
+                    Recent Actions
                   </p>
                   <div className="space-y-2.5">
                     {[
                       {
-                        action: "CTA button relocated above fold",
-                        result: "+12% click-through",
-                        time: "3 days ago",
+                        action: "Published deep-dive service page",
+                        result: "+340 organic visits",
                       },
                       {
-                        action: "Form fields simplified (8 → 4)",
+                        action: "Reworked booking page (high bounce)",
                         result: "+22% completion",
-                        time: "1 week ago",
                       },
                       {
-                        action: "Schema markup expanded",
+                        action: "Added FAQ schema markup",
                         result: "Rich results enabled",
-                        time: "2 weeks ago",
                       },
                     ].map((log) => (
                       <div
@@ -242,7 +240,7 @@ export default function OngoingSupportPage() {
                 <div className="flex items-center gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
                   <span className="text-[10px] text-cyber-gray-500 font-mono">
-                    99.9% uptime · 0 outages this quarter
+                    99.9% uptime · 47 keywords ranking in top 10
                   </span>
                 </div>
               </div>
@@ -251,59 +249,59 @@ export default function OngoingSupportPage() {
         </section>
 
         {/* ═══════════════════════════════════════ */}
-        {/* 2 ─ THE LANDSCAPE: things change fast    */}
+        {/* 2 ─ THE REALITY: what happens when you stop */}
         {/* ═══════════════════════════════════════ */}
         <section data-fade className="mb-24 sm:mb-32">
           <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-            The Landscape
+            The Reality
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
-            Last year&apos;s best practice is this year&apos;s bare minimum.
+            Most businesses in your area aren&apos;t doing this. That&apos;s
+            your opening.
           </h2>
           <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-10">
-            The web evolves fast. Having a developer who&apos;s already immersed
-            in this means your site evolves with it — without you needing to
-            keep up yourself.
+            The vast majority of local businesses launch a site and never
+            touch it again. No new content, no data review, no strategy.
+            That means the bar is low — and the first business that starts
+            building real search authority is the one Google rewards.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             <FeatureCard
-              icon={Shield}
-              title="Accessibility is no longer optional"
-              body="ADA lawsuits against websites are rising every year. Beyond legal risk, inaccessible sites lose customers who can't navigate them. It's not just the right thing — it's a business decision."
+              icon={TrendingUp}
+              title="Rankings don't hold themselves"
+              body="Google rewards sites that consistently publish relevant content. A static site slowly drops as competitors build authority around the same keywords you're trying to win."
               layout="stacked"
             />
             <FeatureCard
-              icon={Smartphone}
-              title="Mobile-first became mobile-only"
-              body="Over 50% of local searches happen on phones. Google now indexes your mobile site first. If your mobile experience is an afterthought, your rankings reflect that."
+              icon={BarChart3}
+              title="Bounce rate is a silent killer"
+              body="If visitors land on your page and leave without booking, something's wrong — the layout, the copy, the load time. Without someone reading the data, you'd never know."
               layout="stacked"
             />
             <FeatureCard
-              icon={Target}
-              title="Google never stops changing"
-              body="Google makes thousands of ranking changes every year. What got you to page 1 last year might not keep you there. Someone needs to be watching."
+              icon={Search}
+              title="Customers search in ways you don't expect"
+              body={`People Google things like "deep tissue for tech neck near me." If you don't have a page answering that specific question, someone else does — and they get the click.`}
               layout="stacked"
             />
           </div>
         </section>
 
         {/* ═══════════════════════════════════════════ */}
-        {/* 3 ─ PROACTIVE: Monitor → Analyze → Optimize */}
+        {/* 3 ─ THE STRATEGY: Data + Content + Authority */}
         {/* ═══════════════════════════════════════════ */}
         <section data-fade className="mb-24 sm:mb-32">
           <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-            Proactive Optimization
+            The Strategy
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
-            I watch the numbers so you don&apos;t have to.
+            Data tells us what to fix. Content builds your authority.
           </h2>
           <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-10">
-            I set up real monitoring on your site and gather actual data —
-            traffic, conversions, bounce rates, user behavior. But I don&apos;t
-            just send you a report. If the data tells me that a small tweak
-            could improve your bookings, I make it happen. You never have to
-            ask.
+            Every month I&apos;m doing two things: using real data to improve
+            what&apos;s already there, and building new content that helps you
+            rank for more of the searches your customers are making.
           </p>
 
           <div
@@ -317,23 +315,23 @@ export default function OngoingSupportPage() {
               {[
                 {
                   icon: Eye,
-                  title: "Monitor",
+                  title: "Read the Data",
                   description:
-                    "Uptime, speed, traffic, and user behavior tracked around the clock. If something changes, I know before you do.",
-                },
-                {
-                  icon: BarChart3,
-                  title: "Analyze",
-                  description:
-                    "I read the data in terms of your business goals. More visitors means nothing if they're not booking — I look deeper than surface metrics.",
+                    "I monitor your traffic, bounce rates, conversions, and keyword rankings. When a page isn't performing, I dig into why — and I fix it.",
                 },
                 {
                   icon: Sparkles,
-                  title: "Optimize",
+                  title: "Improve What's Underperforming",
                   description:
-                    "If moving a CTA button or rewording a headline could improve conversions, I test it and implement it. Proactive, not reactive.",
+                    "High bounce rate on your booking page? I test a new layout. Visitors dropping off before the CTA? I move it above the fold. Every change is backed by data, not guesswork.",
                 },
-              ].map((step, i) => (
+                {
+                  icon: PenTool,
+                  title: "Build Search Authority",
+                  description:
+                    "I create new pages — service deep-dives, FAQ content, location-specific landing pages — designed to capture the long-tail searches your customers are already making.",
+                },
+              ].map((step) => (
                 <div key={step.title} className="flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.06]">
@@ -366,43 +364,44 @@ export default function OngoingSupportPage() {
             Numbers that mean something to your business.
           </h2>
           <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-10">
-            I don&apos;t just hand you a spreadsheet of analytics jargon. Every
-            metric I track maps directly to a business outcome you care about.
+            Every metric I track maps directly to a business outcome you care
+            about. You get a monthly summary in plain English — what changed,
+            what the data shows, and what I&apos;m planning next.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
             {[
               {
                 metric: "2,847",
-                label: "Visitors this month",
+                label: "Organic visitors this month",
                 meaning:
-                  "This many people walked through your digital front door. When this goes up, your potential customer pool is growing.",
+                  "These people found you through Google — not ads, not social media. When this goes up, your visibility is compounding and your content strategy is working.",
                 trend: "↑ 34% from last month",
                 trendColor: "text-[#4ADE80]",
               },
               {
-                metric: "4.8%",
-                label: "Conversion rate",
+                metric: "47",
+                label: "Keywords in top 10",
                 meaning:
-                  "Out of every 100 visitors, about 5 take action — book, call, or fill out a form. I work to push this number higher every month.",
-                trend: "↑ 1.2% higher than average",
+                  "Every keyword is a door. Each new service page or piece of content I publish opens another one. Last quarter you had 29. Now you have 47 — and growing.",
+                trend: "+18 new this quarter",
                 trendColor: "text-[#4ADE80]",
               },
               {
-                metric: "#3",
+                metric: "31%",
+                label: "Bounce rate",
+                meaning:
+                  "This was 43% at launch. When visitors leave right away, it tells us the page isn't matching their intent. I reworked the copy and layout on three underperforming pages — now visitors stay and act.",
+                trend: "↓ 12% since launch",
+                trendColor: "text-[#4ADE80]",
+              },
+              {
+                metric: "#1",
                 label: "Google ranking (local)",
                 meaning:
-                  "When someone in your area searches for your service, you're the third result they see. Higher = more clicks without paying for ads.",
+                  "When someone in your area searches for your core service, you're the first organic result. This is the compounding result of consistent content building and on-page optimization.",
                 trend: "Up from #8 at launch",
                 trendColor: "text-[#4ADE80]",
-              },
-              {
-                metric: "99.9%",
-                label: "Uptime",
-                meaning:
-                  "Your site has been online and reachable 99.9% of the time. Every minute of downtime is a potential customer who hits a dead end.",
-                trend: "0 outages this quarter",
-                trendColor: "text-cyber-gray-400",
               },
             ].map((item) => (
               <div
@@ -440,12 +439,12 @@ export default function OngoingSupportPage() {
             Long-Term
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
-            A site that gets smarter over time.
+            A site that compounds every month.
           </h2>
           <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-10">
-            This isn&apos;t a maintenance plan. It&apos;s a compounding
-            investment. The longer we work together, the more your site does for
-            you.
+            Every page I build keeps working after it&apos;s published. Every
+            fix I make stacks on the last. The longer we work together, the
+            harder your site works for you.
           </p>
 
           <div
@@ -459,30 +458,30 @@ export default function OngoingSupportPage() {
               {
                 month: "Month 1",
                 icon: Eye,
-                title: "Baseline & monitoring",
+                title: "Baseline & strategy",
                 description:
-                  "Analytics and uptime monitoring go live. We establish your baseline numbers — traffic, conversions, rankings — so every future improvement is measurable.",
+                  "Analytics go live. I audit your current rankings, identify pages with high bounce rates, and map out which keywords you should be targeting. We establish your baseline so every future improvement is measurable.",
               },
               {
                 month: "Month 3",
-                icon: TrendingUp,
-                title: "Data-driven improvements",
+                icon: BarChart3,
+                title: "Data-driven fixes",
                 description:
-                  "Data shows visitors are dropping off your booking page. I redesign the flow, simplify the form, and conversions jump 18%. You didn't have to ask — I spotted it.",
+                  "Data shows your booking page has a 60% bounce rate. I redesign the flow, simplify the form, and completions jump 22%. Two new service deep-dive pages go live and start indexing.",
               },
               {
                 month: "Month 6",
-                icon: Sparkles,
-                title: "New capabilities",
+                icon: FileText,
+                title: "Authority building",
                 description:
-                  "Google tightens its Core Web Vitals thresholds and your competitors start slipping. I\u2019ve already optimized your load times, added lazy loading for new content, and your performance score stays in the green.",
+                  "You\u2019re now ranking for 30+ keywords you weren\u2019t targeting before. New pages are pulling in organic traffic for specific searches your customers actually make — without paying for ads.",
               },
               {
                 month: "Month 12",
                 icon: Users,
-                title: "Scaling with your growth",
+                title: "Compounding results",
                 description:
-                  "Your site has kept pace with your growth every step of the way — new services added, a customer portal launched, and your Google ranking has climbed to #1 locally.",
+                  "Your site is a genuine authority in your space. Traffic is up 180%, local rankings dominate, and your site generates leads on autopilot — while competitors still have a 5-page brochure.",
               },
             ].map((milestone, i) => (
               <div
@@ -575,11 +574,11 @@ export default function OngoingSupportPage() {
         <section data-fade className="mb-20 sm:mb-28">
           <div className="border-t border-white/[0.06] pt-10 max-w-xl">
             <p className="text-lg sm:text-xl text-cyber-gray-300 leading-relaxed">
-              You don&apos;t need a developer who shows up at launch and
-              disappears.{" "}
+              You don&apos;t need someone who sets and forgets.{" "}
               <span className="text-white font-medium">
-                You need one who&apos;s watching, adapting, and building — long
-                after day one.
+                You need a strategist who&apos;s reading the data, fixing
+                what&apos;s not working, and building your site into the
+                authority Google can&apos;t ignore.
               </span>
             </p>
             <Link
@@ -600,12 +599,12 @@ export default function OngoingSupportPage() {
                 Get Started
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4">
-                Let&apos;s keep your site ahead of the curve.
+                Let&apos;s turn your site into a growth engine.
               </h2>
               <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
-                Whether you&apos;re launching something new or your current site
-                needs a partner behind the scenes, I&apos;d love to chat about
-                what ongoing support looks like for your business.
+                Whether you just launched or your current site has been
+                sitting still, I&apos;d love to talk about what a growth
+                strategy looks like for your business.
               </p>
             </div>
             <div className="flex-shrink-0">

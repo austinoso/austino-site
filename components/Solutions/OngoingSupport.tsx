@@ -1,4 +1,4 @@
-import { Shield, PhoneCall, TrendingUp, ArrowRight } from "lucide-react";
+import { BarChart3, PenTool, TrendingUp, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { statusItems } from "./data";
 
@@ -10,44 +10,45 @@ export default function OngoingSupport() {
     >
       <div data-content className="lg:col-span-5 space-y-5">
         <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]">
-          Ongoing Partnership
+          Growth Strategy
         </p>
         <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight">
-          They stay still. You don&apos;t.
+          They launch and stop. You keep building.
         </h3>
         <p className="text-base text-cyber-gray-300 leading-relaxed">
-          Most businesses launch a site and walk away. I stay on as your
-          dedicated technical partner — monitoring performance, improving
-          what&apos;s working, and building new capabilities so you keep pulling
-          further ahead every month.
+          Most businesses treat their site as a one-time project. I stay on as
+          your web strategist — using data to improve what&apos;s
+          underperforming and building new content that earns search authority,
+          so your site generates more leads every month.
         </p>
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">
-            <Shield
+            <BarChart3
               className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
               aria-hidden="true"
             />
             <div>
               <p className="text-sm font-medium text-white">
-                Proactive Optimization
+                Data-Driven Optimization
               </p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                I track rankings, traffic, and engagement &mdash; fixing issues
-                before they cost you customers
+                I track traffic, bounce rates, and rankings &mdash; fixing
+                what&apos;s not converting before it costs you customers
               </p>
             </div>
           </div>
           <div data-feature className="flex items-start gap-3">
-            <PhoneCall
+            <PenTool
               className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
               aria-hidden="true"
             />
             <div>
               <p className="text-sm font-medium text-white">
-                On-Call Consultant
+                Search Authority Building
               </p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Need advice or want to try something new? I&apos;m a call away
+                New service pages, FAQ content, and local landing pages that
+                rank for the searches your customers actually make
               </p>
             </div>
           </div>
@@ -57,19 +58,20 @@ export default function OngoingSupport() {
               aria-hidden="true"
             />
             <div>
-              <p className="text-sm font-medium text-white">Growth Ready</p>
+              <p className="text-sm font-medium text-white">
+                On-Call Strategist
+              </p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                As your business scales, your site evolves to match — always a
-                step ahead
+                Need advice on what to prioritize next? I&apos;m a call away
               </p>
             </div>
           </div>
         </div>
         <Link
-          href="/services/ongoing-support"
+          href="/services/growth-strategy"
           className="inline-flex items-center gap-2 text-sm font-mono text-cyber-accent hover:text-white transition-colors duration-300 mt-6"
         >
-          Explore ongoing support{" "}
+          Explore growth strategy{" "}
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
       </div>

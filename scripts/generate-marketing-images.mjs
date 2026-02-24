@@ -75,7 +75,7 @@ const PRESETS = [
     headline: "If You're Not #1, I'm Not Done",
     subtext:
       "This isn't a one-and-done project. I work with you continuously until you own the top spot — then I keep you there.",
-    cta: "austino.dev/services/ongoing-support",
+    cta: "austino.dev/services/growth-strategy",
   },
 ];
 

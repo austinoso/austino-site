@@ -39,10 +39,10 @@ export default function FinalCTA() {
             </span>
           </p>
           <Link
-            href="/services/ongoing-support"
+            href="/services/growth-strategy"
             className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300 mt-6"
           >
-            Already automated? Keep your site evolving with ongoing support
+            Already automated? Keep growing with a long-term strategy
             <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
           </Link>
         </div>

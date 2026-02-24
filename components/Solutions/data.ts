@@ -22,8 +22,8 @@ export const terminalOutput = [
 ];
 
 export const statusItems = [
-  { name: "Google Ranking", value: "#3 locally", accent: true },
-  { name: "Bookings This Month", value: "64 new", accent: true },
-  { name: "Page Speed", value: "0.8s load", accent: true },
+  { name: "Google Ranking", value: "#1 locally", accent: true },
+  { name: "Keywords in Top 10", value: "47 ranking", accent: true },
+  { name: "Bounce Rate", value: "31% (↓12%)", accent: true },
   { name: "Uptime", value: "99.9%", accent: false },
 ];

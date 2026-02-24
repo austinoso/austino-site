@@ -292,17 +292,17 @@ export default function Navigation() {
                     </div>
                     <div data-dropdown-item role="none">
                       <Link
-                        href="/services/ongoing-support"
+                        href="/services/growth-strategy"
                         role="menuitem"
                         className="block px-3.5 py-2.5 rounded-lg text-sm text-cyber-gray-300 hover:text-white hover:bg-white/[0.04] transition-colors duration-200"
-                        data-umami-event="nav-service-support"
+                        data-umami-event="nav-service-growth"
                         tabIndex={isSolutionsOpen ? 0 : -1}
                         onClick={() => setIsSolutionsOpen(false)}
                         onKeyDown={handleDropdownItemKeyDown}
                       >
-                        <span className="font-medium">Ongoing Partnership</span>
+                        <span className="font-medium">Growth Strategy</span>
                         <span className="block text-[11px] text-cyber-gray-500 mt-0.5">
-                          A developer in your corner
+                          Data + content that ranks
                         </span>
                       </Link>
                     </div>
@@ -405,12 +405,12 @@ export default function Navigation() {
                   Automation
                 </Link>
                 <Link
-                  href="/services/ongoing-support"
+                  href="/services/growth-strategy"
                   className="block text-base text-cyber-gray-400 hover:text-cyber-accent transition-colors py-2 font-mono"
-                  data-umami-event="mobile-nav-service-support"
+                  data-umami-event="mobile-nav-service-growth"
                   onClick={closeMenu}
                 >
-                  Ongoing Partnership
+                  Growth Strategy
                 </Link>
               </div>
             </div>

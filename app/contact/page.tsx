@@ -476,7 +476,7 @@ export default function ContactPage() {
                 {[
                   "Web Development",
                   "Automation & Integrations",
-                  "Ongoing Support",
+                  "Growth Strategy",
                 ].map((service) => (
                   <li
                     key={service}

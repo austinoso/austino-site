@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "What happens if something breaks?",
-    a: "I build in error handling and monitoring. If something fails, the system retries automatically and I get notified. If you\u2019re on an ongoing partnership, I\u2019ll fix it before you even know it happened.",
+    a: "I build in error handling and monitoring. If something fails, the system retries automatically and I get notified. If you\u2019re on a growth strategy plan, I\u2019ll fix it before you even know it happened.",
   },
 ];
 

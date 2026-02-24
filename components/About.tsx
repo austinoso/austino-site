@@ -96,7 +96,7 @@ export default function About() {
             Most agencies hand you a site and disappear. I don&apos;t. I partner
             with one business per niche — yours — and keep pushing until your
             digital presence doesn&apos;t just compete, it dominates. Continuous
-            optimization, ongoing support, and a refusal to settle for
+            optimization, strategic growth, and a refusal to settle for
             &ldquo;good enough&rdquo; mean your website keeps getting better
             while your competitors&apos; stays the same.
           </p>

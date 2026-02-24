@@ -60,10 +60,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services/ongoing-support"
+                  href="/services/growth-strategy"
                   className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors py-1 inline-block"
                 >
-                  Ongoing Partnership
+                  Growth Strategy
                 </Link>
               </li>
             </ul>
