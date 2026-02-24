@@ -209,7 +209,7 @@ export default function Solutions() {
     <section
       ref={sectionRef}
       id="solutions"
-      className="relative w-full pt-14 pb-16 sm:pt-20 sm:pb-24 md:pt-20 md:pb-28 bg-[#050505]"
+      className="relative w-full pt-24 pb-20 sm:pt-32 sm:pb-28 md:pt-36 md:pb-32 bg-[#050505] border-t border-white/[0.04]"
       aria-labelledby="solutions-heading"
     >
       {/* Noise grain */}
@@ -235,7 +235,7 @@ export default function Solutions() {
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
         {/* Header */}
-        <div className="mb-14 sm:mb-20">
+        <div className="mb-16 sm:mb-24">
           <p
             ref={labelRef}
             className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
@@ -247,6 +247,7 @@ export default function Solutions() {
             text="How you take the lead."
             id="solutions-heading"
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight"
+            accentWords={["lead."]}
           />
         </div>
 
@@ -259,12 +260,12 @@ export default function Solutions() {
         {/* Closer — consultative positioning */}
         <div
           data-closer
-          className="mt-16 sm:mt-20 pt-10 border-t border-white/[0.06] max-w-xl"
+          className="mt-20 sm:mt-28 pt-12 border-t border-white/[0.06] max-w-xl"
           style={{ opacity: 0, transform: "translateY(10px)" }}
         >
-          <p className="text-lg sm:text-xl text-cyber-gray-300 leading-relaxed">
+          <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-cyber-gray-300 leading-snug tracking-tight">
             I only work with one business per niche in your area.{" "}
-            <span className="text-white font-medium">
+            <span className="text-cyber-accent">
               Your competition won&apos;t get this from me.
             </span>
           </p>

@@ -1,5 +1,4 @@
-import type { Project } from "@/content/projects/stake-sight";
-import stakeSight from "@/content/projects/stake-sight";
+import type { Project } from "@/content/projects/types";
 import myMassageCottage from "@/content/projects/my-massage-cottage";
 
 // Import all projects here as you add them
@@ -7,7 +6,6 @@ import myMassageCottage from "@/content/projects/my-massage-cottage";
 
 const allProjects: Project[] = [
   myMassageCottage,
-  stakeSight,
   // Add new projects here
 ];
 

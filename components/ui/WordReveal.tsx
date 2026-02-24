@@ -20,6 +20,8 @@ interface WordRevealProps {
   immediate?: boolean;
   /** Delay before animation starts (seconds) */
   delay?: number;
+  /** Words to highlight with accent color (matched case-insensitively, includes punctuation) */
+  accentWords?: string[];
 }
 
 export default function WordReveal({
@@ -29,9 +31,12 @@ export default function WordReveal({
   id,
   immediate = false,
   delay = 0,
+  accentWords = [],
 }: WordRevealProps) {
   const wordsRef = useRef<(HTMLSpanElement | null)[]>([]);
   const words = text.split(" ");
+
+  const accentSet = new Set(accentWords.map((w) => w.toLowerCase()));
 
   useEffect(() => {
     const els = wordsRef.current.filter(Boolean) as HTMLSpanElement[];
@@ -78,23 +83,28 @@ export default function WordReveal({
 
   return (
     <Tag id={id} className={className}>
-      {words.map((word, i) => (
-        <Fragment key={i}>
-          <span
-            className="inline-block"
-            style={{ clipPath: "inset(-0.15em 0)" }}
-          >
+      {words.map((word, i) => {
+        const isAccent = accentSet.has(
+          word.toLowerCase().replace(/[.,!?;:]+$/, ""),
+        );
+        return (
+          <Fragment key={i}>
             <span
-              ref={(el) => {
-                wordsRef.current[i] = el;
-              }}
               className="inline-block"
+              style={{ clipPath: "inset(-0.15em 0)" }}
             >
-              {word}
-            </span>
-          </span>{" "}
-        </Fragment>
-      ))}
+              <span
+                ref={(el) => {
+                  wordsRef.current[i] = el;
+                }}
+                className={`inline-block${isAccent ? " text-cyber-accent" : ""}`}
+              >
+                {word}
+              </span>
+            </span>{" "}
+          </Fragment>
+        );
+      })}
     </Tag>
   );
 }

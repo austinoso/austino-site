@@ -54,78 +54,89 @@ export default function WorkPage() {
           </p>
         </div>
 
-        {/* Project Cards */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6"
-          role="list"
-          aria-label="Work projects"
-        >
+        {/* Featured Project — single spotlight */}
+        <div role="list" aria-label="Work projects">
           {projects.map((project) => (
             <article key={project.slug} role="listitem">
               <Link
                 href={`/work/${project.slug}`}
-                className="group block rounded-xl border border-white/[0.06] bg-[#111318] overflow-hidden transition-colors duration-300 hover:border-white/[0.12]"
+                className="group block rounded-2xl border border-white/[0.06] bg-[#111318] overflow-hidden transition-all duration-300 hover:border-white/[0.12]"
                 style={{
                   boxShadow:
-                    "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
+                    "0 24px 60px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
                 }}
               >
-                {/* Thumbnail */}
-                {project.image && (
-                  <div className="relative aspect-[16/9] overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#111318] via-transparent to-transparent opacity-60" />
-                  </div>
-                )}
+                <div className="grid lg:grid-cols-12 items-stretch">
+                  {/* Thumbnail */}
+                  {project.image && (
+                    <div className="relative overflow-hidden lg:col-span-7 aspect-[16/9] lg:aspect-auto lg:min-h-[380px]">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#111318] via-transparent to-transparent opacity-60 lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[#111318]" />
+                    </div>
+                  )}
 
-                {/* Content */}
-                <div className="p-5 sm:p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[10px] font-mono text-cyber-accent uppercase tracking-[0.15em]">
-                      {project.category}
-                    </span>
-                    <span className="text-cyber-gray-500 text-[10px]">·</span>
-                    <span className="text-[10px] font-mono text-cyber-gray-500">
-                      {project.readTime}
-                    </span>
-                  </div>
-
-                  <h2 className="text-lg sm:text-xl font-semibold text-white leading-snug tracking-tight mb-2 group-hover:text-cyber-accent transition-colors duration-300">
-                    {project.title.split(":")[0]}
-                  </h2>
-
-                  <p className="text-sm text-cyber-gray-400 leading-relaxed line-clamp-2 mb-4">
-                    {project.excerpt}
-                  </p>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.techStack.slice(0, 4).map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-[10px] font-mono px-2 py-0.5 bg-white/[0.04] border border-white/[0.06] text-cyber-gray-400 rounded"
-                      >
-                        {tech}
+                  {/* Content */}
+                  <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-[10px] font-mono text-cyber-accent uppercase tracking-[0.15em]">
+                        {project.category}
                       </span>
-                    ))}
-                    {project.techStack.length > 4 && (
-                      <span className="text-[10px] font-mono px-2 py-0.5 text-cyber-gray-500">
-                        +{project.techStack.length - 4}
+                      <span className="text-cyber-gray-500 text-[10px]">·</span>
+                      <span className="text-[10px] font-mono text-cyber-gray-500">
+                        {project.readTime}
                       </span>
-                    )}
-                  </div>
+                    </div>
 
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-cyber-gray-500 group-hover:text-cyber-accent transition-colors duration-300">
-                    <span>Read case study</span>
-                    <ArrowRight
-                      className="w-3 h-3 transition-transform group-hover:translate-x-1"
-                      aria-hidden="true"
-                    />
+                    <h2 className="text-xl sm:text-2xl font-semibold text-white leading-snug tracking-tight mb-3 group-hover:text-cyber-accent transition-colors duration-300">
+                      {project.title.split(":")[0]}
+                    </h2>
+
+                    <p className="text-sm sm:text-base text-cyber-gray-400 leading-relaxed mb-5">
+                      {project.excerpt}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                      {project.techStack.slice(0, 5).map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-[10px] font-mono px-2 py-0.5 bg-white/[0.04] border border-white/[0.06] text-cyber-gray-400 rounded"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.techStack.length > 5 && (
+                        <span className="text-[10px] font-mono px-2 py-0.5 text-cyber-gray-500">
+                          +{project.techStack.length - 5}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Results preview */}
+                    <div className="space-y-2 mb-6 pt-4 border-t border-white/[0.06]">
+                      {project.results.slice(0, 3).map((result, i) => (
+                        <div
+                          key={i}
+                          className="flex items-start gap-2 text-sm text-cyber-gray-300"
+                        >
+                          <span className="mt-1.5 flex-shrink-0 h-1 w-1 rounded-full bg-cyber-accent/60" />
+                          <span className="leading-relaxed">{result}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-1.5 text-xs font-mono text-cyber-gray-500 group-hover:text-cyber-accent transition-colors duration-300">
+                      <span>Read full case study</span>
+                      <ArrowRight
+                        className="w-3 h-3 transition-transform group-hover:translate-x-1"
+                        aria-hidden="true"
+                      />
+                    </div>
                   </div>
                 </div>
               </Link>

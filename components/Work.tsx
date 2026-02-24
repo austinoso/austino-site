@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { getAllProjects } from "@/lib/projects";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { onHeroReady } from "@/lib/heroReady";
@@ -14,19 +14,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Work() {
   const projects = getAllProjects();
+  const project = projects[0];
   const sectionRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLParagraphElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let ctx: gsap.Context | null = null;
 
-    /* Initial styles set via JSX to prevent CLS */
-    const cards = sectionRef.current?.querySelectorAll("[data-card]");
-    const link = sectionRef.current?.querySelector("[data-footer-link]");
-
     onHeroReady(() => {
       ctx = gsap.context(() => {
-        /* Label fade */
         if (labelRef.current) {
           gsap.to(labelRef.current, {
             opacity: 1,
@@ -36,24 +34,24 @@ export default function Work() {
           });
         }
 
-        /* Cards fade in */
-        if (cards?.length) {
-          gsap.to(cards, {
+        if (imageRef.current) {
+          gsap.to(imageRef.current, {
             y: 0,
             opacity: 1,
-            duration: 0.5,
+            duration: 0.7,
             ease: "power3.out",
-            scrollTrigger: { trigger: cards[0], start: "top 85%" },
+            scrollTrigger: { trigger: imageRef.current, start: "top 82%" },
           });
         }
 
-        /* Footer link */
-        if (link) {
-          gsap.to(link, {
+        if (contentRef.current) {
+          gsap.to(contentRef.current, {
+            y: 0,
             opacity: 1,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: { trigger: link, start: "top 92%" },
+            duration: 0.6,
+            delay: 0.1,
+            ease: "power3.out",
+            scrollTrigger: { trigger: contentRef.current, start: "top 85%" },
           });
         }
       }, sectionRef);
@@ -62,115 +60,154 @@ export default function Work() {
     return () => ctx?.revert();
   }, []);
 
+  if (!project) return null;
+
+  /* Pick 3 short outcomes for the preview */
+  const highlights = [
+    "Professional presence from day one",
+    "Automated booking & payments",
+    "Mobile-optimized for local discovery",
+  ];
+
   return (
     <section
       ref={sectionRef}
       id="work"
-      className="relative w-full pt-14 pb-16 sm:pt-20 sm:pb-24 md:pt-20 md:pb-28 bg-[#050505] border-t border-white/[0.04]"
+      className="relative w-full pt-24 pb-24 sm:pt-32 sm:pb-32 md:pt-40 md:pb-40"
       aria-labelledby="work-heading"
     >
-      {/* Noise grain */}
+      {/* Subtle divider */}
       <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        className="absolute top-0 inset-x-0 h-px"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundSize: "128px 128px",
-          contain: "strict",
+          background:
+            "linear-gradient(90deg, transparent, rgba(64,224,255,0.08) 30%, rgba(64,224,255,0.12) 50%, rgba(64,224,255,0.08) 70%, transparent)",
         }}
         aria-hidden="true"
       />
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
-        {/* Header */}
-        <div className="mb-14 sm:mb-20">
-          <p
-            ref={labelRef}
-            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
-            style={{ opacity: 0 }}
-          >
-            Projects
-          </p>
-          <WordReveal
-            text="Recent work."
-            id="work-heading"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight"
-          />
-        </div>
+        {/* ─── Section label ─── */}
+        <p
+          ref={labelRef}
+          className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
+          style={{ opacity: 0 }}
+        >
+          Case Study
+        </p>
+        <WordReveal
+          text="See the results."
+          id="work-heading"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-14 sm:mb-16 md:mb-20"
+          accentWords={["results."]}
+        />
 
-        {/* Project cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 mb-12">
-          {projects.map((project) => (
+        {/* ─── Split layout: image + case study preview ─── */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          {/* Left — Project image */}
+          <div
+            ref={imageRef}
+            style={{ opacity: 0, transform: "translateY(20px)" }}
+          >
             <Link
-              key={project.slug}
               href={`/work/${project.slug}`}
-              data-card
-              data-umami-event="project-card"
-              data-umami-event-project={project.slug}
-              className="group rounded-xl border border-white/[0.06] bg-[#111318] overflow-hidden transition-colors duration-300 hover:border-white/[0.12]"
+              className="group relative block rounded-2xl overflow-hidden border border-white/[0.08] hover:border-cyber-accent/20 transition-all duration-500"
               style={{
-                opacity: 0,
-                transform: "translateY(12px)",
                 boxShadow:
-                  "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
+                  "0 24px 48px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03)",
               }}
+              data-umami-event="project-image"
+              data-umami-event-project={project.slug}
             >
-              {/* Thumbnail */}
               {project.image && (
-                <div className="relative aspect-[16/9] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#111318]">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                    priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111318] via-transparent to-transparent opacity-60" />
-                </div>
-              )}
-
-              {/* Content */}
-              <div className="p-5 sm:p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[10px] font-mono text-cyber-accent uppercase tracking-[0.15em]">
-                    {project.category}
-                  </span>
-                  <span className="text-cyber-gray-500 text-[10px]">·</span>
-                  <span className="text-[10px] font-mono text-cyber-gray-500">
-                    {project.readTime}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-white leading-snug tracking-tight mb-2 group-hover:text-cyber-accent transition-colors duration-300">
-                  {project.title.split(":")[0]}
-                </h3>
-                <p className="text-sm text-cyber-gray-400 leading-relaxed line-clamp-2">
-                  {project.excerpt}
-                </p>
-
-                <div className="flex items-center gap-1.5 mt-4 text-xs font-mono text-cyber-gray-500 group-hover:text-cyber-accent transition-colors duration-300">
-                  <span>Read case study</span>
-                  <ArrowRight
-                    className="w-3 h-3 transition-transform group-hover:translate-x-1"
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     aria-hidden="true"
                   />
                 </div>
-              </div>
+              )}
             </Link>
-          ))}
-        </div>
 
-        {/* Footer link */}
-        <div
-          data-footer-link
-          className="flex justify-center sm:justify-end"
-          style={{ opacity: 0 }}
-        >
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-2 text-cyber-gray-400 hover:text-cyber-accent transition-colors duration-300 font-mono text-xs uppercase tracking-[0.15em] border border-white/[0.08] rounded-lg px-5 py-2.5 hover:border-cyber-accent/30"
-            data-umami-event="see-all-work"
+            {/* Live link below image */}
+            <div className="mt-4 flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-mono text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+              >
+                mymassagecottage.com
+              </a>
+            </div>
+          </div>
+
+          {/* Right — Case study content */}
+          <div
+            ref={contentRef}
+            className="flex flex-col"
+            style={{ opacity: 0, transform: "translateY(20px)" }}
           >
-            <span>See all work</span>
-            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-          </Link>
+            {/* Category + read time */}
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-[10px] font-mono text-cyber-accent uppercase tracking-[0.15em]">
+                {project.category}
+              </span>
+              <span className="text-cyber-gray-500 text-[10px]">·</span>
+              <span className="text-[10px] font-mono text-cyber-gray-500">
+                {project.readTime}
+              </span>
+            </div>
+
+            {/* Title */}
+            <h3 className="text-2xl sm:text-3xl font-bold text-white leading-snug tracking-tight mb-4">
+              {project.title.split(":")[0]}
+            </h3>
+
+            {/* Challenge summary */}
+            <p className="text-[15px] text-cyber-gray-300 leading-relaxed mb-8">
+              {project.excerpt}
+            </p>
+
+            {/* Key results */}
+            <div className="space-y-3 mb-10">
+              <p className="text-[11px] font-mono text-cyber-gray-500 uppercase tracking-[0.15em] mb-3">
+                Key Outcomes
+              </p>
+              {highlights.map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-cyber-accent/70 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-cyber-gray-300 leading-relaxed">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <Link
+              href={`/work/${project.slug}`}
+              className="group inline-flex items-center gap-2.5 self-start px-6 py-3 border border-white/[0.08] rounded-xl text-[14px] font-medium text-white hover:border-cyber-accent/30 hover:text-cyber-accent transition-all duration-300"
+              style={{
+                boxShadow: "0 0 0 1px rgba(255,255,255,0.02)",
+              }}
+              data-umami-event="view-case-study"
+            >
+              Read Case Study
+              <ArrowRight
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

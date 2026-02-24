@@ -62,7 +62,11 @@ export default function CTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-14 pb-16 sm:pt-20 sm:pb-24 md:pt-20 md:pb-28 bg-[#050505] border-t border-white/[0.04]"
+      className="relative w-full pt-24 pb-28 sm:pt-32 sm:pb-36 md:pt-40 md:pb-44 border-t border-white/[0.04]"
+      style={{
+        background:
+          "linear-gradient(180deg, #050505 0%, #080A0F 40%, #0D1017 60%, #080A0F 100%)",
+      }}
       aria-labelledby="cta-heading"
     >
       {/* Noise grain */}
@@ -76,22 +80,22 @@ export default function CTA() {
         aria-hidden="true"
       />
 
-      {/* Accent glow — extends beyond section for soft bleed */}
+      {/* Accent glow — stronger, warmer gradient for CTA climax */}
       <div
         className="absolute -top-32 -bottom-32 left-0 right-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(64,224,255,0.05), transparent)",
+            "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(64,224,255,0.08), transparent 60%), radial-gradient(ellipse 50% 40% at 30% 60%, rgba(120,75,255,0.04), transparent)",
         }}
         aria-hidden="true"
       />
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
         {/* Header */}
-        <div className="mb-6 sm:mb-8">
+        <div className="mb-8 sm:mb-10">
           <p
             data-label
-            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
+            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-5"
             style={{ opacity: 0 }}
           >
             Your Move
@@ -99,7 +103,8 @@ export default function CTA() {
           <WordReveal
             text="Your competition isn't waiting. Neither should you."
             id="cta-heading"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
+            accentWords={["isn't", "waiting."]}
           />
         </div>
 

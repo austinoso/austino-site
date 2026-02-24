@@ -1,6 +1,6 @@
 import { Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import type { Project } from "@/content/projects/stake-sight";
+import type { Project } from "@/content/projects/types";
 
 const myMassageCottage: Project = {
   slug: "my-massage-cottage",
@@ -10,7 +10,7 @@ const myMassageCottage: Project = {
   category: "Business Launch",
   readTime: "6 min read",
   icon: Sparkles,
-  image: "/assets/mymassagecottage-demo.PNG",
+  image: "/assets/mymassagecottage-demo-smaller.PNG",
   publishedDate: "January 15, 2026",
   link: "https://mymassagecottage.com/",
   linkText: "Visit Live Site",

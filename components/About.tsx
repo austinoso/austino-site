@@ -48,7 +48,7 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-14 pb-16 sm:pt-20 sm:pb-24 md:pt-20 md:pb-28 bg-[#050505] border-t border-white/[0.04]"
+      className="relative w-full pt-24 pb-24 sm:pt-32 sm:pb-32 md:pt-36 md:pb-36 bg-[#050505] border-t border-white/[0.04]"
       aria-labelledby="about-heading"
     >
       {/* Noise grain */}
@@ -62,12 +62,22 @@ export default function About() {
         aria-hidden="true"
       />
 
+      {/* Subtle warm accent glow for About — differentiates from other sections */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 40% at 50% 30%, rgba(120,75,255,0.035), transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+
       <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
         {/* Mission statement — full width */}
-        <div className="max-w-3xl mb-10 sm:mb-12">
+        <div className="max-w-3xl mb-14 sm:mb-16">
           <p
             data-label
-            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
+            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-5"
             style={{ opacity: 0 }}
           >
             About
@@ -76,10 +86,11 @@ export default function About() {
             text="Built to outpace your competition."
             id="about-heading"
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight"
+            accentWords={["outpace"]}
           />
           <p
             data-fade
-            className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed mt-6 sm:mt-8"
+            className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed mt-8 sm:mt-10"
             style={{ opacity: 0, transform: "translateY(12px)" }}
           >
             Most agencies hand you a site and disappear. I don&apos;t. I partner
@@ -92,69 +103,80 @@ export default function About() {
         </div>
 
         {/* Meet the team */}
-        <div className="pt-10 border-t border-white/[0.06]">
+        <div className="pt-12 border-t border-white/[0.06]">
           <p
             data-fade
-            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-8"
+            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-10"
             style={{ opacity: 0, transform: "translateY(12px)" }}
           >
             Meet the Team
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-16">
-            {/* Austin */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
+            {/* Austin — featured */}
             <div
               data-fade
-              className="flex items-start gap-4"
+              className="lg:col-span-3 relative rounded-2xl border border-white/[0.06] bg-white/[0.015] p-6 sm:p-8 overflow-hidden"
               style={{ opacity: 0, transform: "translateY(12px)" }}
             >
-              <div className="relative w-14 h-14 rounded-xl overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
-                <Image
-                  src="/assets/bio-pic.png"
-                  alt="Austin O."
-                  fill
-                  className="object-cover"
-                  sizes="56px"
-                />
-              </div>
-              <div className="min-w-0">
-                <p className="text-base font-semibold text-white leading-snug tracking-tight">
-                  Austin O.
-                </p>
-                <p className="font-mono text-[10px] text-cyber-accent uppercase tracking-widest mt-0.5">
-                  Developer &amp; Founder
-                </p>
-                <p className="text-sm text-cyber-gray-400 leading-relaxed mt-2">
-                  Six years building digital presences that outpace the
-                  competition — websites, automation, and internal tools
-                  engineered for businesses that refuse to settle.
-                </p>
+              {/* Accent glow */}
+              <div
+                className="absolute -top-16 -right-16 w-48 h-48 rounded-full pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(64,224,255,0.05) 0%, transparent 70%)",
+                }}
+                aria-hidden="true"
+              />
+              <div className="relative flex flex-col sm:flex-row items-start gap-5 sm:gap-6">
+                <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
+                  <Image
+                    src="/assets/bio-pic.png"
+                    alt="Austin O."
+                    fill
+                    className="object-cover"
+                    sizes="128px"
+                  />
+                </div>
+                <div className="min-w-0 pt-1">
+                  <p className="text-xl font-semibold text-white leading-snug tracking-tight">
+                    Austin O.
+                  </p>
+                  <p className="font-mono text-[10px] text-cyber-accent uppercase tracking-widest mt-1">
+                    Developer &amp; Founder
+                  </p>
+                  <p className="text-sm sm:text-[0.9375rem] text-cyber-gray-400 leading-relaxed mt-3">
+                    Six years building digital presences that outpace the
+                    competition — websites, automation, and internal tools
+                    engineered for businesses that refuse to settle.
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Rosa */}
             <div
               data-fade
-              className="flex items-start gap-4"
+              className="lg:col-span-2 flex items-start gap-5 p-6 sm:p-7 rounded-2xl border border-white/[0.06] bg-white/[0.015]"
               style={{ opacity: 0, transform: "translateY(12px)" }}
             >
-              <div className="relative w-14 h-14 rounded-xl overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
                 <Image
                   src="/assets/rosa.jpg"
                   alt="Rosa the dog"
                   fill
                   className="object-cover"
-                  sizes="56px"
+                  sizes="96px"
                 />
               </div>
-              <div className="min-w-0">
-                <p className="text-base font-semibold text-white leading-snug tracking-tight">
+              <div className="min-w-0 pt-1 flex-1">
+                <p className="text-lg font-semibold text-white leading-snug tracking-tight">
                   Rosa
                 </p>
-                <p className="font-mono text-[10px] text-cyber-accent uppercase tracking-widest mt-0.5">
+                <p className="font-mono text-[10px] text-cyber-accent uppercase tracking-widest mt-1">
                   Head of Morale
                 </p>
-                <p className="text-sm text-cyber-gray-400 leading-relaxed mt-2">
+                <p className="text-[13px] sm:text-sm text-cyber-gray-400 leading-relaxed mt-2.5">
                   Over three years of experience in stress management, perimeter
                   security, and unsolicited desk visits.
                 </p>
