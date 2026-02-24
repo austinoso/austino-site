@@ -166,7 +166,7 @@ export default function BeforeAfter() {
                 </div>
                 <div className="relative aspect-[16/9]">
                   <Image
-                    src="/assets/my-massage-cottage-demo.jpg"
+                    src="/assets/mymassagecottage-demo.PNG"
                     alt="My Massage Cottage — client website built with custom code"
                     fill
                     className="object-cover object-top"

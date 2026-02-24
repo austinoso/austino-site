@@ -10,7 +10,7 @@ const myMassageCottage: Project = {
   category: "Business Launch",
   readTime: "6 min read",
   icon: Sparkles,
-  image: "/assets/my-massage-cottage-demo.jpg",
+  image: "/assets/mymassagecottage-demo.PNG",
   publishedDate: "January 15, 2026",
   link: "https://mymassagecottage.austino.dev/",
   linkText: "Visit Live Site",

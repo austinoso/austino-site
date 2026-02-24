@@ -77,7 +77,7 @@ export default function WhatYouGet() {
           </div>
         </div>
         <Image
-          src="/assets/my-massage-cottage-demo.jpg"
+          src="/assets/mymassagecottage-demo.PNG"
           alt="My Massage Cottage — client website built with custom code"
           width={1200}
           height={900}

@@ -97,7 +97,7 @@ export default function WebDevelopment() {
             </div>
             <div className="relative aspect-[16/9]">
               <Image
-                src="/assets/my-massage-cottage-demo.jpg"
+                src="/assets/mymassagecottage-demo.PNG"
                 alt="My Massage Cottage — client website preview"
                 fill
                 className="object-cover object-top"
