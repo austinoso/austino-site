@@ -5,7 +5,7 @@ export default function JsonLd() {
     name: "austino",
     url: "https://austino.dev",
     description:
-      "I build fast, high-converting websites, automate the busywork, and provide ongoing tech support — so small business owners can focus on what they do best.",
+      "High-performance websites, growth strategies that climb search rankings, and automation that eliminates busywork — giving local businesses an edge no template can match.",
     areaServed: [
       {
         "@type": "State",
@@ -18,13 +18,13 @@ export default function JsonLd() {
     ],
     serviceType: [
       "Web Development",
+      "Growth Strategy",
       "Business Automation",
-      "Ongoing Tech Support",
     ],
     founder: {
       "@type": "Person",
       name: "Austin O.",
-      jobTitle: "Web Developer & Automation Specialist",
+      jobTitle: "Web Strategist & Engineer",
     },
     sameAs: [
       "https://github.com/austinoso",

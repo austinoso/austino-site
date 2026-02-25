@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Automation | austino",
   description:
-    "Stop paying hourly for work that code can do in seconds. Custom automation that connects your tools, eliminates busywork, and runs 24/7.",
+    "Custom automation that connects your tools, eliminates repetitive tasks, and runs 24/7 — so you can focus on growing your business.",
   alternates: {
     canonical: "https://austino.dev/services/automation",
   },
   openGraph: {
     title: "Automation | austino",
     description:
-      "Stop paying hourly for work that code can do in seconds. Custom automation that connects your tools, eliminates busywork, and runs 24/7.",
+      "Custom automation that connects your tools, eliminates repetitive tasks, and runs 24/7 — so you can focus on growing your business.",
     url: "https://austino.dev/services/automation",
   },
 };

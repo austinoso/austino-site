@@ -26,20 +26,20 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://austino.dev"),
-  title: "austino | Websites, Automation & Tech Support for Small Businesses",
+  title: "austino | Web Strategy, Growth & Automation for Local Businesses",
   description:
-    "I build fast, high-converting websites, automate the busywork, and provide ongoing tech support — so small business owners can focus on what they do best.",
+    "High-performance websites, growth strategies that climb search rankings, and automation that eliminates busywork — giving local businesses an edge no template can match.",
   keywords: [
     "small business web development",
     "local business website",
     "business automation",
-    "booking system integration",
+    "local SEO strategy",
     "workflow automation",
-    "small business tech support",
-    "website maintenance",
+    "growth strategy small business",
+    "search engine optimization",
     "web developer for small business",
     "Central Valley web developer",
-    "custom business tools",
+    "custom business websites",
   ],
   authors: [{ name: "Austin O." }],
   alternates: {
@@ -50,15 +50,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://austino.dev",
     siteName: "austino",
-    title: "austino | Websites, Automation & Tech Support for Small Businesses",
+    title: "austino | Web Strategy, Growth & Automation for Local Businesses",
     description:
-      "I build fast, high-converting websites, automate the busywork, and provide ongoing tech support — so small business owners can focus on what they do best.",
+      "High-performance websites, growth strategies that climb search rankings, and automation that eliminates busywork — giving local businesses an edge no template can match.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "austino | Websites, Automation & Tech Support for Small Businesses",
+    title: "austino | Web Strategy, Growth & Automation for Local Businesses",
     description:
-      "I build fast, high-converting websites, automate the busywork, and provide ongoing tech support — so small business owners can focus on what they do best.",
+      "High-performance websites, growth strategies that climb search rankings, and automation that eliminates busywork — giving local businesses an edge no template can match.",
   },
 };
 

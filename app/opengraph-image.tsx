@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export const alt =
-  "austino — Websites, Automation & Tech Support for Small Businesses";
+  "austino — Web Strategy, Growth & Automation for Local Businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -71,7 +71,7 @@ export default function Image() {
           marginBottom: "24px",
         }}
       >
-        Websites, Automation & Tech Support for Small Businesses
+        Websites &amp; Growth Strategy for Local Businesses
       </div>
 
       {/* Subheading */}
@@ -83,8 +83,8 @@ export default function Image() {
           maxWidth: "700px",
         }}
       >
-        Fast, high-converting websites. Workflow automation. Ongoing
-        partnership. Built for results.
+        High-performance websites. Growth strategies. Automation. Built to give
+        your business an edge.
       </div>
 
       {/* Bottom domain */}
