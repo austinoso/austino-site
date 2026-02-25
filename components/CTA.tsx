@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WordReveal from "@/components/ui/WordReveal";
+import FlowLines from "@/components/ui/FlowLines";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,9 +61,18 @@ export default function CTA() {
     <section
       ref={sectionRef}
       className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 overflow-hidden border-b border-white/[0.06]"
-      style={{ background: "rgba(6,6,8,0.92)" }}
+      style={{
+        backgroundColor: "rgba(6,6,8,0.92)",
+        backgroundImage: [
+          "radial-gradient(ellipse 70% 50% at 90% 85%, rgba(64,224,255,0.07), rgba(167,139,250,0.05) 50%, transparent 100%)",
+          "radial-gradient(ellipse 60% 45% at 5% 95%, rgba(244,114,182,0.05), rgba(167,139,250,0.04) 50%, transparent 100%)",
+          "radial-gradient(ellipse 50% 40% at 50% 100%, rgba(64,224,255,0.03), transparent 80%)",
+        ].join(", "),
+      }}
       aria-labelledby="cta-heading"
     >
+      <FlowLines className="absolute bottom-0 right-0 w-[50%] h-full" />
+
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* Header */}
         <div className="mb-10 sm:mb-12">

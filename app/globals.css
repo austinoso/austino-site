@@ -116,6 +116,21 @@ select:focus-visible,
   border-radius: 4px;
 }
 
+/* ── FlowLines pulse animation ── */
+@keyframes flow-stream {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .flow-line-pulse {
+    animation-name: flow-stream;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+}
+
 /* ── Onboarding step transition ── */
 @keyframes fadeStep {
   from {

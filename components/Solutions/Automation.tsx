@@ -8,12 +8,7 @@ export default function Automation() {
       data-subsection
       className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center"
     >
-      {/* Live automation dashboard */}
-      <div data-visual className="lg:col-span-7 lg:order-1 order-2">
-        <AutomationDashboard />
-      </div>
-
-      <div data-content className="lg:col-span-5 lg:order-2 order-1 space-y-5">
+      <div data-content className="lg:col-span-5 space-y-5">
         <div className="inline-flex items-center gap-2">
           <span className="section-label">Automation</span>
         </div>
@@ -74,6 +69,11 @@ export default function Automation() {
           Explore automation{" "}
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
+      </div>
+
+      {/* Live automation dashboard */}
+      <div data-visual className="lg:col-span-7">
+        <AutomationDashboard />
       </div>
     </div>
   );

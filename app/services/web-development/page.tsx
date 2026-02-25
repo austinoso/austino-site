@@ -88,10 +88,10 @@ export default function WebDevelopmentPage() {
             ].join(", "),
           }}
         >
-          <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
+          <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-16 pb-0 sm:pt-20 md:pt-24">
             <Link
               href="/#solutions"
-              className="inline-flex items-center gap-2 text-sm font-mono text-cyber-gray-400 hover:text-white transition-colors duration-300 mb-10 sm:mb-14 tracking-wide"
+              className="inline-flex items-center gap-2 text-sm font-mono text-cyber-gray-400 hover:text-white transition-colors duration-300 mb-8 sm:mb-10 tracking-wide"
             >
               <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
               <span>Back to Home</span>

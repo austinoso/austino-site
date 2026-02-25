@@ -8,6 +8,7 @@ export interface Project {
   readTime: string;
   icon: LucideIcon;
   image?: string;
+  thumbnail?: string;
   publishedDate: string;
   link?: string;
   linkText?: string;

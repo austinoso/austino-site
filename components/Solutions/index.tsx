@@ -76,7 +76,34 @@ export default function Solutions() {
         /* ── Section-specific visual animations ── */
 
         if (i === 0) {
-          /* Performance card: bars fill + numbers count */
+          /* Growth Strategy: search result highlights + keyword badge stagger */
+          const results = sub.querySelectorAll("[data-result]");
+          if (results.length) {
+            gsap.from(results, {
+              y: 12,
+              opacity: 0,
+              duration: 0.4,
+              stagger: 0.12,
+              ease: "power2.out",
+              scrollTrigger: { trigger: results[0], start: "top 85%" },
+            });
+          }
+
+          const badges = sub.querySelectorAll("[data-badge]");
+          if (badges.length) {
+            gsap.from(badges, {
+              scale: 0.8,
+              opacity: 0,
+              duration: 0.3,
+              stagger: 0.06,
+              ease: "back.out(1.7)",
+              scrollTrigger: { trigger: badges[0], start: "top 90%" },
+            });
+          }
+        }
+
+        if (i === 1) {
+          /* Web Development: speed bars fill + speed counters */
           sub.querySelectorAll("[data-bar]").forEach((bar) => {
             gsap.from(bar, {
               scaleX: 0,
@@ -87,68 +114,34 @@ export default function Solutions() {
             });
           });
 
-          sub.querySelectorAll<HTMLElement>("[data-score]").forEach((el) => {
-            const target = parseInt(el.dataset.score || "0");
+          sub.querySelectorAll<HTMLElement>("[data-speed]").forEach((el) => {
+            const target = parseFloat(el.dataset.speed || "0");
             const counter = { v: 0 };
             gsap.to(counter, {
               v: target,
-              duration: 1.2,
+              duration: 1,
               ease: "power2.out",
               scrollTrigger: { trigger: el, start: "top 88%" },
               onUpdate: () => {
-                el.textContent = Math.round(counter.v).toString();
-              },
-            });
-          });
-        }
-
-        if (i === 1) {
-          /* Terminal: typewriter line-by-line */
-          const lines = sub.querySelectorAll("[data-line]");
-          if (lines.length) {
-            gsap.from(lines, {
-              opacity: 0,
-              y: 4,
-              duration: 0.2,
-              stagger: 0.08,
-              ease: "power1.out",
-              scrollTrigger: { trigger: visual, start: "top 72%" },
-            });
-          }
-        }
-
-        if (i === 2) {
-          /* Dashboard: counters + status row stagger */
-          sub.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => {
-            const target = parseFloat(el.dataset.count || "0");
-            const suffix = el.dataset.suffix || "";
-            const decimal = el.dataset.decimal === "true";
-            const counter = { v: 0 };
-            gsap.to(counter, {
-              v: target,
-              duration: 1.4,
-              ease: "power2.out",
-              scrollTrigger: { trigger: el, start: "top 85%" },
-              onUpdate: () => {
-                el.textContent =
-                  (decimal
-                    ? counter.v.toFixed(1)
-                    : Math.round(counter.v).toString()) + suffix;
+                el.textContent = counter.v.toFixed(1) + "s";
               },
             });
           });
 
-          const rows = sub.querySelectorAll("[data-row]");
-          if (rows.length) {
-            gsap.from(rows, {
-              x: 10,
+          const speedCard = sub.querySelector("[data-speed-card]");
+          if (speedCard) {
+            gsap.from(speedCard, {
+              y: 20,
               opacity: 0,
-              duration: 0.4,
-              ease: "power2.out",
-              scrollTrigger: { trigger: rows[0], start: "top 90%" },
+              duration: 0.6,
+              delay: 0.3,
+              ease: "power3.out",
+              scrollTrigger: { trigger: speedCard, start: "top 90%" },
             });
           }
         }
+
+        /* i === 2: Automation — AutomationDashboard handles its own live feed animation via React state */
       });
 
       /* Closer fade */
@@ -171,7 +164,14 @@ export default function Solutions() {
       ref={sectionRef}
       id="solutions"
       className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
-      style={{ background: "rgba(6,6,8,0.92)" }}
+      style={{
+        backgroundColor: "rgba(6,6,8,0.92)",
+        backgroundImage: [
+          "radial-gradient(ellipse 70% 50% at 90% 15%, rgba(64,224,255,0.07), rgba(167,139,250,0.05) 50%, transparent 100%)",
+          "radial-gradient(ellipse 60% 45% at 5% 80%, rgba(244,114,182,0.05), rgba(167,139,250,0.04) 50%, transparent 100%)",
+          "radial-gradient(ellipse 50% 40% at 50% 50%, rgba(64,224,255,0.03), transparent 80%)",
+        ].join(", "),
+      }}
       aria-labelledby="solutions-heading"
     >
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
@@ -189,9 +189,9 @@ export default function Solutions() {
         </div>
 
         <div className="space-y-20 sm:space-y-24">
+          <OngoingSupport />
           <WebDevelopment />
           <Automation />
-          <OngoingSupport />
         </div>
 
         {/* Closer — consultative positioning */}

@@ -110,10 +110,10 @@ export default function Work() {
               data-umami-event="project-image"
               data-umami-event-project={project.slug}
             >
-              {project.image && (
+              {(project.thumbnail || project.image) && (
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#111318]">
                   <Image
-                    src={project.image}
+                    src={project.thumbnail || project.image!}
                     alt={project.title}
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"

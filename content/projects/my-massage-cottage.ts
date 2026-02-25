@@ -11,6 +11,7 @@ const myMassageCottage: Project = {
   readTime: "4 min read",
   icon: Sparkles,
   image: "/assets/mymassagecottage-demo.PNG",
+  thumbnail: "/assets/mymassagecottage-demo-smaller.PNG",
   publishedDate: "January 15, 2026",
   link: "https://mymassagecottage.com/",
   linkText: "Visit Live Site",
