@@ -92,7 +92,7 @@ export default function About() {
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
                 <Image
                   src="/assets/bio-pic.png"
-                  alt="Austin O."
+                  alt="Headshot of Austin O., web strategist and developer"
                   fill
                   className="object-cover"
                   sizes="96px"
@@ -120,7 +120,7 @@ export default function About() {
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
                 <Image
                   src="/assets/rosa.jpg"
-                  alt="Rosa the dog"
+                  alt="Rosa the dog, office mascot and head of morale"
                   fill
                   className="object-cover"
                   sizes="96px"

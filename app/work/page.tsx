@@ -10,6 +10,15 @@ export const metadata: Metadata = {
   title: "Work | austino",
   description:
     "Real projects for real businesses. Case studies showing the problem, the approach, and the results.",
+  alternates: {
+    canonical: "https://austino.dev/work",
+  },
+  openGraph: {
+    title: "Work | austino",
+    description:
+      "Real projects for real businesses. Case studies showing the problem, the approach, and the results.",
+    url: "https://austino.dev/work",
+  },
 };
 
 export default function WorkPage() {

@@ -28,12 +28,19 @@ export default function FinalCTA() {
           </Link>
         </div>
       </div>
-      <div className="border-t border-white/[0.06] mt-10 pt-6">
+      <div className="border-t border-white/[0.06] mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
         <Link
           href="/services/growth-strategy"
           className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300"
         >
           Need more customers, not just more efficiency? See Growth Strategy
+          <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+        </Link>
+        <Link
+          href="/services/web-development"
+          className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300"
+        >
+          Need a site that converts first? See Web Development
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
       </div>

@@ -24,8 +24,8 @@ export default function Footer() {
               <span className="text-cyber-accent">o</span>
             </Link>
             <p className="text-sm text-cyber-gray-400 leading-relaxed max-w-[240px]">
-              Helping small businesses work smarter with better websites,
-              automation, and ongoing tech support.
+              High-performance websites, growth strategies, and automation —
+              giving local businesses an edge.
             </p>
           </div>
 
