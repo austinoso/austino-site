@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "gsap";
 import { signalHeroReady } from "@/lib/heroReady";
-import WordReveal from "@/components/ui/WordReveal";
 import {
   Mail,
   Calendar,
@@ -149,8 +148,6 @@ export default function Hero() {
     if (!scenes.every(Boolean) || !cursor) return;
 
     const ctx = gsap.context(() => {
-      /* Entry animation is CSS-driven (.hero-entry / .hero-entry-delayed)
-         so it runs immediately without waiting for JS. Just signal ready. */
       signalHeroReady();
 
       /* If reduced motion, just show scene 1 statically */
@@ -459,111 +456,72 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative bg-[#050505] overflow-hidden"
+      className="relative overflow-hidden border-b border-white/[0.06]"
+      style={{ background: "rgba(6,6,8,0.7)", backdropFilter: "blur(60px)" }}
       aria-labelledby="hero-heading"
     >
-      {/* Ambient gradients */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 70% 40%, rgba(64,224,255,0.05), transparent), radial-gradient(ellipse 60% 50% at 20% 50%, rgba(120,75,255,0.03), transparent)",
-        }}
-        aria-hidden="true"
-      />
-      {/* Bottom gradient fade */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 pointer-events-none z-[5]"
-        style={{
-          background: "linear-gradient(to bottom, transparent, #0B0D10)",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Noise grain */}
-      <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundSize: "128px 128px",
-          contain: "strict",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-32 sm:pt-40 lg:pt-48 pb-12 sm:pb-16 lg:pb-20">
-        {/* ─── Two-column hero ─── */}
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
-          {/* ─── Left column: full story ─── */}
-          <div ref={copyRef} className="lg:col-span-6 flex flex-col hero-entry">
-            <p className="font-mono text-[11px] text-cyber-accent/70 uppercase tracking-[0.2em] mb-5 sm:mb-6">
+      <div className="relative z-10 px-6 sm:px-10 md:px-14 lg:px-20 pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 lg:pb-24">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* ─── Left column: copy ─── */}
+          <div ref={copyRef} className="lg:col-span-5 flex flex-col">
+            <span className="section-label mb-5 sm:mb-6">
               Web Strategy &amp; Engineering
-            </p>
+            </span>
 
-            <WordReveal
-              text="Websites built to outperform."
-              as="h1"
+            <h1
               id="hero-heading"
-              className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[3.75rem] font-bold text-white leading-[1.08] tracking-tight"
-              accentWords={["outperform."]}
-              immediate
-            />
+              className="font-display text-4xl sm:text-5xl md:text-[3.25rem] font-bold text-white leading-[1.1] tracking-tight"
+            >
+              Websites built to{" "}
+              <span className="text-gradient">outperform.</span>
+            </h1>
 
-            <p className="mt-5 sm:mt-6 text-base sm:text-[1.0625rem] text-cyber-gray-300 leading-relaxed max-w-md">
-              High-performance engineering paired with smart automation—giving
+            <p className="mt-6 sm:mt-7 text-[15px] sm:text-base text-cyber-gray-400 leading-relaxed max-w-md">
+              High-performance engineering paired with smart automation — giving
               local businesses a technical edge that no template can match.
             </p>
 
-            <div className="mt-7 sm:mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-xl transition-all text-[15px] shadow-lg shadow-cyber-accent/20 hover:shadow-xl hover:shadow-cyber-accent/30 hover:brightness-110"
+                className="group inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#060608] font-semibold rounded-lg transition-all text-[15px] hover:brightness-110"
                 aria-label="Get a free consultation"
                 data-umami-event="hero-cta"
               >
                 Get a Free Consultation
                 <ArrowRight
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   aria-hidden="true"
                 />
               </Link>
             </div>
 
-            <div className="mt-5 inline-flex items-start gap-2 text-[13px] text-cyber-gray-400/80">
-              <span className="mt-[7px] flex-shrink-0 h-1.5 w-1.5 rounded-full bg-cyber-accent/60" />
-              Based in California&apos;s Central Valley, serving clients
-              everywhere.
+            <div className="mt-7 flex items-center gap-3 text-sm text-cyber-gray-500">
+              <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
+              Based in California&apos;s Central Valley
             </div>
           </div>
 
           {/* ─── Demo column — 7 cols ─── */}
-          <div ref={visualRef} className="lg:col-span-6 hero-entry-delayed">
+          <div ref={visualRef} className="lg:col-span-7">
             <div className="relative">
-              {/* Glow behind the browser */}
               <div
-                className="absolute -inset-4 sm:-inset-6 rounded-3xl opacity-40 blur-2xl pointer-events-none"
-                style={{
-                  background:
-                    "radial-gradient(ellipse at center, rgba(64,224,255,0.12), transparent 70%)",
-                }}
-              />
-              <div
-                className="relative rounded-2xl border border-white/[0.08] bg-[#111318] overflow-hidden"
+                className="relative rounded-xl border border-white/[0.06] bg-[#0C0D12] overflow-hidden"
                 style={{
                   boxShadow:
-                    "0 32px 60px -12px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.03)",
+                    "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02)",
                 }}
                 aria-hidden="true"
               >
                 {/* Chrome bar */}
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0D0F13]">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0A0B0F]">
                   <div className="flex items-center gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/80" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/80" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/80" />
                   </div>
                   <div className="flex-1 flex justify-center">
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-400 font-mono">
+                    <div className="flex items-center gap-1.5 px-4 py-1 rounded-lg bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
                       <svg
                         className="w-2.5 h-2.5 opacity-40"
                         viewBox="0 0 16 16"
@@ -577,7 +535,7 @@ export default function Hero() {
                 </div>
 
                 {/* ══ Stage ══ */}
-                <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] lg:aspect-[16/10] overflow-hidden bg-[#0A0C10]">
+                <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] lg:aspect-[16/10] overflow-hidden bg-[#080A0E]">
                   {/* ━━ Scene 1 — Landing Page ━━ */}
                   <div
                     ref={s1}
@@ -973,7 +931,7 @@ export default function Hero() {
               {!isDebug && (
                 <button
                   onClick={() => setIsPaused((p) => !p)}
-                  className="absolute top-2 right-2 z-50 p-1.5 rounded-md bg-black/60 backdrop-blur-sm border border-white/10 text-white/70 hover:text-white hover:bg-black/80 transition-colors"
+                  className="absolute top-2 right-2 z-50 p-1.5 rounded-lg bg-black/50 backdrop-blur-md border border-white/[0.08] text-white/60 hover:text-white hover:bg-black/70 transition-all"
                   aria-label={isPaused ? "Play animation" : "Pause animation"}
                 >
                   {isPaused ? (

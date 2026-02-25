@@ -180,9 +180,17 @@ export default function GrowthStrategyPage() {
                 {/* Metric cards */}
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    { label: "Organic Traffic", value: "2,847", change: "+34%" },
+                    {
+                      label: "Organic Traffic",
+                      value: "2,847",
+                      change: "+34%",
+                    },
                     { label: "Bounce Rate", value: "31%", change: "−12%" },
-                    { label: "Keywords Top 10", value: "47", change: "+18 new" },
+                    {
+                      label: "Keywords Top 10",
+                      value: "47",
+                      change: "+18 new",
+                    },
                   ].map((m) => (
                     <div
                       key={m.label}
@@ -260,10 +268,10 @@ export default function GrowthStrategyPage() {
             your opening.
           </h2>
           <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-10">
-            The vast majority of local businesses launch a site and never
-            touch it again. No new content, no data review, no strategy.
-            That means the bar is low — and the first business that starts
-            building real search authority is the one Google rewards.
+            The vast majority of local businesses launch a site and never touch
+            it again. No new content, no data review, no strategy. That means
+            the bar is low — and the first business that starts building real
+            search authority is the one Google rewards.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
@@ -602,9 +610,9 @@ export default function GrowthStrategyPage() {
                 Let&apos;s turn your site into a growth engine.
               </h2>
               <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
-                Whether you just launched or your current site has been
-                sitting still, I&apos;d love to talk about what a growth
-                strategy looks like for your business.
+                Whether you just launched or your current site has been sitting
+                still, I&apos;d love to talk about what a growth strategy looks
+                like for your business.
               </p>
             </div>
             <div className="flex-shrink-0">

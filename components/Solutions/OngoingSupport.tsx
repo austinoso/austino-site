@@ -9,10 +9,10 @@ export default function OngoingSupport() {
       className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center"
     >
       <div data-content className="lg:col-span-5 space-y-5">
-        <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]">
-          Growth Strategy
-        </p>
-        <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight">
+        <div className="inline-flex items-center gap-2">
+          <span className="section-label">Growth Strategy</span>
+        </div>
+        <h3 className="font-display text-2xl sm:text-3xl font-semibold text-white leading-snug">
           They launch and stop. You keep building.
         </h3>
         <p className="text-base text-cyber-gray-300 leading-relaxed">
@@ -79,10 +79,10 @@ export default function OngoingSupport() {
       {/* Dashboard mockup */}
       <div data-visual className="lg:col-span-7">
         <div
-          className="rounded-xl border border-white/[0.08] bg-[#111318] overflow-hidden"
+          className="rounded-xl border border-white/[0.08] bg-[#0C0D12] overflow-hidden"
           style={{
             boxShadow:
-              "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
+              "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03), inset 0 1px 0 rgba(255,255,255,0.04)",
           }}
         >
           <div className="px-5 py-4 border-b border-white/[0.06] flex items-center justify-between">

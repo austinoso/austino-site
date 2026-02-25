@@ -21,6 +21,7 @@ const opportunities = [
     stat: "53%",
     statLabel:
       "of mobile users leave a site that takes over 3\u00A0seconds to load",
+    span: "md:col-span-7", // wider
   },
   {
     number: "02",
@@ -29,6 +30,7 @@ const opportunities = [
       "Follow-ups, scheduling, data entry \u2014 all manual. One automated workflow saves hours and closes leads faster.",
     stat: "20hrs",
     statLabel: "per week wasted on tasks that could be automated",
+    span: "md:col-span-5", // narrower
   },
   {
     number: "03",
@@ -37,6 +39,7 @@ const opportunities = [
       "No updates, no optimization, no strategy. Continuous improvement means you pull further ahead every single month.",
     stat: "88%",
     statLabel: "of users won\u2019t return after a bad experience",
+    span: "md:col-span-12", // full width
   },
 ];
 
@@ -59,12 +62,6 @@ export default function PainPoints() {
       card.style.opacity = "0";
       card.style.transform = "translateY(32px)";
     });
-
-    const closer = s.querySelector("[data-closer]") as HTMLElement;
-    if (closer) {
-      closer.style.opacity = "0";
-      closer.style.transform = "translateY(12px)";
-    }
   }, []);
 
   /* ── Scroll-triggered reveal animations ── */
@@ -99,18 +96,6 @@ export default function PainPoints() {
             scrollTrigger: { trigger: cards[0], start: "top 82%" },
           });
         }
-
-        /* Closer */
-        const closer = s.querySelector("[data-closer]");
-        if (closer) {
-          gsap.to(closer, {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            scrollTrigger: { trigger: closer, start: "top 90%" },
-          });
-        }
       }, sectionRef);
     });
 
@@ -120,88 +105,86 @@ export default function PainPoints() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-16 pb-24 sm:pt-20 sm:pb-32 md:pt-24 md:pb-36 bg-[#050505]"
+      className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
+      style={{ background: "rgba(6,6,8,0.75)", backdropFilter: "blur(60px)" }}
       aria-labelledby="pain-points-heading"
     >
-      {/* Noise grain */}
-      <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundSize: "128px 128px",
-          contain: "strict",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
+      <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* ── Header ── */}
-        <div className="mb-16 sm:mb-24">
-          <p
-            data-label
-            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
-          >
+        <div className="mb-14 sm:mb-20">
+          <span data-label className="section-label block mb-5">
             The Opportunity
-          </p>
+          </span>
           <WordReveal
             id="pain-points-heading"
             as="h2"
             text="Most businesses in your area aren't doing this. Yours can."
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight max-w-2xl"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight max-w-3xl"
             accentWords={["Yours"]}
           />
         </div>
 
-        {/* ── Cards — editorial rows ── */}
-        <div className="space-y-0">
-          {opportunities.map((item, index) => (
-            <div
-              key={index}
-              data-card
-              className="group relative grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 py-10 sm:py-14 border-t border-white/[0.06] last:border-b last:border-white/[0.06]"
-            >
-              {/* Number */}
-              <div className="md:col-span-1 flex items-start">
-                <span className="font-mono text-sm text-cyber-accent/50 tracking-wider">
-                  {item.number}
-                </span>
-              </div>
+        {/* ── Bento grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-12 border-t border-l border-white/[0.06]">
+          {opportunities.map((item, index) => {
+            const isWide = item.span === "md:col-span-12";
 
-              {/* Title + description */}
-              <div className="md:col-span-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug tracking-tight mb-4 group-hover:text-cyber-accent transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="text-[0.9375rem] text-cyber-gray-400 leading-relaxed max-w-lg">
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Stat highlight */}
-              <div className="md:col-span-5 flex items-start md:justify-end">
-                <div className="flex items-start gap-4 md:text-right">
-                  <div className="md:order-2 flex-shrink-0">
-                    <span className="text-4xl sm:text-5xl font-bold text-white tracking-tight leading-none">
-                      {item.stat}
-                    </span>
+            return (
+              <div
+                key={index}
+                data-card
+                className={`group relative ${item.span} border-b border-r border-white/[0.06] p-8 sm:p-10 md:p-12`}
+              >
+                {isWide ? (
+                  /* ── Wide card: horizontal layout on md+ ── */
+                  <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-16">
+                    <div className="flex-1 min-w-0">
+                      <span className="font-mono text-[11px] text-cyber-accent/60 tracking-widest uppercase block mb-5">
+                        {item.number}
+                      </span>
+                      <h3 className="font-display text-xl sm:text-2xl font-semibold text-white leading-snug mb-3 group-hover:text-cyber-accent transition-colors duration-500">
+                        {item.title}
+                      </h3>
+                      <p className="text-[0.9375rem] text-cyber-gray-300 leading-relaxed max-w-md">
+                        {item.description}
+                      </p>
+                    </div>
+                    <div className="flex items-end gap-4 flex-shrink-0 md:pb-0.5">
+                      <span className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-cyber-accent leading-none">
+                        {item.stat}
+                      </span>
+                      <p className="text-xs text-cyber-gray-400 leading-relaxed max-w-[200px] pb-1.5">
+                        {item.statLabel}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs text-cyber-gray-500 leading-relaxed max-w-[180px] md:order-1 pt-2">
-                    {item.statLabel}
-                  </p>
-                </div>
+                ) : (
+                  /* ── Standard card: vertical stack ── */
+                  <div className="flex flex-col justify-between gap-8 sm:gap-10 h-full">
+                    <div>
+                      <span className="font-mono text-[11px] text-cyber-accent/60 tracking-widest uppercase block mb-5">
+                        {item.number}
+                      </span>
+                      <h3 className="font-display text-xl sm:text-2xl font-semibold text-white leading-snug mb-3 group-hover:text-cyber-accent transition-colors duration-500">
+                        {item.title}
+                      </h3>
+                      <p className="text-[0.9375rem] text-cyber-gray-300 leading-relaxed max-w-md">
+                        {item.description}
+                      </p>
+                    </div>
+                    <div className="flex items-end gap-4">
+                      <span className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-cyber-accent leading-none flex-shrink-0">
+                        {item.stat}
+                      </span>
+                      <p className="text-xs text-cyber-gray-400 leading-relaxed max-w-[200px] pb-1">
+                        {item.statLabel}
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* ── Closer ── */}
-        <div className="mt-14 sm:mt-20 max-w-xl">
-          <div data-closer>
-            <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-cyber-gray-300 leading-snug tracking-tight">
-              The bar is low.{" "}
-              <span className="text-cyber-accent">Let&apos;s raise it.</span>
-            </p>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

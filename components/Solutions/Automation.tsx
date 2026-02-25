@@ -14,10 +14,10 @@ export default function Automation() {
       </div>
 
       <div data-content className="lg:col-span-5 lg:order-2 order-1 space-y-5">
-        <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]">
-          Automation
-        </p>
-        <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight">
+        <div className="inline-flex items-center gap-2">
+          <span className="section-label">Automation</span>
+        </div>
+        <h3 className="font-display text-2xl sm:text-3xl font-semibold text-white leading-snug">
           Speed your competitors don&apos;t have.
         </h3>
         <p className="text-base text-cyber-gray-300 leading-relaxed">

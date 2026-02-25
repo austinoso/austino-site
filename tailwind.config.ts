@@ -10,20 +10,29 @@ module.exports = {
     extend: {
       colors: {
         cyber: {
-          dark: "#0B0D10",
+          dark: "#060608",
           accent: "#40E0FF",
           "accent-dim": "#2A9AB8",
-          "gray-900": "#151820",
-          "gray-800": "#1E2128",
-          "gray-700": "#2A2E38",
-          "gray-600": "#383D48",
-          "gray-500": "#737A8C", // Lightened for WCAG AA contrast on dark bg (was #4F5462)
-          "gray-400": "#9CA3AF", // Passes 4.5:1 on #050505
-          "gray-300": "#D1D5DB", // Passes 4.5:1 on #050505
+          violet: "#A78BFA",
+          rose: "#F472B6",
+          amber: "#FBBF24",
+          "gray-900": "#0C0D12",
+          "gray-800": "#14151C",
+          "gray-700": "#1E2028",
+          "gray-600": "#2A2D38",
+          "gray-500": "#6B7084",
+          "gray-400": "#9CA3AF",
+          "gray-300": "#D1D5DB",
         },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: [
+          "var(--font-jakarta)",
+          "var(--font-inter)",
+          "system-ui",
+          "sans-serif",
+        ],
         mono: ["var(--font-jetbrains-mono)", "monospace"],
       },
       animation: {

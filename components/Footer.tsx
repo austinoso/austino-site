@@ -5,28 +5,19 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative border-t border-white/[0.06] bg-[#050505]"
+      className="relative border-t border-white/[0.06] bg-[#060608]"
       role="contentinfo"
       aria-label="Site footer"
     >
-      {/* Noise grain */}
-      <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundSize: "128px 128px",
-          contain: "strict",
-        }}
-        aria-hidden="true"
-      />
+      {/* Subtle bg */}
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-12 sm:py-16 relative">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-14 sm:py-18 relative">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8 mb-12">
           {/* Brand */}
           <div className="sm:col-span-2 md:col-span-1">
             <Link
               href="/"
-              className="text-xl font-extrabold hover:opacity-80 transition-opacity inline-block mb-3"
+              className="text-lg font-display font-bold hover:opacity-80 transition-opacity inline-block mb-3"
               aria-label="Home"
             >
               <span className="text-white">austin</span>

@@ -73,7 +73,8 @@ export default function Work() {
     <section
       ref={sectionRef}
       id="work"
-      className="relative w-full pt-24 pb-24 sm:pt-32 sm:pb-32 md:pt-40 md:pb-40"
+      className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
+      style={{ background: "rgba(6,6,8,0.72)", backdropFilter: "blur(60px)" }}
       aria-labelledby="work-heading"
     >
       {/* Subtle divider */}
@@ -81,24 +82,20 @@ export default function Work() {
         className="absolute top-0 inset-x-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(64,224,255,0.08) 30%, rgba(64,224,255,0.12) 50%, rgba(64,224,255,0.08) 70%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(167,139,250,0.12) 30%, rgba(64,224,255,0.18) 50%, rgba(244,114,182,0.12) 70%, transparent)",
         }}
         aria-hidden="true"
       />
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
+      <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* ─── Section label ─── */}
-        <p
-          ref={labelRef}
-          className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
-          style={{ opacity: 0 }}
-        >
+        <p ref={labelRef} className="section-label mb-5" style={{ opacity: 0 }}>
           Case Study
         </p>
         <WordReveal
           text="See the results."
           id="work-heading"
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-14 sm:mb-16 md:mb-20"
+          className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight mb-12 sm:mb-16"
           accentWords={["results."]}
         />
 
@@ -111,7 +108,7 @@ export default function Work() {
           >
             <Link
               href={`/work/${project.slug}`}
-              className="group relative block rounded-2xl overflow-hidden border border-white/[0.08] hover:border-cyber-accent/20 transition-all duration-500"
+              className="group relative block rounded-lg overflow-hidden border border-white/[0.08] hover:border-cyber-accent/20 transition-all duration-500"
               style={{
                 boxShadow:
                   "0 24px 48px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03)",
@@ -168,7 +165,7 @@ export default function Work() {
             </div>
 
             {/* Title */}
-            <h3 className="text-2xl sm:text-3xl font-bold text-white leading-snug tracking-tight mb-4">
+            <h3 className="font-display text-2xl sm:text-3xl font-semibold text-white leading-snug mb-4">
               {project.title.split(":")[0]}
             </h3>
 
@@ -179,7 +176,7 @@ export default function Work() {
 
             {/* Key results */}
             <div className="space-y-3 mb-10">
-              <p className="text-[11px] font-mono text-cyber-gray-500 uppercase tracking-[0.15em] mb-3">
+              <p className="text-xs font-mono text-cyber-gray-400 uppercase tracking-[0.15em] mb-3">
                 Key Outcomes
               </p>
               {highlights.map((item, i) => (
@@ -195,7 +192,7 @@ export default function Work() {
             {/* CTA */}
             <Link
               href={`/work/${project.slug}`}
-              className="group inline-flex items-center gap-2.5 self-start px-6 py-3 border border-white/[0.08] rounded-xl text-[14px] font-medium text-white hover:border-cyber-accent/30 hover:text-cyber-accent transition-all duration-300"
+              className="group inline-flex items-center gap-2.5 self-start px-6 py-3 border border-white/[0.08] rounded-lg text-[14px] font-medium text-white hover:border-cyber-accent/30 hover:text-cyber-accent transition-all duration-500"
               style={{
                 boxShadow: "0 0 0 1px rgba(255,255,255,0.02)",
               }}

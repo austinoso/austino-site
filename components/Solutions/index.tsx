@@ -209,36 +209,16 @@ export default function Solutions() {
     <section
       ref={sectionRef}
       id="solutions"
-      className="relative w-full pt-24 pb-20 sm:pt-32 sm:pb-28 md:pt-36 md:pb-32 bg-[#050505] border-t border-white/[0.04]"
+      className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
+      style={{ background: "rgba(6,6,8,0.78)", backdropFilter: "blur(60px)" }}
       aria-labelledby="solutions-heading"
     >
-      {/* Noise grain */}
-      <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundSize: "128px 128px",
-          contain: "strict",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Accent glows — extends beyond section for soft bleed */}
-      <div
-        className="absolute -top-32 -bottom-32 left-0 right-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 40% at 25% 35%, rgba(64,224,255,0.04), transparent), radial-gradient(ellipse 80% 40% at 75% 60%, rgba(64,224,255,0.035), transparent), radial-gradient(ellipse 60% 25% at 50% 50%, rgba(120,75,255,0.025), transparent)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
+      <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* Header */}
-        <div className="mb-16 sm:mb-24">
+        <div className="mb-14 sm:mb-20">
           <p
             ref={labelRef}
-            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4"
+            className="section-label mb-5"
             style={{ opacity: 0 }}
           >
             The Edge
@@ -246,12 +226,12 @@ export default function Solutions() {
           <WordReveal
             text="How you take the lead."
             id="solutions-heading"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight"
             accentWords={["lead."]}
           />
         </div>
 
-        <div className="space-y-24 sm:space-y-32">
+        <div className="space-y-20 sm:space-y-24">
           <WebDevelopment />
           <Automation />
           <OngoingSupport />
@@ -260,12 +240,12 @@ export default function Solutions() {
         {/* Closer — consultative positioning */}
         <div
           data-closer
-          className="mt-20 sm:mt-28 pt-12 border-t border-white/[0.06] max-w-xl"
+          className="mt-16 sm:mt-20 pt-10 border-t border-white/[0.06] max-w-2xl"
           style={{ opacity: 0, transform: "translateY(10px)" }}
         >
-          <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-cyber-gray-300 leading-snug tracking-tight">
+          <p className="font-display text-2xl sm:text-3xl font-semibold text-cyber-gray-300 leading-snug">
             I only work with one business per niche in your area.{" "}
-            <span className="text-cyber-accent">
+            <span className="text-gradient">
               Your competition won&apos;t get this from me.
             </span>
           </p>

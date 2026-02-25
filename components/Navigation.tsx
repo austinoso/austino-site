@@ -184,16 +184,16 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-[#050505]/90 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_1px_12px_rgba(0,0,0,0.4)]"
+          ? "bg-[#060608]/80 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
           : "bg-transparent"
       }`}
       aria-label="Main navigation"
     >
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-4">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-4">
         <div className="flex items-center justify-between">
           <Link
             href="/"
-            className="text-xl font-extrabold hover:opacity-80 transition-opacity"
+            className="text-lg font-display font-bold hover:opacity-80 transition-opacity"
             aria-label="Home"
             onClick={closeMenu}
           >
@@ -222,7 +222,7 @@ export default function Navigation() {
               <Link
                 ref={dropdownTriggerRef}
                 href="/#solutions"
-                className="inline-flex items-center gap-1.5 text-sm text-cyber-gray-400 hover:text-white transition-colors duration-300 font-mono tracking-wide"
+                className="inline-flex items-center gap-1.5 text-[13px] text-cyber-gray-400 hover:text-white transition-colors duration-300 tracking-wide"
                 aria-haspopup="true"
                 aria-expanded={isSolutionsOpen}
                 aria-controls="solutions-dropdown"
@@ -313,14 +313,14 @@ export default function Navigation() {
 
             <Link
               href="/work"
-              className="text-sm text-cyber-gray-400 hover:text-white transition-colors duration-300 font-mono tracking-wide"
+              className="text-[13px] text-cyber-gray-400 hover:text-white transition-colors duration-300 tracking-wide"
               data-umami-event="nav-work"
             >
               Work
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center px-5 py-2 bg-cyber-accent text-[#050505] text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)]"
+              className="inline-flex items-center px-5 py-2 bg-cyber-accent text-[#060608] text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110"
               data-umami-event="nav-get-started"
             >
               Get Started
@@ -353,7 +353,7 @@ export default function Navigation() {
         aria-label="Mobile navigation menu"
         aria-modal={isMobileMenuOpen}
         aria-hidden={!isMobileMenuOpen}
-        className={`md:hidden fixed inset-0 top-[56px] bg-[#050505] transition-all duration-300 ${
+        className={`md:hidden fixed inset-0 top-[56px] bg-[#060608] transition-all duration-300 ${
           isMobileMenuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
@@ -426,7 +426,7 @@ export default function Navigation() {
           <div className="pt-6">
             <Link
               href="/contact"
-              className="block px-6 py-3.5 bg-cyber-accent text-[#050505] font-semibold rounded-lg transition-all text-center text-sm hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)]"
+              className="block px-6 py-3.5 bg-cyber-accent text-[#060608] font-semibold rounded-xl transition-all text-center text-sm hover:brightness-110 hover:shadow-[0_0_30px_rgba(64,224,255,0.25)]"
               data-umami-event="mobile-nav-get-started"
               onClick={closeMenu}
             >

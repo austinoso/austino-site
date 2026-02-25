@@ -62,48 +62,23 @@ export default function CTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-24 pb-28 sm:pt-32 sm:pb-36 md:pt-40 md:pb-44 border-t border-white/[0.04]"
+      className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 overflow-hidden border-b border-white/[0.06]"
       style={{
-        background:
-          "linear-gradient(180deg, #050505 0%, #080A0F 40%, #0D1017 60%, #080A0F 100%)",
+        background: "rgba(6,6,8,0.65)",
+        backdropFilter: "blur(60px)",
       }}
       aria-labelledby="cta-heading"
     >
-      {/* Noise grain */}
-      <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundSize: "128px 128px",
-          contain: "strict",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Accent glow — stronger, warmer gradient for CTA climax */}
-      <div
-        className="absolute -top-32 -bottom-32 left-0 right-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(64,224,255,0.08), transparent 60%), radial-gradient(ellipse 50% 40% at 30% 60%, rgba(120,75,255,0.04), transparent)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
+      <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* Header */}
-        <div className="mb-8 sm:mb-10">
-          <p
-            data-label
-            className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-5"
-            style={{ opacity: 0 }}
-          >
+        <div className="mb-10 sm:mb-12">
+          <p data-label className="section-label mb-5" style={{ opacity: 0 }}>
             Your Move
           </p>
           <WordReveal
             text="Your competition isn't waiting. Neither should you."
             id="cta-heading"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
             accentWords={["isn't", "waiting."]}
           />
         </div>
@@ -126,7 +101,7 @@ export default function CTA() {
             style={{ opacity: 0, transform: "translateY(10px)" }}
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
-            <span className="text-xs font-mono text-cyber-gray-500">
+            <span className="text-xs font-mono text-cyber-gray-400">
               Availability is limited
             </span>
           </div>
@@ -138,7 +113,7 @@ export default function CTA() {
           >
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)]"
+              className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#060608] font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110"
               data-umami-event="cta-start-conversation"
             >
               <span>Start a Conversation</span>
@@ -147,7 +122,7 @@ export default function CTA() {
                 aria-hidden="true"
               />
             </Link>
-            <p className="text-[11px] font-mono text-cyber-gray-500">
+            <p className="text-xs font-mono text-cyber-gray-400">
               Usually responds within 24 hours
             </p>
           </div>
