@@ -95,7 +95,7 @@ export default function AutomationPage() {
                 height: "80%",
                 background:
                   "linear-gradient(135deg, rgba(64,224,255,0.2) 0%, rgba(167,139,250,0.15) 40%, rgba(244,114,182,0.1) 100%)",
-                filter: "blur(100px)",
+                filter: "blur(60px)",
                 borderRadius: "40%",
               }}
             />
@@ -108,7 +108,7 @@ export default function AutomationPage() {
                 height: "60%",
                 background:
                   "radial-gradient(ellipse at center, rgba(64,224,255,0.1) 0%, rgba(167,139,250,0.06) 50%, transparent 70%)",
-                filter: "blur(90px)",
+                filter: "blur(60px)",
               }}
             />
           </div>

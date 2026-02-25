@@ -93,7 +93,7 @@ export default function WebDevelopmentPage() {
                 height: "80%",
                 background:
                   "linear-gradient(135deg, rgba(64,224,255,0.25) 0%, rgba(167,139,250,0.3) 40%, rgba(244,114,182,0.2) 100%)",
-                filter: "blur(100px)",
+                filter: "blur(60px)",
                 borderRadius: "40%",
               }}
             />
@@ -106,7 +106,7 @@ export default function WebDevelopmentPage() {
                 height: "60%",
                 background:
                   "radial-gradient(ellipse at center, rgba(64,224,255,0.15) 0%, rgba(167,139,250,0.1) 50%, transparent 70%)",
-                filter: "blur(90px)",
+                filter: "blur(60px)",
               }}
             />
           </div>
@@ -151,7 +151,7 @@ export default function WebDevelopmentPage() {
                 height: "70%",
                 background:
                   "linear-gradient(160deg, rgba(167,139,250,0.1) 0%, rgba(64,224,255,0.12) 50%, rgba(244,114,182,0.06) 100%)",
-                filter: "blur(100px)",
+                filter: "blur(60px)",
                 borderRadius: "50%",
               }}
             />
@@ -164,7 +164,7 @@ export default function WebDevelopmentPage() {
                 height: "50%",
                 background:
                   "radial-gradient(ellipse at center, rgba(64,224,255,0.08) 0%, transparent 70%)",
-                filter: "blur(80px)",
+                filter: "blur(60px)",
               }}
             />
           </div>

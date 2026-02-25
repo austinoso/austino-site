@@ -100,7 +100,7 @@ export default function GrowthStrategyPage() {
                 height: "80%",
                 background:
                   "linear-gradient(135deg, rgba(64,224,255,0.18) 0%, rgba(52,211,153,0.12) 40%, rgba(167,139,250,0.08) 100%)",
-                filter: "blur(100px)",
+                filter: "blur(60px)",
                 borderRadius: "40%",
               }}
             />
@@ -113,7 +113,7 @@ export default function GrowthStrategyPage() {
                 height: "60%",
                 background:
                   "radial-gradient(ellipse at center, rgba(64,224,255,0.08) 0%, rgba(52,211,153,0.05) 50%, transparent 70%)",
-                filter: "blur(90px)",
+                filter: "blur(60px)",
               }}
             />
           </div>
@@ -412,7 +412,7 @@ export default function GrowthStrategyPage() {
                 height: "70%",
                 background:
                   "radial-gradient(ellipse at center, rgba(64,224,255,0.05) 0%, rgba(167,139,250,0.03) 50%, transparent 70%)",
-                filter: "blur(90px)",
+                filter: "blur(60px)",
               }}
             />
           </div>
@@ -484,7 +484,7 @@ export default function GrowthStrategyPage() {
                 height: "70%",
                 background:
                   "radial-gradient(ellipse at center, rgba(74,222,128,0.08) 0%, rgba(64,224,255,0.04) 50%, transparent 70%)",
-                filter: "blur(90px)",
+                filter: "blur(60px)",
               }}
             />
           </div>
@@ -762,7 +762,7 @@ export default function GrowthStrategyPage() {
                 height: "65%",
                 background:
                   "radial-gradient(ellipse at center, rgba(64,224,255,0.06) 0%, rgba(167,139,250,0.04) 50%, transparent 70%)",
-                filter: "blur(90px)",
+                filter: "blur(60px)",
               }}
             />
           </div>

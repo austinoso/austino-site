@@ -94,13 +94,13 @@ border-b border-white/[0.06]
 
 ### Section Backgrounds
 
-Each section gets a semi-transparent background with blur so the gradient ribbon shows through:
+Each section gets a solid semi-transparent background (no backdrop-filter for mobile GPU performance):
 
 ```tsx
-style={{ background: 'rgba(6,6,8,0.72)', backdropFilter: 'blur(60px)' }}
+style={{ background: 'rgba(6,6,8,0.92)' }}
 ```
 
-Opacity range: `0.65` (lighter sections like CTA) to `0.78` (heavier sections like About, Solutions).
+Gradient ribbon blobs use `filter: blur(60px)` max to keep mobile GPUs happy.
 
 ### Inner Page Layouts
 
@@ -232,19 +232,14 @@ The ribbon should **not** be replicated on inner pages. Inner pages use `bg-cybe
 
 ### GSAP + ScrollTrigger
 
-All scroll animations use `onHeroReady()` to defer until the hero animation signals readiness:
+Scroll animations initialize directly in `useEffect` — each section manages its own ScrollTrigger instances independently:
 
 ```tsx
-import { onHeroReady } from "@/lib/heroReady";
-
 useEffect(() => {
-  let ctx: gsap.Context | null = null;
-  onHeroReady(() => {
-    ctx = gsap.context(() => {
-      // animations here
-    }, sectionRef);
-  });
-  return () => ctx?.revert();
+  const ctx = gsap.context(() => {
+    // animations here
+  }, sectionRef);
+  return () => ctx.revert();
 }, []);
 ```
 
@@ -343,7 +338,8 @@ Every page that hasn't been updated should be checked against this list:
 
 ### Sections with Backdrop
 
-- [ ] If using gradient ribbon: `background: rgba(6,6,8,0.7x)`, `backdropFilter: blur(60px)`
+- [ ] If using gradient ribbon: `background: rgba(6,6,8,0.92)` (no backdrop-filter)
+- [ ] Gradient blobs: `filter: blur(60px)` max
 - [ ] If solid page: `bg-cyber-dark` base, subtle `bg-white/[0.02]` alternate sections
 
 ---
