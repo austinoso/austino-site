@@ -23,8 +23,8 @@ export default function CTA() {
     ctx = gsap.context(() => {
       /* Label */
       if (label) {
-        gsap.to(label, {
-          opacity: 1,
+        gsap.from(label, {
+          opacity: 0,
           duration: 0.4,
           ease: "power2.out",
           scrollTrigger: { trigger: label, start: "top 85%" },
@@ -33,9 +33,9 @@ export default function CTA() {
 
       /* Body + button */
       if (body?.length) {
-        gsap.to(body, {
-          y: 0,
-          opacity: 1,
+        gsap.from(body, {
+          y: 10,
+          opacity: 0,
           duration: 0.5,
           ease: "power3.out",
           scrollTrigger: { trigger: body[0], start: "top 88%" },
@@ -44,8 +44,8 @@ export default function CTA() {
 
       /* Divider line grow */
       if (line) {
-        gsap.to(line, {
-          scaleX: 1,
+        gsap.from(line, {
+          scaleX: 0,
           duration: 0.6,
           ease: "power2.out",
           scrollTrigger: { trigger: line, start: "top 92%" },
@@ -66,7 +66,7 @@ export default function CTA() {
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* Header */}
         <div className="mb-10 sm:mb-12">
-          <p data-label className="section-label mb-5" style={{ opacity: 0 }}>
+          <p data-label className="section-label mb-5">
             Your Move
           </p>
           <WordReveal
@@ -82,18 +82,13 @@ export default function CTA() {
           <p
             data-fade
             className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed"
-            style={{ opacity: 0, transform: "translateY(10px)" }}
           >
             I take one client per niche in your area. If the spot is open,
             let&apos;s talk about making your online presence the one everyone
             else is trying to catch up to.
           </p>
 
-          <div
-            data-fade
-            className="mt-5 flex items-center gap-3"
-            style={{ opacity: 0, transform: "translateY(10px)" }}
-          >
+          <div data-fade className="mt-5 flex items-center gap-3">
             <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
             <span className="text-xs font-mono text-cyber-gray-400">
               Availability is limited
@@ -103,7 +98,6 @@ export default function CTA() {
           <div
             data-fade
             className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4"
-            style={{ opacity: 0, transform: "translateY(10px)" }}
           >
             <Link
               href="/contact"
@@ -126,7 +120,7 @@ export default function CTA() {
         <div
           data-line
           className="mt-14 sm:mt-20 border-t border-white/[0.06]"
-          style={{ transform: "scaleX(0)", transformOrigin: "left center" }}
+          style={{ transformOrigin: "left center" }}
         />
       </div>
     </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WordReveal from "@/components/ui/WordReveal";
@@ -15,42 +15,6 @@ export default function Solutions() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLParagraphElement>(null);
 
-  /* ── Hide subsection elements before first paint to prevent CLS ── */
-  useLayoutEffect(() => {
-    const subs =
-      sectionRef.current?.querySelectorAll<HTMLElement>("[data-subsection]");
-    subs?.forEach((sub, i) => {
-      const content = sub.querySelector("[data-content]") as HTMLElement;
-      const visual = sub.querySelector("[data-visual]") as HTMLElement;
-      const features = sub.querySelectorAll<HTMLElement>("[data-feature]");
-      const flipped = i === 1;
-      if (content) {
-        content.style.opacity = "0";
-        content.style.transform = `translateX(${flipped ? 20 : -20}px)`;
-      }
-      if (visual) {
-        visual.style.opacity = "0";
-        visual.style.transform = `translateX(${flipped ? -20 : 20}px)`;
-      }
-      features.forEach((f) => {
-        f.style.opacity = "0";
-        f.style.transform = "translateY(8px)";
-      });
-      if (i === 1) {
-        sub.querySelectorAll<HTMLElement>("[data-line]").forEach((l) => {
-          l.style.opacity = "0";
-          l.style.transform = "translateY(4px)";
-        });
-      }
-      if (i === 2) {
-        sub.querySelectorAll<HTMLElement>("[data-row]").forEach((r) => {
-          r.style.opacity = "0";
-          r.style.transform = "translateX(10px)";
-        });
-      }
-    });
-  }, []);
-
   useEffect(() => {
     let ctx: gsap.Context | null = null;
 
@@ -61,8 +25,8 @@ export default function Solutions() {
     ctx = gsap.context(() => {
       /* Label fade */
       if (labelRef.current) {
-        gsap.to(labelRef.current, {
-          opacity: 1,
+        gsap.from(labelRef.current, {
+          opacity: 0,
           duration: 0.4,
           ease: "power2.out",
           scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
@@ -78,9 +42,9 @@ export default function Solutions() {
 
         /* Content slides in */
         if (content) {
-          gsap.to(content, {
-            x: 0,
-            opacity: 1,
+          gsap.from(content, {
+            x: flipped ? 20 : -20,
+            opacity: 0,
             duration: 0.6,
             ease: "power3.out",
             scrollTrigger: { trigger: sub, start: "top 75%" },
@@ -89,9 +53,9 @@ export default function Solutions() {
 
         /* Visual slides in from opposite side */
         if (visual) {
-          gsap.to(visual, {
-            x: 0,
-            opacity: 1,
+          gsap.from(visual, {
+            x: flipped ? -20 : 20,
+            opacity: 0,
             duration: 0.6,
             ease: "power3.out",
             scrollTrigger: { trigger: sub, start: "top 75%" },
@@ -100,9 +64,9 @@ export default function Solutions() {
 
         /* Features */
         if (features.length) {
-          gsap.to(features, {
-            y: 0,
-            opacity: 1,
+          gsap.from(features, {
+            y: 8,
+            opacity: 0,
             duration: 0.4,
             ease: "power2.out",
             scrollTrigger: { trigger: features[0], start: "top 90%" },
@@ -142,9 +106,9 @@ export default function Solutions() {
           /* Terminal: typewriter line-by-line */
           const lines = sub.querySelectorAll("[data-line]");
           if (lines.length) {
-            gsap.to(lines, {
-              opacity: 1,
-              y: 0,
+            gsap.from(lines, {
+              opacity: 0,
+              y: 4,
               duration: 0.2,
               stagger: 0.08,
               ease: "power1.out",
@@ -176,9 +140,9 @@ export default function Solutions() {
 
           const rows = sub.querySelectorAll("[data-row]");
           if (rows.length) {
-            gsap.to(rows, {
-              x: 0,
-              opacity: 1,
+            gsap.from(rows, {
+              x: 10,
+              opacity: 0,
               duration: 0.4,
               ease: "power2.out",
               scrollTrigger: { trigger: rows[0], start: "top 90%" },
@@ -189,9 +153,9 @@ export default function Solutions() {
 
       /* Closer fade */
       if (closer) {
-        gsap.to(closer, {
-          y: 0,
-          opacity: 1,
+        gsap.from(closer, {
+          y: 10,
+          opacity: 0,
           duration: 0.4,
           ease: "power2.out",
           scrollTrigger: { trigger: closer, start: "top 90%" },
@@ -213,11 +177,7 @@ export default function Solutions() {
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* Header */}
         <div className="mb-14 sm:mb-20">
-          <p
-            ref={labelRef}
-            className="section-label mb-5"
-            style={{ opacity: 0 }}
-          >
+          <p ref={labelRef} className="section-label mb-5">
             The Edge
           </p>
           <WordReveal
@@ -238,7 +198,6 @@ export default function Solutions() {
         <div
           data-closer
           className="mt-16 sm:mt-20 pt-10 border-t border-white/[0.06] max-w-2xl"
-          style={{ opacity: 0, transform: "translateY(10px)" }}
         >
           <p className="font-display text-2xl sm:text-3xl font-semibold text-cyber-gray-300 leading-snug">
             I only work with one business per niche in your area.{" "}

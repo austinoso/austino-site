@@ -24,8 +24,8 @@ export default function Work() {
 
     ctx = gsap.context(() => {
       if (labelRef.current) {
-        gsap.to(labelRef.current, {
-          opacity: 1,
+        gsap.from(labelRef.current, {
+          opacity: 0,
           duration: 0.4,
           ease: "power2.out",
           scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
@@ -33,9 +33,9 @@ export default function Work() {
       }
 
       if (imageRef.current) {
-        gsap.to(imageRef.current, {
-          y: 0,
-          opacity: 1,
+        gsap.from(imageRef.current, {
+          y: 20,
+          opacity: 0,
           duration: 0.7,
           ease: "power3.out",
           scrollTrigger: { trigger: imageRef.current, start: "top 82%" },
@@ -43,9 +43,9 @@ export default function Work() {
       }
 
       if (contentRef.current) {
-        gsap.to(contentRef.current, {
-          y: 0,
-          opacity: 1,
+        gsap.from(contentRef.current, {
+          y: 20,
+          opacity: 0,
           duration: 0.6,
           delay: 0.1,
           ease: "power3.out",
@@ -86,7 +86,7 @@ export default function Work() {
 
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* ─── Section label ─── */}
-        <p ref={labelRef} className="section-label mb-5" style={{ opacity: 0 }}>
+        <p ref={labelRef} className="section-label mb-5">
           Case Study
         </p>
         <WordReveal
@@ -99,10 +99,7 @@ export default function Work() {
         {/* ─── Split layout: image + case study preview ─── */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left — Project image */}
-          <div
-            ref={imageRef}
-            style={{ opacity: 0, transform: "translateY(20px)" }}
-          >
+          <div ref={imageRef}>
             <Link
               href={`/work/${project.slug}`}
               className="group relative block rounded-lg overflow-hidden border border-white/[0.08] hover:border-cyber-accent/20 transition-all duration-500"
@@ -145,11 +142,7 @@ export default function Work() {
           </div>
 
           {/* Right — Case study content */}
-          <div
-            ref={contentRef}
-            className="flex flex-col"
-            style={{ opacity: 0, transform: "translateY(20px)" }}
-          >
+          <div ref={contentRef} className="flex flex-col">
             {/* Category + read time */}
             <div className="flex items-center gap-2 mb-4">
               <span className="text-[10px] font-mono text-cyber-accent uppercase tracking-[0.15em]">

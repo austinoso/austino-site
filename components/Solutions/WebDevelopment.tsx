@@ -111,7 +111,6 @@ export default function WebDevelopment() {
             style={{
               boxShadow:
                 "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
-              backdropFilter: "blur(12px)",
             }}
           >
             <div className="px-4 py-3 border-b border-white/[0.06] flex items-center justify-between">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WordReveal from "@/components/ui/WordReveal";
@@ -49,20 +49,6 @@ const opportunities = [
 export default function PainPoints() {
   const sectionRef = useRef<HTMLElement>(null);
 
-  /* ── Set initial hidden states before first paint (prevents CLS) ── */
-  useLayoutEffect(() => {
-    const s = sectionRef.current;
-    if (!s) return;
-
-    const label = s.querySelector("[data-label]") as HTMLElement;
-    if (label) label.style.opacity = "0";
-
-    s.querySelectorAll<HTMLElement>("[data-card]").forEach((card) => {
-      card.style.opacity = "0";
-      card.style.transform = "translateY(32px)";
-    });
-  }, []);
-
   /* ── Scroll-triggered reveal animations ── */
   useEffect(() => {
     let ctx: gsap.Context | null = null;
@@ -74,8 +60,8 @@ export default function PainPoints() {
       /* Label */
       const label = s.querySelector("[data-label]");
       if (label) {
-        gsap.to(label, {
-          opacity: 1,
+        gsap.from(label, {
+          opacity: 0,
           duration: 0.4,
           ease: "power2.out",
           scrollTrigger: { trigger: label, start: "top 85%" },
@@ -85,9 +71,9 @@ export default function PainPoints() {
       /* Cards — staggered entrance */
       const cards = s.querySelectorAll("[data-card]");
       if (cards.length) {
-        gsap.to(cards, {
-          y: 0,
-          opacity: 1,
+        gsap.from(cards, {
+          y: 32,
+          opacity: 0,
           duration: 0.7,
           ease: "power3.out",
           stagger: 0.15,

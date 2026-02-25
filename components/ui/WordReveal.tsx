@@ -41,23 +41,18 @@ export default function WordReveal({
     const els = wordsRef.current.filter(Boolean) as HTMLSpanElement[];
     if (!els.length) return;
 
-    gsap.set(els, { y: "100%", opacity: 0 });
-
     // Ensure content is visible if reduced motion is preferred
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    if (prefersReducedMotion) {
-      gsap.set(els, { y: "0%", opacity: 1 });
-      return;
-    }
+    if (prefersReducedMotion) return;
 
     let tween: gsap.core.Tween | null = null;
 
     const play = () => {
-      tween = gsap.to(els, {
-        y: "0%",
-        opacity: 1,
+      tween = gsap.from(els, {
+        y: "100%",
+        opacity: 0,
         duration: 0.5,
         ease: "power3.out",
         stagger: 0.06,

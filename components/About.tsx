@@ -19,8 +19,8 @@ export default function About() {
 
     ctx = gsap.context(() => {
       if (label) {
-        gsap.to(label, {
-          opacity: 1,
+        gsap.from(label, {
+          opacity: 0,
           duration: 0.4,
           ease: "power2.out",
           scrollTrigger: { trigger: label, start: "top 85%" },
@@ -28,9 +28,9 @@ export default function About() {
       }
 
       if (items?.length) {
-        gsap.to(items, {
-          y: 0,
-          opacity: 1,
+        gsap.from(items, {
+          y: 12,
+          opacity: 0,
           duration: 0.5,
           ease: "power3.out",
           stagger: 0.12,
@@ -52,7 +52,7 @@ export default function About() {
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* Mission statement */}
         <div className="max-w-3xl mb-12 sm:mb-14">
-          <p data-label className="section-label mb-5" style={{ opacity: 0 }}>
+          <p data-label className="section-label mb-5">
             About
           </p>
           <WordReveal
@@ -64,7 +64,6 @@ export default function About() {
           <p
             data-fade
             className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed mt-8 sm:mt-10"
-            style={{ opacity: 0, transform: "translateY(12px)" }}
           >
             Most agencies hand you a site and disappear. I don&apos;t. I stick
             around and keep pushing until your digital presence doesn&apos;t
@@ -80,7 +79,6 @@ export default function About() {
           <p
             data-fade
             className="font-mono text-xs text-cyber-accent/60 uppercase tracking-[0.2em] mb-10"
-            style={{ opacity: 0, transform: "translateY(12px)" }}
           >
             Meet the Team
           </p>
@@ -90,7 +88,6 @@ export default function About() {
             <div
               data-fade
               className="flex items-start gap-5 p-6 sm:p-7 rounded-lg border border-white/[0.06] bg-white/[0.015]"
-              style={{ opacity: 0, transform: "translateY(12px)" }}
             >
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
                 <Image
@@ -119,7 +116,6 @@ export default function About() {
             <div
               data-fade
               className="flex items-start gap-5 p-6 sm:p-7 rounded-lg border border-white/[0.06] bg-white/[0.015]"
-              style={{ opacity: 0, transform: "translateY(12px)" }}
             >
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
                 <Image
