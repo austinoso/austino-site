@@ -100,7 +100,7 @@ Each section gets a solid semi-transparent background (no backdrop-filter for mo
 style={{ background: 'rgba(6,6,8,0.92)' }}
 ```
 
-Gradient ribbon blobs use `filter: blur(60px)` max to keep mobile GPUs happy.
+Gradient glows use CSS `radial-gradient()` backgrounds directly on section elements (no `filter: blur()` — eliminates GPU compositing layers on mobile).
 
 ### Inner Page Layouts
 
@@ -339,7 +339,7 @@ Every page that hasn't been updated should be checked against this list:
 ### Sections with Backdrop
 
 - [ ] If using gradient ribbon: `background: rgba(6,6,8,0.92)` (no backdrop-filter)
-- [ ] Gradient blobs: `filter: blur(60px)` max
+- [ ] Gradient glows: CSS `radial-gradient()` backgroundImage (no `filter: blur()` divs)
 - [ ] If solid page: `bg-cyber-dark` base, subtle `bg-white/[0.02]` alternate sections
 
 ---

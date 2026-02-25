@@ -457,54 +457,16 @@ export default function Hero() {
     <section
       ref={heroRef}
       className="relative overflow-hidden border-b border-white/[0.06]"
-      style={{ background: "rgba(6,6,8,0.82)" }}
+      style={{
+        backgroundColor: "rgba(6,6,8,0.82)",
+        backgroundImage: [
+          "radial-gradient(ellipse 80% 70% at 10% 15%, rgba(64,224,255,0.10), rgba(167,139,250,0.07) 45%, transparent 100%)",
+          "radial-gradient(ellipse 50% 55% at 95% 90%, rgba(251,191,36,0.06), rgba(244,114,182,0.05) 40%, transparent 70%)",
+          "radial-gradient(ellipse 35% 40% at 85% 35%, rgba(74,222,128,0.04), rgba(64,224,255,0.02) 50%, transparent 70%)",
+        ].join(", "),
+      }}
       aria-labelledby="hero-heading"
     >
-      {/* ── Hero gradient blobs ── */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Top-left cyan → violet sweep (diagonal, opposite from service pages) */}
-        <div
-          className="absolute"
-          style={{
-            top: "-25%",
-            left: "-15%",
-            width: "75%",
-            height: "90%",
-            background:
-              "linear-gradient(155deg, rgba(64,224,255,0.22) 0%, rgba(167,139,250,0.18) 45%, rgba(244,114,182,0.08) 100%)",
-            filter: "blur(60px)",
-            borderRadius: "45%",
-            transform: "rotate(6deg)",
-          }}
-        />
-        {/* Bottom-right warm amber/rose accent */}
-        <div
-          className="absolute"
-          style={{
-            bottom: "-15%",
-            right: "-10%",
-            width: "55%",
-            height: "65%",
-            background:
-              "radial-gradient(ellipse at center, rgba(251,191,36,0.12) 0%, rgba(244,114,182,0.1) 40%, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-        />
-        {/* Mid-right subtle green kiss */}
-        <div
-          className="absolute"
-          style={{
-            top: "30%",
-            right: "5%",
-            width: "35%",
-            height: "40%",
-            background:
-              "radial-gradient(ellipse at center, rgba(74,222,128,0.08) 0%, rgba(64,224,255,0.05) 50%, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-        />
-      </div>
-
       <div className="relative z-10 px-6 sm:px-10 md:px-14 lg:px-20 pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 lg:pb-24">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* ─── Left column: copy ─── */}

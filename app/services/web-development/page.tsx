@@ -79,37 +79,15 @@ export default function WebDevelopmentPage() {
 
       <div className="page-frame">
         {/* ── Hero ── */}
-        <div className="relative border-b border-white/[0.06] overflow-hidden">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            aria-hidden="true"
-          >
-            <div
-              className="absolute"
-              style={{
-                top: "-30%",
-                right: "-15%",
-                width: "70%",
-                height: "80%",
-                background:
-                  "linear-gradient(135deg, rgba(64,224,255,0.25) 0%, rgba(167,139,250,0.3) 40%, rgba(244,114,182,0.2) 100%)",
-                filter: "blur(60px)",
-                borderRadius: "40%",
-              }}
-            />
-            <div
-              className="absolute"
-              style={{
-                bottom: "-20%",
-                left: "-10%",
-                width: "50%",
-                height: "60%",
-                background:
-                  "radial-gradient(ellipse at center, rgba(64,224,255,0.15) 0%, rgba(167,139,250,0.1) 50%, transparent 70%)",
-                filter: "blur(60px)",
-              }}
-            />
-          </div>
+        <div
+          className="relative border-b border-white/[0.06] overflow-hidden"
+          style={{
+            backgroundImage: [
+              "radial-gradient(ellipse 80% 70% at 85% 10%, rgba(64,224,255,0.18), rgba(167,139,250,0.2) 40%, rgba(244,114,182,0.12) 70%, transparent 100%)",
+              "radial-gradient(ellipse 60% 55% at 10% 90%, rgba(64,224,255,0.1), rgba(167,139,250,0.06) 50%, transparent 80%)",
+            ].join(", "),
+          }}
+        >
           <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
             <Link
               href="/#solutions"
@@ -137,37 +115,15 @@ export default function WebDevelopmentPage() {
         </div>
 
         {/* ── What You Get — glow accent zone ── */}
-        <div className="relative border-b border-white/[0.06] overflow-hidden">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            aria-hidden="true"
-          >
-            <div
-              className="absolute"
-              style={{
-                top: "10%",
-                left: "-10%",
-                width: "60%",
-                height: "70%",
-                background:
-                  "linear-gradient(160deg, rgba(167,139,250,0.1) 0%, rgba(64,224,255,0.12) 50%, rgba(244,114,182,0.06) 100%)",
-                filter: "blur(60px)",
-                borderRadius: "50%",
-              }}
-            />
-            <div
-              className="absolute"
-              style={{
-                bottom: "0%",
-                right: "-5%",
-                width: "45%",
-                height: "50%",
-                background:
-                  "radial-gradient(ellipse at center, rgba(64,224,255,0.08) 0%, transparent 70%)",
-                filter: "blur(60px)",
-              }}
-            />
-          </div>
+        <div
+          className="relative border-b border-white/[0.06] overflow-hidden"
+          style={{
+            backgroundImage: [
+              "radial-gradient(ellipse 65% 60% at 15% 35%, rgba(167,139,250,0.07), rgba(64,224,255,0.08) 50%, transparent 85%)",
+              "radial-gradient(ellipse 50% 45% at 90% 80%, rgba(64,224,255,0.06), transparent 75%)",
+            ].join(", "),
+          }}
+        >
           <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
             <WhatYouGet />
           </div>
