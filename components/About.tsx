@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { onHeroReady } from "@/lib/heroReady";
 import WordReveal from "@/components/ui/WordReveal";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,29 +17,27 @@ export default function About() {
     const label = sectionRef.current?.querySelector("[data-label]");
     const items = sectionRef.current?.querySelectorAll("[data-fade]");
 
-    onHeroReady(() => {
-      ctx = gsap.context(() => {
-        if (label) {
-          gsap.to(label, {
-            opacity: 1,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: { trigger: label, start: "top 85%" },
-          });
-        }
+    ctx = gsap.context(() => {
+      if (label) {
+        gsap.to(label, {
+          opacity: 1,
+          duration: 0.4,
+          ease: "power2.out",
+          scrollTrigger: { trigger: label, start: "top 85%" },
+        });
+      }
 
-        if (items?.length) {
-          gsap.to(items, {
-            y: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.12,
-            scrollTrigger: { trigger: items[0], start: "top 88%" },
-          });
-        }
-      }, sectionRef);
-    });
+      if (items?.length) {
+        gsap.to(items, {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power3.out",
+          stagger: 0.12,
+          scrollTrigger: { trigger: items[0], start: "top 88%" },
+        });
+      }
+    }, sectionRef);
 
     return () => ctx?.revert();
   }, []);
@@ -49,7 +46,7 @@ export default function About() {
     <section
       ref={sectionRef}
       className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
-      style={{ background: "rgba(6,6,8,0.78)", backdropFilter: "blur(60px)" }}
+      style={{ background: "rgba(6,6,8,0.92)" }}
       aria-labelledby="about-heading"
     >
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">

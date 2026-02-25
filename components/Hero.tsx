@@ -457,7 +457,7 @@ export default function Hero() {
     <section
       ref={heroRef}
       className="relative overflow-hidden border-b border-white/[0.06]"
-      style={{ background: "rgba(6,6,8,0.7)", backdropFilter: "blur(60px)" }}
+      style={{ background: "rgba(6,6,8,0.92)" }}
       aria-labelledby="hero-heading"
     >
       <div className="relative z-10 px-6 sm:px-10 md:px-14 lg:px-20 pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 lg:pb-24">

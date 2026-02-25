@@ -27,7 +27,7 @@ export default function HomePage() {
               height: "70%",
               background:
                 "linear-gradient(135deg, rgba(64,224,255,0.45) 0%, rgba(167,139,250,0.5) 35%, rgba(244,114,182,0.45) 65%, rgba(251,191,36,0.25) 100%)",
-              filter: "blur(120px)",
+              filter: "blur(70px)",
               borderRadius: "40%",
               transform: "rotate(-12deg)",
             }}
@@ -42,7 +42,7 @@ export default function HomePage() {
               height: "50%",
               background:
                 "linear-gradient(160deg, rgba(167,139,250,0.35) 0%, rgba(64,224,255,0.4) 50%, rgba(244,114,182,0.2) 100%)",
-              filter: "blur(130px)",
+              filter: "blur(70px)",
               borderRadius: "50%",
               transform: "rotate(8deg)",
             }}
@@ -57,7 +57,7 @@ export default function HomePage() {
               height: "40%",
               background:
                 "radial-gradient(ellipse at center, rgba(244,114,182,0.4) 0%, rgba(251,191,36,0.2) 40%, transparent 70%)",
-              filter: "blur(100px)",
+              filter: "blur(60px)",
             }}
           />
           {/* Fourth bloom — cyan at mid-page */}
@@ -70,7 +70,7 @@ export default function HomePage() {
               height: "35%",
               background:
                 "radial-gradient(ellipse at center, rgba(64,224,255,0.3) 0%, rgba(167,139,250,0.15) 50%, transparent 70%)",
-              filter: "blur(110px)",
+              filter: "blur(60px)",
             }}
           />
         </div>

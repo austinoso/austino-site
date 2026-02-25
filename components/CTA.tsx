@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { onHeroReady } from "@/lib/heroReady";
 import WordReveal from "@/components/ui/WordReveal";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -21,40 +20,38 @@ export default function CTA() {
     const body = sectionRef.current?.querySelectorAll("[data-fade]");
     const line = sectionRef.current?.querySelector("[data-line]");
 
-    onHeroReady(() => {
-      ctx = gsap.context(() => {
-        /* Label */
-        if (label) {
-          gsap.to(label, {
-            opacity: 1,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: { trigger: label, start: "top 85%" },
-          });
-        }
+    ctx = gsap.context(() => {
+      /* Label */
+      if (label) {
+        gsap.to(label, {
+          opacity: 1,
+          duration: 0.4,
+          ease: "power2.out",
+          scrollTrigger: { trigger: label, start: "top 85%" },
+        });
+      }
 
-        /* Body + button */
-        if (body?.length) {
-          gsap.to(body, {
-            y: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.out",
-            scrollTrigger: { trigger: body[0], start: "top 88%" },
-          });
-        }
+      /* Body + button */
+      if (body?.length) {
+        gsap.to(body, {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power3.out",
+          scrollTrigger: { trigger: body[0], start: "top 88%" },
+        });
+      }
 
-        /* Divider line grow */
-        if (line) {
-          gsap.to(line, {
-            scaleX: 1,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: { trigger: line, start: "top 92%" },
-          });
-        }
-      }, sectionRef);
-    });
+      /* Divider line grow */
+      if (line) {
+        gsap.to(line, {
+          scaleX: 1,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: { trigger: line, start: "top 92%" },
+        });
+      }
+    }, sectionRef);
 
     return () => ctx?.revert();
   }, []);
@@ -63,10 +60,7 @@ export default function CTA() {
     <section
       ref={sectionRef}
       className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 overflow-hidden border-b border-white/[0.06]"
-      style={{
-        background: "rgba(6,6,8,0.65)",
-        backdropFilter: "blur(60px)",
-      }}
+      style={{ background: "rgba(6,6,8,0.92)" }}
       aria-labelledby="cta-heading"
     >
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">

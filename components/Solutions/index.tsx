@@ -3,7 +3,6 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { onHeroReady } from "@/lib/heroReady";
 import WordReveal from "@/components/ui/WordReveal";
 
 import WebDevelopment from "./WebDevelopment";
@@ -59,148 +58,146 @@ export default function Solutions() {
       sectionRef.current?.querySelectorAll<HTMLElement>("[data-subsection]");
     const closer = sectionRef.current?.querySelector("[data-closer]");
 
-    onHeroReady(() => {
-      ctx = gsap.context(() => {
-        /* Label fade */
-        if (labelRef.current) {
-          gsap.to(labelRef.current, {
+    ctx = gsap.context(() => {
+      /* Label fade */
+      if (labelRef.current) {
+        gsap.to(labelRef.current, {
+          opacity: 1,
+          duration: 0.4,
+          ease: "power2.out",
+          scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
+        });
+      }
+
+      /* Subsection animations */
+      subs?.forEach((sub, i) => {
+        const content = sub.querySelector("[data-content]");
+        const visual = sub.querySelector("[data-visual]");
+        const features = sub.querySelectorAll("[data-feature]");
+        const flipped = i === 1;
+
+        /* Content slides in */
+        if (content) {
+          gsap.to(content, {
+            x: 0,
             opacity: 1,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
+            duration: 0.6,
+            ease: "power3.out",
+            scrollTrigger: { trigger: sub, start: "top 75%" },
           });
         }
 
-        /* Subsection animations */
-        subs?.forEach((sub, i) => {
-          const content = sub.querySelector("[data-content]");
-          const visual = sub.querySelector("[data-visual]");
-          const features = sub.querySelectorAll("[data-feature]");
-          const flipped = i === 1;
+        /* Visual slides in from opposite side */
+        if (visual) {
+          gsap.to(visual, {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power3.out",
+            scrollTrigger: { trigger: sub, start: "top 75%" },
+          });
+        }
 
-          /* Content slides in */
-          if (content) {
-            gsap.to(content, {
-              x: 0,
-              opacity: 1,
-              duration: 0.6,
-              ease: "power3.out",
-              scrollTrigger: { trigger: sub, start: "top 75%" },
-            });
-          }
-
-          /* Visual slides in from opposite side */
-          if (visual) {
-            gsap.to(visual, {
-              x: 0,
-              opacity: 1,
-              duration: 0.6,
-              ease: "power3.out",
-              scrollTrigger: { trigger: sub, start: "top 75%" },
-            });
-          }
-
-          /* Features */
-          if (features.length) {
-            gsap.to(features, {
-              y: 0,
-              opacity: 1,
-              duration: 0.4,
-              ease: "power2.out",
-              scrollTrigger: { trigger: features[0], start: "top 90%" },
-            });
-          }
-
-          /* ── Section-specific visual animations ── */
-
-          if (i === 0) {
-            /* Performance card: bars fill + numbers count */
-            sub.querySelectorAll("[data-bar]").forEach((bar) => {
-              gsap.from(bar, {
-                scaleX: 0,
-                duration: 1,
-                ease: "power2.out",
-                transformOrigin: "left center",
-                scrollTrigger: { trigger: bar, start: "top 88%" },
-              });
-            });
-
-            sub.querySelectorAll<HTMLElement>("[data-score]").forEach((el) => {
-              const target = parseInt(el.dataset.score || "0");
-              const counter = { v: 0 };
-              gsap.to(counter, {
-                v: target,
-                duration: 1.2,
-                ease: "power2.out",
-                scrollTrigger: { trigger: el, start: "top 88%" },
-                onUpdate: () => {
-                  el.textContent = Math.round(counter.v).toString();
-                },
-              });
-            });
-          }
-
-          if (i === 1) {
-            /* Terminal: typewriter line-by-line */
-            const lines = sub.querySelectorAll("[data-line]");
-            if (lines.length) {
-              gsap.to(lines, {
-                opacity: 1,
-                y: 0,
-                duration: 0.2,
-                stagger: 0.08,
-                ease: "power1.out",
-                scrollTrigger: { trigger: visual, start: "top 72%" },
-              });
-            }
-          }
-
-          if (i === 2) {
-            /* Dashboard: counters + status row stagger */
-            sub.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => {
-              const target = parseFloat(el.dataset.count || "0");
-              const suffix = el.dataset.suffix || "";
-              const decimal = el.dataset.decimal === "true";
-              const counter = { v: 0 };
-              gsap.to(counter, {
-                v: target,
-                duration: 1.4,
-                ease: "power2.out",
-                scrollTrigger: { trigger: el, start: "top 85%" },
-                onUpdate: () => {
-                  el.textContent =
-                    (decimal
-                      ? counter.v.toFixed(1)
-                      : Math.round(counter.v).toString()) + suffix;
-                },
-              });
-            });
-
-            const rows = sub.querySelectorAll("[data-row]");
-            if (rows.length) {
-              gsap.to(rows, {
-                x: 0,
-                opacity: 1,
-                duration: 0.4,
-                ease: "power2.out",
-                scrollTrigger: { trigger: rows[0], start: "top 90%" },
-              });
-            }
-          }
-        });
-
-        /* Closer fade */
-        if (closer) {
-          gsap.to(closer, {
+        /* Features */
+        if (features.length) {
+          gsap.to(features, {
             y: 0,
             opacity: 1,
             duration: 0.4,
             ease: "power2.out",
-            scrollTrigger: { trigger: closer, start: "top 90%" },
+            scrollTrigger: { trigger: features[0], start: "top 90%" },
           });
         }
-      }, sectionRef);
-    });
+
+        /* ── Section-specific visual animations ── */
+
+        if (i === 0) {
+          /* Performance card: bars fill + numbers count */
+          sub.querySelectorAll("[data-bar]").forEach((bar) => {
+            gsap.from(bar, {
+              scaleX: 0,
+              duration: 1,
+              ease: "power2.out",
+              transformOrigin: "left center",
+              scrollTrigger: { trigger: bar, start: "top 88%" },
+            });
+          });
+
+          sub.querySelectorAll<HTMLElement>("[data-score]").forEach((el) => {
+            const target = parseInt(el.dataset.score || "0");
+            const counter = { v: 0 };
+            gsap.to(counter, {
+              v: target,
+              duration: 1.2,
+              ease: "power2.out",
+              scrollTrigger: { trigger: el, start: "top 88%" },
+              onUpdate: () => {
+                el.textContent = Math.round(counter.v).toString();
+              },
+            });
+          });
+        }
+
+        if (i === 1) {
+          /* Terminal: typewriter line-by-line */
+          const lines = sub.querySelectorAll("[data-line]");
+          if (lines.length) {
+            gsap.to(lines, {
+              opacity: 1,
+              y: 0,
+              duration: 0.2,
+              stagger: 0.08,
+              ease: "power1.out",
+              scrollTrigger: { trigger: visual, start: "top 72%" },
+            });
+          }
+        }
+
+        if (i === 2) {
+          /* Dashboard: counters + status row stagger */
+          sub.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => {
+            const target = parseFloat(el.dataset.count || "0");
+            const suffix = el.dataset.suffix || "";
+            const decimal = el.dataset.decimal === "true";
+            const counter = { v: 0 };
+            gsap.to(counter, {
+              v: target,
+              duration: 1.4,
+              ease: "power2.out",
+              scrollTrigger: { trigger: el, start: "top 85%" },
+              onUpdate: () => {
+                el.textContent =
+                  (decimal
+                    ? counter.v.toFixed(1)
+                    : Math.round(counter.v).toString()) + suffix;
+              },
+            });
+          });
+
+          const rows = sub.querySelectorAll("[data-row]");
+          if (rows.length) {
+            gsap.to(rows, {
+              x: 0,
+              opacity: 1,
+              duration: 0.4,
+              ease: "power2.out",
+              scrollTrigger: { trigger: rows[0], start: "top 90%" },
+            });
+          }
+        }
+      });
+
+      /* Closer fade */
+      if (closer) {
+        gsap.to(closer, {
+          y: 0,
+          opacity: 1,
+          duration: 0.4,
+          ease: "power2.out",
+          scrollTrigger: { trigger: closer, start: "top 90%" },
+        });
+      }
+    }, sectionRef);
 
     return () => ctx?.revert();
   }, []);
@@ -210,7 +207,7 @@ export default function Solutions() {
       ref={sectionRef}
       id="solutions"
       className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
-      style={{ background: "rgba(6,6,8,0.78)", backdropFilter: "blur(60px)" }}
+      style={{ background: "rgba(6,6,8,0.92)" }}
       aria-labelledby="solutions-heading"
     >
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">

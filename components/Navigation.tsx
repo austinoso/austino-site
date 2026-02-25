@@ -182,10 +182,12 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-[#060608]/80 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 ${
+        isMobileMenuOpen
+          ? "bg-[#060608] border-b border-white/[0.06]"
+          : isScrolled
+            ? "transition-all duration-500 bg-[#060608]/80 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+            : "transition-all duration-500 bg-transparent"
       }`}
       aria-label="Main navigation"
     >
@@ -250,19 +252,13 @@ export default function Navigation() {
                     : "opacity-0 -translate-y-2 pointer-events-none"
                 }`}
               >
-                <div
-                  className="w-56 rounded-xl border border-white/[0.08] bg-[#111318]/95 backdrop-blur-xl overflow-hidden"
-                  style={{
-                    boxShadow:
-                      "0 16px 40px -8px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02)",
-                  }}
-                >
+                <div className="w-56 rounded-lg border border-white/[0.06] bg-[#0A0A0E]/95 backdrop-blur-xl overflow-hidden">
                   <div className="p-1.5">
                     <div data-dropdown-item role="none">
                       <Link
                         href="/services/web-development"
                         role="menuitem"
-                        className="block px-3.5 py-2.5 rounded-lg text-sm text-cyber-gray-300 hover:text-white hover:bg-white/[0.04] transition-colors duration-200"
+                        className="block px-3.5 py-2.5 rounded-md text-sm text-cyber-gray-300 hover:text-white hover:bg-white/[0.06] transition-colors duration-200"
                         data-umami-event="nav-service-web"
                         tabIndex={isSolutionsOpen ? 0 : -1}
                         onClick={() => setIsSolutionsOpen(false)}
@@ -278,7 +274,7 @@ export default function Navigation() {
                       <Link
                         href="/services/automation"
                         role="menuitem"
-                        className="block px-3.5 py-2.5 rounded-lg text-sm text-cyber-gray-300 hover:text-white hover:bg-white/[0.04] transition-colors duration-200"
+                        className="block px-3.5 py-2.5 rounded-md text-sm text-cyber-gray-300 hover:text-white hover:bg-white/[0.06] transition-colors duration-200"
                         data-umami-event="nav-service-automation"
                         tabIndex={isSolutionsOpen ? 0 : -1}
                         onClick={() => setIsSolutionsOpen(false)}
@@ -294,7 +290,7 @@ export default function Navigation() {
                       <Link
                         href="/services/growth-strategy"
                         role="menuitem"
-                        className="block px-3.5 py-2.5 rounded-lg text-sm text-cyber-gray-300 hover:text-white hover:bg-white/[0.04] transition-colors duration-200"
+                        className="block px-3.5 py-2.5 rounded-md text-sm text-cyber-gray-300 hover:text-white hover:bg-white/[0.06] transition-colors duration-200"
                         data-umami-event="nav-service-growth"
                         tabIndex={isSolutionsOpen ? 0 : -1}
                         onClick={() => setIsSolutionsOpen(false)}

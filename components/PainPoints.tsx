@@ -3,7 +3,6 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { onHeroReady } from "@/lib/heroReady";
 import WordReveal from "@/components/ui/WordReveal";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -68,36 +67,34 @@ export default function PainPoints() {
   useEffect(() => {
     let ctx: gsap.Context | null = null;
 
-    onHeroReady(() => {
-      ctx = gsap.context(() => {
-        const s = sectionRef.current;
-        if (!s) return;
+    ctx = gsap.context(() => {
+      const s = sectionRef.current;
+      if (!s) return;
 
-        /* Label */
-        const label = s.querySelector("[data-label]");
-        if (label) {
-          gsap.to(label, {
-            opacity: 1,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: { trigger: label, start: "top 85%" },
-          });
-        }
+      /* Label */
+      const label = s.querySelector("[data-label]");
+      if (label) {
+        gsap.to(label, {
+          opacity: 1,
+          duration: 0.4,
+          ease: "power2.out",
+          scrollTrigger: { trigger: label, start: "top 85%" },
+        });
+      }
 
-        /* Cards — staggered entrance */
-        const cards = s.querySelectorAll("[data-card]");
-        if (cards.length) {
-          gsap.to(cards, {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            ease: "power3.out",
-            stagger: 0.15,
-            scrollTrigger: { trigger: cards[0], start: "top 82%" },
-          });
-        }
-      }, sectionRef);
-    });
+      /* Cards — staggered entrance */
+      const cards = s.querySelectorAll("[data-card]");
+      if (cards.length) {
+        gsap.to(cards, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: { trigger: cards[0], start: "top 82%" },
+        });
+      }
+    }, sectionRef);
 
     return () => ctx?.revert();
   }, []);
@@ -106,7 +103,7 @@ export default function PainPoints() {
     <section
       ref={sectionRef}
       className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
-      style={{ background: "rgba(6,6,8,0.75)", backdropFilter: "blur(60px)" }}
+      style={{ background: "rgba(6,6,8,0.92)" }}
       aria-labelledby="pain-points-heading"
     >
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">

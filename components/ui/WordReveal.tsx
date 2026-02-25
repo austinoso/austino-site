@@ -3,7 +3,6 @@
 import { Fragment, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { onHeroReady } from "@/lib/heroReady";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,11 +68,7 @@ export default function WordReveal({
       });
     };
 
-    if (immediate) {
-      play();
-    } else {
-      onHeroReady(play);
-    }
+    play();
 
     return () => {
       tween?.scrollTrigger?.kill();

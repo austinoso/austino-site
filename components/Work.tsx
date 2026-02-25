@@ -7,7 +7,6 @@ import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { onHeroReady } from "@/lib/heroReady";
 import WordReveal from "@/components/ui/WordReveal";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,39 +22,37 @@ export default function Work() {
   useEffect(() => {
     let ctx: gsap.Context | null = null;
 
-    onHeroReady(() => {
-      ctx = gsap.context(() => {
-        if (labelRef.current) {
-          gsap.to(labelRef.current, {
-            opacity: 1,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
-          });
-        }
+    ctx = gsap.context(() => {
+      if (labelRef.current) {
+        gsap.to(labelRef.current, {
+          opacity: 1,
+          duration: 0.4,
+          ease: "power2.out",
+          scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
+        });
+      }
 
-        if (imageRef.current) {
-          gsap.to(imageRef.current, {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            ease: "power3.out",
-            scrollTrigger: { trigger: imageRef.current, start: "top 82%" },
-          });
-        }
+      if (imageRef.current) {
+        gsap.to(imageRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: { trigger: imageRef.current, start: "top 82%" },
+        });
+      }
 
-        if (contentRef.current) {
-          gsap.to(contentRef.current, {
-            y: 0,
-            opacity: 1,
-            duration: 0.6,
-            delay: 0.1,
-            ease: "power3.out",
-            scrollTrigger: { trigger: contentRef.current, start: "top 85%" },
-          });
-        }
-      }, sectionRef);
-    });
+      if (contentRef.current) {
+        gsap.to(contentRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          delay: 0.1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: contentRef.current, start: "top 85%" },
+        });
+      }
+    }, sectionRef);
 
     return () => ctx?.revert();
   }, []);
@@ -74,7 +71,7 @@ export default function Work() {
       ref={sectionRef}
       id="work"
       className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
-      style={{ background: "rgba(6,6,8,0.72)", backdropFilter: "blur(60px)" }}
+      style={{ background: "rgba(6,6,8,0.92)" }}
       aria-labelledby="work-heading"
     >
       {/* Subtle divider */}

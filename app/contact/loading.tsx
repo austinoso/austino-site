@@ -47,7 +47,10 @@ export default function Loading() {
               <div className="space-y-4">
                 <div className="h-3 w-32 rounded bg-white/[0.06] animate-skeleton-pulse" />
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="h-4 w-56 max-w-full rounded bg-white/[0.06] animate-skeleton-pulse" />
+                  <div
+                    key={i}
+                    className="h-4 w-56 max-w-full rounded bg-white/[0.06] animate-skeleton-pulse"
+                  />
                 ))}
               </div>
             </div>
