@@ -529,12 +529,10 @@ export default function RealExamples() {
   const idle = tool.mode === "manual" && !isRunning && visibleLogs.length === 0;
 
   return (
-    <section ref={sectionRef} className="mb-24 sm:mb-32">
+    <section ref={sectionRef}>
       {/* Section header */}
-      <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-        Live Demo
-      </p>
-      <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <p className="section-label mb-4">Live Demo</p>
+      <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         This is what you&apos;d actually get.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12 sm:mb-14">
@@ -548,11 +546,7 @@ export default function RealExamples() {
       {/* ── Dashboard shell ───────────────────────── */}
       <div
         ref={dashRef}
-        className="rounded-xl border border-white/[0.08] bg-[#0A0E14] overflow-hidden"
-        style={{
-          boxShadow:
-            "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
-        }}
+        className="rounded-lg border border-white/[0.06] bg-white/[0.015] overflow-hidden"
       >
         {/* Header bar */}
         <div className="px-4 sm:px-5 py-3 border-b border-white/[0.06] bg-[#0D1117] flex items-center justify-between">
@@ -700,9 +694,7 @@ export default function RealExamples() {
                         setMobileOpen(false);
                       }}
                       className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-left transition-colors ${
-                        on
-                          ? "bg-white/[0.06]"
-                          : "hover:bg-white/[0.03]"
+                        on ? "bg-white/[0.06]" : "hover:bg-white/[0.03]"
                       }`}
                     >
                       <MIcon
@@ -824,7 +816,7 @@ export default function RealExamples() {
                       data-log
                       className="flex gap-2.5 sm:gap-3 py-[3px]"
                     >
-                      <span className="text-cyber-gray-600 flex-shrink-0 select-none tabular-nums">
+                      <span className="text-cyber-gray-500 flex-shrink-0 select-none tabular-nums">
                         {l.time}
                       </span>
                       <span
@@ -838,7 +830,7 @@ export default function RealExamples() {
             </div>
 
             {/* Tool description */}
-            <div className="px-4 sm:px-5 py-3 border-t border-white/[0.06] bg-[#0C1018]/50">
+            <div className="mt-auto px-4 sm:px-5 py-3 border-t border-white/[0.06] bg-[#0C1018]/50">
               <p className="text-[11px] sm:text-[12px] text-cyber-gray-500 leading-relaxed">
                 {tool.desc}
               </p>

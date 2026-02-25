@@ -38,10 +38,8 @@ const comparisons = [
 export default function TemplateVsCustom() {
   return (
     <section data-fade className="mb-24 sm:mb-32">
-      <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-        The Difference
-      </p>
-      <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <p className="section-label mb-4">The Difference</p>
+      <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         Template vs. custom-built.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-10">
@@ -53,11 +51,7 @@ export default function TemplateVsCustom() {
         {comparisons.map((item) => (
           <div
             key={item.title}
-            className="rounded-xl border border-white/[0.06] bg-[#111318] p-6 sm:p-8"
-            style={{
-              boxShadow:
-                "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
-            }}
+            className="rounded-lg border border-white/[0.06] bg-white/[0.015] p-6 sm:p-8"
           >
             <div className="flex items-center gap-3 mb-5">
               <div className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.06]">

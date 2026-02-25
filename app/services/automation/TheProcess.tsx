@@ -1,39 +1,4 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
 export default function TheProcess() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(sectionRef.current!, {
-        y: 24,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: sectionRef.current!, start: "top 85%" },
-      });
-
-      gsap.utils.toArray<HTMLElement>("[data-step]").forEach((el, i) => {
-        gsap.from(el, {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power3.out",
-          delay: i * 0.1,
-          scrollTrigger: { trigger: el, start: "top 88%" },
-        });
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   const steps = [
     {
       step: "01",
@@ -62,11 +27,9 @@ export default function TheProcess() {
   ];
 
   return (
-    <section ref={sectionRef} className="mb-24 sm:mb-32">
-      <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-        The Process
-      </p>
-      <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+    <section data-fade>
+      <p className="section-label mb-4">The Process</p>
+      <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         How we get from &quot;this is eating my time&quot; to &quot;it just
         runs.&quot;
       </h2>

@@ -1,11 +1,5 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-
-gsap.registerPlugin();
 
 /* ── Static snapshot of the Activity Monitor ──────────────── */
 const SNAPSHOT = [
@@ -64,46 +58,11 @@ function accentLine(a: string) {
 }
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const copy = sectionRef.current?.querySelector("[data-hero-copy]");
-      if (copy) {
-        gsap.from(copy, {
-          x: -30,
-          opacity: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          delay: 0.1,
-        });
-      }
-
-      const visual = sectionRef.current?.querySelector("[data-hero-visual]");
-      if (visual) {
-        gsap.from(visual, {
-          x: 40,
-          opacity: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          delay: 0.2,
-        });
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-24 sm:mb-32"
-    >
+    <section className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
       <div data-hero-copy className="lg:col-span-5 space-y-6">
-        <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]">
-          Automation
-        </p>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight text-balance">
+        <p className="section-label">Automation</p>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-white leading-tight tracking-tight text-balance">
           The $37,000 spreadsheet.
         </h1>
         <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
@@ -114,7 +73,7 @@ export default function Hero() {
 
         <Link
           href="/contact"
-          className="inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#050505] font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)]"
+          className="inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#060608] font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)]"
         >
           Get a Free Consultation
           <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -124,11 +83,7 @@ export default function Hero() {
       {/* Static Activity Monitor snapshot */}
       <div data-hero-visual className="lg:col-span-7">
         <div
-          className="rounded-xl border border-white/[0.08] bg-[#0A0E14] overflow-hidden"
-          style={{
-            boxShadow:
-              "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
-          }}
+          className="rounded-lg border border-white/[0.06] bg-[#0A0A0E] overflow-hidden"
           role="img"
           aria-label="Automation dashboard showing completed tasks"
         >

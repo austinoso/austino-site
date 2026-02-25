@@ -1,6 +1,5 @@
 import { CheckCircle2, Clock, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import FeatureCard from "@/components/ui/FeatureCard";
 
 const sections: {
   icon: LucideIcon;
@@ -32,37 +31,42 @@ const sections: {
 
 export default function SpecialistDifference() {
   return (
-    <section data-fade className="mb-24 sm:mb-32">
-      <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-        Why a Specialist
-      </p>
-      <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-8 max-w-2xl">
+    <section data-fade>
+      <p className="section-label mb-4">Why a Specialist</p>
+      <h2 className="font-display text-2xl sm:text-3xl font-bold text-white leading-snug tracking-tight text-balance mb-8 max-w-2xl">
         Your website deserves someone whose main thing is websites.
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-white/[0.06]">
         {sections.map((section, si) => (
-          <FeatureCard
+          <div
             key={si}
-            icon={section.icon}
-            title={section.heading}
-            body={section.body}
-            layout="stacked"
-            accent={true}
-            footer={
-              <div className="space-y-2.5">
-                {section.points.map((point, pi) => (
-                  <div key={pi} className="flex items-start gap-2.5">
-                    <CheckCircle2
-                      className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
-                      aria-hidden="true"
-                    />
-                    <span className="text-sm text-cyber-gray-300">{point}</span>
-                  </div>
-                ))}
-              </div>
-            }
-          />
+            className="border-b border-r border-white/[0.06] p-7 sm:p-9 flex flex-col"
+          >
+            <div className="w-10 h-10 rounded-full border border-cyber-accent/25 bg-cyber-accent/[0.06] flex items-center justify-center flex-shrink-0 mb-5">
+              <section.icon
+                className="w-[18px] h-[18px] text-cyber-accent"
+                aria-hidden="true"
+              />
+            </div>
+            <h3 className="font-display text-lg sm:text-xl font-semibold text-white leading-snug mb-3">
+              {section.heading}
+            </h3>
+            <p className="text-[15px] text-cyber-gray-300 leading-relaxed flex-1 mb-6">
+              {section.body}
+            </p>
+            <div className="mt-auto pt-6 space-y-2.5">
+              {section.points.map((point, pi) => (
+                <div key={pi} className="flex items-start gap-2.5">
+                  <CheckCircle2
+                    className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+                    aria-hidden="true"
+                  />
+                  <span className="text-sm text-cyber-gray-300">{point}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </section>

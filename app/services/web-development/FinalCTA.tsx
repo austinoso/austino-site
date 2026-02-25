@@ -6,10 +6,8 @@ export default function FinalCTA() {
     <section data-fade>
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
         <div className="max-w-xl">
-          <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-            Get Started
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4">
+          <p className="section-label mb-4">Get Started</p>
+          <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4">
             Let&apos;s build something that actually converts.
           </h2>
           <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
@@ -21,7 +19,7 @@ export default function FinalCTA() {
         <div className="flex-shrink-0">
           <Link
             href="/contact"
-            className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-black font-semibold text-base rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)] w-full sm:w-auto"
+            className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-[#060608] font-semibold text-base rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)] w-full sm:w-auto"
           >
             <span>Start a Conversation</span>
             <ArrowRight

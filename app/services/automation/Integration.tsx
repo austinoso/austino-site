@@ -1,35 +1,10 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Zap, CheckCircle2 } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Integration() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(sectionRef.current!, {
-        y: 24,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: sectionRef.current!, start: "top 85%" },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="mb-24 sm:mb-32">
-      <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-        Integration
-      </p>
-      <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+    <section data-fade>
+      <p className="section-label mb-4">Integration</p>
+      <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         You already pay for the tools. They just don&apos;t talk to each other.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-10">
@@ -42,7 +17,7 @@ export default function Integration() {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-0">
         {/* Without integration */}
         <div className="lg:pr-12">
-          <p className="text-[10px] font-mono text-cyber-gray-500 uppercase tracking-wider mb-6">
+          <p className="text-xs font-mono text-cyber-gray-400 uppercase tracking-wider mb-6">
             Without integration
           </p>
           <div className="space-y-4">
@@ -55,18 +30,18 @@ export default function Integration() {
               "You do this 10+ times a week",
             ].map((step, i) => (
               <div key={i} className="flex items-start gap-3 group">
-                <span className="text-xs font-mono text-cyber-gray-600 mt-0.5 w-5 flex-shrink-0 text-right">
+                <span className="text-xs font-mono text-cyber-gray-500 mt-0.5 w-5 flex-shrink-0 text-right">
                   {i + 1}.
                 </span>
                 <p
-                  className={`text-sm leading-relaxed ${i === 5 ? "text-red-400/70" : "text-cyber-gray-500"}`}
+                  className={`text-sm leading-relaxed ${i === 5 ? "text-red-400" : "text-cyber-gray-400"}`}
                 >
                   {step}
                 </p>
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs font-mono text-cyber-gray-600 tracking-wide">
+          <p className="mt-6 text-xs font-mono text-cyber-gray-500 tracking-wide">
             ~20 min every time &middot; multiply that by every customer, every
             week
           </p>
@@ -92,7 +67,7 @@ export default function Integration() {
 
         {/* With integration */}
         <div className="lg:pl-12">
-          <p className="text-[10px] font-mono text-cyber-accent uppercase tracking-wider mb-6">
+          <p className="text-xs font-mono text-cyber-accent uppercase tracking-wider mb-6">
             With integration
           </p>
           <div className="space-y-4">
@@ -126,7 +101,7 @@ export default function Integration() {
               </span>
             ))}
           </div>
-          <p className="mt-4 text-xs font-mono text-cyber-gray-500 tracking-wide">
+          <p className="mt-4 text-xs font-mono text-cyber-gray-400 tracking-wide">
             Seconds, not minutes. Nothing falls through the cracks.
           </p>
         </div>

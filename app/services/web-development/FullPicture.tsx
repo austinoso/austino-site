@@ -19,10 +19,8 @@ export default function FullPicture() {
     <section data-fade className="mb-24 sm:mb-32">
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         <div className="lg:col-span-5 space-y-5">
-          <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em]">
-            The Full Picture
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance">
+          <p className="section-label">The Full Picture</p>
+          <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance">
             Your GBP is the front door. Your website closes the deal.
           </h2>
           <p className="text-base text-cyber-gray-300 leading-relaxed">
@@ -46,13 +44,7 @@ export default function FullPicture() {
 
         {/* GBP Visual mockup */}
         <div className="lg:col-span-7">
-          <div
-            className="rounded-xl border border-white/[0.08] bg-[#111318] overflow-hidden"
-            style={{
-              boxShadow:
-                "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
-            }}
-          >
+          <div className="rounded-lg border border-white/[0.06] bg-white/[0.015] overflow-hidden">
             <div className="px-5 py-4 border-b border-white/[0.06] flex items-center gap-3">
               <MapPin
                 className="w-4 h-4 text-cyber-accent"

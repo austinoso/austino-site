@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    q: "I already have a website. Why would I pay for a new one?",
-    a: "If your current site loads in under a second, ranks on Google, and brings in new customers every week \u2014 you probably don\u2019t need one. But if it\u2019s mostly a digital business card that sits there, a rebuild isn\u2019t a cost \u2014 it\u2019s an upgrade to a tool that actively works for you.",
+    q: "My current website works fine. Is this really worth the investment?",
+    a: '"Works fine" and "actively brings in customers" are two very different things. If your site isn\'t ranking on Google, converting visitors into leads, or building trust the moment someone lands on it — it\'s costing you business you never see. The sections above aren\'t theoretical. Those are real reasons people leave and never come back.',
   },
   {
     q: "How long does it take to build a site?",
@@ -14,11 +14,19 @@ const faqs = [
   },
   {
     q: "What if I need something changed on the site?",
-    a: "For most updates \u2014 new photos, changed hours, updated copy \u2014 just send me a list and I\u2019ll handle it, usually the same day. That way everything stays looking sharp and performing well. If your business needs to update things regularly on its own, I\u2019ll set up whatever makes sense for your workflow \u2014 whether that\u2019s a simple content editor, a scheduling widget, a product dashboard, or something else entirely. Every project is different, so the solution fits around how you actually run your business.",
+    a: "For most updates \u2014 new photos, changed hours, updated copy \u2014 just send me a list and I\u2019ll handle it, usually the same day. If your business needs to update things regularly on its own, I\u2019ll set up whatever makes sense for your workflow \u2014 whether that\u2019s a simple content editor, a scheduling widget, a product dashboard, or something else entirely.",
   },
   {
     q: "What does \u2018technical SEO\u2019 actually mean?",
-    a: "It\u2019s the behind-the-scenes code that tells Google what your business does, where you\u2019re located, and what you offer. Think of it like labeling every room in your store so Google knows exactly where to send people. Most template sites skip this entirely.",
+    a: "It\u2019s the behind-the-scenes code that tells Google what your business does, where you\u2019re located, and what you offer. Schema markup, sitemaps, proper heading structure, optimized images \u2014 all the things covered in the Google ranking section above. Most template sites skip this entirely, which is why they don\u2019t rank.",
+  },
+  {
+    q: "Can\u2019t I just use a template from Wix or Squarespace?",
+    a: "You can \u2014 and it\u2019ll look like it. Templates share code with thousands of other sites, load slower, and give you almost zero control over the technical SEO signals Google uses to rank you. A custom-built site is faster, unique to your brand, and built from the ground up to convert visitors into customers.",
+  },
+  {
+    q: "How much does a high-performance site cost?",
+    a: "Most custom projects start at $1,500. Because I\u2019m a specialized engineer \u2014 not a bloated agency \u2014 you\u2019re paying for code and strategy, not office rent and project managers. For businesses looking for a long-term Growth Partnership, I offer hybrid pricing models that lower the upfront cost in exchange for ongoing optimization and tech support. My goal is to build a tool that pays for itself.",
   },
 ];
 
@@ -26,11 +34,9 @@ export default function FAQ() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <section data-fade className="mb-24 sm:mb-32">
-      <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-        Common Questions
-      </p>
-      <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-10 max-w-2xl">
+    <section data-fade>
+      <p className="section-label mb-4">Common Questions</p>
+      <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-10 max-w-2xl">
         Things you might be wondering.
       </h2>
 
@@ -38,11 +44,7 @@ export default function FAQ() {
         {faqs.map((faq, i) => (
           <div
             key={i}
-            className="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-colors duration-200 hover:border-white/[0.10]"
-            style={{
-              boxShadow:
-                "0 2px 24px -4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
-            }}
+            className="rounded-lg border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-colors duration-200 hover:border-white/[0.10]"
           >
             <button
               onClick={() => setOpenFaq(openFaq === i ? null : i)}

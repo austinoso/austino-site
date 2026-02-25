@@ -1,11 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const faqs = [
   {
@@ -31,29 +27,12 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const sectionRef = useRef<HTMLElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(sectionRef.current!, {
-        y: 24,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: sectionRef.current!, start: "top 85%" },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="mb-24 sm:mb-32">
-      <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-        Common Questions
-      </p>
-      <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-10 max-w-2xl">
+    <section data-fade>
+      <p className="section-label mb-4">Common Questions</p>
+      <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-10 max-w-2xl">
         Things you might be wondering.
       </h2>
 
@@ -61,11 +40,7 @@ export default function FAQ() {
         {faqs.map((faq, i) => (
           <div
             key={i}
-            className="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-colors duration-200 hover:border-white/[0.10]"
-            style={{
-              boxShadow:
-                "0 2px 24px -4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
-            }}
+            className="rounded-lg border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-colors duration-200 hover:border-white/[0.10]"
           >
             <button
               onClick={() => setOpenFaq(openFaq === i ? null : i)}

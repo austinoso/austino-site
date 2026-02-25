@@ -10,8 +10,8 @@ import { ArrowLeft } from "lucide-react";
 
 import Hero from "./Hero";
 import FirstImpressions from "./FirstImpressions";
+import GoogleRanking from "./GoogleRanking";
 import WhatYouGet from "./WhatYouGet";
-import SpecialistDifference from "./SpecialistDifference";
 import FAQ from "./FAQ";
 import FinalCTA from "./FinalCTA";
 
@@ -73,106 +73,120 @@ export default function WebDevelopmentPage() {
     <main
       ref={mainRef}
       id="main-content"
-      className="relative min-h-screen bg-[#050505]"
+      className="relative min-h-screen bg-cyber-dark"
     >
       <Navigation />
 
-      {/* Noise grain */}
-      <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundSize: "128px 128px",
-        }}
-        aria-hidden="true"
-      />
+      <div className="page-frame">
+        {/* ── Hero ── */}
+        <div className="relative border-b border-white/[0.06] overflow-hidden">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            aria-hidden="true"
+          >
+            <div
+              className="absolute"
+              style={{
+                top: "-30%",
+                right: "-15%",
+                width: "70%",
+                height: "80%",
+                background:
+                  "linear-gradient(135deg, rgba(64,224,255,0.25) 0%, rgba(167,139,250,0.3) 40%, rgba(244,114,182,0.2) 100%)",
+                filter: "blur(100px)",
+                borderRadius: "40%",
+              }}
+            />
+            <div
+              className="absolute"
+              style={{
+                bottom: "-20%",
+                left: "-10%",
+                width: "50%",
+                height: "60%",
+                background:
+                  "radial-gradient(ellipse at center, rgba(64,224,255,0.15) 0%, rgba(167,139,250,0.1) 50%, transparent 70%)",
+                filter: "blur(90px)",
+              }}
+            />
+          </div>
+          <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
+            <Link
+              href="/#solutions"
+              className="inline-flex items-center gap-2 text-sm font-mono text-cyber-gray-400 hover:text-white transition-colors duration-300 mb-10 sm:mb-14 tracking-wide"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Back to Home</span>
+            </Link>
+            <Hero />
+          </div>
+        </div>
 
-      {/* Accent glow — hero area */}
-      <div
-        className="absolute inset-x-0 top-0 h-[800px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 60% 30%, rgba(64,224,255,0.05), transparent), radial-gradient(ellipse 50% 40% at 25% 50%, rgba(120,75,255,0.03), transparent)",
-        }}
-        aria-hidden="true"
-      />
+        {/* ── First Impressions ── */}
+        <div className="border-b border-white/[0.06]">
+          <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
+            <FirstImpressions />
+          </div>
+        </div>
 
-      {/* Ambient glow — mid-page cyan + purple */}
-      <div
-        className="absolute inset-x-0 pointer-events-none"
-        style={{
-          top: "38%",
-          height: "900px",
-          transform: "translateY(-50%)",
-          background:
-            "radial-gradient(ellipse 90% 50% at 30% 40%, rgba(64,224,255,0.035), transparent), radial-gradient(ellipse 70% 40% at 75% 60%, rgba(120,75,255,0.03), transparent)",
-        }}
-        aria-hidden="true"
-      />
+        {/* ── How Google Sees You ── */}
+        <div className="border-b border-white/[0.06]">
+          <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
+            <GoogleRanking />
+          </div>
+        </div>
 
-      {/* Ambient glow — bottom cyan for results / CTA area */}
-      <div
-        className="absolute inset-x-0 bottom-0 h-[700px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 60%, rgba(64,224,255,0.04), transparent)",
-        }}
-        aria-hidden="true"
-      />
+        {/* ── What You Get — glow accent zone ── */}
+        <div className="relative border-b border-white/[0.06] overflow-hidden">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            aria-hidden="true"
+          >
+            <div
+              className="absolute"
+              style={{
+                top: "10%",
+                left: "-10%",
+                width: "60%",
+                height: "70%",
+                background:
+                  "linear-gradient(160deg, rgba(167,139,250,0.1) 0%, rgba(64,224,255,0.12) 50%, rgba(244,114,182,0.06) 100%)",
+                filter: "blur(100px)",
+                borderRadius: "50%",
+              }}
+            />
+            <div
+              className="absolute"
+              style={{
+                bottom: "0%",
+                right: "-5%",
+                width: "45%",
+                height: "50%",
+                background:
+                  "radial-gradient(ellipse at center, rgba(64,224,255,0.08) 0%, transparent 70%)",
+                filter: "blur(80px)",
+              }}
+            />
+          </div>
+          <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
+            <WhatYouGet />
+          </div>
+        </div>
 
-      <article className="relative max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-32 sm:pt-36 lg:pt-40">
-        <Link
-          href="/#solutions"
-          className="inline-flex items-center gap-2 text-sm font-mono text-cyber-gray-400 hover:text-white transition-colors duration-300 mb-10 sm:mb-14 tracking-wide"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
-          <span>Back to Home</span>
-        </Link>
+        {/* ── FAQ ── */}
+        <div className="border-b border-white/[0.06]">
+          <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
+            <FAQ />
+          </div>
+        </div>
 
-        <Hero />
-        <FirstImpressions />
-      </article>
-
-      {/* ── Full-bleed background zone — What You Get ── */}
-      <div className="relative">
-        {/* Top fade-in edge */}
-        <div
-          className="absolute inset-x-0 top-0 h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(64,224,255,0.12) 30%, rgba(64,224,255,0.12) 70%, transparent)",
-          }}
-          aria-hidden="true"
-        />
-        {/* Background panel */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(64,224,255,0.02) 0%, rgba(64,224,255,0.04) 50%, rgba(64,224,255,0.02) 100%)",
-          }}
-          aria-hidden="true"
-        />
-        {/* Bottom fade-out edge */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(64,224,255,0.12) 30%, rgba(64,224,255,0.12) 70%, transparent)",
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="relative max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-16 sm:py-20">
-          <WhatYouGet />
+        {/* ── Final CTA ── */}
+        <div className="border-b border-white/[0.06]">
+          <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
+            <FinalCTA />
+          </div>
         </div>
       </div>
-
-      <article className="relative max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-24 sm:pt-32 pb-20 sm:pb-28 md:pb-36">
-        <SpecialistDifference />
-        <FAQ />
-        <FinalCTA />
-      </article>
 
       <Footer />
     </main>

@@ -353,12 +353,12 @@ Every page that hasn't been updated should be checked against this list:
 | Page              | Status          | Priority           |
 | ----------------- | --------------- | ------------------ |
 | Homepage          | ✅ Done         | —                  |
-| Contact           | ❌ Needs update | High               |
-| Web Development   | ❌ Needs update | High               |
-| Automation        | ❌ Needs update | High               |
-| Growth Strategy   | ❌ Needs update | High               |
-| Work (index)      | ❌ Needs update | Medium             |
-| Work (case study) | ❌ Needs update | Medium             |
+| Contact           | ✅ Done         | High               |
+| Web Development   | ✅ Done         | High               |
+| Automation        | ✅ Done         | High               |
+| Growth Strategy   | ✅ Done         | High               |
+| Work (index)      | ✅ Done         | Medium             |
+| Work (case study) | ✅ Done         | Medium             |
 | 404               | ❌ Needs update | Low                |
 | Error             | ❌ Needs update | Low                |
 | Onboarding        | ⚠️ Partial      | Low (different UX) |

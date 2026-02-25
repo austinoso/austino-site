@@ -1,13 +1,10 @@
 import { LogOut, PhoneOff, ShieldCheck, Smartphone, Zap } from "lucide-react";
-import FeatureCard from "@/components/ui/FeatureCard";
 
 export default function FirstImpressions() {
   return (
-    <section data-fade className="mb-24 sm:mb-32">
-      <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-        First Impressions
-      </p>
-      <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+    <section data-fade>
+      <p className="section-label mb-4">First Impressions</p>
+      <h2 className="font-display text-2xl sm:text-3xl font-bold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         A better first impression means better leads.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12">
@@ -16,21 +13,31 @@ export default function FirstImpressions() {
         it up.
       </p>
 
-      {/* Bento grid — 5 cells, asymmetric */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-5">
-        {/* Featured cell — Trust & Credibility — spans 3 cols, 2 rows */}
-        <FeatureCard
-          icon={ShieldCheck}
-          title="Trust & Credibility"
-          body="Your website is often the first interaction a potential customer has with your business. Before they read a single word, they're already deciding if you look legitimate. An outdated layout, broken elements, or generic stock photos signal that the business behind it hasn't kept up either."
-          layout="stacked"
-          accent={true}
-          className="md:col-span-3 md:row-span-2 h-full"
-          footer={
+      {/* Outlined bento grid */}
+      <div className="grid grid-cols-1 md:grid-cols-5 border-t border-l border-white/[0.06]">
+        {/* ── Trust & Credibility — featured, 3 cols × 2 rows ── */}
+        <div className="md:col-span-3 md:row-span-2 border-b border-r border-white/[0.06] p-7 sm:p-9 flex flex-col">
+          <div className="w-10 h-10 rounded-full border border-cyber-accent/25 bg-cyber-accent/[0.06] flex items-center justify-center flex-shrink-0 mb-5">
+            <ShieldCheck
+              className="w-[18px] h-[18px] text-cyber-accent"
+              aria-hidden="true"
+            />
+          </div>
+          <h3 className="font-display text-lg sm:text-xl font-semibold text-white leading-snug mb-3">
+            Trust &amp; Credibility
+          </h3>
+          <p className="text-[15px] text-cyber-gray-300 leading-relaxed max-w-md flex-1">
+            Your website is often the first interaction a potential customer has
+            with your business. Before they read a single word, they&apos;re
+            already deciding if you look legitimate. An outdated layout, broken
+            elements, or generic stock photos signal that the business behind it
+            hasn&apos;t kept up either.
+          </p>
+          <div className="mt-auto pt-6">
             <div className="flex items-end gap-4">
-              <p className="text-5xl sm:text-6xl font-semibold text-white font-mono tracking-tighter leading-none">
+              <span className="font-display text-5xl sm:text-6xl font-bold text-cyber-accent leading-none">
                 46%
-              </p>
+              </span>
               <div className="pb-1.5">
                 <p className="text-sm text-cyber-gray-400 leading-snug">
                   judge credibility based on visual design
@@ -45,22 +52,33 @@ export default function FirstImpressions() {
                 </a>
               </div>
             </div>
-          }
-        />
+          </div>
+        </div>
 
-        {/* Top-right — Phone Anxiety */}
-        <FeatureCard
-          icon={PhoneOff}
-          title="Phone Anxiety"
-          body="Most younger customers would rather leave your site than pick up the phone. If they can't book or get answers online, they'll find someone where they can."
-          layout="inline"
-          className="md:col-span-2"
-          footer={
-            <div className="flex items-baseline gap-2.5">
-              <p className="text-2xl font-semibold text-white font-mono tracking-tight leading-none">
+        {/* ── Phone Anxiety ── */}
+        <div className="md:col-span-2 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
+              <PhoneOff
+                className="w-[18px] h-[18px] text-cyber-accent"
+                aria-hidden="true"
+              />
+            </div>
+            <h3 className="text-[15px] font-semibold text-white">
+              Phone Anxiety
+            </h3>
+          </div>
+          <p className="text-sm text-cyber-gray-400 leading-relaxed flex-1">
+            Most younger customers would rather leave your site than pick up the
+            phone. If they can&apos;t book or get answers online, they&apos;ll
+            find someone where they can.
+          </p>
+          <div className="mt-auto pt-5">
+            <div className="flex items-end gap-3">
+              <span className="font-display text-3xl sm:text-4xl font-bold text-cyber-accent leading-none">
                 81%
-              </p>
-              <div className="flex-1 min-w-0">
+              </span>
+              <div className="pb-0.5">
                 <p className="text-xs text-cyber-gray-400 leading-snug">
                   need to build up courage before making a call
                 </p>
@@ -74,22 +92,32 @@ export default function FirstImpressions() {
                 </a>
               </div>
             </div>
-          }
-        />
+          </div>
+        </div>
 
-        {/* Mid-right — Mobile Experience */}
-        <FeatureCard
-          icon={Smartphone}
-          title="Mobile Experience"
-          body="Most of your visitors are on their phone. If your site breaks on mobile, they're gone."
-          layout="inline"
-          className="md:col-span-2"
-          footer={
-            <div className="flex items-baseline gap-2.5">
-              <p className="text-2xl font-semibold text-white font-mono tracking-tight leading-none">
+        {/* ── Mobile Experience ── */}
+        <div className="md:col-span-2 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
+              <Smartphone
+                className="w-[18px] h-[18px] text-cyber-accent"
+                aria-hidden="true"
+              />
+            </div>
+            <h3 className="text-[15px] font-semibold text-white">
+              Mobile Experience
+            </h3>
+          </div>
+          <p className="text-sm text-cyber-gray-400 leading-relaxed flex-1">
+            Most of your visitors are on their phone. If your site breaks on
+            mobile, they&apos;re gone.
+          </p>
+          <div className="mt-auto pt-5">
+            <div className="flex items-end gap-3">
+              <span className="font-display text-3xl sm:text-4xl font-bold text-cyber-accent leading-none">
                 50%+
-              </p>
-              <div className="flex-1 min-w-0">
+              </span>
+              <div className="pb-0.5">
                 <p className="text-xs text-cyber-gray-400 leading-snug">
                   of all web traffic is mobile
                 </p>
@@ -103,22 +131,32 @@ export default function FirstImpressions() {
                 </a>
               </div>
             </div>
-          }
-        />
+          </div>
+        </div>
 
-        {/* Bottom-left — Perceived Speed */}
-        <FeatureCard
-          icon={Zap}
-          title="Perceived Speed"
-          body="Visitors equate your site's speed with your service quality. Fast and smooth signals competent and reliable."
-          layout="inline"
-          className="md:col-span-2"
-          footer={
-            <div className="flex items-baseline gap-2.5">
-              <p className="text-2xl font-semibold text-white font-mono tracking-tight leading-none">
+        {/* ── Perceived Speed ── */}
+        <div className="md:col-span-2 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
+              <Zap
+                className="w-[18px] h-[18px] text-cyber-accent"
+                aria-hidden="true"
+              />
+            </div>
+            <h3 className="text-[15px] font-semibold text-white">
+              Perceived Speed
+            </h3>
+          </div>
+          <p className="text-sm text-cyber-gray-400 leading-relaxed flex-1">
+            Visitors equate your site&apos;s speed with your service quality.
+            Fast and smooth signals competent and reliable.
+          </p>
+          <div className="mt-auto pt-5">
+            <div className="flex items-end gap-3">
+              <span className="font-display text-3xl sm:text-4xl font-bold text-cyber-accent leading-none">
                 3s
-              </p>
-              <div className="flex-1 min-w-0">
+              </span>
+              <div className="pb-0.5">
                 <p className="text-xs text-cyber-gray-400 leading-snug">
                   before bounce probability jumps 32%
                 </p>
@@ -132,22 +170,32 @@ export default function FirstImpressions() {
                 </a>
               </div>
             </div>
-          }
-        />
+          </div>
+        </div>
 
-        {/* Bottom-right — Bounce on Bad Design */}
-        <FeatureCard
-          icon={LogOut}
-          title="Bounce on Bad Design"
-          body="An unattractive layout doesn't just look bad — it actively drives people away before they even read your offer."
-          layout="inline"
-          className="md:col-span-3"
-          footer={
-            <div className="flex items-baseline gap-2.5">
-              <p className="text-2xl font-semibold text-white font-mono tracking-tight leading-none">
+        {/* ── Bounce on Bad Design ── */}
+        <div className="md:col-span-3 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
+              <LogOut
+                className="w-[18px] h-[18px] text-cyber-accent"
+                aria-hidden="true"
+              />
+            </div>
+            <h3 className="text-[15px] font-semibold text-white">
+              Bounce on Bad Design
+            </h3>
+          </div>
+          <p className="text-sm text-cyber-gray-400 leading-relaxed flex-1">
+            An unattractive layout doesn&apos;t just look bad — it actively
+            drives people away before they even read your offer.
+          </p>
+          <div className="mt-auto pt-5">
+            <div className="flex items-end gap-3">
+              <span className="font-display text-3xl sm:text-4xl font-bold text-cyber-accent leading-none">
                 38%
-              </p>
-              <div className="flex-1 min-w-0">
+              </span>
+              <div className="pb-0.5">
                 <p className="text-xs text-cyber-gray-400 leading-snug">
                   stop engaging if the layout is unattractive
                 </p>
@@ -161,8 +209,8 @@ export default function FirstImpressions() {
                 </a>
               </div>
             </div>
-          }
-        />
+          </div>
+        </div>
       </div>
     </section>
   );

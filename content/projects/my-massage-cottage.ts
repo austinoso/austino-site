@@ -4,26 +4,25 @@ import type { Project } from "@/content/projects/types";
 
 const myMassageCottage: Project = {
   slug: "my-massage-cottage",
-  title: "My Massage Cottage: Digital Foundation for a New Business",
+  title: "My Massage Cottage: From New Business to Booked Out",
   excerpt:
-    "A complete digital launch solution for a new massage therapy business—from booking platform integration to professional website deployment, enabling a stress-free opening day.",
-  category: "Business Launch",
-  readTime: "6 min read",
+    "Built a fast, professional website with integrated online booking for a new massage therapy business—then stayed on to drive growth through content strategy and performance tracking.",
+  category: "Web + Growth",
+  readTime: "4 min read",
   icon: Sparkles,
-  image: "/assets/mymassagecottage-demo-smaller.PNG",
+  image: "/assets/mymassagecottage-demo.PNG",
   publishedDate: "January 15, 2026",
   link: "https://mymassagecottage.com/",
   linkText: "Visit Live Site",
   challenge:
-    "Launch a new massage therapy business with a complete digital presence that handles bookings, payments, and customer notifications automatically—allowing the owner to focus entirely on their clients instead of managing technology.",
+    "A new massage therapy business needed to go from zero online presence to accepting bookings before opening day—without overspending on software that didn't fit their workflow.",
   solution:
-    "Researched and integrated a booking platform tailored to the business's workflow, built a fast and professional website optimized for local discovery, and connected all systems to automate scheduling, payments, and customer communications.",
+    "Researched booking platforms to find the right fit for her budget and business model, built a fast website designed around converting visitors into booked appointments, and now provide ongoing content strategy and site performance monitoring.",
   results: [
-    "Professional online presence that builds immediate customer trust",
-    "Automated booking and payment system that saves hours of manual work weekly",
-    "Seamless scheduling with automatic customer notifications and reminders",
-    "Mobile-optimized website for easy booking on any device",
-    "Stress-free technical launch that was ready for customers from day one",
+    "Ready to accept online bookings from day one",
+    "Booking software selected to match her workflow and budget",
+    "Fast, mobile-first site that builds trust with new clients",
+    "Ongoing content strategy to drive local search traffic",
   ],
   techStack: [
     "Next.js",
@@ -35,39 +34,19 @@ const myMassageCottage: Project = {
   ],
   sections: [
     {
-      heading: "The Launch: Building a Digital Foundation",
+      heading: "Picking the Right Tools",
       content:
-        "When My Massage Cottage was preparing to open, they needed a technical partner to handle their digital launch so they could stay focused on their clients. My goal was to take the stress out of their tech setup and build a professional presence from day one. Every decision was made to ensure the owner could concentrate on what they do best—providing excellent massage therapy—while the technology handled the operational details seamlessly in the background.",
+        "Before writing any code, I researched booking platforms to find one that actually matched how she wanted to run her business. Most developers would just pick the popular option—I evaluated several based on scheduling flexibility, payment processing, client notifications, and cost. The right choice meant she wasn't paying for features she'd never use, and the software worked with her workflow instead of against it.",
     },
     {
-      heading: "Finding the Right Fit",
+      heading: "A Website Built to Book",
       content:
-        "Instead of just picking common software, I researched and selected a booking platform that matched exactly how they wanted to handle their appointments and payments. This wasn't about choosing the most popular option—it was about finding the system that would work naturally with their business model. I evaluated multiple platforms based on their scheduling flexibility, payment processing capabilities, notification systems, and ease of use for both the business owner and their clients. The right choice meant less friction from the start.",
+        "The site was designed with one goal: make it effortless for someone to find the business, see what's offered, and book an appointment. It loads fast, looks great on phones (where most of her clients browse), and connects directly to her booking system. Services, pricing, and location are all clear and easy to find—no digging through pages. For a service business, that first impression is everything.",
     },
     {
-      heading: "Professional Website",
+      heading: "What's Happening Now",
       content:
-        "I built a fast, clean website that makes it easy for local customers to find the business, view services, and book an appointment on any device. The site is optimized for mobile users since many clients book on their phones, and it loads quickly to prevent potential customers from bouncing. Every page is designed with clarity and simplicity in mind—showing service offerings, pricing, and location details without overwhelming visitors. The design establishes trust and professionalism, which is critical for a service-based business where clients need to feel comfortable before their first visit.",
-    },
-    {
-      heading: "Connecting the Systems",
-      content:
-        "I linked the website and the booking software together so that scheduling, customer notifications, and payments happen automatically without the owner having to lift a finger. When a customer books an appointment through the website, the system handles everything: adds it to the calendar, sends confirmation emails, processes payment, and sends reminders before the appointment. This integration eliminates double-entry work and reduces the risk of missed appointments or payment issues. The owner gets a unified view of their schedule without juggling multiple disconnected tools.",
-    },
-    {
-      heading: "A Complete Online Storefront",
-      content:
-        "The website serves as a complete digital storefront that establishes trust with new customers immediately. First impressions matter in the wellness industry, and a polished online presence signals professionalism and attention to detail. The site showcases the services offered, provides clear pricing, and makes booking as simple as possible. For local SEO, the site is optimized to appear in search results when potential customers look for massage services in the area. This digital foundation allows My Massage Cottage to compete effectively with established businesses.",
-    },
-    {
-      heading: "Automated Scheduling",
-      content:
-        "The integrated booking system handles the 'boring stuff' like calendar management and reminders, saving the owner hours of manual work every week. Customers can see real-time availability, book their preferred time slot, and receive automatic confirmations and reminders. The owner doesn't need to manually update calendars, send reminder texts, or chase down payments—the system does it all. This automation reduces no-shows, improves customer satisfaction, and frees up mental bandwidth that the owner can dedicate to their craft instead of administrative tasks.",
-    },
-    {
-      heading: "Stress-Free Launch",
-      content:
-        "The business opened with a reliable technical setup that was ready for customers from the very first minute. There were no scrambling moments trying to figure out how to take a booking or process a payment—everything just worked. This allowed the owner to focus entirely on delivering excellent service rather than troubleshooting technology. The confidence that comes from having solid systems in place from day one is invaluable for any new business owner. My Massage Cottage launched smoothly and has been able to scale their operations as their client base grows.",
+        "This isn't a build-and-disappear project. I'm actively working with her on content strategy—figuring out what to publish, how to show up in local search results, and tracking how the site is actually performing. We look at where visitors come from, what pages they land on, and where they drop off. The goal is steady, organic growth that keeps her calendar full without relying on ads.",
     },
   ],
 };

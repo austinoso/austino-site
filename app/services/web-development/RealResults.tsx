@@ -11,10 +11,8 @@ const stats = [
 export default function RealResults() {
   return (
     <section data-fade className="mb-24 sm:mb-32">
-      <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-        Real Results
-      </p>
-      <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <p className="section-label mb-4">Real Results</p>
+      <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         This isn&apos;t theory.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-10">
@@ -22,13 +20,7 @@ export default function RealResults() {
         on Google, sub-second loads, and perfect scores across the board.
       </p>
 
-      <div
-        className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8 relative overflow-hidden"
-        style={{
-          boxShadow:
-            "0 2px 24px -4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
-        }}
-      >
+      <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8 relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -42,7 +34,7 @@ export default function RealResults() {
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center"
+                className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 text-center"
               >
                 <p
                   className={`text-3xl sm:text-4xl font-semibold font-mono mb-1 ${stat.accent ? "text-cyber-accent" : "text-white"}`}

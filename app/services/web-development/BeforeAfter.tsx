@@ -20,10 +20,8 @@ const afterItems = [
 export default function BeforeAfter() {
   return (
     <section data-fade className="mb-16 sm:mb-20">
-      <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-        The Difference
-      </p>
-      <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <p className="section-label mb-4">The Difference</p>
+      <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         Your site should be working this hard.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12">
@@ -125,13 +123,7 @@ export default function BeforeAfter() {
         </div>
 
         {/* After column */}
-        <div
-          className="relative flex flex-col rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8 overflow-hidden"
-          style={{
-            boxShadow:
-              "0 2px 24px -4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
-          }}
-        >
+        <div className="relative flex flex-col rounded-lg border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8 overflow-hidden">
           {/* Cyan glow */}
           <div
             className="absolute -top-16 -right-16 w-48 h-48 rounded-full pointer-events-none"

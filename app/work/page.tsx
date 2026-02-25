@@ -16,145 +16,96 @@ export default function WorkPage() {
   const projects = getAllProjects();
 
   return (
-    <main id="main-content" className="relative min-h-screen bg-[#050505]">
+    <main id="main-content" className="relative min-h-screen bg-cyber-dark">
       <Navigation />
 
-      {/* Noise grain */}
-      <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundSize: "128px 128px",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Accent glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 40% at 60% 10%, rgba(64,224,255,0.04), transparent), radial-gradient(ellipse 60% 30% at 20% 60%, rgba(120,75,255,0.025), transparent)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 md:px-12 pt-32 sm:pt-36 lg:pt-40 pb-20 sm:pb-28 md:pb-36">
+      <div className="page-frame">
         {/* Header */}
-        <div className="mb-14 sm:mb-20">
-          <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-            Projects
-          </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight mb-5">
+        <section className="border-b border-white/[0.06] px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
+          <p className="section-label mb-5">Projects</p>
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight mb-5">
             Work that speaks for itself.
           </h1>
-          <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-xl">
+          <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-xl text-pretty">
             Real projects for real businesses. Each case study walks through the
             problem, the approach, and the results.
           </p>
-        </div>
+        </section>
 
-        {/* Featured Project — single spotlight */}
+        {/* Projects */}
         <div role="list" aria-label="Work projects">
           {projects.map((project) => (
-            <article key={project.slug} role="listitem">
-              <Link
-                href={`/work/${project.slug}`}
-                className="group block rounded-2xl border border-white/[0.06] bg-[#111318] overflow-hidden transition-all duration-300 hover:border-white/[0.12]"
-                style={{
-                  boxShadow:
-                    "0 24px 60px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
-                }}
-              >
-                <div className="grid lg:grid-cols-12 items-stretch">
-                  {/* Thumbnail */}
-                  {project.image && (
-                    <div className="relative overflow-hidden lg:col-span-7 aspect-[16/9] lg:aspect-auto lg:min-h-[380px]">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#111318] via-transparent to-transparent opacity-60 lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[#111318]" />
-                    </div>
-                  )}
-
-                  {/* Content */}
-                  <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-[10px] font-mono text-cyber-accent uppercase tracking-[0.15em]">
-                        {project.category}
-                      </span>
-                      <span className="text-cyber-gray-500 text-[10px]">·</span>
-                      <span className="text-[10px] font-mono text-cyber-gray-500">
-                        {project.readTime}
-                      </span>
-                    </div>
-
-                    <h2 className="text-xl sm:text-2xl font-semibold text-white leading-snug tracking-tight mb-3 group-hover:text-cyber-accent transition-colors duration-300">
-                      {project.title.split(":")[0]}
-                    </h2>
-
-                    <p className="text-sm sm:text-base text-cyber-gray-400 leading-relaxed mb-5">
-                      {project.excerpt}
-                    </p>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-1.5 mb-5">
-                      {project.techStack.slice(0, 5).map((tech) => (
-                        <span
-                          key={tech}
-                          className="text-[10px] font-mono px-2 py-0.5 bg-white/[0.04] border border-white/[0.06] text-cyber-gray-400 rounded"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.techStack.length > 5 && (
-                        <span className="text-[10px] font-mono px-2 py-0.5 text-cyber-gray-500">
-                          +{project.techStack.length - 5}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Results preview */}
-                    <div className="space-y-2 mb-6 pt-4 border-t border-white/[0.06]">
-                      {project.results.slice(0, 3).map((result, i) => (
-                        <div
-                          key={i}
-                          className="flex items-start gap-2 text-sm text-cyber-gray-300"
-                        >
-                          <span className="mt-1.5 flex-shrink-0 h-1 w-1 rounded-full bg-cyber-accent/60" />
-                          <span className="leading-relaxed">{result}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center gap-1.5 text-xs font-mono text-cyber-gray-500 group-hover:text-cyber-accent transition-colors duration-300">
-                      <span>Read full case study</span>
-                      <ArrowRight
-                        className="w-3 h-3 transition-transform group-hover:translate-x-1"
-                        aria-hidden="true"
-                      />
-                    </div>
-                  </div>
+            <article
+              key={project.slug}
+              role="listitem"
+              className="border-b border-white/[0.06]"
+            >
+              {/* Full-width image — taller ratio to show more */}
+              {project.image && (
+                <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9]">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top"
+                    priority
+                  />
+                  {/* Stronger gradient so text is readable over busy screenshots */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-cyber-dark via-cyber-dark/50 to-cyber-dark/10" />
                 </div>
-              </Link>
+              )}
+
+              {/* Project info — below image */}
+              <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-10 pb-14 sm:pt-12 sm:pb-16">
+                <div className="mb-8">
+                  <span className="text-[10px] font-mono text-cyber-accent uppercase tracking-[0.2em] mb-4 block">
+                    {project.category}
+                  </span>
+                  <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-[1.1] tracking-tight mb-3">
+                    {project.title.split(":")[0]}
+                  </h2>
+                  <p className="text-sm sm:text-base text-cyber-gray-300 leading-relaxed max-w-2xl text-pretty">
+                    {project.excerpt}
+                  </p>
+                </div>
+
+                {/* Results — clean two-column list */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3 mb-8 pt-8 border-t border-white/[0.06]">
+                  {project.results.map((result, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="mt-1.5 flex-shrink-0 h-1.5 w-1.5 rounded-full bg-cyber-accent/60" />
+                      <p className="text-sm text-cyber-gray-300 leading-relaxed text-pretty">
+                        {result}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <Link
+                  href={`/work/${project.slug}`}
+                  className="group inline-flex items-center gap-2 text-sm font-mono text-cyber-accent hover:text-white transition-colors duration-300"
+                >
+                  <span>Read case study</span>
+                  <ArrowRight
+                    className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </div>
             </article>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-20 sm:mt-28 pt-10 border-t border-white/[0.06]">
+        <section className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
             <div className="max-w-xl">
-              <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
-                Your Project
-              </p>
-              <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-tight tracking-tight mb-4">
+              <p className="section-label mb-4">Your Project</p>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white leading-snug tracking-tight mb-4">
                 Want results like these?
               </h2>
-              <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed text-pretty">
                 Have a project in mind? Let&apos;s talk about what&apos;s
                 possible — no pressure, no commitments.
               </p>
@@ -172,7 +123,7 @@ export default function WorkPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </section>
       </div>
 
       <Footer />
