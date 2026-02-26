@@ -1,0 +1,17 @@
+name: Post-Deploy Scan
+
+on:
+  deployment_status:
+
+jobs:
+  scan:
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger deploy webhook
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            -H "Content-Type: application/json" \
+            -d '{"domain": "austino.dev"}' \
+            ${{ secrets.DASHBOARD_URL }}/api/webhook/deploy

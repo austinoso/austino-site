@@ -1,10 +1,6 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageScrollAnimator from "@/components/ui/PageScrollAnimator";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -17,66 +13,13 @@ import TheProcess from "./TheProcess";
 import FAQ from "./FAQ";
 import FinalCTA from "./FinalCTA";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function AutomationPage() {
-  const mainRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>("[data-fade]").forEach((el) => {
-        gsap.from(el, {
-          y: 24,
-          opacity: 0,
-          duration: 0.7,
-          ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 85%" },
-        });
-      });
-
-      const heroVisual = mainRef.current?.querySelector("[data-hero-visual]");
-      if (heroVisual) {
-        gsap.from(heroVisual, {
-          x: 40,
-          opacity: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          delay: 0.2,
-        });
-      }
-
-      const heroCopy = mainRef.current?.querySelector("[data-hero-copy]");
-      if (heroCopy) {
-        gsap.from(heroCopy, {
-          x: -30,
-          opacity: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          delay: 0.1,
-        });
-      }
-
-      gsap.utils.toArray<HTMLElement>("[data-step]").forEach((el, i) => {
-        gsap.from(el, {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power3.out",
-          delay: i * 0.1,
-          scrollTrigger: { trigger: el, start: "top 88%" },
-        });
-      });
-    }, mainRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <main
-      ref={mainRef}
       id="main-content"
       className="relative min-h-screen bg-cyber-dark"
     >
+      <PageScrollAnimator />
       <Navigation />
 
       <div className="page-frame">

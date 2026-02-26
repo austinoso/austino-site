@@ -1,7 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import FAQAccordion from "@/components/ui/FAQAccordion";
 
 const faqs = [
   {
@@ -27,54 +24,13 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   return (
     <section data-fade>
       <p className="section-label mb-4">Common Questions</p>
       <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-10 max-w-2xl">
         Things you might be wondering.
       </h2>
-
-      <div className="space-y-3">
-        {faqs.map((faq, i) => (
-          <div
-            key={i}
-            className="rounded-lg border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-colors duration-200 hover:border-white/[0.10]"
-          >
-            <button
-              onClick={() => setOpenFaq(openFaq === i ? null : i)}
-              className="flex items-center justify-between w-full px-6 py-5 text-left"
-              aria-expanded={openFaq === i}
-              aria-controls={`auto-faq-panel-${i}`}
-              id={`auto-faq-btn-${i}`}
-            >
-              <span className="text-sm font-medium text-white pr-4">
-                {faq.q}
-              </span>
-              <ChevronDown
-                className={`w-4 h-4 text-cyber-gray-500 flex-shrink-0 transition-transform duration-200 ${
-                  openFaq === i ? "rotate-180" : ""
-                }`}
-                aria-hidden="true"
-              />
-            </button>
-            <div
-              id={`auto-faq-panel-${i}`}
-              role="region"
-              aria-labelledby={`auto-faq-btn-${i}`}
-              hidden={openFaq !== i}
-              className={`overflow-hidden transition-all duration-300 ${
-                openFaq === i ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-              }`}
-            >
-              <p className="px-6 pb-5 text-sm text-cyber-gray-400 leading-relaxed">
-                {faq.a}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+      <FAQAccordion faqs={faqs} idPrefix="auto-faq" />
     </section>
   );
 }

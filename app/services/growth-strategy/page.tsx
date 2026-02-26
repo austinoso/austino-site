@@ -1,14 +1,9 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageScrollAnimator from "@/components/ui/PageScrollAnimator";
+import FAQAccordion from "@/components/ui/FAQAccordion";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ChevronDown, Search } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { ArrowLeft, ArrowRight, Search } from "lucide-react";
 
 /* ── FAQ data ── */
 const faqs = [
@@ -35,53 +30,12 @@ const faqs = [
 ];
 
 export default function GrowthStrategyPage() {
-  const mainRef = useRef<HTMLElement>(null);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>("[data-fade]").forEach((el) => {
-        gsap.from(el, {
-          y: 24,
-          opacity: 0,
-          duration: 0.7,
-          ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 85%" },
-        });
-      });
-
-      const heroVisual = mainRef.current?.querySelector("[data-hero-visual]");
-      if (heroVisual) {
-        gsap.from(heroVisual, {
-          x: 40,
-          opacity: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          delay: 0.2,
-        });
-      }
-
-      const heroCopy = mainRef.current?.querySelector("[data-hero-copy]");
-      if (heroCopy) {
-        gsap.from(heroCopy, {
-          x: -30,
-          opacity: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          delay: 0.1,
-        });
-      }
-    }, mainRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <main
-      ref={mainRef}
       id="main-content"
       className="relative min-h-screen bg-cyber-dark"
     >
+      <PageScrollAnimator />
       <Navigation />
 
       <div className="page-frame">
@@ -911,47 +865,7 @@ export default function GrowthStrategyPage() {
                 Things you might be wondering.
               </h2>
 
-              <div className="space-y-3">
-                {faqs.map((faq, i) => (
-                  <div
-                    key={i}
-                    className="rounded-lg border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-colors duration-200 hover:border-white/[0.10]"
-                  >
-                    <button
-                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                      className="flex items-center justify-between w-full px-6 py-5 text-left"
-                      aria-expanded={openFaq === i}
-                      aria-controls={`growth-faq-panel-${i}`}
-                      id={`growth-faq-btn-${i}`}
-                    >
-                      <span className="text-sm font-medium text-white pr-4">
-                        {faq.q}
-                      </span>
-                      <ChevronDown
-                        className={`w-4 h-4 text-cyber-gray-500 flex-shrink-0 transition-transform duration-200 ${
-                          openFaq === i ? "rotate-180" : ""
-                        }`}
-                        aria-hidden="true"
-                      />
-                    </button>
-                    <div
-                      id={`growth-faq-panel-${i}`}
-                      role="region"
-                      aria-labelledby={`growth-faq-btn-${i}`}
-                      hidden={openFaq !== i}
-                      className={`overflow-hidden transition-all duration-300 ${
-                        openFaq === i
-                          ? "max-h-60 opacity-100"
-                          : "max-h-0 opacity-0"
-                      }`}
-                    >
-                      <p className="px-6 pb-5 text-sm text-cyber-gray-400 leading-relaxed text-pretty">
-                        {faq.a}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <FAQAccordion faqs={faqs} idPrefix="growth-faq" />
             </section>
           </div>
         </div>
