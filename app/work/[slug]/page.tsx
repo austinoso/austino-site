@@ -15,15 +15,17 @@ export async function generateMetadata({
   const { slug } = await params;
   const study = getProjectBySlug(slug);
   if (!study) return { title: "Project Not Found | austino" };
+  const metaTitle = study.seoTitle || study.title;
+  const metaDescription = study.seoExcerpt || study.excerpt;
   return {
-    title: `${study.title} | austino`,
-    description: study.excerpt,
+    title: `${metaTitle} | austino`,
+    description: metaDescription,
     alternates: {
       canonical: `https://www.austino.dev/work/${slug}`,
     },
     openGraph: {
-      title: `${study.title} | austino`,
-      description: study.excerpt,
+      title: `${metaTitle} | austino`,
+      description: metaDescription,
       url: `https://www.austino.dev/work/${slug}`,
     },
   };
