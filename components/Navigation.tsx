@@ -348,7 +348,7 @@ export default function Navigation() {
         role="dialog"
         aria-label="Mobile navigation menu"
         aria-modal={isMobileMenuOpen || undefined}
-        aria-hidden={!isMobileMenuOpen || undefined}
+        {...(!isMobileMenuOpen ? { inert: true } : {})}
         className={`md:hidden fixed inset-0 top-[56px] bg-[#060608] transition-all duration-300 ${
           isMobileMenuOpen
             ? "opacity-100 translate-y-0"

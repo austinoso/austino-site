@@ -67,6 +67,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <link
+          rel="preconnect"
+          href="https://api-gateway.umami.dev"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://api-gateway.umami.dev" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       </head>
       <body className={`${inter.variable} ${jakarta.variable} font-sans`}>

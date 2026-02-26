@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
+    inlineCss: true,
     optimizePackageImports: ["lucide-react"],
   },
   async redirects() {

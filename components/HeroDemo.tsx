@@ -532,7 +532,10 @@ export default function HeroDemo() {
                 <br />
                 Book your next appointment online.
               </p>
-              <button className="hbtn-book mt-3 sm:mt-4 md:mt-5 lg:mt-4 px-3 sm:px-4 md:px-5 lg:px-4 py-1.5 sm:py-2 md:py-2.5 lg:py-2 bg-cyber-accent rounded text-[8px] sm:text-[9px] md:text-[11px] lg:text-[10px] font-semibold text-[#050505]">
+              <button
+                tabIndex={-1}
+                className="hbtn-book mt-3 sm:mt-4 md:mt-5 lg:mt-4 px-3 sm:px-4 md:px-5 lg:px-4 py-1.5 sm:py-2 md:py-2.5 lg:py-2 bg-cyber-accent rounded text-[8px] sm:text-[9px] md:text-[11px] lg:text-[10px] font-semibold text-[#050505]"
+              >
                 Book Now
               </button>
             </div>
@@ -615,7 +618,10 @@ export default function HeroDemo() {
             </div>
             {/* Confirm button */}
             <div className="mt-2 flex justify-center">
-              <button className="hbtn-confirm px-4 sm:px-5 md:px-6 lg:px-5 py-1.5 sm:py-2 md:py-2.5 lg:py-2 bg-cyber-accent rounded text-[8px] sm:text-[10px] md:text-[12px] lg:text-[10px] font-semibold text-[#050505]">
+              <button
+                tabIndex={-1}
+                className="hbtn-confirm px-4 sm:px-5 md:px-6 lg:px-5 py-1.5 sm:py-2 md:py-2.5 lg:py-2 bg-cyber-accent rounded text-[8px] sm:text-[10px] md:text-[12px] lg:text-[10px] font-semibold text-[#050505]"
+              >
                 Confirm Booking
               </button>
             </div>
