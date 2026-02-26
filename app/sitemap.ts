@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllProjectSlugs } from "@/lib/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://austino.dev";
+  const baseUrl = "https://www.austino.dev";
 
   /* ── Static pages ── */
   const staticRoutes: MetadataRoute.Sitemap = [

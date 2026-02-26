@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Custom automation that connects your tools, eliminates repetitive tasks, and runs 24/7 — so you can focus on growing your business.",
   alternates: {
-    canonical: "https://austino.dev/services/automation",
+    canonical: "https://www.austino.dev/services/automation",
   },
   openGraph: {
     title: "Automation | austino",
     description:
       "Custom automation that connects your tools, eliminates repetitive tasks, and runs 24/7 — so you can focus on growing your business.",
-    url: "https://austino.dev/services/automation",
+    url: "https://www.austino.dev/services/automation",
   },
 };
 
@@ -71,13 +71,13 @@ const serviceSchema = {
   provider: {
     "@type": "ProfessionalService",
     name: "austino",
-    url: "https://austino.dev",
+    url: "https://www.austino.dev",
   },
   areaServed: {
     "@type": "Country",
     name: "United States",
   },
-  url: "https://austino.dev/services/automation",
+  url: "https://www.austino.dev/services/automation",
 };
 
 const breadcrumbSchema = {
@@ -88,13 +88,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://austino.dev",
+      item: "https://www.austino.dev",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Automation",
-      item: "https://austino.dev/services/automation",
+      item: "https://www.austino.dev/services/automation",
     },
   ],
 };

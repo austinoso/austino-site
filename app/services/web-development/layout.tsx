@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Fast, search-optimized websites that turn visitors into customers around the clock. No templates, no bloat — just clean code built for results.",
   alternates: {
-    canonical: "https://austino.dev/services/web-development",
+    canonical: "https://www.austino.dev/services/web-development",
   },
   openGraph: {
     title: "Web Development | austino",
     description:
       "Fast, search-optimized websites that turn visitors into customers around the clock. No templates, no bloat — just clean code built for results.",
-    url: "https://austino.dev/services/web-development",
+    url: "https://www.austino.dev/services/web-development",
   },
 };
 
@@ -79,13 +79,13 @@ const serviceSchema = {
   provider: {
     "@type": "ProfessionalService",
     name: "austino",
-    url: "https://austino.dev",
+    url: "https://www.austino.dev",
   },
   areaServed: {
     "@type": "Country",
     name: "United States",
   },
-  url: "https://austino.dev/services/web-development",
+  url: "https://www.austino.dev/services/web-development",
 };
 
 const breadcrumbSchema = {
@@ -96,13 +96,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://austino.dev",
+      item: "https://www.austino.dev",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Web Development",
-      item: "https://austino.dev/services/web-development",
+      item: "https://www.austino.dev/services/web-development",
     },
   ],
 };

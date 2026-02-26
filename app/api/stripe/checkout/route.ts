@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const origin = request.headers.get("origin") || "https://austino.dev";
+    const origin = request.headers.get("origin") || "https://www.austino.dev";
     const idParam = slug ? `&id=${encodeURIComponent(slug)}` : "";
 
     const stripe = getStripe();
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
     // Dev fallback when Stripe isn't configured
     if (!process.env.STRIPE_SECRET_KEY) {
       console.warn("STRIPE_SECRET_KEY not set — returning mock URL");
-      const origin = request.headers.get("origin") || "https://austino.dev";
+      const origin = request.headers.get("origin") || "https://www.austino.dev";
       const idParam = bodySlug ? `&id=${encodeURIComponent(bodySlug)}` : "";
       return NextResponse.json({
         url: `${origin}/onboarding?paid=true${idParam}&session_id=mock`,

@@ -3,7 +3,7 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "austino",
-    url: "https://austino.dev",
+    url: "https://www.austino.dev",
     description:
       "High-performance websites, growth strategies that climb search rankings, and automation that eliminates busywork — giving local businesses an edge no template can match.",
     areaServed: [

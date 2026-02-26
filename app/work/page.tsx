@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   description:
     "Real projects for real businesses. Case studies showing the problem, the approach, and the results.",
   alternates: {
-    canonical: "https://austino.dev/work",
+    canonical: "https://www.austino.dev/work",
   },
   openGraph: {
     title: "Work | austino",
     description:
       "Real projects for real businesses. Case studies showing the problem, the approach, and the results.",
-    url: "https://austino.dev/work",
+    url: "https://www.austino.dev/work",
   },
 };
 

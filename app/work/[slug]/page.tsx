@@ -19,12 +19,12 @@ export async function generateMetadata({
     title: `${study.title} | austino`,
     description: study.excerpt,
     alternates: {
-      canonical: `https://austino.dev/work/${slug}`,
+      canonical: `https://www.austino.dev/work/${slug}`,
     },
     openGraph: {
       title: `${study.title} | austino`,
       description: study.excerpt,
-      url: `https://austino.dev/work/${slug}`,
+      url: `https://www.austino.dev/work/${slug}`,
     },
   };
 }

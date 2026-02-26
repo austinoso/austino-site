@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://austino.dev/sitemap.xml",
+    sitemap: "https://www.austino.dev/sitemap.xml",
   };
 }

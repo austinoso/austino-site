@@ -25,10 +25,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://austino.dev"),
-  title: "austino | Web Strategy, Growth & Automation for Local Businesses",
+  metadataBase: new URL("https://www.austino.dev"),
+  title: "austino | Web, Growth & Automation",
   description:
-    "High-performance websites, growth strategies that climb search rankings, and automation that eliminates busywork — giving local businesses an edge no template can match.",
+    "Custom websites, SEO-driven growth strategies, and automation that eliminates busywork — giving local businesses an edge no template can match.",
   keywords: [
     "small business web development",
     "local business website",
@@ -42,23 +42,26 @@ export const metadata: Metadata = {
     "custom business websites",
   ],
   authors: [{ name: "Austin O." }],
+  icons: {
+    icon: "/favicon.ico",
+  },
   alternates: {
-    canonical: "https://austino.dev",
+    canonical: "https://www.austino.dev",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://austino.dev",
+    url: "https://www.austino.dev",
     siteName: "austino",
-    title: "austino | Web Strategy, Growth & Automation for Local Businesses",
+    title: "austino | Web, Growth & Automation",
     description:
-      "High-performance websites, growth strategies that climb search rankings, and automation that eliminates busywork — giving local businesses an edge no template can match.",
+      "Custom websites, SEO-driven growth strategies, and automation that eliminates busywork — giving local businesses an edge no template can match.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "austino | Web Strategy, Growth & Automation for Local Businesses",
+    title: "austino | Web, Growth & Automation",
     description:
-      "High-performance websites, growth strategies that climb search rankings, and automation that eliminates busywork — giving local businesses an edge no template can match.",
+      "Custom websites, SEO-driven growth strategies, and automation that eliminates busywork — giving local businesses an edge no template can match.",
   },
 };
 
@@ -69,6 +72,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+      </head>
       <body
         className={`${inter.variable} ${jakarta.variable} ${jetbrainsMono.variable} font-sans`}
       >

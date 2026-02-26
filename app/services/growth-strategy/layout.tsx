@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "A web strategist in your corner — using real data to improve what's underperforming and building content that earns search authority every month.",
   alternates: {
-    canonical: "https://austino.dev/services/growth-strategy",
+    canonical: "https://www.austino.dev/services/growth-strategy",
   },
   openGraph: {
     title: "Growth Strategy | austino",
     description:
       "A web strategist in your corner — using real data to improve what's underperforming and building content that earns search authority every month.",
-    url: "https://austino.dev/services/growth-strategy",
+    url: "https://www.austino.dev/services/growth-strategy",
   },
 };
 
@@ -71,13 +71,13 @@ const serviceSchema = {
   provider: {
     "@type": "ProfessionalService",
     name: "austino",
-    url: "https://austino.dev",
+    url: "https://www.austino.dev",
   },
   areaServed: {
     "@type": "Country",
     name: "United States",
   },
-  url: "https://austino.dev/services/growth-strategy",
+  url: "https://www.austino.dev/services/growth-strategy",
 };
 
 const breadcrumbSchema = {
@@ -88,13 +88,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://austino.dev",
+      item: "https://www.austino.dev",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Growth Strategy",
-      item: "https://austino.dev/services/growth-strategy",
+      item: "https://www.austino.dev/services/growth-strategy",
     },
   ],
 };

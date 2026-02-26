@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Custom websites built for Manteca, CA businesses that actually show up when locals search. Local SEO, fast load times, and online booking — no templates.",
   alternates: {
-    canonical: "https://austino.dev/services/web-development/manteca",
+    canonical: "https://www.austino.dev/services/web-development/manteca",
   },
   openGraph: {
     title: "Web Development for Manteca Businesses | austino",
     description:
       "Custom websites built for Manteca, CA businesses that actually show up when locals search. Local SEO, fast load times, and online booking — no templates.",
-    url: "https://austino.dev/services/web-development/manteca",
+    url: "https://www.austino.dev/services/web-development/manteca",
   },
 };
 
@@ -79,7 +79,7 @@ const serviceSchema = {
   provider: {
     "@type": "ProfessionalService",
     name: "austino",
-    url: "https://austino.dev",
+    url: "https://www.austino.dev",
   },
   areaServed: {
     "@type": "City",
@@ -89,7 +89,7 @@ const serviceSchema = {
       name: "California",
     },
   },
-  url: "https://austino.dev/services/web-development/manteca",
+  url: "https://www.austino.dev/services/web-development/manteca",
 };
 
 const breadcrumbSchema = {
@@ -100,19 +100,19 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://austino.dev",
+      item: "https://www.austino.dev",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Web Development",
-      item: "https://austino.dev/services/web-development",
+      item: "https://www.austino.dev/services/web-development",
     },
     {
       "@type": "ListItem",
       position: 3,
       name: "Manteca",
-      item: "https://austino.dev/services/web-development/manteca",
+      item: "https://www.austino.dev/services/web-development/manteca",
     },
   ],
 };

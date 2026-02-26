@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Tell me about your business in a few quick steps and I'll have a plan ready for our discovery call.",
   alternates: {
-    canonical: "https://austino.dev/onboarding",
+    canonical: "https://www.austino.dev/onboarding",
   },
   openGraph: {
     title: "Get Started | austino",
     description:
       "Tell me about your business in a few quick steps and I'll have a plan ready for our discovery call.",
-    url: "https://austino.dev/onboarding",
+    url: "https://www.austino.dev/onboarding",
   },
 };
 
