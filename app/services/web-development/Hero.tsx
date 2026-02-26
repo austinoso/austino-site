@@ -1,11 +1,5 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Bell,
-  Smartphone,
-  Search,
-  Star,
-} from "lucide-react";
+import { ArrowRight, Bell, Smartphone, Search, Star } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -32,7 +26,10 @@ export default function Hero() {
       </div>
 
       {/* Phone mockup — what the customer actually sees */}
-      <div data-hero-visual className="lg:col-span-6 flex justify-center items-start">
+      <div
+        data-hero-visual
+        className="lg:col-span-6 flex justify-center items-start"
+      >
         <div className="relative w-[280px] sm:w-[300px] mt-6 lg:mt-0">
           {/* ── Floating cards ── */}
 
@@ -46,7 +43,10 @@ export default function Hero() {
           >
             <div className="flex items-center gap-2 mb-2">
               <div className="w-7 h-7 rounded-lg bg-[#4ADE80]/10 border border-[#4ADE80]/20 flex items-center justify-center flex-shrink-0">
-                <Bell className="w-3.5 h-3.5 text-[#4ADE80]" aria-hidden="true" />
+                <Bell
+                  className="w-3.5 h-3.5 text-[#4ADE80]"
+                  aria-hidden="true"
+                />
               </div>
               <div className="min-w-0">
                 <p className="text-[10px] font-semibold text-white leading-tight">
@@ -104,19 +104,29 @@ export default function Hero() {
             <div className="space-y-1.5">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-md bg-cyber-accent/10 border border-cyber-accent/20 flex items-center justify-center">
-                  <Search className="w-2.5 h-2.5 text-cyber-accent" aria-hidden="true" />
+                  <Search
+                    className="w-2.5 h-2.5 text-cyber-accent"
+                    aria-hidden="true"
+                  />
                 </div>
                 <div>
-                  <p className="text-[9px] font-medium text-white leading-tight">SEO</p>
+                  <p className="text-[9px] font-medium text-white leading-tight">
+                    SEO
+                  </p>
                   <p className="text-[8px] text-[#4ADE80]">Optimized</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-md bg-cyber-accent/10 border border-cyber-accent/20 flex items-center justify-center">
-                  <Smartphone className="w-2.5 h-2.5 text-cyber-accent" aria-hidden="true" />
+                  <Smartphone
+                    className="w-2.5 h-2.5 text-cyber-accent"
+                    aria-hidden="true"
+                  />
                 </div>
                 <div>
-                  <p className="text-[9px] font-medium text-white leading-tight">Mobile</p>
+                  <p className="text-[9px] font-medium text-white leading-tight">
+                    Mobile
+                  </p>
                   <p className="text-[8px] text-[#4ADE80]">Responsive</p>
                 </div>
               </div>

@@ -73,12 +73,10 @@ export default function OngoingSupport() {
               aria-hidden="true"
             />
             <div>
-              <p className="text-sm font-medium text-white">
-                Growth Planning
-              </p>
+              <p className="text-sm font-medium text-white">Growth Planning</p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Email campaigns, AI chatbots, retargeting &mdash; I map out
-                the next move that drives more sales, then build&nbsp;it
+                Email campaigns, AI chatbots, retargeting &mdash; I map out the
+                next move that drives more sales, then build&nbsp;it
               </p>
             </div>
           </div>
@@ -127,7 +125,8 @@ export default function OngoingSupport() {
                     your-fitness-business.com
                   </p>
                   <p className="text-sm font-semibold text-white leading-snug">
-                    Your Fitness Business &mdash; Manteca&apos;s Top-Rated Trainer
+                    Your Fitness Business &mdash; Manteca&apos;s Top-Rated
+                    Trainer
                   </p>
                   <div className="flex items-center gap-2 mt-1.5">
                     <div className="flex items-center gap-0.5">

@@ -24,7 +24,7 @@ const faqSchema = {
       name: "My current website works fine. Is this really worth the investment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "\"Works fine\" and \"actively brings in customers\" are two very different things. If your site isn't ranking on Google, converting visitors into leads, or building trust the moment someone lands on it — it's costing you business you never see.",
+        text: '"Works fine" and "actively brings in customers" are two very different things. If your site isn\'t ranking on Google, converting visitors into leads, or building trust the moment someone lands on it — it\'s costing you business you never see.',
       },
     },
     {

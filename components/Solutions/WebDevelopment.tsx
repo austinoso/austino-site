@@ -1,4 +1,12 @@
-import { Heart, Sparkles, Zap as ZapIcon, ArrowRight, Smartphone, Zap, Search } from "lucide-react";
+import {
+  Heart,
+  Sparkles,
+  Zap as ZapIcon,
+  ArrowRight,
+  Smartphone,
+  Zap,
+  Search,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -61,22 +69,44 @@ export default function WebDevelopment() {
               {/* Your site — fast */}
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] text-cyber-gray-400">Your site</span>
-                  <span data-speed="1.2" className="text-[11px] font-bold text-[#4ADE80] font-mono">0s</span>
+                  <span className="text-[10px] text-cyber-gray-400">
+                    Your site
+                  </span>
+                  <span
+                    data-speed="1.2"
+                    className="text-[11px] font-bold text-[#4ADE80] font-mono"
+                  >
+                    0s
+                  </span>
                 </div>
                 <div className="h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
-                  <div data-bar className="h-full rounded-full bg-[#4ADE80]" style={{ width: "25%" }} />
+                  <div
+                    data-bar
+                    className="h-full rounded-full bg-[#4ADE80]"
+                    style={{ width: "25%" }}
+                  />
                 </div>
               </div>
 
               {/* Competitor — slow */}
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] text-cyber-gray-400">Avg. competitor</span>
-                  <span data-speed="4.8" className="text-[11px] font-bold text-cyber-gray-500 font-mono">0s</span>
+                  <span className="text-[10px] text-cyber-gray-400">
+                    Avg. competitor
+                  </span>
+                  <span
+                    data-speed="4.8"
+                    className="text-[11px] font-bold text-cyber-gray-500 font-mono"
+                  >
+                    0s
+                  </span>
                 </div>
                 <div className="h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
-                  <div data-bar className="h-full rounded-full bg-cyber-gray-600" style={{ width: "100%" }} />
+                  <div
+                    data-bar
+                    className="h-full rounded-full bg-cyber-gray-600"
+                    style={{ width: "100%" }}
+                  />
                 </div>
               </div>
 
@@ -115,7 +145,9 @@ export default function WebDevelopment() {
               aria-hidden="true"
             />
             <div>
-              <p className="text-sm font-medium text-white">Design That Builds Trust</p>
+              <p className="text-sm font-medium text-white">
+                Design That Builds Trust
+              </p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
                 Professional design and strategic layout that builds credibility
                 instantly and moves visitors toward action
@@ -143,7 +175,9 @@ export default function WebDevelopment() {
               aria-hidden="true"
             />
             <div>
-              <p className="text-sm font-medium text-white">Blazing Fast, Everywhere</p>
+              <p className="text-sm font-medium text-white">
+                Blazing Fast, Everywhere
+              </p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
                 Sub-second load times on any device &mdash; because 53% of
                 visitors leave if your site takes longer than 3 seconds

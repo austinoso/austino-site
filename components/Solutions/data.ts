@@ -13,5 +13,3 @@ export const terminalOutput = [
   { style: "accent", text: "Time saved: 3.5 hours" },
   { style: "cursor", text: "$ _" },
 ];
-
-

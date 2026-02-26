@@ -16,11 +16,7 @@ export default function JsonLd() {
         name: "United States",
       },
     ],
-    serviceType: [
-      "Web Development",
-      "Growth Strategy",
-      "Business Automation",
-    ],
+    serviceType: ["Web Development", "Growth Strategy", "Business Automation"],
     founder: {
       "@type": "Person",
       name: "Austin O.",
