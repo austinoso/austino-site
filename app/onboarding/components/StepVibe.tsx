@@ -26,6 +26,7 @@ const ActionTakerPreview = (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className="w-full h-auto"
+    aria-hidden="true"
   >
     {/* nav bar */}
     <rect x="0" y="0" width="260" height="18" fill={W.block} />
@@ -82,6 +83,7 @@ const StorytellerPreview = (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className="w-full h-auto"
+    aria-hidden="true"
   >
     {/* nav bar */}
     <rect x="0" y="0" width="260" height="18" fill={W.block} />
@@ -139,6 +141,7 @@ const AuthorityPreview = (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className="w-full h-auto"
+    aria-hidden="true"
   >
     {/* nav bar */}
     <rect x="0" y="0" width="260" height="18" fill={W.block} />

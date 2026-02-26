@@ -621,8 +621,16 @@ export default function RealExamples() {
           <div className="lg:hidden border-b border-white/[0.06] bg-[#0C1018] relative">
             <div
               onClick={() => setMobileOpen((v) => !v)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setMobileOpen((v) => !v);
+                }
+              }}
               role="button"
               tabIndex={0}
+              aria-expanded={mobileOpen}
+              aria-label="Select automation tool"
               className="w-full flex items-center gap-2.5 px-4 py-3 text-left cursor-pointer"
             >
               {(() => {

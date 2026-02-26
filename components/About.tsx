@@ -2,44 +2,45 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getGSAP } from "@/lib/gsap";
 import WordReveal from "@/components/ui/WordReveal";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx: gsap.Context | null = null;
+    let reverted = false;
+    let ctx: { revert: () => void } | null = null;
 
     const label = sectionRef.current?.querySelector("[data-label]");
     const items = sectionRef.current?.querySelectorAll("[data-fade]");
 
-    ctx = gsap.context(() => {
-      if (label) {
-        gsap.from(label, {
-          opacity: 0,
-          duration: 0.4,
-          ease: "power2.out",
-          scrollTrigger: { trigger: label, start: "top 85%" },
-        });
-      }
+    getGSAP().then(({ gsap }) => {
+      if (reverted) return;
+      ctx = gsap.context(() => {
+        if (label) {
+          gsap.from(label, {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            scrollTrigger: { trigger: label, start: "top 85%" },
+          });
+        }
 
-      if (items?.length) {
-        gsap.from(items, {
-          y: 12,
-          opacity: 0,
-          duration: 0.5,
-          ease: "power3.out",
-          stagger: 0.12,
-          scrollTrigger: { trigger: items[0], start: "top 88%" },
-        });
-      }
-    }, sectionRef);
+        if (items?.length) {
+          gsap.from(items, {
+            y: 12,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.out",
+            stagger: 0.12,
+            scrollTrigger: { trigger: items[0], start: "top 88%" },
+          });
+        }
+      }, sectionRef);
+    });
 
-    return () => ctx?.revert();
+    return () => { reverted = true; ctx?.revert(); };
   }, []);
 
   return (

@@ -1,28 +1,28 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getGSAP } from "@/lib/gsap";
 import WordReveal from "@/components/ui/WordReveal";
 
 import WebDevelopment from "./WebDevelopment";
 import Automation from "./Automation";
 import OngoingSupport from "./OngoingSupport";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Solutions() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    let ctx: gsap.Context | null = null;
+    let reverted = false;
+    let ctx: { revert: () => void } | null = null;
 
     const subs =
       sectionRef.current?.querySelectorAll<HTMLElement>("[data-subsection]");
     const closer = sectionRef.current?.querySelector("[data-closer]");
 
-    ctx = gsap.context(() => {
+    getGSAP().then(({ gsap }) => {
+      if (reverted) return;
+      ctx = gsap.context(() => {
       /* Label fade */
       if (labelRef.current) {
         gsap.from(labelRef.current, {
@@ -155,8 +155,9 @@ export default function Solutions() {
         });
       }
     }, sectionRef);
+    }); // end dynamic import
 
-    return () => ctx?.revert();
+    return () => { reverted = true; ctx?.revert(); };
   }, []);
 
   return (

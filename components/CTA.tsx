@@ -3,58 +3,59 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getGSAP } from "@/lib/gsap";
 import WordReveal from "@/components/ui/WordReveal";
 import FlowLines from "@/components/ui/FlowLines";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function CTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx: gsap.Context | null = null;
+    let reverted = false;
+    let ctx: { revert: () => void } | null = null;
 
     /* Initial styles set via JSX to prevent CLS */
     const label = sectionRef.current?.querySelector("[data-label]");
     const body = sectionRef.current?.querySelectorAll("[data-fade]");
     const line = sectionRef.current?.querySelector("[data-line]");
 
-    ctx = gsap.context(() => {
-      /* Label */
-      if (label) {
-        gsap.from(label, {
-          opacity: 0,
-          duration: 0.4,
-          ease: "power2.out",
-          scrollTrigger: { trigger: label, start: "top 85%" },
-        });
-      }
+    getGSAP().then(({ gsap }) => {
+      if (reverted) return;
+      ctx = gsap.context(() => {
+        /* Label */
+        if (label) {
+          gsap.from(label, {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            scrollTrigger: { trigger: label, start: "top 85%" },
+          });
+        }
 
-      /* Body + button */
-      if (body?.length) {
-        gsap.from(body, {
-          y: 10,
-          opacity: 0,
-          duration: 0.5,
-          ease: "power3.out",
-          scrollTrigger: { trigger: body[0], start: "top 88%" },
-        });
-      }
+        /* Body + button */
+        if (body?.length) {
+          gsap.from(body, {
+            y: 10,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.out",
+            scrollTrigger: { trigger: body[0], start: "top 88%" },
+          });
+        }
 
-      /* Divider line grow */
-      if (line) {
-        gsap.from(line, {
-          scaleX: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: { trigger: line, start: "top 92%" },
-        });
-      }
-    }, sectionRef);
+        /* Divider line grow */
+        if (line) {
+          gsap.from(line, {
+            scaleX: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: { trigger: line, start: "top 92%" },
+          });
+        }
+      }, sectionRef);
+    });
 
-    return () => ctx?.revert();
+    return () => { reverted = true; ctx?.revert(); };
   }, []);
 
   return (

@@ -58,7 +58,7 @@ export default function StepCheckout({
 
           <div className="flex items-center gap-2 text-sm font-semibold text-cyber-accent group-hover:gap-3 transition-all duration-300">
             <span>Pay & Schedule Call</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </div>
         </button>
 
@@ -85,7 +85,7 @@ export default function StepCheckout({
 
           <div className="flex items-center gap-2 text-sm font-semibold text-cyber-gray-300 group-hover:gap-3 group-hover:text-white transition-all duration-300">
             <span>Schedule Call</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </div>
         </button>
       </div>
@@ -96,6 +96,7 @@ export default function StepCheckout({
             className="animate-spin h-4 w-4 text-cyber-accent"
             fill="none"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <circle
               className="opacity-25"

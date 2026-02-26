@@ -5,11 +5,8 @@ import Link from "next/link";
 import { getAllProjects } from "@/lib/projects";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getGSAP } from "@/lib/gsap";
 import WordReveal from "@/components/ui/WordReveal";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Work() {
   const projects = getAllProjects();
@@ -20,41 +17,45 @@ export default function Work() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx: gsap.Context | null = null;
+    let reverted = false;
+    let ctx: { revert: () => void } | null = null;
 
-    ctx = gsap.context(() => {
-      if (labelRef.current) {
-        gsap.from(labelRef.current, {
-          opacity: 0,
-          duration: 0.4,
-          ease: "power2.out",
-          scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
-        });
-      }
+    getGSAP().then(({ gsap }) => {
+      if (reverted) return;
+      ctx = gsap.context(() => {
+        if (labelRef.current) {
+          gsap.from(labelRef.current, {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            scrollTrigger: { trigger: labelRef.current, start: "top 85%" },
+          });
+        }
 
-      if (imageRef.current) {
-        gsap.from(imageRef.current, {
-          y: 20,
-          opacity: 0,
-          duration: 0.7,
-          ease: "power3.out",
-          scrollTrigger: { trigger: imageRef.current, start: "top 82%" },
-        });
-      }
+        if (imageRef.current) {
+          gsap.from(imageRef.current, {
+            y: 20,
+            opacity: 0,
+            duration: 0.7,
+            ease: "power3.out",
+            scrollTrigger: { trigger: imageRef.current, start: "top 82%" },
+          });
+        }
 
-      if (contentRef.current) {
-        gsap.from(contentRef.current, {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          delay: 0.1,
-          ease: "power3.out",
-          scrollTrigger: { trigger: contentRef.current, start: "top 85%" },
-        });
-      }
-    }, sectionRef);
+        if (contentRef.current) {
+          gsap.from(contentRef.current, {
+            y: 20,
+            opacity: 0,
+            duration: 0.6,
+            delay: 0.1,
+            ease: "power3.out",
+            scrollTrigger: { trigger: contentRef.current, start: "top 85%" },
+          });
+        }
+      }, sectionRef);
+    });
 
-    return () => ctx?.revert();
+    return () => { reverted = true; ctx?.revert(); };
   }, []);
 
   if (!project) return null;
@@ -137,6 +138,7 @@ export default function Work() {
                 className="text-xs font-mono text-cyber-gray-400 hover:text-cyber-accent transition-colors"
               >
                 mymassagecottage.com
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
             </div>
           </div>
@@ -171,7 +173,7 @@ export default function Work() {
               </p>
               {highlights.map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-cyber-accent/70 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-cyber-accent/70 mt-0.5 flex-shrink-0" aria-hidden="true" />
                   <span className="text-sm text-cyber-gray-300 leading-relaxed">
                     {item}
                   </span>

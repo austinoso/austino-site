@@ -57,6 +57,7 @@ export default function CardSelect({
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={3}
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"

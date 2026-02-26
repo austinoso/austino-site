@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { gsap } from "gsap";
 import { signalHeroReady } from "@/lib/heroReady";
 import {
   Mail,
@@ -13,6 +12,8 @@ import {
   ChevronRight,
   ArrowRight,
 } from "lucide-react";
+
+type GSAPType = typeof import("gsap")["gsap"];
 
 /* ------------------------------------------------------------------ */
 /*  Cinematic hero: 5-scene loop that demos the full user → automation */
@@ -76,6 +77,10 @@ export default function Hero() {
     const cursor = cursorRef.current;
     if (!scenes.every(Boolean) || !cursor) return;
 
+    let cancelled = false;
+    import("gsap").then(({ gsap }) => {
+      if (cancelled) return;
+
     // Show copy & visual immediately
     if (copyRef.current) gsap.set(copyRef.current, { opacity: 1, y: 0 });
     if (visualRef.current) gsap.set(visualRef.current, { opacity: 1, y: 0 });
@@ -132,6 +137,8 @@ export default function Hero() {
         if (statScore.current) statScore.current.textContent = "100";
         break;
     }
+    }); // end dynamic import
+    return () => { cancelled = true; };
   }, [isDebug, debugScene]);
 
   /* ── Normal animation (skipped in debug mode) ── */
@@ -147,7 +154,9 @@ export default function Hero() {
     const cursor = cursorRef.current;
     if (!scenes.every(Boolean) || !cursor) return;
 
-    const ctx = gsap.context(() => {
+    let ctx: ReturnType<GSAPType["context"]>;
+    import("gsap").then(({ gsap }) => {
+    ctx = gsap.context(() => {
       signalHeroReady();
 
       /* If reduced motion, just show scene 1 statically */
@@ -413,8 +422,9 @@ export default function Hero() {
 
       buildTimeline();
     }, heroRef);
+    }); // end dynamic import
 
-    return () => ctx.revert();
+    return () => ctx?.revert();
   }, [isDebug]);
 
   /* ── Pause / Resume the hero animation loop ── */
@@ -423,6 +433,7 @@ export default function Hero() {
     const hero = heroRef.current;
     if (!hero) return;
     // Pause/resume all GSAP tweens scoped to this hero section
+    import("gsap").then(({ gsap }) => {
     if (isPaused) {
       gsap.getTweensOf(hero.querySelectorAll("*")).forEach((t) => t.pause());
       gsap.globalTimeline.getChildren(true, true, true).forEach((child) => {
@@ -450,6 +461,7 @@ export default function Hero() {
         }
       });
     }
+    }); // end dynamic import
   }, [isPaused, isDebug]);
 
   /* ── Render ── */

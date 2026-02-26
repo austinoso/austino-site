@@ -127,6 +127,7 @@ export default function GoogleRanking() {
                 className="text-[10px] text-cyber-accent/60 hover:text-cyber-accent transition-colors font-mono mt-2 inline-block"
               >
                 {signal.source.label} ↗
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
             </div>
           </div>

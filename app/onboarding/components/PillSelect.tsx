@@ -74,6 +74,7 @@ export default function PillSelect({
           value={otherValue}
           onChange={(e) => onOtherChange?.(e.target.value)}
           placeholder="What else do you use?"
+          aria-label="Other tools you use"
           className="w-full px-4 py-3 bg-[#111318] border border-white/[0.06] rounded-lg text-white text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-white/[0.12]"
         />
       )}

@@ -160,10 +160,11 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
       >
         {/* Open-ended brand description */}
         <div className="space-y-3">
-          <p className="text-sm text-white/80 font-medium">
+          <label htmlFor="brandColor" className="text-sm text-white/80 font-medium">
             Have a logo or color idea in mind?
-          </p>
+          </label>
           <textarea
+            id="brandColor"
             value={data.brandColor}
             onChange={(e) => onChange("brandColor", e.target.value)}
             className={inputClass}
@@ -238,6 +239,7 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
                 type="file"
                 accept=".png,.jpg,.jpeg,.webp,.svg,.pdf"
                 className="hidden"
+                aria-label="Upload logo file"
                 onChange={(e) => {
                   const file = e.target.files?.[0];
                   if (file) handleFile(file);

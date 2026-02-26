@@ -49,6 +49,7 @@ export default function FirstImpressions() {
                   className="text-[10px] text-cyber-accent/60 hover:text-cyber-accent transition-colors font-mono mt-0.5 inline-block"
                 >
                   Stanford Web Credibility, 2002 ↗
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </div>
             </div>
@@ -89,6 +90,7 @@ export default function FirstImpressions() {
                   className="text-[10px] text-cyber-accent/60 hover:text-cyber-accent transition-colors font-mono mt-0.5 inline-block"
                 >
                   BankMyCell ↗
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </div>
             </div>
@@ -128,6 +130,7 @@ export default function FirstImpressions() {
                   className="text-[10px] text-cyber-accent/60 hover:text-cyber-accent transition-colors font-mono mt-0.5 inline-block"
                 >
                   Statcounter, 2025 ↗
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </div>
             </div>
@@ -167,6 +170,7 @@ export default function FirstImpressions() {
                   className="text-[10px] text-cyber-accent/60 hover:text-cyber-accent transition-colors font-mono mt-0.5 inline-block"
                 >
                   Think with Google ↗
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </div>
             </div>
@@ -206,6 +210,7 @@ export default function FirstImpressions() {
                   className="text-[10px] text-cyber-accent/60 hover:text-cyber-accent transition-colors font-mono mt-0.5 inline-block"
                 >
                   Adobe via HubSpot ↗
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </div>
             </div>

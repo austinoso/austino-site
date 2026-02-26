@@ -1,10 +1,7 @@
 "use client";
 
 import { Fragment, useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { getGSAP } from "@/lib/gsap";
 
 interface WordRevealProps {
   /** The full text to animate word-by-word */
@@ -47,9 +44,9 @@ export default function WordReveal({
     ).matches;
     if (prefersReducedMotion) return;
 
-    let tween: gsap.core.Tween | null = null;
+    let tween: { scrollTrigger?: { kill: () => void }; kill: () => void } | null = null;
 
-    const play = () => {
+    getGSAP().then(({ gsap }) => {
       tween = gsap.from(els, {
         y: "100%",
         opacity: 0,
@@ -61,9 +58,7 @@ export default function WordReveal({
           ? {}
           : { scrollTrigger: { trigger: els[0], start: "top 85%" } }),
       });
-    };
-
-    play();
+    });
 
     return () => {
       tween?.scrollTrigger?.kill();

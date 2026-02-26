@@ -1,11 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getGSAP } from "@/lib/gsap";
 import WordReveal from "@/components/ui/WordReveal";
-
-gsap.registerPlugin(ScrollTrigger);
 
 /* ────────────────────────────────────────────────────────────────── */
 /*  Card data                                                        */
@@ -51,38 +48,42 @@ export default function PainPoints() {
 
   /* ── Scroll-triggered reveal animations ── */
   useEffect(() => {
-    let ctx: gsap.Context | null = null;
+    let reverted = false;
+    let ctx: { revert: () => void } | null = null;
 
-    ctx = gsap.context(() => {
-      const s = sectionRef.current;
-      if (!s) return;
+    getGSAP().then(({ gsap }) => {
+      if (reverted) return;
+      ctx = gsap.context(() => {
+        const s = sectionRef.current;
+        if (!s) return;
 
-      /* Label */
-      const label = s.querySelector("[data-label]");
-      if (label) {
-        gsap.from(label, {
-          opacity: 0,
-          duration: 0.4,
-          ease: "power2.out",
-          scrollTrigger: { trigger: label, start: "top 85%" },
-        });
-      }
+        /* Label */
+        const label = s.querySelector("[data-label]");
+        if (label) {
+          gsap.from(label, {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            scrollTrigger: { trigger: label, start: "top 85%" },
+          });
+        }
 
-      /* Cards — staggered entrance */
-      const cards = s.querySelectorAll("[data-card]");
-      if (cards.length) {
-        gsap.from(cards, {
-          y: 32,
-          opacity: 0,
-          duration: 0.7,
-          ease: "power3.out",
-          stagger: 0.15,
-          scrollTrigger: { trigger: cards[0], start: "top 82%" },
-        });
-      }
-    }, sectionRef);
+        /* Cards — staggered entrance */
+        const cards = s.querySelectorAll("[data-card]");
+        if (cards.length) {
+          gsap.from(cards, {
+            y: 32,
+            opacity: 0,
+            duration: 0.7,
+            ease: "power3.out",
+            stagger: 0.15,
+            scrollTrigger: { trigger: cards[0], start: "top 82%" },
+          });
+        }
+      }, sectionRef);
+    });
 
-    return () => ctx?.revert();
+    return () => { reverted = true; ctx?.revert(); };
   }, []);
 
   return (

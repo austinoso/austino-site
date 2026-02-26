@@ -78,9 +78,10 @@ export default function Confirmation({
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-cyber-accent text-[#050505] font-semibold text-base rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)] w-full sm:w-auto"
         >
-          <Calendar className="w-4 h-4" />
+          <Calendar className="w-4 h-4" aria-hidden="true" />
           <span>Schedule Discovery Call</span>
-          <ArrowRight className="w-4 h-4" />
+          <span className="sr-only"> (opens in a new tab)</span>
+          <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </a>
 
         <p className="text-xs text-cyber-gray-500">
@@ -91,7 +92,7 @@ export default function Confirmation({
       {/* Help line */}
       <div className="pt-4 border-t border-white/[0.06]">
         <div className="flex items-center justify-center gap-2 text-sm text-cyber-gray-400">
-          <Mail className="w-4 h-4" />
+          <Mail className="w-4 h-4" aria-hidden="true" />
           <span>Questions? Reach me at </span>
           <a
             href="mailto:connect@austino.dev"

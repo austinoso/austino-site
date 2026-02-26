@@ -92,7 +92,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
-                aria-label="GitHub profile"
+                aria-label="GitHub profile (opens in a new tab)"
                 data-umami-event="footer-github"
               >
                 <svg
@@ -114,7 +114,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
-                aria-label="LinkedIn profile"
+                aria-label="LinkedIn profile (opens in a new tab)"
                 data-umami-event="footer-linkedin"
               >
                 <svg

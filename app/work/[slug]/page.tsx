@@ -89,6 +89,7 @@ export default async function CaseStudyPage({
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-cyber-accent text-[#060608] font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110"
                 >
                   {study.linkText || "Visit Live Site"}
+                  <span className="sr-only"> (opens in a new tab)</span>
                   <svg
                     className="w-3.5 h-3.5"
                     fill="none"
