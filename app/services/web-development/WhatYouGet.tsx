@@ -25,25 +25,25 @@ const solutions: {
   },
   {
     icon: Smartphone,
-    solves: "Mobile & phone anxiety",
-    title: "Mobile-first with self-service built in",
-    body: "Responsive on every device. Online booking, forms, and FAQs so customers can act without picking up the phone.",
+    solves: "Losing customers after hours",
+    title: "Built-in tools that turn visitors into customers",
+    body: "Online booking, quote forms, payments, and instant answers \u2014 available 24/7. Your customers get the convenience they expect, and you wake up to new appointments instead of voicemails.",
   },
   {
     icon: Gauge,
-    solves: "Speed & Core Web Vitals",
-    title: "Sub-second loads, passing every metric",
-    body: "Optimized images, minimal JavaScript, edge-cached globally. Google measures this — and your visitors feel it.",
+    solves: "Speed & reliability",
+    title: "Loads instantly \u2014 on any device, anywhere",
+    body: "Hosted on the same infrastructure behind Shopify and Netflix \u2014 so your site stays fast on any device, any connection, even on your busiest day.",
   },
   {
     icon: Search,
     solves: "Crawlability & structure",
     title: "Technical SEO from the ground up",
-    body: "Schema markup, XML sitemap, proper headings, meta tags, and optimized images — so Google understands what you do.",
+    body: "The behind-the-scenes code that tells Google exactly what you do, where you are, and why you should rank \u2014 set up from day one.",
   },
   {
     icon: BookOpen,
-    solves: "Topical authority & E-E-A-T",
+    solves: "Topical authority & trust",
     title: "Content that proves your expertise",
     body: "Service pages, FAQs, case studies, and structured content that signal real authority to Google.",
   },
@@ -65,7 +65,9 @@ function SolutionCard({ s }: { s: (typeof solutions)[number] }) {
         {s.solves}
       </p>
       <h3 className="text-[15px] font-semibold text-white mb-2">{s.title}</h3>
-      <p className="text-sm text-cyber-gray-400 leading-relaxed">{s.body}</p>
+      <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty">
+        {s.body}
+      </p>
     </div>
   );
 }

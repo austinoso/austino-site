@@ -9,12 +9,10 @@ export default function Hero() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-white leading-tight tracking-tight text-balance">
           Your website could be closing more deals.
         </h1>
-        <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
-          Your customers expect to find answers, book appointments, and place
-          orders — all from your website. Let&apos;s be honest, most people
-          would rather do everything online than make a call. That&apos;s not
-          just good for them — it saves you from answering the same questions on
-          repeat.
+        <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed text-balance">
+          Your customers want to book appointments, place orders, and get
+          answers &mdash; without picking up the phone. If they can&apos;t do it
+          on your website, they&apos;ll do it on someone else&apos;s.
         </p>
         <Link
           href="/contact"

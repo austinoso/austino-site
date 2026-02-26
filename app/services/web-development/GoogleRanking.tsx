@@ -20,7 +20,7 @@ const signals: {
     heading: "Core Web Vitals",
     stat: "ranking signal",
     statLabel: "Confirmed by Google",
-    body: "Google measures your load speed, layout stability, and interactivity in real time. Sites that fail these thresholds get pushed down in results — even if your content is solid.",
+    body: "Google scores every site on speed, stability, and responsiveness. Sites that fail get pushed down in results \u2014 even with great content.",
     source: {
       label: "Google Search Central",
       href: "https://developers.google.com/search/docs/appearance/core-web-vitals",
@@ -42,7 +42,7 @@ const signals: {
     heading: "Local Search Intent",
     stat: "46%",
     statLabel: "of searches have local intent",
-    body: "Nearly half of all Google searches are people looking for something nearby. Your site's structure — NAP consistency, local schema, and Google Business integration — determines if you show up in the map pack or get buried.",
+    body: "Nearly half of all Google searches are people looking for something nearby. Your site needs the right location signals \u2014 consistent business info, Google Business integration, and location-specific pages \u2014 to show up in the map results instead of getting buried.",
     source: {
       label: "GoGulf / Safari Digital",
       href: "https://www.safaridigital.com.au/blog/local-seo-statistics/",
@@ -51,9 +51,9 @@ const signals: {
   {
     icon: BookOpen,
     heading: "Topical Authority",
-    stat: "E-E-A-T",
-    statLabel: "Google's quality framework",
-    body: "Google rewards sites that demonstrate real expertise. Detailed service pages, comprehensive FAQs, case studies, and structured content signal that your business actually knows what it's talking about — not just that it exists.",
+    stat: "Trust",
+    statLabel: "Google's quality signals",
+    body: "Google rewards sites that demonstrate real expertise. Detailed service pages, FAQs, case studies, and structured content signal that your business actually knows what it's talking about \u2014 not just that it exists.",
     source: {
       label: "Google Quality Rater Guidelines",
       href: "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
@@ -64,7 +64,7 @@ const signals: {
     heading: "Crawlability & Structure",
     stat: "invisible",
     statLabel: "without proper markup",
-    body: "Schema markup, XML sitemaps, proper heading hierarchy, and clean URLs — these are table stakes for Google to understand what you do and serve it to the right people. Most small business sites miss all of them.",
+    body: "Behind the scenes, your site needs specific code that tells Google what you do and where you do it. Most small business sites are missing all of it \u2014 which is why they don't show up.",
     source: {
       label: "Google Search Central",
       href: "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",

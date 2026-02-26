@@ -31,10 +31,7 @@ const faqs = [
 
 export default function GrowthStrategyPage() {
   return (
-    <main
-      id="main-content"
-      className="relative min-h-screen bg-cyber-dark"
-    >
+    <main id="main-content" className="relative min-h-screen bg-cyber-dark">
       <PageScrollAnimator />
       <Navigation />
 
@@ -64,11 +61,11 @@ export default function GrowthStrategyPage() {
                   Launched is just the starting line.
                 </h1>
                 <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed text-pretty">
-                  A beautiful website is just the starting line. Without someone
-                  reading the data, improving what&apos;s underperforming, and
-                  building new content that ranks — your competitors will pass
-                  you. I stay on as your web strategist, turning your site into
-                  a growth engine.
+                  A great website doesn&apos;t grow itself. But most local
+                  businesses never touch their site after launch — no new
+                  content, no data, no strategy. With someone reading the
+                  numbers and building pages that rank, you can be the one
+                  that&nbsp;pulls&nbsp;ahead.
                 </p>
                 <Link
                   href="/contact"
@@ -103,7 +100,11 @@ export default function GrowthStrategyPage() {
                           value: "2,847",
                           change: "+34%",
                         },
-                        { label: "Bounce Rate", value: "31%", change: "−12%" },
+                        {
+                          label: "Visitor Drop-off",
+                          value: "31%",
+                          change: "−12%",
+                        },
                         {
                           label: "Keywords Top 10",
                           value: "47",
@@ -139,12 +140,12 @@ export default function GrowthStrategyPage() {
                             result: "+340 organic visits",
                           },
                           {
-                            action: "Reworked booking page (high bounce)",
+                            action: "Reworked booking page layout",
                             result: "+22% completion",
                           },
                           {
-                            action: "Added FAQ schema markup",
-                            result: "Rich results enabled",
+                            action: "Rewrote FAQ page for search",
+                            result: "+3 rich snippets on Google",
                           },
                         ].map((log) => (
                           <div
@@ -191,7 +192,7 @@ export default function GrowthStrategyPage() {
                     The vast majority of local businesses launch a site and
                     never touch it again. No new content, no data review, no
                     strategy. That means the bar is low — and the first business
-                    that starts building real search authority is the one Google
+                    that starts showing up consistently is the one Google
                     rewards.
                   </p>
 
@@ -199,15 +200,15 @@ export default function GrowthStrategyPage() {
                     {[
                       {
                         title: "Rankings don't hold themselves",
-                        body: "Google rewards sites that consistently publish relevant content. A static site slowly drops as competitors build authority around the same keywords you're trying to win.",
+                        body: "Google rewards sites that consistently publish relevant content. A static site slowly fades from results — and the business that starts publishing first is the one that owns those searches.",
                       },
                       {
-                        title: "Bounce rate is a silent killer",
-                        body: "If visitors land on your page and leave without booking, something's wrong — the layout, the copy, the load time. Without someone reading the data, you'd never know.",
+                        title: "Visitors leave and you never know why",
+                        body: "If people land on your page and leave without booking, something's wrong — the layout, the copy, the load time. Without someone reading the data, you'd never know.",
                       },
                       {
                         title: "Customers search in ways you don't expect",
-                        body: `People Google things like \"best personal trainer for beginners near me.\" If you don't have a page answering that specific question, someone else does — and they get the click.`,
+                        body: `People Google things like \"best personal trainer for beginners near me.\" If you don't have a page answering that specific question, you're invisible for that search — and that's a customer you'll never see.`,
                       },
                     ].map((item) => (
                       <div
@@ -243,23 +244,25 @@ export default function GrowthStrategyPage() {
                       </div>
                     </div>
                     <div className="p-4">
-                      {/* Competitor results */}
-                      <div className="flex items-start gap-3 py-3 border-b border-white/[0.06]">
+                      {/* Your business — #1 with a strategy */}
+                      <div className="flex items-start gap-3 py-3 border-b border-white/[0.06] rounded-md bg-cyber-accent/[0.04] -mx-2 px-2">
                         <span className="text-[10px] font-mono text-cyber-accent w-4 pt-1 flex-shrink-0">
                           1
                         </span>
                         <div className="min-w-0">
-                          <p className="text-[11px] text-[#8AB4F8] mb-0.5 truncate">
-                            elitefit.com/personal-training
+                          <p className="text-[11px] text-cyber-accent mb-0.5 truncate">
+                            yourbusiness.com/personal-training
                           </p>
                           <p className="text-xs text-white/90 leading-snug mb-0.5">
                             Personal Training — Free Consultation
                           </p>
-                          <p className="text-[10px] text-cyber-gray-400">
-                            Updated weekly · 14 pages · Schema markup
+                          <p className="text-[10px] text-[#4ADE80]">
+                            Updated this week · 14 pages · Growth strategy
+                            active
                           </p>
                         </div>
                       </div>
+                      {/* Competitors — stale */}
                       <div className="flex items-start gap-3 py-3 border-b border-white/[0.06]">
                         <span className="text-[10px] font-mono text-cyber-gray-500 w-4 pt-1 flex-shrink-0">
                           2
@@ -271,8 +274,8 @@ export default function GrowthStrategyPage() {
                           <p className="text-xs text-white/90 leading-snug mb-0.5">
                             Certified Personal Trainers — All Levels
                           </p>
-                          <p className="text-[10px] text-cyber-gray-400">
-                            Updated monthly · 10 service pages
+                          <p className="text-[10px] text-cyber-gray-500">
+                            Last updated 8mo ago · 3 pages
                           </p>
                         </div>
                       </div>
@@ -282,33 +285,26 @@ export default function GrowthStrategyPage() {
                         </span>
                         <div className="min-w-0">
                           <p className="text-[11px] text-[#8AB4F8] mb-0.5 truncate">
-                            peakperformance.co/coaching
+                            peakperformance.co
                           </p>
-                          <p className="text-xs text-white/90 leading-snug mb-0.5">
-                            1-on-1 Coaching — Downtown Location
+                          <p className="text-xs text-white/50 leading-snug mb-0.5">
+                            Peak Performance — Home
                           </p>
-                          <p className="text-[10px] text-cyber-gray-400">
-                            Blog + FAQ pages · Updated bi-weekly
+                          <p className="text-[10px] text-cyber-gray-500">
+                            Last updated 2yr ago · 1 page
                           </p>
                         </div>
                       </div>
-                      {/* Gap */}
-                      <div className="py-1.5 text-center">
-                        <span className="text-[10px] text-cyber-gray-500 font-mono">
-                          ···
-                        </span>
-                      </div>
-                      {/* Your business — buried */}
-                      <div className="flex items-start gap-3 py-3 rounded-md bg-white/[0.03] -mx-2 px-2">
+                      <div className="flex items-start gap-3 py-3 border-b border-white/[0.06]">
                         <span className="text-[10px] font-mono text-cyber-gray-500 w-4 pt-1 flex-shrink-0">
-                          5
+                          4
                         </span>
                         <div className="min-w-0">
-                          <p className="text-[11px] text-cyber-gray-500 mb-0.5 truncate">
-                            yourbusiness.com
+                          <p className="text-[11px] text-[#8AB4F8] mb-0.5 truncate">
+                            elitefit.com
                           </p>
                           <p className="text-xs text-white/50 leading-snug mb-0.5">
-                            Your Business — Home
+                            Elite Fit — Home
                           </p>
                           <p className="text-[10px] text-cyber-gray-500">
                             Last updated 14mo ago · 4 pages
@@ -353,17 +349,17 @@ export default function GrowthStrategyPage() {
                   {
                     step: "01",
                     title: "Read the Data",
-                    body: "I monitor your traffic, bounce rates, conversions, and keyword rankings. When a page isn't performing, I dig into why — and I fix it.",
+                    body: "I monitor your traffic, conversions, and keyword rankings. When a page isn't performing, I dig into why — and I fix it.",
                   },
                   {
                     step: "02",
                     title: "Improve What's Underperforming",
-                    body: "High bounce rate on your booking page? I test a new layout. Visitors dropping off before the CTA? I move it above the fold. Every change is backed by data, not guesswork.",
+                    body: "Visitors landing on your booking page but not booking? I test a new layout. People scrolling past your contact form? I move it where they'll see it first. Every change is backed by data, not guesswork.",
                   },
                   {
                     step: "03",
                     title: "Build Search Authority",
-                    body: "I create new pages — service deep-dives, FAQ content, location-specific landing pages — designed to capture the long-tail searches your customers are already making.",
+                    body: "I create new pages — service deep-dives, FAQ content, location-specific landing pages — designed to capture the specific searches your customers are already making.",
                   },
                 ].map((item) => (
                   <div
@@ -580,7 +576,7 @@ export default function GrowthStrategyPage() {
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                     <div>
                       <p className="text-xs font-mono text-cyber-gray-500 uppercase tracking-wider mb-2">
-                        Bounce Rate
+                        Visitors Who Leave
                       </p>
                       <div className="flex items-baseline gap-3 mb-1">
                         <p className="text-3xl sm:text-4xl font-semibold text-white font-mono">
@@ -805,13 +801,13 @@ export default function GrowthStrategyPage() {
                         month: "Month 1",
                         title: "Baseline & strategy",
                         description:
-                          "Analytics go live. I audit your current rankings, identify pages with high bounce rates, and map out which keywords you should be targeting. We establish your baseline so every future improvement is measurable.",
+                          "Analytics go live. I audit your current rankings, identify pages where visitors leave without taking action, and map out which keywords you should be targeting. We establish your baseline so every future improvement is measurable.",
                       },
                       {
                         month: "Month 3",
                         title: "Data-driven fixes",
                         description:
-                          "Data shows your booking page has a 60% bounce rate. I redesign the flow, simplify the form, and completions jump 22%. Two new service deep-dive pages go live and start indexing.",
+                          "60% of visitors leave your booking page without booking. I redesign the flow, simplify the form, and completions jump 22%. Two new service deep-dive pages go live and start indexing.",
                       },
                       {
                         month: "Month 6",

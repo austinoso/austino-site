@@ -27,9 +27,9 @@ export default function Automation() {
               aria-hidden="true"
             />
             <div>
-              <p className="text-sm font-medium text-white">Custom Tooling</p>
+              <p className="text-sm font-medium text-white">Custom Solutions</p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Scripts tailored to your unique problems
+                Tools built around your specific workflow
               </p>
             </div>
           </div>
@@ -53,11 +53,9 @@ export default function Automation() {
               aria-hidden="true"
             />
             <div>
-              <p className="text-sm font-medium text-white">
-                Workflow Digitization
-              </p>
+              <p className="text-sm font-medium text-white">Go Paperless</p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                Paper forms to secure digital systems
+                Replace paper forms with secure digital systems
               </p>
             </div>
           </div>

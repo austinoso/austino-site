@@ -47,8 +47,8 @@ export default function OngoingSupport() {
                 Conversion Optimization
               </p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
-                I track traffic, bounce rates, and rankings &mdash; fixing
-                what&apos;s not converting before it costs you customers
+                I track what&apos;s working and what&apos;s not &mdash; then fix
+                the pages that aren&apos;t turning visitors into customers
               </p>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function OngoingSupport() {
             />
             <div>
               <p className="text-sm font-medium text-white">
-                Search Authority Building
+                Content That Ranks
               </p>
               <p className="text-xs text-cyber-gray-400 mt-0.5">
                 New service pages, FAQ content, and local landing pages that

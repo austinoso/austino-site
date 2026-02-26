@@ -131,12 +131,12 @@ export default function WebDevelopment() {
           <span className="section-label">Web Development</span>
         </div>
         <h3 className="font-display text-2xl sm:text-3xl font-semibold text-white leading-snug">
-          A website that outranks, outloads, and outconverts.
+          Ranks higher. Loads faster. Converts&nbsp;more.
         </h3>
-        <p className="text-base text-cyber-gray-300 leading-relaxed">
+        <p className="text-base text-cyber-gray-300 leading-relaxed text-pretty">
           While your competitors sit on slow templates, your site will load
           instantly, rank higher on Google, and turn visitors into paying
-          customers — around the clock.
+          customers &mdash; around the clock.
         </p>
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">

@@ -5,7 +5,7 @@ export default function AlwaysOn() {
     <section data-fade>
       <p className="section-label mb-4">Always On</p>
       <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
-        It works while you sleep. And doesn&apos;t call in sick.
+        It works while you sleep. And never misses a&nbsp;step.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-10">
         This isn&apos;t an argument against your employees — it&apos;s about

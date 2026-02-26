@@ -38,9 +38,9 @@ export default function Hero() {
               <span className="text-gradient">outperform.</span>
             </h1>
 
-            <p className="mt-6 sm:mt-7 text-[15px] sm:text-base text-cyber-gray-400 leading-relaxed max-w-md">
-              High-performance engineering paired with smart automation — giving
-              local businesses a technical edge that no template can match.
+            <p className="mt-6 sm:mt-7 text-[15px] sm:text-base text-cyber-gray-400 leading-relaxed max-w-md text-pretty">
+              Fast sites that rank on Google, loaded with tools your customers
+              love &mdash; plus automation that saves you hours every week.
             </p>
 
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">

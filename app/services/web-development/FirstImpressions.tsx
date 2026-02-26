@@ -69,7 +69,7 @@ export default function FirstImpressions() {
               Phone Anxiety
             </h3>
           </div>
-          <p className="text-sm text-cyber-gray-400 leading-relaxed flex-1">
+          <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty flex-1">
             Most younger customers would rather leave your site than pick up the
             phone. If they can&apos;t book or get answers online, they&apos;ll
             find someone where they can.
