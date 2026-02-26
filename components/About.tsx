@@ -1,51 +1,15 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { getGSAP } from "@/lib/gsap";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import WordReveal from "@/components/ui/WordReveal";
 
+/* ────────────────────────────────────────────────────────────────── */
+/*  About — server component (content in initial HTML)               */
+/* ────────────────────────────────────────────────────────────────── */
+
 export default function About() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let reverted = false;
-    let ctx: { revert: () => void } | null = null;
-
-    const label = sectionRef.current?.querySelector("[data-label]");
-    const items = sectionRef.current?.querySelectorAll("[data-fade]");
-
-    getGSAP().then(({ gsap }) => {
-      if (reverted) return;
-      ctx = gsap.context(() => {
-        if (label) {
-          gsap.from(label, {
-            opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: { trigger: label, start: "top 85%" },
-          });
-        }
-
-        if (items?.length) {
-          gsap.from(items, {
-            y: 12,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.12,
-            scrollTrigger: { trigger: items[0], start: "top 88%" },
-          });
-        }
-      }, sectionRef);
-    });
-
-    return () => { reverted = true; ctx?.revert(); };
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
+    <ScrollReveal
+      as="section"
       className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
       style={{ background: "rgba(6,6,8,0.92)" }}
       aria-labelledby="about-heading"
@@ -53,7 +17,7 @@ export default function About() {
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* Mission statement */}
         <div className="max-w-3xl mb-12 sm:mb-14">
-          <p data-label className="section-label mb-5">
+          <p data-animate="label" className="section-label mb-5">
             About
           </p>
           <WordReveal
@@ -63,7 +27,7 @@ export default function About() {
             accentWords={["outpace"]}
           />
           <p
-            data-fade
+            data-animate="fade"
             className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed mt-8 sm:mt-10"
           >
             Most agencies hand you a site and disappear. I don&apos;t. I stick
@@ -78,7 +42,7 @@ export default function About() {
         {/* Meet the team */}
         <div className="pt-12 border-t border-white/[0.06]">
           <p
-            data-fade
+            data-animate="fade"
             className="font-mono text-xs text-cyber-accent/60 uppercase tracking-[0.2em] mb-10"
           >
             Meet the Team
@@ -87,7 +51,7 @@ export default function About() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {/* Austin */}
             <div
-              data-fade
+              data-animate="fade"
               className="flex items-start gap-5 p-6 sm:p-7 rounded-lg border border-white/[0.06] bg-white/[0.015]"
             >
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
@@ -115,7 +79,7 @@ export default function About() {
 
             {/* Rosa */}
             <div
-              data-fade
+              data-animate="fade"
               className="flex items-start gap-5 p-6 sm:p-7 rounded-lg border border-white/[0.06] bg-white/[0.015]"
             >
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
@@ -143,6 +107,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

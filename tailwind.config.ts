@@ -33,7 +33,7 @@ module.exports = {
           "system-ui",
           "sans-serif",
         ],
-        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        mono: ["monospace"],
       },
       animation: {
         "skeleton-pulse": "skeleton-pulse 2s ease-in-out infinite",

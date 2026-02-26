@@ -1,66 +1,17 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getGSAP } from "@/lib/gsap";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import WordReveal from "@/components/ui/WordReveal";
 import FlowLines from "@/components/ui/FlowLines";
 
+/* ────────────────────────────────────────────────────────────────── */
+/*  CTA — server component (content in initial HTML)                 */
+/* ────────────────────────────────────────────────────────────────── */
+
 export default function CTA() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let reverted = false;
-    let ctx: { revert: () => void } | null = null;
-
-    /* Initial styles set via JSX to prevent CLS */
-    const label = sectionRef.current?.querySelector("[data-label]");
-    const body = sectionRef.current?.querySelectorAll("[data-fade]");
-    const line = sectionRef.current?.querySelector("[data-line]");
-
-    getGSAP().then(({ gsap }) => {
-      if (reverted) return;
-      ctx = gsap.context(() => {
-        /* Label */
-        if (label) {
-          gsap.from(label, {
-            opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: { trigger: label, start: "top 85%" },
-          });
-        }
-
-        /* Body + button */
-        if (body?.length) {
-          gsap.from(body, {
-            y: 10,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            scrollTrigger: { trigger: body[0], start: "top 88%" },
-          });
-        }
-
-        /* Divider line grow */
-        if (line) {
-          gsap.from(line, {
-            scaleX: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: { trigger: line, start: "top 92%" },
-          });
-        }
-      }, sectionRef);
-    });
-
-    return () => { reverted = true; ctx?.revert(); };
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
+    <ScrollReveal
+      as="section"
       className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 overflow-hidden border-b border-white/[0.06]"
       style={{
         backgroundColor: "rgba(6,6,8,0.92)",
@@ -77,7 +28,7 @@ export default function CTA() {
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* Header */}
         <div className="mb-10 sm:mb-12">
-          <p data-label className="section-label mb-5">
+          <p data-animate="label" className="section-label mb-5">
             Your Move
           </p>
           <WordReveal
@@ -91,7 +42,7 @@ export default function CTA() {
         {/* Body + CTA */}
         <div className="max-w-2xl">
           <p
-            data-fade
+            data-animate="fade"
             className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed"
           >
             I take one client per niche in your area. If the spot is open,
@@ -99,7 +50,7 @@ export default function CTA() {
             else is trying to catch up to.
           </p>
 
-          <div data-fade className="mt-5 flex items-center gap-3">
+          <div data-animate="fade" className="mt-5 flex items-center gap-3">
             <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
             <span className="text-xs font-mono text-cyber-gray-400">
               Availability is limited
@@ -107,7 +58,7 @@ export default function CTA() {
           </div>
 
           <div
-            data-fade
+            data-animate="fade"
             className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4"
           >
             <Link
@@ -129,11 +80,11 @@ export default function CTA() {
 
         {/* Divider */}
         <div
-          data-line
+          data-animate="line"
           className="mt-14 sm:mt-20 border-t border-white/[0.06]"
           style={{ transformOrigin: "left center" }}
         />
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

@@ -1,7 +1,4 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { getGSAP } from "@/lib/gsap";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import WordReveal from "@/components/ui/WordReveal";
 
 /* ────────────────────────────────────────────────────────────────── */
@@ -17,7 +14,7 @@ const opportunities = [
     stat: "53%",
     statLabel:
       "of mobile users leave a site that takes over 3\u00A0seconds to load",
-    span: "md:col-span-7", // wider
+    span: "md:col-span-7",
   },
   {
     number: "02",
@@ -26,7 +23,7 @@ const opportunities = [
       "Follow-ups, scheduling, data entry \u2014 all manual. One automated workflow saves hours and closes leads faster.",
     stat: "20hrs",
     statLabel: "per week wasted on tasks that could be automated",
-    span: "md:col-span-5", // narrower
+    span: "md:col-span-5",
   },
   {
     number: "03",
@@ -35,60 +32,18 @@ const opportunities = [
       "No updates, no optimization, no strategy. Continuous improvement means you pull further ahead every single month.",
     stat: "88%",
     statLabel: "of users won\u2019t return after a bad experience",
-    span: "md:col-span-12", // full width
+    span: "md:col-span-12",
   },
 ];
 
 /* ────────────────────────────────────────────────────────────────── */
-/*  Component                                                        */
+/*  Component (server — content is in the initial HTML)              */
 /* ────────────────────────────────────────────────────────────────── */
 
 export default function PainPoints() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  /* ── Scroll-triggered reveal animations ── */
-  useEffect(() => {
-    let reverted = false;
-    let ctx: { revert: () => void } | null = null;
-
-    getGSAP().then(({ gsap }) => {
-      if (reverted) return;
-      ctx = gsap.context(() => {
-        const s = sectionRef.current;
-        if (!s) return;
-
-        /* Label */
-        const label = s.querySelector("[data-label]");
-        if (label) {
-          gsap.from(label, {
-            opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: { trigger: label, start: "top 85%" },
-          });
-        }
-
-        /* Cards — staggered entrance */
-        const cards = s.querySelectorAll("[data-card]");
-        if (cards.length) {
-          gsap.from(cards, {
-            y: 32,
-            opacity: 0,
-            duration: 0.7,
-            ease: "power3.out",
-            stagger: 0.15,
-            scrollTrigger: { trigger: cards[0], start: "top 82%" },
-          });
-        }
-      }, sectionRef);
-    });
-
-    return () => { reverted = true; ctx?.revert(); };
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
+    <ScrollReveal
+      as="section"
       className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
       style={{ background: "rgba(6,6,8,0.92)" }}
       aria-labelledby="pain-points-heading"
@@ -96,7 +51,7 @@ export default function PainPoints() {
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* ── Header ── */}
         <div className="mb-14 sm:mb-20">
-          <span data-label className="section-label block mb-5">
+          <span data-animate="label" className="section-label block mb-5">
             The Opportunity
           </span>
           <WordReveal
@@ -116,7 +71,7 @@ export default function PainPoints() {
             return (
               <div
                 key={index}
-                data-card
+                data-animate="card"
                 className={`group relative ${item.span} border-b border-r border-white/[0.06] p-8 sm:p-10 md:p-12`}
               >
                 {isWide ? (
@@ -171,6 +126,6 @@ export default function PainPoints() {
           })}
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }
