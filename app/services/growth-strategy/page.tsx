@@ -362,10 +362,7 @@ export default function GrowthStrategyPage() {
                     body: "I create new pages — service deep-dives, FAQ content, location-specific landing pages — designed to capture the specific searches your customers are already making.",
                   },
                 ].map((item, i) => (
-                  <div
-                    key={item.step}
-                    className="relative group"
-                  >
+                  <div key={item.step} className="relative group">
                     {/* Connector line — hidden on mobile, visible on sm+ between items */}
                     {i < 2 && (
                       <div
