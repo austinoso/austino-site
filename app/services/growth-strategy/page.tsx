@@ -334,17 +334,17 @@ export default function GrowthStrategyPage() {
           <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
             <section data-fade>
               <p className="section-label mb-4">The Strategy</p>
-              <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4 max-w-xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-white leading-[1.1] tracking-tight text-balance mb-4 max-w-2xl">
                 Data tells us what to fix. Content builds your authority.
               </h2>
-              <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-xl mb-14 text-pretty">
+              <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-xl mb-16 sm:mb-20 text-pretty">
                 Every month I&apos;m doing two things: using real data to
                 improve what&apos;s already there, and building new content that
                 helps you rank for more of the searches your customers are
                 making.
               </p>
 
-              <div className="grid md:grid-cols-3 border-t border-l border-white/[0.06]">
+              <div className="space-y-12 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-0">
                 {[
                   {
                     step: "01",
@@ -361,22 +361,51 @@ export default function GrowthStrategyPage() {
                     title: "Build Search Authority",
                     body: "I create new pages — service deep-dives, FAQ content, location-specific landing pages — designed to capture the specific searches your customers are already making.",
                   },
-                ].map((item) => (
+                ].map((item, i) => (
                   <div
                     key={item.step}
-                    className="relative border-b border-r border-white/[0.06] p-6 sm:p-8 group"
+                    className="relative group"
                   >
-                    {/* Accent top stripe */}
-                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-cyber-accent/40 via-cyber-accent/10 to-transparent" />
-                    <span className="block text-6xl sm:text-7xl font-bold font-display text-cyber-accent/[0.15] leading-none select-none mb-6">
-                      {item.step}
-                    </span>
-                    <h3 className="text-lg font-semibold text-white mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty">
-                      {item.body}
-                    </p>
+                    {/* Connector line — hidden on mobile, visible on sm+ between items */}
+                    {i < 2 && (
+                      <div
+                        className="hidden sm:block absolute top-[18px] right-0 w-full h-px z-0 pointer-events-none"
+                        style={{
+                          background:
+                            "linear-gradient(to right, rgba(64,224,255,0.2), rgba(64,224,255,0.04))",
+                          left: "calc(38px + 1rem)",
+                          width: "calc(100% - 38px - 1rem)",
+                        }}
+                      />
+                    )}
+
+                    <div className="relative z-10 sm:pr-8">
+                      {/* Step indicator */}
+                      <div className="flex items-center gap-4 mb-5">
+                        <div className="flex items-center justify-center h-[38px] w-[38px] rounded-full bg-cyber-dark border border-cyber-accent/25 shadow-[0_0_16px_rgba(64,224,255,0.06)]">
+                          <span className="text-xs font-mono text-cyber-accent font-semibold">
+                            {item.step}
+                          </span>
+                        </div>
+                        {/* Mobile connector line */}
+                        {i < 2 && (
+                          <div
+                            className="flex-1 h-px sm:hidden"
+                            style={{
+                              background:
+                                "linear-gradient(to right, rgba(64,224,255,0.2), rgba(64,224,255,0.04))",
+                            }}
+                          />
+                        )}
+                      </div>
+
+                      <h3 className="text-base sm:text-lg font-semibold text-white mb-2.5">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty max-w-sm">
+                        {item.body}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
