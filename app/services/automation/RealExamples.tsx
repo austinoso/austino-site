@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getGSAP } from "@/lib/gsap";
 import {
   CalendarCheck,
   BarChart3,
@@ -15,8 +14,6 @@ import {
   Zap,
   ChevronDown,
 } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 /* ── Types ────────────────────────────────────────────────── */
 type LogEntry = {
@@ -468,22 +465,25 @@ export default function RealExamples() {
 
   /* ── Scroll entrance ─────────────────────────── */
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        sectionRef.current!,
-        { y: 24, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          ease: "power3.out",
-          clearProps: "transform,opacity",
-          scrollTrigger: { trigger: sectionRef.current!, start: "top 85%" },
-        },
-      );
-    }, sectionRef);
+    let ctx: { revert: () => void } | undefined;
+    getGSAP().then(({ gsap, ScrollTrigger }) => {
+      ctx = gsap.context(() => {
+        gsap.fromTo(
+          sectionRef.current!,
+          { y: 24, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: { trigger: sectionRef.current!, start: "top 85%" },
+          },
+        );
+      }, sectionRef);
+    });
 
-    return () => ctx.revert();
+    return () => ctx?.revert();
   }, []);
 
   /* ── Boot first tool when dashboard enters viewport ────── */
@@ -515,11 +515,13 @@ export default function RealExamples() {
     const entries = logBoxRef.current.querySelectorAll("[data-log]");
     const last = entries[entries.length - 1];
     if (last) {
-      gsap.fromTo(
-        last,
-        { y: 5, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" },
-      );
+      getGSAP().then(({ gsap }) => {
+        gsap.fromTo(
+          last,
+          { y: 5, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" },
+        );
+      });
     }
   }, [visibleLogs.length]);
 

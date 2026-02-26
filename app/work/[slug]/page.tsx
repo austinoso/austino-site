@@ -144,6 +144,8 @@ export default async function CaseStudyPage({
                   alt={study.title}
                   width={1400}
                   height={788}
+                  sizes="(min-width: 1200px) 1200px, 100vw"
+                  quality={80}
                   className="w-full h-auto"
                   priority
                 />
