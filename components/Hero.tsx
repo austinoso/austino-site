@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import HeroDemo from "./HeroDemo";
+import HeroDemoLoader from "./HeroDemoLoader";
 
 /* ─────────────────────────────────────────────────────────────────── */
 /*  Hero — Server component.                                          */
@@ -66,7 +66,7 @@ export default function Hero() {
 
           {/* ─── Demo column (client component for animations) ─── */}
           <div className="lg:col-span-7">
-            <HeroDemo />
+            <HeroDemoLoader />
           </div>
         </div>
       </div>
