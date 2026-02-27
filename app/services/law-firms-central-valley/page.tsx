@@ -116,11 +116,16 @@ export default function LawFirmsCentralValleyPage() {
                     </div>
                     <div className="flex-1 flex justify-center">
                       <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
-                        law-firm-demo
+                        law-demo.austino.dev
                       </div>
                     </div>
                   </div>
-                  <div className="relative">
+                  <a
+                    href="https://law-demo.austino.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative block"
+                  >
                     <Image
                       src="/assets/law-site.PNG"
                       alt="Custom law firm website concept designed for a Central Valley practice — this is a design demo, not a template"
@@ -129,7 +134,7 @@ export default function LawFirmsCentralValleyPage() {
                       className="w-full h-auto"
                       priority
                     />
-                  </div>
+                  </a>
                 </div>
               </div>
             </section>
@@ -146,9 +151,9 @@ export default function LawFirmsCentralValleyPage() {
               </h2>
               <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12 text-pretty">
                 A site that was built years ago and never updated isn&apos;t
-                pulling its weight. It&apos;s not ranking on Google, not
-                earning trust with visitors, and not giving people a clear way
-                to reach out. That&apos;s not a criticism &mdash; it&apos;s an
+                pulling its weight. It&apos;s not ranking on Google, not earning
+                trust with visitors, and not giving people a clear way to reach
+                out. That&apos;s not a criticism &mdash; it&apos;s an
                 opportunity.
               </p>
 
@@ -415,21 +420,33 @@ export default function LawFirmsCentralValleyPage() {
                     <div className="flex-1 flex justify-center">
                       <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
                         <MapPin className="w-2.5 h-2.5" />
-                        demo &middot; central valley law firm
+                        law-demo.austino.dev
                       </div>
                     </div>
                   </div>
-                  <Image
-                    src="/assets/law-site.PNG"
-                    alt="Full view of custom law firm website concept — design demo for Central Valley attorneys"
-                    width={800}
-                    height={600}
-                    className="w-full h-auto flex-1 object-cover object-top"
-                  />
+                  <a
+                    href="https://law-demo.austino.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1"
+                  >
+                    <Image
+                      src="/assets/law-site.PNG"
+                      alt="Full view of custom law firm website concept — design demo for Central Valley attorneys"
+                      width={800}
+                      height={600}
+                      className="w-full h-auto flex-1 object-cover object-top"
+                    />
+                  </a>
                   <div className="border-t border-white/[0.06] bg-[#0D0F13] px-4 py-2.5 flex items-center justify-center">
-                    <p className="text-xs text-cyber-gray-500 font-mono">
-                      Live demo link coming soon
-                    </p>
+                    <a
+                      href="https://law-demo.austino.dev"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-cyber-accent/70 hover:text-cyber-accent transition-colors font-mono"
+                    >
+                      View live demo &rarr;
+                    </a>
                   </div>
                 </div>
 
@@ -591,7 +608,8 @@ export default function LawFirmsCentralValleyPage() {
                 Built for how law firms actually get clients.
               </h2>
               <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-2 text-pretty">
-                Every feature helps potential clients find you, trust you, and reach&nbsp;out.
+                Every feature helps potential clients find you, trust you, and
+                reach&nbsp;out.
               </p>
               <Link
                 href="/services/web-development"
@@ -652,7 +670,9 @@ export default function LawFirmsCentralValleyPage() {
                         <span>/</span>
                         <span>Practice Areas</span>
                         <span>/</span>
-                        <span className="text-cyber-accent/60">Personal Injury</span>
+                        <span className="text-cyber-accent/60">
+                          Personal Injury
+                        </span>
                       </div>
                       {/* H1 placeholder */}
                       <div className="space-y-2">
@@ -697,7 +717,8 @@ export default function LawFirmsCentralValleyPage() {
                     </div>
                   </div>
                   <p className="mt-3 text-xs text-cyber-gray-600 font-mono">
-                    Each practice area gets its own page, copy, and search&nbsp;strategy.
+                    Each practice area gets its own page, copy, and
+                    search&nbsp;strategy.
                   </p>
                 </div>
 
@@ -728,9 +749,7 @@ export default function LawFirmsCentralValleyPage() {
                     <div
                       key={item.title}
                       className={`flex items-start gap-4 py-5 ${
-                        i > 0
-                          ? "border-t border-white/[0.06]"
-                          : ""
+                        i > 0 ? "border-t border-white/[0.06]" : ""
                       }`}
                     >
                       <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0 mt-0.5">
