@@ -20,9 +20,9 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.austino.dev"),
-  title: "austino | Web, Growth & Automation",
+  title: "Modern Web Strategy & Automation | austino",
   description:
-    "Custom websites, SEO-driven growth strategies, and automation that eliminates busywork — giving local businesses an edge no template can match.",
+    "Websites that rank, automation that saves hours, and growth strategy backed by real data. Built for local businesses tired of templates and guesswork.",
   keywords: [
     "small business web development",
     "local business website",
@@ -47,15 +47,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.austino.dev",
     siteName: "austino",
-    title: "austino | Web, Growth & Automation",
+    title: "Modern Web Strategy & Automation | austino",
     description:
-      "Custom websites, SEO-driven growth strategies, and automation that eliminates busywork — giving local businesses an edge no template can match.",
+      "Websites that rank, automation that saves hours, and growth strategy backed by real data. Built for local businesses tired of templates and guesswork.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "austino | Web, Growth & Automation",
+    title: "Modern Web Strategy & Automation | austino",
     description:
-      "Custom websites, SEO-driven growth strategies, and automation that eliminates busywork — giving local businesses an edge no template can match.",
+      "Websites that rank, automation that saves hours, and growth strategy backed by real data. Built for local businesses tired of templates and guesswork.",
   },
 };
 

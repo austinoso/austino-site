@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Get Started | austino",
+  title: "Get Your Free Game Plan | austino",
   description:
-    "Tell me about your business in a few quick steps and I'll have a plan ready for our discovery call.",
+    "Answer a few quick questions about your business and I'll build a custom plan before we even talk. Takes 3 minutes.",
   alternates: {
     canonical: "https://www.austino.dev/onboarding",
   },
   openGraph: {
-    title: "Get Started | austino",
+    title: "Get Your Free Game Plan | austino",
     description:
-      "Tell me about your business in a few quick steps and I'll have a plan ready for our discovery call.",
+      "Answer a few quick questions about your business and I'll build a custom plan before we even talk. Takes 3 minutes.",
     url: "https://www.austino.dev/onboarding",
   },
 };

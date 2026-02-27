@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Web Development for Manteca Businesses | austino",
+  title: "Manteca Web Design That Actually Gets Found | austino",
   description:
-    "Custom websites built for Manteca, CA businesses that actually show up when locals search. Local SEO, fast load times, and online booking — no templates.",
+    "Custom websites for Manteca businesses that show up when locals search. Fast load times, local SEO, and online booking built in — no templates.",
   alternates: {
     canonical: "https://www.austino.dev/services/web-development/manteca",
   },
   openGraph: {
-    title: "Web Development for Manteca Businesses | austino",
+    title: "Manteca Web Design That Actually Gets Found | austino",
     description:
-      "Custom websites built for Manteca, CA businesses that actually show up when locals search. Local SEO, fast load times, and online booking — no templates.",
+      "Custom websites for Manteca businesses that show up when locals search. Fast load times, local SEO, and online booking built in — no templates.",
     url: "https://www.austino.dev/services/web-development/manteca",
   },
 };

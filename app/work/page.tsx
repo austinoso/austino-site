@@ -7,16 +7,16 @@ import { ArrowRight } from "lucide-react";
 import { getAllProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Work | austino",
+  title: "Results, Not Just Designs | austino",
   description:
-    "Real projects for real businesses. Case studies showing the problem, the approach, and the results.",
+    "See how local businesses went from invisible online to booked solid. Real projects, real strategy, real numbers.",
   alternates: {
     canonical: "https://www.austino.dev/work",
   },
   openGraph: {
-    title: "Work | austino",
+    title: "Results, Not Just Designs | austino",
     description:
-      "Real projects for real businesses. Case studies showing the problem, the approach, and the results.",
+      "See how local businesses went from invisible online to booked solid. Real projects, real strategy, real numbers.",
     url: "https://www.austino.dev/work",
   },
 };

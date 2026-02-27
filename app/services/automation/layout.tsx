@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Automation | austino",
+  title: "Stop Doing Work Your Computer Should Handle | austino",
   description:
-    "Custom automation that connects your tools, eliminates repetitive tasks, and runs 24/7 — so you can focus on growing your business.",
+    "Custom automation that connects your tools, kills repetitive tasks, and runs 24/7. You focus on the business — the busywork handles itself.",
   alternates: {
     canonical: "https://www.austino.dev/services/automation",
   },
   openGraph: {
-    title: "Automation | austino",
+    title: "Stop Doing Work Your Computer Should Handle | austino",
     description:
-      "Custom automation that connects your tools, eliminates repetitive tasks, and runs 24/7 — so you can focus on growing your business.",
+      "Custom automation that connects your tools, kills repetitive tasks, and runs 24/7. You focus on the business — the busywork handles itself.",
     url: "https://www.austino.dev/services/automation",
   },
 };

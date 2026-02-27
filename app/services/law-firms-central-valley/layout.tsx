@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Web Design for Law Firms in the Central Valley | austino",
+  title: "Central Valley Law Firm Websites That Win Clients | austino",
   description:
-    "Custom-built websites for law firms in Fresno, Bakersfield, Stockton, Modesto, and the Central Valley. No templates — designed around your practice, your values, and your brand.",
+    "Custom websites for attorneys in Fresno, Bakersfield, Stockton, and Modesto. Built to rank locally, convert visitors, and reflect your practice — not a template.",
   alternates: {
     canonical: "https://www.austino.dev/services/law-firms-central-valley",
   },
   openGraph: {
-    title: "Web Design for Law Firms in the Central Valley | austino",
+    title: "Central Valley Law Firm Websites That Win Clients | austino",
     description:
-      "Custom-built websites for law firms in Fresno, Bakersfield, Stockton, Modesto, and the Central Valley. No templates — designed around your practice, your values, and your brand.",
+      "Custom websites for attorneys in Fresno, Bakersfield, Stockton, and Modesto. Built to rank locally, convert visitors, and reflect your practice — not a template.",
     url: "https://www.austino.dev/services/law-firms-central-valley",
   },
 };

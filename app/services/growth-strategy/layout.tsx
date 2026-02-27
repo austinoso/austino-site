@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Growth Strategy | austino",
+  title: "SEO & Growth Strategy That Actually Moves the Needle | austino",
   description:
-    "A web strategist in your corner — using real data to improve what's underperforming and building content that earns search authority every month.",
+    "Data-driven SEO and content strategy that builds search authority month over month. No vanity metrics — just more of the right people finding your business.",
   alternates: {
     canonical: "https://www.austino.dev/services/growth-strategy",
   },
   openGraph: {
-    title: "Growth Strategy | austino",
+    title: "SEO & Growth Strategy That Actually Moves the Needle | austino",
     description:
-      "A web strategist in your corner — using real data to improve what's underperforming and building content that earns search authority every month.",
+      "Data-driven SEO and content strategy that builds search authority month over month. No vanity metrics — just more of the right people finding your business.",
     url: "https://www.austino.dev/services/growth-strategy",
   },
 };

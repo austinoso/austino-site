@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Web Development | austino",
+  title: "Websites That Work While You Sleep | austino",
   description:
-    "Fast, search-optimized websites that turn visitors into customers around the clock. No templates, no bloat — just clean code built for results.",
+    "Fast, search-optimized sites that turn visitors into customers around the clock. No templates, no page builders — just clean code built for results.",
   alternates: {
     canonical: "https://www.austino.dev/services/web-development",
   },
   openGraph: {
-    title: "Web Development | austino",
+    title: "Websites That Work While You Sleep | austino",
     description:
-      "Fast, search-optimized websites that turn visitors into customers around the clock. No templates, no bloat — just clean code built for results.",
+      "Fast, search-optimized sites that turn visitors into customers around the clock. No templates, no page builders — just clean code built for results.",
     url: "https://www.austino.dev/services/web-development",
   },
 };
