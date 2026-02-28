@@ -14,6 +14,16 @@ export default function About() {
       style={{ background: "rgba(6,6,8,0.92)" }}
       aria-labelledby="about-heading"
     >
+      {/* Gradient divider line */}
+      <div
+        className="absolute top-0 inset-x-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(167,139,250,0.15) 30%, rgba(64,224,255,0.20) 50%, rgba(167,139,250,0.15) 70%, transparent)",
+        }}
+        aria-hidden="true"
+      />
+
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* Mission statement */}
         <div className="max-w-3xl mb-12 sm:mb-14">

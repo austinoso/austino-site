@@ -128,7 +128,9 @@ export default function WebDevelopment() {
 
       <div data-content className="lg:col-span-5 lg:order-2 order-1 space-y-5">
         <div className="inline-flex items-center gap-2">
-          <span className="section-label">Web Development</span>
+          <span className="text-xs font-semibold text-cyber-violet uppercase tracking-[0.2em]">
+            Web Development
+          </span>
         </div>
         <h3 className="font-display text-2xl sm:text-3xl font-semibold text-white leading-snug">
           Ranks higher. Loads faster. Converts&nbsp;more.
@@ -141,8 +143,9 @@ export default function WebDevelopment() {
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">
             <Sparkles
-              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              className="w-4 h-4 text-cyber-violet flex-shrink-0 mt-0.5"
               aria-hidden="true"
+              style={{ filter: "drop-shadow(0 0 6px rgba(167,139,250,0.4))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">
@@ -156,8 +159,9 @@ export default function WebDevelopment() {
           </div>
           <div data-feature className="flex items-start gap-3">
             <Heart
-              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              className="w-4 h-4 text-cyber-violet flex-shrink-0 mt-0.5"
               aria-hidden="true"
+              style={{ filter: "drop-shadow(0 0 6px rgba(167,139,250,0.4))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">
@@ -171,8 +175,9 @@ export default function WebDevelopment() {
           </div>
           <div data-feature className="flex items-start gap-3">
             <ZapIcon
-              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              className="w-4 h-4 text-cyber-violet flex-shrink-0 mt-0.5"
               aria-hidden="true"
+              style={{ filter: "drop-shadow(0 0 6px rgba(167,139,250,0.4))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">
@@ -187,7 +192,7 @@ export default function WebDevelopment() {
         </div>
         <Link
           href="/services/web-development"
-          className="inline-flex items-center gap-2 text-sm font-mono text-cyber-accent hover:text-white transition-colors duration-300 mt-6"
+          className="inline-flex items-center gap-2 text-sm font-mono text-cyber-violet hover:text-white transition-colors duration-300 mt-6"
         >
           Explore web development{" "}
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />

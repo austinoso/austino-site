@@ -41,6 +41,7 @@ export default function OngoingSupport() {
             <BarChart3
               className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
               aria-hidden="true"
+              style={{ filter: "drop-shadow(0 0 6px rgba(64,224,255,0.3))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">
@@ -56,6 +57,7 @@ export default function OngoingSupport() {
             <PenTool
               className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
               aria-hidden="true"
+              style={{ filter: "drop-shadow(0 0 6px rgba(64,224,255,0.3))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">
@@ -71,6 +73,7 @@ export default function OngoingSupport() {
             <TrendingUp
               className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
               aria-hidden="true"
+              style={{ filter: "drop-shadow(0 0 6px rgba(64,224,255,0.3))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">Growth Planning</p>

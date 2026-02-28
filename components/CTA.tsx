@@ -16,19 +16,32 @@ export default function CTA() {
       style={{
         backgroundColor: "rgba(6,6,8,0.92)",
         backgroundImage: [
-          "radial-gradient(ellipse 70% 50% at 90% 85%, rgba(64,224,255,0.07), rgba(167,139,250,0.05) 50%, transparent 100%)",
-          "radial-gradient(ellipse 60% 45% at 5% 95%, rgba(244,114,182,0.05), rgba(167,139,250,0.04) 50%, transparent 100%)",
-          "radial-gradient(ellipse 50% 40% at 50% 100%, rgba(64,224,255,0.03), transparent 80%)",
+          "radial-gradient(ellipse 70% 50% at 90% 85%, rgba(251,191,36,0.10), rgba(244,114,182,0.07) 50%, transparent 100%)",
+          "radial-gradient(ellipse 60% 45% at 5% 95%, rgba(244,114,182,0.08), rgba(251,191,36,0.05) 50%, transparent 100%)",
+          "radial-gradient(ellipse 50% 40% at 50% 100%, rgba(251,191,36,0.06), transparent 80%)",
         ].join(", "),
       }}
       aria-labelledby="cta-heading"
     >
+      {/* Gradient divider line */}
+      <div
+        className="absolute top-0 inset-x-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(251,191,36,0.18) 30%, rgba(244,114,182,0.15) 60%, rgba(251,191,36,0.10) 80%, transparent)",
+        }}
+        aria-hidden="true"
+      />
+
       <FlowLines className="absolute bottom-0 right-0 w-[50%] h-full" />
 
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
         {/* Header */}
         <div className="mb-10 sm:mb-12">
-          <p data-animate="label" className="section-label mb-5">
+          <p
+            data-animate="label"
+            className="text-xs font-semibold text-cyber-amber uppercase tracking-[0.2em] mb-5"
+          >
             Your Move
           </p>
           <WordReveal
@@ -36,6 +49,7 @@ export default function CTA() {
             id="cta-heading"
             className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
             accentWords={["isn't", "waiting."]}
+            accentClassName="text-cyber-amber"
           />
         </div>
 
@@ -63,7 +77,7 @@ export default function CTA() {
           >
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#060608] font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110"
+              className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-cyber-amber to-amber-400 text-[#060608] font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-500/20"
               data-umami-event="cta-start-conversation"
             >
               <span>Start a Conversation</span>

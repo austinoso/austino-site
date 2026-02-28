@@ -10,7 +10,9 @@ export default function Automation() {
     >
       <div data-content className="lg:col-span-5 space-y-5">
         <div className="inline-flex items-center gap-2">
-          <span className="section-label">Automation</span>
+          <span className="text-xs font-semibold text-cyber-rose uppercase tracking-[0.2em]">
+            Automation
+          </span>
         </div>
         <h3 className="font-display text-2xl sm:text-3xl font-semibold text-white leading-snug">
           Speed your competitors don&apos;t have.
@@ -23,8 +25,9 @@ export default function Automation() {
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">
             <Settings
-              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              className="w-4 h-4 text-cyber-rose flex-shrink-0 mt-0.5"
               aria-hidden="true"
+              style={{ filter: "drop-shadow(0 0 6px rgba(244,114,182,0.4))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">Custom Solutions</p>
@@ -35,8 +38,9 @@ export default function Automation() {
           </div>
           <div data-feature className="flex items-start gap-3">
             <Link2
-              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              className="w-4 h-4 text-cyber-rose flex-shrink-0 mt-0.5"
               aria-hidden="true"
+              style={{ filter: "drop-shadow(0 0 6px rgba(244,114,182,0.4))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">
@@ -49,8 +53,9 @@ export default function Automation() {
           </div>
           <div data-feature className="flex items-start gap-3">
             <ClipboardList
-              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              className="w-4 h-4 text-cyber-rose flex-shrink-0 mt-0.5"
               aria-hidden="true"
+              style={{ filter: "drop-shadow(0 0 6px rgba(244,114,182,0.4))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">Go Paperless</p>
@@ -62,7 +67,7 @@ export default function Automation() {
         </div>
         <Link
           href="/services/automation"
-          className="inline-flex items-center gap-2 text-sm font-mono text-cyber-accent hover:text-white transition-colors duration-300 mt-6"
+          className="inline-flex items-center gap-2 text-sm font-mono text-cyber-rose hover:text-white transition-colors duration-300 mt-6"
         >
           Explore automation{" "}
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />

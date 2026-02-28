@@ -15,9 +15,9 @@ export default function Hero() {
       style={{
         backgroundColor: "rgba(6,6,8,0.82)",
         backgroundImage: [
-          "radial-gradient(ellipse 80% 70% at 10% 15%, rgba(64,224,255,0.10), rgba(167,139,250,0.07) 45%, transparent 100%)",
-          "radial-gradient(ellipse 50% 55% at 95% 90%, rgba(251,191,36,0.06), rgba(244,114,182,0.05) 40%, transparent 70%)",
-          "radial-gradient(ellipse 35% 40% at 85% 35%, rgba(74,222,128,0.04), rgba(64,224,255,0.02) 50%, transparent 70%)",
+          "radial-gradient(ellipse 80% 70% at 10% 15%, rgba(64,224,255,0.13), rgba(167,139,250,0.10) 45%, transparent 100%)",
+          "radial-gradient(ellipse 50% 55% at 95% 90%, rgba(251,191,36,0.08), rgba(244,114,182,0.07) 40%, transparent 70%)",
+          "radial-gradient(ellipse 35% 40% at 85% 35%, rgba(167,139,250,0.06), rgba(64,224,255,0.04) 50%, transparent 70%)",
         ].join(", "),
       }}
       aria-labelledby="hero-heading"

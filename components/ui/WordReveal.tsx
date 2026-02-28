@@ -18,6 +18,8 @@ interface WordRevealProps {
   delay?: number;
   /** Words to highlight with accent color (matched case-insensitively, includes punctuation) */
   accentWords?: string[];
+  /** Custom class for accent-highlighted words (default: "text-cyber-accent") */
+  accentClassName?: string;
 }
 
 export default function WordReveal({
@@ -28,6 +30,7 @@ export default function WordReveal({
   immediate = false,
   delay = 0,
   accentWords = [],
+  accentClassName = "text-cyber-accent",
 }: WordRevealProps) {
   const wordsRef = useRef<(HTMLSpanElement | null)[]>([]);
   const words = text.split(" ");
@@ -44,7 +47,10 @@ export default function WordReveal({
     ).matches;
     if (prefersReducedMotion) return;
 
-    let tween: { scrollTrigger?: { kill: () => void }; kill: () => void } | null = null;
+    let tween: {
+      scrollTrigger?: { kill: () => void };
+      kill: () => void;
+    } | null = null;
 
     getGSAP().then(({ gsap }) => {
       tween = gsap.from(els, {
@@ -82,7 +88,7 @@ export default function WordReveal({
                 ref={(el) => {
                   wordsRef.current[i] = el;
                 }}
-                className={`inline-block${isAccent ? " text-cyber-accent" : ""}`}
+                className={`inline-block${isAccent ? ` ${accentClassName}` : ""}`}
               >
                 {word}
               </span>

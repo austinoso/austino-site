@@ -17,13 +17,23 @@ export default function Solutions() {
       style={{
         backgroundColor: "rgba(6,6,8,0.92)",
         backgroundImage: [
-          "radial-gradient(ellipse 70% 50% at 90% 15%, rgba(64,224,255,0.07), rgba(167,139,250,0.05) 50%, transparent 100%)",
-          "radial-gradient(ellipse 60% 45% at 5% 80%, rgba(244,114,182,0.05), rgba(167,139,250,0.04) 50%, transparent 100%)",
-          "radial-gradient(ellipse 50% 40% at 50% 50%, rgba(64,224,255,0.03), transparent 80%)",
+          "radial-gradient(ellipse 70% 50% at 90% 15%, rgba(64,224,255,0.10), rgba(167,139,250,0.08) 50%, transparent 100%)",
+          "radial-gradient(ellipse 60% 45% at 5% 50%, rgba(167,139,250,0.10), rgba(244,114,182,0.07) 50%, transparent 100%)",
+          "radial-gradient(ellipse 50% 40% at 50% 85%, rgba(244,114,182,0.08), rgba(64,224,255,0.04) 60%, transparent 80%)",
         ].join(", "),
       }}
       aria-labelledby="solutions-heading"
     >
+      {/* Gradient divider line */}
+      <div
+        className="absolute top-0 inset-x-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(64,224,255,0.18) 25%, rgba(167,139,250,0.15) 50%, rgba(244,114,182,0.12) 75%, transparent)",
+        }}
+        aria-hidden="true"
+      />
+
       {/* Client-side scroll animations */}
       <SolutionsAnimator />
 
