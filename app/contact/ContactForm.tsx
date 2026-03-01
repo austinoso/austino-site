@@ -144,10 +144,7 @@ export default function ContactForm() {
       {/* Name + Email */}
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label
-            htmlFor="name"
-            className="block text-sm text-stone-400 mb-2"
-          >
+          <label htmlFor="name" className="block text-sm text-stone-400 mb-2">
             Your Name *
           </label>
           <input
@@ -163,10 +160,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm text-stone-400 mb-2"
-          >
+          <label htmlFor="email" className="block text-sm text-stone-400 mb-2">
             Email *
           </label>
           <input
@@ -185,10 +179,7 @@ export default function ContactForm() {
 
       {/* Company */}
       <div>
-        <label
-          htmlFor="company"
-          className="block text-sm text-stone-400 mb-2"
-        >
+        <label htmlFor="company" className="block text-sm text-stone-400 mb-2">
           Company / Organization
         </label>
         <input
@@ -205,10 +196,7 @@ export default function ContactForm() {
       {/* Budget + Timeline */}
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label
-            htmlFor="budget"
-            className="block text-sm text-stone-400 mb-2"
-          >
+          <label htmlFor="budget" className="block text-sm text-stone-400 mb-2">
             Budget range
           </label>
           <select
@@ -311,11 +299,7 @@ export default function ContactForm() {
         </button>
 
         {/* Turnstile */}
-        <div
-          className="mt-4"
-          role="group"
-          aria-label="Security verification"
-        >
+        <div className="mt-4" role="group" aria-label="Security verification">
           <Turnstile
             siteKey={
               process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
