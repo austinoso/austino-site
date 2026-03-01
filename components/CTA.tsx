@@ -12,7 +12,7 @@ export default function CTA() {
   return (
     <ScrollReveal
       as="section"
-      className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 overflow-hidden border-b border-white/[0.06]"
+      className="relative w-full pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 overflow-hidden border-b border-white/[0.06]"
       style={{
         backgroundColor: "rgba(6,6,8,0.92)",
         backgroundImage: [
@@ -40,16 +40,16 @@ export default function CTA() {
         <div className="mb-10 sm:mb-12">
           <p
             data-animate="label"
-            className="text-xs font-semibold text-cyber-amber uppercase tracking-[0.2em] mb-5"
+            className="text-xs font-semibold text-warm-gold uppercase tracking-[0.2em] mb-5"
           >
             Your Move
           </p>
           <WordReveal
             text="Your competition isn't waiting. Neither should you."
             id="cta-heading"
-            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-warm-white leading-[1.1] tracking-tight"
             accentWords={["isn't", "waiting."]}
-            accentClassName="text-cyber-amber"
+            accentClassName="text-warm-gold"
           />
         </div>
 
@@ -57,7 +57,7 @@ export default function CTA() {
         <div className="max-w-2xl">
           <p
             data-animate="fade"
-            className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed"
+            className="text-base sm:text-lg text-stone-300 leading-relaxed"
           >
             I take one client per niche in your area. If the spot is open,
             let&apos;s talk about making your online presence the one everyone
@@ -66,7 +66,7 @@ export default function CTA() {
 
           <div data-animate="fade" className="mt-5 flex items-center gap-3">
             <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
-            <span className="text-xs font-mono text-cyber-gray-400">
+            <span className="text-xs font-mono text-stone-400">
               Availability is limited
             </span>
           </div>
@@ -77,7 +77,7 @@ export default function CTA() {
           >
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-cyber-amber to-amber-400 text-[#060608] font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-500/20"
+              className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-500 to-amber-400 text-warm-bg font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-500/20"
               data-umami-event="cta-start-conversation"
             >
               <span>Start a Conversation</span>
@@ -86,7 +86,7 @@ export default function CTA() {
                 aria-hidden="true"
               />
             </Link>
-            <p className="text-xs font-mono text-cyber-gray-400">
+            <p className="text-xs font-mono text-stone-400">
               Usually responds within 24 hours
             </p>
           </div>

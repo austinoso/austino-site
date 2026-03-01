@@ -14,7 +14,7 @@ import {
 type GSAPType = (typeof import("gsap"))["gsap"];
 
 /* ------------------------------------------------------------------ */
-/*  Cinematic hero demo: 5-scene loop animating a full user →          */
+/*  Cinematic hero demo: 5-scene loop animating a full user â†’          */
 /*  automation journey inside a browser frame.                         */
 /* ------------------------------------------------------------------ */
 
@@ -38,7 +38,7 @@ export default function HeroDemo() {
   const statConv = useRef<HTMLSpanElement>(null);
   const statScore = useRef<HTMLSpanElement>(null);
 
-  /* Debug mode — client-only URL check */
+  /* Debug mode â€” client-only URL check */
   const [isDebug, setIsDebug] = useState(false);
   const [debugScene, setDebugScene] = useState(0);
 
@@ -50,11 +50,11 @@ export default function HeroDemo() {
   }, []);
 
   const SCENE_LABELS = [
-    "Scene 1 — Landing Page",
-    "Scene 2 — Booking Form",
-    "Scene 3 — Confirmation",
-    "Scene 4 — Automation",
-    "Scene 5 — Results",
+    "Scene 1 â€” Landing Page",
+    "Scene 2 â€” Booking Form",
+    "Scene 3 â€” Confirmation",
+    "Scene 4 â€” Automation",
+    "Scene 5 â€” Results",
   ];
 
   const prevScene = useCallback(
@@ -66,7 +66,7 @@ export default function HeroDemo() {
     [],
   );
 
-  /* ── Debug mode: show one scene at a time with all elements visible ── */
+  /* â”€â”€ Debug mode: show one scene at a time with all elements visible â”€â”€ */
   useEffect(() => {
     if (!isDebug) return;
     const scenes = [s1, s2, s3, s4, s5].map((r) => r.current!);
@@ -135,7 +135,7 @@ export default function HeroDemo() {
     };
   }, [isDebug, debugScene]);
 
-  /* ── Normal animation (skipped in debug mode) ── */
+  /* â”€â”€ Normal animation (skipped in debug mode) â”€â”€ */
   useEffect(() => {
     if (isDebug) return;
 
@@ -209,9 +209,9 @@ export default function HeroDemo() {
           });
           firstPlay = false;
 
-          /* ─── ACT 1 — The Customer Experience ─── */
+          /* â”€â”€â”€ ACT 1 â€” The Customer Experience â”€â”€â”€ */
 
-          /* Scene 1: Landing page — cursor glides to CTA */
+          /* Scene 1: Landing page â€” cursor glides to CTA */
           tl.addLabel("scene1", "+=0.6");
           tl.to(cursor, { opacity: 1, duration: 0.35 }, "scene1+=0.4");
           tl.to(
@@ -235,7 +235,7 @@ export default function HeroDemo() {
           tl.to({}, { duration: 0.35 });
           tl.to(cursor, { opacity: 0, duration: 0.15 });
 
-          /* Transition 1 → 2 */
+          /* Transition 1 â†’ 2 */
           tl.addLabel("t12", "+=0.12");
           tl.to(
             scenes[0],
@@ -254,7 +254,7 @@ export default function HeroDemo() {
             "t12",
           );
 
-          /* Scene 2: Booking form — fields auto-fill */
+          /* Scene 2: Booking form â€” fields auto-fill */
           tl.addLabel("scene2", "+=0.25");
           tl.to(".hv", { opacity: 1, duration: 0.25, stagger: 0.4 }, "scene2");
           tl.set(
@@ -276,7 +276,7 @@ export default function HeroDemo() {
           );
           tl.to(cursor, { opacity: 0, duration: 0.15 }, "+=0.2");
 
-          /* Transition 2 → 3 */
+          /* Transition 2 â†’ 3 */
           tl.addLabel("t23", "+=0.12");
           tl.to(
             scenes[1],
@@ -295,7 +295,7 @@ export default function HeroDemo() {
             "t23",
           );
 
-          /* Scene 3: Confirmation — checkmark draws */
+          /* Scene 3: Confirmation â€” checkmark draws */
           tl.addLabel("scene3", "+=0.12");
           tl.to(
             ".hconfirm-circle",
@@ -319,9 +319,9 @@ export default function HeroDemo() {
           );
           tl.to({}, { duration: 1.0 });
 
-          /* ─── ACT 2 — Behind the Scenes ─── */
+          /* â”€â”€â”€ ACT 2 â€” Behind the Scenes â”€â”€â”€ */
 
-          /* Transition 3 → 4 */
+          /* Transition 3 â†’ 4 */
           tl.addLabel("t34", "+=0.12");
           tl.to(
             scenes[2],
@@ -360,7 +360,7 @@ export default function HeroDemo() {
           );
           tl.to({}, { duration: 0.8 });
 
-          /* Transition 4 → 5 */
+          /* Transition 4 â†’ 5 */
           tl.addLabel("t45", "+=0.12");
           tl.to(
             scenes[3],
@@ -379,7 +379,7 @@ export default function HeroDemo() {
             "t45",
           );
 
-          /* Scene 5: Results — counters tick up */
+          /* Scene 5: Results â€” counters tick up */
           tl.addLabel("scene5", "+=0.2");
           tl.to(
             ".hstat-ring",
@@ -422,7 +422,7 @@ export default function HeroDemo() {
     return () => ctx?.revert();
   }, [isDebug]);
 
-  /* ── Pause / Resume ── */
+  /* â”€â”€ Pause / Resume â”€â”€ */
   useEffect(() => {
     if (isDebug) return;
     const demo = demoRef.current;
@@ -461,11 +461,11 @@ export default function HeroDemo() {
     });
   }, [isPaused, isDebug]);
 
-  /* ── Render ── */
+  /* â”€â”€ Render â”€â”€ */
   return (
     <div ref={demoRef} className="relative">
       <div
-        className="relative rounded-xl border border-white/[0.06] bg-[#0C0D12] overflow-hidden"
+        className="relative rounded-xl border border-white/[0.06] bg-[#0C0B09] overflow-hidden"
         style={{
           boxShadow:
             "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02)",
@@ -473,14 +473,14 @@ export default function HeroDemo() {
         aria-hidden="true"
       >
         {/* Chrome bar */}
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0A0B0F]">
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0A0A08]">
           <div className="flex items-center gap-1.5">
             <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/80" />
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="flex items-center gap-1.5 px-4 py-1 rounded-lg bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
+            <div className="flex items-center gap-1.5 px-4 py-1 rounded-lg bg-white/[0.04] text-[11px] text-stone-500 font-mono">
               <svg
                 className="w-2.5 h-2.5 opacity-40"
                 viewBox="0 0 16 16"
@@ -493,9 +493,9 @@ export default function HeroDemo() {
           </div>
         </div>
 
-        {/* ══ Stage ══ */}
-        <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] lg:aspect-[16/10] overflow-hidden bg-[#080A0E]">
-          {/* ━━ Scene 1 — Landing Page ━━ */}
+        {/* â•â• Stage â•â• */}
+        <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] lg:aspect-[16/10] overflow-hidden bg-[#080807]">
+          {/* â”â” Scene 1 â€” Landing Page â”â” */}
           <div
             ref={s1}
             className="absolute inset-0 p-4 sm:p-5 md:p-7 lg:p-5 flex flex-col gap-3 md:gap-4 lg:gap-3"
@@ -508,13 +508,13 @@ export default function HeroDemo() {
                 </span>
               </div>
               <div className="hidden sm:flex items-center gap-4 md:gap-5">
-                <span className="text-[8px] md:text-[10px] text-cyber-gray-500">
+                <span className="text-[8px] md:text-[10px] text-stone-500">
                   Services
                 </span>
-                <span className="text-[8px] md:text-[10px] text-cyber-gray-500">
+                <span className="text-[8px] md:text-[10px] text-stone-500">
                   About
                 </span>
-                <span className="text-[8px] md:text-[10px] text-cyber-gray-500">
+                <span className="text-[8px] md:text-[10px] text-stone-500">
                   Contact
                 </span>
               </div>
@@ -527,14 +527,14 @@ export default function HeroDemo() {
                 <br />
                 Feel Great.
               </p>
-              <p className="text-[8px] sm:text-[10px] md:text-[13px] lg:text-[11px] text-cyber-gray-400 mt-2 md:mt-3 lg:mt-2 max-w-[75%] leading-relaxed">
+              <p className="text-[8px] sm:text-[10px] md:text-[13px] lg:text-[11px] text-stone-400 mt-2 md:mt-3 lg:mt-2 max-w-[75%] leading-relaxed">
                 Premium services tailored to you.
                 <br />
                 Book your next appointment online.
               </p>
               <button
                 tabIndex={-1}
-                className="hbtn-book mt-3 sm:mt-4 md:mt-5 lg:mt-4 px-3 sm:px-4 md:px-5 lg:px-4 py-1.5 sm:py-2 md:py-2.5 lg:py-2 bg-cyber-accent rounded text-[8px] sm:text-[9px] md:text-[11px] lg:text-[10px] font-semibold text-[#050505]"
+                className="hbtn-book mt-3 sm:mt-4 md:mt-5 lg:mt-4 px-3 sm:px-4 md:px-5 lg:px-4 py-1.5 sm:py-2 md:py-2.5 lg:py-2 bg-amber-500 rounded text-[8px] sm:text-[9px] md:text-[11px] lg:text-[10px] font-semibold text-[#050505]"
               >
                 Book Now
               </button>
@@ -548,7 +548,7 @@ export default function HeroDemo() {
             </div>
           </div>
 
-          {/* ━━ Scene 2 — Booking Form ━━ */}
+          {/* â”â” Scene 2 â€” Booking Form â”â” */}
           <div
             ref={s2}
             className="absolute inset-0 p-3 sm:p-4 md:p-6 lg:p-4 flex flex-col"
@@ -560,7 +560,7 @@ export default function HeroDemo() {
             <div className="space-y-1.5 sm:space-y-2 md:space-y-3 lg:space-y-2 flex-1">
               {/* Name */}
               <div>
-                <span className="text-[7px] sm:text-[8px] md:text-[10px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                <span className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 uppercase tracking-wider font-mono">
                   Name
                 </span>
                 <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] md:py-[9px] lg:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
@@ -575,7 +575,7 @@ export default function HeroDemo() {
               {/* Date & Time */}
               <div className="grid grid-cols-2 gap-2 md:gap-3 lg:gap-2">
                 <div>
-                  <span className="text-[7px] sm:text-[8px] md:text-[10px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                  <span className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 uppercase tracking-wider font-mono">
                     Date
                   </span>
                   <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] md:py-[9px] lg:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
@@ -588,7 +588,7 @@ export default function HeroDemo() {
                   </div>
                 </div>
                 <div>
-                  <span className="text-[7px] sm:text-[8px] md:text-[10px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                  <span className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 uppercase tracking-wider font-mono">
                     Time
                   </span>
                   <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] md:py-[9px] lg:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
@@ -603,7 +603,7 @@ export default function HeroDemo() {
               </div>
               {/* Service */}
               <div>
-                <span className="text-[7px] sm:text-[8px] md:text-[10px] text-cyber-gray-500 uppercase tracking-wider font-mono">
+                <span className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 uppercase tracking-wider font-mono">
                   Service
                 </span>
                 <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] md:py-[9px] lg:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
@@ -611,7 +611,7 @@ export default function HeroDemo() {
                     className="hv text-[10px] sm:text-[13px] md:text-[15px] lg:text-[13px] text-white leading-none"
                     style={{ opacity: 0 }}
                   >
-                    Premium Session · 60 min · $150
+                    Premium Session &middot; 60 min &middot; $150
                   </span>
                 </div>
               </div>
@@ -620,14 +620,14 @@ export default function HeroDemo() {
             <div className="mt-2 flex justify-center">
               <button
                 tabIndex={-1}
-                className="hbtn-confirm px-4 sm:px-5 md:px-6 lg:px-5 py-1.5 sm:py-2 md:py-2.5 lg:py-2 bg-cyber-accent rounded text-[8px] sm:text-[10px] md:text-[12px] lg:text-[10px] font-semibold text-[#050505]"
+                className="hbtn-confirm px-4 sm:px-5 md:px-6 lg:px-5 py-1.5 sm:py-2 md:py-2.5 lg:py-2 bg-amber-500 rounded text-[8px] sm:text-[10px] md:text-[12px] lg:text-[10px] font-semibold text-[#050505]"
               >
                 Confirm Booking
               </button>
             </div>
           </div>
 
-          {/* ━━ Scene 3 — Confirmation ━━ */}
+          {/* â”â” Scene 3 â€” Confirmation â”â” */}
           <div
             ref={s3}
             className="absolute inset-0 flex flex-col items-center justify-center p-3 sm:p-4 md:p-6 lg:p-4"
@@ -670,19 +670,19 @@ export default function HeroDemo() {
               className="hconfirm-details mt-3 sm:mt-4 md:mt-5 lg:mt-4 space-y-1 sm:space-y-1.5 md:space-y-2 lg:space-y-1.5 text-center"
               style={{ opacity: 0 }}
             >
-              <p className="text-[9px] sm:text-[11px] md:text-[13px] lg:text-[11px] text-cyber-gray-300">
-                Sarah M. · Feb 20 · 2:00 PM
+              <p className="text-[9px] sm:text-[11px] md:text-[13px] lg:text-[11px] text-stone-300">
+                Sarah M. &middot; Feb 20 &middot; 2:00 PM
               </p>
-              <p className="text-[9px] sm:text-[11px] md:text-[13px] lg:text-[11px] text-cyber-gray-400">
-                Premium Session · 60 min
+              <p className="text-[9px] sm:text-[11px] md:text-[13px] lg:text-[11px] text-stone-400">
+                Premium Session &middot; 60 min
               </p>
-              <p className="text-[8px] sm:text-[9px] md:text-[11px] lg:text-[9px] text-cyber-gray-500 mt-2 sm:mt-3">
-                ✉ Confirmation sent to sarah@email.com
+              <p className="text-[8px] sm:text-[9px] md:text-[11px] lg:text-[9px] text-stone-500 mt-2 sm:mt-3">
+                &#9993; Confirmation sent to sarah@email.com
               </p>
             </div>
           </div>
 
-          {/* ━━ Scene 4 — Automation Cascade ━━ */}
+          {/* â”â” Scene 4 â€” Automation Cascade â”â” */}
           <div
             ref={s4}
             className="absolute inset-0 p-3 sm:p-4 md:p-6 lg:p-4"
@@ -690,7 +690,7 @@ export default function HeroDemo() {
           >
             <div className="flex items-center gap-1.5 mb-1.5 sm:mb-2">
               <div className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
-              <p className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[10px] font-mono text-cyber-gray-400 uppercase tracking-wider">
+              <p className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[10px] font-mono text-stone-400 uppercase tracking-wider">
                 Behind the scenes
               </p>
             </div>
@@ -718,7 +718,7 @@ export default function HeroDemo() {
                   {
                     Icon: Star,
                     text: "Follow-up scheduled",
-                    detail: "Review request · 3 days",
+                    detail: "Review request \u00B7 3 days",
                   },
                 ] as const
               ).map((task, i) => (
@@ -750,13 +750,13 @@ export default function HeroDemo() {
                       {task.text}
                     </p>
                   </div>
-                  <task.Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyber-gray-500 flex-shrink-0" />
+                  <task.Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-stone-500 flex-shrink-0" />
                 </div>
               ))}
             </div>
           </div>
 
-          {/* ━━ Scene 5 — Results ━━ */}
+          {/* â”â” Scene 5 â€” Results â”â” */}
           <div
             ref={s5}
             className="absolute inset-0 p-4 sm:p-5 md:p-7 lg:p-5 flex flex-col"
@@ -765,7 +765,7 @@ export default function HeroDemo() {
             {/* Header row */}
             <div className="flex items-center justify-between mb-3 sm:mb-4">
               <div>
-                <p className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[10px] font-mono text-cyber-gray-500 uppercase tracking-wider">
+                <p className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[10px] font-mono text-stone-500 uppercase tracking-wider">
                   Monthly Overview
                 </p>
                 <p className="text-[13px] sm:text-[16px] md:text-[20px] lg:text-[17px] font-semibold text-white mt-0.5">
@@ -814,7 +814,7 @@ export default function HeroDemo() {
                     0
                   </span>
                 </div>
-                <p className="text-[7px] sm:text-[8px] md:text-[10px] text-cyber-gray-500 font-mono uppercase tracking-wider">
+                <p className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 font-mono uppercase tracking-wider">
                   Lighthouse
                 </p>
               </div>
@@ -823,7 +823,7 @@ export default function HeroDemo() {
                 <p className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[30px] font-semibold text-white leading-none mb-1.5">
                   <span ref={statLeads}>0</span>
                 </p>
-                <p className="text-[7px] sm:text-[8px] md:text-[10px] text-cyber-gray-500 font-mono uppercase tracking-wider">
+                <p className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 font-mono uppercase tracking-wider">
                   New Leads
                 </p>
               </div>
@@ -832,7 +832,7 @@ export default function HeroDemo() {
                 <p className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[30px] font-semibold text-[#4ADE80] leading-none mb-1.5">
                   <span ref={statConv}>0%</span>
                 </p>
-                <p className="text-[7px] sm:text-[8px] md:text-[10px] text-cyber-gray-500 font-mono uppercase tracking-wider">
+                <p className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 font-mono uppercase tracking-wider">
                   Conv. Rate
                 </p>
               </div>
@@ -841,13 +841,13 @@ export default function HeroDemo() {
             {/* Footer tagline */}
             <div className="mt-2.5 sm:mt-3 pt-2 sm:pt-2.5 border-t border-white/[0.06] flex items-center justify-center gap-1.5">
               <span className="h-1 w-1 rounded-full bg-[#4ADE80]"></span>
-              <p className="text-[7px] sm:text-[9px] md:text-[11px] lg:text-[9px] font-mono text-cyber-gray-500 uppercase tracking-wider">
-                All automated · Zero busywork
+              <p className="text-[7px] sm:text-[9px] md:text-[11px] lg:text-[9px] font-mono text-stone-500 uppercase tracking-wider">
+                All automated &middot; Zero busywork
               </p>
             </div>
           </div>
 
-          {/* ━━ Cursor ━━ */}
+          {/* â”â” Cursor â”â” */}
           <div
             ref={cursorRef}
             className="absolute z-30 pointer-events-none"
@@ -863,7 +863,7 @@ export default function HeroDemo() {
             </svg>
           </div>
 
-          {/* ━━ Debug overlay ━━ */}
+          {/* â”â” Debug overlay â”â” */}
           {isDebug && (
             <div className="absolute inset-x-0 bottom-0 z-40 flex items-center justify-between px-3 py-2 bg-black/80 backdrop-blur-sm border-t border-white/10">
               <button
@@ -874,8 +874,8 @@ export default function HeroDemo() {
                 <ChevronLeft className="w-3 h-3" />
                 Prev
               </button>
-              <span className="text-[10px] font-mono text-cyber-accent">
-                {debugScene + 1}/5 — {SCENE_LABELS[debugScene]}
+              <span className="text-[10px] font-mono text-warm-gold">
+                {debugScene + 1}/5 â€” {SCENE_LABELS[debugScene]}
               </span>
               <button
                 onClick={nextScene}
@@ -890,7 +890,7 @@ export default function HeroDemo() {
         </div>
       </div>
 
-      {/* Pause/Play control — WCAG 2.2.2 compliance */}
+      {/* Pause/Play control â€” WCAG 2.2.2 compliance */}
       {!isDebug && (
         <button
           onClick={() => setIsPaused((p) => !p)}

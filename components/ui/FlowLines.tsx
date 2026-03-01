@@ -228,7 +228,7 @@ export default function FlowLines({
         className="w-full h-full"
       >
         <defs>
-          {/* G1: Cyan → Violet → Rose */}
+          {/* G1: Gold → Violet → Rose */}
           <linearGradient
             id={`${p}-g1`}
             gradientUnits="userSpaceOnUse"
@@ -236,14 +236,14 @@ export default function FlowLines({
               ? { x1: "200", y1: "500", x2: "450", y2: "0" }
               : { x1: "-30", y1: "130", x2: "1230", y2: "130" })}
           >
-            <stop offset="0%" stopColor="#40E0FF" stopOpacity="0" />
-            <stop offset="12%" stopColor="#40E0FF" stopOpacity="0.9" />
+            <stop offset="0%" stopColor="#D4A853" stopOpacity="0" />
+            <stop offset="12%" stopColor="#D4A853" stopOpacity="0.9" />
             <stop offset="45%" stopColor="#A78BFA" stopOpacity="0.65" />
             <stop offset="80%" stopColor="#F472B6" stopOpacity="0.4" />
             <stop offset="100%" stopColor="#F472B6" stopOpacity="0" />
           </linearGradient>
 
-          {/* G2: Violet → Cyan */}
+          {/* G2: Violet → Gold */}
           <linearGradient
             id={`${p}-g2`}
             gradientUnits="userSpaceOnUse"
@@ -253,12 +253,12 @@ export default function FlowLines({
           >
             <stop offset="0%" stopColor="#A78BFA" stopOpacity="0" />
             <stop offset="15%" stopColor="#A78BFA" stopOpacity="0.75" />
-            <stop offset="55%" stopColor="#40E0FF" stopOpacity="0.5" />
-            <stop offset="90%" stopColor="#40E0FF" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#40E0FF" stopOpacity="0" />
+            <stop offset="55%" stopColor="#D4A853" stopOpacity="0.5" />
+            <stop offset="90%" stopColor="#D4A853" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#D4A853" stopOpacity="0" />
           </linearGradient>
 
-          {/* G3: Green → Cyan accent */}
+          {/* G3: Rose → Gold accent */}
           <linearGradient
             id={`${p}-g3`}
             gradientUnits="userSpaceOnUse"
@@ -266,10 +266,10 @@ export default function FlowLines({
               ? { x1: "250", y1: "500", x2: "480", y2: "0" }
               : { x1: "-30", y1: "130", x2: "1230", y2: "130" })}
           >
-            <stop offset="0%" stopColor="#4ADE80" stopOpacity="0" />
-            <stop offset="18%" stopColor="#4ADE80" stopOpacity="0.6" />
-            <stop offset="60%" stopColor="#40E0FF" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#40E0FF" stopOpacity="0" />
+            <stop offset="0%" stopColor="#F472B6" stopOpacity="0" />
+            <stop offset="18%" stopColor="#F472B6" stopOpacity="0.6" />
+            <stop offset="60%" stopColor="#D4A853" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#D4A853" stopOpacity="0" />
           </linearGradient>
         </defs>
 
@@ -278,7 +278,7 @@ export default function FlowLines({
             {/* Track — faint permanent path */}
             <path
               d={s.d}
-              stroke={`rgba(64,224,255,${s.to})`}
+              stroke={`rgba(212,168,83,${s.to})`}
               strokeWidth={s.w * s.tw}
               strokeLinecap="round"
               pathLength={1000}

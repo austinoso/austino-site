@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative border-t border-white/[0.06] bg-[#060608]"
+      className="relative border-t border-white/[0.06] bg-warm-bg"
       role="contentinfo"
       aria-label="Site footer"
     >
@@ -21,9 +21,9 @@ export default function Footer() {
               aria-label="Home"
             >
               <span className="text-white">austin</span>
-              <span className="text-cyber-accent">o</span>
+              <span className="text-warm-gold">o</span>
             </Link>
-            <p className="text-sm text-cyber-gray-400 leading-relaxed max-w-[240px]">
+            <p className="text-sm text-stone-400 leading-relaxed max-w-[240px]">
               High-performance websites, growth strategies, and automation —
               giving local businesses an edge.
             </p>
@@ -36,7 +36,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/web-development"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors py-1 inline-block"
+                  className="text-sm text-stone-400 hover:text-warm-gold transition-colors py-1 inline-block"
                 >
                   Web Development
                 </Link>
@@ -44,7 +44,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/automation"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors py-1 inline-block"
+                  className="text-sm text-stone-400 hover:text-warm-gold transition-colors py-1 inline-block"
                 >
                   Automation
                 </Link>
@@ -52,7 +52,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/growth-strategy"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors py-1 inline-block"
+                  className="text-sm text-stone-400 hover:text-warm-gold transition-colors py-1 inline-block"
                 >
                   Growth Strategy
                 </Link>
@@ -67,7 +67,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/work"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors py-1 inline-block"
+                  className="text-sm text-stone-400 hover:text-warm-gold transition-colors py-1 inline-block"
                 >
                   Work
                 </Link>
@@ -75,7 +75,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors py-1 inline-block"
+                  className="text-sm text-stone-400 hover:text-warm-gold transition-colors py-1 inline-block"
                 >
                   Contact
                 </Link>
@@ -91,7 +91,7 @@ export default function Footer() {
                 href="https://github.com/austinoso"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                className="flex items-center gap-2 text-sm text-stone-400 hover:text-warm-gold transition-colors"
                 aria-label="GitHub profile (opens in a new tab)"
                 data-umami-event="footer-github"
               >
@@ -113,7 +113,7 @@ export default function Footer() {
                 href="https://linkedin.com/in/austinoso"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                className="flex items-center gap-2 text-sm text-stone-400 hover:text-warm-gold transition-colors"
                 aria-label="LinkedIn profile (opens in a new tab)"
                 data-umami-event="footer-linkedin"
               >
@@ -133,7 +133,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/[0.06]">
-          <p className="text-xs text-cyber-gray-500 text-center font-mono">
+          <p className="text-xs text-stone-500 text-center font-mono">
             &copy; {currentYear} austino
           </p>
         </div>

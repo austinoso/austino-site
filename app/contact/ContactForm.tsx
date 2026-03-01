@@ -3,24 +3,24 @@
 import { useState, FormEvent } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
 
-// Form field configurations — aligned to ICP (local / small business owners)
+// Form field configurations â€” aligned to ICP (local / small business owners)
 const BUDGET_RANGES = [
   { value: "under-3k", label: "Under $3k" },
-  { value: "3k-5k", label: "$3k – $5k" },
-  { value: "5k-10k", label: "$5k – $10k" },
+  { value: "3k-5k", label: "$3k â€“ $5k" },
+  { value: "5k-10k", label: "$5k â€“ $10k" },
   { value: "10k+", label: "$10k+" },
   { value: "flexible", label: "Not sure yet" },
 ];
 
 const TIMELINES = [
   { value: "asap", label: "Within a month" },
-  { value: "1-2-months", label: "1–2 months" },
-  { value: "2-3-months", label: "2–3 months" },
+  { value: "1-2-months", label: "1â€“2 months" },
+  { value: "2-3-months", label: "2â€“3 months" },
   { value: "flexible", label: "Flexible" },
 ];
 
 const inputClass =
-  "w-full px-4 py-3 bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-white/[0.12]";
+  "w-full px-4 py-3 bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-warm-gold/50 focus:border-warm-gold/50 transition-all duration-300 hover:border-white/[0.12]";
 
 const selectArrowStyle = {
   backgroundImage:
@@ -146,7 +146,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="block text-sm text-cyber-gray-400 mb-2"
+            className="block text-sm text-stone-400 mb-2"
           >
             Your Name *
           </label>
@@ -165,7 +165,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm text-cyber-gray-400 mb-2"
+            className="block text-sm text-stone-400 mb-2"
           >
             Email *
           </label>
@@ -187,7 +187,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="company"
-          className="block text-sm text-cyber-gray-400 mb-2"
+          className="block text-sm text-stone-400 mb-2"
         >
           Company / Organization
         </label>
@@ -207,7 +207,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="budget"
-            className="block text-sm text-cyber-gray-400 mb-2"
+            className="block text-sm text-stone-400 mb-2"
           >
             Budget range
           </label>
@@ -230,7 +230,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="timeline"
-            className="block text-sm text-cyber-gray-400 mb-2"
+            className="block text-sm text-stone-400 mb-2"
           >
             Timeline
           </label>
@@ -256,7 +256,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="description"
-          className="block text-sm text-cyber-gray-400 mb-2"
+          className="block text-sm text-stone-400 mb-2"
         >
           How can I help? *
         </label>
@@ -278,7 +278,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full sm:w-auto px-8 py-3.5 bg-cyber-accent text-black font-semibold text-[15px] rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full sm:w-auto px-8 py-3.5 bg-amber-500 text-black font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           aria-label="Submit project inquiry"
         >
           {isSubmitting ? (

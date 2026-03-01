@@ -25,8 +25,14 @@ export default function Work() {
     <ScrollReveal
       as="section"
       id="work"
-      className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
-      style={{ background: "rgba(6,6,8,0.92)" }}
+      className="relative w-full pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 border-b border-white/[0.06]"
+      style={{
+        background: "rgba(11,10,8,0.92)",
+        backgroundImage: [
+          "radial-gradient(ellipse 55% 50% at 50% 15%, rgba(212,168,83,0.06), transparent 70%)",
+          "radial-gradient(ellipse 40% 45% at 5% 50%, rgba(167,139,250,0.05), transparent 70%)",
+        ].join(", "),
+      }}
       aria-labelledby="work-heading"
     >
       {/* Subtle divider */}
@@ -34,7 +40,7 @@ export default function Work() {
         className="absolute top-0 inset-x-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(167,139,250,0.12) 30%, rgba(64,224,255,0.18) 50%, rgba(244,114,182,0.12) 70%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(167,139,250,0.12) 30%, rgba(212,168,83,0.18) 50%, rgba(244,114,182,0.12) 70%, transparent)",
         }}
         aria-hidden="true"
       />
@@ -47,7 +53,7 @@ export default function Work() {
         <WordReveal
           text="See the results."
           id="work-heading"
-          className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight mb-12 sm:mb-16"
+          className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight mb-12 sm:mb-16"
           accentWords={["results."]}
         />
 
@@ -57,7 +63,7 @@ export default function Work() {
           <div data-animate="slide-up">
             <Link
               href={`/work/${project.slug}`}
-              className="group relative block rounded-lg overflow-hidden border border-white/[0.08] hover:border-cyber-accent/20 transition-all duration-500"
+              className="group relative block rounded-lg overflow-hidden border border-white/[0.08] hover:border-warm-gold/20 transition-all duration-500"
               style={{
                 boxShadow:
                   "0 24px 48px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03)",
@@ -66,7 +72,7 @@ export default function Work() {
               data-umami-event-project={project.slug}
             >
               {(project.thumbnail || project.image) && (
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#111318]">
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#131210]">
                   <Image
                     src={project.thumbnail || project.image!}
                     alt={project.title}
@@ -89,7 +95,7 @@ export default function Work() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-mono text-cyber-gray-400 hover:text-cyber-accent transition-colors"
+                className="text-xs font-mono text-stone-400 hover:text-warm-gold transition-colors"
               >
                 mymassagecottage.com
                 <span className="sr-only"> (opens in a new tab)</span>
@@ -101,37 +107,37 @@ export default function Work() {
           <div data-animate="slide-up-delayed" className="flex flex-col">
             {/* Category + read time */}
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-[10px] font-mono text-cyber-accent uppercase tracking-[0.15em]">
+              <span className="text-[10px] font-mono text-warm-gold uppercase tracking-[0.15em]">
                 {project.category}
               </span>
-              <span className="text-cyber-gray-500 text-[10px]">·</span>
-              <span className="text-[10px] font-mono text-cyber-gray-500">
+              <span className="text-stone-500 text-[10px]">·</span>
+              <span className="text-[10px] font-mono text-stone-500">
                 {project.readTime}
               </span>
             </div>
 
             {/* Title */}
-            <h3 className="font-display text-2xl sm:text-3xl font-semibold text-white leading-snug mb-4">
+            <h3 className="font-display text-2xl sm:text-3xl font-semibold text-warm-white leading-snug mb-4">
               {project.title.split(":")[0]}
             </h3>
 
             {/* Challenge summary */}
-            <p className="text-[15px] text-cyber-gray-300 leading-relaxed mb-8">
+            <p className="text-[15px] text-stone-300 leading-relaxed mb-8">
               {project.excerpt}
             </p>
 
             {/* Key results */}
             <div className="space-y-3 mb-10">
-              <p className="text-xs font-mono text-cyber-gray-400 uppercase tracking-[0.15em] mb-3">
+              <p className="text-xs font-mono text-stone-400 uppercase tracking-[0.15em] mb-3">
                 Key Outcomes
               </p>
               {highlights.map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <CheckCircle2
-                    className="w-4 h-4 text-cyber-accent/70 mt-0.5 flex-shrink-0"
+                    className="w-4 h-4 text-warm-gold/70 mt-0.5 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <span className="text-sm text-cyber-gray-300 leading-relaxed">
+                  <span className="text-sm text-stone-300 leading-relaxed">
                     {item}
                   </span>
                 </div>
@@ -141,7 +147,7 @@ export default function Work() {
             {/* CTA */}
             <Link
               href={`/work/${project.slug}`}
-              className="group inline-flex items-center gap-2.5 self-start px-6 py-3 border border-white/[0.08] rounded-lg text-[14px] font-medium text-white hover:border-cyber-accent/30 hover:text-cyber-accent transition-all duration-500"
+              className="group inline-flex items-center gap-2.5 self-start px-6 py-3 border border-white/[0.08] rounded-lg text-[14px] font-medium text-white hover:border-warm-gold/30 hover:text-warm-gold transition-all duration-500"
               style={{
                 boxShadow: "0 0 0 1px rgba(255,255,255,0.02)",
               }}

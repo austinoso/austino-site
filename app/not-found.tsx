@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main id="main-content" className="relative min-h-screen bg-cyber-dark">
+    <main id="main-content" className="relative min-h-screen bg-warm-bg">
       <Navigation />
 
       <div className="page-frame">
@@ -14,13 +14,13 @@ export default function NotFound() {
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight mb-5">
             Page not found.
           </h1>
-          <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-md mb-10 text-pretty">
+          <p className="text-base sm:text-lg text-stone-300 leading-relaxed max-w-md mb-10 text-pretty">
             The page you&apos;re looking for doesn&apos;t exist or has been
             moved.
           </p>
           <Link
             href="/"
-            className="group inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-black font-semibold text-[15px] rounded-lg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(64,224,255,0.4)]"
+            className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-500 to-amber-400 text-warm-bg font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-500/20"
           >
             <span>Back to Home</span>
             <ArrowRight

@@ -27,10 +27,10 @@ export default function OngoingSupport() {
         <div className="inline-flex items-center gap-2">
           <span className="section-label">Growth Strategy</span>
         </div>
-        <h3 className="font-display text-2xl sm:text-3xl font-semibold text-white leading-snug">
+        <h3 className="font-display text-2xl sm:text-3xl font-semibold text-warm-white leading-snug">
           Most websites collect dust. Yours keeps climbing.
         </h3>
-        <p className="text-base text-cyber-gray-300 leading-relaxed">
+        <p className="text-base text-stone-300 leading-relaxed">
           Most businesses treat their site as a one-time project. I stay on as
           your web strategist — using data to improve what&apos;s
           underperforming and building new content that earns search authority,
@@ -39,15 +39,15 @@ export default function OngoingSupport() {
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">
             <BarChart3
-              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              className="w-4 h-4 text-warm-gold flex-shrink-0 mt-0.5"
               aria-hidden="true"
-              style={{ filter: "drop-shadow(0 0 6px rgba(64,224,255,0.3))" }}
+              style={{ filter: "drop-shadow(0 0 6px rgba(212,168,83,0.3))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">
                 Conversion Optimization
               </p>
-              <p className="text-xs text-cyber-gray-400 mt-0.5">
+              <p className="text-xs text-stone-400 mt-0.5">
                 I track what&apos;s working and what&apos;s not &mdash; then fix
                 the pages that aren&apos;t turning visitors into customers
               </p>
@@ -55,15 +55,15 @@ export default function OngoingSupport() {
           </div>
           <div data-feature className="flex items-start gap-3">
             <PenTool
-              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              className="w-4 h-4 text-warm-gold flex-shrink-0 mt-0.5"
               aria-hidden="true"
-              style={{ filter: "drop-shadow(0 0 6px rgba(64,224,255,0.3))" }}
+              style={{ filter: "drop-shadow(0 0 6px rgba(212,168,83,0.3))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">
                 Content That Ranks
               </p>
-              <p className="text-xs text-cyber-gray-400 mt-0.5">
+              <p className="text-xs text-stone-400 mt-0.5">
                 New service pages, FAQ content, and local landing pages that
                 rank for the searches your customers actually make
               </p>
@@ -71,13 +71,13 @@ export default function OngoingSupport() {
           </div>
           <div data-feature className="flex items-start gap-3">
             <TrendingUp
-              className="w-4 h-4 text-cyber-accent flex-shrink-0 mt-0.5"
+              className="w-4 h-4 text-warm-gold flex-shrink-0 mt-0.5"
               aria-hidden="true"
-              style={{ filter: "drop-shadow(0 0 6px rgba(64,224,255,0.3))" }}
+              style={{ filter: "drop-shadow(0 0 6px rgba(212,168,83,0.3))" }}
             />
             <div>
               <p className="text-sm font-medium text-white">Growth Planning</p>
-              <p className="text-xs text-cyber-gray-400 mt-0.5">
+              <p className="text-xs text-stone-400 mt-0.5">
                 Email campaigns, AI chatbots, retargeting &mdash; I map out the
                 next move that drives more sales, then build&nbsp;it
               </p>
@@ -86,7 +86,7 @@ export default function OngoingSupport() {
         </div>
         <Link
           href="/services/growth-strategy"
-          className="inline-flex items-center gap-2 text-sm font-mono text-cyber-accent hover:text-white transition-colors duration-300 mt-6"
+          className="inline-flex items-center gap-2 text-sm font-mono text-warm-gold hover:text-white transition-colors duration-300 mt-6"
         >
           Explore growth strategy{" "}
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -96,7 +96,7 @@ export default function OngoingSupport() {
       {/* Search ranking mockup — shows the client at #1 */}
       <div data-visual className="lg:col-span-7">
         <div
-          className="rounded-xl border border-white/[0.08] bg-[#0C0D12] overflow-hidden"
+          className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden"
           style={{
             boxShadow:
               "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03), inset 0 1px 0 rgba(255,255,255,0.04)",
@@ -106,10 +106,10 @@ export default function OngoingSupport() {
           <div className="px-5 py-4 border-b border-white/[0.06]">
             <div className="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.06]">
               <Search
-                className="w-4 h-4 text-cyber-gray-500 flex-shrink-0"
+                className="w-4 h-4 text-stone-500 flex-shrink-0"
                 aria-hidden="true"
               />
-              <span className="text-sm text-cyber-gray-300 font-mono">
+              <span className="text-sm text-stone-300 font-mono">
                 personal trainer near me
               </span>
             </div>
@@ -120,11 +120,11 @@ export default function OngoingSupport() {
             {/* Result 1 — YOUR CLIENT at #1 (highlighted) */}
             <div
               data-result
-              className="relative rounded-lg border border-cyber-accent/20 bg-cyber-accent/[0.04] p-4"
+              className="relative rounded-lg border border-warm-gold/20 bg-warm-gold/[0.04] p-4"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <p className="text-xs text-cyber-accent font-mono mb-1 truncate">
+                  <p className="text-xs text-warm-gold font-mono mb-1 truncate">
                     your-fitness-business.com
                   </p>
                   <p className="text-sm font-semibold text-white leading-snug">
@@ -141,16 +141,16 @@ export default function OngoingSupport() {
                         />
                       ))}
                     </div>
-                    <span className="text-[10px] text-cyber-gray-400">
+                    <span className="text-[10px] text-stone-400">
                       4.9 (84 reviews)
                     </span>
                   </div>
-                  <p className="text-xs text-cyber-gray-400 mt-1.5 line-clamp-1">
+                  <p className="text-xs text-stone-400 mt-1.5 line-clamp-1">
                     1-on-1 personal training, group classes &amp; nutrition
                     coaching. Book your free&nbsp;consultation.
                   </p>
                 </div>
-                <span className="flex-shrink-0 flex items-center gap-1 text-[10px] font-bold text-cyber-accent bg-cyber-accent/10 px-2 py-1 rounded-full whitespace-nowrap">
+                <span className="flex-shrink-0 flex items-center gap-1 text-[10px] font-bold text-warm-gold bg-warm-gold/10 px-2 py-1 rounded-full whitespace-nowrap">
                   <TrendUp className="w-3 h-3" aria-hidden="true" />
                   #1
                 </span>
@@ -162,13 +162,13 @@ export default function OngoingSupport() {
               data-result
               className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-4 opacity-50"
             >
-              <p className="text-xs text-cyber-gray-600 font-mono mb-1">
+              <p className="text-xs text-stone-600 font-mono mb-1">
                 manteca-fitness-center.com
               </p>
-              <p className="text-sm text-cyber-gray-400">
+              <p className="text-sm text-stone-400">
                 Manteca Fitness Center &amp; Gym
               </p>
-              <p className="text-xs text-cyber-gray-600 mt-1">
+              <p className="text-xs text-stone-600 mt-1">
                 Gym memberships, personal training, and group&nbsp;classes...
               </p>
             </div>
@@ -178,13 +178,13 @@ export default function OngoingSupport() {
               data-result
               className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-4 opacity-35"
             >
-              <p className="text-xs text-cyber-gray-600 font-mono mb-1">
+              <p className="text-xs text-stone-600 font-mono mb-1">
                 generic-directory.com
               </p>
-              <p className="text-sm text-cyber-gray-400">
+              <p className="text-sm text-stone-400">
                 Find Personal Trainers | Compare&nbsp;Rates
               </p>
-              <p className="text-xs text-cyber-gray-600 mt-1">
+              <p className="text-xs text-stone-600 mt-1">
                 Browse certified trainers in your&nbsp;area...
               </p>
             </div>
@@ -192,7 +192,7 @@ export default function OngoingSupport() {
 
           {/* Ranking keywords bar */}
           <div className="px-5 pb-4 pt-1 border-t border-white/[0.04]">
-            <p className="text-[10px] text-cyber-gray-500 uppercase tracking-wider font-mono mb-2.5">
+            <p className="text-[10px] text-stone-500 uppercase tracking-wider font-mono mb-2.5">
               Ranking keywords
             </p>
             <div className="flex flex-wrap gap-2">
@@ -200,7 +200,7 @@ export default function OngoingSupport() {
                 <span
                   data-badge
                   key={kw.term}
-                  className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-full border border-white/[0.06] bg-white/[0.03] text-cyber-gray-300"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-full border border-white/[0.06] bg-white/[0.03] text-stone-300"
                 >
                   {kw.term}
                   <span className="text-[#4ADE80] text-[9px] font-semibold">

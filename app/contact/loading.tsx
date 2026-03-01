@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-cyber-dark">
+    <div className="min-h-screen bg-warm-bg">
       {/* Nav placeholder */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-4">

@@ -15,9 +15,9 @@ const opportunities = [
     statLabel:
       "of mobile users leave a site that takes over 3\u00A0seconds to load",
     span: "md:col-span-7",
-    color: "text-cyber-violet",
-    hoverColor: "group-hover:text-cyber-violet",
-    numberColor: "text-cyber-violet/60",
+    color: "text-warm-white",
+    hoverColor: "group-hover:text-warm-gold",
+    numberColor: "text-warm-gold/40",
   },
   {
     number: "02",
@@ -27,9 +27,9 @@ const opportunities = [
     stat: "20hrs",
     statLabel: "per week wasted on tasks that could be automated",
     span: "md:col-span-5",
-    color: "text-cyber-rose",
-    hoverColor: "group-hover:text-cyber-rose",
-    numberColor: "text-cyber-rose/60",
+    color: "text-warm-white",
+    hoverColor: "group-hover:text-warm-gold",
+    numberColor: "text-warm-gold/40",
   },
   {
     number: "03",
@@ -39,9 +39,9 @@ const opportunities = [
     stat: "88%",
     statLabel: "of users won\u2019t return after a bad experience",
     span: "md:col-span-12",
-    color: "text-cyber-accent",
-    hoverColor: "group-hover:text-cyber-accent",
-    numberColor: "text-cyber-accent/60",
+    color: "text-warm-white",
+    hoverColor: "group-hover:text-warm-gold",
+    numberColor: "text-warm-gold/40",
   },
 ];
 
@@ -53,12 +53,12 @@ export default function PainPoints() {
   return (
     <ScrollReveal
       as="section"
-      className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
+      className="relative w-full pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 border-b border-white/[0.06]"
       style={{
-        background: "rgba(6,6,8,0.92)",
+        background: "rgba(11,10,8,0.92)",
         backgroundImage: [
-          "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(167,139,250,0.10), transparent 70%)",
-          "radial-gradient(ellipse 50% 40% at 15% 80%, rgba(244,114,182,0.08), transparent 70%)",
+          "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(167,139,250,0.08), transparent 70%)",
+          "radial-gradient(ellipse 50% 40% at 15% 80%, rgba(244,114,182,0.06), transparent 70%)",
         ].join(", "),
       }}
       aria-labelledby="pain-points-heading"
@@ -68,7 +68,7 @@ export default function PainPoints() {
         className="absolute top-0 inset-x-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(64,224,255,0.15) 20%, rgba(167,139,250,0.20) 50%, rgba(244,114,182,0.15) 80%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(212,168,83,0.15) 20%, rgba(167,139,250,0.15) 50%, rgba(244,114,182,0.12) 80%, transparent)",
         }}
         aria-hidden="true"
       />
@@ -82,7 +82,7 @@ export default function PainPoints() {
             id="pain-points-heading"
             as="h2"
             text="Most businesses in your area aren't doing this. Yours can."
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight max-w-3xl"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight max-w-3xl"
             accentWords={["Yours"]}
           />
         </div>
@@ -108,11 +108,11 @@ export default function PainPoints() {
                         {item.number}
                       </span>
                       <h3
-                        className={`font-display text-xl sm:text-2xl font-semibold text-white leading-snug mb-3 ${item.hoverColor} transition-colors duration-500`}
+                        className={`font-display text-xl sm:text-2xl font-semibold text-warm-white leading-snug mb-3 ${item.hoverColor} transition-colors duration-500`}
                       >
                         {item.title}
                       </h3>
-                      <p className="text-[0.9375rem] text-cyber-gray-300 leading-relaxed max-w-md">
+                      <p className="text-[0.9375rem] text-stone-300 leading-relaxed max-w-md">
                         {item.description}
                       </p>
                     </div>
@@ -122,7 +122,7 @@ export default function PainPoints() {
                       >
                         {item.stat}
                       </span>
-                      <p className="text-xs text-cyber-gray-400 leading-relaxed max-w-[200px] pb-1.5">
+                      <p className="text-xs text-stone-400 leading-relaxed max-w-[200px] pb-1.5">
                         {item.statLabel}
                       </p>
                     </div>
@@ -137,11 +137,11 @@ export default function PainPoints() {
                         {item.number}
                       </span>
                       <h3
-                        className={`font-display text-xl sm:text-2xl font-semibold text-white leading-snug mb-3 ${item.hoverColor} transition-colors duration-500`}
+                        className={`font-display text-xl sm:text-2xl font-semibold text-warm-white leading-snug mb-3 ${item.hoverColor} transition-colors duration-500`}
                       >
                         {item.title}
                       </h3>
-                      <p className="text-[0.9375rem] text-cyber-gray-300 leading-relaxed max-w-md">
+                      <p className="text-[0.9375rem] text-stone-300 leading-relaxed max-w-md">
                         {item.description}
                       </p>
                     </div>
@@ -151,7 +151,7 @@ export default function PainPoints() {
                       >
                         {item.stat}
                       </span>
-                      <p className="text-xs text-cyber-gray-400 leading-relaxed max-w-[200px] pb-1">
+                      <p className="text-xs text-stone-400 leading-relaxed max-w-[200px] pb-1">
                         {item.statLabel}
                       </p>
                     </div>

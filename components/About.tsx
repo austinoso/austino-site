@@ -10,8 +10,14 @@ export default function About() {
   return (
     <ScrollReveal
       as="section"
-      className="relative w-full pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28 border-b border-white/[0.06]"
-      style={{ background: "rgba(6,6,8,0.92)" }}
+      className="relative w-full pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 border-b border-white/[0.06]"
+      style={{
+        background: "rgba(11,10,8,0.92)",
+        backgroundImage: [
+          "radial-gradient(ellipse 50% 45% at 85% 70%, rgba(244,114,182,0.05), transparent 70%)",
+          "radial-gradient(ellipse 40% 40% at 20% 30%, rgba(212,168,83,0.06), transparent 70%)",
+        ].join(", "),
+      }}
       aria-labelledby="about-heading"
     >
       {/* Gradient divider line */}
@@ -19,7 +25,7 @@ export default function About() {
         className="absolute top-0 inset-x-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(167,139,250,0.15) 30%, rgba(64,224,255,0.20) 50%, rgba(167,139,250,0.15) 70%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(167,139,250,0.15) 30%, rgba(212,168,83,0.20) 50%, rgba(167,139,250,0.15) 70%, transparent)",
         }}
         aria-hidden="true"
       />
@@ -33,12 +39,12 @@ export default function About() {
           <WordReveal
             text="Built to outpace your competition."
             id="about-heading"
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight"
             accentWords={["outpace"]}
           />
           <p
             data-animate="fade"
-            className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed mt-8 sm:mt-10"
+            className="text-base sm:text-lg text-stone-300 leading-relaxed mt-8 sm:mt-10"
           >
             Most agencies hand you a site and disappear. I don&apos;t. I stick
             around and keep pushing until your digital presence doesn&apos;t
@@ -53,7 +59,7 @@ export default function About() {
         <div className="pt-12 border-t border-white/[0.06]">
           <p
             data-animate="fade"
-            className="font-mono text-xs text-cyber-accent/60 uppercase tracking-[0.2em] mb-10"
+            className="font-mono text-xs text-warm-gold/60 uppercase tracking-[0.2em] mb-10"
           >
             Meet the Team
           </p>
@@ -74,13 +80,13 @@ export default function About() {
                 />
               </div>
               <div className="min-w-0 pt-1 flex-1">
-                <p className="text-lg font-semibold text-white leading-snug tracking-tight">
+                <p className="text-lg font-semibold text-warm-white leading-snug tracking-tight">
                   Austin O.
                 </p>
-                <p className="font-mono text-[10px] text-cyber-accent uppercase tracking-widest mt-1">
+                <p className="font-mono text-[10px] text-warm-gold uppercase tracking-widest mt-1">
                   Developer &amp; Founder
                 </p>
-                <p className="text-[13px] sm:text-sm text-cyber-gray-400 leading-relaxed mt-2.5">
+                <p className="text-[13px] sm:text-sm text-stone-400 leading-relaxed mt-2.5">
                   Six years experience in software engineering, web development,
                   and business automation.
                 </p>
@@ -102,13 +108,13 @@ export default function About() {
                 />
               </div>
               <div className="min-w-0 pt-1 flex-1">
-                <p className="text-lg font-semibold text-white leading-snug tracking-tight">
+                <p className="text-lg font-semibold text-warm-white leading-snug tracking-tight">
                   Rosa
                 </p>
-                <p className="font-mono text-[10px] text-cyber-accent uppercase tracking-widest mt-1">
+                <p className="font-mono text-[10px] text-warm-gold uppercase tracking-widest mt-1">
                   Head of Morale
                 </p>
-                <p className="text-[13px] sm:text-sm text-cyber-gray-400 leading-relaxed mt-2.5">
+                <p className="text-[13px] sm:text-sm text-stone-400 leading-relaxed mt-2.5">
                   Three years experience in stress management, perimeter
                   security, and unsolicited desk visits.
                 </p>

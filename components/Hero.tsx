@@ -13,11 +13,11 @@ export default function Hero() {
     <section
       className="relative overflow-hidden border-b border-white/[0.06]"
       style={{
-        backgroundColor: "rgba(6,6,8,0.82)",
+        backgroundColor: "rgba(11,10,8,0.82)",
         backgroundImage: [
-          "radial-gradient(ellipse 80% 70% at 10% 15%, rgba(64,224,255,0.13), rgba(167,139,250,0.10) 45%, transparent 100%)",
-          "radial-gradient(ellipse 50% 55% at 95% 90%, rgba(251,191,36,0.08), rgba(244,114,182,0.07) 40%, transparent 70%)",
-          "radial-gradient(ellipse 35% 40% at 85% 35%, rgba(167,139,250,0.06), rgba(64,224,255,0.04) 50%, transparent 70%)",
+          "radial-gradient(ellipse 80% 70% at 10% 15%, rgba(251,191,36,0.10), rgba(167,139,250,0.08) 45%, transparent 100%)",
+          "radial-gradient(ellipse 50% 55% at 95% 90%, rgba(251,191,36,0.07), rgba(244,114,182,0.06) 40%, transparent 70%)",
+          "radial-gradient(ellipse 35% 40% at 85% 35%, rgba(167,139,250,0.05), rgba(212,168,83,0.03) 50%, transparent 70%)",
         ].join(", "),
       }}
       aria-labelledby="hero-heading"
@@ -32,13 +32,13 @@ export default function Hero() {
 
             <h1
               id="hero-heading"
-              className="font-display text-4xl sm:text-5xl md:text-[3.25rem] font-bold text-white leading-[1.1] tracking-tight"
+              className="font-display text-4xl sm:text-5xl md:text-[3.25rem] font-bold text-warm-white leading-[1.1] tracking-tight"
             >
               Websites built to{" "}
               <span className="text-gradient">outperform.</span>
             </h1>
 
-            <p className="mt-6 sm:mt-7 text-[15px] sm:text-base text-cyber-gray-400 leading-relaxed max-w-md text-pretty">
+            <p className="mt-6 sm:mt-7 text-[15px] sm:text-base text-stone-400 leading-relaxed max-w-md text-pretty">
               Fast sites that rank on Google, loaded with tools your customers
               love &mdash; plus automation that saves you hours every week.
             </p>
@@ -46,7 +46,7 @@ export default function Hero() {
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#060608] font-semibold rounded-lg transition-all text-[15px] hover:brightness-110"
+                className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-500 to-amber-400 text-warm-bg font-semibold rounded-lg transition-all text-[15px] hover:brightness-110 shadow-lg shadow-amber-500/20"
                 aria-label="Get a free consultation"
                 data-umami-event="hero-cta"
               >
@@ -58,7 +58,7 @@ export default function Hero() {
               </Link>
             </div>
 
-            <div className="mt-7 flex items-center gap-3 text-sm text-cyber-gray-500">
+            <div className="mt-7 flex items-center gap-3 text-sm text-stone-500">
               <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
               Based in California&apos;s Central Valley
             </div>

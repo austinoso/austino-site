@@ -24,6 +24,18 @@ module.exports = {
           "gray-400": "#9CA3AF",
           "gray-300": "#D1D5DB",
         },
+        warm: {
+          bg: "#0B0A08",
+          surface: "#141310",
+          "surface-hover": "#1D1C18",
+          border: "#2A2722",
+          gold: "#D4A853",
+          "gold-bright": "#FBBF24",
+          "gold-dim": "#B8944A",
+          white: "#F5F0E8",
+          green: "#4ADE80",
+          "green-dim": "#22C55E",
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

@@ -158,7 +158,7 @@ export default function AutomationDashboard() {
 
   return (
     <div
-      className="rounded-xl border border-white/[0.08] bg-[#0A0E14] overflow-hidden"
+      className="rounded-xl border border-white/[0.08] bg-[#0A0A08] overflow-hidden"
       style={{
         boxShadow:
           "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
@@ -167,7 +167,7 @@ export default function AutomationDashboard() {
       aria-label="Live automation dashboard showing tasks being processed automatically"
     >
       {/* ── Header ──────────────────────────────────────────── */}
-      <div className="px-4 py-3 border-b border-white/[0.06] bg-[#0D1117] flex items-center justify-between">
+      <div className="px-4 py-3 border-b border-white/[0.06] bg-[#0D0C09] flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -175,11 +175,11 @@ export default function AutomationDashboard() {
               Live
             </span>
           </div>
-          <span className="text-xs text-cyber-gray-400 font-medium">
+          <span className="text-xs text-stone-400 font-medium">
             Activity Monitor
           </span>
         </div>
-        <span className="text-[11px] text-cyber-gray-500 font-mono tabular-nums">
+        <span className="text-[11px] text-stone-500 font-mono tabular-nums">
           {taskCount} processed
         </span>
       </div>
@@ -240,7 +240,7 @@ export default function AutomationDashboard() {
                   <p className="text-[13px] text-white/90 leading-tight truncate">
                     {task.label}
                   </p>
-                  <p className="text-[11px] text-cyber-gray-500 leading-tight mt-0.5 truncate">
+                  <p className="text-[11px] text-stone-500 leading-tight mt-0.5 truncate">
                     {task.detail}
                   </p>
                 </div>
@@ -250,7 +250,7 @@ export default function AutomationDashboard() {
                   className={`flex-shrink-0 text-[10px] font-mono px-2 py-0.5 rounded-full transition-all duration-500 ${
                     isDone
                       ? `${accentText(task.accent)} ${accentBg(task.accent)}`
-                      : "text-cyber-gray-500 bg-white/[0.03]"
+                      : "text-stone-500 bg-white/[0.03]"
                   }`}
                 >
                   {isDone ? "done" : "running"}
@@ -262,10 +262,10 @@ export default function AutomationDashboard() {
       </div>
 
       {/* ── Footer ──────────────────────────────────────────── */}
-      <div className="px-4 py-2.5 border-t border-white/[0.06] bg-[#0D1117]/50 flex items-center justify-between">
+      <div className="px-4 py-2.5 border-t border-white/[0.06] bg-[#0D0C09]/50 flex items-center justify-between">
         <div className="flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          <span className="text-[11px] text-cyber-gray-500">
+          <span className="text-[11px] text-stone-500">
             All systems operational
           </span>
         </div>

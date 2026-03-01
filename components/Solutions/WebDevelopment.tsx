@@ -21,20 +21,20 @@ export default function WebDevelopment() {
         <div className="relative pb-12 sm:pb-16">
           {/* Browser mockup */}
           <div
-            className="rounded-xl border border-white/[0.08] bg-[#0C0D12] overflow-hidden"
+            className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden"
             style={{
               boxShadow:
                 "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03), inset 0 1px 0 rgba(255,255,255,0.04)",
             }}
           >
-            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13]">
+            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0C09]">
               <div className="flex items-center gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/70" />
               </div>
               <div className="flex-1 flex justify-center">
-                <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
+                <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/[0.04] text-[11px] text-stone-500 font-mono">
                   mymassagecottage.com
                 </div>
               </div>
@@ -52,7 +52,7 @@ export default function WebDevelopment() {
           {/* Speed test card — overlapping bottom-left */}
           <div
             data-speed-card
-            className="absolute -bottom-4 -left-2 sm:-left-6 w-[220px] sm:w-[240px] rounded-xl border border-white/[0.08] bg-[#111318]/95 overflow-hidden"
+            className="absolute -bottom-4 -left-2 sm:-left-6 w-[220px] sm:w-[240px] rounded-xl border border-white/[0.08] bg-[#131210]/95 overflow-hidden"
             style={{
               boxShadow:
                 "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
@@ -69,9 +69,7 @@ export default function WebDevelopment() {
               {/* Your site — fast */}
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] text-cyber-gray-400">
-                    Your site
-                  </span>
+                  <span className="text-[10px] text-stone-400">Your site</span>
                   <span
                     data-speed="1.2"
                     className="text-[11px] font-bold text-[#4ADE80] font-mono"
@@ -91,12 +89,12 @@ export default function WebDevelopment() {
               {/* Competitor — slow */}
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] text-cyber-gray-400">
+                  <span className="text-[10px] text-stone-400">
                     Avg. competitor
                   </span>
                   <span
                     data-speed="4.8"
-                    className="text-[11px] font-bold text-cyber-gray-500 font-mono"
+                    className="text-[11px] font-bold text-stone-500 font-mono"
                   >
                     0s
                   </span>
@@ -104,7 +102,7 @@ export default function WebDevelopment() {
                 <div className="h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
                   <div
                     data-bar
-                    className="h-full rounded-full bg-cyber-gray-600"
+                    className="h-full rounded-full bg-stone-600"
                     style={{ width: "100%" }}
                   />
                 </div>
@@ -132,10 +130,10 @@ export default function WebDevelopment() {
             Web Development
           </span>
         </div>
-        <h3 className="font-display text-2xl sm:text-3xl font-semibold text-white leading-snug">
+        <h3 className="font-display text-2xl sm:text-3xl font-semibold text-warm-white leading-snug">
           Ranks higher. Loads faster. Converts&nbsp;more.
         </h3>
-        <p className="text-base text-cyber-gray-300 leading-relaxed text-pretty">
+        <p className="text-base text-stone-300 leading-relaxed text-pretty">
           While your competitors sit on slow templates, your site will load
           instantly, rank higher on Google, and turn visitors into paying
           customers &mdash; around the clock.
@@ -151,7 +149,7 @@ export default function WebDevelopment() {
               <p className="text-sm font-medium text-white">
                 Design That Builds Trust
               </p>
-              <p className="text-xs text-cyber-gray-400 mt-0.5">
+              <p className="text-xs text-stone-400 mt-0.5">
                 Professional design and strategic layout that builds credibility
                 instantly and moves visitors toward action
               </p>
@@ -167,7 +165,7 @@ export default function WebDevelopment() {
               <p className="text-sm font-medium text-white">
                 Features Customers Love
               </p>
-              <p className="text-xs text-cyber-gray-400 mt-0.5">
+              <p className="text-xs text-stone-400 mt-0.5">
                 Online booking, ordering, payments &mdash; the convenience that
                 keeps people coming back
               </p>
@@ -183,7 +181,7 @@ export default function WebDevelopment() {
               <p className="text-sm font-medium text-white">
                 Blazing Fast, Everywhere
               </p>
-              <p className="text-xs text-cyber-gray-400 mt-0.5">
+              <p className="text-xs text-stone-400 mt-0.5">
                 Sub-second load times on any device &mdash; because 53% of
                 visitors leave if your site takes longer than 3 seconds
               </p>

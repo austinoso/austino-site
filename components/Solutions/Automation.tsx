@@ -14,10 +14,10 @@ export default function Automation() {
             Automation
           </span>
         </div>
-        <h3 className="font-display text-2xl sm:text-3xl font-semibold text-white leading-snug">
+        <h3 className="font-display text-2xl sm:text-3xl font-semibold text-warm-white leading-snug">
           Speed your competitors don&apos;t have.
         </h3>
-        <p className="text-base text-cyber-gray-300 leading-relaxed">
+        <p className="text-base text-stone-300 leading-relaxed">
           While other businesses do follow-ups, scheduling, and data entry by
           hand, yours runs on autopilot. I find the bottlenecks and build the
           systems that eliminate them.
@@ -31,7 +31,7 @@ export default function Automation() {
             />
             <div>
               <p className="text-sm font-medium text-white">Custom Solutions</p>
-              <p className="text-xs text-cyber-gray-400 mt-0.5">
+              <p className="text-xs text-stone-400 mt-0.5">
                 Tools built around your specific workflow
               </p>
             </div>
@@ -46,7 +46,7 @@ export default function Automation() {
               <p className="text-sm font-medium text-white">
                 Software Integration
               </p>
-              <p className="text-xs text-cyber-gray-400 mt-0.5">
+              <p className="text-xs text-stone-400 mt-0.5">
                 Connect your tools so they talk automatically
               </p>
             </div>
@@ -59,7 +59,7 @@ export default function Automation() {
             />
             <div>
               <p className="text-sm font-medium text-white">Go Paperless</p>
-              <p className="text-xs text-cyber-gray-400 mt-0.5">
+              <p className="text-xs text-stone-400 mt-0.5">
                 Replace paper forms with secure digital systems
               </p>
             </div>

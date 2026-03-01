@@ -31,11 +31,11 @@ export default function FAQAccordion({ faqs, idPrefix }: FAQAccordionProps) {
             aria-controls={`${idPrefix}-panel-${i}`}
             id={`${idPrefix}-btn-${i}`}
           >
-            <span className="text-sm font-medium text-white pr-4">
+            <span className="text-sm font-medium text-warm-white pr-4">
               {faq.q}
             </span>
             <ChevronDown
-              className={`w-4 h-4 text-cyber-gray-500 flex-shrink-0 transition-transform duration-200 ${
+              className={`w-4 h-4 text-stone-500 flex-shrink-0 transition-transform duration-200 ${
                 openFaq === i ? "rotate-180" : ""
               }`}
               aria-hidden="true"
@@ -50,7 +50,7 @@ export default function FAQAccordion({ faqs, idPrefix }: FAQAccordionProps) {
               openFaq === i ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
-            <p className="px-6 pb-5 text-sm text-cyber-gray-400 leading-relaxed text-pretty">
+            <p className="px-6 pb-5 text-sm text-stone-300 leading-relaxed text-pretty">
               {faq.a}
             </p>
           </div>

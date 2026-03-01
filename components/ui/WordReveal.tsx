@@ -30,7 +30,7 @@ export default function WordReveal({
   immediate = false,
   delay = 0,
   accentWords = [],
-  accentClassName = "text-cyber-accent",
+  accentClassName = "text-warm-gold",
 }: WordRevealProps) {
   const wordsRef = useRef<(HTMLSpanElement | null)[]>([]);
   const words = text.split(" ");
