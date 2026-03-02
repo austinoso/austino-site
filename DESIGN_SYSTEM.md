@@ -88,14 +88,14 @@ Loaded via `next/font/google` in `app/layout.tsx`.
 
 ### Heading Scale
 
-| Element                          | Classes                                                                                                                    | Context                                           |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| **H1** (hero)                    | `text-4xl sm:text-5xl md:text-[3.25rem] font-bold font-display text-warm-white leading-[1.1] tracking-tight`               | Homepage hero, service page hero                  |
-| **H2** (section) — homepage      | `text-3xl sm:text-4xl md:text-5xl font-bold font-display text-warm-white leading-[1.1] tracking-tight`                     | PainPoints, Solutions, Work, About                |
-| **H2** (section) — service pages | `text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-warm-white leading-[1.15] tracking-tight text-balance` | All service page sections                         |
-| **H2** (CTA — large)             | Add `lg:text-6xl` to homepage H2 scale                                                                                     | Homepage CTA section only                         |
-| **H3** (subsection)              | `text-2xl sm:text-3xl font-bold font-display text-warm-white leading-[1.15] tracking-tight text-balance`                   | Tools section, SEO section, Solutions subsections |
-| **H4** / `<dt>`                  | `text-base font-semibold text-warm-white mb-2`                                                                             | Card titles, definition terms                     |
+| Element                          | Classes                                                                                                                   | Context                                           |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| **H1** (hero)                    | `text-4xl sm:text-5xl md:text-[3.25rem] font-bold font-display text-warm-white leading-[1.1] tracking-tight`              | Homepage hero, service page hero                  |
+| **H2** (section) — homepage      | `text-3xl sm:text-4xl md:text-5xl font-bold font-display text-warm-white leading-[1.1] tracking-tight`                    | PainPoints, Solutions, Work, About                |
+| **H2** (section) — service pages | `text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-warm-white leading-[1.2] tracking-tight text-balance` | All service page sections                         |
+| **H2** (CTA — large)             | Add `lg:text-6xl` to homepage H2 scale                                                                                    | Homepage CTA section only                         |
+| **H3** (subsection)              | `text-2xl sm:text-3xl font-bold font-display text-warm-white leading-[1.2] tracking-tight text-balance`                   | Tools section, SEO section, Solutions subsections |
+| **H4** / `<dt>`                  | `text-base font-semibold text-warm-white mb-2`                                                                            | Card titles, definition terms                     |
 
 ### Body Text Scale
 

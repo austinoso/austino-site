@@ -26,7 +26,6 @@ export default function WebDevelopmentPage() {
             backgroundImage: [
               "radial-gradient(ellipse 60% 70% at 80% -20%, rgba(212,168,83,0.12), rgba(184,148,74,0.06) 50%, transparent 100%)",
               "radial-gradient(ellipse 65% 60% at 0% 50%, rgba(167,139,250,0.10), transparent 70%)",
-              "radial-gradient(ellipse 40% 50% at 5% 85%, rgba(245,158,11,0.05), transparent 70%)",
             ].join(", "),
           }}
         >
@@ -43,15 +42,7 @@ export default function WebDevelopmentPage() {
         </div>
 
         {/* ── The Evidence ── */}
-        <div
-          className="relative border-b border-white/[0.06]"
-          style={{
-            backgroundImage: [
-              "radial-gradient(ellipse 55% 60% at 0% 25%, rgba(212,168,83,0.08), rgba(167,139,250,0.06) 50%, transparent 70%)",
-              "radial-gradient(ellipse 50% 50% at 95% 65%, rgba(167,139,250,0.08), transparent 70%)",
-            ].join(", "),
-          }}
-        >
+        <div className="relative border-b border-white/[0.06]">
           <div
             className="absolute top-0 inset-x-0 h-px"
             style={{
@@ -66,15 +57,7 @@ export default function WebDevelopmentPage() {
         </div>
 
         {/* ── Design & Tools ── */}
-        <div
-          className="relative border-b border-white/[0.06] overflow-hidden"
-          style={{
-            backgroundImage: [
-              "radial-gradient(ellipse 55% 50% at 85% 70%, rgba(212,168,83,0.07), transparent 70%)",
-              "radial-gradient(ellipse 60% 55% at 10% 20%, rgba(167,139,250,0.09), transparent 70%)",
-            ].join(", "),
-          }}
-        >
+        <div className="relative border-b border-white/[0.06] overflow-hidden">
           <div
             className="absolute top-0 inset-x-0 h-px"
             style={{
@@ -89,30 +72,14 @@ export default function WebDevelopmentPage() {
         </div>
 
         {/* ── Performance & SEO ── */}
-        <div
-          className="relative border-b border-white/[0.06] overflow-hidden bg-warm-surface/30"
-          style={{
-            backgroundImage: [
-              "radial-gradient(ellipse 55% 55% at 85% 25%, rgba(212,168,83,0.07), transparent 70%)",
-              "radial-gradient(ellipse 55% 50% at 10% 75%, rgba(167,139,250,0.08), transparent 70%)",
-            ].join(", "),
-          }}
-        >
+        <div className="relative border-b border-white/[0.06] overflow-hidden bg-warm-surface/30">
           <div>
             <PerformanceAndSEO />
           </div>
         </div>
 
         {/* ── After Launch ── */}
-        <div
-          className="relative border-b border-white/[0.06]"
-          style={{
-            backgroundImage: [
-              "radial-gradient(ellipse 60% 55% at 80% 35%, rgba(167,139,250,0.09), transparent 70%)",
-              "radial-gradient(ellipse 45% 50% at 15% 75%, rgba(212,168,83,0.05), transparent 70%)",
-            ].join(", "),
-          }}
-        >
+        <div className="relative border-b border-white/[0.06]">
           <div
             className="absolute top-0 inset-x-0 h-px"
             style={{
@@ -127,30 +94,14 @@ export default function WebDevelopmentPage() {
         </div>
 
         {/* ── FAQ ── */}
-        <div
-          className="relative border-b border-white/[0.06]"
-          style={{
-            backgroundImage: [
-              "radial-gradient(ellipse 50% 45% at 45% 10%, rgba(212,168,83,0.05), transparent 70%)",
-              "radial-gradient(ellipse 50% 50% at 90% 75%, rgba(167,139,250,0.07), transparent 70%)",
-            ].join(", "),
-          }}
-        >
+        <div className="relative border-b border-white/[0.06]">
           <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-14 pb-14 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32">
             <FAQ />
           </div>
         </div>
 
         {/* ── Final CTA ── */}
-        <div
-          className="relative border-b border-white/[0.06]"
-          style={{
-            backgroundImage: [
-              "radial-gradient(ellipse 55% 50% at 75% 50%, rgba(212,168,83,0.08), transparent 70%)",
-              "radial-gradient(ellipse 55% 55% at 15% 65%, rgba(167,139,250,0.10), transparent 70%)",
-            ].join(", "),
-          }}
-        >
+        <div className="relative border-b border-white/[0.06]">
           <div
             className="absolute top-0 inset-x-0 h-px"
             style={{

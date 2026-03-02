@@ -36,46 +36,30 @@ export default function SolutionsAnimator() {
           });
 
         /* ── Per-subsection animations ── */
+        /*
+         * Content & visual panels are NOT animated — they're just there,
+         * solid and grounded. Only the data-viz mockup internals and
+         * feature lists get motion (the parts that earn it).
+         */
         section
           .querySelectorAll<HTMLElement>("[data-subsection]")
           .forEach((sub, i) => {
-            const content = sub.querySelector("[data-content]");
-            const visual = sub.querySelector("[data-visual]");
             const features = sub.querySelectorAll("[data-feature]");
-            const flipped = i === 1;
 
-            if (content) {
-              gsap.from(content, {
-                x: flipped ? 20 : -20,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power3.out",
-                scrollTrigger: { trigger: sub, start: "top 75%" },
-              });
-            }
-
-            if (visual) {
-              gsap.from(visual, {
-                x: flipped ? -20 : 20,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power3.out",
-                scrollTrigger: { trigger: sub, start: "top 75%" },
-              });
-            }
-
+            /* Gentle opacity fade on feature list items — no slide */
             if (features.length) {
               gsap.from(features, {
-                y: 8,
                 opacity: 0,
-                duration: 0.4,
+                duration: 0.5,
+                stagger: 0.06,
                 ease: "power2.out",
                 scrollTrigger: { trigger: features[0], start: "top 90%" },
               });
             }
 
-            /* Section-specific visual animations */
-            if (i === 0) {
+            /* Section-specific mockup animations */
+            /* i=1 → OngoingSupport / Growth (search results, badges) */
+            if (i === 1) {
               const results = sub.querySelectorAll("[data-result]");
               if (results.length) {
                 gsap.from(results, {
@@ -97,46 +81,6 @@ export default function SolutionsAnimator() {
                   stagger: 0.06,
                   ease: "back.out(1.7)",
                   scrollTrigger: { trigger: badges[0], start: "top 90%" },
-                });
-              }
-            }
-
-            if (i === 1) {
-              sub.querySelectorAll("[data-bar]").forEach((bar) => {
-                gsap.from(bar, {
-                  scaleX: 0,
-                  duration: 1,
-                  ease: "power2.out",
-                  transformOrigin: "left center",
-                  scrollTrigger: { trigger: bar, start: "top 88%" },
-                });
-              });
-
-              sub
-                .querySelectorAll<HTMLElement>("[data-speed]")
-                .forEach((el) => {
-                  const target = parseFloat(el.dataset.speed || "0");
-                  const counter = { v: 0 };
-                  gsap.to(counter, {
-                    v: target,
-                    duration: 1,
-                    ease: "power2.out",
-                    scrollTrigger: { trigger: el, start: "top 88%" },
-                    onUpdate: () => {
-                      el.textContent = counter.v.toFixed(1) + "s";
-                    },
-                  });
-                });
-
-              const speedCard = sub.querySelector("[data-speed-card]");
-              if (speedCard) {
-                gsap.from(speedCard, {
-                  y: 20,
-                  opacity: 0,
-                  duration: 0.6,
-                  delay: 0.3,
-                  ease: "power3.out",
-                  scrollTrigger: { trigger: speedCard, start: "top 90%" },
                 });
               }
             }

@@ -11,7 +11,7 @@ export default function Hero() {
         </h1>
         <p className="text-base sm:text-lg text-stone-300 leading-relaxed text-balance">
           Your customers want to book appointments, place orders, and get
-          answers &mdash; without picking up the phone. If they can&apos;t do it
+          answers without picking up the phone. If they can&apos;t do it
           on your website, they&apos;ll do it on someone else&apos;s.
         </p>
         <Link

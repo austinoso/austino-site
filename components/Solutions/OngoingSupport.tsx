@@ -28,13 +28,13 @@ export default function OngoingSupport() {
           <span className="section-label">Growth Strategy</span>
         </div>
         <h3 className="font-display text-2xl sm:text-3xl font-semibold text-warm-white leading-snug">
-          Most websites collect dust. Yours keeps climbing.
+          A great site is just the foundation. Yours keeps&nbsp;climbing.
         </h3>
         <p className="text-base text-stone-300 leading-relaxed">
-          Most businesses treat their site as a one-time project. I stay on as
-          your web strategist — using data to improve what&apos;s
-          underperforming and building new content that earns search authority,
-          so your site generates more leads every month.
+          Your site is built to perform from day one, but I don&apos;t walk away
+          after launch. I stay on as your web strategist, using data to improve
+          what&apos;s underperforming and building new content that earns search
+          authority. More leads every&nbsp;month.
         </p>
         <div className="pt-4 space-y-4">
           <div data-feature className="flex items-start gap-3">
@@ -43,15 +43,9 @@ export default function OngoingSupport() {
               aria-hidden="true"
               style={{ filter: "drop-shadow(0 0 6px rgba(212,168,83,0.3))" }}
             />
-            <div>
-              <p className="text-sm font-medium text-white">
-                Conversion Optimization
-              </p>
-              <p className="text-xs text-stone-400 mt-0.5">
-                I track what&apos;s working and what&apos;s not &mdash; then fix
-                the pages that aren&apos;t turning visitors into customers
-              </p>
-            </div>
+            <p className="text-sm font-medium text-white">
+              Conversion Optimization
+            </p>
           </div>
           <div data-feature className="flex items-start gap-3">
             <PenTool
@@ -59,15 +53,7 @@ export default function OngoingSupport() {
               aria-hidden="true"
               style={{ filter: "drop-shadow(0 0 6px rgba(212,168,83,0.3))" }}
             />
-            <div>
-              <p className="text-sm font-medium text-white">
-                Content That Ranks
-              </p>
-              <p className="text-xs text-stone-400 mt-0.5">
-                New service pages, FAQ content, and local landing pages that
-                rank for the searches your customers actually make
-              </p>
-            </div>
+            <p className="text-sm font-medium text-white">Content That Ranks</p>
           </div>
           <div data-feature className="flex items-start gap-3">
             <TrendingUp
@@ -75,13 +61,9 @@ export default function OngoingSupport() {
               aria-hidden="true"
               style={{ filter: "drop-shadow(0 0 6px rgba(212,168,83,0.3))" }}
             />
-            <div>
-              <p className="text-sm font-medium text-white">Growth Planning</p>
-              <p className="text-xs text-stone-400 mt-0.5">
-                Email campaigns, AI chatbots, retargeting &mdash; I map out the
-                next move that drives more sales, then build&nbsp;it
-              </p>
-            </div>
+            <p className="text-sm font-medium text-white">
+              Google Profile Optimization
+            </p>
           </div>
         </div>
         <Link

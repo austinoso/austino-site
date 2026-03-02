@@ -24,7 +24,7 @@ const faqSchema = {
       name: "What kind of content do you create?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Service deep-dives, FAQ pages, educational content, and location-specific landing pages — all written to match how your customers actually search. I handle the research and drafting. I just need 60 seconds of your expertise via a voice memo or a quick call to add the human touch Google rewards.",
+        text: "Service deep-dives, FAQ pages, educational content, and location-specific landing pages — all written to match how your customers actually search. I handle the research and drafting. All I need from you is a quick voice memo or call — your real-world expertise is what makes the content rank.",
       },
     },
     {
@@ -32,7 +32,7 @@ const faqSchema = {
       name: "How is this different from SEO?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Traditional SEO is often a checklist — meta tags, keywords, backlinks. This is about becoming the authority in your space. I'm building actual pages with real value that both Google and your customers reward. The SEO happens as a byproduct of doing useful work.",
+        text: "The SEO happens as a byproduct of doing useful work. Traditional SEO is often a checklist — meta tags, keywords, backlinks. This is about building actual pages with real value that make you the authority in your space.",
       },
     },
     {

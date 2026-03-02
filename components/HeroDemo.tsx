@@ -18,8 +18,17 @@ type GSAPType = (typeof import("gsap"))["gsap"];
 /*  automation journey inside a browser frame.                         */
 /* ------------------------------------------------------------------ */
 
+/* Canonical stage dimensions — all scene content is designed at this
+   fixed size, then CSS-scaled to fit the actual container. This means
+   internal layout never changes with viewport, cursor always lands
+   correctly, and resizing can't break element positioning. */
+const CANONICAL_W = 640;
+const CANONICAL_H = 400;
+
 export default function HeroDemo() {
   const demoRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const [stageScale, setStageScale] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const masterTlRef = useRef<gsap.core.Timeline | null>(null);
 
@@ -47,6 +56,17 @@ export default function HeroDemo() {
       const params = new URLSearchParams(window.location.search);
       setIsDebug(params.has("debug"));
     }
+  }, []);
+
+  /* ── Scale stage to fit container ── */
+  useEffect(() => {
+    const el = stageRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([entry]) => {
+      setStageScale(entry.contentRect.width / CANONICAL_W);
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
   }, []);
 
   const SCENE_LABELS = [
@@ -86,22 +106,20 @@ export default function HeroDemo() {
       // Reset cursor
       gsap.set(cursor, { opacity: 0, scale: 1 });
 
-      const mobile = !window.matchMedia("(min-width: 640px)").matches;
-
       switch (debugScene) {
         case 0:
           gsap.set(cursor, {
             opacity: 1,
-            left: mobile ? "7%" : "14%",
-            top: mobile ? "58%" : "65%",
+            left: "7%",
+            top: "56%",
           });
           break;
         case 1:
           gsap.set(".hv", { opacity: 1 });
           gsap.set(cursor, {
             opacity: 1,
-            left: mobile ? "38%" : "46%",
-            top: mobile ? "86%" : "88%",
+            left: "46%",
+            top: "90%",
           });
           break;
         case 2:
@@ -158,7 +176,6 @@ export default function HeroDemo() {
           return;
         }
 
-        const isMobile = !window.matchMedia("(min-width: 640px)").matches;
         let firstPlay = true;
         const buildTimeline = () => {
           const tl = gsap.timeline({
@@ -217,8 +234,8 @@ export default function HeroDemo() {
           tl.to(
             cursor,
             {
-              left: isMobile ? "7%" : "14%",
-              top: isMobile ? "58%" : "65%",
+              left: "7%",
+              top: "56%",
               duration: 1.3,
               ease: "power2.inOut",
             },
@@ -260,8 +277,8 @@ export default function HeroDemo() {
           tl.set(
             cursor,
             {
-              left: isMobile ? "38%" : "46%",
-              top: isMobile ? "86%" : "88%",
+              left: "46%",
+              top: "90%",
             },
             "+=0.35",
           );
@@ -494,399 +511,403 @@ export default function HeroDemo() {
         </div>
 
         {/* â•â• Stage â•â• */}
-        <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] lg:aspect-[16/10] overflow-hidden bg-[#080807]">
-          {/* â”â” Scene 1 â€” Landing Page â”â” */}
+        <div
+          ref={stageRef}
+          className="relative overflow-hidden bg-[#080807]"
+          style={{ aspectRatio: `${CANONICAL_W}/${CANONICAL_H}` }}
+        >
+          {/* Canonical-size inner — scales uniformly to fill container */}
           <div
-            ref={s1}
-            className="absolute inset-0 p-4 sm:p-5 md:p-7 lg:p-5 flex flex-col gap-3 md:gap-4 lg:gap-3"
+            style={{
+              width: CANONICAL_W,
+              height: CANONICAL_H,
+              transform: `scale(${stageScale})`,
+              transformOrigin: "top left",
+            }}
+            className="relative"
           >
-            {/* Nav */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] sm:text-[12px] md:text-[14px] lg:text-[12px] font-semibold text-white tracking-tight">
-                  Bloom Studio
-                </span>
-              </div>
-              <div className="hidden sm:flex items-center gap-4 md:gap-5">
-                <span className="text-[8px] md:text-[10px] text-stone-500">
-                  Services
-                </span>
-                <span className="text-[8px] md:text-[10px] text-stone-500">
-                  About
-                </span>
-                <span className="text-[8px] md:text-[10px] text-stone-500">
-                  Contact
-                </span>
-              </div>
-            </div>
-
-            {/* Hero area */}
-            <div className="mt-5 sm:mt-7 md:mt-8 lg:mt-5 flex-1">
-              <p className="text-[16px] sm:text-[20px] md:text-[26px] lg:text-[22px] font-semibold text-white leading-tight">
-                Look Good.
-                <br />
-                Feel Great.
-              </p>
-              <p className="text-[8px] sm:text-[10px] md:text-[13px] lg:text-[11px] text-stone-400 mt-2 md:mt-3 lg:mt-2 max-w-[75%] leading-relaxed">
-                Premium services tailored to you.
-                <br />
-                Book your next appointment online.
-              </p>
-              <button
-                tabIndex={-1}
-                className="hbtn-book mt-3 sm:mt-4 md:mt-5 lg:mt-4 px-3 sm:px-4 md:px-5 lg:px-4 py-1.5 sm:py-2 md:py-2.5 lg:py-2 bg-amber-500 rounded text-[8px] sm:text-[9px] md:text-[11px] lg:text-[10px] font-semibold text-[#050505]"
-              >
-                Book Now
-              </button>
-            </div>
-
-            {/* Abstract service cards */}
-            <div className="flex gap-2 md:gap-3 lg:gap-2 mt-auto">
-              <div className="h-10 sm:h-12 md:h-12 lg:h-10 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
-              <div className="h-10 sm:h-12 md:h-12 lg:h-10 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
-              <div className="h-10 sm:h-12 md:h-12 lg:h-10 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
-            </div>
-          </div>
-
-          {/* â”â” Scene 2 â€” Booking Form â”â” */}
-          <div
-            ref={s2}
-            className="absolute inset-0 p-3 sm:p-4 md:p-6 lg:p-4 flex flex-col"
-            style={{ opacity: 0 }}
-          >
-            <p className="text-[13px] sm:text-[15px] md:text-[18px] lg:text-[15px] font-semibold text-white mb-2 sm:mb-3 md:mb-4 lg:mb-3">
-              Book Your Appointment
-            </p>
-            <div className="space-y-1.5 sm:space-y-2 md:space-y-3 lg:space-y-2 flex-1">
-              {/* Name */}
-              <div>
-                <span className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 uppercase tracking-wider font-mono">
-                  Name
-                </span>
-                <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] md:py-[9px] lg:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
-                  <span
-                    className="hv text-[11px] sm:text-[13px] md:text-[15px] lg:text-[13px] text-white leading-none"
-                    style={{ opacity: 0 }}
-                  >
-                    Sarah Martinez
+            {/* Scene 1 — Landing Page */}
+            <div ref={s1} className="absolute inset-0 p-6 flex flex-col gap-2">
+              {/* Nav */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[14px] font-semibold text-white tracking-tight">
+                    Bloom Studio
                   </span>
                 </div>
-              </div>
-              {/* Date & Time */}
-              <div className="grid grid-cols-2 gap-2 md:gap-3 lg:gap-2">
-                <div>
-                  <span className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 uppercase tracking-wider font-mono">
-                    Date
-                  </span>
-                  <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] md:py-[9px] lg:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
-                    <span
-                      className="hv text-[11px] sm:text-[13px] md:text-[15px] lg:text-[13px] text-white leading-none"
-                      style={{ opacity: 0 }}
-                    >
-                      Feb 20
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <span className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 uppercase tracking-wider font-mono">
-                    Time
-                  </span>
-                  <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] md:py-[9px] lg:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
-                    <span
-                      className="hv text-[10px] sm:text-[13px] md:text-[15px] lg:text-[13px] text-white leading-none"
-                      style={{ opacity: 0 }}
-                    >
-                      2:00 PM
-                    </span>
-                  </div>
+                <div className="flex items-center gap-5">
+                  <span className="text-[11px] text-stone-500">Services</span>
+                  <span className="text-[11px] text-stone-500">About</span>
+                  <span className="text-[11px] text-stone-500">Contact</span>
                 </div>
               </div>
-              {/* Service */}
-              <div>
-                <span className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 uppercase tracking-wider font-mono">
-                  Service
-                </span>
-                <div className="mt-0.5 px-2.5 py-[5px] sm:py-[7px] md:py-[9px] lg:py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
-                  <span
-                    className="hv text-[10px] sm:text-[13px] md:text-[15px] lg:text-[13px] text-white leading-none"
-                    style={{ opacity: 0 }}
-                  >
-                    Premium Session &middot; 60 min &middot; $150
-                  </span>
-                </div>
-              </div>
-            </div>
-            {/* Confirm button */}
-            <div className="mt-2 flex justify-center">
-              <button
-                tabIndex={-1}
-                className="hbtn-confirm px-4 sm:px-5 md:px-6 lg:px-5 py-1.5 sm:py-2 md:py-2.5 lg:py-2 bg-amber-500 rounded text-[8px] sm:text-[10px] md:text-[12px] lg:text-[10px] font-semibold text-[#050505]"
-              >
-                Confirm Booking
-              </button>
-            </div>
-          </div>
 
-          {/* â”â” Scene 3 â€” Confirmation â”â” */}
-          <div
-            ref={s3}
-            className="absolute inset-0 flex flex-col items-center justify-center p-3 sm:p-4 md:p-6 lg:p-4"
-            style={{ opacity: 0 }}
-          >
-            <svg
-              viewBox="0 0 52 52"
-              className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-16 lg:h-16 mb-2 sm:mb-3 md:mb-4 lg:mb-3"
-            >
-              <circle
-                className="hconfirm-circle"
-                cx="26"
-                cy="26"
-                r="24"
-                fill="none"
-                stroke="#4ADE80"
-                strokeWidth="2"
-                strokeDasharray="150.8"
-                strokeDashoffset="150.8"
-              />
-              <path
-                className="hconfirm-check"
-                d="M15 27l7 7 15-15"
-                fill="none"
-                stroke="#4ADE80"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeDasharray="35"
-                strokeDashoffset="35"
-              />
-            </svg>
-            <p
-              className="hconfirm-text text-[14px] sm:text-[17px] md:text-[22px] lg:text-[18px] font-semibold text-white"
-              style={{ opacity: 0 }}
-            >
-              Booking Confirmed!
-            </p>
-            <div
-              className="hconfirm-details mt-3 sm:mt-4 md:mt-5 lg:mt-4 space-y-1 sm:space-y-1.5 md:space-y-2 lg:space-y-1.5 text-center"
-              style={{ opacity: 0 }}
-            >
-              <p className="text-[9px] sm:text-[11px] md:text-[13px] lg:text-[11px] text-stone-300">
-                Sarah M. &middot; Feb 20 &middot; 2:00 PM
-              </p>
-              <p className="text-[9px] sm:text-[11px] md:text-[13px] lg:text-[11px] text-stone-400">
-                Premium Session &middot; 60 min
-              </p>
-              <p className="text-[8px] sm:text-[9px] md:text-[11px] lg:text-[9px] text-stone-500 mt-2 sm:mt-3">
-                &#9993; Confirmation sent to sarah@email.com
-              </p>
-            </div>
-          </div>
-
-          {/* â”â” Scene 4 â€” Automation Cascade â”â” */}
-          <div
-            ref={s4}
-            className="absolute inset-0 p-3 sm:p-4 md:p-6 lg:p-4"
-            style={{ opacity: 0 }}
-          >
-            <div className="flex items-center gap-1.5 mb-1.5 sm:mb-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
-              <p className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[10px] font-mono text-stone-400 uppercase tracking-wider">
-                Behind the scenes
-              </p>
-            </div>
-            <p className="text-[11px] sm:text-[13px] md:text-[16px] lg:text-[14px] font-semibold text-white mb-2 sm:mb-3 md:mb-3 lg:mb-2">
-              Automation Running
-            </p>
-            <div className="space-y-1.5 sm:space-y-2 md:space-y-2.5 lg:space-y-1.5">
-              {(
-                [
-                  {
-                    Icon: Mail,
-                    text: "Confirmation email sent",
-                    detail: "sarah@email.com",
-                  },
-                  {
-                    Icon: FileText,
-                    text: "Invoice generated",
-                    detail: "$150.00",
-                  },
-                  {
-                    Icon: Calendar,
-                    text: "Google Calendar updated",
-                    detail: "Feb 20, 2:00 PM",
-                  },
-                  {
-                    Icon: Star,
-                    text: "Follow-up scheduled",
-                    detail: "Review request \u00B7 3 days",
-                  },
-                ] as const
-              ).map((task, i) => (
-                <div
-                  key={i}
-                  className="htask flex items-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-2.5 px-2 sm:px-2.5 md:px-3.5 lg:px-2.5 py-1.5 sm:py-2 md:py-2 lg:py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.05]"
-                  style={{ opacity: 0 }}
+              {/* Hero area */}
+              <div className="mt-6 flex-1">
+                <p className="text-[28px] font-semibold text-white leading-tight">
+                  Look Good.
+                  <br />
+                  Feel Great.
+                </p>
+                <p className="text-[13px] text-stone-400 mt-3 max-w-[70%] leading-relaxed">
+                  Premium services tailored to you.
+                  <br />
+                  Book your next appointment online.
+                </p>
+                <button
+                  tabIndex={-1}
+                  className="hbtn-book mt-5 px-5 py-2.5 bg-amber-500 rounded text-[11px] font-semibold text-[#050505]"
                 >
-                  <div className="flex-shrink-0 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-6 lg:w-6 rounded bg-[#4ADE80]/10 flex items-center justify-center">
-                    <svg
-                      viewBox="0 0 16 16"
-                      className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 lg:w-3 lg:h-3"
+                  Book Now
+                </button>
+              </div>
+
+              {/* Abstract service cards */}
+              <div className="flex gap-2.5 mt-auto">
+                <div className="h-12 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
+                <div className="h-12 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
+                <div className="h-12 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
+              </div>
+            </div>
+
+            {/* â”â” Scene 2 â€” Booking Form â”â” */}
+            <div
+              ref={s2}
+              className="absolute inset-0 p-6 flex flex-col"
+              style={{ opacity: 0 }}
+            >
+              <p className="text-[17px] font-semibold text-white mb-4">
+                Book Your Appointment
+              </p>
+              <div className="space-y-2.5 flex-1">
+                {/* Name */}
+                <div>
+                  <span className="text-[8px] text-stone-500 uppercase tracking-wider font-mono">
+                    Name
+                  </span>
+                  <div className="mt-0.5 px-2.5 py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
+                    <span
+                      className="hv text-[13px] text-white leading-none"
+                      style={{ opacity: 0 }}
                     >
-                      <path
-                        className="htask-check"
-                        d="M3 8l4 4 6-7"
+                      Sarah Martinez
+                    </span>
+                  </div>
+                </div>
+                {/* Date & Time */}
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <span className="text-[8px] text-stone-500 uppercase tracking-wider font-mono">
+                      Date
+                    </span>
+                    <div className="mt-0.5 px-2.5 py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
+                      <span
+                        className="hv text-[13px] text-white leading-none"
+                        style={{ opacity: 0 }}
+                      >
+                        Feb 20
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-[8px] text-stone-500 uppercase tracking-wider font-mono">
+                      Time
+                    </span>
+                    <div className="mt-0.5 px-2.5 py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
+                      <span
+                        className="hv text-[13px] text-white leading-none"
+                        style={{ opacity: 0 }}
+                      >
+                        2:00 PM
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                {/* Service */}
+                <div>
+                  <span className="text-[8px] text-stone-500 uppercase tracking-wider font-mono">
+                    Service
+                  </span>
+                  <div className="mt-0.5 px-2.5 py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
+                    <span
+                      className="hv text-[13px] text-white leading-none"
+                      style={{ opacity: 0 }}
+                    >
+                      Premium Session &middot; 60 min &middot; $150
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* Confirm button */}
+              <div className="mt-2 flex justify-center">
+                <button
+                  tabIndex={-1}
+                  className="hbtn-confirm px-6 py-2.5 bg-amber-500 rounded text-[11px] font-semibold text-[#050505]"
+                >
+                  Confirm Booking
+                </button>
+              </div>
+            </div>
+
+            {/* â”â” Scene 3 â€” Confirmation â”â” */}
+            <div
+              ref={s3}
+              className="absolute inset-0 flex flex-col items-center justify-center p-6"
+              style={{ opacity: 0 }}
+            >
+              <svg viewBox="0 0 52 52" className="w-20 h-20 mb-4">
+                <circle
+                  className="hconfirm-circle"
+                  cx="26"
+                  cy="26"
+                  r="24"
+                  fill="none"
+                  stroke="#4ADE80"
+                  strokeWidth="2"
+                  strokeDasharray="150.8"
+                  strokeDashoffset="150.8"
+                />
+                <path
+                  className="hconfirm-check"
+                  d="M15 27l7 7 15-15"
+                  fill="none"
+                  stroke="#4ADE80"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="35"
+                  strokeDashoffset="35"
+                />
+              </svg>
+              <p
+                className="hconfirm-text text-[22px] font-semibold text-white"
+                style={{ opacity: 0 }}
+              >
+                Booking Confirmed!
+              </p>
+              <div
+                className="hconfirm-details mt-5 space-y-2 text-center"
+                style={{ opacity: 0 }}
+              >
+                <p className="text-[13px] text-stone-300">
+                  Sarah M. &middot; Feb 20 &middot; 2:00 PM
+                </p>
+                <p className="text-[13px] text-stone-400">
+                  Premium Session &middot; 60 min
+                </p>
+                <p className="text-[10px] text-stone-500 mt-3">
+                  &#9993; Confirmation sent to sarah@email.com
+                </p>
+              </div>
+            </div>
+
+            {/* â”â” Scene 4 â€” Automation Cascade â”â” */}
+            <div
+              ref={s4}
+              className="absolute inset-0 p-6"
+              style={{ opacity: 0 }}
+            >
+              <div className="flex items-center gap-1.5 mb-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+                <p className="text-[12px] font-mono text-stone-400 uppercase tracking-wider">
+                  Behind the scenes
+                </p>
+              </div>
+              <p className="text-[17px] font-semibold text-white mb-3">
+                Automation Running
+              </p>
+              <div className="space-y-2">
+                {(
+                  [
+                    {
+                      Icon: Mail,
+                      text: "Confirmation email sent",
+                      detail: "sarah@email.com",
+                    },
+                    {
+                      Icon: FileText,
+                      text: "Invoice generated",
+                      detail: "$150.00",
+                    },
+                    {
+                      Icon: Calendar,
+                      text: "Google Calendar updated",
+                      detail: "Feb 20, 2:00 PM",
+                    },
+                    {
+                      Icon: Star,
+                      text: "Follow-up scheduled",
+                      detail: "Review request \u00B7 3 days",
+                    },
+                  ] as const
+                ).map((task, i) => (
+                  <div
+                    key={i}
+                    className="htask flex items-center gap-3 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.05]"
+                    style={{ opacity: 0 }}
+                  >
+                    <div className="flex-shrink-0 h-7 w-7 rounded bg-[#4ADE80]/10 flex items-center justify-center">
+                      <svg viewBox="0 0 16 16" className="w-3.5 h-3.5">
+                        <path
+                          className="htask-check"
+                          d="M3 8l4 4 6-7"
+                          fill="none"
+                          stroke="#4ADE80"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeDasharray="20"
+                          strokeDashoffset="20"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[14px] font-semibold text-white">
+                        {task.text}
+                      </p>
+                    </div>
+                    <task.Icon className="w-4 h-4 text-stone-500 flex-shrink-0" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* â”â” Scene 5 â€” Results â”â” */}
+            <div
+              ref={s5}
+              className="absolute inset-0 p-6 flex flex-col"
+              style={{ opacity: 0 }}
+            >
+              {/* Header row */}
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <p className="text-[12px] font-mono text-stone-500 uppercase tracking-wider">
+                    Monthly Overview
+                  </p>
+                  <p className="text-[20px] font-semibold text-white mt-0.5">
+                    Your Results
+                  </p>
+                </div>
+                <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#4ADE80]/10 border border-[#4ADE80]/20">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]"></span>
+                  <span className="text-[8px] font-mono text-[#4ADE80]">
+                    Live
+                  </span>
+                </div>
+              </div>
+
+              {/* Stat cards */}
+              <div className="flex-1 grid grid-cols-3 gap-3">
+                {/* Lighthouse */}
+                <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-4 flex flex-col items-center justify-center">
+                  <div className="relative h-20 w-20 mb-2">
+                    <svg
+                      viewBox="0 0 36 36"
+                      className="h-full w-full -rotate-90"
+                    >
+                      <circle
+                        cx="18"
+                        cy="18"
+                        r="15.5"
+                        fill="none"
+                        stroke="rgba(255,255,255,0.06)"
+                        strokeWidth="2.5"
+                      />
+                      <circle
+                        className="hstat-ring"
+                        cx="18"
+                        cy="18"
+                        r="15.5"
                         fill="none"
                         stroke="#4ADE80"
-                        strokeWidth="2"
+                        strokeWidth="2.5"
                         strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeDasharray="20"
-                        strokeDashoffset="20"
+                        strokeDasharray="97.4"
+                        strokeDashoffset="97.4"
                       />
                     </svg>
+                    <span
+                      ref={statScore}
+                      className="absolute inset-0 flex items-center justify-center text-[18px] font-bold text-white"
+                    >
+                      0
+                    </span>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[10px] sm:text-[12px] md:text-[14px] lg:text-[12px] font-semibold text-white">
-                      {task.text}
-                    </p>
-                  </div>
-                  <task.Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-stone-500 flex-shrink-0" />
+                  <p className="text-[10px] text-stone-500 font-mono uppercase tracking-wider">
+                    Lighthouse
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
+                {/* Leads */}
+                <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-4 flex flex-col items-center justify-center">
+                  <p className="text-[34px] font-semibold text-white leading-none mb-1.5">
+                    <span ref={statLeads}>0</span>
+                  </p>
+                  <p className="text-[10px] text-stone-500 font-mono uppercase tracking-wider">
+                    New Leads
+                  </p>
+                </div>
+                {/* Conversion rate */}
+                <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-4 flex flex-col items-center justify-center">
+                  <p className="text-[34px] font-semibold text-[#4ADE80] leading-none mb-1.5">
+                    <span ref={statConv}>0%</span>
+                  </p>
+                  <p className="text-[10px] text-stone-500 font-mono uppercase tracking-wider">
+                    Conv. Rate
+                  </p>
+                </div>
+              </div>
 
-          {/* â”â” Scene 5 â€” Results â”â” */}
-          <div
-            ref={s5}
-            className="absolute inset-0 p-4 sm:p-5 md:p-7 lg:p-5 flex flex-col"
-            style={{ opacity: 0 }}
-          >
-            {/* Header row */}
-            <div className="flex items-center justify-between mb-3 sm:mb-4">
-              <div>
-                <p className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[10px] font-mono text-stone-500 uppercase tracking-wider">
-                  Monthly Overview
-                </p>
-                <p className="text-[13px] sm:text-[16px] md:text-[20px] lg:text-[17px] font-semibold text-white mt-0.5">
-                  Your Results
+              {/* Footer tagline */}
+              <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-center gap-1.5">
+                <span className="h-1 w-1 rounded-full bg-[#4ADE80]"></span>
+                <p className="text-[10px] font-mono text-stone-500 uppercase tracking-wider">
+                  All automated &middot; Zero busywork
                 </p>
               </div>
-              <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#4ADE80]/10 border border-[#4ADE80]/20">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]"></span>
-                <span className="text-[7px] sm:text-[8px] font-mono text-[#4ADE80]">
-                  Live
+            </div>
+
+            {/* â”â” Cursor â”â” */}
+            <div
+              ref={cursorRef}
+              className="absolute z-30 pointer-events-none"
+              style={{ opacity: 0, left: "60%", top: "20%" }}
+            >
+              <svg width="14" height="18" viewBox="0 0 16 20" fill="none">
+                <path
+                  d="M1 1v14.5l4-4 3.5 7 2-1L7 10.5l5.5 0z"
+                  fill="white"
+                  stroke="#333"
+                  strokeWidth="0.5"
+                />
+              </svg>
+            </div>
+
+            {/* â”â” Debug overlay â”â” */}
+            {isDebug && (
+              <div className="absolute inset-x-0 bottom-0 z-40 flex items-center justify-between px-3 py-2 bg-black/80 backdrop-blur-sm border-t border-white/10">
+                <button
+                  onClick={prevScene}
+                  disabled={debugScene === 0}
+                  className="flex items-center gap-1 px-2 py-1 rounded text-[10px] font-mono text-white bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                >
+                  <ChevronLeft className="w-3 h-3" />
+                  Prev
+                </button>
+                <span className="text-[10px] font-mono text-warm-gold">
+                  {debugScene + 1}/5 â€” {SCENE_LABELS[debugScene]}
                 </span>
+                <button
+                  onClick={nextScene}
+                  disabled={debugScene === 4}
+                  className="flex items-center gap-1 px-2 py-1 rounded text-[10px] font-mono text-white bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                >
+                  Next
+                  <ChevronRight className="w-3 h-3" aria-hidden="true" />
+                </button>
               </div>
-            </div>
-
-            {/* Stat cards */}
-            <div className="flex-1 grid grid-cols-3 gap-2 sm:gap-3 lg:gap-2">
-              {/* Lighthouse */}
-              <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-2.5 sm:p-3 md:p-4 lg:p-3 flex flex-col items-center justify-center">
-                <div className="relative h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 lg:h-16 lg:w-16 mb-1.5 md:mb-2 lg:mb-1.5">
-                  <svg viewBox="0 0 36 36" className="h-full w-full -rotate-90">
-                    <circle
-                      cx="18"
-                      cy="18"
-                      r="15.5"
-                      fill="none"
-                      stroke="rgba(255,255,255,0.06)"
-                      strokeWidth="2.5"
-                    />
-                    <circle
-                      className="hstat-ring"
-                      cx="18"
-                      cy="18"
-                      r="15.5"
-                      fill="none"
-                      stroke="#4ADE80"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeDasharray="97.4"
-                      strokeDashoffset="97.4"
-                    />
-                  </svg>
-                  <span
-                    ref={statScore}
-                    className="absolute inset-0 flex items-center justify-center text-[12px] sm:text-[14px] md:text-[18px] lg:text-[15px] font-bold text-white"
-                  >
-                    0
-                  </span>
-                </div>
-                <p className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 font-mono uppercase tracking-wider">
-                  Lighthouse
-                </p>
-              </div>
-              {/* Leads */}
-              <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-2.5 sm:p-3 md:p-4 lg:p-3 flex flex-col items-center justify-center">
-                <p className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[30px] font-semibold text-white leading-none mb-1.5">
-                  <span ref={statLeads}>0</span>
-                </p>
-                <p className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 font-mono uppercase tracking-wider">
-                  New Leads
-                </p>
-              </div>
-              {/* Conversion rate */}
-              <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-2.5 sm:p-3 md:p-4 lg:p-3 flex flex-col items-center justify-center">
-                <p className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[30px] font-semibold text-[#4ADE80] leading-none mb-1.5">
-                  <span ref={statConv}>0%</span>
-                </p>
-                <p className="text-[7px] sm:text-[8px] md:text-[10px] text-stone-500 font-mono uppercase tracking-wider">
-                  Conv. Rate
-                </p>
-              </div>
-            </div>
-
-            {/* Footer tagline */}
-            <div className="mt-2.5 sm:mt-3 pt-2 sm:pt-2.5 border-t border-white/[0.06] flex items-center justify-center gap-1.5">
-              <span className="h-1 w-1 rounded-full bg-[#4ADE80]"></span>
-              <p className="text-[7px] sm:text-[9px] md:text-[11px] lg:text-[9px] font-mono text-stone-500 uppercase tracking-wider">
-                All automated &middot; Zero busywork
-              </p>
-            </div>
+            )}
           </div>
-
-          {/* â”â” Cursor â”â” */}
-          <div
-            ref={cursorRef}
-            className="absolute z-30 pointer-events-none"
-            style={{ opacity: 0, left: "60%", top: "20%" }}
-          >
-            <svg width="14" height="18" viewBox="0 0 16 20" fill="none">
-              <path
-                d="M1 1v14.5l4-4 3.5 7 2-1L7 10.5l5.5 0z"
-                fill="white"
-                stroke="#333"
-                strokeWidth="0.5"
-              />
-            </svg>
-          </div>
-
-          {/* â”â” Debug overlay â”â” */}
-          {isDebug && (
-            <div className="absolute inset-x-0 bottom-0 z-40 flex items-center justify-between px-3 py-2 bg-black/80 backdrop-blur-sm border-t border-white/10">
-              <button
-                onClick={prevScene}
-                disabled={debugScene === 0}
-                className="flex items-center gap-1 px-2 py-1 rounded text-[10px] font-mono text-white bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-              >
-                <ChevronLeft className="w-3 h-3" />
-                Prev
-              </button>
-              <span className="text-[10px] font-mono text-warm-gold">
-                {debugScene + 1}/5 â€” {SCENE_LABELS[debugScene]}
-              </span>
-              <button
-                onClick={nextScene}
-                disabled={debugScene === 4}
-                className="flex items-center gap-1 px-2 py-1 rounded text-[10px] font-mono text-white bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-              >
-                Next
-                <ChevronRight className="w-3 h-3" aria-hidden="true" />
-              </button>
-            </div>
-          )}
+          {/* end canonical inner */}
         </div>
       </div>
 

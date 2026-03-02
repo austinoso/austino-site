@@ -5,7 +5,7 @@ import EdgeGlobe from "./EdgeGlobe";
 const seoFeatures = [
   {
     title: "Business Info Google Can Read",
-    body: "Your name, address, hours, services, and reviews are tagged so Google actually understands them — which helps you show up in maps, local results, and those info boxes at the top of search.",
+    body: "Your name, address, hours, services, and reviews are tagged so Google actually understands them. That helps you show up in maps, local results, and those info boxes at the top of search.",
   },
   {
     title: "Pages Built for Search Engines",
@@ -13,7 +13,7 @@ const seoFeatures = [
   },
   {
     title: "Local Search Signals",
-    body: "Content that mentions your city, location tags Google can read, an embedded map, and your name, address, and phone number matching everywhere — so you show up when nearby customers search.",
+    body: "Content that mentions your city, location tags Google can read, an embedded map, and your name, address, and phone number matching everywhere. That\u2019s how you show up when nearby customers search.",
   },
   {
     title: "Analytics & Lead Tracking",
@@ -25,16 +25,16 @@ const perfStats = [
   {
     number: "90+",
     label:
-      "out of 100 on Google's speed test \u2014 most sites score under\u00A050",
+      "out of 100 on Google's speed test. Most sites score under\u00A050",
   },
   {
     number: "<2.5s",
-    label: "Full page load \u2014 before visitors give up and\u00A0leave",
+    label: "Full page load, before visitors give up and\u00A0leave",
   },
   {
     number: "99.9%",
     label:
-      "Uptime \u2014 your site stays online around the clock, even during traffic\u00A0spikes",
+      "Uptime: your site stays online around the clock, even during traffic\u00A0spikes",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function PerformanceAndSEO() {
         {/* Subtle fade so the globe doesn't fight with the heading */}
         <div className="hidden lg:block absolute inset-0 z-[5] bg-gradient-to-r from-warm-bg from-35% via-warm-bg/60 via-48% to-transparent to-60% pointer-events-none" />
         <div className="relative z-10 pt-12 sm:pt-20 p-6 sm:p-10 max-w-xl">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.15] tracking-tight text-balance mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-6">
             Fast enough to pass{" "}
             <span className="text-gradient-gold">
               Google&apos;s speed test.
@@ -54,8 +54,8 @@ export default function PerformanceAndSEO() {
           </h2>
           <p className="text-base sm:text-lg text-stone-300 leading-relaxed">
             Your site runs on the same network that powers Shopify and Netflix.
-            Every page is optimized down to the image sizes, fonts, and code
-            &mdash; so nothing slows it down, even on a bad connection.
+            Every page is optimized down to the image sizes, fonts, and code,
+            so nothing slows it down, even on a bad connection.
           </p>
         </div>
         <div className="hidden lg:block">
@@ -107,12 +107,12 @@ export default function PerformanceAndSEO() {
       {/* ── SEO & Local Search ── */}
       <div className="border-t border-white/[0.06]">
         <div className="pt-10 sm:pt-20 px-6 sm:px-10">
-          <h3 className="font-display text-2xl sm:text-3xl font-bold text-warm-white leading-[1.15] tracking-tight text-balance max-w-xl mb-3">
+          <h3 className="font-display text-2xl sm:text-3xl font-bold text-warm-white leading-[1.2] tracking-tight text-balance max-w-xl mb-3">
             Built to rank from day one.
           </h3>
           <p className="text-[15px] text-stone-400 leading-relaxed max-w-xl mb-8 sm:mb-16">
             Most sites launch without any SEO foundation. Yours comes with
-            everything Google looks for — already in place before you go live.
+            everything Google looks for, already in place before you go live.
           </p>
         </div>
 

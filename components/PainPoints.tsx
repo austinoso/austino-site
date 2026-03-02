@@ -1,5 +1,4 @@
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import WordReveal from "@/components/ui/WordReveal";
 
 /* ────────────────────────────────────────────────────────────────── */
 /*  Card data                                                        */
@@ -15,19 +14,19 @@ const opportunities = [
     statLabel:
       "of mobile users leave a site that takes over 3\u00A0seconds to load",
     span: "md:col-span-7",
-    color: "text-warm-white",
+    color: "text-warm-gold",
     hoverColor: "group-hover:text-warm-gold",
     numberColor: "text-warm-gold/40",
   },
   {
     number: "02",
-    title: "They\u2019re doing everything by\u00A0hand",
+    title: "They have no plan after\u00A0launch",
     description:
-      "Follow-ups, scheduling, data entry \u2014 all manual. One automated workflow saves hours and closes leads faster.",
-    stat: "20hrs",
-    statLabel: "per week wasted on tasks that could be automated",
+      "A website without a strategy is a billboard nobody drives past. The businesses winning online are the ones that keep publishing, keep optimizing, and keep showing\u00A0up.",
+    stat: "75%",
+    statLabel: "of users never scroll past page\u00A01 of Google",
     span: "md:col-span-5",
-    color: "text-warm-white",
+    color: "text-warm-gold",
     hoverColor: "group-hover:text-warm-gold",
     numberColor: "text-warm-gold/40",
   },
@@ -39,7 +38,7 @@ const opportunities = [
     stat: "88%",
     statLabel: "of users won\u2019t return after a bad experience",
     span: "md:col-span-12",
-    color: "text-warm-white",
+    color: "text-warm-gold",
     hoverColor: "group-hover:text-warm-gold",
     numberColor: "text-warm-gold/40",
   },
@@ -53,14 +52,7 @@ export default function PainPoints() {
   return (
     <ScrollReveal
       as="section"
-      className="relative w-full pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 border-b border-white/[0.06]"
-      style={{
-        background: "rgba(11,10,8,0.92)",
-        backgroundImage: [
-          "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(167,139,250,0.08), transparent 70%)",
-          "radial-gradient(ellipse 50% 40% at 15% 80%, rgba(244,114,182,0.06), transparent 70%)",
-        ].join(", "),
-      }}
+      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-24 md:pb-24 border-b border-white/[0.06]"
       aria-labelledby="pain-points-heading"
     >
       {/* Gradient divider line */}
@@ -78,17 +70,17 @@ export default function PainPoints() {
           <span data-animate="label" className="section-label block mb-5">
             The Opportunity
           </span>
-          <WordReveal
+          <h2
             id="pain-points-heading"
-            as="h2"
-            text="Most businesses in your area aren't doing this. Yours can."
             className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight max-w-3xl"
-            accentWords={["Yours"]}
-          />
+          >
+            Most businesses in your area aren&apos;t doing this.{" "}
+            <span className="text-warm-gold">Yours</span> can.
+          </h2>
         </div>
 
         {/* ── Bento grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-12 border-t border-l border-white/[0.06]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5">
           {opportunities.map((item, index) => {
             const isWide = item.span === "md:col-span-12";
 
@@ -96,7 +88,7 @@ export default function PainPoints() {
               <div
                 key={index}
                 data-animate="card"
-                className={`group relative ${item.span} border-b border-r border-white/[0.06] p-8 sm:p-10 md:p-12`}
+                className={`group relative ${item.span} rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 sm:p-10 md:p-12`}
               >
                 {isWide ? (
                   /* ── Wide card: horizontal layout on md+ ── */

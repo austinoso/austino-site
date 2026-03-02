@@ -6,12 +6,14 @@ export default function FinalCTA() {
     <section data-fade>
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
         <div className="max-w-xl">
-          <h2 className="text-2xl sm:text-3xl font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4">
-            What&apos;s eating your time?
+          <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-5">
+            Built to grow{" "}
+            <span className="text-gradient-gold">from day one.</span>
           </h2>
-          <p className="text-base sm:text-lg text-stone-300 leading-relaxed">
-            Tell me what&apos;s slowing you down and I&apos;ll map out exactly
-            what can be automated, and what it would save you.
+          <p className="text-base sm:text-lg text-stone-300 leading-relaxed text-pretty">
+            I don&apos;t build sites and walk away. Growth strategy comes
+            standard with every Build + Grow project, so your site launches with
+            momentum already behind it.
           </p>
         </div>
         <div className="flex-shrink-0">
@@ -29,17 +31,17 @@ export default function FinalCTA() {
       </div>
       <div className="border-t border-white/[0.06] mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
         <Link
-          href="/services/growth-strategy"
+          href="/services/automation"
           className="inline-flex items-center gap-2 text-sm text-stone-400 hover:text-warm-white transition-colors duration-300"
         >
-          Need more customers, not just more efficiency? See Growth Strategy
+          Still handling tasks manually? See how automation can help
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
         <Link
           href="/services/web-development"
           className="inline-flex items-center gap-2 text-sm text-stone-400 hover:text-warm-white transition-colors duration-300"
         >
-          Need a site that converts first? See Web Development
+          See what comes with the site itself
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
       </div>

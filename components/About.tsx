@@ -1,6 +1,5 @@
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import WordReveal from "@/components/ui/WordReveal";
 
 /* ────────────────────────────────────────────────────────────────── */
 /*  About — server component (content in initial HTML)               */
@@ -10,14 +9,7 @@ export default function About() {
   return (
     <ScrollReveal
       as="section"
-      className="relative w-full pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 border-b border-white/[0.06]"
-      style={{
-        background: "rgba(11,10,8,0.92)",
-        backgroundImage: [
-          "radial-gradient(ellipse 50% 45% at 85% 70%, rgba(244,114,182,0.05), transparent 70%)",
-          "radial-gradient(ellipse 40% 40% at 20% 30%, rgba(212,168,83,0.06), transparent 70%)",
-        ].join(", "),
-      }}
+      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-24 md:pb-24 border-b border-white/[0.06]"
       aria-labelledby="about-heading"
     >
       {/* Gradient divider line */}
@@ -36,34 +28,42 @@ export default function About() {
           <p data-animate="label" className="section-label mb-5">
             About
           </p>
-          <WordReveal
-            text="Built to outpace your competition."
+          <h2
             id="about-heading"
             className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight"
-            accentWords={["outpace"]}
-          />
+          >
+            One person.{" "}
+            <span className="text-warm-gold">The whole picture.</span>
+          </h2>
           <p
             data-animate="fade"
             className="text-base sm:text-lg text-stone-300 leading-relaxed mt-8 sm:mt-10"
           >
-            Most agencies hand you a site and disappear. I don&apos;t. I stick
-            around and keep pushing until your digital presence doesn&apos;t
-            just compete, it dominates. Continuous optimization, strategic
-            growth, and a refusal to settle for &ldquo;good enough&rdquo; mean
-            your website keeps getting better while your competitors&apos; stays
-            the same.
+            Most agencies hand you a site and disappear. I don&apos;t. I design
+            it, build it, read the data, and adjust the plan myself. Six years
+            of software engineering, web development, and business automation —
+            focused on one thing: making local businesses impossible to ignore
+            online. Your site keeps getting better every month while your
+            competitors&apos; stays exactly where it launched.
           </p>
+
+          {/* Mission — pull-quote treatment */}
+          <blockquote
+            data-animate="fade"
+            className="mt-8 sm:mt-10 pl-5 sm:pl-6 border-l-2 border-warm-gold/30"
+          >
+            <p className="text-base sm:text-lg text-stone-200 leading-relaxed font-medium">
+              I care about your growth because that&apos;s the whole point of
+              the work. But I&apos;ll be honest — it&apos;s also a reflection of
+              mine. Every project I take on goes in my portfolio with my name
+              next to it. That keeps my standards high, because &ldquo;good
+              enough&rdquo; doesn&apos;t look good on either of&nbsp;us.
+            </p>
+          </blockquote>
         </div>
 
-        {/* Meet the team */}
-        <div className="pt-12 border-t border-white/[0.06]">
-          <p
-            data-animate="fade"
-            className="font-mono text-xs text-warm-gold/60 uppercase tracking-[0.2em] mb-10"
-          >
-            Meet the Team
-          </p>
-
+        {/* Team */}
+        <div className="mt-12 sm:mt-14">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {/* Austin */}
             <div
@@ -87,8 +87,7 @@ export default function About() {
                   Developer &amp; Founder
                 </p>
                 <p className="text-[13px] sm:text-sm text-stone-400 leading-relaxed mt-2.5">
-                  Six years experience in software engineering, web development,
-                  and business automation.
+                  Your strategist, developer, and growth partner — all in one.
                 </p>
               </div>
             </div>

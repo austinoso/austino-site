@@ -9,7 +9,16 @@ import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
-    <main id="main-content" className="relative bg-warm-bg">
+    <main
+      id="main-content"
+      className="relative bg-warm-bg"
+      style={{
+        backgroundImage: [
+          "radial-gradient(ellipse 80% 50% at 70% 10%, rgba(251,191,36,0.04), transparent 100%)",
+          "radial-gradient(ellipse 60% 40% at 20% 80%, rgba(167,139,250,0.03), transparent 100%)",
+        ].join(", "),
+      }}
+    >
       <Navigation />
       <div
         className="page-frame"

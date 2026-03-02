@@ -20,10 +20,10 @@ const stats = [
   {
     number: "3s",
     label:
-      "If your site takes this long to load, 32% of visitors leave before they see a thing.",
+      "If your site takes this long to load, 53% of visitors leave before they see a thing.",
     source: {
-      label: "Think with Google",
-      href: "https://business.google.com/ca-en/think/marketing-strategies/mobile-page-speed-new-industry-benchmarks/",
+      label: "Google / SOASTA Research",
+      href: "https://blog.google/products/admanager/increase-speed-of-your-mobile-site-wi/",
     },
   },
 ];
@@ -32,7 +32,7 @@ const signals = [
   {
     heading: "Google's Speed Test",
     stat: "Ranking signal",
-    body: "Google scores every site on speed, stability, and responsiveness. Sites that score poorly get pushed down in search results\u2009\u2014\u2009even with great content.",
+    body: "Google scores every site on speed, stability, and responsiveness. Sites that score poorly get pushed down in search results, even with great content.",
     source: {
       label: "Google Search Central",
       href: "https://developers.google.com/search/docs/appearance/core-web-vitals",
@@ -79,7 +79,7 @@ export default function TheEvidence() {
   return (
     <section data-fade>
       <div className="p-6 sm:p-10 pb-0">
-        <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.15] tracking-tight text-balance max-w-2xl mb-10 sm:mb-20">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance max-w-2xl mb-10 sm:mb-20">
           Your site is being judged — by visitors and{" "}
           <span className="text-gradient-gold">by Google.</span>
         </h2>

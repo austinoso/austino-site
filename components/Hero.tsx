@@ -32,15 +32,16 @@ export default function Hero() {
 
             <h1
               id="hero-heading"
-              className="font-display text-4xl sm:text-5xl md:text-[3.25rem] font-bold text-warm-white leading-[1.1] tracking-tight"
+              className="font-display text-4xl sm:text-5xl md:text-[3.25rem] lg:text-[3.5rem] font-bold text-warm-white leading-[1.1] tracking-tight"
             >
-              Websites built to{" "}
-              <span className="text-gradient">outperform.</span>
+              Websites built{" "}
+              <span className="text-gradient">to outperform.</span>
             </h1>
 
-            <p className="mt-6 sm:mt-7 text-[15px] sm:text-base text-stone-400 leading-relaxed max-w-md text-pretty">
-              Fast sites that rank on Google, loaded with tools your customers
-              love &mdash; plus automation that saves you hours every week.
+            <p className="mt-6 sm:mt-7 text-[15px] sm:text-base text-stone-300 leading-relaxed max-w-md text-pretty">
+              A fast, custom-built site that ranks on Google and turns visitors
+              into customers. Then a growth strategy that keeps it climbing
+              every month.
             </p>
 
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">
@@ -58,7 +59,7 @@ export default function Hero() {
               </Link>
             </div>
 
-            <div className="mt-7 flex items-center gap-3 text-sm text-stone-500">
+            <div className="mt-7 flex items-center gap-3 text-sm text-stone-400">
               <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
               Based in California&apos;s Central Valley
             </div>

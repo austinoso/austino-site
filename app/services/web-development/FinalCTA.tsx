@@ -6,7 +6,7 @@ export default function FinalCTA() {
     <section data-fade>
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
         <div className="max-w-xl">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.15] tracking-tight text-balance mb-5">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-5">
             Let&apos;s build something that{" "}
             <span className="text-gradient-gold">
               actually brings in customers.

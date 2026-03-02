@@ -51,7 +51,7 @@ const TOOLS: Tool[] = [
     name: "Booking Pipeline",
     icon: CalendarCheck,
     mode: "auto",
-    desc: "Monitors incoming bookings, sends confirmations, schedules reminders, and queues review requests — hands-free.",
+    desc: "Monitors incoming bookings, sends confirmations, schedules reminders, and queues review requests. Hands-free.",
     logs: [
       { id: 1, time: ts(0), text: "Watching for new bookings…", kind: "info" },
       {
@@ -162,7 +162,7 @@ const TOOLS: Tool[] = [
     icon: Receipt,
     mode: "manual",
     runLabel: "Import batch",
-    desc: "Upload receipt photos or PDFs. Extracts vendor, amount, date, and category via OCR — then adds everything to your expense tracker.",
+    desc: "Upload receipt photos or PDFs. Extracts vendor, amount, date, and category via OCR, then adds everything to your expense tracker.",
     logs: [
       {
         id: 1,
@@ -340,8 +340,8 @@ const logColor = (k: LogEntry["kind"]) =>
     : k === "warn"
       ? "text-amber-400/90"
       : k === "work"
-        ? "text-cyber-gray-300"
-        : "text-cyber-gray-500";
+        ? "text-stone-300"
+        : "text-stone-500";
 
 const logDot = (k: LogEntry["kind"]) =>
   k === "ok"
@@ -349,7 +349,7 @@ const logDot = (k: LogEntry["kind"]) =>
     : k === "warn"
       ? "bg-amber-400/60"
       : k === "work"
-        ? "bg-cyan-400/60"
+        ? "bg-warm-gold/60"
         : "bg-white/20";
 
 /* ── Component ────────────────────────────────────────────── */
@@ -533,15 +533,14 @@ export default function RealExamples() {
   return (
     <section ref={sectionRef}>
       {/* Section header */}
-      <p className="section-label mb-4">Live Demo</p>
-      <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <h2 className="text-2xl sm:text-3xl font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         This is what you&apos;d actually get.
       </h2>
-      <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12 sm:mb-14">
+      <p className="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mb-12 sm:mb-14">
         A custom automation hub built around your business. Some tools run on
         their own. Others are ready when you are.{" "}
-        <span className="text-white/80">
-          Click around&nbsp;&mdash; it&apos;s a live demo.
+        <span className="text-warm-white/80">
+          Click around. It&apos;s a live demo.
         </span>
       </p>
 
@@ -551,19 +550,19 @@ export default function RealExamples() {
         className="rounded-lg border border-white/[0.06] bg-white/[0.015] overflow-hidden"
       >
         {/* Header bar */}
-        <div className="px-4 sm:px-5 py-3 border-b border-white/[0.06] bg-[#0D1117] flex items-center justify-between">
+        <div className="px-4 sm:px-5 py-3 border-b border-white/[0.06] bg-warm-surface flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">
               Online
             </span>
-            <span className="text-xs text-cyber-gray-400 font-medium hidden sm:inline">
+            <span className="text-xs text-stone-400 font-medium hidden sm:inline">
               Automation Hub
             </span>
           </div>
           <div className="hidden sm:flex items-center gap-1.5">
-            <Zap className="w-3 h-3 text-cyber-accent/50" aria-hidden />
-            <span className="text-[11px] text-cyber-gray-500 font-mono tabular-nums">
+            <Zap className="w-3 h-3 text-warm-gold/50" aria-hidden />
+            <span className="text-[11px] text-stone-500 font-mono tabular-nums">
               {TOOLS.length} automations
             </span>
           </div>
@@ -572,7 +571,7 @@ export default function RealExamples() {
         {/* Body: sidebar + main */}
         <div className="flex flex-col lg:flex-row min-h-[350px] sm:min-h-[400px] lg:min-h-[420px]">
           {/* ── Sidebar (desktop) ────────────────── */}
-          <div className="hidden lg:block lg:w-52 xl:w-56 flex-shrink-0 lg:border-r border-white/[0.06] bg-[#0C1018]">
+          <div className="hidden lg:block lg:w-52 xl:w-56 flex-shrink-0 lg:border-r border-white/[0.06] bg-warm-surface/80">
             <div className="flex flex-col gap-1 p-2">
               {TOOLS.map((entry, i) => {
                 const SideIcon = entry.icon;
@@ -591,15 +590,15 @@ export default function RealExamples() {
                     <SideIcon
                       className={`w-3.5 h-3.5 flex-shrink-0 transition-colors ${
                         on
-                          ? "text-cyber-accent"
-                          : "text-cyber-gray-500 group-hover:text-cyber-gray-400"
+                          ? "text-warm-gold"
+                          : "text-stone-500 group-hover:text-stone-400"
                       }`}
                     />
                     <span
                       className={`text-xs font-medium truncate transition-colors ${
                         on
                           ? "text-white"
-                          : "text-cyber-gray-400 group-hover:text-cyber-gray-300"
+                          : "text-stone-400 group-hover:text-stone-300"
                       }`}
                     >
                       {entry.name}
@@ -620,7 +619,7 @@ export default function RealExamples() {
           </div>
 
           {/* ── Mobile dropdown ───────────────────── */}
-          <div className="lg:hidden border-b border-white/[0.06] bg-[#0C1018] relative">
+          <div className="lg:hidden border-b border-white/[0.06] bg-warm-surface/80 relative">
             <div
               onClick={() => setMobileOpen((v) => !v)}
               onKeyDown={(e) => {
@@ -638,7 +637,7 @@ export default function RealExamples() {
               {(() => {
                 const ActiveIcon = TOOLS[activeTool].icon;
                 return (
-                  <ActiveIcon className="w-3.5 h-3.5 text-cyber-accent flex-shrink-0" />
+                  <ActiveIcon className="w-3.5 h-3.5 text-warm-gold flex-shrink-0" />
                 );
               })()}
               <span className="text-xs font-medium text-white truncate">
@@ -654,7 +653,7 @@ export default function RealExamples() {
                 {TOOLS[activeTool].mode}
               </span>
               <ChevronDown
-                className={`w-5 h-5 text-cyber-accent flex-shrink-0 transition-transform duration-200 animate-chevron-glow drop-shadow-[0_0_4px_rgba(64,224,255,0.5)] ${
+                className={`w-5 h-5 text-warm-gold flex-shrink-0 transition-transform duration-200 animate-chevron-glow drop-shadow-[0_0_4px_rgba(212,168,83,0.5)] ${
                   mobileOpen ? "rotate-180" : ""
                 }`}
               />
@@ -673,8 +672,8 @@ export default function RealExamples() {
                   disabled={isRunning}
                   className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium transition-all duration-300 flex-shrink-0 ml-auto mr-2 ${
                     isRunning
-                      ? "bg-white/[0.04] text-cyber-gray-500 cursor-not-allowed"
-                      : "bg-cyber-accent/15 text-cyber-accent hover:bg-cyber-accent/25 border border-cyber-accent/20 hover:border-cyber-accent/40"
+                      ? "bg-white/[0.04] text-stone-500 cursor-not-allowed"
+                      : "bg-warm-gold/15 text-warm-gold hover:bg-warm-gold/25 border border-warm-gold/20 hover:border-warm-gold/40"
                   }`}
                 >
                   {isRunning ? (
@@ -692,7 +691,7 @@ export default function RealExamples() {
               )}
             </div>
             {mobileOpen && (
-              <div className="absolute inset-x-0 top-full z-20 bg-[#0C1018] border-b border-white/[0.06] shadow-lg">
+              <div className="absolute inset-x-0 top-full z-20 bg-warm-surface/80 border-b border-white/[0.06] shadow-lg">
                 {TOOLS.map((entry, i) => {
                   const MIcon = entry.icon;
                   const on = i === activeTool;
@@ -709,12 +708,12 @@ export default function RealExamples() {
                     >
                       <MIcon
                         className={`w-3.5 h-3.5 flex-shrink-0 ${
-                          on ? "text-cyber-accent" : "text-cyber-gray-500"
+                          on ? "text-warm-gold" : "text-stone-500"
                         }`}
                       />
                       <span
                         className={`text-xs font-medium truncate ${
-                          on ? "text-white" : "text-cyber-gray-400"
+                          on ? "text-white" : "text-stone-400"
                         }`}
                       >
                         {entry.name}
@@ -740,9 +739,9 @@ export default function RealExamples() {
             {/* Tool bar – hidden on mobile where dropdown already shows the name */}
             <div className="hidden lg:flex px-4 sm:px-5 py-3 border-b border-white/[0.06] items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-6 h-6 rounded-md bg-cyber-accent/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-6 h-6 rounded-md bg-warm-gold/10 flex items-center justify-center flex-shrink-0">
                   <ToolIcon
-                    className="w-3.5 h-3.5 text-cyber-accent"
+                    className="w-3.5 h-3.5 text-warm-gold"
                     aria-hidden
                   />
                 </div>
@@ -763,8 +762,8 @@ export default function RealExamples() {
                   disabled={isRunning}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-300 flex-shrink-0 ${
                     isRunning
-                      ? "bg-white/[0.04] text-cyber-gray-500 cursor-not-allowed"
-                      : "bg-cyber-accent/15 text-cyber-accent hover:bg-cyber-accent/25 border border-cyber-accent/20 hover:border-cyber-accent/40"
+                      ? "bg-white/[0.04] text-stone-500 cursor-not-allowed"
+                      : "bg-warm-gold/15 text-warm-gold hover:bg-warm-gold/25 border border-warm-gold/20 hover:border-warm-gold/40"
                   }`}
                 >
                   {isRunning ? (
@@ -799,22 +798,17 @@ export default function RealExamples() {
                 /* Manual tool — idle state */
                 <div className="h-full flex flex-col items-center justify-center text-center py-10">
                   <div className="w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center mb-3">
-                    <Terminal
-                      className="w-4 h-4 text-cyber-gray-500"
-                      aria-hidden
-                    />
+                    <Terminal className="w-4 h-4 text-stone-500" aria-hidden />
                   </div>
-                  <p className="text-cyber-gray-500 text-xs mb-1">
-                    Ready to run
-                  </p>
-                  <p className="text-cyber-gray-500/60 text-[11px]">
+                  <p className="text-stone-500 text-xs mb-1">Ready to run</p>
+                  <p className="text-stone-500/60 text-[11px]">
                     Click &ldquo;{tool.runLabel ?? "Run"}&rdquo; to execute
                   </p>
                 </div>
               ) : visibleLogs.length === 0 ? (
                 /* Initializing spinner */
-                <div className="flex items-center gap-2 text-cyber-gray-500">
-                  <div className="w-3 h-3 border-2 border-cyber-gray-600 border-t-cyber-gray-400 rounded-full animate-spin" />
+                <div className="flex items-center gap-2 text-stone-500">
+                  <div className="w-3 h-3 border-2 border-stone-600 border-t-stone-400 rounded-full animate-spin" />
                   Initializing&hellip;
                 </div>
               ) : (
@@ -826,7 +820,7 @@ export default function RealExamples() {
                       data-log
                       className="flex gap-2.5 sm:gap-3 py-[3px]"
                     >
-                      <span className="text-cyber-gray-500 flex-shrink-0 select-none tabular-nums">
+                      <span className="text-stone-500 flex-shrink-0 select-none tabular-nums">
                         {l.time}
                       </span>
                       <span
@@ -840,8 +834,8 @@ export default function RealExamples() {
             </div>
 
             {/* Tool description */}
-            <div className="mt-auto px-4 sm:px-5 py-3 border-t border-white/[0.06] bg-[#0C1018]/50">
-              <p className="text-[11px] sm:text-[12px] text-cyber-gray-500 leading-relaxed">
+            <div className="mt-auto px-4 sm:px-5 py-3 border-t border-white/[0.06] bg-warm-surface/40">
+              <p className="text-[11px] sm:text-[12px] text-stone-500 leading-relaxed">
                 {tool.desc}
               </p>
             </div>
@@ -849,14 +843,14 @@ export default function RealExamples() {
         </div>
 
         {/* Footer bar */}
-        <div className="px-4 sm:px-5 py-2.5 border-t border-white/[0.06] bg-[#0D1117]/50 flex items-center justify-between">
+        <div className="px-4 sm:px-5 py-2.5 border-t border-white/[0.06] bg-warm-surface/50 flex items-center justify-between">
           <div className="flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            <span className="text-[11px] text-cyber-gray-500">
+            <span className="text-[11px] text-stone-500">
               All systems operational
             </span>
           </div>
-          <span className="text-[11px] text-cyber-gray-500/60 font-mono">
+          <span className="text-[11px] text-stone-500/60 font-mono">
             custom-built for your business
           </span>
         </div>

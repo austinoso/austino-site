@@ -12,7 +12,7 @@ export default function CTA() {
   return (
     <ScrollReveal
       as="section"
-      className="relative w-full pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 overflow-hidden border-b border-white/[0.06]"
+      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-24 md:pb-24 overflow-hidden border-b border-white/[0.06]"
       style={{
         backgroundColor: "rgba(6,6,8,0.92)",
         backgroundImage: [
@@ -64,13 +64,6 @@ export default function CTA() {
             else is trying to catch up to.
           </p>
 
-          <div data-animate="fade" className="mt-5 flex items-center gap-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
-            <span className="text-xs font-mono text-stone-400">
-              Availability is limited
-            </span>
-          </div>
-
           <div
             data-animate="fade"
             className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4"
@@ -91,13 +84,6 @@ export default function CTA() {
             </p>
           </div>
         </div>
-
-        {/* Divider */}
-        <div
-          data-animate="line"
-          className="mt-14 sm:mt-20 border-t border-white/[0.06]"
-          style={{ transformOrigin: "left center" }}
-        />
       </div>
     </ScrollReveal>
   );

@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { getAllProjects } from "@/lib/projects";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import WordReveal from "@/components/ui/WordReveal";
 
 /* ────────────────────────────────────────────────────────────────── */
 /*  Work — server component (content in initial HTML)                */
@@ -16,23 +15,16 @@ export default function Work() {
   if (!project) return null;
 
   const highlights = [
-    "Professional presence from day one",
-    "Automated booking & payments",
-    "Mobile-optimized for local discovery",
+    "Page 1 of Google within weeks of launch",
+    "Automated booking & payments built in",
+    "Ongoing growth strategy driving new clients",
   ];
 
   return (
     <ScrollReveal
       as="section"
       id="work"
-      className="relative w-full pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 border-b border-white/[0.06]"
-      style={{
-        background: "rgba(11,10,8,0.92)",
-        backgroundImage: [
-          "radial-gradient(ellipse 55% 50% at 50% 15%, rgba(212,168,83,0.06), transparent 70%)",
-          "radial-gradient(ellipse 40% 45% at 5% 50%, rgba(167,139,250,0.05), transparent 70%)",
-        ].join(", "),
-      }}
+      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-24 md:pb-24 border-b border-white/[0.06]"
       aria-labelledby="work-heading"
     >
       {/* Subtle divider */}
@@ -50,12 +42,12 @@ export default function Work() {
         <p data-animate="label" className="section-label mb-5">
           Case Study
         </p>
-        <WordReveal
-          text="See the results."
+        <h2
           id="work-heading"
           className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight mb-12 sm:mb-16"
-          accentWords={["results."]}
-        />
+        >
+          See the <span className="text-warm-gold">proof.</span>
+        </h2>
 
         {/* ─── Split layout: image + case study preview ─── */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">

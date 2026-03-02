@@ -13,15 +13,7 @@ export default function Solutions() {
   return (
     <section
       id="solutions"
-      className="relative w-full pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 border-b border-white/[0.06]"
-      style={{
-        backgroundColor: "rgba(11,10,8,0.92)",
-        backgroundImage: [
-          "radial-gradient(ellipse 70% 50% at 90% 15%, rgba(212,168,83,0.10), rgba(167,139,250,0.08) 50%, transparent 100%)",
-          "radial-gradient(ellipse 60% 45% at 5% 50%, rgba(167,139,250,0.10), rgba(244,114,182,0.07) 50%, transparent 100%)",
-          "radial-gradient(ellipse 50% 40% at 50% 85%, rgba(244,114,182,0.08), rgba(212,168,83,0.04) 60%, transparent 80%)",
-        ].join(", "),
-      }}
+      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-24 md:pb-24 border-b border-white/[0.06]"
       aria-labelledby="solutions-heading"
     >
       {/* Gradient divider line */}
@@ -51,10 +43,18 @@ export default function Solutions() {
           />
         </div>
 
-        <div className="space-y-20 sm:space-y-24">
-          <OngoingSupport />
+        <div>
+          {/* ── Core offering: Build + Grow ── */}
           <WebDevelopment />
-          <Automation />
+
+          <div className="mt-16 sm:mt-20">
+            <OngoingSupport />
+          </div>
+
+          {/* ── Optional add-on: Automation ── */}
+          <div className="mt-20 sm:mt-24 pt-10 sm:pt-12 border-t border-white/[0.04]">
+            <Automation />
+          </div>
         </div>
 
         {/* Closer — consultative positioning */}
