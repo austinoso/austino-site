@@ -272,22 +272,6 @@ export default function Navigation() {
                     </div>
                     <div data-dropdown-item role="none">
                       <Link
-                        href="/services/automation"
-                        role="menuitem"
-                        className="block px-3.5 py-2.5 rounded-md text-sm text-stone-300 hover:text-white hover:bg-white/[0.06] transition-colors duration-200"
-                        data-umami-event="nav-service-automation"
-                        tabIndex={isSolutionsOpen ? 0 : -1}
-                        onClick={() => setIsSolutionsOpen(false)}
-                        onKeyDown={handleDropdownItemKeyDown}
-                      >
-                        <span className="font-medium">Automation</span>
-                        <span className="block text-[11px] text-stone-500 mt-0.5">
-                          Replace manual work with code
-                        </span>
-                      </Link>
-                    </div>
-                    <div data-dropdown-item role="none">
-                      <Link
                         href="/services/growth-strategy"
                         role="menuitem"
                         className="block px-3.5 py-2.5 rounded-md text-sm text-stone-300 hover:text-white hover:bg-white/[0.06] transition-colors duration-200"
@@ -299,6 +283,22 @@ export default function Navigation() {
                         <span className="font-medium">Growth Strategy</span>
                         <span className="block text-[11px] text-stone-500 mt-0.5">
                           Data + content that ranks
+                        </span>
+                      </Link>
+                    </div>
+                    <div data-dropdown-item role="none">
+                      <Link
+                        href="/services/automation"
+                        role="menuitem"
+                        className="block px-3.5 py-2.5 rounded-md text-sm text-stone-300 hover:text-white hover:bg-white/[0.06] transition-colors duration-200"
+                        data-umami-event="nav-service-automation"
+                        tabIndex={isSolutionsOpen ? 0 : -1}
+                        onClick={() => setIsSolutionsOpen(false)}
+                        onKeyDown={handleDropdownItemKeyDown}
+                      >
+                        <span className="font-medium">Automation</span>
+                        <span className="block text-[11px] text-stone-500 mt-0.5">
+                          Replace manual work with code
                         </span>
                       </Link>
                     </div>
@@ -393,20 +393,20 @@ export default function Navigation() {
                   Web Development
                 </Link>
                 <Link
-                  href="/services/automation"
-                  className="block text-base text-stone-400 hover:text-warm-gold transition-colors py-2 font-mono"
-                  data-umami-event="mobile-nav-service-automation"
-                  onClick={closeMenu}
-                >
-                  Automation
-                </Link>
-                <Link
                   href="/services/growth-strategy"
                   className="block text-base text-stone-400 hover:text-warm-gold transition-colors py-2 font-mono"
                   data-umami-event="mobile-nav-service-growth"
                   onClick={closeMenu}
                 >
                   Growth Strategy
+                </Link>
+                <Link
+                  href="/services/automation"
+                  className="block text-base text-stone-400 hover:text-warm-gold transition-colors py-2 font-mono"
+                  data-umami-event="mobile-nav-service-automation"
+                  onClick={closeMenu}
+                >
+                  Automation
                 </Link>
               </div>
             </div>
