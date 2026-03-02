@@ -111,7 +111,7 @@ export default function HeroDemo() {
           gsap.set(cursor, {
             opacity: 1,
             left: "7%",
-            top: "56%",
+            top: "60%",
           });
           break;
         case 1:
@@ -229,13 +229,13 @@ export default function HeroDemo() {
           /* â”€â”€â”€ ACT 1 â€” The Customer Experience â”€â”€â”€ */
 
           /* Scene 1: Landing page â€” cursor glides to CTA */
-          tl.addLabel("scene1", "+=0.6");
-          tl.to(cursor, { opacity: 1, duration: 0.35 }, "scene1+=0.4");
+          tl.addLabel("scene1", "+=0.2");
+          tl.to(cursor, { opacity: 1, duration: 0.35 }, "scene1+=0.15");
           tl.to(
             cursor,
             {
               left: "7%",
-              top: "56%",
+              top: "60%",
               duration: 1.3,
               ease: "power2.inOut",
             },
@@ -872,7 +872,7 @@ export default function HeroDemo() {
               className="absolute z-30 pointer-events-none"
               style={{ opacity: 0, left: "60%", top: "20%" }}
             >
-              <svg width="14" height="18" viewBox="0 0 16 20" fill="none">
+              <svg width="18" height="22" viewBox="0 0 16 20" fill="none">
                 <path
                   d="M1 1v14.5l4-4 3.5 7 2-1L7 10.5l5.5 0z"
                   fill="white"
