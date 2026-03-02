@@ -516,7 +516,8 @@ export default function HeroDemo() {
           className="relative overflow-hidden bg-[#080807]"
           style={{ aspectRatio: `${CANONICAL_W}/${CANONICAL_H}` }}
         >
-          {/* Canonical-size inner — scales uniformly to fill container */}
+          {/* Canonical-size inner — scales uniformly to fill container.
+              Position absolute so the 640px width doesn't affect parent layout. */}
           <div
             style={{
               width: CANONICAL_W,
@@ -524,7 +525,7 @@ export default function HeroDemo() {
               transform: `scale(${stageScale})`,
               transformOrigin: "top left",
             }}
-            className="relative"
+            className="absolute inset-0"
           >
             {/* Scene 1 — Landing Page */}
             <div ref={s1} className="absolute inset-0 p-6 flex flex-col gap-2">

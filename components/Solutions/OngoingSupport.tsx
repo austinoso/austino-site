@@ -155,10 +155,10 @@ export default function OngoingSupport() {
               </p>
             </div>
 
-            {/* Result 3 — directory (more faded) */}
+            {/* Result 3 — directory (more faded, hidden on mobile to reduce scroll) */}
             <div
               data-result
-              className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-4 opacity-35"
+              className="hidden sm:block rounded-lg border border-white/[0.04] bg-white/[0.02] p-4 opacity-35"
             >
               <p className="text-xs text-stone-600 font-mono mb-1">
                 generic-directory.com

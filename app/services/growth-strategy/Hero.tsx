@@ -128,8 +128,17 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Result #2 — competitor, decent but stale */}
-            <div className="py-4 border-b border-white/[0.04]">
+            {/* Result #2 — competitor, decent but stale.
+                On mobile: clip to just the business name + fade out */}
+            <div className="relative py-4 border-b border-white/[0.04] sm:border-b">
+              {/* Mobile fade-out mask */}
+              <div
+                className="sm:hidden absolute inset-x-0 bottom-0 h-16 pointer-events-none z-10"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, transparent, #0C0B09)",
+                }}
+              />
               <div className="flex items-center gap-2 mb-1.5">
                 <div className="w-5 h-5 rounded-full bg-white/[0.06] flex items-center justify-center">
                   <span className="text-[9px] font-medium text-stone-500">
@@ -143,17 +152,17 @@ export default function Hero() {
               <p className="text-[15px] text-[#8AB4F8]/60 leading-snug mb-1">
                 Certified Personal Trainers — All Levels
               </p>
-              <p className="text-xs text-stone-500 leading-relaxed mb-1">
+              <p className="hidden sm:block text-xs text-stone-500 leading-relaxed mb-1">
                 Our trainers are certified and experienced. Contact us for more
                 information about personal training.
               </p>
-              <p className="text-[10px] text-stone-600 font-mono">
+              <p className="hidden sm:block text-[10px] text-stone-600 font-mono">
                 Last updated 8 months ago · 3 pages
               </p>
             </div>
 
-            {/* Result #3 — competitor, very stale */}
-            <div className="py-4">
+            {/* Result #3 — competitor, very stale (hidden on mobile) */}
+            <div className="hidden sm:block py-4">
               <div className="flex items-center gap-2 mb-1.5">
                 <div className="w-5 h-5 rounded-full bg-white/[0.06] flex items-center justify-center">
                   <span className="text-[9px] font-medium text-stone-500">
