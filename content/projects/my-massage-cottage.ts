@@ -4,7 +4,7 @@ import type { Project } from "@/content/projects/types";
 
 const myMassageCottage: Project = {
   slug: "my-massage-cottage",
-  title: "My Massage Cottage: From New Business to Booked Out",
+  title: "My Massage Cottage: From Zero to Page One",
   seoTitle: "My Massage Cottage Case Study",
   excerpt:
     "Built a fast, professional website with integrated online booking for a new massage therapy business—then stayed on to drive growth through content strategy and performance tracking.",
