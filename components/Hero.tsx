@@ -89,15 +89,11 @@ export default function Hero() {
 
           {/* ─── Demo column — supporting visual ─── */}
           <div className="lg:col-span-5">
-            {/* Offset card for depth */}
-            <div className="relative">
-              <div
-                className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full rounded-xl bg-stone-100 border border-stone-200/60"
-                aria-hidden="true"
-              />
-              <div className="relative">
-                <HeroDemoLoader />
-              </div>
+            <div
+              className="rounded-xl"
+              style={{ boxShadow: '12px 12px 0px 0px #CEC8C1' }}
+            >
+              <HeroDemoLoader />
             </div>
           </div>
         </div>

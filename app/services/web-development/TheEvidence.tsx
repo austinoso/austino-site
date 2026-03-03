@@ -78,7 +78,7 @@ function Source({ label, href }: { label: string; href: string }) {
 export default function TheEvidence() {
   return (
     <section data-fade>
-      <div className="px-6 sm:px-10 mb-10 sm:mb-14">
+      <div className="px-6 sm:px-10 md:px-14 lg:px-20 mb-10 sm:mb-14">
         <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance max-w-2xl">
           Your site is being judged — by visitors and{" "}
           <span className="text-gradient-gold">by Google.</span>
@@ -86,7 +86,7 @@ export default function TheEvidence() {
       </div>
 
       {/* ── Mobile: stacked cards ── */}
-      <div className="md:hidden px-6 space-y-2 pb-6">
+      <div className="md:hidden px-6 space-y-2 pb-6 sm:px-10">
         {/* Stat cards */}
         {stats.map((s) => (
           <div key={s.number} className={card}>
@@ -117,7 +117,7 @@ export default function TheEvidence() {
       </div>
 
       {/* ── Desktop: bento card grid ── */}
-      <div className="hidden md:grid md:grid-cols-3 gap-2 px-6 sm:px-10">
+      <div className="hidden md:grid md:grid-cols-3 gap-2 px-6 sm:px-10 md:px-14 lg:px-20">
         {/* ── 46% — featured stat (col 1-2, row 1) ── */}
         <div
           className={`${card} md:col-span-2 md:row-start-1 flex flex-col justify-between`}

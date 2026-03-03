@@ -95,37 +95,34 @@ export default function WebDevelopment() {
 
       {/* ── Full-width browser mockup ── */}
       <div data-visual>
-        <div
-          className="rounded-2xl border border-stone-200 bg-white overflow-hidden select-none"
-          style={{
-            boxShadow:
-              "0 32px 64px -16px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04)",
-          }}
-        >
           <div
-            className="flex items-center gap-2 px-5 py-3 border-b border-stone-200 bg-stone-50"
-            aria-hidden="true"
+            className="rounded-2xl border border-stone-200 bg-white overflow-hidden select-none"
+            style={{ boxShadow: '12px 12px 0px 0px #CEC8C1' }}
           >
-            <div className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/70" />
-            </div>
-            <div className="flex-1 flex justify-center">
-              <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-stone-100 text-[11px] text-stone-500 font-mono">
-                mymassagecottage.com
+            <div
+              className="flex items-center gap-2 px-5 py-3 border-b border-stone-200 bg-stone-50"
+              aria-hidden="true"
+            >
+              <div className="flex items-center gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/70" />
+              </div>
+              <div className="flex-1 flex justify-center">
+                <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-stone-100 text-[11px] text-stone-500 font-mono">
+                  mymassagecottage.com
+                </div>
               </div>
             </div>
+            <div className="relative aspect-[16/10] sm:aspect-[16/9]">
+              <Image
+                src="/assets/mymassagecottage-demo.PNG"
+                alt="My Massage Cottage — client website preview"
+                fill
+                className="object-cover object-top"
+              />
+            </div>
           </div>
-          <div className="relative aspect-[16/10] sm:aspect-[16/9]">
-            <Image
-              src="/assets/mymassagecottage-demo.PNG"
-              alt="My Massage Cottage — client website preview"
-              fill
-              className="object-cover object-top"
-            />
-          </div>
-        </div>
       </div>
 
       {/* ── Features in cards ── */}

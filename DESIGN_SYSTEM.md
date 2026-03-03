@@ -331,8 +331,8 @@ hover:text-warm-white transition-colors duration-300
 ### Browser Mockup Frame (DARK — embedded on light page)
 
 ```tsx
-<div className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden"
-     style={{ boxShadow: "0 24px 48px -12px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.03)" }}>
+<div className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
+     style={{ boxShadow: '12px 12px 0px 0px #CEC8C1' }}>
   {/* Chrome bar */}
   <div className="flex items-center gap-3 px-4 py-2 border-b border-white/[0.04]">
     <div className="flex gap-1.5">
@@ -347,6 +347,13 @@ hover:text-warm-white transition-colors duration-300
   <Image ... className="w-full h-auto object-cover" />
 </div>
 ```
+
+**Hard shadow spec:**
+- Right-aligned or centered mockups: `boxShadow: '12px 12px 0px 0px #CEC8C1'`
+- Left-column mockups: `boxShadow: '-12px 12px 0px 0px #CEC8C1'`
+- Color `#CEC8C1` is a warm stone tone — **light-bg pages only**
+- No blur, no spread beyond 0 — crisp offset
+- Skip on dark-bg pages (`bg-cyber-dark`) — the warm shadow doesn't suit dark surfaces
 
 **Note:** Browser/phone/dashboard mockups stay dark. All `border-white/[0.XX]`, `bg-white/[0.XX]`, `bg-[#0C0B09]` patterns inside mockups are intentional.
 
@@ -627,4 +634,5 @@ export default function NewServicePage() {
 - **`text-stone-600` inside `.dark-section`** — fails WCAG contrast. Use `text-stone-400`.
 - **Raw `#4ADE80` hex for green** — use `green-400` class (dark mockups) or `warm-green` token (light page). Don't hardcode hex values in Tailwind classes. SVG `stroke`/`fill` attributes can keep the hex since SVG doesn't read Tailwind tokens.
 - **Flat `bg-amber-500 text-black` for buttons** — always use the gradient CTA pattern (`from-amber-600 to-amber-500 text-white`).
-- **Colored glows / brand-colored box-shadows** — avoid glowing shadow effects (e.g. `rgba(180,83,9,0.15)` spread shadows). Use structural depth techniques instead: white offset cards, subtle neutral shadows, layered borders. Glows feel techy/SaaS — this brand is warm & tactile.
+- **Colored glows / brand-colored box-shadows** — avoid glowing shadow effects (e.g. `rgba(180,83,9,0.15)` spread shadows). Use structural depth techniques instead: hard shadows, layered borders. Glows feel techy/SaaS — this brand is warm & tactile.
+- **Soft `boxShadow` on mockups/demos** — don't use soft drop shadows (`shadow-2xl`, `shadow-black/40`, `rgba(0,0,0,0.25)` blur) for depth on browser mockups, dashboards, or demo frames. Use the **hard shadow pattern** instead: `boxShadow: '12px 12px 0px 0px #CEC8C1'` (right-aligned mockups) or `'-12px 12px 0px 0px #CEC8C1'` (left-column mockups). No blur, warm stone tone, crisp offset. This treatment is for **light-bg pages only** (`bg-warm-bg`). Skip on dark-bg pages (`bg-cyber-dark`).

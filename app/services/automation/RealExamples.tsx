@@ -547,7 +547,8 @@ export default function RealExamples() {
       {/* ── Dashboard shell ───────────────────────── */}
       <div
         ref={dashRef}
-        className="rounded-lg border border-white/[0.08] bg-[#0C0B09] overflow-hidden shadow-2xl shadow-black/40 select-none"
+        className="rounded-lg border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
+        style={{ boxShadow: '12px 12px 0px 0px #CEC8C1' }}
         aria-hidden="true"
       >
         {/* Header bar */}

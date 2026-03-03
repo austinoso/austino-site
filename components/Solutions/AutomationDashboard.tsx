@@ -159,10 +159,6 @@ export default function AutomationDashboard() {
   return (
     <div
       className="rounded-xl border border-white/[0.08] bg-[#0A0A08] overflow-hidden"
-      style={{
-        boxShadow:
-          "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03)",
-      }}
       role="img"
       aria-label="Live automation dashboard showing tasks being processed automatically"
     >

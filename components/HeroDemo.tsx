@@ -483,10 +483,6 @@ export default function HeroDemo() {
     <div ref={demoRef} className="relative">
       <div
         className="relative rounded-xl border border-white/[0.06] bg-[#0C0B09] overflow-hidden select-none"
-        style={{
-          boxShadow:
-            "0 4px 12px -2px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04)",
-        }}
         aria-hidden="true"
       >
         {/* Chrome bar */}

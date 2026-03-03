@@ -73,7 +73,7 @@ export default function DesignAndTools() {
           A site that looks as good as{" "}
           <span className="text-gradient-gold">your work.</span>
         </h2>
-        <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-14 sm:mb-20">
+        <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-10 sm:mb-14">
           No templates. No page builders. Every layout, animation, and
           interaction is designed from scratch to make your business look
           premium — because first impressions are everything.
@@ -87,7 +87,7 @@ export default function DesignAndTools() {
           <div
             className="rounded-xl border border-stone-300 bg-[#0C0B09] overflow-hidden select-none"
             style={{
-              boxShadow: "0 24px 48px -12px rgba(0,0,0,0.12)",
+              boxShadow: "-12px 12px 0px 0px #CEC8C1",
             }}
           >
             {/* Browser chrome */}

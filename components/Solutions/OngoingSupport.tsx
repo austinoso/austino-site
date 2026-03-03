@@ -103,12 +103,9 @@ export default function OngoingSupport() {
       <div data-visual>
         <div
           className="rounded-2xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
+          style={{ boxShadow: '12px 12px 0px 0px #CEC8C1' }}
           role="img"
           aria-label="Google search results mockup showing a client business ranking #1"
-          style={{
-            boxShadow:
-              "0 32px 64px -16px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.03), inset 0 1px 0 rgba(255,255,255,0.05)",
-          }}
         >
           {/* Search bar */}
           <div className="px-5 py-4 border-b border-white/[0.06]">
@@ -201,7 +198,7 @@ export default function OngoingSupport() {
             </div>
 
             {/* ── Right: Google Map Pack ── */}
-            <div className="md:col-span-5 p-5 border-t md:border-t-0 border-white/[0.04]">
+            <div className="hidden md:block md:col-span-5 p-5 border-t md:border-t-0 border-white/[0.04]">
               {/* Fake map area */}
               <div className="rounded-lg bg-[#1a1916] border border-white/[0.06] overflow-hidden mb-4">
                 <div className="relative h-32 bg-[#161412]">

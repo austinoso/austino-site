@@ -32,7 +32,7 @@ export default function WebDevelopmentPage() {
           <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-16 pb-0 sm:pt-20 md:pt-24">
             <Link
               href="/#solutions"
-              className="inline-flex items-center gap-2 text-sm font-mono text-stone-400 hover:text-warm-white transition-colors duration-300 mb-8 sm:mb-10 tracking-wide"
+              className="inline-flex items-center gap-2 text-sm font-mono text-stone-500 hover:text-warm-white transition-colors duration-300 mb-8 sm:mb-10 tracking-wide"
             >
               <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
               <span>Back to Home</span>
@@ -51,7 +51,7 @@ export default function WebDevelopmentPage() {
             }}
             aria-hidden="true"
           />
-          <div className="pt-14 sm:pt-28 md:pt-32">
+          <div className="pt-14 pb-6 sm:pt-28 sm:pb-10 md:pt-32 md:pb-14">
             <TheEvidence />
           </div>
         </div>

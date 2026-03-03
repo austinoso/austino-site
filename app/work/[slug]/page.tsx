@@ -114,7 +114,7 @@ export default async function CaseStudyPage({
           {/* Hero Image — browser mockup */}
           {study.image && (
             <section className="border-b border-white/[0.06]">
-              <div className="overflow-hidden bg-warm-surface select-none">
+              <div className="overflow-hidden bg-warm-surface select-none" style={{ boxShadow: '12px 12px 0px 0px #CEC8C1' }}>
                 {/* Chrome bar */}
                 <div
                   className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-warm-bg"

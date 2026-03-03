@@ -32,7 +32,7 @@ export default function Hero() {
         className="lg:col-span-6 relative select-none"
         aria-hidden="true"
       >
-        <div className="flex justify-center items-start max-h-[300px] sm:max-h-none overflow-hidden">
+        <div className="flex justify-center items-start max-h-[300px] sm:max-h-[540px] lg:max-h-[580px] overflow-hidden">
           <div className="relative w-full max-w-[320px] sm:w-[300px] sm:max-w-none mt-0 sm:mt-6 lg:mt-0">
             {/* ── Floating cards ── */}
 
@@ -138,10 +138,9 @@ export default function Hero() {
 
             {/* ── Phone frame ── */}
             <div
-              className="relative rounded-t-[2.5rem] border-[3px] border-b-0 border-stone-300 bg-[#0C0B09] overflow-hidden shadow-2xl"
+              className="relative rounded-t-[2.5rem] border-[3px] border-b-0 border-stone-300 bg-[#0C0B09] overflow-hidden"
               style={{
-                boxShadow:
-                  "0 32px 64px -16px rgba(0,0,0,0.25), inset 0 0 20px rgba(0,0,0,0.3)",
+                boxShadow: "12px 12px 0px 0px #CEC8C1",
               }}
             >
               {/* Dynamic Island */}

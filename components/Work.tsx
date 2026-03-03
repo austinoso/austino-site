@@ -62,11 +62,7 @@ export default function Work() {
           <div data-animate="slide-up">
             <Link
               href={`/work/${project.slug}`}
-              className="group relative block rounded-lg overflow-hidden border border-stone-200 hover:border-warm-gold/30 transition-all duration-500 shadow-lg shadow-black/[0.06]"
-              style={{
-                boxShadow:
-                  "0 24px 48px -12px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04)",
-              }}
+              className="group relative block rounded-lg overflow-hidden border border-stone-200 hover:border-warm-gold/30 transition-all duration-500"
               data-umami-event="project-image"
               data-umami-event-project={project.slug}
             >
@@ -147,9 +143,6 @@ export default function Work() {
             <Link
               href={`/work/${project.slug}`}
               className="group inline-flex items-center gap-2.5 self-start px-6 py-3 border border-stone-300 rounded-lg text-[14px] font-medium text-stone-800 hover:border-warm-gold/40 hover:text-warm-gold transition-all duration-500"
-              style={{
-                boxShadow: "0 0 0 1px rgba(0,0,0,0.02)",
-              }}
               data-umami-event="view-case-study"
             >
               Read Case Study
