@@ -57,7 +57,7 @@ export default function PainPoints() {
             <h2
               id="pain-points-heading"
               data-animate="card"
-              className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight mb-10 sm:mb-12"
+              className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight mb-10 sm:mb-12 text-balance"
             >
               Your competitors made{" "}
               <span className="text-gradient-gold">this&nbsp;easy.</span>
@@ -66,7 +66,7 @@ export default function PainPoints() {
             <div data-animate="card" className="space-y-8">
               {points.map((point, i) => (
                 <div key={i}>
-                  <h3 className="font-display text-lg sm:text-xl font-semibold text-warm-white leading-snug">
+                  <h3 className="font-display text-lg sm:text-xl font-semibold text-warm-white leading-snug text-balance">
                     {point.title}
                   </h3>
                   <p className="mt-2 text-[0.9375rem] text-stone-600 leading-relaxed">

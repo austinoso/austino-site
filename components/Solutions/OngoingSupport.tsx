@@ -62,7 +62,7 @@ export default function OngoingSupport() {
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-10">
         <div>
           <span className="section-label block mb-5">Growth Strategy</span>
-          <h3 className="font-display text-2xl sm:text-3xl md:text-[2.5rem] font-bold text-warm-white leading-[1.15] tracking-tight">
+          <h3 className="font-display text-2xl sm:text-3xl md:text-[2.5rem] font-bold text-warm-white leading-[1.15] tracking-tight text-balance">
             A great site is just the foundation.
           </h3>
           {/* ── Capability pills ── */}

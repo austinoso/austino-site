@@ -73,7 +73,7 @@ export default function Solutions() {
               "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(251,191,36,0.04), transparent 80%)",
           }}
         >
-          <p className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.15] tracking-tight max-w-3xl">
+          <p className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.15] tracking-tight max-w-3xl text-balance">
             I only work with one business per niche in your area.{" "}
             <span className="text-gradient">
               Your competition won&apos;t get this from me.

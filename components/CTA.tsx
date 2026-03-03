@@ -47,7 +47,7 @@ export default function CTA() {
           <WordReveal
             text="Your competition isn't waiting. Neither should you."
             id="cta-heading"
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold text-white leading-[1.05] tracking-tight"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold text-white leading-[1.05] tracking-tight text-balance"
             accentWords={["isn't", "waiting."]}
             accentClassName="text-amber-400"
           />

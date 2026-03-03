@@ -39,7 +39,8 @@ export default function About() {
             id="about-heading"
             className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.1] tracking-tight"
           >
-            One person.{" "}
+            One person.
+            <br />
             <span className="text-gradient-gold">The whole picture.</span>
           </h2>
           <p
