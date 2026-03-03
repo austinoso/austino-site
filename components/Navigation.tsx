@@ -224,7 +224,11 @@ export default function Navigation() {
               <Link
                 ref={dropdownTriggerRef}
                 href="/#solutions"
-                className="inline-flex items-center gap-1.5 text-[13px] text-stone-500 hover:text-stone-900 transition-colors duration-300 tracking-wide"
+                className={`relative inline-flex items-center gap-1.5 text-[13px] transition-colors duration-300 tracking-wide ${
+                  pathname.startsWith("/services")
+                    ? "text-stone-900"
+                    : "text-stone-500 hover:text-stone-900"
+                }`}
                 aria-haspopup="true"
                 aria-expanded={isSolutionsOpen}
                 aria-controls="solutions-dropdown"
@@ -239,6 +243,15 @@ export default function Navigation() {
                   }`}
                   aria-hidden="true"
                 />
+                {pathname.startsWith("/services") && (
+                  <span
+                    className="absolute -bottom-1.5 inset-x-0 h-0.5 rounded-full"
+                    style={{
+                      background: "linear-gradient(90deg, #B45309, #DB2777)",
+                    }}
+                    aria-hidden="true"
+                  />
+                )}
               </Link>
 
               {/* Dropdown */}
@@ -309,10 +322,23 @@ export default function Navigation() {
 
             <Link
               href="/work"
-              className="text-[13px] text-stone-500 hover:text-stone-900 transition-colors duration-300 tracking-wide"
+              className={`relative text-[13px] transition-colors duration-300 tracking-wide ${
+                pathname.startsWith("/work")
+                  ? "text-stone-900"
+                  : "text-stone-500 hover:text-stone-900"
+              }`}
               data-umami-event="nav-work"
             >
               Work
+              {pathname.startsWith("/work") && (
+                <span
+                  className="absolute -bottom-1.5 inset-x-0 h-0.5 rounded-full"
+                  style={{
+                    background: "linear-gradient(90deg, #B45309, #DB2777)",
+                  }}
+                  aria-hidden="true"
+                />
+              )}
             </Link>
             <Link
               href="/contact"

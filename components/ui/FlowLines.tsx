@@ -37,7 +37,7 @@ const risingStreams: Stream[] = [
     dash: 130,
     grad: 2,
     tw: 0.4,
-    to: 0.05,
+    to: 0.08,
   },
   {
     d: "M 275,510 C 260,380 215,260 185,170 S 145,50 130,-10",
@@ -47,7 +47,7 @@ const risingStreams: Stream[] = [
     dash: 150,
     grad: 1,
     tw: 0.4,
-    to: 0.07,
+    to: 0.12,
   },
   // Center column
   {
@@ -58,7 +58,7 @@ const risingStreams: Stream[] = [
     dash: 160,
     grad: 1,
     tw: 0.4,
-    to: 0.09,
+    to: 0.15,
   },
   {
     d: "M 310,510 C 312,390 320,270 330,170 S 345,50 355,-10",
@@ -68,7 +68,7 @@ const risingStreams: Stream[] = [
     dash: 140,
     grad: 2,
     tw: 0.45,
-    to: 0.06,
+    to: 0.1,
   },
   // Right fan — exits top-right
   {
@@ -79,7 +79,7 @@ const risingStreams: Stream[] = [
     dash: 155,
     grad: 1,
     tw: 0.4,
-    to: 0.08,
+    to: 0.13,
   },
   {
     d: "M 325,510 C 338,370 380,250 415,160 S 455,30 475,-10",
@@ -89,7 +89,7 @@ const risingStreams: Stream[] = [
     dash: 120,
     grad: 3,
     tw: 0.45,
-    to: 0.05,
+    to: 0.08,
   },
   {
     d: "M 340,510 C 350,360 395,230 435,140 S 475,20 495,-10",
@@ -99,7 +99,7 @@ const risingStreams: Stream[] = [
     dash: 145,
     grad: 1,
     tw: 0.4,
-    to: 0.07,
+    to: 0.12,
   },
   // S-curves for organic variety
   {
@@ -110,7 +110,7 @@ const risingStreams: Stream[] = [
     dash: 135,
     grad: 3,
     tw: 0.4,
-    to: 0.05,
+    to: 0.08,
   },
   {
     d: "M 335,510 C 340,390 355,300 325,210 S 265,80 240,-10",
@@ -120,7 +120,7 @@ const risingStreams: Stream[] = [
     dash: 125,
     grad: 2,
     tw: 0.4,
-    to: 0.04,
+    to: 0.07,
   },
   // Bold hero line — widest, brightest
   {
@@ -131,7 +131,7 @@ const risingStreams: Stream[] = [
     dash: 180,
     grad: 1,
     tw: 0.35,
-    to: 0.11,
+    to: 0.18,
   },
 ];
 
@@ -237,9 +237,9 @@ export default function FlowLines({
               : { x1: "-30", y1: "130", x2: "1230", y2: "130" })}
           >
             <stop offset="0%" stopColor="#B45309" stopOpacity="0" />
-            <stop offset="12%" stopColor="#B45309" stopOpacity="0.25" />
-            <stop offset="45%" stopColor="#7C3AED" stopOpacity="0.18" />
-            <stop offset="80%" stopColor="#DB2777" stopOpacity="0.10" />
+            <stop offset="12%" stopColor="#B45309" stopOpacity="0.36" />
+            <stop offset="45%" stopColor="#7C3AED" stopOpacity="0.26" />
+            <stop offset="80%" stopColor="#DB2777" stopOpacity="0.15" />
             <stop offset="100%" stopColor="#DB2777" stopOpacity="0" />
           </linearGradient>
 
@@ -252,9 +252,9 @@ export default function FlowLines({
               : { x1: "-30", y1: "130", x2: "1230", y2: "130" })}
           >
             <stop offset="0%" stopColor="#7C3AED" stopOpacity="0" />
-            <stop offset="15%" stopColor="#7C3AED" stopOpacity="0.20" />
-            <stop offset="55%" stopColor="#B45309" stopOpacity="0.14" />
-            <stop offset="90%" stopColor="#B45309" stopOpacity="0.04" />
+            <stop offset="15%" stopColor="#7C3AED" stopOpacity="0.30" />
+            <stop offset="55%" stopColor="#B45309" stopOpacity="0.20" />
+            <stop offset="90%" stopColor="#B45309" stopOpacity="0.06" />
             <stop offset="100%" stopColor="#B45309" stopOpacity="0" />
           </linearGradient>
 
@@ -267,8 +267,8 @@ export default function FlowLines({
               : { x1: "-30", y1: "130", x2: "1230", y2: "130" })}
           >
             <stop offset="0%" stopColor="#DB2777" stopOpacity="0" />
-            <stop offset="18%" stopColor="#DB2777" stopOpacity="0.16" />
-            <stop offset="60%" stopColor="#B45309" stopOpacity="0.10" />
+            <stop offset="18%" stopColor="#DB2777" stopOpacity="0.24" />
+            <stop offset="60%" stopColor="#B45309" stopOpacity="0.15" />
             <stop offset="100%" stopColor="#B45309" stopOpacity="0" />
           </linearGradient>
         </defs>
@@ -278,7 +278,7 @@ export default function FlowLines({
             {/* Track — faint permanent path */}
             <path
               d={s.d}
-              stroke={`rgba(180,83,9,${s.to * 0.5})`}
+              stroke={`rgba(180,83,9,${s.to * 0.65})`}
               strokeWidth={s.w * s.tw}
               strokeLinecap="round"
               pathLength={1000}

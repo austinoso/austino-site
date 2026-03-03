@@ -18,6 +18,7 @@ export default function CTA() {
         backgroundImage: [
           "radial-gradient(ellipse 70% 50% at 90% 85%, rgba(251,191,36,0.08), rgba(244,114,182,0.05) 50%, transparent 100%)",
           "radial-gradient(ellipse 60% 45% at 5% 95%, rgba(244,114,182,0.06), rgba(251,191,36,0.03) 50%, transparent 100%)",
+          "radial-gradient(ellipse 50% 40% at 50% 10%, rgba(167,139,250,0.04), transparent 70%)",
         ].join(", "),
       }}
       aria-labelledby="cta-heading"

@@ -4,31 +4,55 @@ import { ArrowRight } from "lucide-react";
 export default function FinalCTA() {
   return (
     <section data-fade>
-      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
-        <div className="max-w-xl">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-5">
-            Built to grow{" "}
-            <span className="text-gradient-gold">from day one.</span>
-          </h2>
-          <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
-            I don&apos;t build sites and walk away. Growth strategy comes
-            standard with every Build + Grow project, so your site launches with
-            momentum already behind it.
-          </p>
-        </div>
-        <div className="flex-shrink-0">
-          <Link
-            href="/contact"
-            className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-base rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg w-full sm:w-auto"
-          >
-            <span>Start a Conversation</span>
-            <ArrowRight
-              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-              aria-hidden="true"
-            />
-          </Link>
+      {/* Dark card — echoes homepage CTA */}
+      <div
+        className="dark-section relative rounded-2xl overflow-hidden px-8 sm:px-10 md:px-12 py-10 sm:py-14 md:py-16"
+        style={{
+          backgroundColor: "#1C1917",
+          backgroundImage: [
+            "radial-gradient(ellipse 70% 50% at 85% 80%, rgba(251,191,36,0.07), rgba(244,114,182,0.04) 50%, transparent 100%)",
+            "radial-gradient(ellipse 55% 45% at 10% 90%, rgba(244,114,182,0.05), transparent 70%)",
+            "radial-gradient(ellipse 45% 35% at 50% 10%, rgba(167,139,250,0.03), transparent 70%)",
+          ].join(", "),
+        }}
+      >
+        {/* Top gradient edge */}
+        <div
+          className="absolute top-0 inset-x-0 h-px"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, rgba(251,191,36,0.10) 30%, rgba(244,114,182,0.07) 60%, transparent)",
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
+          <div className="max-w-xl">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-white leading-[1.2] tracking-tight text-balance mb-5">
+              Built to grow{" "}
+              <span className="text-gradient-gold">from day one.</span>
+            </h2>
+            <p className="text-base sm:text-lg text-stone-300 leading-relaxed text-pretty">
+              I don&apos;t build sites and walk away. Growth strategy comes
+              standard with every Build + Grow project, so your site launches
+              with momentum already behind it.
+            </p>
+          </div>
+          <div className="flex-shrink-0">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-base rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-[#1C1917] w-full sm:w-auto"
+            >
+              <span>Start a Conversation</span>
+              <ArrowRight
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+          </div>
         </div>
       </div>
+
       <div className="border-t border-stone-200 mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
         <Link
           href="/services/automation"

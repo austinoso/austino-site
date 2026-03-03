@@ -48,7 +48,7 @@ export default function AutomationPage() {
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(212,168,83,0.011) 30%, rgba(167,139,250,0.009) 65%, transparent)",
+                "linear-gradient(90deg, transparent, rgba(212,168,83,0.05) 30%, rgba(244,114,182,0.04) 55%, rgba(167,139,250,0.03) 75%, transparent)",
             }}
             aria-hidden="true"
           />
@@ -63,7 +63,7 @@ export default function AutomationPage() {
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent 5%, rgba(212,168,83,0.009) 35%, rgba(167,139,250,0.007) 70%, transparent 95%)",
+                "linear-gradient(90deg, transparent 5%, rgba(244,114,182,0.04) 30%, rgba(212,168,83,0.05) 55%, rgba(167,139,250,0.03) 80%, transparent 95%)",
             }}
             aria-hidden="true"
           />
@@ -78,7 +78,7 @@ export default function AutomationPage() {
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(167,139,250,0.011) 35%, rgba(212,168,83,0.005) 70%, transparent)",
+                "linear-gradient(90deg, transparent, rgba(167,139,250,0.04) 25%, rgba(244,114,182,0.05) 50%, rgba(212,168,83,0.03) 75%, transparent)",
             }}
             aria-hidden="true"
           />
@@ -93,7 +93,7 @@ export default function AutomationPage() {
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(212,168,83,0.007) 35%, rgba(167,139,250,0.007) 70%, transparent)",
+                "linear-gradient(90deg, transparent, rgba(212,168,83,0.04) 30%, rgba(244,114,182,0.05) 55%, rgba(167,139,250,0.03) 75%, transparent)",
             }}
             aria-hidden="true"
           />
@@ -108,7 +108,7 @@ export default function AutomationPage() {
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent 5%, rgba(212,168,83,0.009) 35%, rgba(167,139,250,0.007) 70%, transparent 95%)",
+                "linear-gradient(90deg, transparent 5%, rgba(244,114,182,0.04) 25%, rgba(212,168,83,0.05) 50%, rgba(167,139,250,0.04) 75%, transparent 95%)",
             }}
             aria-hidden="true"
           />
@@ -123,7 +123,7 @@ export default function AutomationPage() {
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(212,168,83,0.009) 40%, rgba(167,139,250,0.005) 65%, transparent)",
+                "linear-gradient(90deg, transparent, rgba(212,168,83,0.04) 35%, rgba(244,114,182,0.04) 55%, rgba(167,139,250,0.03) 75%, transparent)",
             }}
             aria-hidden="true"
           />
@@ -138,11 +138,11 @@ export default function AutomationPage() {
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(212,168,83,0.007) 35%, rgba(167,139,250,0.009) 65%, transparent)",
+                "linear-gradient(90deg, transparent, rgba(244,114,182,0.04) 25%, rgba(212,168,83,0.05) 50%, rgba(167,139,250,0.04) 75%, transparent)",
             }}
             aria-hidden="true"
           />
-          <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-14 pb-14 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32">
+          <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-10 pb-14 sm:pt-14 sm:pb-20 md:pt-16 md:pb-24">
             <FinalCTA />
           </div>
         </div>
