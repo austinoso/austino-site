@@ -15,10 +15,14 @@ export function generateOGImage({
   subtext,
   backgroundImageUrl,
 }: OGImageOptions) {
+  /* When a background image is provided (case studies), use a warm dark overlay
+     so white text stays legible. Otherwise use the warm cream palette. */
+  const hasBg = !!backgroundImageUrl;
+
   return new ImageResponse(
     <div
       style={{
-        background: "#0B0D10",
+        background: hasBg ? "#1C1917" : "#FAF9F6",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -29,9 +33,10 @@ export function generateOGImage({
         position: "relative",
       }}
     >
-      {/* Optional background image (dimmed) */}
-      {backgroundImageUrl ? (
+      {/* Optional background image (warm dimmed overlay) */}
+      {hasBg ? (
         <img
+          alt=""
           src={backgroundImageUrl}
           width={1200}
           height={630}
@@ -46,7 +51,7 @@ export function generateOGImage({
         />
       ) : null}
 
-      {backgroundImageUrl ? (
+      {hasBg ? (
         <div
           style={{
             position: "absolute",
@@ -54,12 +59,12 @@ export function generateOGImage({
             left: 0,
             right: 0,
             bottom: 0,
-            background: "rgba(11, 13, 16, 0.7)",
+            background: "rgba(28, 25, 23, 0.72)",
           }}
         />
       ) : null}
 
-      {/* Subtle gradient accent */}
+      {/* Subtle warm ambient glow */}
       <div
         style={{
           position: "absolute",
@@ -67,21 +72,22 @@ export function generateOGImage({
           left: 0,
           right: 0,
           bottom: 0,
-          background:
-            "radial-gradient(ellipse 80% 60% at 70% 40%, rgba(64,224,255,0.08), transparent)",
+          background: hasBg
+            ? "radial-gradient(ellipse 80% 60% at 70% 40%, rgba(180,83,9,0.12), transparent)"
+            : "radial-gradient(ellipse 70% 50% at 75% 35%, rgba(180,83,9,0.06), transparent)",
         }}
       />
 
-      {/* Top accent line */}
+      {/* Top accent bar — brand signature gradient */}
       <div
         style={{
           position: "absolute",
           top: 0,
           left: 0,
           right: 0,
-          height: "4px",
+          height: "5px",
           background:
-            "linear-gradient(90deg, #40E0FF 0%, rgba(64,224,255,0.3) 100%)",
+            "linear-gradient(90deg, #B45309 0%, #DB2777 70%, rgba(124,58,237,0.5) 100%)",
         }}
       />
 
@@ -93,10 +99,16 @@ export function generateOGImage({
           marginBottom: "40px",
         }}
       >
-        <span style={{ fontSize: "36px", fontWeight: 800, color: "#ffffff" }}>
+        <span
+          style={{
+            fontSize: "36px",
+            fontWeight: 800,
+            color: hasBg ? "#FFFFFF" : "#1C1917",
+          }}
+        >
           austin
         </span>
-        <span style={{ fontSize: "36px", fontWeight: 800, color: "#40E0FF" }}>
+        <span style={{ fontSize: "36px", fontWeight: 800, color: "#B45309" }}>
           o
         </span>
       </div>
@@ -106,7 +118,7 @@ export function generateOGImage({
         style={{
           fontSize: "52px",
           fontWeight: 700,
-          color: "#ffffff",
+          color: hasBg ? "#FFFFFF" : "#1C1917",
           lineHeight: 1.2,
           maxWidth: "800px",
           marginBottom: "24px",
@@ -119,7 +131,7 @@ export function generateOGImage({
       <div
         style={{
           fontSize: "22px",
-          color: "#9CA3AF",
+          color: hasBg ? "#D6D3D1" : "#57534E",
           lineHeight: 1.5,
           maxWidth: "700px",
         }}
@@ -135,7 +147,7 @@ export function generateOGImage({
           left: "80px",
           fontSize: "16px",
           fontFamily: "monospace",
-          color: "rgba(64,224,255,0.6)",
+          color: hasBg ? "rgba(180,83,9,0.7)" : "rgba(180,83,9,0.5)",
           letterSpacing: "0.1em",
         }}
       >
