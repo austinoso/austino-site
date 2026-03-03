@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative border-t border-white/[0.06] bg-warm-bg"
+      className="relative border-t border-stone-200 bg-warm-bg"
       role="contentinfo"
       aria-label="Site footer"
     >
@@ -20,10 +20,10 @@ export default function Footer() {
               className="text-lg font-display font-bold hover:opacity-80 transition-opacity inline-block mb-3"
               aria-label="Home"
             >
-              <span className="text-white">austin</span>
+              <span className="text-stone-900">austin</span>
               <span className="text-warm-gold">o</span>
             </Link>
-            <p className="text-sm text-stone-400 leading-relaxed max-w-[240px]">
+            <p className="text-sm text-stone-500 leading-relaxed max-w-[240px]">
               High-performance websites, growth strategies, and automation —
               giving local businesses an edge.
             </p>
@@ -31,12 +31,14 @@ export default function Footer() {
 
           {/* Solutions */}
           <nav aria-label="Footer navigation - Solutions">
-            <h3 className="text-sm font-semibold text-white mb-4">Solutions</h3>
+            <h3 className="text-sm font-semibold text-stone-900 mb-4">
+              Solutions
+            </h3>
             <ul className="space-y-1" role="list">
               <li>
                 <Link
                   href="/services/web-development"
-                  className="text-sm text-stone-400 hover:text-warm-gold transition-colors py-1 inline-block"
+                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-1 inline-block"
                 >
                   Web Development
                 </Link>
@@ -44,7 +46,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/automation"
-                  className="text-sm text-stone-400 hover:text-warm-gold transition-colors py-1 inline-block"
+                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-1 inline-block"
                 >
                   Automation
                 </Link>
@@ -52,7 +54,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/growth-strategy"
-                  className="text-sm text-stone-400 hover:text-warm-gold transition-colors py-1 inline-block"
+                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-1 inline-block"
                 >
                   Growth Strategy
                 </Link>
@@ -62,12 +64,14 @@ export default function Footer() {
 
           {/* Resources */}
           <nav aria-label="Footer navigation - Resources">
-            <h3 className="text-sm font-semibold text-white mb-4">Resources</h3>
+            <h3 className="text-sm font-semibold text-stone-900 mb-4">
+              Resources
+            </h3>
             <ul className="space-y-1" role="list">
               <li>
                 <Link
                   href="/work"
-                  className="text-sm text-stone-400 hover:text-warm-gold transition-colors py-1 inline-block"
+                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-1 inline-block"
                 >
                   Work
                 </Link>
@@ -75,7 +79,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-sm text-stone-400 hover:text-warm-gold transition-colors py-1 inline-block"
+                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-1 inline-block"
                 >
                   Contact
                 </Link>
@@ -85,13 +89,15 @@ export default function Footer() {
 
           {/* Connect */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Connect</h3>
+            <h3 className="text-sm font-semibold text-stone-900 mb-4">
+              Connect
+            </h3>
             <div className="space-y-2.5">
               <a
                 href="https://github.com/austinoso"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-stone-400 hover:text-warm-gold transition-colors"
+                className="flex items-center gap-2 text-sm text-stone-500 hover:text-warm-gold transition-colors"
                 aria-label="GitHub profile (opens in a new tab)"
                 data-umami-event="footer-github"
               >
@@ -113,7 +119,7 @@ export default function Footer() {
                 href="https://linkedin.com/in/austinoso"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-stone-400 hover:text-warm-gold transition-colors"
+                className="flex items-center gap-2 text-sm text-stone-500 hover:text-warm-gold transition-colors"
                 aria-label="LinkedIn profile (opens in a new tab)"
                 data-umami-event="footer-linkedin"
               >
@@ -132,7 +138,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/[0.06]">
+        <div className="pt-8 border-t border-stone-200">
           <p className="text-xs text-stone-500 text-center font-mono">
             &copy; {currentYear} austino
           </p>

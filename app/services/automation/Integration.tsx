@@ -4,10 +4,10 @@ export default function Integration() {
   return (
     <section data-fade>
       <p className="section-label mb-4">Integration</p>
-      <h2 className="text-2xl sm:text-3xl font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         You already pay for the tools. They just don&apos;t talk to each other.
       </h2>
-      <p className="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mb-10">
+      <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-10">
         Most businesses already use Calendly, QuickBooks, Google Sheets,
         Mailchimp, or a dozen other apps. The problem isn&apos;t the tools.
         It&apos;s the gap between them. That gap is where your time and money
@@ -34,7 +34,7 @@ export default function Integration() {
                   {i + 1}.
                 </span>
                 <p
-                  className={`text-sm leading-relaxed ${i === 5 ? "text-red-400" : "text-stone-400"}`}
+                  className={`text-sm leading-relaxed ${i === 5 ? "text-red-400" : "text-stone-500"}`}
                 >
                   {step}
                 </p>

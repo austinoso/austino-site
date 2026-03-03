@@ -21,11 +21,11 @@ export default function GrowthStrategyPage() {
       <div className="page-frame">
         {/* ── Hero ── */}
         <div
-          className="relative border-b border-white/[0.06] overflow-hidden"
+          className="relative border-b border-stone-200 overflow-hidden"
           style={{
             backgroundImage: [
-              "radial-gradient(ellipse 60% 70% at 10% 15%, rgba(212,168,83,0.10), rgba(184,148,74,0.05) 50%, transparent 100%)",
-              "radial-gradient(ellipse 55% 60% at 95% 90%, rgba(167,139,250,0.08), transparent 70%)",
+              "radial-gradient(ellipse 60% 70% at 10% 15%, rgba(212,168,83,0.009), rgba(184,148,74,0.005) 50%, transparent 100%)",
+              "radial-gradient(ellipse 55% 60% at 95% 90%, rgba(167,139,250,0.007), transparent 70%)",
             ].join(", "),
           }}
         >
@@ -42,12 +42,12 @@ export default function GrowthStrategyPage() {
         </div>
 
         {/* ── Sound Familiar + The Opportunity ── */}
-        <div className="relative border-b border-white/[0.06]">
+        <div className="relative border-b border-stone-200">
           <div
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(212,168,83,0.12) 30%, rgba(167,139,250,0.10) 65%, transparent)",
+                "linear-gradient(90deg, transparent, rgba(212,168,83,0.011) 30%, rgba(167,139,250,0.009) 65%, transparent)",
             }}
             aria-hidden="true"
           />
@@ -57,12 +57,12 @@ export default function GrowthStrategyPage() {
         </div>
 
         {/* ── The Strategy ── */}
-        <div className="relative border-b border-white/[0.06]">
+        <div className="relative border-b border-stone-200">
           <div
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent 5%, rgba(212,168,83,0.10) 35%, rgba(167,139,250,0.08) 70%, transparent 95%)",
+                "linear-gradient(90deg, transparent 5%, rgba(212,168,83,0.009) 35%, rgba(167,139,250,0.007) 70%, transparent 95%)",
             }}
             aria-hidden="true"
           />
@@ -72,12 +72,12 @@ export default function GrowthStrategyPage() {
         </div>
 
         {/* ── Long-Term ── */}
-        <div className="relative border-b border-white/[0.06]">
+        <div className="relative border-b border-stone-200">
           <div
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(212,168,83,0.08) 40%, rgba(167,139,250,0.10) 65%, transparent)",
+                "linear-gradient(90deg, transparent, rgba(212,168,83,0.007) 40%, rgba(167,139,250,0.009) 65%, transparent)",
             }}
             aria-hidden="true"
           />
@@ -87,12 +87,12 @@ export default function GrowthStrategyPage() {
         </div>
 
         {/* ── Who's Behind This ── */}
-        <div className="relative border-b border-white/[0.06]">
+        <div className="relative border-b border-stone-200">
           <div
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(212,168,83,0.10) 35%, rgba(167,139,250,0.08) 60%, transparent)",
+                "linear-gradient(90deg, transparent, rgba(212,168,83,0.009) 35%, rgba(167,139,250,0.007) 60%, transparent)",
             }}
             aria-hidden="true"
           />
@@ -100,12 +100,12 @@ export default function GrowthStrategyPage() {
         </div>
 
         {/* ── FAQ ── */}
-        <div className="relative border-b border-white/[0.06]">
+        <div className="relative border-b border-stone-200">
           <div
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(167,139,250,0.08) 35%, rgba(212,168,83,0.06) 70%, transparent)",
+                "linear-gradient(90deg, transparent, rgba(167,139,250,0.007) 35%, rgba(212,168,83,0.005) 70%, transparent)",
             }}
             aria-hidden="true"
           />
@@ -115,12 +115,12 @@ export default function GrowthStrategyPage() {
         </div>
 
         {/* ── Final CTA ── */}
-        <div className="relative border-b border-white/[0.06]">
+        <div className="relative border-b border-stone-200">
           <div
             className="absolute top-0 inset-x-0 h-px"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(212,168,83,0.10) 40%, rgba(167,139,250,0.06) 65%, transparent)",
+                "linear-gradient(90deg, transparent, rgba(212,168,83,0.009) 40%, rgba(167,139,250,0.005) 65%, transparent)",
             }}
             aria-hidden="true"
           />

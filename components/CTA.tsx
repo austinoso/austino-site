@@ -12,13 +12,12 @@ export default function CTA() {
   return (
     <ScrollReveal
       as="section"
-      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-24 md:pb-24 overflow-hidden border-b border-white/[0.06]"
+      className="dark-section relative w-full pt-20 pb-20 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 overflow-hidden rounded-t-3xl"
       style={{
-        backgroundColor: "rgba(6,6,8,0.92)",
+        backgroundColor: "#1C1917",
         backgroundImage: [
-          "radial-gradient(ellipse 70% 50% at 90% 85%, rgba(251,191,36,0.10), rgba(244,114,182,0.07) 50%, transparent 100%)",
-          "radial-gradient(ellipse 60% 45% at 5% 95%, rgba(244,114,182,0.08), rgba(251,191,36,0.05) 50%, transparent 100%)",
-          "radial-gradient(ellipse 50% 40% at 50% 100%, rgba(251,191,36,0.06), transparent 80%)",
+          "radial-gradient(ellipse 70% 50% at 90% 85%, rgba(251,191,36,0.08), rgba(244,114,182,0.05) 50%, transparent 100%)",
+          "radial-gradient(ellipse 60% 45% at 5% 95%, rgba(244,114,182,0.06), rgba(251,191,36,0.03) 50%, transparent 100%)",
         ].join(", "),
       }}
       aria-labelledby="cta-heading"
@@ -28,7 +27,7 @@ export default function CTA() {
         className="absolute top-0 inset-x-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(251,191,36,0.18) 30%, rgba(244,114,182,0.15) 60%, rgba(251,191,36,0.10) 80%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(251,191,36,0.12) 30%, rgba(244,114,182,0.08) 60%, transparent)",
         }}
         aria-hidden="true"
       />
@@ -40,16 +39,16 @@ export default function CTA() {
         <div className="mb-10 sm:mb-12">
           <p
             data-animate="label"
-            className="text-xs font-semibold text-warm-gold uppercase tracking-[0.2em] mb-5"
+            className="text-xs font-semibold text-amber-400 uppercase tracking-[0.2em] mb-5"
           >
             Your Move
           </p>
           <WordReveal
             text="Your competition isn't waiting. Neither should you."
             id="cta-heading"
-            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-warm-white leading-[1.1] tracking-tight"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold text-white leading-[1.05] tracking-tight"
             accentWords={["isn't", "waiting."]}
-            accentClassName="text-warm-gold"
+            accentClassName="text-amber-400"
           />
         </div>
 
@@ -57,7 +56,7 @@ export default function CTA() {
         <div className="max-w-2xl">
           <p
             data-animate="fade"
-            className="text-base sm:text-lg text-stone-300 leading-relaxed"
+            className="text-base sm:text-lg text-stone-400 leading-relaxed"
           >
             I take one client per niche in your area. If the spot is open,
             let&apos;s talk about making your online presence the one everyone
@@ -70,7 +69,7 @@ export default function CTA() {
           >
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-500 to-amber-400 text-warm-bg font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-500/20"
+              className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-[15px] rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
               data-umami-event="cta-start-conversation"
             >
               <span>Start a Conversation</span>

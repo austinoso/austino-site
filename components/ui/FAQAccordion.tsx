@@ -22,7 +22,7 @@ export default function FAQAccordion({ faqs, idPrefix }: FAQAccordionProps) {
       {faqs.map((faq, i) => (
         <div
           key={i}
-          className="rounded-lg border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-colors duration-200 hover:border-white/[0.10]"
+          className="rounded-lg border border-stone-200 bg-white overflow-hidden transition-colors duration-200 hover:border-stone-300"
         >
           <button
             onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -50,7 +50,7 @@ export default function FAQAccordion({ faqs, idPrefix }: FAQAccordionProps) {
               openFaq === i ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
-            <p className="px-6 pb-5 text-sm text-stone-300 leading-relaxed text-pretty">
+            <p className="px-6 pb-5 text-sm text-stone-500 leading-relaxed text-pretty">
               {faq.a}
             </p>
           </div>

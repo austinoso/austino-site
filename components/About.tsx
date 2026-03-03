@@ -9,7 +9,7 @@ export default function About() {
   return (
     <ScrollReveal
       as="section"
-      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-24 md:pb-24 border-b border-white/[0.06]"
+      className="relative w-full pt-20 pb-20 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 border-b border-stone-200"
       aria-labelledby="about-heading"
     >
       {/* Gradient divider line */}
@@ -17,7 +17,7 @@ export default function About() {
         className="absolute top-0 inset-x-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(167,139,250,0.15) 30%, rgba(212,168,83,0.20) 50%, rgba(167,139,250,0.15) 70%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(167,139,250,0.06) 30%, rgba(180,83,9,0.08) 50%, transparent)",
         }}
         aria-hidden="true"
       />
@@ -30,14 +30,14 @@ export default function About() {
           </p>
           <h2
             id="about-heading"
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight"
+            className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.1] tracking-tight"
           >
             One person.{" "}
-            <span className="text-warm-gold">The whole picture.</span>
+            <span className="text-gradient-gold">The whole picture.</span>
           </h2>
           <p
             data-animate="fade"
-            className="text-base sm:text-lg text-stone-300 leading-relaxed mt-8 sm:mt-10"
+            className="text-base sm:text-lg text-stone-600 leading-relaxed mt-8 sm:mt-10"
           >
             Most agencies hand you a site and disappear. I don&apos;t. I design
             it, build it, read the data, and adjust the plan myself. Six years
@@ -50,9 +50,9 @@ export default function About() {
           {/* Mission — pull-quote treatment */}
           <blockquote
             data-animate="fade"
-            className="mt-8 sm:mt-10 pl-5 sm:pl-6 border-l-2 border-warm-gold/30"
+            className="mt-8 sm:mt-10 pl-5 sm:pl-6 border-l-2 border-warm-gold/40"
           >
-            <p className="text-base sm:text-lg text-stone-200 leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-stone-700 leading-relaxed font-medium">
               I care about your growth because that&apos;s the whole point of
               the work. But I&apos;ll be honest — it&apos;s also a reflection of
               mine. Every project I take on goes in my portfolio with my name
@@ -68,9 +68,9 @@ export default function About() {
             {/* Austin */}
             <div
               data-animate="fade"
-              className="flex items-start gap-5 p-6 sm:p-7 rounded-lg border border-white/[0.06] bg-white/[0.015]"
+              className="flex items-start gap-5 p-6 sm:p-7 rounded-lg border border-stone-200 bg-white shadow-sm"
             >
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-stone-200 flex-shrink-0 shadow-md shadow-black/8">
                 <Image
                   src="/assets/bio-pic.png"
                   alt="Headshot of Austin O., web strategist and developer"
@@ -86,7 +86,7 @@ export default function About() {
                 <p className="font-mono text-[10px] text-warm-gold uppercase tracking-widest mt-1">
                   Developer &amp; Founder
                 </p>
-                <p className="text-[13px] sm:text-sm text-stone-400 leading-relaxed mt-2.5">
+                <p className="text-[13px] sm:text-sm text-stone-500 leading-relaxed mt-2.5">
                   Your strategist, developer, and growth partner — all in one.
                 </p>
               </div>
@@ -95,9 +95,9 @@ export default function About() {
             {/* Rosa */}
             <div
               data-animate="fade"
-              className="flex items-start gap-5 p-6 sm:p-7 rounded-lg border border-white/[0.06] bg-white/[0.015]"
+              className="flex items-start gap-5 p-6 sm:p-7 rounded-lg border border-stone-200 bg-white shadow-sm"
             >
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-lg shadow-black/40">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-stone-200 flex-shrink-0 shadow-lg shadow-black/[0.06]">
                 <Image
                   src="/assets/rosa.jpg"
                   alt="Rosa the dog, office mascot and head of morale"
@@ -113,7 +113,7 @@ export default function About() {
                 <p className="font-mono text-[10px] text-warm-gold uppercase tracking-widest mt-1">
                   Head of Morale
                 </p>
-                <p className="text-[13px] sm:text-sm text-stone-400 leading-relaxed mt-2.5">
+                <p className="text-[13px] sm:text-sm text-stone-500 leading-relaxed mt-2.5">
                   Three years experience in stress management, perimeter
                   security, and unsolicited desk visits.
                 </p>

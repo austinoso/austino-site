@@ -7,7 +7,7 @@ const faqs = [
   },
   {
     q: "What\u2019s the range of what you can build?",
-    a: "Anything from a simple scheduled script that syncs two spreadsheets, to a full custom dashboard that replaces four different tools. Some clients need one integration that saves 30 minutes a day. Others need an entire internal platform. I scope the solution to fit your goals and budget.",
+    a: "Anything from a simple sync between two spreadsheets, to a full custom dashboard that replaces four different tools. Some clients need one integration that saves 30 minutes a day. Others need an entire internal platform. It all comes down to what your business actually needs.",
   },
   {
     q: "What if my business processes change?",
@@ -30,7 +30,7 @@ const faqs = [
 export default function FAQ() {
   return (
     <section data-fade>
-      <h2 className="text-2xl sm:text-3xl font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-10 max-w-2xl">
+      <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-10 max-w-2xl">
         Before you ask.
       </h2>
       <FAQAccordion faqs={faqs} idPrefix="auto-faq" />

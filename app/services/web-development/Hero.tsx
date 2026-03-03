@@ -9,14 +9,14 @@ export default function Hero() {
           Your website could be closing{" "}
           <span className="text-gradient-gold">more deals.</span>
         </h1>
-        <p className="text-base sm:text-lg text-stone-300 leading-relaxed text-balance">
+        <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-balance">
           Your customers want to book appointments, place orders, and get
-          answers without picking up the phone. If they can&apos;t do it
-          on your website, they&apos;ll do it on someone else&apos;s.
+          answers without picking up the phone. If they can&apos;t do it on your
+          website, they&apos;ll do it on someone else&apos;s.
         </p>
         <Link
           href="/contact"
-          className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-500 to-amber-400 text-warm-bg font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-500/20"
+          className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
         >
           Get a Free Consultation
           <ArrowRight
@@ -27,17 +27,21 @@ export default function Hero() {
       </div>
 
       {/* Phone mockup — what the customer actually sees */}
-      <div data-hero-visual className="lg:col-span-6 relative">
+      <div
+        data-hero-visual
+        className="lg:col-span-6 relative select-none"
+        aria-hidden="true"
+      >
         <div className="flex justify-center items-start max-h-[300px] sm:max-h-none overflow-hidden">
           <div className="relative w-full max-w-[320px] sm:w-[300px] sm:max-w-none mt-0 sm:mt-6 lg:mt-0">
             {/* ── Floating cards ── */}
 
             {/* Notification card — top-left */}
             <div
-              className="hidden sm:block absolute top-6 -left-10 sm:-left-16 z-10 w-[180px] rounded-xl border border-white/[0.08] bg-warm-surface/95 p-3 backdrop-blur-sm"
+              className="hidden sm:block absolute top-6 -left-10 sm:-left-16 z-10 w-[180px] rounded-xl border border-stone-200 bg-warm-surface/95 p-3 backdrop-blur-sm"
               style={{
                 boxShadow:
-                  "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03), 0 0 20px rgba(212,168,83,0.06)",
+                  "0 8px 32px rgba(0,0,0,0.08), 0 0 20px rgba(212,168,83,0.06)",
               }}
             >
               <div className="flex items-center gap-2 mb-2">
@@ -48,7 +52,7 @@ export default function Hero() {
                   />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[10px] font-semibold text-white leading-tight">
+                  <p className="text-[10px] font-semibold text-warm-white leading-tight">
                     New booking
                   </p>
                   <p className="text-[9px] text-stone-500">Just now</p>
@@ -64,10 +68,10 @@ export default function Hero() {
 
             {/* Speed card — bottom-left */}
             <div
-              className="hidden sm:block absolute top-[52%] -left-8 sm:-left-14 z-10 w-[150px] rounded-xl border border-white/[0.08] bg-warm-surface/95 p-3 backdrop-blur-sm"
+              className="hidden sm:block absolute top-[52%] -left-8 sm:-left-14 z-10 w-[150px] rounded-xl border border-stone-200 bg-warm-surface/95 p-3 backdrop-blur-sm"
               style={{
                 boxShadow:
-                  "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03), 0 0 20px rgba(212,168,83,0.06)",
+                  "0 8px 32px rgba(0,0,0,0.08), 0 0 20px rgba(212,168,83,0.06)",
               }}
             >
               <p className="text-[9px] text-stone-500 uppercase tracking-wider font-mono mb-1.5">
@@ -81,7 +85,7 @@ export default function Hero() {
                   sec
                 </span>
               </div>
-              <div className="mt-2 h-1 rounded-full bg-white/[0.06] overflow-hidden">
+              <div className="mt-2 h-1 rounded-full bg-stone-200 overflow-hidden">
                 <div className="h-full w-[25%] rounded-full bg-warm-green/60" />
               </div>
               <p className="text-[8px] text-stone-500 mt-1">
@@ -91,10 +95,10 @@ export default function Hero() {
 
             {/* SEO + Mobile card — right */}
             <div
-              className="hidden sm:block absolute top-20 -right-8 sm:-right-16 z-10 w-[140px] rounded-xl border border-white/[0.08] bg-warm-surface/95 p-3 backdrop-blur-sm"
+              className="hidden sm:block absolute top-20 -right-8 sm:-right-16 z-10 w-[140px] rounded-xl border border-stone-200 bg-warm-surface/95 p-3 backdrop-blur-sm"
               style={{
                 boxShadow:
-                  "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03), 0 0 20px rgba(212,168,83,0.06)",
+                  "0 8px 32px rgba(0,0,0,0.08), 0 0 20px rgba(212,168,83,0.06)",
               }}
             >
               <p className="text-[9px] text-stone-500 uppercase tracking-wider font-mono mb-2">
@@ -109,7 +113,7 @@ export default function Hero() {
                     />
                   </div>
                   <div>
-                    <p className="text-[9px] font-medium text-white leading-tight">
+                    <p className="text-[9px] font-medium text-warm-white leading-tight">
                       SEO
                     </p>
                     <p className="text-[8px] text-warm-green">Optimized</p>
@@ -123,7 +127,7 @@ export default function Hero() {
                     />
                   </div>
                   <div>
-                    <p className="text-[9px] font-medium text-white leading-tight">
+                    <p className="text-[9px] font-medium text-warm-white leading-tight">
                       Mobile
                     </p>
                     <p className="text-[8px] text-warm-green">Responsive</p>
@@ -134,10 +138,10 @@ export default function Hero() {
 
             {/* ── Phone frame ── */}
             <div
-              className="relative rounded-t-[2.5rem] border-[3px] border-b-0 border-white/[0.12] bg-[#0C0B09] overflow-hidden shadow-2xl"
+              className="relative rounded-t-[2.5rem] border-[3px] border-b-0 border-stone-300 bg-[#0C0B09] overflow-hidden shadow-2xl"
               style={{
                 boxShadow:
-                  "0 32px 64px -16px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 20px rgba(0,0,0,0.3)",
+                  "0 32px 64px -16px rgba(0,0,0,0.25), inset 0 0 20px rgba(0,0,0,0.3)",
               }}
             >
               {/* Dynamic Island */}

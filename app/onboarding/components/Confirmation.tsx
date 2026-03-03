@@ -20,13 +20,13 @@ export default function Confirmation({
     <div className="space-y-8 max-w-xl mx-auto text-center">
       {/* Success icon */}
       <div className="flex justify-center">
-        <div className="w-16 h-16 rounded-full bg-[#4ADE80]/10 border border-[#4ADE80]/20 flex items-center justify-center">
-          <CheckCircle className="w-8 h-8 text-[#4ADE80]" />
+        <div className="w-16 h-16 rounded-full bg-warm-green/10 border border-warm-green/20 flex items-center justify-center">
+          <CheckCircle className="w-8 h-8 text-warm-green" />
         </div>
       </div>
 
       <div>
-        <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-tight tracking-tight mb-3">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-stone-900 leading-tight tracking-tight mb-3">
           You&apos;re all set, {firstName}.
         </h2>
         <p className="text-base text-cyber-gray-300 leading-relaxed">
@@ -38,7 +38,7 @@ export default function Confirmation({
 
       {/* What happens next */}
       <div
-        className="p-6 rounded-xl border border-white/[0.06] bg-[#111318] text-left"
+        className="p-6 rounded-xl border border-stone-200 bg-white text-left"
         style={{
           boxShadow:
             "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
@@ -90,7 +90,7 @@ export default function Confirmation({
       </div>
 
       {/* Help line */}
-      <div className="pt-4 border-t border-white/[0.06]">
+      <div className="pt-4 border-t border-stone-200">
         <div className="flex items-center justify-center gap-2 text-sm text-cyber-gray-400">
           <Mail className="w-4 h-4" aria-hidden="true" />
           <span>Questions? Reach me at </span>

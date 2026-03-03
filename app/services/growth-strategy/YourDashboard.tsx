@@ -7,7 +7,7 @@ export default function YourDashboard() {
           Numbers that mean something to{" "}
           <span className="text-gradient-gold">your business.</span>
         </h2>
-        <p className="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mb-10 text-pretty">
+        <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-10 text-pretty">
           Every metric I track maps directly to a business outcome you care
           about. You get a monthly summary in plain English &mdash; what
           changed, what the data shows, and what I&apos;m planning next.
@@ -15,10 +15,10 @@ export default function YourDashboard() {
       </div>
 
       {/* Bento grid — full-width within page-frame */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-l border-white/[0.06]">
+      <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-l border-stone-200">
         {/* Growth chart — spans 2 cols on lg */}
         <div
-          className="col-span-2 border-b border-r border-white/[0.06] flex flex-col"
+          className="col-span-2 border-b border-r border-stone-200 flex flex-col"
           aria-hidden="true"
         >
           {/* Header — gets padding */}
@@ -32,7 +32,7 @@ export default function YourDashboard() {
               </p>
             </div>
             <div className="text-right">
-              <p className="text-xs font-mono text-[#4ADE80] mb-1">+180% YoY</p>
+              <p className="text-xs font-mono text-green-400 mb-1">+180% YoY</p>
               <p className="text-[10px] font-mono text-stone-500">
                 ↑ 34% from last month
               </p>
@@ -103,41 +103,40 @@ export default function YourDashboard() {
         </div>
 
         {/* Keywords */}
-        <div className="col-span-2 lg:col-span-1 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+        <div className="col-span-2 lg:col-span-1 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
           <p className="text-xs font-mono text-stone-500 uppercase tracking-wider mb-2">
             Keywords in Top 10
           </p>
           <p className="text-3xl sm:text-4xl font-semibold text-warm-white font-mono mb-1">
             47
           </p>
-          <p className="text-xs font-mono text-[#4ADE80] mb-4">
+          <p className="text-xs font-mono text-green-400 mb-4">
             +18 new this quarter
           </p>
-          <p className="text-sm text-stone-400 leading-relaxed mt-auto text-pretty">
-            Every new page I publish is another way for customers to find
-            you.
+          <p className="text-sm text-stone-500 leading-relaxed mt-auto text-pretty">
+            Every new page I publish is another way for customers to find you.
           </p>
         </div>
 
         {/* Google Ranking */}
-        <div className="col-span-2 lg:col-span-1 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+        <div className="col-span-2 lg:col-span-1 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
           <p className="text-xs font-mono text-stone-500 uppercase tracking-wider mb-2">
             Google Ranking
           </p>
           <p className="text-3xl sm:text-4xl font-semibold text-warm-white font-mono mb-1">
             #1
           </p>
-          <p className="text-xs font-mono text-[#4ADE80] mb-4">
+          <p className="text-xs font-mono text-green-400 mb-4">
             Up from #8 at launch
           </p>
-          <p className="text-sm text-stone-400 leading-relaxed mt-auto text-pretty">
-            First organic result for your core service in your area. The
-            result of showing up consistently, month after month.
+          <p className="text-sm text-stone-500 leading-relaxed mt-auto text-pretty">
+            First organic result for your core service in your area. The result
+            of showing up consistently, month after month.
           </p>
         </div>
 
         {/* Bounce rate — 2 cols on lg */}
-        <div className="col-span-2 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+        <div className="col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
           <p className="text-xs font-mono text-stone-500 uppercase tracking-wider mb-2">
             Visitors Who Leave
           </p>
@@ -145,18 +144,18 @@ export default function YourDashboard() {
             <p className="text-3xl sm:text-4xl font-semibold text-warm-white font-mono">
               31%
             </p>
-            <p className="text-xs font-mono text-[#4ADE80]">
+            <p className="text-xs font-mono text-green-400">
               ↓ 12% since launch
             </p>
           </div>
-          <p className="text-sm text-stone-400 leading-relaxed max-w-md mt-3 text-pretty">
+          <p className="text-sm text-stone-500 leading-relaxed max-w-md mt-3 text-pretty">
             This was 43% at launch. I reworked the copy and layout on three
             underperforming pages &mdash; now visitors stay and act.
           </p>
         </div>
 
         {/* Conversion rate — 2 cols on lg */}
-        <div className="col-span-2 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+        <div className="col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
           <p className="text-xs font-mono text-stone-500 uppercase tracking-wider mb-2">
             Visitor → Lead Conversion
           </p>
@@ -164,11 +163,11 @@ export default function YourDashboard() {
             <p className="text-3xl sm:text-4xl font-semibold text-warm-white font-mono">
               4.8%
             </p>
-            <p className="text-xs font-mono text-[#4ADE80]">
+            <p className="text-xs font-mono text-green-400">
               ↑ 2.1x from launch
             </p>
           </div>
-          <p className="text-sm text-stone-400 leading-relaxed mt-2 max-w-lg text-pretty">
+          <p className="text-sm text-stone-500 leading-relaxed mt-2 max-w-lg text-pretty">
             Industry average sits around 2.3%. Better copy, faster pages, and
             clearer calls to action turned more of your existing traffic into
             actual inquiries.

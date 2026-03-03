@@ -2,19 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-const highlights = [
-  {
-    stat: "6",
-    unit: "years",
-    desc: "building software professionally",
-  },
-  {
-    stat: "Scripts",
-    unit: "→ platforms",
-    desc: "from single tools to full business systems",
-  },
-] as const;
-
 export default function WhyMe() {
   return (
     <section data-fade>
@@ -42,11 +29,11 @@ export default function WhyMe() {
 
         {/* Bio + proof */}
         <div className="max-w-xl">
-          <h2 className="font-display text-2xl sm:text-3xl md:text-[2.1rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-5">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-5">
             I&apos;ve been building things like this{" "}
             <span className="text-gradient-gold">for six years.</span>
           </h2>
-          <div className="space-y-4 text-base sm:text-lg text-stone-300 leading-relaxed text-pretty">
+          <div className="space-y-4 text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
             <p>
               When someone brings me a problem, I find a solution. If one
               doesn&apos;t exist, I build it.
@@ -59,29 +46,9 @@ export default function WhyMe() {
             </p>
           </div>
 
-          {/* Proof points */}
-          <div className="mt-8 flex flex-wrap gap-4 sm:gap-5">
-            {highlights.map((h) => (
-              <div
-                key={h.desc}
-                className="rounded-lg border border-white/[0.06] bg-white/[0.02] px-5 py-4 min-w-[140px]"
-              >
-                <p className="font-display text-2xl font-bold text-warm-white tracking-tight leading-none">
-                  {h.stat}
-                  <span className="text-sm text-stone-500 font-medium ml-1.5">
-                    {h.unit}
-                  </span>
-                </p>
-                <p className="text-[12px] text-stone-400 leading-relaxed mt-1.5">
-                  {h.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 mt-8 text-sm font-medium text-warm-gold hover:text-amber-300 transition-colors duration-200"
+            className="group inline-flex items-center gap-2 mt-8 text-sm font-medium text-warm-gold hover:text-amber-700 transition-colors duration-200"
           >
             Let&apos;s talk about what you need built
             <ArrowRight

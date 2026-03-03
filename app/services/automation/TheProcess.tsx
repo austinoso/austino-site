@@ -28,11 +28,11 @@ export default function TheProcess() {
 
   return (
     <section data-fade>
-      <h2 className="text-2xl sm:text-3xl font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         How we get from &quot;this is eating my time&quot; to &quot;it just
         runs.&quot;
       </h2>
-      <p className="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mb-10">
+      <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-10">
         You don&apos;t need to know how automation works. You just need to tell
         me what&apos;s slowing you down.
       </p>
@@ -62,7 +62,7 @@ export default function TheProcess() {
                 <p className="text-sm sm:text-base font-semibold text-warm-white mb-1.5">
                   {item.title}
                 </p>
-                <p className="text-sm text-stone-400 leading-relaxed max-w-md">
+                <p className="text-sm text-stone-500 leading-relaxed max-w-md">
                   {item.description}
                 </p>
               </div>
@@ -103,7 +103,7 @@ export default function TheProcess() {
                 <p className="text-base font-semibold text-warm-white mb-2">
                   {item.title}
                 </p>
-                <p className="text-sm text-stone-400 leading-relaxed">
+                <p className="text-sm text-stone-500 leading-relaxed">
                   {item.description}
                 </p>
               </div>

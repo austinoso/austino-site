@@ -7,7 +7,7 @@ export default function FinalCTA() {
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
         <div className="max-w-xl">
           <p className="section-label mb-4">Get Started</p>
-          <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-4">
             Let&apos;s get your Manteca business found.
           </h2>
           <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
@@ -29,7 +29,7 @@ export default function FinalCTA() {
           </Link>
         </div>
       </div>
-      <div className="border-t border-white/[0.06] mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
+      <div className="border-t border-stone-200 mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
         <Link
           href="/services/web-development"
           className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300"

@@ -51,7 +51,7 @@ export default function WhatYouGet() {
   return (
     <section data-fade>
       <p className="section-label mb-4">What You Get</p>
-      <h2 className="font-display text-2xl sm:text-3xl font-bold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         Everything your Manteca business needs to get found and convert.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12">
@@ -60,11 +60,11 @@ export default function WhatYouGet() {
         customers.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-white/[0.06]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-stone-200">
         {deliverables.map((d) => (
           <div
             key={d.title}
-            className="border-b border-r border-white/[0.06] p-5 sm:p-7 flex flex-col"
+            className="border-b border-r border-stone-200 p-5 sm:p-7 flex flex-col"
           >
             <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0 mb-4">
               <d.icon
@@ -72,7 +72,7 @@ export default function WhatYouGet() {
                 aria-hidden="true"
               />
             </div>
-            <h3 className="text-[15px] font-semibold text-white mb-2">
+            <h3 className="text-[15px] font-semibold text-stone-900 mb-2">
               {d.title}
             </h3>
             <p className="text-sm text-cyber-gray-400 leading-relaxed">
@@ -83,8 +83,8 @@ export default function WhatYouGet() {
       </div>
 
       {/* CTA bar */}
-      <div className="mt-8 rounded-lg border border-white/[0.06] bg-cyber-accent/[0.03] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-        <p className="text-base text-white font-medium">
+      <div className="mt-8 rounded-lg border border-stone-200 bg-cyber-accent/[0.03] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <p className="text-base text-stone-900 font-medium">
           Want to see how this would work for your business?
         </p>
         <Link

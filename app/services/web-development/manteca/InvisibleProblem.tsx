@@ -40,7 +40,7 @@ export default function InvisibleProblem() {
   return (
     <section data-fade>
       <p className="section-label mb-4">The Problem</p>
-      <h2 className="font-display text-2xl sm:text-3xl font-bold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         Having a website isn&apos;t the same as being found.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12">
@@ -50,14 +50,14 @@ export default function InvisibleProblem() {
         honest answer is no.
       </p>
 
-      <div className="border-t border-white/[0.06]">
+      <div className="border-t border-stone-200">
         {problems.map((problem) => (
           <div
             key={problem.heading}
-            className="grid grid-cols-1 md:grid-cols-[1fr_2fr] border-b border-white/[0.06]"
+            className="grid grid-cols-1 md:grid-cols-[1fr_2fr] border-b border-stone-200"
           >
             {/* Left — stat + icon */}
-            <div className="p-6 sm:p-8 md:border-r md:border-white/[0.06] flex flex-col justify-center">
+            <div className="p-6 sm:p-8 md:border-r md:border-stone-200 flex flex-col justify-center">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
                   <problem.icon
@@ -65,7 +65,7 @@ export default function InvisibleProblem() {
                     aria-hidden="true"
                   />
                 </div>
-                <h3 className="font-display text-base sm:text-lg font-semibold text-white">
+                <h3 className="font-display text-base sm:text-lg font-semibold text-stone-900">
                   {problem.heading}
                 </h3>
               </div>
@@ -80,7 +80,7 @@ export default function InvisibleProblem() {
             </div>
 
             {/* Right — description */}
-            <div className="p-6 sm:p-8 flex flex-col justify-center border-t border-white/[0.06] md:border-t-0">
+            <div className="p-6 sm:p-8 flex flex-col justify-center border-t border-stone-200 md:border-t-0">
               <p className="text-sm sm:text-[15px] text-cyber-gray-300 leading-relaxed">
                 {problem.body}
               </p>

@@ -14,8 +14,8 @@ export default function HomePage() {
       className="relative bg-warm-bg"
       style={{
         backgroundImage: [
-          "radial-gradient(ellipse 80% 50% at 70% 10%, rgba(251,191,36,0.04), transparent 100%)",
-          "radial-gradient(ellipse 60% 40% at 20% 80%, rgba(167,139,250,0.03), transparent 100%)",
+          "radial-gradient(ellipse 80% 50% at 70% 10%, rgba(251,191,36,0.03), transparent 100%)",
+          "radial-gradient(ellipse 60% 40% at 20% 80%, rgba(167,139,250,0.02), transparent 100%)",
         ].join(", "),
       }}
     >
@@ -24,10 +24,9 @@ export default function HomePage() {
         className="page-frame"
         style={{
           backgroundImage: [
-            "radial-gradient(ellipse 90% 60% at 80% 5%, rgba(251,191,36,0.12), rgba(167,139,250,0.12) 35%, rgba(244,114,182,0.10) 65%, transparent 100%)",
-            "radial-gradient(ellipse 70% 45% at 5% 30%, rgba(167,139,250,0.10), rgba(212,168,83,0.08) 50%, transparent 100%)",
-            "radial-gradient(ellipse 55% 35% at 85% 95%, rgba(244,114,182,0.10), rgba(251,191,36,0.06) 40%, transparent 70%)",
-            "radial-gradient(ellipse 45% 30% at 95% 55%, rgba(212,168,83,0.08), rgba(167,139,250,0.05) 50%, transparent 70%)",
+            "radial-gradient(ellipse 90% 60% at 80% 5%, rgba(251,191,36,0.04), rgba(167,139,250,0.03) 35%, transparent 100%)",
+            "radial-gradient(ellipse 70% 45% at 5% 30%, rgba(167,139,250,0.03), rgba(212,168,83,0.02) 50%, transparent 100%)",
+            "radial-gradient(ellipse 55% 35% at 85% 95%, rgba(244,114,182,0.03), rgba(251,191,36,0.02) 40%, transparent 70%)",
           ].join(", "),
         }}
       >

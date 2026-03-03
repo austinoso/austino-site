@@ -13,7 +13,7 @@ export default function Solutions() {
   return (
     <section
       id="solutions"
-      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-24 md:pb-24 border-b border-white/[0.06]"
+      className="relative w-full pt-16 pb-0 sm:pt-20 sm:pb-0 md:pt-24 md:pb-0 border-b border-stone-200"
       aria-labelledby="solutions-heading"
     >
       {/* Gradient divider line */}
@@ -21,7 +21,7 @@ export default function Solutions() {
         className="absolute top-0 inset-x-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(212,168,83,0.18) 25%, rgba(167,139,250,0.15) 50%, rgba(244,114,182,0.12) 75%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(180,83,9,0.10) 25%, rgba(167,139,250,0.08) 50%, transparent)",
         }}
         aria-hidden="true"
       />
@@ -47,22 +47,26 @@ export default function Solutions() {
           {/* ── Core offering: Build + Grow ── */}
           <WebDevelopment />
 
-          <div className="mt-16 sm:mt-20">
+          <div className="mt-20 sm:mt-24">
             <OngoingSupport />
           </div>
 
           {/* ── Optional add-on: Automation ── */}
-          <div className="mt-20 sm:mt-24 pt-10 sm:pt-12 border-t border-white/[0.04]">
+          <div className="mt-20 sm:mt-24 pt-12 sm:pt-14 border-t border-stone-200">
             <Automation />
           </div>
         </div>
 
-        {/* Closer — consultative positioning */}
+        {/* Closer — consultative positioning — elevated as visual anchor */}
         <div
           data-closer
-          className="mt-16 sm:mt-20 pt-10 border-t border-white/[0.06] max-w-2xl"
+          className="mt-20 sm:mt-28 py-12 sm:py-16 -mx-6 sm:-mx-10 md:-mx-14 lg:-mx-20 px-6 sm:px-10 md:px-14 lg:px-20 border-y border-stone-200"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(251,191,36,0.04), transparent 80%)",
+          }}
         >
-          <p className="font-display text-2xl sm:text-3xl font-semibold text-stone-300 leading-snug">
+          <p className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.15] tracking-tight max-w-3xl">
             I only work with one business per niche in your area.{" "}
             <span className="text-gradient">
               Your competition won&apos;t get this from me.

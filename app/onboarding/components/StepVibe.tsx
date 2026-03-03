@@ -308,7 +308,7 @@ export default function StepVibe({ data, onChange }: StepVibeProps) {
         <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
           The Visual Vibe
         </p>
-        <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-tight tracking-tight mb-3">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-stone-900 leading-tight tracking-tight mb-3">
           How should your site feel?
         </h2>
         <p className="text-base text-cyber-gray-300 leading-relaxed max-w-lg">

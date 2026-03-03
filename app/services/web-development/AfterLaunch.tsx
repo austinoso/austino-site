@@ -24,7 +24,7 @@ export default function AfterLaunch() {
         <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance max-w-2xl mb-4">
           After launch, you&apos;re not on your own.
         </h2>
-        <p className="text-[15px] text-stone-400 leading-relaxed max-w-xl mb-10 sm:mb-16">
+        <p className="text-[15px] text-stone-600 leading-relaxed max-w-xl mb-10 sm:mb-16">
           This isn&apos;t a build-and-disappear situation. Your site stays
           managed, supported, and working harder for you over time.
         </p>
@@ -39,7 +39,7 @@ export default function AfterLaunch() {
               <h3 className="text-base font-semibold text-warm-white mb-1.5">
                 {point.title}
               </h3>
-              <p className="text-sm text-stone-400 leading-relaxed">
+              <p className="text-sm text-stone-500 leading-relaxed">
                 {point.body}
               </p>
             </div>
@@ -48,7 +48,7 @@ export default function AfterLaunch() {
       </div>
 
       {/* Growth Strategy link */}
-      <div className="border-t border-white/[0.06] px-8 sm:px-10 md:px-14 lg:px-20 py-8 sm:py-10">
+      <div className="border-t border-stone-200 px-8 sm:px-10 md:px-14 lg:px-20 py-8 sm:py-10">
         <Link
           href="/services/growth-strategy"
           className="inline-flex items-center gap-2 text-sm text-warm-gold hover:text-warm-white transition-colors duration-300"

@@ -38,7 +38,7 @@ export default function WhyMe() {
               how growth actually works.
             </span>
           </h2>
-          <div className="space-y-4 text-base sm:text-lg text-stone-300 leading-relaxed text-pretty">
+          <div className="space-y-4 text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
             <p>
               I&apos;ve spent six years building software. The same systems that
               power the analytics, ranking algorithms, and data tools behind
@@ -53,7 +53,7 @@ export default function WhyMe() {
           </div>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 mt-8 text-sm font-medium text-warm-gold hover:text-amber-300 transition-colors duration-200"
+            className="group inline-flex items-center gap-2 mt-8 text-sm font-medium text-warm-gold hover:text-amber-700 transition-colors duration-200"
           >
             Let&apos;s talk about your business
             <ArrowRight

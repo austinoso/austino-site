@@ -21,7 +21,7 @@ export default function ProgressBar({
           {Math.round(progress)}%
         </span>
       </div>
-      <div className="w-full h-1 bg-white/[0.06] rounded-full overflow-hidden">
+      <div className="w-full h-1 bg-stone-100 rounded-full overflow-hidden">
         <div
           className="h-full bg-cyber-accent rounded-full transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}

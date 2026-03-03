@@ -63,7 +63,7 @@ export default function OnboardingPage() {
   return (
     <Suspense
       fallback={
-        <main className="relative min-h-screen bg-[#050505]">
+        <main className="relative min-h-screen bg-warm-bg">
           <div className="min-h-screen flex items-center justify-center">
             <div className="w-8 h-8 border-2 border-cyber-accent/30 border-t-cyber-accent rounded-full animate-spin" />
           </div>
@@ -361,7 +361,7 @@ function OnboardingInner() {
   // ── Don't render until hydrated (prevents flash) ──
   if (!hydrated || loadingPrefill) {
     return (
-      <main className="relative min-h-screen bg-[#050505]">
+      <main className="relative min-h-screen bg-warm-bg">
         <div className="min-h-screen flex items-center justify-center">
           <div className="w-8 h-8 border-2 border-cyber-accent/30 border-t-cyber-accent rounded-full animate-spin" />
         </div>
@@ -372,7 +372,7 @@ function OnboardingInner() {
   // ── Confirmation screen ──
   if (isComplete) {
     return (
-      <main className="relative min-h-screen bg-[#050505]">
+      <main className="relative min-h-screen bg-warm-bg">
         {/* Noise grain */}
         <div
           className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -387,7 +387,7 @@ function OnboardingInner() {
           {/* Logo */}
           <div className="mb-12 text-center">
             <Link href="/" className="text-xl font-extrabold inline-block">
-              <span className="text-white">austin</span>
+              <span className="text-stone-900">austin</span>
               <span className="text-cyber-accent">o</span>
             </Link>
           </div>
@@ -439,7 +439,7 @@ function OnboardingInner() {
   };
 
   return (
-    <main className="relative min-h-screen bg-[#050505]">
+    <main className="relative min-h-screen bg-warm-bg">
       {/* Noise grain */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -464,7 +464,7 @@ function OnboardingInner() {
         {/* Header bar: logo + help */}
         <div className="flex items-center justify-between mb-10 sm:mb-14">
           <Link href="/" className="text-xl font-extrabold">
-            <span className="text-white">austin</span>
+            <span className="text-stone-900">austin</span>
             <span className="text-cyber-accent">o</span>
           </Link>
           <div className="flex items-center gap-3">
@@ -509,12 +509,12 @@ function OnboardingInner() {
 
         {/* Navigation buttons */}
         {step < TOTAL_STEPS && (
-          <div className="flex items-center justify-between mt-10 sm:mt-14 pt-6 border-t border-white/[0.06]">
+          <div className="flex items-center justify-between mt-10 sm:mt-14 pt-6 border-t border-stone-200">
             <button
               type="button"
               onClick={goBack}
               disabled={step === 1}
-              className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-cyber-gray-400 border border-white/[0.06] rounded-lg transition-all duration-300 hover:border-white/[0.12] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+              className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-cyber-gray-400 border border-stone-200 rounded-lg transition-all duration-300 hover:border-stone-300 hover:text-stone-900 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back</span>
@@ -534,11 +534,11 @@ function OnboardingInner() {
 
         {/* Step 7 back button */}
         {step === TOTAL_STEPS && (
-          <div className="mt-10 sm:mt-14 pt-6 border-t border-white/[0.06]">
+          <div className="mt-10 sm:mt-14 pt-6 border-t border-stone-200">
             <button
               type="button"
               onClick={goBack}
-              className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-cyber-gray-400 border border-white/[0.06] rounded-lg transition-all duration-300 hover:border-white/[0.12] hover:text-white cursor-pointer"
+              className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-cyber-gray-400 border border-stone-200 rounded-lg transition-all duration-300 hover:border-stone-300 hover:text-stone-900 cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back</span>

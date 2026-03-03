@@ -24,7 +24,7 @@ export default function Work() {
     <ScrollReveal
       as="section"
       id="work"
-      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-24 md:pb-24 border-b border-white/[0.06]"
+      className="relative w-full pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-28 md:pb-24 border-b border-stone-200"
       aria-labelledby="work-heading"
     >
       {/* Subtle divider */}
@@ -32,7 +32,7 @@ export default function Work() {
         className="absolute top-0 inset-x-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(167,139,250,0.12) 30%, rgba(212,168,83,0.18) 50%, rgba(244,114,182,0.12) 70%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(167,139,250,0.06) 30%, rgba(180,83,9,0.08) 50%, transparent)",
         }}
         aria-hidden="true"
       />
@@ -55,16 +55,16 @@ export default function Work() {
           <div data-animate="slide-up">
             <Link
               href={`/work/${project.slug}`}
-              className="group relative block rounded-lg overflow-hidden border border-white/[0.08] hover:border-warm-gold/20 transition-all duration-500"
+              className="group relative block rounded-lg overflow-hidden border border-stone-200 hover:border-warm-gold/30 transition-all duration-500 shadow-lg shadow-black/[0.06]"
               style={{
                 boxShadow:
-                  "0 24px 48px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03)",
+                  "0 24px 48px -12px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04)",
               }}
               data-umami-event="project-image"
               data-umami-event-project={project.slug}
             >
               {(project.thumbnail || project.image) && (
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#131210]">
+                <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
                   <Image
                     src={project.thumbnail || project.image!}
                     alt={project.title}
@@ -87,7 +87,7 @@ export default function Work() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-mono text-stone-400 hover:text-warm-gold transition-colors"
+                className="text-xs font-mono text-stone-500 hover:text-warm-gold transition-colors"
               >
                 mymassagecottage.com
                 <span className="sr-only"> (opens in a new tab)</span>
@@ -114,22 +114,22 @@ export default function Work() {
             </h3>
 
             {/* Challenge summary */}
-            <p className="text-[15px] text-stone-300 leading-relaxed mb-8">
+            <p className="text-[15px] text-stone-600 leading-relaxed mb-8">
               {project.excerpt}
             </p>
 
             {/* Key results */}
             <div className="space-y-3 mb-10">
-              <p className="text-xs font-mono text-stone-400 uppercase tracking-[0.15em] mb-3">
+              <p className="text-xs font-mono text-stone-500 uppercase tracking-[0.15em] mb-3">
                 Key Outcomes
               </p>
               {highlights.map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <CheckCircle2
-                    className="w-4 h-4 text-warm-gold/70 mt-0.5 flex-shrink-0"
+                    className="w-4 h-4 text-warm-green mt-0.5 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <span className="text-sm text-stone-300 leading-relaxed">
+                  <span className="text-sm text-stone-600 leading-relaxed">
                     {item}
                   </span>
                 </div>
@@ -139,9 +139,9 @@ export default function Work() {
             {/* CTA */}
             <Link
               href={`/work/${project.slug}`}
-              className="group inline-flex items-center gap-2.5 self-start px-6 py-3 border border-white/[0.08] rounded-lg text-[14px] font-medium text-white hover:border-warm-gold/30 hover:text-warm-gold transition-all duration-500"
+              className="group inline-flex items-center gap-2.5 self-start px-6 py-3 border border-stone-300 rounded-lg text-[14px] font-medium text-stone-800 hover:border-warm-gold/40 hover:text-warm-gold transition-all duration-500"
               style={{
-                boxShadow: "0 0 0 1px rgba(255,255,255,0.02)",
+                boxShadow: "0 0 0 1px rgba(0,0,0,0.02)",
               }}
               data-umami-event="view-case-study"
             >

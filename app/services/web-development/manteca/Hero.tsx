@@ -6,19 +6,17 @@ export default function Hero() {
     <section className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start pb-0">
       <div data-hero-copy className="lg:col-span-7 space-y-6 lg:py-10">
         <div className="flex items-center gap-2">
-          <MapPin
-            className="w-4 h-4 text-cyber-accent"
-            aria-hidden="true"
-          />
+          <MapPin className="w-4 h-4 text-cyber-accent" aria-hidden="true" />
           <p className="section-label">Manteca, CA</p>
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-white leading-tight tracking-tight text-balance">
-          Do Manteca customers find <span className="text-cyber-accent">you</span> — or your competitor?
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-stone-900 leading-tight tracking-tight text-balance">
+          Do Manteca customers find{" "}
+          <span className="text-cyber-accent">you</span> — or your competitor?
         </h1>
         <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-xl">
-          Most local businesses have a website. Almost none of them show up
-          when it matters — when a potential customer is actively searching
-          for exactly what they offer, right here in Manteca. The difference
+          Most local businesses have a website. Almost none of them show up when
+          it matters — when a potential customer is actively searching for
+          exactly what they offer, right here in Manteca. The difference
           isn&apos;t luck. It&apos;s how the site was built.
         </p>
         <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -31,7 +29,7 @@ export default function Hero() {
           </Link>
           <Link
             href="#case-study"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.08] rounded-lg text-[14px] font-medium text-white hover:border-cyber-accent/30 hover:text-cyber-accent transition-all duration-500"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-stone-200 rounded-lg text-[14px] font-medium text-stone-900 hover:border-cyber-accent/30 hover:text-cyber-accent transition-all duration-500"
           >
             See a Real Example
           </Link>
@@ -41,7 +39,8 @@ export default function Hero() {
       {/* Right side — local search visualization */}
       <div
         data-hero-visual
-        className="lg:col-span-5 flex justify-center items-start"
+        className="lg:col-span-5 flex justify-center items-start select-none"
+        aria-hidden="true"
       >
         <div className="relative w-full max-w-[340px] mt-6 lg:mt-4">
           {/* Search bar mockup */}
@@ -109,7 +108,7 @@ export default function Hero() {
           <div className="absolute -bottom-4 -right-4 sm:-right-8 rounded-lg border border-white/[0.08] bg-[#111318]/95 backdrop-blur-sm p-3 z-10">
             <div className="flex items-center gap-2">
               <TrendingUp
-                className="w-4 h-4 text-[#4ADE80]"
+                className="w-4 h-4 text-green-400"
                 aria-hidden="true"
               />
               <div>

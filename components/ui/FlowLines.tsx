@@ -236,11 +236,11 @@ export default function FlowLines({
               ? { x1: "200", y1: "500", x2: "450", y2: "0" }
               : { x1: "-30", y1: "130", x2: "1230", y2: "130" })}
           >
-            <stop offset="0%" stopColor="#D4A853" stopOpacity="0" />
-            <stop offset="12%" stopColor="#D4A853" stopOpacity="0.9" />
-            <stop offset="45%" stopColor="#A78BFA" stopOpacity="0.65" />
-            <stop offset="80%" stopColor="#F472B6" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#F472B6" stopOpacity="0" />
+            <stop offset="0%" stopColor="#B45309" stopOpacity="0" />
+            <stop offset="12%" stopColor="#B45309" stopOpacity="0.25" />
+            <stop offset="45%" stopColor="#7C3AED" stopOpacity="0.18" />
+            <stop offset="80%" stopColor="#DB2777" stopOpacity="0.10" />
+            <stop offset="100%" stopColor="#DB2777" stopOpacity="0" />
           </linearGradient>
 
           {/* G2: Violet → Gold */}
@@ -251,11 +251,11 @@ export default function FlowLines({
               ? { x1: "300", y1: "500", x2: "400", y2: "0" }
               : { x1: "-30", y1: "130", x2: "1230", y2: "130" })}
           >
-            <stop offset="0%" stopColor="#A78BFA" stopOpacity="0" />
-            <stop offset="15%" stopColor="#A78BFA" stopOpacity="0.75" />
-            <stop offset="55%" stopColor="#D4A853" stopOpacity="0.5" />
-            <stop offset="90%" stopColor="#D4A853" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#D4A853" stopOpacity="0" />
+            <stop offset="0%" stopColor="#7C3AED" stopOpacity="0" />
+            <stop offset="15%" stopColor="#7C3AED" stopOpacity="0.20" />
+            <stop offset="55%" stopColor="#B45309" stopOpacity="0.14" />
+            <stop offset="90%" stopColor="#B45309" stopOpacity="0.04" />
+            <stop offset="100%" stopColor="#B45309" stopOpacity="0" />
           </linearGradient>
 
           {/* G3: Rose → Gold accent */}
@@ -266,10 +266,10 @@ export default function FlowLines({
               ? { x1: "250", y1: "500", x2: "480", y2: "0" }
               : { x1: "-30", y1: "130", x2: "1230", y2: "130" })}
           >
-            <stop offset="0%" stopColor="#F472B6" stopOpacity="0" />
-            <stop offset="18%" stopColor="#F472B6" stopOpacity="0.6" />
-            <stop offset="60%" stopColor="#D4A853" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#D4A853" stopOpacity="0" />
+            <stop offset="0%" stopColor="#DB2777" stopOpacity="0" />
+            <stop offset="18%" stopColor="#DB2777" stopOpacity="0.16" />
+            <stop offset="60%" stopColor="#B45309" stopOpacity="0.10" />
+            <stop offset="100%" stopColor="#B45309" stopOpacity="0" />
           </linearGradient>
         </defs>
 
@@ -278,7 +278,7 @@ export default function FlowLines({
             {/* Track — faint permanent path */}
             <path
               d={s.d}
-              stroke={`rgba(212,168,83,${s.to})`}
+              stroke={`rgba(180,83,9,${s.to * 0.5})`}
               strokeWidth={s.w * s.tw}
               strokeLinecap="round"
               pathLength={1000}

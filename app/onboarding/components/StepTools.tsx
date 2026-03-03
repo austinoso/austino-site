@@ -24,7 +24,7 @@ interface StepToolsProps {
 }
 
 const inputClass =
-  "w-full px-4 py-3 bg-[#111318] border border-white/[0.06] rounded-lg text-white text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-white/[0.12]";
+  "w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-stone-300";
 
 export default function StepTools({
   data,
@@ -37,7 +37,7 @@ export default function StepTools({
         <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
           Tech &amp; Tools
         </p>
-        <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-tight tracking-tight mb-3">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-stone-900 leading-tight tracking-tight mb-3">
           What are you working with?
         </h2>
         <p className="text-base text-cyber-gray-300 leading-relaxed max-w-lg">

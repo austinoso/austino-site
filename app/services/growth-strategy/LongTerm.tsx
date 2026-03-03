@@ -38,14 +38,14 @@ export default function LongTerm() {
             A site that{" "}
             <span className="text-gradient-gold">compounds every month.</span>
           </h2>
-          <p className="text-base sm:text-lg text-stone-300 leading-relaxed text-pretty">
+          <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
             Every page I build keeps pulling traffic after it&apos;s published.
             Every fix I make stacks on the last.
           </p>
-          <p className="mt-5 text-sm text-stone-400/90 leading-relaxed border-l-2 border-warm-gold/20 pl-4 text-pretty">
-            This isn&apos;t paid ads. You won&apos;t see results
-            overnight. But every month the results stack, and the gap between
-            you and your competitors gets harder for them to close.
+          <p className="mt-5 text-sm text-stone-500 leading-relaxed border-l-2 border-warm-gold/20 pl-4 text-pretty">
+            This isn&apos;t paid ads. You won&apos;t see results overnight. But
+            every month the results stack, and the gap between you and your
+            competitors gets harder for them to close.
           </p>
         </div>
 
@@ -68,7 +68,7 @@ export default function LongTerm() {
               >
                 {/* Timeline node */}
                 <div className="absolute left-[-25px] sm:left-[-31px] top-1">
-                  <div className="w-4 h-4 sm:w-[18px] sm:h-[18px] rounded-full bg-[#0C0B09] border-2 border-warm-gold/40 flex items-center justify-center">
+                  <div className="w-4 h-4 sm:w-[18px] sm:h-[18px] rounded-full bg-warm-bg border-2 border-warm-gold/40 flex items-center justify-center">
                     <div className="w-1.5 h-1.5 rounded-full bg-warm-gold/60" />
                   </div>
                 </div>
@@ -79,7 +79,7 @@ export default function LongTerm() {
                   <h3 className="text-sm font-semibold text-warm-white mb-1.5">
                     {milestone.title}
                   </h3>
-                  <p className="text-sm text-stone-400 leading-relaxed max-w-lg text-pretty">
+                  <p className="text-sm text-stone-500 leading-relaxed max-w-lg text-pretty">
                     {milestone.description}
                   </p>
                 </div>

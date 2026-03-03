@@ -37,7 +37,7 @@ export default function FAQ() {
             Things you might be{" "}
             <span className="text-gradient-gold">wondering.</span>
           </h2>
-          <p className="text-[15px] text-stone-400 leading-relaxed text-pretty">
+          <p className="text-[15px] text-stone-600 leading-relaxed text-pretty">
             No hard sell. If we&apos;re not the right fit, I&apos;ll tell you.
           </p>
         </div>

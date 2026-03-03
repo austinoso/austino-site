@@ -4,45 +4,46 @@ import {
   Search,
   TrendingUp,
   MapPin,
-  Palette,
   BarChart3,
   ArrowRight,
   ArrowUpRight,
   CheckCircle2,
   Clock,
   FileUp,
+  LineChart,
+  RefreshCw,
 } from "lucide-react";
 
 const deliverables = [
   {
-    icon: BarChart3,
-    label: "Monthly analytics report",
-    desc: "A plain-English summary of what changed, what the data shows, and what I'm doing next.",
-  },
-  {
     icon: Search,
-    label: "SEO keyword tracking",
-    desc: "I find the exact words your customers are searching and build pages to show up for them.",
+    label: "Keyword research & targeting",
+    desc: "I find the exact searches your customers make and identify which ones are worth going after.",
   },
   {
     icon: FileText,
-    label: "New content pages",
-    desc: "Service pages, location pages, FAQs — each one designed to rank for a specific search.",
+    label: "Pages built around real searches",
+    desc: "Deep-dive service pages, local landing pages, FAQs. Each one structured to rank for a specific keyword.",
   },
   {
     icon: TrendingUp,
-    label: "Conversion optimization",
+    label: "Conversion tracking & fixes",
     desc: "If visitors aren't booking, I find where they drop off and fix the friction.",
   },
   {
     icon: MapPin,
-    label: "Google Business Profile",
-    desc: "Photos, posts, review responses — so your listing stands out in the map pack.",
+    label: "Google Business Profile management",
+    desc: "Photos, posts, review responses. Your listing stands out in the map pack.",
   },
   {
-    icon: Palette,
-    label: "Ongoing design updates",
-    desc: "Seasonal changes, new services, fresh content — your site stays current without you touching it.",
+    icon: RefreshCw,
+    label: "Ongoing site updates",
+    desc: "Photos, copy changes, new services, seasonal adjustments. Your site stays accurate without you touching it.",
+  },
+  {
+    icon: LineChart,
+    label: "Monthly analytics report",
+    desc: "A plain-English summary of what changed, what the data shows, and what I'm doing next.",
   },
 ];
 
@@ -109,7 +110,7 @@ export default function WhatsIncluded() {
         Everything your site needs to{" "}
         <span className="text-gradient-gold">keep growing.</span>
       </h2>
-      <p className="text-base sm:text-lg text-stone-300 leading-relaxed max-w-xl mb-10 sm:mb-12 text-pretty">
+      <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl mb-10 sm:mb-12 text-pretty">
         This isn&apos;t a one-time audit or a PDF of recommendations. It&apos;s
         ongoing, hands-on work, every month.
       </p>
@@ -122,19 +123,16 @@ export default function WhatsIncluded() {
             return (
               <div
                 key={d.label}
-                className="flex items-start gap-3 py-3 px-3 rounded-lg border border-transparent hover:border-white/[0.06] hover:bg-white/[0.02] transition-colors duration-200"
+                className="flex items-start gap-3 py-3 px-3 rounded-lg border border-transparent hover:border-stone-300 hover:bg-stone-50 transition-colors duration-200"
               >
-                <div className="w-8 h-8 rounded-md bg-warm-gold/10 border border-warm-gold/15 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon
-                    className="w-4 h-4 text-warm-gold/70"
-                    aria-hidden="true"
-                  />
+                <div className="w-8 h-8 rounded-md bg-warm-gold/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
                 </div>
                 <div>
                   <span className="text-sm font-medium text-warm-white block leading-snug">
                     {d.label}
                   </span>
-                  <span className="text-[13px] text-stone-400 leading-relaxed block mt-0.5">
+                  <span className="text-[13px] text-stone-500 leading-relaxed block mt-0.5">
                     {d.desc}
                   </span>
                 </div>
@@ -149,14 +147,11 @@ export default function WhatsIncluded() {
         {/* Right — monthly report mockup */}
         <div className="lg:col-span-7">
           <div
-            className="rounded-xl border border-white/[0.08] bg-warm-surface overflow-hidden"
-            style={{
-              boxShadow:
-                "0 24px 48px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03)",
-            }}
+            className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden shadow-2xl shadow-black/40 select-none"
+            aria-hidden="true"
           >
             {/* Report header */}
-            <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/[0.06] bg-white/[0.02]">
+            <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/[0.06] bg-[#0F0E0B]">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-warm-gold/10 border border-warm-gold/20 flex items-center justify-center">
                   <BarChart3
@@ -165,7 +160,7 @@ export default function WhatsIncluded() {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-warm-white">
+                  <p className="text-sm font-semibold text-white">
                     Growth Report
                   </p>
                   <p className="text-[11px] text-stone-500 font-mono">
@@ -188,11 +183,11 @@ export default function WhatsIncluded() {
                   key={m.label}
                   className="px-5 sm:px-6 py-4 border-r border-white/[0.06] last:border-r-0"
                 >
-                  <p className="text-[11px] text-stone-500 font-mono uppercase tracking-wider mb-1">
+                  <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider mb-1">
                     {m.label}
                   </p>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-xl sm:text-2xl font-bold font-mono text-warm-white leading-none">
+                    <span className="text-xl sm:text-2xl font-bold font-mono text-white leading-none">
                       {m.value}
                     </span>
                     <span className="text-[11px] font-mono font-medium text-emerald-400">
@@ -214,13 +209,13 @@ export default function WhatsIncluded() {
                   This month&apos;s work
                 </p>
               </div>
-              <div className="space-y-1">
+              <div className="space-y-0.5">
                 {activityLog.map((entry, i) => {
                   const StatusIcon = statusIcon[entry.status];
                   return (
                     <div
                       key={i}
-                      className="group flex items-start gap-3 py-2.5 px-3 -mx-3 rounded-lg hover:bg-white/[0.02] transition-colors duration-150"
+                      className="group flex items-start gap-3 py-3 px-3 -mx-3 rounded-lg hover:bg-white/[0.03] transition-colors duration-150"
                     >
                       <StatusIcon
                         className="w-4 h-4 text-emerald-400/60 mt-0.5 shrink-0"
@@ -233,11 +228,11 @@ export default function WhatsIncluded() {
                           >
                             {entry.type}
                           </span>
-                          <span className="text-sm text-warm-white font-medium">
+                          <span className="text-sm text-stone-200 font-medium">
                             {entry.text}
                           </span>
                         </div>
-                        <p className="text-xs text-stone-500 leading-relaxed">
+                        <p className="text-xs text-stone-400 leading-relaxed">
                           {entry.detail}
                         </p>
                       </div>
@@ -248,11 +243,11 @@ export default function WhatsIncluded() {
             </div>
 
             {/* Report footer */}
-            <div className="px-5 sm:px-6 py-3 border-t border-white/[0.06] bg-white/[0.02] flex items-center justify-between">
-              <p className="text-[11px] text-stone-500">
+            <div className="px-5 sm:px-6 py-3 border-t border-white/[0.06] bg-[#0F0E0B] flex items-center justify-between">
+              <p className="text-[11px] text-stone-400">
                 5 tasks completed &middot; 0 issues open
               </p>
-              <p className="text-[11px] text-stone-500 font-mono">
+              <p className="text-[11px] text-stone-400 font-mono">
                 Next report: Mar 1, 2026
               </p>
             </div>
@@ -261,16 +256,19 @@ export default function WhatsIncluded() {
       </div>
 
       {/* Foundation tie-in */}
-      <div className="mt-10 sm:mt-12 rounded-lg border border-white/[0.06] bg-white/[0.02] px-6 py-5 sm:px-8 sm:py-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+      <div className="mt-10 sm:mt-12 rounded-lg border border-stone-200 bg-white px-6 py-5 sm:px-8 sm:py-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
         <div className="flex-1">
-          <p className="text-sm sm:text-[15px] text-stone-300 leading-relaxed text-pretty">
-            <span className="text-warm-white font-medium">This strategy is built on a foundation Google already loves.</span>{" "}
-            Sub-second load times, clean code, zero template bloat. A site people trust and search engines reward.
+          <p className="text-sm sm:text-[15px] text-stone-600 leading-relaxed text-pretty">
+            <span className="text-warm-white font-medium">
+              This strategy is built on a foundation Google already loves.
+            </span>{" "}
+            Sub-second load times, clean code, zero template bloat. A site
+            people trust and search engines reward.
           </p>
         </div>
         <Link
           href="/services/web-development"
-          className="inline-flex items-center gap-2 text-sm font-medium text-warm-gold hover:text-amber-300 transition-colors duration-200 shrink-0 whitespace-nowrap"
+          className="inline-flex items-center gap-2 text-sm font-medium text-warm-gold hover:text-amber-700 transition-colors duration-200 shrink-0 whitespace-nowrap"
         >
           See the web dev service
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />

@@ -24,8 +24,7 @@ const seoFeatures = [
 const perfStats = [
   {
     number: "90+",
-    label:
-      "out of 100 on Google's speed test. Most sites score under\u00A050",
+    label: "out of 100 on Google's speed test. Most sites score under\u00A050",
   },
   {
     number: "<2.5s",
@@ -44,7 +43,7 @@ export default function PerformanceAndSEO() {
       {/* ── Speed & Performance — 2-col with CA edge map ── */}
       <div className="relative overflow-x-clip sm:pt-28 md:pt-32">
         {/* Subtle fade so the globe doesn't fight with the heading */}
-        <div className="hidden lg:block absolute inset-0 z-[5] bg-gradient-to-r from-warm-bg from-35% via-warm-bg/60 via-48% to-transparent to-60% pointer-events-none" />
+        <div className="hidden lg:block absolute inset-0 z-[5] bg-gradient-to-r from-warm-bg from-30% via-warm-bg/40 via-45% to-transparent to-55% pointer-events-none" />
         <div className="relative z-10 pt-12 sm:pt-20 p-6 sm:p-10 max-w-xl">
           <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-6">
             Fast enough to pass{" "}
@@ -52,10 +51,10 @@ export default function PerformanceAndSEO() {
               Google&apos;s speed test.
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-stone-300 leading-relaxed">
+          <p className="text-base sm:text-lg text-stone-600 leading-relaxed">
             Your site runs on the same network that powers Shopify and Netflix.
-            Every page is optimized down to the image sizes, fonts, and code,
-            so nothing slows it down, even on a bad connection.
+            Every page is optimized down to the image sizes, fonts, and code, so
+            nothing slows it down, even on a bad connection.
           </p>
         </div>
         <div className="hidden lg:block">
@@ -77,7 +76,7 @@ export default function PerformanceAndSEO() {
               <span className="block font-display text-[3.25rem] font-bold leading-none mb-2 tracking-tight text-warm-white">
                 {stat.number}
               </span>
-              <p className="text-[13px] text-stone-400 leading-relaxed">
+              <p className="text-[13px] text-stone-500 leading-relaxed">
                 {stat.label}
               </p>
             </div>
@@ -86,18 +85,18 @@ export default function PerformanceAndSEO() {
       </div>
 
       {/* Perf stats strip — desktop */}
-      <div className="hidden sm:grid sm:grid-cols-3 border-t border-white/[0.06] bg-warm-surface/50">
+      <div className="hidden sm:grid sm:grid-cols-3 border-t border-stone-200 bg-warm-surface/50">
         {perfStats.map((stat, i) => (
           <div
             key={stat.label}
-            className={`p-6 sm:p-10 transition-colors duration-300 hover:bg-white/[0.03] ${
-              i < perfStats.length - 1 ? "sm:border-r border-white/[0.06]" : ""
+            className={`p-6 sm:p-10 transition-colors duration-300 hover:bg-stone-50 ${
+              i < perfStats.length - 1 ? "sm:border-r border-stone-200" : ""
             }`}
           >
             <span className="block font-display text-4xl sm:text-5xl font-bold leading-none mb-3 tracking-tight text-warm-white">
               {stat.number}
             </span>
-            <p className="text-[15px] text-stone-400 leading-relaxed">
+            <p className="text-[15px] text-stone-500 leading-relaxed">
               {stat.label}
             </p>
           </div>
@@ -105,12 +104,12 @@ export default function PerformanceAndSEO() {
       </div>
 
       {/* ── SEO & Local Search ── */}
-      <div className="border-t border-white/[0.06]">
+      <div className="border-t border-stone-200">
         <div className="pt-10 sm:pt-20 px-6 sm:px-10">
           <h3 className="font-display text-2xl sm:text-3xl font-bold text-warm-white leading-[1.2] tracking-tight text-balance max-w-xl mb-3">
             Built to rank from day one.
           </h3>
-          <p className="text-[15px] text-stone-400 leading-relaxed max-w-xl mb-8 sm:mb-16">
+          <p className="text-[15px] text-stone-600 leading-relaxed max-w-xl mb-8 sm:mb-16">
             Most sites launch without any SEO foundation. Yours comes with
             everything Google looks for, already in place before you go live.
           </p>
@@ -121,12 +120,12 @@ export default function PerformanceAndSEO() {
           {seoFeatures.map((feature) => (
             <div
               key={feature.title}
-              className="border-l-2 border-warm-gold/25 pl-5"
+              className="border-l-2 border-warm-gold/40 pl-5"
             >
               <h4 className="text-[15px] sm:text-base font-semibold text-warm-white mb-1.5 sm:mb-2">
                 {feature.title}
               </h4>
-              <p className="text-[13px] sm:text-sm text-stone-400 leading-relaxed">
+              <p className="text-[13px] sm:text-sm text-stone-500 leading-relaxed">
                 {feature.body}
               </p>
             </div>
@@ -135,13 +134,13 @@ export default function PerformanceAndSEO() {
       </div>
 
       {/* ── CTA ── */}
-      <div className="border-t border-white/[0.06] p-6 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-        <p className="text-[15px] text-stone-400 leading-relaxed max-w-md">
+      <div className="border-t border-stone-200 p-6 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <p className="text-[15px] text-stone-600 leading-relaxed max-w-md">
           Want all of this working for your business?
         </p>
         <Link
           href="/contact"
-          className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-500 to-amber-400 text-warm-bg font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-500/20 flex-shrink-0"
+          className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg flex-shrink-0"
         >
           Get a Free Consultation
           <ArrowRight

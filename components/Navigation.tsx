@@ -184,9 +184,9 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 ${
         isMobileMenuOpen
-          ? "bg-[#060608] border-b border-white/[0.06]"
+          ? "bg-warm-bg border-b border-stone-200"
           : isScrolled
-            ? "transition-all duration-500 bg-[#060608]/80 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+            ? "transition-all duration-500 bg-warm-bg/80 backdrop-blur-2xl border-b border-stone-200 shadow-[0_4px_30px_rgba(0,0,0,0.04)]"
             : "transition-all duration-500 bg-transparent"
       }`}
       aria-label="Main navigation"
@@ -199,7 +199,7 @@ export default function Navigation() {
             aria-label="Home"
             onClick={closeMenu}
           >
-            <span className="text-white">austin</span>
+            <span className="text-stone-900">austin</span>
             <span className="text-warm-gold">o</span>
           </Link>
 
@@ -224,7 +224,7 @@ export default function Navigation() {
               <Link
                 ref={dropdownTriggerRef}
                 href="/#solutions"
-                className="inline-flex items-center gap-1.5 text-[13px] text-stone-400 hover:text-white transition-colors duration-300 tracking-wide"
+                className="inline-flex items-center gap-1.5 text-[13px] text-stone-500 hover:text-stone-900 transition-colors duration-300 tracking-wide"
                 aria-haspopup="true"
                 aria-expanded={isSolutionsOpen}
                 aria-controls="solutions-dropdown"
@@ -252,13 +252,13 @@ export default function Navigation() {
                     : "opacity-0 -translate-y-2 pointer-events-none"
                 }`}
               >
-                <div className="w-56 rounded-lg border border-white/[0.06] bg-[#0C0B09]/95 backdrop-blur-xl overflow-hidden">
+                <div className="w-56 rounded-lg border border-stone-200 bg-white/95 backdrop-blur-xl overflow-hidden shadow-lg shadow-black/[0.06]">
                   <div className="p-1.5">
                     <div data-dropdown-item role="none">
                       <Link
                         href="/services/web-development"
                         role="menuitem"
-                        className="block px-3.5 py-2.5 rounded-md text-sm text-stone-300 hover:text-white hover:bg-white/[0.06] transition-colors duration-200"
+                        className="block px-3.5 py-2.5 rounded-md text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors duration-200"
                         data-umami-event="nav-service-web"
                         tabIndex={isSolutionsOpen ? 0 : -1}
                         onClick={() => setIsSolutionsOpen(false)}
@@ -274,7 +274,7 @@ export default function Navigation() {
                       <Link
                         href="/services/growth-strategy"
                         role="menuitem"
-                        className="block px-3.5 py-2.5 rounded-md text-sm text-stone-300 hover:text-white hover:bg-white/[0.06] transition-colors duration-200"
+                        className="block px-3.5 py-2.5 rounded-md text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors duration-200"
                         data-umami-event="nav-service-growth"
                         tabIndex={isSolutionsOpen ? 0 : -1}
                         onClick={() => setIsSolutionsOpen(false)}
@@ -290,7 +290,7 @@ export default function Navigation() {
                       <Link
                         href="/services/automation"
                         role="menuitem"
-                        className="block px-3.5 py-2.5 rounded-md text-sm text-stone-300 hover:text-white hover:bg-white/[0.06] transition-colors duration-200"
+                        className="block px-3.5 py-2.5 rounded-md text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors duration-200"
                         data-umami-event="nav-service-automation"
                         tabIndex={isSolutionsOpen ? 0 : -1}
                         onClick={() => setIsSolutionsOpen(false)}
@@ -309,14 +309,14 @@ export default function Navigation() {
 
             <Link
               href="/work"
-              className="text-[13px] text-stone-400 hover:text-white transition-colors duration-300 tracking-wide"
+              className="text-[13px] text-stone-500 hover:text-stone-900 transition-colors duration-300 tracking-wide"
               data-umami-event="nav-work"
             >
               Work
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-amber-500 to-amber-400 text-warm-bg text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-500/20"
+              className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-600/15"
               data-umami-event="nav-get-started"
             >
               Get Started
@@ -326,7 +326,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             ref={mobileToggleRef}
-            className="md:hidden text-stone-400 hover:text-white transition-colors p-2"
+            className="md:hidden text-stone-500 hover:text-stone-900 transition-colors p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
@@ -357,9 +357,9 @@ export default function Navigation() {
       >
         <div className="flex flex-col px-6 py-10 space-y-1">
           {/* Mobile Solutions Expandable */}
-          <div className="border-b border-white/[0.06]">
+          <div className="border-b border-stone-200">
             <button
-              className="flex items-center justify-between w-full text-lg text-stone-300 hover:text-white transition-colors py-4 font-mono"
+              className="flex items-center justify-between w-full text-lg text-stone-600 hover:text-stone-900 transition-colors py-4 font-mono"
               onClick={() => setIsMobileSolutionsOpen(!isMobileSolutionsOpen)}
               aria-expanded={isMobileSolutionsOpen}
               aria-controls="mobile-solutions-panel"
@@ -386,7 +386,7 @@ export default function Navigation() {
               <div className="pl-4 space-y-1">
                 <Link
                   href="/services/web-development"
-                  className="block text-base text-stone-400 hover:text-warm-gold transition-colors py-2 font-mono"
+                  className="block text-base text-stone-500 hover:text-warm-gold transition-colors py-2 font-mono"
                   data-umami-event="mobile-nav-service-web"
                   onClick={closeMenu}
                 >
@@ -394,7 +394,7 @@ export default function Navigation() {
                 </Link>
                 <Link
                   href="/services/growth-strategy"
-                  className="block text-base text-stone-400 hover:text-warm-gold transition-colors py-2 font-mono"
+                  className="block text-base text-stone-500 hover:text-warm-gold transition-colors py-2 font-mono"
                   data-umami-event="mobile-nav-service-growth"
                   onClick={closeMenu}
                 >
@@ -402,7 +402,7 @@ export default function Navigation() {
                 </Link>
                 <Link
                   href="/services/automation"
-                  className="block text-base text-stone-400 hover:text-warm-gold transition-colors py-2 font-mono"
+                  className="block text-base text-stone-500 hover:text-warm-gold transition-colors py-2 font-mono"
                   data-umami-event="mobile-nav-service-automation"
                   onClick={closeMenu}
                 >
@@ -413,7 +413,7 @@ export default function Navigation() {
           </div>
           <Link
             href="/work"
-            className="text-lg text-stone-300 hover:text-white transition-colors py-4 border-b border-white/[0.06] font-mono"
+            className="text-lg text-stone-600 hover:text-stone-900 transition-colors py-4 border-b border-stone-200 font-mono"
             data-umami-event="mobile-nav-work"
             onClick={closeMenu}
           >
@@ -422,7 +422,7 @@ export default function Navigation() {
           <div className="pt-6">
             <Link
               href="/contact"
-              className="block px-6 py-3.5 bg-gradient-to-r from-amber-500 to-amber-400 text-warm-bg font-semibold rounded-xl transition-all text-center text-sm hover:brightness-110 shadow-lg shadow-amber-500/20"
+              className="block px-6 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-xl transition-all text-center text-sm hover:brightness-110 shadow-lg shadow-amber-600/15"
               data-umami-event="mobile-nav-get-started"
               onClick={closeMenu}
             >

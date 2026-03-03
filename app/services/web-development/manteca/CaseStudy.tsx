@@ -39,7 +39,7 @@ export default function CaseStudy() {
   return (
     <section id="case-study" data-fade className="scroll-mt-20">
       <p className="section-label mb-4">Local Proof</p>
-      <h2 className="font-display text-2xl sm:text-3xl font-bold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         How a new Manteca business started getting found.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12">
@@ -72,12 +72,12 @@ export default function CaseStudy() {
       </div>
 
       {/* ── Steps timeline ── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-l border-white/[0.06]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-l border-stone-200">
         {steps.map((step, i) => (
           <div
             key={step.label}
             data-step
-            className="border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col"
+            className="border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col"
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
@@ -90,7 +90,7 @@ export default function CaseStudy() {
                 <p className="text-[10px] font-mono text-cyber-accent/60 uppercase tracking-widest">
                   Step {i + 1} — {step.label}
                 </p>
-                <h3 className="text-[15px] font-semibold text-white">
+                <h3 className="text-[15px] font-semibold text-stone-900">
                   {step.title}
                 </h3>
               </div>
@@ -103,9 +103,9 @@ export default function CaseStudy() {
       </div>
 
       {/* ── Results + link ── */}
-      <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-lg border border-white/[0.06] bg-white/[0.015] p-6 sm:p-8">
+      <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-lg border border-stone-200 bg-stone-50 p-6 sm:p-8">
         <div>
-          <p className="text-sm font-medium text-white mb-2">
+          <p className="text-sm font-medium text-stone-900 mb-2">
             The result so far:
           </p>
           <ul className="space-y-1.5">

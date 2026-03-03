@@ -12,7 +12,7 @@ export default function FinalCTA() {
               actually brings in customers.
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-stone-300 leading-relaxed">
+          <p className="text-base sm:text-lg text-stone-600 leading-relaxed">
             One conversation. I&apos;ll review what you have, show you
             what&apos;s possible, and map out a plan — whether we work together
             or not.
@@ -21,7 +21,7 @@ export default function FinalCTA() {
         <div className="flex-shrink-0">
           <Link
             href="/contact"
-            className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-amber-500 to-amber-400 text-warm-bg font-semibold text-base rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-500/20 w-full sm:w-auto"
+            className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-base rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg w-full sm:w-auto"
           >
             <span>Start a Conversation</span>
             <ArrowRight
@@ -31,17 +31,17 @@ export default function FinalCTA() {
           </Link>
         </div>
       </div>
-      <div className="border-t border-white/[0.06] mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
+      <div className="border-t border-stone-200 mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
         <Link
           href="/services/growth-strategy"
-          className="inline-flex items-center gap-2 text-sm text-stone-400 hover:text-warm-white transition-colors duration-300"
+          className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-warm-white transition-colors duration-300"
         >
           Want ongoing growth after launch? See Growth Strategy
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
         <Link
           href="/services/automation"
-          className="inline-flex items-center gap-2 text-sm text-stone-400 hover:text-warm-white transition-colors duration-300"
+          className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-warm-white transition-colors duration-300"
         >
           Still doing things manually? See Automation
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />

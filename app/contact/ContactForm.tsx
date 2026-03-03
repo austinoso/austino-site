@@ -20,7 +20,7 @@ const TIMELINES = [
 ];
 
 const inputClass =
-  "w-full px-4 py-3 bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-warm-gold/50 focus:border-warm-gold/50 transition-all duration-300 hover:border-white/[0.12]";
+  "w-full px-4 py-3 bg-stone-50 border border-stone-200 text-stone-900 text-sm placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-warm-gold/50 focus:border-warm-gold/50 transition-all duration-300 hover:border-stone-300";
 
 const selectArrowStyle = {
   backgroundImage:
@@ -144,7 +144,7 @@ export default function ContactForm() {
       {/* Name + Email */}
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="name" className="block text-sm text-stone-400 mb-2">
+          <label htmlFor="name" className="block text-sm text-stone-500 mb-2">
             Your Name *
           </label>
           <input
@@ -160,7 +160,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm text-stone-400 mb-2">
+          <label htmlFor="email" className="block text-sm text-stone-500 mb-2">
             Email *
           </label>
           <input
@@ -179,7 +179,7 @@ export default function ContactForm() {
 
       {/* Company */}
       <div>
-        <label htmlFor="company" className="block text-sm text-stone-400 mb-2">
+        <label htmlFor="company" className="block text-sm text-stone-500 mb-2">
           Company / Organization
         </label>
         <input
@@ -196,7 +196,7 @@ export default function ContactForm() {
       {/* Budget + Timeline */}
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="budget" className="block text-sm text-stone-400 mb-2">
+          <label htmlFor="budget" className="block text-sm text-stone-500 mb-2">
             Budget range
           </label>
           <select
@@ -218,7 +218,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="timeline"
-            className="block text-sm text-stone-400 mb-2"
+            className="block text-sm text-stone-500 mb-2"
           >
             Timeline
           </label>
@@ -244,7 +244,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="description"
-          className="block text-sm text-stone-400 mb-2"
+          className="block text-sm text-stone-500 mb-2"
         >
           How can I help? *
         </label>
@@ -266,7 +266,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full sm:w-auto px-8 py-3.5 bg-amber-500 text-black font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-amber-600/15"
           aria-label="Submit project inquiry"
         >
           {isSubmitting ? (
@@ -313,7 +313,7 @@ export default function ContactForm() {
 
         {submitStatus === "success" && (
           <div
-            className="mt-4 p-4 bg-[#4ADE80]/10 border border-[#4ADE80]/20 rounded-lg text-[#4ADE80] text-sm"
+            className="mt-4 p-4 bg-warm-green/10 border border-warm-green/20 rounded-lg text-warm-green text-sm"
             role="alert"
             aria-live="polite"
           >

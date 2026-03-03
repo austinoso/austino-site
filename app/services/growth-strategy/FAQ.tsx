@@ -41,7 +41,7 @@ export default function FAQ() {
             Honest answers{" "}
             <span className="text-gradient-gold">before you commit.</span>
           </h2>
-          <p className="text-[15px] text-stone-400 leading-relaxed text-pretty">
+          <p className="text-[15px] text-stone-500 leading-relaxed text-pretty">
             If we&apos;re not the right fit, I&apos;ll tell you.
           </p>
         </div>

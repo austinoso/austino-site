@@ -53,7 +53,7 @@ interface StepColorsProps {
 }
 
 const inputClass =
-  "w-full px-4 py-3 bg-[#111318] border border-white/[0.06] rounded-lg text-white text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-white/[0.12] resize-none";
+  "w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-stone-300 resize-none";
 
 export default function StepColors({ data, onChange }: StepColorsProps) {
   const [uploading, setUploading] = useState(false);
@@ -136,7 +136,7 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
         <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
           Color Palette
         </p>
-        <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-tight tracking-tight mb-3">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-stone-900 leading-tight tracking-tight mb-3">
           Choose your flavor.
         </h2>
         <p className="text-base text-cyber-gray-300 leading-relaxed max-w-lg">
@@ -152,7 +152,7 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
 
       {/* Brand notes + logo upload */}
       <div
-        className="p-5 rounded-xl border border-white/[0.06] bg-[#111318] space-y-5"
+        className="p-5 rounded-xl border border-stone-200 bg-white space-y-5"
         style={{
           boxShadow:
             "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
@@ -160,7 +160,10 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
       >
         {/* Open-ended brand description */}
         <div className="space-y-3">
-          <label htmlFor="brandColor" className="text-sm text-white/80 font-medium">
+          <label
+            htmlFor="brandColor"
+            className="text-sm text-stone-700 font-medium"
+          >
             Have a logo or color idea in mind?
           </label>
           <textarea
@@ -175,7 +178,7 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
 
         {/* Logo upload */}
         <div className="space-y-3">
-          <p className="text-sm text-white/80 font-medium">
+          <p className="text-sm text-stone-700 font-medium">
             Upload your logo{" "}
             <span className="text-cyber-gray-500 font-normal">(optional)</span>
           </p>
@@ -193,7 +196,7 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
                 <FileImage className="w-10 h-10 text-cyber-accent/60 p-2" />
               )}
               <div className="flex-1 min-w-0">
-                <p className="text-sm text-white truncate">
+                <p className="text-sm text-stone-900 truncate">
                   {data.logoFileName}
                 </p>
                 <p className="text-xs text-cyber-accent/60">Uploaded</p>
@@ -201,7 +204,7 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
               <button
                 type="button"
                 onClick={handleRemove}
-                className="p-1.5 rounded-md text-cyber-gray-400 hover:text-white hover:bg-white/[0.06] transition-colors"
+                className="p-1.5 rounded-md text-cyber-gray-400 hover:text-stone-900 hover:bg-stone-100 transition-colors"
                 aria-label="Remove logo"
               >
                 <X className="w-4 h-4" />
@@ -220,7 +223,7 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
               className={`relative flex flex-col items-center gap-2 p-6 rounded-lg border-2 border-dashed cursor-pointer transition-all duration-300 ${
                 dragActive
                   ? "border-cyber-accent/50 bg-cyber-accent/[0.05]"
-                  : "border-white/[0.08] bg-[#0a0c10] hover:border-white/[0.15]"
+                  : "border-stone-200 bg-stone-50 hover:border-stone-300"
               }`}
             >
               {uploading ? (

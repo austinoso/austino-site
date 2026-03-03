@@ -178,14 +178,7 @@ export default function EdgeGlobe() {
       className="absolute inset-0 pointer-events-none"
       aria-hidden="true"
     >
-      {/* CSS ambient glow */}
-      <div
-        className="absolute inset-0 opacity-50"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 65% 50%, rgba(212,168,83,0.06) 0%, rgba(212,168,83,0.04) 40%, transparent 70%)",
-        }}
-      />
+      {/* CSS ambient glow — removed, solid fill handles the territory now */}
       <svg
         viewBox="20 80 500 480"
         preserveAspectRatio="xMaxYMid meet"
@@ -193,25 +186,6 @@ export default function EdgeGlobe() {
         fill="none"
       >
         <defs>
-          {/* California gradients */}
-          <linearGradient
-            id="ca-stroke-grad"
-            x1="0%"
-            y1="0%"
-            x2="50%"
-            y2="100%"
-          >
-            <stop offset="0%" stopColor="rgba(212,168,83,0.5)" />
-            <stop offset="50%" stopColor="rgba(245,158,11,0.3)" />
-            <stop offset="100%" stopColor="rgba(212,168,83,0.2)" />
-          </linearGradient>
-
-          <radialGradient id="ca-fill-grad" cx="35%" cy="45%" r="55%">
-            <stop offset="0%" stopColor="rgba(212,168,83,0.06)" />
-            <stop offset="50%" stopColor="rgba(212,168,83,0.03)" />
-            <stop offset="100%" stopColor="transparent" />
-          </radialGradient>
-
           {/* Glow filter for comet streaks */}
           <filter id="pkt-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
@@ -226,34 +200,34 @@ export default function EdgeGlobe() {
         {/* Oregon (southern strip visible) */}
         <path
           d="M16.8 20.5 L396.7 20.5 L396.7 -80 L9.7 -80Z"
-          stroke="rgba(255,255,255,0.04)"
+          stroke="rgba(0,0,0,0.08)"
           strokeWidth="0.8"
-          fill="rgba(255,255,255,0.008)"
+          fill="rgba(0,0,0,0.025)"
         />
         {/* Nevada */}
         <path
           d="M228.1 20.8 L512.9 20.5 L512.9 375.1 L485 434.3 L481.5 434.1 L432.6 385.4 L346.1 303 L228.1 197.9Z"
-          stroke="rgba(255,255,255,0.04)"
+          stroke="rgba(0,0,0,0.08)"
           strokeWidth="0.8"
-          fill="rgba(255,255,255,0.008)"
+          fill="rgba(0,0,0,0.025)"
         />
         {/* Arizona (western portion) */}
         <path
           d="M512.9 375.1 L512.9 316 L600 316 L600 650 L480.8 582 L490.2 534.7 L507.7 475.6 L485 434.3Z"
-          stroke="rgba(255,255,255,0.04)"
+          stroke="rgba(0,0,0,0.08)"
           strokeWidth="0.8"
-          fill="rgba(255,255,255,0.008)"
+          fill="rgba(0,0,0,0.025)"
         />
 
-        {/* State fill */}
-        <path className="ca-fill" d={CA_PATH} fill="url(#ca-fill-grad)" />
+        {/* State fill — solid territory */}
+        <path className="ca-fill" d={CA_PATH} fill="rgba(180,83,9,0.07)" />
 
-        {/* State outline */}
+        {/* State outline — clean uniform stroke */}
         <path
           className="ca-outline"
           d={CA_PATH}
-          stroke="url(#ca-stroke-grad)"
-          strokeWidth="1.5"
+          stroke="rgba(180,83,9,0.45)"
+          strokeWidth="1.2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -267,7 +241,7 @@ export default function EdgeGlobe() {
             y1={route.from.y}
             x2={route.to.x}
             y2={route.to.y}
-            stroke="rgba(212,168,83,0.07)"
+            stroke="rgba(180,83,9,0.12)"
             strokeWidth="1"
             strokeDasharray="3 6"
           />
@@ -320,8 +294,8 @@ export default function EdgeGlobe() {
               cx={dc.x}
               cy={dc.y}
               r="6"
-              fill="none"
-              stroke="rgba(167,139,250,0.3)"
+              fill="rgba(124,58,237,0.15)"
+              stroke="rgba(124,58,237,0.4)"
               strokeWidth="1"
             />
             <circle
@@ -329,14 +303,14 @@ export default function EdgeGlobe() {
               cx={dc.x}
               cy={dc.y}
               r="3.5"
-              fill="rgba(167,139,250,0.9)"
+              fill="rgba(124,58,237,0.85)"
             />
             <text
               className="dc-label"
               x={dc.labelSide === "l" ? dc.x - 9 : dc.x + 9}
               y={dc.y + 3.5}
               textAnchor={dc.labelSide === "l" ? "end" : "start"}
-              fill="rgba(167,139,250,0.6)"
+              fill="#57534E"
               fontSize="8.5"
               fontFamily="system-ui, -apple-system, sans-serif"
               fontWeight="500"
@@ -354,14 +328,14 @@ export default function EdgeGlobe() {
               cx={city.x}
               cy={city.y}
               r={2.5}
-              fill="rgba(212,168,83,0.7)"
+              fill="rgba(180,83,9,0.85)"
             />
             <text
               className="client-label"
               x={city.x + 7}
               y={city.y + 3.5}
               textAnchor="start"
-              fill="rgba(212,168,83,0.4)"
+              fill="rgba(120,113,108,0.7)"
               fontSize="8.5"
               fontFamily="system-ui, -apple-system, sans-serif"
               fontWeight="400"

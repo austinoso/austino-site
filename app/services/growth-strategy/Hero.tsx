@@ -16,13 +16,13 @@ export default function Hero() {
           Launched is just{" "}
           <span className="text-gradient-gold">the starting line.</span>
         </h1>
-        <p className="text-base sm:text-lg text-stone-300 leading-relaxed text-pretty">
+        <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
           Most business websites stop working the day they launch. Yours
           doesn&apos;t have to.
         </p>
         <Link
           href="/contact"
-          className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-500 to-amber-400 text-warm-bg font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-500/20"
+          className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
         >
           Get a Free Consultation
           <ArrowRight
@@ -34,7 +34,7 @@ export default function Hero() {
 
       {/* Google search results mockup */}
       <div data-hero-visual className="lg:col-span-6" aria-hidden="true">
-        <div className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden shadow-2xl shadow-black/40">
+        <div className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden shadow-2xl shadow-black/40 select-none">
           {/* Browser chrome */}
           <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0F0E0B]">
             <div className="flex items-center gap-1.5">
@@ -121,8 +121,8 @@ export default function Hero() {
               </div>
               {/* Active strategy badge */}
               <div className="flex items-center gap-1.5 mt-3">
-                <CheckCircle2 className="w-3 h-3 text-[#4ADE80]" />
-                <span className="text-[10px] text-[#4ADE80] font-mono">
+                <CheckCircle2 className="w-3 h-3 text-green-400" />
+                <span className="text-[10px] text-green-400 font-mono">
                   Updated this week · 14 pages · Growth strategy active
                 </span>
               </div>

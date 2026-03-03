@@ -21,7 +21,7 @@ const pillars = [
       },
       {
         icon: FileSpreadsheet,
-        text: "A scheduled script that pulls POS data into your revenue spreadsheet every night",
+        text: "Your POS sales data, pulled into your revenue spreadsheet automatically every night",
       },
       {
         icon: Bell,
@@ -42,7 +42,7 @@ const pillars = [
       },
       {
         icon: FileSpreadsheet,
-        text: "Internal tools that replace manual processes your team currently does in spreadsheets and sticky notes",
+        text: "Internal tools that replace the manual work your team currently does in spreadsheets and sticky notes",
       },
       {
         icon: Bell,
@@ -56,10 +56,10 @@ const pillars = [
 export default function WhatIBuild() {
   return (
     <section data-fade>
-      <h2 className="text-2xl sm:text-3xl font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-warm-white leading-[1.2] tracking-tight text-balance mb-4 max-w-2xl">
         Custom code, built around how you actually&nbsp;work.
       </h2>
-      <p className="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mb-12 sm:mb-16">
+      <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-12 sm:mb-16">
         Every business runs differently. I study how your operation works,
         identify what&apos;s costing you time or money, and find the best way to
         fix it. Sometimes that&apos;s custom code. Sometimes it&apos;s an
@@ -73,17 +73,17 @@ export default function WhatIBuild() {
           return (
             <div
               key={pillar.label}
-              className={`rounded-xl p-7 sm:p-8 flex flex-col transition-colors duration-300 ${
+              className={`rounded-xl p-6 sm:p-7 flex flex-col transition-colors duration-300 ${
                 pillar.featured
-                  ? "border border-warm-gold/20 bg-warm-gold/[0.03] hover:bg-warm-gold/[0.06] hover:border-warm-gold/30"
-                  : "border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.10]"
+                  ? "border border-warm-gold/25 bg-warm-gold/[0.04] hover:bg-warm-gold/[0.07] hover:border-warm-gold/35 ring-1 ring-warm-gold/10"
+                  : "border border-stone-200 bg-white hover:bg-stone-50 hover:border-stone-300"
               }`}
             >
               {/* Header */}
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-md border border-warm-gold/15 bg-warm-gold/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 rounded-md bg-warm-gold/10 flex items-center justify-center flex-shrink-0">
                   <PillarIcon
-                    className="w-[18px] h-[18px] text-warm-gold"
+                    className="w-4 h-4 text-warm-gold"
                     aria-hidden="true"
                   />
                 </div>
@@ -96,13 +96,13 @@ export default function WhatIBuild() {
               <h3 className="text-lg sm:text-xl font-semibold font-display text-warm-white leading-snug tracking-tight mb-3">
                 {pillar.heading}
               </h3>
-              <p className="text-sm text-stone-400 leading-relaxed mb-8">
+              <p className="text-sm text-stone-500 leading-relaxed mb-8">
                 {pillar.body}
               </p>
 
               {/* Examples */}
-              <div className="mt-auto space-y-3.5">
-                <p className="text-[11px] font-mono text-stone-500 uppercase tracking-wider">
+              <div className="mt-auto pt-6 border-t border-stone-200/60 space-y-4">
+                <p className="text-[10px] font-mono text-stone-400 uppercase tracking-[0.15em]">
                   For example
                 </p>
                 {pillar.examples.map((ex) => {
@@ -110,10 +110,10 @@ export default function WhatIBuild() {
                   return (
                     <div key={ex.text} className="flex items-start gap-3">
                       <ExIcon
-                        className="w-3.5 h-3.5 text-warm-gold/60 flex-shrink-0 mt-0.5"
+                        className="w-4 h-4 text-warm-gold/70 flex-shrink-0 mt-0.5"
                         aria-hidden="true"
                       />
-                      <p className="text-sm text-stone-300 leading-relaxed">
+                      <p className="text-[13px] text-stone-500 leading-relaxed">
                         {ex.text}
                       </p>
                     </div>
@@ -126,17 +126,15 @@ export default function WhatIBuild() {
       </div>
 
       {/* Spectrum callout */}
-      <div className="mt-8 sm:mt-10 rounded-lg border border-white/[0.06] bg-white/[0.015] px-6 sm:px-8 py-5 sm:py-6">
-        <div>
-          <p className="text-sm font-medium text-warm-white mb-1">
-            The range is wide, and that&apos;s the point.
-          </p>
-          <p className="text-sm text-stone-400 leading-relaxed">
-            A cron job that syncs a spreadsheet with a CRM. A full custom
-            dashboard that replaces four tools. If you can describe the problem,
-            I&apos;ll scope a solution that fits your goals and budget.
-          </p>
-        </div>
+      <div className="mt-10 sm:mt-14 rounded-xl border border-stone-200 bg-white px-6 sm:px-10 py-8 sm:py-10">
+        <p className="text-lg sm:text-xl font-semibold font-display text-warm-white leading-snug tracking-tight mb-2">
+          The range is wide, and that&apos;s the point.
+        </p>
+        <p className="text-[15px] text-stone-500 leading-relaxed max-w-2xl">
+          A nightly sync between your spreadsheet and your CRM. A full custom
+          dashboard that replaces four tools. Big or small, I&apos;ll put
+          together something that fits your goals and&nbsp;budget.
+        </p>
       </div>
     </section>
   );

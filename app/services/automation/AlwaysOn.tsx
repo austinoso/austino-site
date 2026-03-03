@@ -3,10 +3,10 @@ import { Clock, Zap, CheckCircle2 } from "lucide-react";
 export default function AlwaysOn() {
   return (
     <section data-fade>
-      <h2 className="text-2xl sm:text-3xl font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         Runs at 2&nbsp;AM. Never calls in&nbsp;sick.
       </h2>
-      <p className="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mb-10">
+      <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-10">
         This isn&apos;t an argument against your employees. It&apos;s about
         freeing them up to do work that actually requires a human. The
         repetitive stuff? That&apos;s where code shines.
@@ -43,14 +43,14 @@ export default function AlwaysOn() {
             </span>
             365
           </p>
-          <p className="text-sm text-stone-400 leading-relaxed">
+          <p className="text-sm text-stone-500 leading-relaxed">
             Runs at 2am on Christmas just as reliably as 10am on a Tuesday. No
             overtime, no holidays.
           </p>
         </div>
 
         {/* Speed card */}
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-7 sm:p-8 flex flex-col transition-colors duration-300 hover:bg-white/[0.04] hover:border-white/[0.10]">
+        <div className="rounded-xl border border-stone-200 bg-white p-7 sm:p-8 flex flex-col transition-colors duration-300 hover:bg-stone-50 hover:border-stone-300">
           <div className="w-10 h-10 rounded-md border border-warm-gold/15 bg-warm-gold/10 flex items-center justify-center flex-shrink-0 mb-6">
             <Zap
               className="w-[18px] h-[18px] text-warm-gold"
@@ -66,14 +66,14 @@ export default function AlwaysOn() {
           <p className="text-[11px] text-stone-500 uppercase tracking-wider font-medium mb-3">
             vs 15 min by hand
           </p>
-          <p className="text-sm text-stone-400 leading-relaxed">
+          <p className="text-sm text-stone-500 leading-relaxed">
             A task that takes a person 15 minutes takes code about 200
             milliseconds. That gap adds up fast.
           </p>
         </div>
 
         {/* Accuracy card */}
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-7 sm:p-8 flex flex-col transition-colors duration-300 hover:bg-white/[0.04] hover:border-white/[0.10]">
+        <div className="rounded-xl border border-stone-200 bg-white p-7 sm:p-8 flex flex-col transition-colors duration-300 hover:bg-stone-50 hover:border-stone-300">
           <div className="w-10 h-10 rounded-md border border-warm-gold/15 bg-warm-gold/10 flex items-center justify-center flex-shrink-0 mb-6">
             <CheckCircle2
               className="w-[18px] h-[18px] text-warm-gold"
@@ -86,7 +86,7 @@ export default function AlwaysOn() {
               errors
             </span>
           </p>
-          <p className="text-sm text-stone-400 leading-relaxed">
+          <p className="text-sm text-stone-500 leading-relaxed">
             No fat-fingered numbers. No skipped rows. No &lsquo;I forgot to send
             that email.&rsquo; Every time, exactly right.
           </p>

@@ -533,10 +533,10 @@ export default function RealExamples() {
   return (
     <section ref={sectionRef}>
       {/* Section header */}
-      <h2 className="text-2xl sm:text-3xl font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         This is what you&apos;d actually get.
       </h2>
-      <p className="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mb-12 sm:mb-14">
+      <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-12 sm:mb-14">
         A custom automation hub built around your business. Some tools run on
         their own. Others are ready when you are.{" "}
         <span className="text-warm-white/80">
@@ -547,10 +547,11 @@ export default function RealExamples() {
       {/* ── Dashboard shell ───────────────────────── */}
       <div
         ref={dashRef}
-        className="rounded-lg border border-white/[0.06] bg-white/[0.015] overflow-hidden"
+        className="rounded-lg border border-white/[0.08] bg-[#0C0B09] overflow-hidden shadow-2xl shadow-black/40 select-none"
+        aria-hidden="true"
       >
         {/* Header bar */}
-        <div className="px-4 sm:px-5 py-3 border-b border-white/[0.06] bg-warm-surface flex items-center justify-between">
+        <div className="px-4 sm:px-5 py-3 border-b border-white/[0.06] bg-[#0F0E0B] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">
@@ -562,7 +563,7 @@ export default function RealExamples() {
           </div>
           <div className="hidden sm:flex items-center gap-1.5">
             <Zap className="w-3 h-3 text-warm-gold/50" aria-hidden />
-            <span className="text-[11px] text-stone-500 font-mono tabular-nums">
+            <span className="text-[11px] text-stone-400 font-mono tabular-nums">
               {TOOLS.length} automations
             </span>
           </div>
@@ -571,7 +572,7 @@ export default function RealExamples() {
         {/* Body: sidebar + main */}
         <div className="flex flex-col lg:flex-row min-h-[350px] sm:min-h-[400px] lg:min-h-[420px]">
           {/* ── Sidebar (desktop) ────────────────── */}
-          <div className="hidden lg:block lg:w-52 xl:w-56 flex-shrink-0 lg:border-r border-white/[0.06] bg-warm-surface/80">
+          <div className="hidden lg:block lg:w-52 xl:w-56 flex-shrink-0 lg:border-r border-white/[0.06] bg-[#0A0A0E]/80">
             <div className="flex flex-col gap-1 p-2">
               {TOOLS.map((entry, i) => {
                 const SideIcon = entry.icon;
@@ -619,7 +620,7 @@ export default function RealExamples() {
           </div>
 
           {/* ── Mobile dropdown ───────────────────── */}
-          <div className="lg:hidden border-b border-white/[0.06] bg-warm-surface/80 relative">
+          <div className="lg:hidden border-b border-white/[0.06] bg-[#0A0A0E]/80 relative">
             <div
               onClick={() => setMobileOpen((v) => !v)}
               onKeyDown={(e) => {
@@ -691,7 +692,7 @@ export default function RealExamples() {
               )}
             </div>
             {mobileOpen && (
-              <div className="absolute inset-x-0 top-full z-20 bg-warm-surface/80 border-b border-white/[0.06] shadow-lg">
+              <div className="absolute inset-x-0 top-full z-20 bg-[#0A0A0E] border-b border-white/[0.06] shadow-lg">
                 {TOOLS.map((entry, i) => {
                   const MIcon = entry.icon;
                   const on = i === activeTool;
@@ -834,8 +835,8 @@ export default function RealExamples() {
             </div>
 
             {/* Tool description */}
-            <div className="mt-auto px-4 sm:px-5 py-3 border-t border-white/[0.06] bg-warm-surface/40">
-              <p className="text-[11px] sm:text-[12px] text-stone-500 leading-relaxed">
+            <div className="mt-auto px-4 sm:px-5 py-3 border-t border-white/[0.06] bg-[#0A0A0E]/40">
+              <p className="text-[11px] sm:text-[12px] text-stone-400 leading-relaxed">
                 {tool.desc}
               </p>
             </div>
@@ -843,14 +844,14 @@ export default function RealExamples() {
         </div>
 
         {/* Footer bar */}
-        <div className="px-4 sm:px-5 py-2.5 border-t border-white/[0.06] bg-warm-surface/50 flex items-center justify-between">
+        <div className="px-4 sm:px-5 py-2.5 border-t border-white/[0.06] bg-[#0F0E0B] flex items-center justify-between">
           <div className="flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            <span className="text-[11px] text-stone-500">
+            <span className="text-[11px] text-stone-400">
               All systems operational
             </span>
           </div>
-          <span className="text-[11px] text-stone-500/60 font-mono">
+          <span className="text-[11px] text-stone-400/60 font-mono">
             custom-built for your business
           </span>
         </div>

@@ -45,7 +45,7 @@ export default function PillSelect({
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                 isSelected
                   ? "bg-cyber-accent/15 text-cyber-accent border border-cyber-accent/40 shadow-[0_0_12px_rgba(64,224,255,0.08)]"
-                  : "bg-[#111318] text-cyber-gray-400 border border-white/[0.06] hover:border-white/[0.12] hover:text-cyber-gray-300"
+                  : "bg-white text-cyber-gray-400 border border-stone-200 hover:border-stone-300 hover:text-cyber-gray-300"
               }`}
               aria-pressed={isSelected}
             >
@@ -60,7 +60,7 @@ export default function PillSelect({
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
               isOtherSelected
                 ? "bg-cyber-accent/15 text-cyber-accent border border-cyber-accent/40 shadow-[0_0_12px_rgba(64,224,255,0.08)]"
-                : "bg-[#111318] text-cyber-gray-400 border border-white/[0.06] hover:border-white/[0.12] hover:text-cyber-gray-300"
+                : "bg-white text-cyber-gray-400 border border-stone-200 hover:border-stone-300 hover:text-cyber-gray-300"
             }`}
             aria-pressed={isOtherSelected}
           >
@@ -75,7 +75,7 @@ export default function PillSelect({
           onChange={(e) => onOtherChange?.(e.target.value)}
           placeholder="What else do you use?"
           aria-label="Other tools you use"
-          className="w-full px-4 py-3 bg-[#111318] border border-white/[0.06] rounded-lg text-white text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-white/[0.12]"
+          className="w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-stone-300"
         />
       )}
     </div>

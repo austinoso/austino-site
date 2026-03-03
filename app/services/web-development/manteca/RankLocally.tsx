@@ -4,7 +4,7 @@ export default function RankLocally() {
   return (
     <section data-fade>
       <p className="section-label mb-4">What It Takes</p>
-      <h2 className="font-display text-2xl sm:text-3xl font-bold text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+      <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 leading-snug tracking-tight text-balance mb-4 max-w-2xl">
         What it actually takes to rank locally in Manteca.
       </h2>
       <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12">
@@ -14,16 +14,16 @@ export default function RankLocally() {
       </p>
 
       {/* Bento grid — 5-col like FirstImpressions */}
-      <div className="grid grid-cols-1 md:grid-cols-5 border-t border-l border-white/[0.06]">
+      <div className="grid grid-cols-1 md:grid-cols-5 border-t border-l border-stone-200">
         {/* ── Google Business Profile — featured, 3 cols × 2 rows ── */}
-        <div className="md:col-span-3 md:row-span-2 border-b border-r border-white/[0.06] p-7 sm:p-9 flex flex-col">
+        <div className="md:col-span-3 md:row-span-2 border-b border-r border-stone-200 p-7 sm:p-9 flex flex-col">
           <div className="w-10 h-10 rounded-full border border-cyber-accent/25 bg-cyber-accent/[0.06] flex items-center justify-center flex-shrink-0 mb-5">
             <MapPin
               className="w-[18px] h-[18px] text-cyber-accent"
               aria-hidden="true"
             />
           </div>
-          <h3 className="font-display text-lg sm:text-xl font-semibold text-white leading-snug mb-3">
+          <h3 className="font-display text-lg sm:text-xl font-semibold text-stone-900 leading-snug mb-3">
             Google Business Profile Integration
           </h3>
           <p className="text-[15px] text-cyber-gray-300 leading-relaxed max-w-md flex-1">
@@ -39,7 +39,7 @@ export default function RankLocally() {
         </div>
 
         {/* ── Local Schema ── */}
-        <div className="md:col-span-2 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+        <div className="md:col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
               <FileCode2
@@ -47,7 +47,7 @@ export default function RankLocally() {
                 aria-hidden="true"
               />
             </div>
-            <h3 className="text-[15px] font-semibold text-white">
+            <h3 className="text-[15px] font-semibold text-stone-900">
               Local Schema Markup
             </h3>
           </div>
@@ -62,7 +62,7 @@ export default function RankLocally() {
         </div>
 
         {/* ── Mobile-First ── */}
-        <div className="md:col-span-2 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+        <div className="md:col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
               <Smartphone
@@ -70,7 +70,7 @@ export default function RankLocally() {
                 aria-hidden="true"
               />
             </div>
-            <h3 className="text-[15px] font-semibold text-white">
+            <h3 className="text-[15px] font-semibold text-stone-900">
               Mobile-First Design
             </h3>
           </div>
@@ -85,7 +85,7 @@ export default function RankLocally() {
         </div>
 
         {/* ── Page Speed ── */}
-        <div className="md:col-span-2 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+        <div className="md:col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
               <Gauge
@@ -93,7 +93,7 @@ export default function RankLocally() {
                 aria-hidden="true"
               />
             </div>
-            <h3 className="text-[15px] font-semibold text-white">
+            <h3 className="text-[15px] font-semibold text-stone-900">
               Page Speed &amp; Core Web Vitals
             </h3>
           </div>
@@ -108,7 +108,7 @@ export default function RankLocally() {
         </div>
 
         {/* ── Content / E-E-A-T ── */}
-        <div className="md:col-span-3 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+        <div className="md:col-span-3 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
               <Star
@@ -116,7 +116,7 @@ export default function RankLocally() {
                 aria-hidden="true"
               />
             </div>
-            <h3 className="text-[15px] font-semibold text-white">
+            <h3 className="text-[15px] font-semibold text-stone-900">
               Content That Proves Expertise
             </h3>
           </div>

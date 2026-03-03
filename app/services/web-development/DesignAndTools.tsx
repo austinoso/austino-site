@@ -73,7 +73,7 @@ export default function DesignAndTools() {
           A site that looks as good as{" "}
           <span className="text-gradient-gold">your work.</span>
         </h2>
-        <p className="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mb-14 sm:mb-20">
+        <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-14 sm:mb-20">
           No templates. No page builders. Every layout, animation, and
           interaction is designed from scratch to make your business look
           premium — because first impressions are everything.
@@ -85,14 +85,16 @@ export default function DesignAndTools() {
         {/* Left — Browser mockup */}
         <div className="lg:col-span-7">
           <div
-            className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden"
+            className="rounded-xl border border-stone-300 bg-[#0C0B09] overflow-hidden select-none"
             style={{
-              boxShadow:
-                "0 24px 48px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03)",
+              boxShadow: "0 24px 48px -12px rgba(0,0,0,0.12)",
             }}
           >
             {/* Browser chrome */}
-            <div className="flex items-center gap-3 px-4 py-2 border-b border-white/[0.04]">
+            <div
+              className="flex items-center gap-3 px-4 py-2 border-b border-white/[0.04]"
+              aria-hidden="true"
+            >
               <div className="flex items-center gap-1.5">
                 <span className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
                 <span className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
@@ -122,7 +124,7 @@ export default function DesignAndTools() {
               className="w-full h-auto object-cover"
             />
           </div>
-          <p className="text-sm text-stone-400 mt-4">
+          <p className="text-sm text-stone-500 mt-4">
             Built in{" "}
             <span className="text-warm-white font-medium">2 weeks</span> and
             ranking on{" "}
@@ -146,19 +148,16 @@ export default function DesignAndTools() {
             return (
               <div
                 key={d.label}
-                className="flex items-start gap-3 py-3 px-3 rounded-lg border border-transparent hover:border-white/[0.06] hover:bg-white/[0.02] transition-colors duration-200"
+                className="flex items-start gap-3 py-3 px-3 rounded-lg border border-transparent hover:border-stone-300 hover:bg-stone-50 transition-colors duration-200"
               >
-                <div className="w-8 h-8 rounded-md bg-warm-gold/10 border border-warm-gold/15 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon
-                    className="w-4 h-4 text-warm-gold/70"
-                    aria-hidden="true"
-                  />
+                <div className="w-8 h-8 rounded-md bg-warm-gold/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
                 </div>
                 <div>
                   <span className="text-sm font-medium text-warm-white block leading-snug">
                     {d.label}
                   </span>
-                  <span className="text-[13px] text-stone-400 leading-relaxed block mt-0.5">
+                  <span className="text-[13px] text-stone-500 leading-relaxed block mt-0.5">
                     {d.desc}
                   </span>
                 </div>
@@ -174,29 +173,26 @@ export default function DesignAndTools() {
           <h3 className="font-display text-2xl sm:text-3xl font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-3">
             Your site does the busy work.
           </h3>
-          <p className="text-sm sm:text-base text-stone-400 leading-relaxed">
+          <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
             Every site comes with tools that let customers take action.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {tools.map((tool) => {
             const Icon = tool.icon;
             return (
               <div
                 key={tool.title}
-                className="rounded-xl bg-white/[0.02] border border-white/[0.06] p-6 sm:p-7 transition-colors duration-300 hover:bg-white/[0.04] hover:border-white/[0.10]"
+                className="rounded-xl bg-white border border-stone-200 p-6 sm:p-7 transition-colors duration-300 hover:bg-stone-50 hover:border-stone-300"
               >
                 <div className="flex items-center gap-2.5 mb-2">
-                  <Icon
-                    className="w-4 h-4 text-warm-gold/60"
-                    aria-hidden="true"
-                  />
+                  <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
                   <h4 className="text-base font-semibold text-warm-white">
                     {tool.title}
                   </h4>
                 </div>
-                <p className="text-sm text-stone-400 leading-relaxed">
+                <p className="text-sm text-stone-500 leading-relaxed">
                   {tool.body}
                 </p>
               </div>
@@ -206,15 +202,12 @@ export default function DesignAndTools() {
           {/* Wildcard — custom development */}
           <div className="rounded-xl border border-warm-gold/20 bg-warm-gold/[0.03] p-6 sm:p-7 transition-colors duration-300 hover:bg-warm-gold/[0.06] hover:border-warm-gold/30">
             <div className="flex items-center gap-2.5 mb-2">
-              <Wrench
-                className="w-4 h-4 text-warm-gold/60"
-                aria-hidden="true"
-              />
+              <Wrench className="w-4 h-4 text-warm-gold" aria-hidden="true" />
               <h4 className="text-base font-semibold text-warm-gold">
                 Need something specific?
               </h4>
             </div>
-            <p className="text-sm text-stone-400 leading-relaxed">
+            <p className="text-sm text-stone-500 leading-relaxed">
               Most of the time the right tool already exists. But if your
               business needs something that doesn&apos;t, I build it.
             </p>

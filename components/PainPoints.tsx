@@ -1,157 +1,110 @@
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 /* ────────────────────────────────────────────────────────────────── */
-/*  Card data                                                        */
+/*  Data                                                             */
 /* ────────────────────────────────────────────────────────────────── */
 
-const opportunities = [
+const points = [
   {
-    number: "01",
-    title: "Their websites are stuck in\u00A02018",
+    title: "Slow sites bleed customers before they\u00A0land",
     description:
-      "Slow templates, broken mobile layouts, zero SEO. A fast, custom-built site puts you in a different league overnight.",
-    stat: "53%",
-    statLabel:
-      "of mobile users leave a site that takes over 3\u00A0seconds to load",
-    span: "md:col-span-7",
-    color: "text-warm-gold",
-    hoverColor: "group-hover:text-warm-gold",
-    numberColor: "text-warm-gold/40",
+      "Most local businesses run bloated templates that take 6\u201310\u00A0seconds to load. A fast, custom-built site puts you in front of every search\u00A0\u2014\u00A0before competitors even\u00A0render.",
   },
   {
-    number: "02",
-    title: "They have no plan after\u00A0launch",
+    title: "Page one belongs to whoever shows\u00A0up",
     description:
-      "A website without a strategy is a billboard nobody drives past. The businesses winning online are the ones that keep publishing, keep optimizing, and keep showing\u00A0up.",
-    stat: "75%",
-    statLabel: "of users never scroll past page\u00A01 of Google",
-    span: "md:col-span-5",
-    color: "text-warm-gold",
-    hoverColor: "group-hover:text-warm-gold",
-    numberColor: "text-warm-gold/40",
+      "Most businesses launch a site and never touch it again. The ones that keep publishing and optimizing are the ones that\u00A0rank.",
   },
   {
-    number: "03",
-    title: "They launched and walked\u00A0away",
+    title: "Launch-and-forget is the\u00A0norm",
     description:
-      "No updates, no optimization, no strategy. Continuous improvement means you pull further ahead every single month.",
-    stat: "88%",
-    statLabel: "of users won\u2019t return after a bad experience",
-    span: "md:col-span-12",
+      "No updates, no optimization, no strategy. The businesses that keep improving are the ones that pull further ahead every\u00A0month.",
+  },
+];
+
+const stats = [
+  {
+    value: "53%",
+    label: "of mobile users leave after 3\u00A0s",
     color: "text-warm-gold",
-    hoverColor: "group-hover:text-warm-gold",
-    numberColor: "text-warm-gold/40",
+  },
+  {
+    value: "75%",
+    label: "never scroll past page\u00A01",
+    color: "text-gradient-brand",
+  },
+  {
+    value: "88%",
+    label: "won\u2019t return after a bad\u00A0UX",
+    color: "text-warm-gold",
   },
 ];
 
 /* ────────────────────────────────────────────────────────────────── */
-/*  Component (server — content is in the initial HTML)              */
+/*  Component                                                        */
 /* ────────────────────────────────────────────────────────────────── */
 
 export default function PainPoints() {
   return (
     <ScrollReveal
       as="section"
-      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-24 md:pb-24 border-b border-white/[0.06]"
+      className="relative w-full py-14 sm:py-16 md:py-20 border-b border-stone-200"
       aria-labelledby="pain-points-heading"
     >
-      {/* Gradient divider line */}
-      <div
-        className="absolute top-0 inset-x-0 h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, rgba(212,168,83,0.15) 20%, rgba(167,139,250,0.15) 50%, rgba(244,114,182,0.12) 80%, transparent)",
-        }}
-        aria-hidden="true"
-      />
-      <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
-        {/* ── Header ── */}
-        <div className="mb-14 sm:mb-20">
-          <span data-animate="label" className="section-label block mb-5">
-            The Opportunity
-          </span>
-          <h2
-            id="pain-points-heading"
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight max-w-3xl"
-          >
-            Most businesses in your area aren&apos;t doing this.{" "}
-            <span className="text-warm-gold">Yours</span> can.
-          </h2>
-        </div>
+      <div className="px-6 sm:px-10 md:px-14 lg:px-20">
+        {/* ── Two-column: prose left, stats right ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* ── Left: header + points ── */}
+          <div className="lg:col-span-7">
+            <span data-animate="label" className="section-label block mb-5">
+              The Opportunity
+            </span>
+            <h2
+              id="pain-points-heading"
+              data-animate="card"
+              className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight mb-10 sm:mb-12"
+            >
+              Your competitors made{" "}
+              <span className="text-gradient-gold">this&nbsp;easy.</span>
+            </h2>
 
-        {/* ── Bento grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5">
-          {opportunities.map((item, index) => {
-            const isWide = item.span === "md:col-span-12";
+            <div data-animate="card" className="space-y-8">
+              {points.map((point, i) => (
+                <div key={i}>
+                  <h3 className="font-display text-lg sm:text-xl font-semibold text-warm-white leading-snug">
+                    {point.title}
+                  </h3>
+                  <p className="mt-2 text-[0.9375rem] text-stone-600 leading-relaxed">
+                    {point.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
 
-            return (
-              <div
-                key={index}
-                data-animate="card"
-                className={`group relative ${item.span} rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 sm:p-10 md:p-12`}
-              >
-                {isWide ? (
-                  /* ── Wide card: horizontal layout on md+ ── */
-                  <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-16">
-                    <div className="flex-1 min-w-0">
-                      <span
-                        className={`font-mono text-[11px] ${item.numberColor} tracking-widest uppercase block mb-5`}
-                      >
-                        {item.number}
-                      </span>
-                      <h3
-                        className={`font-display text-xl sm:text-2xl font-semibold text-warm-white leading-snug mb-3 ${item.hoverColor} transition-colors duration-500`}
-                      >
-                        {item.title}
-                      </h3>
-                      <p className="text-[0.9375rem] text-stone-300 leading-relaxed max-w-md">
-                        {item.description}
-                      </p>
-                    </div>
-                    <div className="flex items-end gap-4 flex-shrink-0 md:pb-0.5">
-                      <span
-                        className={`font-display text-5xl sm:text-6xl md:text-7xl font-bold ${item.color} leading-none`}
-                      >
-                        {item.stat}
-                      </span>
-                      <p className="text-xs text-stone-400 leading-relaxed max-w-[200px] pb-1.5">
-                        {item.statLabel}
-                      </p>
-                    </div>
-                  </div>
-                ) : (
-                  /* ── Standard card: vertical stack ── */
-                  <div className="flex flex-col justify-between gap-8 sm:gap-10 h-full">
-                    <div>
-                      <span
-                        className={`font-mono text-[11px] ${item.numberColor} tracking-widest uppercase block mb-5`}
-                      >
-                        {item.number}
-                      </span>
-                      <h3
-                        className={`font-display text-xl sm:text-2xl font-semibold text-warm-white leading-snug mb-3 ${item.hoverColor} transition-colors duration-500`}
-                      >
-                        {item.title}
-                      </h3>
-                      <p className="text-[0.9375rem] text-stone-300 leading-relaxed max-w-md">
-                        {item.description}
-                      </p>
-                    </div>
-                    <div className="flex items-end gap-4">
-                      <span
-                        className={`font-display text-4xl sm:text-5xl md:text-6xl font-bold ${item.color} leading-none flex-shrink-0`}
-                      >
-                        {item.stat}
-                      </span>
-                      <p className="text-xs text-stone-400 leading-relaxed max-w-[200px] pb-1">
-                        {item.statLabel}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          {/* ── Right: stat sidebar ── */}
+          <div className="lg:col-span-5 flex flex-col justify-center">
+            <div
+              data-animate="card"
+              className="grid grid-cols-3 lg:grid-cols-1 gap-6 lg:gap-0 lg:divide-y lg:divide-stone-200 border-t border-stone-200 pt-8 lg:border-t-0 lg:pt-0 lg:border-l lg:border-stone-200 lg:pl-12"
+            >
+              {stats.map((stat, i) => (
+                <div
+                  key={i}
+                  className={`${i > 0 ? "lg:pt-8" : ""} ${i < stats.length - 1 ? "lg:pb-8" : ""}`}
+                >
+                  <span
+                    className={`font-display text-4xl sm:text-5xl lg:text-6xl font-bold ${stat.color} leading-none block`}
+                  >
+                    {stat.value}
+                  </span>
+                  <p className="mt-2 text-sm text-stone-500 leading-relaxed">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </ScrollReveal>

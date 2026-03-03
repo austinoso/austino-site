@@ -57,18 +57,18 @@ export default function LawFirmsCentralValleyPage() {
       <div className="page-frame">
         {/* ── Hero ── */}
         <div
-          className="relative border-b border-white/[0.06] overflow-hidden"
+          className="relative border-b border-stone-200 overflow-hidden"
           style={{
             backgroundImage: [
-              "radial-gradient(ellipse 80% 70% at 85% 10%, rgba(64,224,255,0.14), rgba(167,139,250,0.12) 40%, rgba(244,114,182,0.06) 70%, transparent 100%)",
-              "radial-gradient(ellipse 60% 55% at 10% 90%, rgba(64,224,255,0.08), rgba(167,139,250,0.04) 50%, transparent 80%)",
+              "radial-gradient(ellipse 80% 70% at 85% 10%, rgba(64,224,255,0.013), rgba(167,139,250,0.011) 40%, rgba(244,114,182,0.005) 70%, transparent 100%)",
+              "radial-gradient(ellipse 60% 55% at 10% 90%, rgba(64,224,255,0.007), rgba(167,139,250,0.005) 50%, transparent 80%)",
             ].join(", "),
           }}
         >
           <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
             <Link
               href="/#solutions"
-              className="inline-flex items-center gap-2 text-sm font-mono text-cyber-gray-400 hover:text-white transition-colors duration-300 mb-10 sm:mb-14 tracking-wide"
+              className="inline-flex items-center gap-2 text-sm font-mono text-cyber-gray-400 hover:text-stone-900 transition-colors duration-300 mb-10 sm:mb-14 tracking-wide"
             >
               <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
               <span>Back to Home</span>
@@ -81,7 +81,7 @@ export default function LawFirmsCentralValleyPage() {
                     · Central Valley
                   </span>
                 </div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-white leading-tight tracking-tight text-balance">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-stone-900 leading-tight tracking-tight text-balance">
                   Most law firms have a website.{" "}
                   <span className="text-cyber-accent">
                     Very few have an online presence.
@@ -107,8 +107,11 @@ export default function LawFirmsCentralValleyPage() {
 
               {/* Hero visual — browser mockup with screenshot */}
               <div data-hero-visual className="lg:col-span-6">
-                <div className="rounded-lg border border-white/[0.06] bg-[#0A0A0E] overflow-hidden">
-                  <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13]">
+                <div className="rounded-lg border border-white/[0.06] bg-[#0A0A0E] overflow-hidden select-none">
+                  <div
+                    className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13]"
+                    aria-hidden="true"
+                  >
                     <div className="flex items-center gap-1.5">
                       <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
                       <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
@@ -142,11 +145,11 @@ export default function LawFirmsCentralValleyPage() {
         </div>
 
         {/* ── The Problem ── */}
-        <div className="border-b border-white/[0.06]">
+        <div className="border-b border-stone-200">
           <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
             <section data-fade>
               <p className="section-label mb-4">The Gap</p>
-              <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+              <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-4 max-w-2xl">
                 Most firms in the Valley aren&apos;t doing this yet.
               </h2>
               <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12 text-pretty">
@@ -158,16 +161,16 @@ export default function LawFirmsCentralValleyPage() {
               </p>
 
               {/* Bento grid */}
-              <div className="grid grid-cols-1 md:grid-cols-5 border-t border-l border-white/[0.06]">
+              <div className="grid grid-cols-1 md:grid-cols-5 border-t border-l border-stone-200">
                 {/* Featured — Template Trap (3 cols, 2 rows) */}
-                <div className="md:col-span-3 md:row-span-2 border-b border-r border-white/[0.06] p-7 sm:p-9 flex flex-col">
+                <div className="md:col-span-3 md:row-span-2 border-b border-r border-stone-200 p-7 sm:p-9 flex flex-col">
                   <div className="w-10 h-10 rounded-full border border-cyber-accent/25 bg-cyber-accent/[0.06] flex items-center justify-center flex-shrink-0 mb-5">
                     <Palette
                       className="w-[18px] h-[18px] text-cyber-accent"
                       aria-hidden="true"
                     />
                   </div>
-                  <h3 className="font-display text-lg sm:text-xl font-semibold text-white leading-snug mb-3">
+                  <h3 className="font-display text-lg sm:text-xl font-semibold text-stone-900 leading-snug mb-3">
                     Same templates, same first impression
                   </h3>
                   <p className="text-[15px] text-cyber-gray-300 leading-relaxed max-w-md flex-1">
@@ -234,7 +237,7 @@ export default function LawFirmsCentralValleyPage() {
                 </div>
 
                 {/* Invisible on Google */}
-                <div className="md:col-span-2 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+                <div className="md:col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
                       <Search
@@ -242,7 +245,7 @@ export default function LawFirmsCentralValleyPage() {
                         aria-hidden="true"
                       />
                     </div>
-                    <h3 className="text-[15px] font-semibold text-white">
+                    <h3 className="text-[15px] font-semibold text-stone-900">
                       Not showing up on Google
                     </h3>
                   </div>
@@ -265,7 +268,7 @@ export default function LawFirmsCentralValleyPage() {
                 </div>
 
                 {/* No path to action */}
-                <div className="md:col-span-2 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+                <div className="md:col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
                       <Users
@@ -273,7 +276,7 @@ export default function LawFirmsCentralValleyPage() {
                         aria-hidden="true"
                       />
                     </div>
-                    <h3 className="text-[15px] font-semibold text-white">
+                    <h3 className="text-[15px] font-semibold text-stone-900">
                       No clear way to reach out
                     </h3>
                   </div>
@@ -297,7 +300,7 @@ export default function LawFirmsCentralValleyPage() {
                 </div>
 
                 {/* One-size-fits-none */}
-                <div className="md:col-span-2 border-b border-r border-white/[0.06] p-6 sm:p-8 flex flex-col">
+                <div className="md:col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
                       <Code
@@ -305,7 +308,7 @@ export default function LawFirmsCentralValleyPage() {
                         aria-hidden="true"
                       />
                     </div>
-                    <h3 className="text-[15px] font-semibold text-white">
+                    <h3 className="text-[15px] font-semibold text-stone-900">
                       Built for every firm, not yours
                     </h3>
                   </div>
@@ -385,16 +388,16 @@ export default function LawFirmsCentralValleyPage() {
 
         {/* ── The Demo ── */}
         <div
-          className="relative border-b border-white/[0.06] overflow-hidden"
+          className="relative border-b border-stone-200 overflow-hidden"
           style={{
             backgroundImage:
-              "radial-gradient(ellipse 55% 60% at 55% 15%, rgba(64,224,255,0.04), rgba(167,139,250,0.02) 50%, transparent 80%)",
+              "radial-gradient(ellipse 55% 60% at 55% 15%, rgba(64,224,255,0.005), rgba(167,139,250,0.005) 50%, transparent 80%)",
           }}
         >
           <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
             <section data-fade>
               <p className="section-label mb-4">The Solution</p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-white leading-[1.1] tracking-tight text-balance mb-4 max-w-2xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-stone-900 leading-[1.1] tracking-tight text-balance mb-4 max-w-2xl">
                 An online presence that builds trust &mdash; even when
                 you&apos;re in court.
               </h2>
@@ -407,7 +410,7 @@ export default function LawFirmsCentralValleyPage() {
               </p>
 
               {/* Bento: demo + feature cards */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 border-t border-l border-white/[0.06]">
+              <div className="grid grid-cols-1 lg:grid-cols-2 border-t border-l border-stone-200">
                 {/* Screenshot cell */}
                 <div className="lg:row-span-2 border-b border-r border-white/[0.06] bg-[#0A0A0E] overflow-hidden flex flex-col">
                   {/* Browser chrome */}
@@ -475,7 +478,7 @@ export default function LawFirmsCentralValleyPage() {
                 ].map((item) => (
                   <div
                     key={item.title}
-                    className="border-b border-r border-white/[0.06] p-5 sm:p-6 flex flex-col"
+                    className="border-b border-r border-stone-200 p-5 sm:p-6 flex flex-col"
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
@@ -484,7 +487,7 @@ export default function LawFirmsCentralValleyPage() {
                           aria-hidden="true"
                         />
                       </div>
-                      <h4 className="text-[15px] font-semibold text-white">
+                      <h4 className="text-[15px] font-semibold text-stone-900">
                         {item.title}
                       </h4>
                     </div>
@@ -499,11 +502,11 @@ export default function LawFirmsCentralValleyPage() {
         </div>
 
         {/* ── Not a Template ── */}
-        <div className="border-b border-white/[0.06]">
+        <div className="border-b border-stone-200">
           <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
             <section data-fade>
               <p className="section-label mb-4">How It Works</p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-white leading-[1.1] tracking-tight text-pretty mb-4 max-w-2xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-stone-900 leading-[1.1] tracking-tight text-pretty mb-4 max-w-2xl">
                 You run your practice. I&apos;ll build the presence
                 around&nbsp;it.
               </h2>
@@ -536,7 +539,7 @@ export default function LawFirmsCentralValleyPage() {
                         className="hidden sm:block absolute top-[18px] right-0 w-full h-px z-0 pointer-events-none"
                         style={{
                           background:
-                            "linear-gradient(to right, rgba(64,224,255,0.2), rgba(64,224,255,0.04))",
+                            "linear-gradient(to right, rgba(64,224,255,0.018), rgba(64,224,255,0.005))",
                           left: "calc(38px + 1rem)",
                           width: "calc(100% - 38px - 1rem)",
                         }}
@@ -555,13 +558,13 @@ export default function LawFirmsCentralValleyPage() {
                             className="flex-1 h-px sm:hidden"
                             style={{
                               background:
-                                "linear-gradient(to right, rgba(64,224,255,0.2), rgba(64,224,255,0.04))",
+                                "linear-gradient(to right, rgba(64,224,255,0.018), rgba(64,224,255,0.005))",
                             }}
                           />
                         )}
                       </div>
 
-                      <h3 className="text-base sm:text-lg font-semibold text-white mb-2.5">
+                      <h3 className="text-base sm:text-lg font-semibold text-stone-900 mb-2.5">
                         {item.title}
                       </h3>
                       <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty max-w-sm">
@@ -573,7 +576,7 @@ export default function LawFirmsCentralValleyPage() {
               </div>
 
               {/* Service links */}
-              <div className="mt-12 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row gap-4 sm:gap-8">
+              <div className="mt-12 pt-8 border-t border-stone-200 flex flex-col sm:flex-row gap-4 sm:gap-8">
                 <Link
                   href="/services/web-development"
                   className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300"
@@ -595,16 +598,16 @@ export default function LawFirmsCentralValleyPage() {
 
         {/* ── What You Get ── */}
         <div
-          className="relative border-b border-white/[0.06] overflow-hidden"
+          className="relative border-b border-stone-200 overflow-hidden"
           style={{
             backgroundImage:
-              "radial-gradient(ellipse 65% 60% at 15% 35%, rgba(167,139,250,0.05), rgba(64,224,255,0.06) 50%, transparent 85%)",
+              "radial-gradient(ellipse 65% 60% at 15% 35%, rgba(167,139,250,0.005), rgba(64,224,255,0.005) 50%, transparent 85%)",
           }}
         >
           <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
             <section data-fade>
               <p className="section-label mb-4">What&apos;s Included</p>
-              <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
+              <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-4 max-w-2xl">
                 Built for how law firms actually get clients.
               </h2>
               <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-2 text-pretty">
@@ -749,7 +752,7 @@ export default function LawFirmsCentralValleyPage() {
                     <div
                       key={item.title}
                       className={`flex items-start gap-4 py-5 ${
-                        i > 0 ? "border-t border-white/[0.06]" : ""
+                        i > 0 ? "border-t border-stone-200" : ""
                       }`}
                     >
                       <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -759,7 +762,7 @@ export default function LawFirmsCentralValleyPage() {
                         />
                       </div>
                       <div>
-                        <h3 className="text-[15px] font-semibold text-white mb-1">
+                        <h3 className="text-[15px] font-semibold text-stone-900 mb-1">
                           {item.title}
                         </h3>
                         <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty">
@@ -775,13 +778,13 @@ export default function LawFirmsCentralValleyPage() {
         </div>
 
         {/* ── Why Central Valley ── */}
-        <div className="border-b border-white/[0.06]">
+        <div className="border-b border-stone-200">
           <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
             <section data-fade>
               <p className="section-label mb-4">Why the Central Valley</p>
               <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
                 <div className="lg:col-span-7">
-                  <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4">
+                  <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-4">
                     I grew up here. I know this market.
                   </h2>
                   <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed mb-6 text-pretty">
@@ -799,7 +802,7 @@ export default function LawFirmsCentralValleyPage() {
                   </p>
 
                   {/* Closer — mirrors homepage style */}
-                  <div className="mt-10 sm:mt-12 pt-8 border-t border-white/[0.06]">
+                  <div className="mt-10 sm:mt-12 pt-8 border-t border-stone-200">
                     <p className="font-display text-2xl sm:text-3xl font-semibold text-cyber-gray-300 leading-snug">
                       One firm per practice area. One city.{" "}
                       <span className="text-gradient">
@@ -807,7 +810,7 @@ export default function LawFirmsCentralValleyPage() {
                       </span>
                     </p>
                     <div className="mt-5 flex items-center gap-3">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
                       <span className="text-xs font-mono text-cyber-gray-400">
                         Spots are limited — check availability
                       </span>
@@ -892,11 +895,11 @@ export default function LawFirmsCentralValleyPage() {
         </div>
 
         {/* ── FAQ ── */}
-        <div className="border-b border-white/[0.06]">
+        <div className="border-b border-stone-200">
           <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
             <section data-fade>
               <p className="section-label mb-4">Common Questions</p>
-              <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-10 max-w-2xl">
+              <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-10 max-w-2xl">
                 Straight answers to the questions I hear most.
               </h2>
 
@@ -906,13 +909,13 @@ export default function LawFirmsCentralValleyPage() {
         </div>
 
         {/* ── Final CTA ── */}
-        <div className="border-b border-white/[0.06]">
+        <div className="border-b border-stone-200">
           <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
             <section data-fade>
               <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
                 <div className="max-w-xl">
                   <p className="section-label mb-4">Get Started</p>
-                  <h2 className="text-2xl sm:text-3xl font-bold font-display text-white leading-snug tracking-tight text-balance mb-4">
+                  <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-4">
                     Most firms won&apos;t do this. That&apos;s your edge.
                   </h2>
                   <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed text-pretty">
@@ -936,7 +939,7 @@ export default function LawFirmsCentralValleyPage() {
                   </Link>
                 </div>
               </div>
-              <div className="border-t border-white/[0.06] mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
+              <div className="border-t border-stone-200 mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
                 <Link
                   href="/services/web-development"
                   className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300"

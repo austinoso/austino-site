@@ -19,7 +19,7 @@ export default function StepCheckout({
         <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
           Almost Done
         </p>
-        <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-tight tracking-tight mb-3">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-stone-900 leading-tight tracking-tight mb-3">
           Let&apos;s lock it in.
         </h2>
         <p className="text-base text-cyber-gray-300 leading-relaxed max-w-lg">
@@ -48,7 +48,7 @@ export default function StepCheckout({
             </div>
           </div>
 
-          <h3 className="text-lg font-semibold text-white mb-2 leading-snug">
+          <h3 className="text-lg font-semibold text-stone-900 mb-2 leading-snug">
             Pay $200 Deposit
           </h3>
           <p className="text-sm text-cyber-gray-400 leading-relaxed mb-5">
@@ -67,15 +67,15 @@ export default function StepCheckout({
           type="button"
           onClick={onSkipToCall}
           disabled={isSubmitting}
-          className="group relative p-6 sm:p-8 rounded-xl border border-white/[0.06] bg-[#111318] text-left transition-all duration-300 hover:border-white/[0.12] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+          className="group relative p-6 sm:p-8 rounded-xl border border-stone-200 bg-white text-left transition-all duration-300 hover:border-stone-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
         >
           <div className="mb-4">
-            <div className="p-2 rounded-lg bg-white/[0.04] inline-block">
+            <div className="p-2 rounded-lg bg-stone-100 inline-block">
               <Calendar className="w-5 h-5 text-cyber-gray-400" />
             </div>
           </div>
 
-          <h3 className="text-lg font-semibold text-white mb-2 leading-snug">
+          <h3 className="text-lg font-semibold text-stone-900 mb-2 leading-snug">
             Skip to Discovery Call
           </h3>
           <p className="text-sm text-cyber-gray-400 leading-relaxed mb-5">
@@ -83,7 +83,7 @@ export default function StepCheckout({
             and follow up with a plan.
           </p>
 
-          <div className="flex items-center gap-2 text-sm font-semibold text-cyber-gray-300 group-hover:gap-3 group-hover:text-white transition-all duration-300">
+          <div className="flex items-center gap-2 text-sm font-semibold text-cyber-gray-300 group-hover:gap-3 group-hover:text-stone-900 transition-all duration-300">
             <span>Schedule Call</span>
             <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </div>

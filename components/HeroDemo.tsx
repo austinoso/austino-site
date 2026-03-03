@@ -482,7 +482,7 @@ export default function HeroDemo() {
   return (
     <div ref={demoRef} className="relative">
       <div
-        className="relative rounded-xl border border-white/[0.06] bg-[#0C0B09] overflow-hidden"
+        className="relative rounded-xl border border-white/[0.06] bg-[#0C0B09] overflow-hidden select-none"
         style={{
           boxShadow:
             "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02)",
@@ -709,7 +709,7 @@ export default function HeroDemo() {
               style={{ opacity: 0 }}
             >
               <div className="flex items-center gap-1.5 mb-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+                <div className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
                 <p className="text-[12px] font-mono text-stone-400 uppercase tracking-wider">
                   Behind the scenes
                 </p>
@@ -747,7 +747,7 @@ export default function HeroDemo() {
                     className="htask flex items-center gap-3 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.05]"
                     style={{ opacity: 0 }}
                   >
-                    <div className="flex-shrink-0 h-7 w-7 rounded bg-[#4ADE80]/10 flex items-center justify-center">
+                    <div className="flex-shrink-0 h-7 w-7 rounded bg-green-400/10 flex items-center justify-center">
                       <svg viewBox="0 0 16 16" className="w-3.5 h-3.5">
                         <path
                           className="htask-check"
@@ -789,9 +789,9 @@ export default function HeroDemo() {
                     Your Results
                   </p>
                 </div>
-                <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#4ADE80]/10 border border-[#4ADE80]/20">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]"></span>
-                  <span className="text-[8px] font-mono text-[#4ADE80]">
+                <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-400/10 border border-green-400/20">
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+                  <span className="text-[8px] font-mono text-green-400">
                     Live
                   </span>
                 </div>
@@ -849,7 +849,7 @@ export default function HeroDemo() {
                 </div>
                 {/* Conversion rate */}
                 <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-4 flex flex-col items-center justify-center">
-                  <p className="text-[34px] font-semibold text-[#4ADE80] leading-none mb-1.5">
+                  <p className="text-[34px] font-semibold text-green-400 leading-none mb-1.5">
                     <span ref={statConv}>0%</span>
                   </p>
                   <p className="text-[10px] text-stone-500 font-mono uppercase tracking-wider">
@@ -860,7 +860,7 @@ export default function HeroDemo() {
 
               {/* Footer tagline */}
               <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-center gap-1.5">
-                <span className="h-1 w-1 rounded-full bg-[#4ADE80]"></span>
+                <span className="h-1 w-1 rounded-full bg-green-400"></span>
                 <p className="text-[10px] font-mono text-stone-500 uppercase tracking-wider">
                   All automated &middot; Zero busywork
                 </p>

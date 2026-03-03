@@ -36,7 +36,7 @@ export default function FeatureCard({
 
   return (
     <div
-      className={`group relative rounded-xl border border-white/[0.06] bg-white/[0.02] transition-all duration-300 hover:border-cyber-accent/15 hover:bg-white/[0.03] flex flex-col overflow-hidden ${accent ? "p-7 sm:p-9" : "p-5 sm:p-6"} ${className}`}
+      className={`group relative rounded-xl border border-stone-200 bg-white transition-all duration-300 hover:border-cyber-accent/15 hover:bg-stone-50 flex flex-col overflow-hidden ${accent ? "p-7 sm:p-9" : "p-5 sm:p-6"} ${className}`}
       style={{ boxShadow }}
     >
       {/* Accent glow decoration — only on featured/accent cards */}
@@ -68,7 +68,7 @@ export default function FeatureCard({
               />
             </div>
             <p
-              className={`font-semibold text-white mb-3 leading-snug ${
+              className={`font-semibold text-stone-900 mb-3 leading-snug ${
                 accent ? "text-lg sm:text-xl" : "text-[15px]"
               }`}
             >
@@ -84,7 +84,7 @@ export default function FeatureCard({
                 aria-hidden="true"
               />
             </div>
-            <p className="text-[15px] font-semibold text-white">{title}</p>
+            <p className="text-[15px] font-semibold text-stone-900">{title}</p>
           </div>
         )}
 
@@ -101,7 +101,7 @@ export default function FeatureCard({
 
         {/* Footer slot — stat blocks, bullet lists, etc. */}
         {footer && (
-          <div className="mt-4 pt-4 border-t border-white/[0.06]">{footer}</div>
+          <div className="mt-4 pt-4 border-t border-stone-200">{footer}</div>
         )}
       </div>
     </div>

@@ -1,73 +1,68 @@
-import { Settings, Link2, ClipboardList, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import AutomationDashboard from "@/components/Solutions/AutomationDashboard";
+
+const capabilities = [
+  "Workflow Automation",
+  "Software Integration",
+  "Go Paperless",
+];
 
 export default function Automation() {
   return (
     <div
       data-subsection
-      className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+      className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start"
     >
-      <div data-content className="lg:col-span-5 lg:order-2 order-1 space-y-5">
+      {/* ── Dashboard — left, compact ── */}
+      <div data-visual className="order-2 lg:order-1">
+        <AutomationDashboard />
+      </div>
+
+      {/* ── Content — right ── */}
+      <div data-content className="order-1 lg:order-2 space-y-5 lg:pt-4">
         <div className="inline-flex items-center gap-2.5">
-          <span className="text-[10px] font-mono text-stone-500 uppercase tracking-[0.15em] border border-white/[0.06] rounded-full px-2.5 py-0.5">
+          <span className="text-[10px] font-mono text-stone-500 uppercase tracking-[0.15em] border border-stone-200 rounded-full px-2.5 py-0.5">
             Add-on
           </span>
           <span className="text-xs font-semibold text-rose-400 uppercase tracking-[0.2em]">
             Automation
           </span>
         </div>
-        <h3 className="font-display text-2xl sm:text-3xl font-semibold text-warm-white leading-snug">
+        <h3 className="font-display text-2xl sm:text-3xl font-bold text-warm-white leading-snug">
           Then automate what slows you&nbsp;down.
         </h3>
-        <p className="text-base text-stone-300 leading-relaxed">
+        <p className="text-base text-stone-600 leading-relaxed">
           Your site and growth strategy are running. Now let&apos;s eliminate
           the busywork. I find the bottlenecks in your daily operations and
           build custom systems that handle follow-ups, scheduling, and data
           entry on&nbsp;autopilot.
         </p>
-        <div className="pt-4 space-y-4">
-          <div data-feature className="flex items-start gap-3">
-            <Settings
-              className="w-4 h-4 text-rose-400 flex-shrink-0 mt-0.5"
-              aria-hidden="true"
-              style={{ filter: "drop-shadow(0 0 6px rgba(251,113,133,0.3))" }}
-            />
-            <p className="text-sm font-medium text-white">
-              Workflow Automation
-            </p>
-          </div>
-          <div data-feature className="flex items-start gap-3">
-            <Link2
-              className="w-4 h-4 text-rose-400 flex-shrink-0 mt-0.5"
-              aria-hidden="true"
-              style={{ filter: "drop-shadow(0 0 6px rgba(251,113,133,0.3))" }}
-            />
-            <p className="text-sm font-medium text-white">
-              Software Integration
-            </p>
-          </div>
-          <div data-feature className="flex items-start gap-3">
-            <ClipboardList
-              className="w-4 h-4 text-rose-400 flex-shrink-0 mt-0.5"
-              aria-hidden="true"
-              style={{ filter: "drop-shadow(0 0 6px rgba(251,113,133,0.3))" }}
-            />
-            <p className="text-sm font-medium text-white">Go Paperless</p>
-          </div>
+
+        {/* ── Capabilities as inline tags ── */}
+        <div className="flex flex-wrap gap-2.5 pt-2">
+          {capabilities.map((c) => (
+            <span
+              data-feature
+              key={c}
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-rose-200 bg-rose-50 text-sm text-stone-600"
+            >
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-rose-400/60"
+                aria-hidden="true"
+              />
+              {c}
+            </span>
+          ))}
         </div>
+
         <Link
           href="/services/automation"
-          className="inline-flex items-center gap-2 text-sm font-mono text-rose-400 hover:text-rose-300 transition-colors duration-300 mt-6"
+          className="inline-flex items-center gap-2 text-sm font-mono font-medium text-rose-600 hover:text-rose-700 transition-colors duration-300 mt-1"
         >
           Explore automation{" "}
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
-      </div>
-
-      {/* Live automation dashboard */}
-      <div data-visual className="lg:col-span-7 lg:order-1 order-2">
-        <AutomationDashboard />
       </div>
     </div>
   );

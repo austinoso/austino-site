@@ -30,7 +30,7 @@ export default function ColorSwatch({
             className={`relative p-5 rounded-xl border text-left transition-all duration-300 cursor-pointer ${
               isSelected
                 ? "border-cyber-accent/50 bg-cyber-accent/[0.05] ring-1 ring-cyber-accent/30 shadow-[0_0_20px_rgba(64,224,255,0.08)]"
-                : "border-white/[0.06] bg-[#111318] hover:border-white/[0.12]"
+                : "border-stone-200 bg-white hover:border-stone-300"
             }`}
             aria-pressed={isSelected}
           >
@@ -47,7 +47,7 @@ export default function ColorSwatch({
 
             <p
               className={`font-semibold text-sm leading-snug transition-colors ${
-                isSelected ? "text-white" : "text-cyber-gray-300"
+                isSelected ? "text-stone-900" : "text-cyber-gray-300"
               }`}
             >
               {option.label}
