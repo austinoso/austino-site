@@ -17,8 +17,8 @@ export default function Hero() {
           <span className="text-gradient-gold">the starting line.</span>
         </h1>
         <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
-          Most business websites stop working the day they launch. Yours
-          doesn&apos;t have to.
+          A website that sits untouched after launch loses ground every month.
+          Yours should be getting stronger.
         </p>
         <Link
           href="/contact"
