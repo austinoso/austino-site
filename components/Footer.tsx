@@ -31,14 +31,14 @@ export default function Footer() {
 
           {/* Solutions */}
           <nav aria-label="Footer navigation - Solutions">
-            <h3 className="text-sm font-semibold text-stone-900 mb-4">
+            <p className="text-sm font-semibold text-stone-900 mb-4">
               Solutions
-            </h3>
+            </p>
             <ul className="space-y-1" role="list">
               <li>
                 <Link
                   href="/services/web-development"
-                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-1 inline-block"
+                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-2 inline-block"
                 >
                   Web Development
                 </Link>
@@ -46,7 +46,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/automation"
-                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-1 inline-block"
+                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-2 inline-block"
                 >
                   Automation
                 </Link>
@@ -54,7 +54,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/growth-strategy"
-                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-1 inline-block"
+                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-2 inline-block"
                 >
                   Growth Strategy
                 </Link>
@@ -64,14 +64,14 @@ export default function Footer() {
 
           {/* Resources */}
           <nav aria-label="Footer navigation - Resources">
-            <h3 className="text-sm font-semibold text-stone-900 mb-4">
+            <p className="text-sm font-semibold text-stone-900 mb-4">
               Resources
-            </h3>
+            </p>
             <ul className="space-y-1" role="list">
               <li>
                 <Link
                   href="/work"
-                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-1 inline-block"
+                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-2 inline-block"
                 >
                   Work
                 </Link>
@@ -79,7 +79,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-1 inline-block"
+                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-2 inline-block"
                 >
                   Contact
                 </Link>
@@ -89,9 +89,7 @@ export default function Footer() {
 
           {/* Connect */}
           <div>
-            <h3 className="text-sm font-semibold text-stone-900 mb-4">
-              Connect
-            </h3>
+            <p className="text-sm font-semibold text-stone-900 mb-4">Connect</p>
             <div className="space-y-2.5">
               <a
                 href="https://github.com/austinoso"

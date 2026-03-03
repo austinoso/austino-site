@@ -178,6 +178,12 @@ export default function HeroDemo() {
 
         let firstPlay = true;
         const buildTimeline = () => {
+          // Kill previous timeline if rebuilding (loop restart)
+          if (masterTlRef.current) {
+            masterTlRef.current.kill();
+            masterTlRef.current = null;
+          }
+
           const tl = gsap.timeline({
             delay: firstPlay ? 1.5 : 0,
             paused: false,
@@ -185,6 +191,7 @@ export default function HeroDemo() {
               const xfade = gsap.timeline({
                 onComplete: () => {
                   xfade.kill();
+                  masterTlRef.current = null;
                   gsap.set(scenes.slice(1), {
                     opacity: 0,
                     xPercent: 0,
@@ -222,10 +229,13 @@ export default function HeroDemo() {
                 { opacity: 1, duration: 0.6 },
                 0.15,
               );
+              // Track crossfade so pause/resume works during loop transition
+              masterTlRef.current = xfade;
             },
           });
           firstPlay = false;
-
+          // Store the timeline so pause/resume can target it directly
+          masterTlRef.current = tl;
           /* â”€â”€â”€ ACT 1 â€” The Customer Experience â”€â”€â”€ */
 
           /* Scene 1: Landing page â€” cursor glides to CTA */
@@ -442,40 +452,14 @@ export default function HeroDemo() {
   /* â”€â”€ Pause / Resume â”€â”€ */
   useEffect(() => {
     if (isDebug) return;
-    const demo = demoRef.current;
-    if (!demo) return;
+    const tl = masterTlRef.current;
+    if (!tl) return;
 
-    import("gsap").then(({ gsap }) => {
-      if (isPaused) {
-        gsap.getTweensOf(demo.querySelectorAll("*")).forEach((t) => t.pause());
-        gsap.globalTimeline.getChildren(true, true, true).forEach((child) => {
-          const targets = (child as gsap.core.Tween).targets?.();
-          if (
-            targets &&
-            targets.some(
-              (t: Element | unknown) =>
-                t instanceof Element && demo.contains(t),
-            )
-          ) {
-            (child as gsap.core.Tween).pause();
-          }
-        });
-      } else {
-        gsap.getTweensOf(demo.querySelectorAll("*")).forEach((t) => t.resume());
-        gsap.globalTimeline.getChildren(true, true, true).forEach((child) => {
-          const targets = (child as gsap.core.Tween).targets?.();
-          if (
-            targets &&
-            targets.some(
-              (t: Element | unknown) =>
-                t instanceof Element && demo.contains(t),
-            )
-          ) {
-            (child as gsap.core.Tween).resume();
-          }
-        });
-      }
-    });
+    if (isPaused) {
+      tl.pause();
+    } else {
+      tl.resume();
+    }
   }, [isPaused, isDebug]);
 
   /* â”€â”€ Render â”€â”€ */
@@ -912,13 +896,14 @@ export default function HeroDemo() {
       {!isDebug && (
         <button
           onClick={() => setIsPaused((p) => !p)}
-          className="absolute top-2 right-2 z-50 p-1.5 rounded-lg bg-black/50 backdrop-blur-md border border-white/[0.08] text-white/60 hover:text-white hover:bg-black/70 transition-all"
+          className="absolute top-0 right-0 z-50 p-2 group"
           aria-label={isPaused ? "Play animation" : "Pause animation"}
         >
+          <span className="flex items-center justify-center w-7 h-7 rounded-md bg-black/50 backdrop-blur-md border border-white/[0.08] text-white/60 group-hover:text-white group-hover:bg-black/70 transition-all">
           {isPaused ? (
             <svg
-              width="14"
-              height="14"
+              width="12"
+              height="12"
               viewBox="0 0 24 24"
               fill="currentColor"
               aria-hidden="true"
@@ -927,8 +912,8 @@ export default function HeroDemo() {
             </svg>
           ) : (
             <svg
-              width="14"
-              height="14"
+              width="12"
+              height="12"
               viewBox="0 0 24 24"
               fill="currentColor"
               aria-hidden="true"
@@ -936,6 +921,7 @@ export default function HeroDemo() {
               <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
             </svg>
           )}
+          </span>
         </button>
       )}
     </div>

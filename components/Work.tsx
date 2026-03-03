@@ -70,7 +70,7 @@ export default function Work() {
                 <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
                   <Image
                     src={project.thumbnail || project.image!}
-                    alt={project.title}
+                    alt={`Screenshot of ${project.title} website`}
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                     loading="lazy"

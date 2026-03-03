@@ -24,7 +24,7 @@ interface StepToolsProps {
 }
 
 const inputClass =
-  "w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-stone-300";
+  "w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-2 focus:ring-cyber-accent/60 focus:border-cyber-accent/50 transition-all duration-300 hover:border-stone-300";
 
 export default function StepTools({
   data,

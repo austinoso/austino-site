@@ -19,7 +19,11 @@ export default function ColorSwatch({
   onChange,
 }: ColorSwatchProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+      role="radiogroup"
+      aria-label="Color palette selection"
+    >
       {options.map((option) => {
         const isSelected = value === option.value;
         return (
@@ -32,7 +36,8 @@ export default function ColorSwatch({
                 ? "border-cyber-accent/50 bg-cyber-accent/[0.05] ring-1 ring-cyber-accent/30 shadow-[0_0_20px_rgba(64,224,255,0.08)]"
                 : "border-stone-200 bg-white hover:border-stone-300"
             }`}
-            aria-pressed={isSelected}
+            role="radio"
+            aria-checked={isSelected}
           >
             {/* Color blocks */}
             <div className="flex gap-1.5 mb-3.5">

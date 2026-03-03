@@ -335,6 +335,7 @@ export default function Navigation() {
                   : "text-stone-500 hover:text-stone-900"
               }`}
               data-umami-event="nav-work"
+              aria-current={pathname.startsWith("/work") ? "page" : undefined}
             >
               Work
               {pathname.startsWith("/work") && (
@@ -351,6 +352,7 @@ export default function Navigation() {
               href="/contact"
               className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-600/15"
               data-umami-event="nav-get-started"
+              aria-current={pathname === "/contact" ? "page" : undefined}
             >
               Get Started
             </Link>
@@ -359,7 +361,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             ref={mobileToggleRef}
-            className="md:hidden text-stone-500 hover:text-stone-900 transition-colors p-2"
+            className="md:hidden text-stone-500 hover:text-stone-900 transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}

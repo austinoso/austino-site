@@ -11,7 +11,7 @@ interface StepContactProps {
 }
 
 const inputClass =
-  "w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-stone-300";
+  "w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-2 focus:ring-cyber-accent/60 focus:border-cyber-accent/50 transition-all duration-300 hover:border-stone-300";
 
 const lockedClass =
   "w-full px-4 py-3 bg-stone-100 border border-cyber-accent/20 rounded-lg text-cyber-gray-300 text-sm cursor-not-allowed";
@@ -61,6 +61,7 @@ export default function StepContact({
             placeholder="Jane Smith"
             readOnly={!!locked}
             required
+            aria-required="true"
           />
         </div>
 
@@ -80,6 +81,7 @@ export default function StepContact({
             placeholder="jane@mybusiness.com"
             readOnly={!!locked}
             required
+            aria-required="true"
           />
         </div>
 
@@ -99,6 +101,7 @@ export default function StepContact({
             placeholder="Acme Co."
             readOnly={!!locked}
             required
+            aria-required="true"
           />
         </div>
 
@@ -131,10 +134,7 @@ export default function StepContact({
             <span className="text-xs text-cyber-gray-600">(optional)</span>
           </button>
         ) : (
-          <div
-            className="space-y-5 animate-fade-step"
-            style={{ animation: "fadeStep 0.3s ease-out both" }}
-          >
+          <div className="space-y-5 animate-fade-step">
             <p className="text-xs font-mono text-cyber-gray-500 uppercase tracking-[0.15em]">
               Online Presence{" "}
               <span className="text-cyber-gray-600 normal-case tracking-normal">

@@ -154,3 +154,9 @@ select:focus-visible,
 .animate-fade-step {
   animation: fadeStep 0.35s ease-out both;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-step {
+    animation: none;
+  }
+}

@@ -27,7 +27,7 @@ export default function CardSelect({
       : "grid grid-cols-1 sm:grid-cols-3 gap-4";
 
   return (
-    <div className={gridClass}>
+    <div className={gridClass} role="radiogroup">
       {options.map((option) => {
         const isSelected = value === option.value;
         return (
@@ -40,7 +40,8 @@ export default function CardSelect({
                 ? "border-cyber-accent/50 bg-cyber-accent/[0.05] ring-1 ring-cyber-accent/30 shadow-[0_0_20px_rgba(64,224,255,0.08)]"
                 : "border-stone-200 bg-white hover:border-stone-300"
             }`}
-            aria-pressed={isSelected}
+            role="radio"
+            aria-checked={isSelected}
           >
             {/* Selection indicator */}
             <div

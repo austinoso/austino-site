@@ -44,7 +44,7 @@ export default function WorkPage() {
           {/* Projects */}
           <div role="list" aria-label="Work projects">
             {projects.map((project) => (
-              <article
+              <div
                 key={project.slug}
                 role="listitem"
                 className="border-b border-stone-200"
@@ -54,7 +54,7 @@ export default function WorkPage() {
                   <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9]">
                     <Image
                       src={project.image}
-                      alt={project.title}
+                      alt={`Screenshot of ${project.title} project`}
                       fill
                       className="object-cover object-top"
                       priority
@@ -102,7 +102,7 @@ export default function WorkPage() {
                     />
                   </Link>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
 
