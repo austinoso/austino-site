@@ -8,17 +8,12 @@ const points = [
   {
     title: "Slow sites bleed customers before they\u00A0land",
     description:
-      "Most local businesses run bloated templates that take 6\u201310\u00A0seconds to load. A fast, custom-built site puts you in front of every search\u00A0\u2014\u00A0before competitors even\u00A0render.",
+      "Most local businesses run bloated templates that take 6\u201310\u00A0seconds to load. A fast, custom-built site puts you in front of every search before competitors even finish\u00A0loading.",
   },
   {
-    title: "Page one belongs to whoever shows\u00A0up",
+    title: "Page one belongs to whoever keeps showing\u00A0up",
     description:
-      "Most businesses launch a site and never touch it again. The ones that keep publishing and optimizing are the ones that\u00A0rank.",
-  },
-  {
-    title: "Launch-and-forget is the\u00A0norm",
-    description:
-      "No updates, no optimization, no strategy. The businesses that keep improving are the ones that pull further ahead every\u00A0month.",
+      "A site that goes untouched after launch drops out of results within months. Ranking takes ongoing optimization and new content: detailed service pages, local guides, pages that answer what your customers are actually searching for. Almost nobody in your market is doing this. That\u2019s the\u00A0gap.",
   },
 ];
 

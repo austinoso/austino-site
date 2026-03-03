@@ -26,7 +26,7 @@ export default function Hero() {
           {/* ─── Text column — dominant ─── */}
           <div className="lg:col-span-7 flex flex-col">
             <span className="section-label mb-5 sm:mb-6">
-              Web Strategy & Engineering
+              For Local Businesses
             </span>
 
             <h1
@@ -38,9 +38,9 @@ export default function Hero() {
             </h1>
 
             <p className="mt-5 sm:mt-6 text-base sm:text-lg text-stone-600 leading-relaxed max-w-lg text-pretty">
-              Websites built to earn trust and drive more sales. Ongoing
-              strategy helps your business show up higher on Google and keeps
-              improving results month after month.
+              Built to earn trust from the first click and drive more sales.
+              Ongoing strategy helps your business show up higher on Google and
+              keeps improving results month after month.
             </p>
 
             {/* ─── CTA pair ─── */}

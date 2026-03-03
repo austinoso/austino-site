@@ -12,8 +12,8 @@ const features = [
     desc: "Online booking, reviews, payments — the things that actually convert visitors",
   },
   {
-    label: "Blazing Fast, Everywhere",
-    desc: "Sub-second loads on any device. Google rewards speed with higher rankings",
+    label: "Sub-Second Load Times",
+    desc: "Fast on every device. Speed keeps visitors on the page and tells Google your site is worth ranking",
   },
 ];
 
@@ -30,9 +30,9 @@ export default function WebDevelopment() {
             Ranks higher. Loads faster. Converts&nbsp;more.
           </h3>
           <p className="text-base sm:text-lg text-stone-600 leading-relaxed mt-5 max-w-xl text-pretty">
-            Most local business sites look the same and underperform. Each site
-            is designed to show up higher on Google and turn more visitors into
-            paying customers.
+            The typical local business site blends in and underperforms. Each
+            site is designed to show up higher on Google and turn more visitors
+            into paying customers.
           </p>
         </div>
 

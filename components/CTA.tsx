@@ -59,9 +59,9 @@ export default function CTA() {
             data-animate="fade"
             className="text-base sm:text-lg text-stone-400 leading-relaxed"
           >
-            I take one client per niche in your area. If the spot is open,
-            let&apos;s talk about making your online presence the one everyone
-            else is trying to catch up to.
+            One conversation is all it takes to find out if we&apos;re a fit. No
+            pitch deck, no pressure. Just an honest look at where your site
+            stands and what&apos;s possible.
           </p>
 
           <div

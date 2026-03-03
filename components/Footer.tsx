@@ -24,8 +24,8 @@ export default function Footer() {
               <span className="text-warm-gold">o</span>
             </Link>
             <p className="text-sm text-stone-500 leading-relaxed max-w-[240px]">
-              High-performance websites, growth strategies, and automation —
-              giving local businesses an edge.
+              High-performance websites, growth strategies, and automation for
+              local businesses.
             </p>
           </div>
 

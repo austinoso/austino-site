@@ -46,12 +46,13 @@ export default function About() {
             data-animate="fade"
             className="text-base sm:text-lg text-stone-600 leading-relaxed mt-8 sm:mt-10"
           >
-            Most agencies hand you a site and disappear. I don&apos;t. I design
-            it, build it, read the data, and adjust the plan myself. Six years
-            of software engineering, web development, and business automation —
-            focused on one thing: making local businesses impossible to ignore
-            online. Your site keeps getting better every month while your
-            competitors&apos; stays exactly where it launched.
+            I handle everything. Design, development, data, and the ongoing
+            strategy to keep it all growing. Years of working inside small
+            agencies taught me how businesses actually operate and what problems
+            look like up close. I&apos;ve spent just as long studying how people
+            behave on websites, what builds trust at a glance, and how Google
+            decides who deserves page one. I don&apos;t just understand the
+            theory. I know the exact systems that make it work.
           </p>
 
           {/* Mission — pull-quote treatment */}
@@ -69,11 +70,10 @@ export default function About() {
               aria-hidden="true"
             />
             <p className="text-base sm:text-lg text-stone-700 leading-relaxed font-medium">
-              I care about your growth because that&apos;s the whole point of
-              the work. But I&apos;ll be honest — it&apos;s also a reflection of
-              mine. Every project I take on goes in my portfolio with my name
-              next to it. That keeps my standards high, because &ldquo;good
-              enough&rdquo; doesn&apos;t look good on either of&nbsp;us.
+              Good enough never sits right with me. I push every project until
+              the work matches my standard. When you work with me, your problems
+              become mine, and I don&apos;t walk away until the solution is
+              something we&apos;re both proud&nbsp;of.
             </p>
           </blockquote>
         </div>
@@ -103,7 +103,8 @@ export default function About() {
                   Developer &amp; Founder
                 </p>
                 <p className="text-[13px] sm:text-sm text-stone-500 leading-relaxed mt-2.5">
-                  Your strategist, developer, and growth partner — all in one.
+                  Six years in software engineering, building sites and
+                  automated workflows for local businesses.
                 </p>
               </div>
             </div>
