@@ -900,27 +900,27 @@ export default function HeroDemo() {
           aria-label={isPaused ? "Play animation" : "Pause animation"}
         >
           <span className="flex items-center justify-center w-7 h-7 rounded-md bg-black/50 backdrop-blur-md border border-white/[0.08] text-white/60 group-hover:text-white group-hover:bg-black/70 transition-all">
-          {isPaused ? (
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          ) : (
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-            </svg>
-          )}
+            {isPaused ? (
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            ) : (
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+              </svg>
+            )}
           </span>
         </button>
       )}
