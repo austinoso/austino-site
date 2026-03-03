@@ -15,6 +15,7 @@ import FinalCTA from "./FinalCTA";
 
 export default function AutomationPage() {
   return (
+    <>
     <main id="main-content" className="relative min-h-screen bg-warm-bg">
       <PageScrollAnimator />
       <Navigation />
@@ -148,7 +149,8 @@ export default function AutomationPage() {
         </div>
       </div>
 
-      <Footer />
     </main>
+    <Footer />
+    </>
   );
 }

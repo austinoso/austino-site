@@ -361,9 +361,13 @@ function OnboardingInner() {
   // ── Don't render until hydrated (prevents flash) ──
   if (!hydrated || loadingPrefill) {
     return (
-      <main className="relative min-h-screen bg-warm-bg">
+      <main id="main-content" className="relative min-h-screen bg-warm-bg">
         <div className="min-h-screen flex items-center justify-center">
-          <div className="w-8 h-8 border-2 border-cyber-accent/30 border-t-cyber-accent rounded-full animate-spin" />
+          <div
+            className="w-8 h-8 border-2 border-cyber-accent/30 border-t-cyber-accent rounded-full animate-spin"
+            role="status"
+            aria-label="Loading"
+          />
         </div>
       </main>
     );
@@ -372,7 +376,7 @@ function OnboardingInner() {
   // ── Confirmation screen ──
   if (isComplete) {
     return (
-      <main className="relative min-h-screen bg-warm-bg">
+      <main id="main-content" className="relative min-h-screen bg-warm-bg">
         {/* Noise grain */}
         <div
           className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -439,7 +443,7 @@ function OnboardingInner() {
   };
 
   return (
-    <main className="relative min-h-screen bg-warm-bg">
+    <main id="main-content" className="relative min-h-screen bg-warm-bg">
       {/* Noise grain */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -490,19 +494,17 @@ function OnboardingInner() {
         </div>
 
         {/* Step content with transition */}
-        <div
-          key={step}
-          className="animate-fade-step"
-          style={{
-            animation: `fadeStep 0.35s ease-out both`,
-          }}
-        >
+        <div key={step} className="animate-fade-step">
           {renderStep()}
         </div>
 
         {/* Error */}
         {submitError && (
-          <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+          <div
+            className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm"
+            role="alert"
+            aria-live="assertive"
+          >
             {submitError}
           </div>
         )}

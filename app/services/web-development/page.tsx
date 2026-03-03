@@ -14,6 +14,7 @@ import FinalCTA from "./FinalCTA";
 
 export default function WebDevelopmentPage() {
   return (
+    <>
     <main id="main-content" className="relative min-h-screen bg-warm-bg">
       <PageScrollAnimator />
       <Navigation />
@@ -116,7 +117,8 @@ export default function WebDevelopmentPage() {
         </div>
       </div>
 
-      <Footer />
     </main>
+    <Footer />
+    </>
   );
 }

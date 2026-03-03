@@ -4,6 +4,7 @@ import ContactForm from "./ContactForm";
 
 export default function ContactPage() {
   return (
+    <>
     <main id="main-content" className="relative min-h-screen bg-warm-bg">
       <Navigation />
 
@@ -80,7 +81,8 @@ export default function ContactPage() {
         </section>
       </div>
 
-      <Footer />
     </main>
+    <Footer />
+    </>
   );
 }
