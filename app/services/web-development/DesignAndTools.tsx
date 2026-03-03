@@ -87,7 +87,8 @@ export default function DesignAndTools() {
           <div
             className="rounded-xl border border-stone-300 bg-[#0C0B09] overflow-hidden select-none"
             style={{
-              boxShadow: "-12px 12px 0px 0px #CEC8C1",
+              boxShadow:
+                "-12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
             }}
           >
             {/* Browser chrome */}

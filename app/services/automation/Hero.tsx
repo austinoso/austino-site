@@ -83,8 +83,10 @@ export default function Hero() {
       {/* Static Activity Monitor snapshot */}
       <div data-hero-visual className="lg:col-span-7">
         <div
-          className="rounded-lg border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
-          style={{ boxShadow: "12px 12px 0px 0px #CEC8C1" }}
+          className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
+          style={{
+            boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+          }}
           role="img"
           aria-label="Automation dashboard showing completed tasks"
           aria-hidden="true"

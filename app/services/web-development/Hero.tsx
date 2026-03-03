@@ -137,7 +137,8 @@ export default function Hero() {
             <div
               className="relative rounded-t-[2.5rem] border-[3px] border-b-0 border-stone-300 bg-[#0C0B09] overflow-hidden"
               style={{
-                boxShadow: "12px 12px 0px 0px #CEC8C1",
+                boxShadow:
+                  "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
               }}
             >
               {/* Dynamic Island */}

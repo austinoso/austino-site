@@ -108,7 +108,7 @@ export default function LawFirmsCentralValleyPage() {
 
                 {/* Hero visual — browser mockup with screenshot */}
                 <div data-hero-visual className="lg:col-span-6">
-                  <div className="rounded-lg border border-white/[0.06] bg-[#0A0A0E] overflow-hidden select-none">
+                  <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0E] overflow-hidden select-none">
                     <div
                       className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13]"
                       aria-hidden="true"
@@ -630,7 +630,7 @@ export default function LawFirmsCentralValleyPage() {
                   {/* Left — browser mockup showing practice area pages */}
                   <div className="lg:col-span-7">
                     <div
-                      className="rounded-lg border border-white/[0.06] overflow-hidden"
+                      className="rounded-xl border border-white/[0.06] overflow-hidden"
                       style={{
                         boxShadow:
                           "0 4px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.02)",
@@ -825,7 +825,7 @@ export default function LawFirmsCentralValleyPage() {
                   {/* Right column — cities served */}
                   <div className="lg:col-span-5">
                     <div
-                      className="rounded-lg border border-white/[0.06] overflow-hidden"
+                      className="rounded-xl border border-white/[0.06] overflow-hidden"
                       style={{
                         boxShadow:
                           "0 4px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.02)",

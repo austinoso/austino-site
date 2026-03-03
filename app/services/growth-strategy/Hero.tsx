@@ -36,7 +36,9 @@ export default function Hero() {
       <div data-hero-visual className="lg:col-span-6" aria-hidden="true">
         <div
           className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
-          style={{ boxShadow: "12px 12px 0px 0px #CEC8C1" }}
+          style={{
+            boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+          }}
         >
           {/* Browser chrome */}
           <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0F0E0B]">

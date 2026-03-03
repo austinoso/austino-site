@@ -60,7 +60,7 @@ const signals = [
 
 /* ── Shared styles ── */
 const card =
-  "rounded-2xl bg-white border border-stone-200 p-6 sm:p-8 hover:shadow-sm transition-shadow duration-300";
+  "rounded-xl bg-white border border-stone-200 p-6 sm:p-8 hover:shadow-sm transition-shadow duration-300";
 
 function Source({ label, href }: { label: string; href: string }) {
   return (

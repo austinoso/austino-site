@@ -30,7 +30,7 @@ export default function TheReality() {
           ].map((item) => (
             <span
               key={item}
-              className="inline-flex items-center px-4 py-2 rounded-full border border-warm-gold/20 text-sm text-warm-gold bg-warm-gold/[0.05]"
+              className="inline-flex items-center px-4 py-2 rounded-lg border border-warm-gold/20 text-sm text-warm-gold bg-warm-gold/[0.05]"
             >
               {item}
             </span>

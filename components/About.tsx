@@ -84,7 +84,7 @@ export default function About() {
             {/* Austin */}
             <div
               data-animate="fade"
-              className="flex items-start gap-5 p-6 sm:p-7 rounded-lg border border-stone-200 bg-white shadow-sm"
+              className="flex items-start gap-5 p-6 sm:p-7 rounded-xl border border-stone-200 bg-white shadow-sm"
             >
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-stone-200 flex-shrink-0 shadow-md shadow-black/8">
                 <Image
@@ -112,7 +112,7 @@ export default function About() {
             {/* Rosa */}
             <div
               data-animate="fade"
-              className="flex items-start gap-5 p-6 sm:p-7 rounded-lg border border-stone-200 bg-white shadow-sm"
+              className="flex items-start gap-5 p-6 sm:p-7 rounded-xl border border-stone-200 bg-white shadow-sm"
             >
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-stone-200 flex-shrink-0 shadow-lg shadow-black/[0.06]">
                 <Image

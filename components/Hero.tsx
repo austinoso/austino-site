@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Search, MapPin } from "lucide-react";
 import HeroDemoLoader from "./HeroDemoLoader";
 
 /* ─────────────────────────────────────────────────────────────────── */
@@ -14,10 +14,15 @@ export default function Hero() {
       className="relative overflow-hidden bg-warm-bg"
       aria-labelledby="hero-heading"
     >
-      {/* Decorative semicircle — amber, right edge */}
+      {/* Decorative circles — amber wash, layered */}
       <div
-        className="absolute -right-[12rem] sm:-right-[14rem] md:-right-[20rem] top-10 sm:top-16 md:top-20 w-[20rem] h-[20rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] rounded-full pointer-events-none"
-        style={{ background: "rgba(180, 83, 9, 0.07)" }}
+        className="absolute -right-[16rem] sm:-right-[12rem] md:-right-[16rem] top-6 sm:top-12 md:top-16 w-[20rem] h-[20rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] rounded-full pointer-events-none"
+        style={{ background: "rgba(180, 83, 9, 0.06)" }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute -right-[10rem] sm:-right-[6rem] md:-right-[8rem] top-[14rem] sm:top-[18rem] md:top-[22rem] w-[12rem] h-[12rem] sm:w-[14rem] sm:h-[14rem] md:w-[18rem] md:h-[18rem] rounded-full pointer-events-none"
+        style={{ background: "rgba(180, 83, 9, 0.04)" }}
         aria-hidden="true"
       />
 
@@ -31,20 +36,20 @@ export default function Hero() {
 
             <h1
               id="hero-heading"
-              className="font-display text-4xl sm:text-5xl md:text-[3.5rem] lg:text-[4rem] font-bold text-warm-white leading-[1.08] tracking-tight"
+              className="font-display text-4xl sm:text-5xl md:text-[3.5rem] lg:text-[4.5rem] font-bold text-warm-white leading-[1.06] tracking-tight"
             >
               Websites built{" "}
               <span className="text-gradient-brand">to&nbsp;outperform.</span>
             </h1>
 
-            <p className="mt-5 sm:mt-6 text-base sm:text-lg text-stone-600 leading-relaxed max-w-lg text-pretty">
+            <p className="mt-4 sm:mt-5 text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-pretty">
               Built to earn trust from the first click and drive more sales.
               Ongoing strategy helps your business show up higher on Google and
               keeps improving results month after month.
             </p>
 
             {/* ─── CTA pair ─── */}
-            <div className="mt-8 sm:mt-9 flex flex-wrap items-center gap-x-5 gap-y-3">
+            <div className="mt-9 sm:mt-10 flex flex-wrap items-center gap-x-7 gap-y-5">
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-lg transition-all duration-200 text-[15px] hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
@@ -70,20 +75,23 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* ─── Proof + trust lines ─── */}
-            <div className="mt-8 pt-5 border-t border-stone-200">
-              <p className="inline-flex items-start gap-2 text-sm sm:text-[15px] text-stone-600 leading-relaxed max-w-xl">
-                <CheckCircle2
-                  className="w-4 h-4 text-amber-700 mt-0.5 flex-shrink-0"
+            {/* ─── Trust signals ─── */}
+            <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
+                <Search
+                  className="w-3.5 h-3.5 text-amber-700 flex-shrink-0"
                   aria-hidden="true"
                 />
-                Designed around how Google finds you and customers trust you.
-              </p>
-
-              <p className="mt-2.5 inline-flex items-center gap-2 text-sm text-stone-600">
+                Built for Google&nbsp;&&nbsp;your&nbsp;customers
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
+                <MapPin
+                  className="w-3.5 h-3.5 text-amber-700 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                California based
                 <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                California based, working directly with local businesses
-              </p>
+              </span>
             </div>
           </div>
 
@@ -91,7 +99,10 @@ export default function Hero() {
           <div className="lg:col-span-5">
             <div
               className="rounded-xl"
-              style={{ boxShadow: "12px 12px 0px 0px #CEC8C1" }}
+              style={{
+                boxShadow:
+                  "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+              }}
             >
               <HeroDemoLoader />
             </div>
@@ -101,10 +112,11 @@ export default function Hero() {
 
       {/* ─── Brand gradient bottom border ─── */}
       <div
-        className="absolute bottom-0 inset-x-0 h-px"
+        className="absolute bottom-0 inset-x-0 h-[2px]"
         style={{
           background:
             "linear-gradient(90deg, transparent 5%, #B45309 25%, #DB2777 50%, #7C3AED 75%, transparent 95%)",
+          opacity: 0.7,
         }}
         aria-hidden="true"
       />

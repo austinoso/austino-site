@@ -131,14 +131,14 @@ Loaded via `next/font/google` in `app/layout.tsx`.
 
 ### Heading Scale
 
-| Element                          | Classes                                                                                                                        | Context                                           |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
-| **H1** (hero)                    | `text-4xl sm:text-5xl md:text-[3.5rem] lg:text-[3.75rem] font-bold font-display text-warm-white leading-[1.08] tracking-tight` | Homepage hero (service heroes may be smaller)     |
-| **H2** (section) — homepage      | `text-3xl sm:text-4xl md:text-5xl font-bold font-display text-warm-white leading-[1.1] tracking-tight`                         | PainPoints, Solutions, Work, About                |
-| **H2** (section) — service pages | `text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-stone-900 leading-[1.2] tracking-tight text-balance`       | All service page sections                         |
-| **H2** (CTA — large)             | Add `lg:text-6xl` to homepage H2 scale                                                                                         | Homepage CTA section only (dark island)           |
-| **H3** (subsection)              | `text-2xl sm:text-3xl font-bold font-display text-warm-white leading-[1.2] tracking-tight text-balance`                        | Tools section, SEO section, Solutions subsections |
-| **H4** / `<dt>`                  | `text-base font-semibold text-warm-white mb-2`                                                                                 | Card titles, definition terms                     |
+| Element                          | Classes                                                                                                                       | Context                                           |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| **H1** (hero)                    | `text-4xl sm:text-5xl md:text-[3.5rem] lg:text-[4.5rem] font-bold font-display text-warm-white leading-[1.06] tracking-tight` | Homepage hero (service heroes may be smaller)     |
+| **H2** (section) — homepage      | `text-3xl sm:text-4xl md:text-5xl font-bold font-display text-warm-white leading-[1.1] tracking-tight`                        | PainPoints, Solutions, Work, About                |
+| **H2** (section) — service pages | `text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-stone-900 leading-[1.2] tracking-tight text-balance`      | All service page sections                         |
+| **H2** (CTA — large)             | Add `lg:text-6xl` to homepage H2 scale                                                                                        | Homepage CTA section only (dark island)           |
+| **H3** (subsection)              | `text-2xl sm:text-3xl font-bold font-display text-warm-white leading-[1.2] tracking-tight text-balance`                       | Tools section, SEO section, Solutions subsections |
+| **H4** / `<dt>`                  | `text-base font-semibold text-warm-white mb-2`                                                                                | Card titles, definition terms                     |
 
 ### Body Text Scale
 
@@ -328,11 +328,38 @@ hover:text-warm-white transition-colors duration-300
 
 **Never use `hover:text-amber-300`** on light backgrounds — it's a lighter yellow that reduces contrast. `amber-300` hover was a dark-theme holdover.
 
+### Border Radius System
+
+Standardized radius values by element type. Every radius choice has a reason.
+
+| Element type                           | Radius                | Class                | Rationale                                                                                 |
+| -------------------------------------- | --------------------- | -------------------- | ----------------------------------------------------------------------------------------- |
+| **Buttons**                            | 8px                   | `rounded-lg`         | Consistent across all CTAs — primary, secondary, nav, form submit                         |
+| **Form inputs**                        | 8px                   | `rounded-lg`         | Matches button radius — inputs and buttons sit together in forms                          |
+| **Pills / tags**                       | 8px                   | `rounded-lg`         | Content tags, capability pills, trust badges — grounded, substantial feel                 |
+| **Cards / containers**                 | 12px                  | `rounded-xl`         | All content cards, feature cards, stat containers, team cards, project cards              |
+| **Mockup frames**                      | 12px                  | `rounded-xl`         | Browser/dashboard/demo frames — matches card radius for cohesion                          |
+| **Photo containers**                   | 16px                  | `rounded-2xl`        | WhyMe photos — slightly softer frame for personal/editorial imagery                       |
+| **Section containers**                 | 16px                  | `rounded-2xl`        | Service page FinalCTA dark sections                                                       |
+| **Homepage CTA section**               | 24px (top only)       | `rounded-t-3xl`      | Large dark island — extra softness at the seam with cream page                            |
+| **Phone frame (web dev)**              | Physical device shape | `rounded-t-[2.5rem]` | Mimics real phone hardware — exception to the system                                      |
+| **Micro status badges**                | Full capsule          | `rounded-full`       | Tiny mono-text badges (10px or smaller) — "Add-on", "Online", status pills inside mockups |
+| **Onboarding selection pills**         | Full capsule          | `rounded-full`       | Interactive chip selectors — different UX context from content tags                       |
+| **Nav dropdown items**                 | 6px                   | `rounded-md`         | Smaller interactive targets inside dropdown panels                                        |
+| **Inner images (avatars, thumbnails)** | 8px                   | `rounded-lg`         | Photos inside cards — subordinate to the card's own radius                                |
+
+**Key rules:**
+
+- `rounded-lg` is the workhorse — buttons, inputs, pills, inner images
+- `rounded-xl` is for containers — cards, mockups, anything that holds content
+- `rounded-full` is reserved for micro-badges and interactive selection chips only — never for content-level tags
+- Radius should increase with element size: inner elements ≤ outer elements
+
 ### Browser Mockup Frame (DARK — embedded on light page)
 
 ```tsx
 <div className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
-     style={{ boxShadow: '12px 12px 0px 0px #CEC8C1' }}>
+     style={{ boxShadow: '12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)' }}>
   {/* Chrome bar */}
   <div className="flex items-center gap-3 px-4 py-2 border-b border-white/[0.04]">
     <div className="flex gap-1.5">
@@ -350,10 +377,10 @@ hover:text-warm-white transition-colors duration-300
 
 **Hard shadow spec:**
 
-- Right-aligned or centered mockups: `boxShadow: '12px 12px 0px 0px #CEC8C1'`
-- Left-column mockups: `boxShadow: '-12px 12px 0px 0px #CEC8C1'`
-- Color `#CEC8C1` is a warm stone tone — **light-bg pages only**
-- No blur, no spread beyond 0 — crisp offset
+- Right-aligned or centered mockups: `boxShadow: '12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)'`
+- Left-column mockups: `boxShadow: '-12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)'`
+- Hard offset color `#C4B5A0` is a warm stone tone (warmer than previous `#CEC8C1`) — **light-bg pages only**
+- Ambient layer `0 8px 32px rgba(0,0,0,0.08)` adds subtle real-world depth beneath the hard offset
 - Skip on dark-bg pages (`bg-cyber-dark`) — the warm shadow doesn't suit dark surfaces
 
 **Note:** Browser/phone/dashboard mockups stay dark. All `border-white/[0.XX]`, `bg-white/[0.XX]`, `bg-[#0C0B09]` patterns inside mockups are intentional.
@@ -636,4 +663,4 @@ export default function NewServicePage() {
 - **Raw `#4ADE80` hex for green** — use `green-400` class (dark mockups) or `warm-green` token (light page). Don't hardcode hex values in Tailwind classes. SVG `stroke`/`fill` attributes can keep the hex since SVG doesn't read Tailwind tokens.
 - **Flat `bg-amber-500 text-black` for buttons** — always use the gradient CTA pattern (`from-amber-600 to-amber-500 text-white`).
 - **Colored glows / brand-colored box-shadows** — avoid glowing shadow effects (e.g. `rgba(180,83,9,0.15)` spread shadows). Use structural depth techniques instead: hard shadows, layered borders. Glows feel techy/SaaS — this brand is warm & tactile.
-- **Soft `boxShadow` on mockups/demos** — don't use soft drop shadows (`shadow-2xl`, `shadow-black/40`, `rgba(0,0,0,0.25)` blur) for depth on browser mockups, dashboards, or demo frames. Use the **hard shadow pattern** instead: `boxShadow: '12px 12px 0px 0px #CEC8C1'` (right-aligned mockups) or `'-12px 12px 0px 0px #CEC8C1'` (left-column mockups). No blur, warm stone tone, crisp offset. This treatment is for **light-bg pages only** (`bg-warm-bg`). Skip on dark-bg pages (`bg-cyber-dark`).
+- **Soft `boxShadow` on mockups/demos** — don't use soft drop shadows (`shadow-2xl`, `shadow-black/40`, `rgba(0,0,0,0.25)` blur) as the _primary_ depth technique on browser mockups, dashboards, or demo frames. Use the **hard shadow pattern** instead: `boxShadow: '12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)'` (right-aligned mockups) or `'-12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)'` (left-column mockups). Hard offset (`#C4B5A0`) + subtle ambient layer. This treatment is for **light-bg pages only** (`bg-warm-bg`). Skip on dark-bg pages (`bg-cyber-dark`).

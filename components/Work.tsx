@@ -62,7 +62,7 @@ export default function Work() {
           <div data-animate="slide-up">
             <Link
               href={`/work/${project.slug}`}
-              className="group relative block rounded-lg overflow-hidden border border-stone-200 hover:border-warm-gold/30 transition-all duration-500"
+              className="group relative block rounded-xl overflow-hidden border border-stone-200 hover:border-warm-gold/30 transition-all duration-500"
               data-umami-event="project-image"
               data-umami-event-project={project.slug}
             >

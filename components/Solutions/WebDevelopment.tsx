@@ -96,8 +96,10 @@ export default function WebDevelopment() {
       {/* ── Full-width browser mockup ── */}
       <div data-visual>
         <div
-          className="rounded-2xl border border-stone-200 bg-white overflow-hidden select-none"
-          style={{ boxShadow: "12px 12px 0px 0px #CEC8C1" }}
+          className="rounded-xl border border-stone-200 bg-white overflow-hidden select-none"
+          style={{
+            boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+          }}
         >
           <div
             className="flex items-center gap-2 px-5 py-3 border-b border-stone-200 bg-stone-50"

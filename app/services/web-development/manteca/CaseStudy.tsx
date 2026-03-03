@@ -49,7 +49,7 @@ export default function CaseStudy() {
       </p>
 
       {/* ── Browser frame with site screenshot ── */}
-      <div className="rounded-lg border border-white/[0.06] overflow-hidden bg-[#0A0A0E] mb-10">
+      <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0E] mb-10">
         <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13]">
           <div className="flex items-center gap-1.5">
             <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
