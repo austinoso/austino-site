@@ -91,7 +91,7 @@ export default function Hero() {
           <div className="lg:col-span-5">
             <div
               className="rounded-xl"
-              style={{ boxShadow: '12px 12px 0px 0px #CEC8C1' }}
+              style={{ boxShadow: "12px 12px 0px 0px #CEC8C1" }}
             >
               <HeroDemoLoader />
             </div>

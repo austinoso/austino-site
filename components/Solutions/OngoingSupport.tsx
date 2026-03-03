@@ -103,7 +103,7 @@ export default function OngoingSupport() {
       <div data-visual>
         <div
           className="rounded-2xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
-          style={{ boxShadow: '12px 12px 0px 0px #CEC8C1' }}
+          style={{ boxShadow: "12px 12px 0px 0px #CEC8C1" }}
           role="img"
           aria-label="Google search results mockup showing a client business ranking #1"
         >

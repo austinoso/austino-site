@@ -267,6 +267,9 @@ export default function Navigation() {
               >
                 <div className="w-56 rounded-lg border border-stone-200 bg-white/95 backdrop-blur-xl overflow-hidden shadow-lg shadow-black/[0.06]">
                   <div className="p-1.5">
+                    <p className="px-3.5 pt-2 pb-1 text-[10px] font-mono text-amber-700 uppercase tracking-wider">
+                      Core
+                    </p>
                     <div data-dropdown-item role="none">
                       <Link
                         href="/services/web-development"
@@ -299,6 +302,10 @@ export default function Navigation() {
                         </span>
                       </Link>
                     </div>
+                    <div className="mx-3 my-1.5 border-t border-stone-200" />
+                    <p className="px-3.5 pt-1.5 pb-1 text-[10px] font-mono text-rose-700 uppercase tracking-wider">
+                      Add-on
+                    </p>
                     <div data-dropdown-item role="none">
                       <Link
                         href="/services/automation"
@@ -381,18 +388,18 @@ export default function Navigation() {
             : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col px-6 py-10 space-y-1">
+        <div className="flex flex-col px-6 py-8 gap-2">
           {/* Mobile Solutions Expandable */}
-          <div className="border-b border-stone-200">
+          <div>
             <button
-              className="flex items-center justify-between w-full text-lg text-stone-600 hover:text-stone-900 transition-colors py-4 font-mono"
+              className="flex items-center justify-between w-full text-base font-semibold text-stone-900 transition-colors py-3"
               onClick={() => setIsMobileSolutionsOpen(!isMobileSolutionsOpen)}
               aria-expanded={isMobileSolutionsOpen}
               aria-controls="mobile-solutions-panel"
             >
               Solutions
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
+                className={`w-4 h-4 text-stone-400 transition-transform duration-200 ${
                   isMobileSolutionsOpen ? "rotate-180" : ""
                 }`}
                 aria-hidden="true"
@@ -405,50 +412,74 @@ export default function Navigation() {
               hidden={!isMobileSolutionsOpen}
               className={`overflow-hidden transition-all duration-300 ${
                 isMobileSolutionsOpen
-                  ? "max-h-60 opacity-100 pb-4"
+                  ? "max-h-[400px] opacity-100 pb-2"
                   : "max-h-0 opacity-0"
               }`}
             >
-              <div className="pl-4 space-y-1">
+              <div className="space-y-1 pt-1">
+                <p className="text-[10px] font-mono text-amber-700 uppercase tracking-wider px-3 pb-1">
+                  Core
+                </p>
                 <Link
                   href="/services/web-development"
-                  className="block text-base text-stone-500 hover:text-warm-gold transition-colors py-2 font-mono"
+                  className="block px-3 py-2.5 rounded-lg hover:bg-stone-100 transition-colors"
                   data-umami-event="mobile-nav-service-web"
                   onClick={closeMenu}
                 >
-                  Web Development
+                  <span className="block text-[15px] font-medium text-stone-800">
+                    Web Development
+                  </span>
+                  <span className="block text-[12px] text-stone-500 mt-0.5">
+                    Fast, search-optimized sites
+                  </span>
                 </Link>
                 <Link
                   href="/services/growth-strategy"
-                  className="block text-base text-stone-500 hover:text-warm-gold transition-colors py-2 font-mono"
+                  className="block px-3 py-2.5 rounded-lg hover:bg-stone-100 transition-colors"
                   data-umami-event="mobile-nav-service-growth"
                   onClick={closeMenu}
                 >
-                  Growth Strategy
+                  <span className="block text-[15px] font-medium text-stone-800">
+                    Growth Strategy
+                  </span>
+                  <span className="block text-[12px] text-stone-500 mt-0.5">
+                    Data + content that ranks
+                  </span>
                 </Link>
+                <div className="mx-3 my-2 border-t border-stone-200" />
+                <p className="text-[10px] font-mono text-rose-700 uppercase tracking-wider px-3 pb-1">
+                  Add-on
+                </p>
                 <Link
                   href="/services/automation"
-                  className="block text-base text-stone-500 hover:text-warm-gold transition-colors py-2 font-mono"
+                  className="block px-3 py-2.5 rounded-lg hover:bg-stone-100 transition-colors"
                   data-umami-event="mobile-nav-service-automation"
                   onClick={closeMenu}
                 >
-                  Automation
+                  <span className="block text-[15px] font-medium text-stone-800">
+                    Automation
+                  </span>
+                  <span className="block text-[12px] text-stone-500 mt-0.5">
+                    Replace manual work with code
+                  </span>
                 </Link>
               </div>
             </div>
           </div>
+          <div className="border-t border-stone-200" />
           <Link
             href="/work"
-            className="text-lg text-stone-600 hover:text-stone-900 transition-colors py-4 border-b border-stone-200 font-mono"
+            className="text-base font-semibold text-stone-900 transition-colors py-3"
             data-umami-event="mobile-nav-work"
             onClick={closeMenu}
           >
             Work
           </Link>
-          <div className="pt-6">
+          <div className="border-t border-stone-200" />
+          <div className="pt-4">
             <Link
               href="/contact"
-              className="block px-6 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-xl transition-all text-center text-sm hover:brightness-110 shadow-lg shadow-amber-600/15"
+              className="block px-6 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-lg transition-all text-center text-sm hover:brightness-110 shadow-lg shadow-amber-600/15"
               data-umami-event="mobile-nav-get-started"
               onClick={closeMenu}
             >

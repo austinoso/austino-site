@@ -18,7 +18,7 @@ export default function Automation() {
       <div data-visual className="order-2 lg:order-1">
         <div
           className="rounded-xl"
-          style={{ boxShadow: '-12px 12px 0px 0px #CEC8C1' }}
+          style={{ boxShadow: "-12px 12px 0px 0px #CEC8C1" }}
         >
           <AutomationDashboard />
         </div>

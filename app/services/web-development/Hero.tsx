@@ -38,10 +38,9 @@ export default function Hero() {
 
             {/* Notification card — top-left */}
             <div
-              className="hidden sm:block absolute top-6 -left-10 sm:-left-16 z-10 w-[180px] rounded-xl border border-stone-200 bg-warm-surface/95 p-3 backdrop-blur-sm"
+              className="hidden sm:block absolute top-6 -left-10 sm:-left-16 z-10 w-[180px] rounded-xl border border-stone-300/60 bg-warm-surface p-3"
               style={{
-                boxShadow:
-                  "0 8px 32px rgba(0,0,0,0.08), 0 0 20px rgba(212,168,83,0.06)",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
               }}
             >
               <div className="flex items-center gap-2 mb-2">
@@ -68,10 +67,9 @@ export default function Hero() {
 
             {/* Speed card — bottom-left */}
             <div
-              className="hidden sm:block absolute top-[52%] -left-8 sm:-left-14 z-10 w-[150px] rounded-xl border border-stone-200 bg-warm-surface/95 p-3 backdrop-blur-sm"
+              className="hidden sm:block absolute top-[52%] -left-8 sm:-left-14 z-10 w-[150px] rounded-xl border border-stone-300/60 bg-warm-surface p-3"
               style={{
-                boxShadow:
-                  "0 8px 32px rgba(0,0,0,0.08), 0 0 20px rgba(212,168,83,0.06)",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
               }}
             >
               <p className="text-[9px] text-stone-500 uppercase tracking-wider font-mono mb-1.5">
@@ -95,10 +93,9 @@ export default function Hero() {
 
             {/* SEO + Mobile card — right */}
             <div
-              className="hidden sm:block absolute top-20 -right-8 sm:-right-16 z-10 w-[140px] rounded-xl border border-stone-200 bg-warm-surface/95 p-3 backdrop-blur-sm"
+              className="hidden sm:block absolute top-20 -right-8 sm:-right-16 z-10 w-[140px] rounded-xl border border-stone-300/60 bg-warm-surface p-3"
               style={{
-                boxShadow:
-                  "0 8px 32px rgba(0,0,0,0.08), 0 0 20px rgba(212,168,83,0.06)",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
               }}
             >
               <p className="text-[9px] text-stone-500 uppercase tracking-wider font-mono mb-2">
@@ -261,8 +258,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        {/* Bottom fade — crops phone on mobile */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-warm-bg to-transparent sm:hidden pointer-events-none" />
       </div>
     </section>
   );

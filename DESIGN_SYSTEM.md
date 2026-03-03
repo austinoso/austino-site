@@ -349,6 +349,7 @@ hover:text-warm-white transition-colors duration-300
 ```
 
 **Hard shadow spec:**
+
 - Right-aligned or centered mockups: `boxShadow: '12px 12px 0px 0px #CEC8C1'`
 - Left-column mockups: `boxShadow: '-12px 12px 0px 0px #CEC8C1'`
 - Color `#CEC8C1` is a warm stone tone — **light-bg pages only**
