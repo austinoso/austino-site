@@ -44,6 +44,7 @@ export async function POST(req: NextRequest) {
       name,
       email,
       company,
+      website,
       budget,
       timeline,
       description,
@@ -54,6 +55,7 @@ export async function POST(req: NextRequest) {
     const safeName = escapeHtml(name || "");
     const safeEmail = escapeHtml(email || "");
     const safeCompany = company ? escapeHtml(company) : "";
+    const safeWebsite = website ? escapeHtml(website) : "";
     const safeBudget = budget ? escapeHtml(budget) : "";
     const safeTimeline = timeline ? escapeHtml(timeline) : "";
     const safeDescription = escapeHtml(description || "").replace(
@@ -157,6 +159,17 @@ export async function POST(req: NextRequest) {
               <div class="field">
                 <div class="label">Company</div>
                 <div class="value">${safeCompany}</div>
+              </div>
+              `
+                  : ""
+              }
+
+              ${
+                safeWebsite
+                  ? `
+              <div class="field">
+                <div class="label">Website</div>
+                <div class="value"><a href="${safeWebsite}">${safeWebsite}</a></div>
               </div>
               `
                   : ""

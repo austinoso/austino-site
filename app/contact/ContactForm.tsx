@@ -3,28 +3,27 @@
 import { useState, FormEvent } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
 
-// Form field configurations â€” aligned to ICP (local / small business owners)
+// Form field configurations — aligned to ICP (local / small business owners)
 const BUDGET_RANGES = [
-  { value: "under-3k", label: "Under $3k" },
-  { value: "3k-5k", label: "$3k â€“ $5k" },
-  { value: "5k-10k", label: "$5k â€“ $10k" },
-  { value: "10k+", label: "$10k+" },
-  { value: "flexible", label: "Not sure yet" },
+  { value: "under-1.5k", label: "Under $1.5k" },
+  { value: "1-3k", label: "$1\u20133k" },
+  { value: "5k+", label: "$5k+" },
+  { value: "unsure", label: "Unsure" },
 ];
 
 const TIMELINES = [
   { value: "asap", label: "Within a month" },
-  { value: "1-2-months", label: "1â€“2 months" },
-  { value: "2-3-months", label: "2â€“3 months" },
+  { value: "1-2-months", label: "1\u20132 months" },
+  { value: "2-3-months", label: "2\u20133 months" },
   { value: "flexible", label: "Flexible" },
 ];
 
 const inputClass =
-  "w-full px-4 py-3 bg-stone-50 border border-stone-200 text-stone-900 text-sm placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-warm-gold/60 focus:border-warm-gold/50 transition-all duration-300 hover:border-stone-300";
+  "w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-200 text-stone-900 text-sm placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-warm-gold/60 focus:border-warm-gold/50 transition-all duration-300 hover:border-stone-300";
 
 const selectArrowStyle = {
   backgroundImage:
-    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E\")",
+    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2378716C' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E\")",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "right 1rem center",
   backgroundSize: "12px",
@@ -35,6 +34,7 @@ export default function ContactForm() {
     name: "",
     email: "",
     company: "",
+    website: "",
     budget: "",
     timeline: "",
     description: "",
@@ -108,6 +108,7 @@ export default function ContactForm() {
           name: "",
           email: "",
           company: "",
+          website: "",
           budget: "",
           timeline: "",
           description: "",
@@ -191,6 +192,26 @@ export default function ContactForm() {
           className={inputClass}
           placeholder="Acme Co."
         />
+      </div>
+
+      {/* Website */}
+      <div>
+        <label htmlFor="website" className="block text-sm text-stone-500 mb-2">
+          Website URL
+        </label>
+        <input
+          type="url"
+          id="website"
+          name="website"
+          value={formState.website}
+          onChange={handleChange}
+          className={inputClass}
+          placeholder="https://mybusiness.com"
+        />
+        <p className="mt-2 text-xs text-stone-500 leading-relaxed">
+          Have a site? I&apos;ll take a look and send a free report on
+          what&apos;s working and what could be better.
+        </p>
       </div>
 
       {/* Budget + Timeline */}
