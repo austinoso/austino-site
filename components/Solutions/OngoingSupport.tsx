@@ -65,6 +65,21 @@ export default function OngoingSupport() {
           <h3 className="font-display text-2xl sm:text-3xl md:text-[2.5rem] font-bold text-warm-white leading-[1.15] tracking-tight">
             A great site is just the foundation.
           </h3>
+        </div>
+        <div className="flex flex-col justify-end">
+          <p className="text-base text-stone-600 leading-relaxed text-pretty">
+            Your site is built to perform from day one, but I don&apos;t walk
+            away after launch. I stay on as your web strategist, using data to
+            improve what&apos;s underperforming and building new content that
+            earns search authority. More leads every&nbsp;month.
+          </p>
+          <Link
+            href="/services/growth-strategy"
+            className="inline-flex self-start items-center gap-2 text-sm font-mono font-medium text-warm-gold hover:text-amber-700 transition-colors duration-300 mt-5"
+          >
+            Explore growth strategy
+            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+          </Link>
           {/* ── Capability pills ── */}
           <div className="flex flex-wrap gap-3 mt-6">
             {capabilities.map(({ icon: Icon, label }) => (
@@ -81,21 +96,6 @@ export default function OngoingSupport() {
               </div>
             ))}
           </div>
-        </div>
-        <div className="flex flex-col justify-end">
-          <p className="text-base text-stone-600 leading-relaxed text-pretty">
-            Your site is built to perform from day one, but I don&apos;t walk
-            away after launch. I stay on as your web strategist, using data to
-            improve what&apos;s underperforming and building new content that
-            earns search authority. More leads every&nbsp;month.
-          </p>
-          <Link
-            href="/services/growth-strategy"
-            className="inline-flex self-start items-center gap-2 text-sm font-mono font-medium text-warm-gold hover:text-amber-700 transition-colors duration-300 mt-5"
-          >
-            Explore growth strategy
-            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-          </Link>
         </div>
       </div>
 
