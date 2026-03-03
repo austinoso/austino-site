@@ -5,7 +5,7 @@ import Link from "next/link";
 const features = [
   {
     label: "Design That Builds Trust",
-    desc: "Custom-crafted for your brand — not a template with your logo pasted on",
+    desc: "Built around your business and your customers, not a recycled template",
   },
   {
     label: "Features Customers Love",
@@ -30,9 +30,9 @@ export default function WebDevelopment() {
             Ranks higher. Loads faster. Converts&nbsp;more.
           </h3>
           <p className="text-base sm:text-lg text-stone-600 leading-relaxed mt-5 max-w-xl text-pretty">
-            While your competitors sit on slow templates, your site will load
-            instantly, rank higher on Google, and turn visitors into paying
-            customers. Around the&nbsp;clock.
+            Most local business sites look the same and underperform. Each site
+            is designed to show up higher on Google and turn more visitors into
+            paying customers.
           </p>
         </div>
 

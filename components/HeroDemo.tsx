@@ -485,7 +485,7 @@ export default function HeroDemo() {
         className="relative rounded-xl border border-white/[0.06] bg-[#0C0B09] overflow-hidden select-none"
         style={{
           boxShadow:
-            "0 24px 48px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02)",
+            "0 4px 12px -2px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04)",
         }}
         aria-hidden="true"
       >

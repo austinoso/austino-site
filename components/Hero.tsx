@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Search, Phone, Code2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import HeroDemoLoader from "./HeroDemoLoader";
 
 /* ─────────────────────────────────────────────────────────────────── */
@@ -14,6 +14,13 @@ export default function Hero() {
       className="relative overflow-hidden bg-warm-bg"
       aria-labelledby="hero-heading"
     >
+      {/* Decorative semicircle — amber, right edge */}
+      <div
+        className="absolute -right-[12rem] sm:-right-[14rem] md:-right-[20rem] top-10 sm:top-16 md:top-20 w-[20rem] h-[20rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] rounded-full pointer-events-none"
+        style={{ background: "rgba(180, 83, 9, 0.07)" }}
+        aria-hidden="true"
+      />
+
       <div className="relative z-10 px-6 sm:px-10 md:px-14 lg:px-20 pt-28 sm:pt-32 lg:pt-36 pb-20 sm:pb-24 lg:pb-28">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* ─── Text column — dominant ─── */}
@@ -31,9 +38,9 @@ export default function Hero() {
             </h1>
 
             <p className="mt-5 sm:mt-6 text-base sm:text-lg text-stone-600 leading-relaxed max-w-lg text-pretty">
-              A fast, custom-built site that ranks on Google and turns visitors
-              into customers. Then a growth strategy that keeps it climbing
-              every month.
+              Websites built to earn trust and drive more sales. Ongoing
+              strategy helps your business show up higher on Google and keeps
+              improving results month after month.
             </p>
 
             {/* ─── CTA pair ─── */}
@@ -44,7 +51,7 @@ export default function Hero() {
                 aria-label="Get a free consultation"
                 data-umami-event="hero-cta"
               >
-                Get a Free Consultation
+                Book a Free Strategy Call
                 <ArrowRight
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   aria-hidden="true"
@@ -52,10 +59,10 @@ export default function Hero() {
               </Link>
               <Link
                 href="/work"
-                className="group inline-flex items-center gap-2 text-[15px] font-medium text-stone-600 hover:text-warm-gold transition-colors duration-200"
+                className="group inline-flex items-center gap-2 text-[15px] font-medium text-stone-500 hover:text-warm-gold transition-colors duration-200"
                 data-umami-event="hero-secondary-cta"
               >
-                Recent Projects
+                See Selected Work
                 <ArrowRight
                   className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
                   aria-hidden="true"
@@ -63,36 +70,35 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* ─── Trust strip ─── */}
-            <div className="mt-8 pt-5 border-t border-stone-200 space-y-2.5">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-                {[
-                  { Icon: Search, text: "Rank on Google" },
-                  { Icon: Phone, text: "More Calls &\u00A0Bookings" },
-                  { Icon: Code2, text: "Custom-Built Code" },
-                ].map(({ Icon, text }) => (
-                  <span
-                    key={text}
-                    className="inline-flex items-center gap-1.5 text-sm text-stone-500"
-                  >
-                    <Icon
-                      className="w-3.5 h-3.5 text-amber-600/70"
-                      aria-hidden="true"
-                    />
-                    {text}
-                  </span>
-                ))}
-              </div>
-              <span className="inline-flex items-center gap-2 text-sm text-stone-600">
+            {/* ─── Proof + trust lines ─── */}
+            <div className="mt-8 pt-5 border-t border-stone-200">
+              <p className="inline-flex items-start gap-2 text-sm sm:text-[15px] text-stone-600 leading-relaxed max-w-xl">
+                <CheckCircle2
+                  className="w-4 h-4 text-amber-700 mt-0.5 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                Designed around how Google finds you and customers trust you.
+              </p>
+
+              <p className="mt-2.5 inline-flex items-center gap-2 text-sm text-stone-600">
                 <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Based in California&apos;s Central Valley
-              </span>
+                California based, working directly with local businesses
+              </p>
             </div>
           </div>
 
           {/* ─── Demo column — supporting visual ─── */}
           <div className="lg:col-span-5">
-            <HeroDemoLoader />
+            {/* Offset card for depth */}
+            <div className="relative">
+              <div
+                className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full rounded-xl bg-stone-100 border border-stone-200/60"
+                aria-hidden="true"
+              />
+              <div className="relative">
+                <HeroDemoLoader />
+              </div>
+            </div>
           </div>
         </div>
       </div>

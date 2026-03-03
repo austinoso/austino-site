@@ -627,3 +627,4 @@ export default function NewServicePage() {
 - **`text-stone-600` inside `.dark-section`** — fails WCAG contrast. Use `text-stone-400`.
 - **Raw `#4ADE80` hex for green** — use `green-400` class (dark mockups) or `warm-green` token (light page). Don't hardcode hex values in Tailwind classes. SVG `stroke`/`fill` attributes can keep the hex since SVG doesn't read Tailwind tokens.
 - **Flat `bg-amber-500 text-black` for buttons** — always use the gradient CTA pattern (`from-amber-600 to-amber-500 text-white`).
+- **Colored glows / brand-colored box-shadows** — avoid glowing shadow effects (e.g. `rgba(180,83,9,0.15)` spread shadows). Use structural depth techniques instead: white offset cards, subtle neutral shadows, layered borders. Glows feel techy/SaaS — this brand is warm & tactile.

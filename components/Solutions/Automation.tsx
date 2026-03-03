@@ -30,13 +30,12 @@ export default function Automation() {
           </span>
         </div>
         <h3 className="font-display text-2xl sm:text-3xl font-bold text-warm-white leading-snug">
-          Then automate what slows you&nbsp;down.
+          Automate what slows you&nbsp;down.
         </h3>
         <p className="text-base text-stone-600 leading-relaxed">
-          Your site and growth strategy are running. Now let&apos;s eliminate
-          the busywork. I find the bottlenecks in your daily operations and
-          build custom systems that handle follow-ups, scheduling, and data
-          entry on&nbsp;autopilot.
+          Once your website and growth strategy are in place, automation takes
+          repetitive work off your plate. Follow-ups, scheduling, and data entry
+          run in the background so you can focus on sales and service.
         </p>
 
         {/* ── Capabilities as inline tags ── */}

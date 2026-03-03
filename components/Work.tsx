@@ -24,9 +24,16 @@ export default function Work() {
     <ScrollReveal
       as="section"
       id="work"
-      className="relative w-full pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-28 md:pb-24 border-b border-stone-200"
+      className="relative overflow-hidden w-full pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-28 md:pb-24 border-b border-stone-200"
       aria-labelledby="work-heading"
     >
+      {/* Decorative semicircle — violet, left edge */}
+      <div
+        className="absolute -left-[10rem] sm:-left-[12rem] md:-left-[17rem] top-1/3 w-[18rem] h-[18rem] sm:w-[22rem] sm:h-[22rem] md:w-[28rem] md:h-[28rem] rounded-full pointer-events-none"
+        style={{ background: "rgba(124, 58, 237, 0.05)" }}
+        aria-hidden="true"
+      />
+
       {/* Subtle divider */}
       <div
         className="absolute top-0 inset-x-0 h-px"

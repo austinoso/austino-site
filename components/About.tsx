@@ -9,9 +9,16 @@ export default function About() {
   return (
     <ScrollReveal
       as="section"
-      className="relative w-full pt-20 pb-20 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 border-b border-stone-200"
+      className="relative overflow-hidden w-full pt-20 pb-20 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 border-b border-stone-200"
       aria-labelledby="about-heading"
     >
+      {/* Decorative semicircle — rose, right edge */}
+      <div
+        className="absolute -right-[9rem] sm:-right-[11rem] md:-right-[14rem] bottom-16 sm:bottom-24 md:bottom-28 w-[16rem] h-[16rem] sm:w-[20rem] sm:h-[20rem] md:w-[24rem] md:h-[24rem] rounded-full pointer-events-none"
+        style={{ background: "rgba(219, 39, 119, 0.06)" }}
+        aria-hidden="true"
+      />
+
       {/* Gradient divider line */}
       <div
         className="absolute top-0 inset-x-0 h-px"
@@ -50,8 +57,17 @@ export default function About() {
           {/* Mission — pull-quote treatment */}
           <blockquote
             data-animate="fade"
-            className="mt-8 sm:mt-10 pl-5 sm:pl-6 border-l-2 border-warm-gold/40"
+            className="mt-8 sm:mt-10 pl-5 sm:pl-6 relative"
           >
+            {/* Brand gradient border-left */}
+            <div
+              className="absolute left-0 top-0 bottom-0 w-0.5 rounded-full"
+              style={{
+                background:
+                  "linear-gradient(to bottom, #B45309 0%, #DB2777 50%, #7C3AED 100%)",
+              }}
+              aria-hidden="true"
+            />
             <p className="text-base sm:text-lg text-stone-700 leading-relaxed font-medium">
               I care about your growth because that&apos;s the whole point of
               the work. But I&apos;ll be honest — it&apos;s also a reflection of
