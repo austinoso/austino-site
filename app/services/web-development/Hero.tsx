@@ -18,7 +18,7 @@ export default function Hero() {
           href="/contact"
           className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
         >
-          Get a Free Consultation
+          Get a Free Site Review
           <ArrowRight
             className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
             aria-hidden="true"

@@ -43,9 +43,8 @@ export default function Hero() {
             </h1>
 
             <p className="mt-4 sm:mt-5 text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-pretty">
-              Built to earn trust from the first click and drive more sales.
-              Ongoing strategy helps your business show up higher on Google and
-              keeps improving results month after month.
+              Designed around your business and customers, backed by the
+              strategy Google rewards with page&nbsp;one.
             </p>
 
             {/* ─── CTA pair ─── */}

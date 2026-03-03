@@ -59,9 +59,9 @@ export default function CTA() {
             data-animate="fade"
             className="text-base sm:text-lg text-stone-400 leading-relaxed"
           >
-            One conversation is all it takes to find out if we&apos;re a fit. No
-            pitch deck, no pressure. Just an honest look at where your site
-            stands and what&apos;s possible.
+            Thinking about a new site, or know your current one isn&apos;t
+            pulling its weight? Let&apos;s talk through what the right build
+            looks like for your business.
           </p>
 
           <div
@@ -80,7 +80,7 @@ export default function CTA() {
               />
             </Link>
             <p className="text-xs font-mono text-stone-400">
-              Usually responds within 24 hours
+              Free, zero obligation
             </p>
           </div>
         </div>

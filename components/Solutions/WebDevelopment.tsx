@@ -30,9 +30,9 @@ export default function WebDevelopment() {
             Ranks higher. Loads faster. Converts&nbsp;more.
           </h3>
           <p className="text-base sm:text-lg text-stone-600 leading-relaxed mt-5 max-w-xl text-pretty">
-            The typical local business site blends in and underperforms. Each
-            site is designed to show up higher on Google and turn more visitors
-            into paying customers.
+            The typical local business site blends in and underperforms. I build
+            sites that match how your customers actually search and give them a
+            reason to choose you over the next&nbsp;result.
           </p>
         </div>
 

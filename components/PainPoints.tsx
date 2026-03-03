@@ -6,9 +6,9 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const points = [
   {
-    title: "Slow sites bleed customers before they\u00A0land",
+    title: "First impressions decide who gets the\u00A0call",
     description:
-      "Most local businesses run bloated templates that take 6\u201310\u00A0seconds to load. A fast, custom-built site puts you in front of every search before competitors even finish\u00A0loading.",
+      "Most local business sites look outdated, load slow, and give visitors no clear reason to stay. A site designed around your customers builds trust in seconds and makes it easy to book, buy, or reach\u00A0out.",
   },
   {
     title: "Page one belongs to whoever keeps showing\u00A0up",

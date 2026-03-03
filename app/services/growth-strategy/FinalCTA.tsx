@@ -33,9 +33,9 @@ export default function FinalCTA() {
               <span className="text-gradient-gold">from day one.</span>
             </h2>
             <p className="text-base sm:text-lg text-stone-300 leading-relaxed text-pretty">
-              I don&apos;t build sites and walk away. Growth strategy comes
-              standard with every Build + Grow project, so your site launches
-              with momentum already behind it.
+              Growth strategy comes standard with every Build + Grow project.
+              Your site launches with momentum already behind it, and I keep
+              pushing it forward.
             </p>
           </div>
           <div className="flex-shrink-0">

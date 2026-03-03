@@ -57,7 +57,7 @@ export default function ContactPage() {
                   </div>
                   <p className="text-sm text-stone-500 leading-relaxed text-pretty">
                     Based in California&apos;s Central Valley, serving clients
-                    everywhere. Usually responds within 24 hours.
+                    everywhere. Typical response time: same business day.
                   </p>
                 </div>
 
@@ -66,10 +66,10 @@ export default function ContactPage() {
                   <p className="section-label mb-4">What Happens Next</p>
                   <ul className="space-y-4">
                     {[
-                      "I review your message within 24 hours",
+                      "I review your message and do my homework",
                       "We hop on a quick call to talk through it",
                       "I send you a clear plan with timeline and cost",
-                      "You decide \u2014 no pressure",
+                      "You decide. Zero obligation",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <span className="font-mono text-[10px] text-warm-gold/60 mt-1 flex-shrink-0">

@@ -35,9 +35,8 @@ export default function FinalCTA() {
               </span>
             </h2>
             <p className="text-base sm:text-lg text-stone-300 leading-relaxed">
-              One conversation. I&apos;ll review what you have, show you
-              what&apos;s possible, and map out a plan — whether we work
-              together or not.
+              Tell me about your business and what you need the site to do.
+              I&apos;ll put together a clear plan with timeline and cost.
             </p>
           </div>
           <div className="flex-shrink-0">
@@ -45,7 +44,7 @@ export default function FinalCTA() {
               href="/contact"
               className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-base rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-[#1C1917] w-full sm:w-auto"
             >
-              <span>Start a Conversation</span>
+              <span>Get Your Free Plan</span>
               <ArrowRight
                 className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                 aria-hidden="true"

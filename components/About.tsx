@@ -72,9 +72,9 @@ export default function About() {
             />
             <p className="text-base sm:text-lg text-stone-700 leading-relaxed font-medium">
               Good enough never sits right with me. I push every project until
-              the work matches my standard. When you work with me, your problems
-              become mine, and I don&apos;t walk away until the solution is
-              something we&apos;re both proud&nbsp;of.
+              the work matches my standard. Once I take something on, I stay
+              with it. I don&apos;t walk away until the solution is something
+              we&apos;re both proud&nbsp;of.
             </p>
           </blockquote>
         </div>

@@ -84,10 +84,9 @@ export default function OngoingSupport() {
         </div>
         <div className="flex flex-col justify-end">
           <p className="text-base text-stone-600 leading-relaxed text-pretty">
-            Your site is built to perform from day one, but I don&apos;t walk
-            away after launch. I stay on as your web strategist, using data to
-            improve what&apos;s underperforming and building new content that
-            earns search authority. More leads every&nbsp;month.
+            I stay on as your web strategist after launch, using data to fix
+            what&apos;s underperforming and publishing content that earns search
+            authority. The kind of work that&nbsp;compounds.
           </p>
           <Link
             href="/services/growth-strategy"

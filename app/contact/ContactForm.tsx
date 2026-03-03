@@ -277,7 +277,7 @@ export default function ContactForm() {
           onChange={handleChange}
           rows={5}
           className={`${inputClass} resize-none`}
-          placeholder="What's slowing your business down? What would make your day-to-day easier?"
+          placeholder="Tell me about your business and what you'd like to improve."
           aria-required="true"
         />
       </div>
