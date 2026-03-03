@@ -50,10 +50,10 @@ export default function About() {
             I handle everything. Design, development, data, and the ongoing
             strategy to keep it all growing. Years of working inside small
             agencies taught me how businesses actually operate and what problems
-            look like up close. I&apos;ve spent just as long studying how people
-            behave on websites, what builds trust at a glance, and how Google
-            decides who deserves page one. I don&apos;t just understand the
-            theory. I know the exact systems that make it work.
+            look like up close. That experience, plus a software engineering
+            background that means I actually understand how Google&apos;s
+            ranking systems work under the hood, is why I can look at your
+            business and know what needs to happen to get it ranking.
           </p>
 
           {/* Mission — pull-quote treatment */}
@@ -71,10 +71,10 @@ export default function About() {
               aria-hidden="true"
             />
             <p className="text-base sm:text-lg text-stone-700 leading-relaxed font-medium">
-              Good enough never sits right with me. I push every project until
-              the work matches my standard. Once I take something on, I stay
-              with it. I don&apos;t walk away until the solution is something
-              we&apos;re both proud&nbsp;of.
+              &ldquo;Good enough&rdquo; has never been the bar I&apos;m aiming
+              for. Once I take something on, I stay with it. I don&apos;t walk
+              away until the solution is something we&apos;re both
+              proud&nbsp;of.
             </p>
           </blockquote>
         </div>

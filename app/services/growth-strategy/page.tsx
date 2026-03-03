@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 import Hero from "./Hero";
+import SoundFamiliar from "./SoundFamiliar";
 import TheReality from "./TheReality";
 import WhatsIncluded from "./TheStrategy";
 import LongTerm from "./LongTerm";
@@ -42,13 +43,28 @@ export default function GrowthStrategyPage() {
             </div>
           </div>
 
-          {/* ── Sound Familiar + The Opportunity ── */}
+          {/* ── Sound Familiar ── */}
           <div className="relative border-b border-stone-200">
             <div
               className="absolute top-0 inset-x-0 h-px"
               style={{
                 background:
                   "linear-gradient(90deg, transparent, rgba(212,168,83,0.05) 25%, rgba(244,114,182,0.04) 50%, rgba(167,139,250,0.03) 75%, transparent)",
+              }}
+              aria-hidden="true"
+            />
+            <div className="pt-14 sm:pt-28 md:pt-32">
+              <SoundFamiliar />
+            </div>
+          </div>
+
+          {/* ── The Reality ── */}
+          <div className="relative border-b border-stone-200">
+            <div
+              className="absolute top-0 inset-x-0 h-px"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, rgba(167,139,250,0.04) 25%, rgba(212,168,83,0.05) 50%, rgba(244,114,182,0.03) 75%, transparent)",
               }}
               aria-hidden="true"
             />

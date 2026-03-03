@@ -17,9 +17,8 @@ export default function Hero() {
           <span className="text-gradient-gold">the starting line.</span>
         </h1>
         <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
-          Rankings don&apos;t hold themselves. Without fresh content and
-          optimization, competitors close the gap. Yours should be pulling
-          further ahead.
+          New pages targeting real searches. Optimization driven by real data.
+          The strategy Google wants from its page one sites.
         </p>
         <Link
           href="/contact"

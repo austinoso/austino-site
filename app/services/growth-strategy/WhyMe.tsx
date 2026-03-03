@@ -40,9 +40,9 @@ export default function WhyMe() {
           </h2>
           <div className="space-y-4 text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
             <p>
-              I&apos;ve spent six years building software. The same systems that
-              power the analytics, ranking algorithms, and data tools behind
-              every decision in this strategy. I don&apos;t just read
+              I&apos;ve spent six years as a software engineer. That background
+              means I understand how Google&apos;s ranking systems, analytics
+              platforms, and data tools actually work. I don&apos;t just read
               dashboards. I understand what&apos;s happening underneath them.
             </p>
             <p>

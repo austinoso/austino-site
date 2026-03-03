@@ -43,8 +43,8 @@ export default function Hero() {
             </h1>
 
             <p className="mt-4 sm:mt-5 text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-pretty">
-              Designed around your business and customers, backed by the
-              strategy Google rewards with page&nbsp;one.
+              Designed around your business and customers, backed by what
+              Google says gets you to page&nbsp;one.
             </p>
 
             {/* ─── CTA pair ─── */}

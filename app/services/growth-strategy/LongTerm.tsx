@@ -35,8 +35,8 @@ export default function LongTerm() {
         {/* Left: heading — centered against timeline */}
         <div className="lg:col-span-5">
           <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4">
-            A site that{" "}
-            <span className="text-gradient-gold">compounds every month.</span>
+            A site that gets{" "}
+            <span className="text-gradient-gold">stronger every month.</span>
           </h2>
           <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
             Every page I build keeps pulling traffic after it&apos;s published.

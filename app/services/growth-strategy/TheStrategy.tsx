@@ -18,12 +18,12 @@ const deliverables = [
   {
     icon: Search,
     label: "Keyword research & targeting",
-    desc: "I find the exact searches your customers make and identify which ones are worth going after.",
+    desc: "I find what your customers are actually searching for so every page we build answers a real question.",
   },
   {
     icon: FileText,
     label: "Pages built around real searches",
-    desc: "Deep-dive service pages, local landing pages, FAQs. Each one structured to rank for a specific keyword.",
+    desc: "Service deep-dives, local landing pages, FAQs. Each one written to be genuinely useful.",
   },
   {
     icon: TrendingUp,
