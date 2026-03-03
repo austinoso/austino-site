@@ -17,7 +17,7 @@ const designPoints = [
   {
     icon: Fingerprint,
     label: "Built around your business",
-    desc: "No shared templates. Everything is designed around your business, your market, and your clientele.",
+    desc: "Designed around your business, your market, and the customers you want to reach.",
   },
   {
     icon: Target,
