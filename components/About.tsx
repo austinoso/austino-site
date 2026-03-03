@@ -12,10 +12,10 @@ export default function About() {
       className="relative overflow-hidden w-full pt-20 pb-20 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 border-b border-stone-200"
       aria-labelledby="about-heading"
     >
-      {/* Decorative semicircle — rose, right edge */}
+      {/* Decorative semicircle — violet, right edge */}
       <div
         className="absolute -right-[9rem] sm:-right-[11rem] md:-right-[14rem] bottom-16 sm:bottom-24 md:bottom-28 w-[16rem] h-[16rem] sm:w-[20rem] sm:h-[20rem] md:w-[24rem] md:h-[24rem] rounded-full pointer-events-none"
-        style={{ background: "rgba(219, 39, 119, 0.06)" }}
+        style={{ background: "rgba(124, 58, 237, 0.05)" }}
         aria-hidden="true"
       />
 

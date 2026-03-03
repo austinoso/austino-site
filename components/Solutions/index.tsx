@@ -13,9 +13,16 @@ export default function Solutions() {
   return (
     <section
       id="solutions"
-      className="relative w-full pt-16 pb-0 sm:pt-20 sm:pb-0 md:pt-24 md:pb-0 border-b border-stone-200"
+      className="relative overflow-hidden w-full pt-16 pb-0 sm:pt-20 sm:pb-0 md:pt-24 md:pb-0 border-b border-stone-200"
       aria-labelledby="solutions-heading"
     >
+      {/* Decorative semicircle — rose, top-right edge */}
+      <div
+        className="absolute -right-[10rem] sm:-right-[12rem] md:-right-[16rem] -top-[6rem] sm:-top-[8rem] md:-top-[10rem] w-[18rem] h-[18rem] sm:w-[22rem] sm:h-[22rem] md:w-[28rem] md:h-[28rem] rounded-full pointer-events-none"
+        style={{ background: "rgba(219, 39, 119, 0.05)" }}
+        aria-hidden="true"
+      />
+
       {/* Gradient divider line */}
       <div
         className="absolute top-0 inset-x-0 h-px"
