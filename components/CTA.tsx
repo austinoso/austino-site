@@ -1,80 +1,108 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import WordReveal from "@/components/ui/WordReveal";
-import FlowLines from "@/components/ui/FlowLines";
 
 /* ────────────────────────────────────────────────────────────────── */
-/*  CTA — server component (content in initial HTML)                 */
+/*  CTA — lowkey closing section, cream background, steps animate in */
 /* ────────────────────────────────────────────────────────────────── */
+
+const steps = [
+  {
+    num: "01",
+    title: "We talk",
+    desc: "A real conversation about your business, not a sales pitch. 20 minutes, no obligation.",
+  },
+  {
+    num: "02",
+    title: "I audit what you have",
+    desc: "I look at your current site, your competitors, and where the gaps are.",
+  },
+  {
+    num: "03",
+    title: "You get a clear plan",
+    desc: "Timeline, cost, and exactly what I\u2019d build. Your call if we move forward.",
+  },
+];
 
 export default function CTA() {
   return (
     <ScrollReveal
       as="section"
-      className="dark-section relative w-full pt-20 pb-20 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 overflow-hidden rounded-t-3xl bg-[#1C1917]"
+      className="relative w-full pt-10 pb-24 sm:pt-14 sm:pb-32 md:pt-16 md:pb-36"
       aria-labelledby="cta-heading"
     >
-      {/* Gradient divider line */}
-      <div
-        className="absolute top-0 inset-x-0 h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, rgba(251,191,36,0.12) 30%, rgba(244,114,182,0.08) 60%, transparent)",
-        }}
-        aria-hidden="true"
-      />
+      <div className="px-6 sm:px-10 md:px-14 lg:px-20">
+        {/* Divider line from previous section */}
+        <div
+          data-animate="line"
+          className="h-px bg-stone-200 mb-14 sm:mb-18 md:mb-20"
+        />
 
-      <FlowLines className="absolute bottom-0 right-0 w-[50%] h-full" />
+        {/* ── Label ── */}
+        <p
+          data-animate="label"
+          className="text-xs font-semibold text-amber-700 uppercase tracking-[0.2em] mb-5"
+        >
+          Your Move
+        </p>
 
-      <div className="px-6 sm:px-10 md:px-14 lg:px-20 relative">
-        {/* Header */}
-        <div className="mb-10 sm:mb-12">
-          <p
-            data-animate="label"
-            className="text-xs font-semibold text-amber-400 uppercase tracking-[0.2em] mb-5"
+        {/* ── Headline ── */}
+        <h2
+          data-animate="fade"
+          id="cta-heading"
+          className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-stone-900 leading-[1.1] tracking-tight max-w-2xl"
+        >
+          It starts with <span className="text-stone-500">20 minutes.</span>
+        </h2>
+
+        {/* ── Body ── */}
+        <p
+          data-animate="fade"
+          className="mt-5 text-base sm:text-lg text-stone-500 leading-relaxed max-w-xl"
+        >
+          Thinking about a new site, or not sure if your current one isn&apos;t
+          pulling its weight? Let&apos;s talk about what the right build looks
+          like for your business.
+        </p>
+
+        {/* ── Steps — quiet reassurance ── */}
+        <ol className="mt-12 sm:mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+          {steps.map((step) => (
+            <li key={step.num} data-animate="card" className="flex gap-3">
+              <span className="text-[11px] font-mono text-stone-500 font-medium pt-0.5 flex-shrink-0">
+                {step.num}
+              </span>
+              <div>
+                <p className="text-sm font-medium text-stone-700 leading-snug mb-1">
+                  {step.title}
+                </p>
+                <p className="text-[13px] text-stone-500 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        {/* ── CTA link ── */}
+        <div
+          data-animate="fade"
+          className="mt-10 sm:mt-12 flex items-center gap-4"
+        >
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2 text-[15px] font-semibold text-warm-gold hover:text-amber-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:ring-offset-2"
+            data-umami-event="cta-start-conversation"
           >
-            Your Move
-          </p>
-          <WordReveal
-            text="Your competition isn't waiting. Neither should you."
-            id="cta-heading"
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold text-white leading-[1.05] tracking-tight text-balance"
-            accentWords={["isn't", "waiting."]}
-            accentClassName="text-amber-400"
-          />
-        </div>
-
-        {/* Body + CTA */}
-        <div className="max-w-2xl">
-          <p
-            data-animate="fade"
-            className="text-base sm:text-lg text-stone-400 leading-relaxed"
-          >
-            Thinking about a new site, or not sure if your current one
-            isn&apos;t pulling its weight? Let&apos;s talk through what the
-            right build looks like for your business.
-          </p>
-
-          <div
-            data-animate="fade"
-            className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4"
-          >
-            <Link
-              href="/contact"
-              className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-[15px] rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
-              data-umami-event="cta-start-conversation"
-            >
-              <span>Start a Conversation</span>
-              <ArrowRight
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                aria-hidden="true"
-              />
-            </Link>
-            <p className="text-xs font-mono text-stone-400">
-              Free, zero obligation
-            </p>
-          </div>
+            <span>Start a Conversation</span>
+            <ArrowRight
+              className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
+          </Link>
+          <span className="text-[11px] font-mono text-stone-500">
+            Free, no commitment
+          </span>
         </div>
       </div>
     </ScrollReveal>

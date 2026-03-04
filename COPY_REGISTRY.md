@@ -20,17 +20,17 @@ Each headline is "claimed" by its page. No other page should use the same line o
 
 ### Homepage (`app/page.tsx`, `components/`)
 
-| Section         | Headline                                                |
-| --------------- | ------------------------------------------------------- |
-| Hero            | Websites built **to outperform.**                       |
-| Pain Points     | Your competitors made **this easy.**                    |
-| Pain Point 2    | Nobody in your market is doing the work to **rank.**    |
-| Solutions       | How you take the **lead.**                              |
-| Web Development | Ranks higher. Loads faster. Converts more.              |
-| Growth Strategy | A great site is just the foundation.                    |
-| Automation      | Automate what slows you down.                           |
-| About           | One person. **The whole picture.**                      |
-| CTA             | **Your competition** isn't waiting. Neither should you. |
+| Section         | Headline                                             |
+| --------------- | ---------------------------------------------------- |
+| Hero            | Websites built **to outperform.**                    |
+| Pain Points     | Your competitors made **this easy.**                 |
+| Pain Point 2    | Nobody in your market is doing the work to **rank.** |
+| Solutions       | How you take the **lead.**                           |
+| Web Development | Ranks higher. Loads faster. Converts more.           |
+| Growth Strategy | A great site is just the foundation.                 |
+| Automation      | Automate what slows you down.                        |
+| About           | One person. **The whole picture.**                   |
+| CTA             | It starts with **20 minutes.**                       |
 
 ### Automation Service (`app/services/automation/`)
 
@@ -70,21 +70,21 @@ Each headline is "claimed" by its page. No other page should use the same line o
 
 Each entry is the exact button label and where it appears. Reusing the same CTA text across pages is intentional only if it's the _same action in the same context_. Different pages should vary their CTA language.
 
-| CTA Text                  | Page                      | Notes                        |
-| ------------------------- | ------------------------- | ---------------------------- |
-| Book a Free Strategy Call | Homepage hero             | Primary homepage conversion  |
-| See Selected Work         | Homepage hero             | Secondary / scroll link      |
-| Start a Conversation      | Homepage bottom CTA       | Softer close after full page |
-| See What You'd Save       | Automation hero           | Service page primary         |
-| Get a Free Site Review    | Web Development hero      | Service page primary         |
-| Get a Free Consultation   | Growth Strategy hero      | Service page primary         |
-| Map Out Your Savings      | Automation final CTA      | Service page close           |
-| Get Your Free Plan        | Web Dev final CTA         | Service page close           |
-| Start a Conversation      | Growth Strategy final CTA | Service page close           |
-| Explore web development   | Homepage solutions        | Service cross-link           |
-| Explore growth strategy   | Homepage solutions        | Service cross-link           |
-| Explore automation        | Homepage solutions        | Service cross-link           |
-| Send Message              | Contact form              | Form submit                  |
+| CTA Text                  | Page                      | Notes                       |
+| ------------------------- | ------------------------- | --------------------------- |
+| Book a Free Strategy Call | Homepage hero             | Primary homepage conversion |
+| See Selected Work         | Homepage hero             | Secondary / scroll link     |
+| Start a Conversation      | Homepage bottom CTA       | Lowkey text-link close      |
+| See What You'd Save       | Automation hero           | Service page primary        |
+| Get a Free Site Review    | Web Development hero      | Service page primary        |
+| Get a Free Consultation   | Growth Strategy hero      | Service page primary        |
+| Map Out Your Savings      | Automation final CTA      | Lowkey text-link close      |
+| Get Your Free Plan        | Web Dev final CTA         | Lowkey text-link close      |
+| Start a Conversation      | Growth Strategy final CTA | Lowkey text-link close      |
+| Explore web development   | Homepage solutions        | Service cross-link          |
+| Explore growth strategy   | Homepage solutions        | Service cross-link          |
+| Explore automation        | Homepage solutions        | Service cross-link          |
+| Send Message              | Contact form              | Form submit                 |
 
 **Resolved:** Hero and FinalCTA button text now varies across service pages.
 
@@ -109,7 +109,7 @@ Phrases that carry weight or appear more than once. If a phrase is listed here, 
 | "repetitive work"                         | Automation.tsx, automation/Hero.tsx | Acceptable — same service, different pages                    |
 | "what's slowing you down"                 | automation/FinalCTA.tsx             | **Consolidated** — was 2×, now 1× (form placeholder reworded) |
 | "paying customers"                        | WebDevelopment.tsx                  | Removed — replaced with "pick up the phone"                   |
-| "your competition"                        | CTA.tsx, Solutions/index.tsx        | Acceptable — close proximity on same page, tracks             |
+| "your competition"                        | Solutions/index.tsx                 | Homepage solutions only                                       |
 | "within 24 hours"                         | contact/page.tsx, ContactForm.tsx   | **Reduced** — was 5×, now 2× (header + form success)          |
 | "no pressure"                             | contact/page.tsx                    | **Reduced** — was 3×, now 1× (header only)                    |
 
@@ -141,10 +141,10 @@ Lines that have been flagged as generic, overused in the industry, or AI-soundin
 
 These aren't word-for-word duplicates but _skeleton reuse_ — same sentence structure, swapped nouns.
 
-| Pattern                                                                    | Where it appears                                 | Status       |
-| -------------------------------------------------------------------------- | ------------------------------------------------ | ------------ |
-| "[Built/Designed] to [verb] from [day one / the first click]"              | growth-strategy FinalCTA (headline only)         | **Resolved** |
-| "I don't [walk away / build and walk away] [after launch / until…]"        | About.tsx only                                   | **Resolved** |
-| "A [website/site] that [sits/goes] untouched after launch [loses/drops]"   | PainPoints only                                  | **Resolved** |
-| FinalCTA: dark card → H2 with accent → body → CTA button → two cross-links | All 3 service pages (same skeleton, varied copy) | Acceptable   |
-| Service Hero: grid → H1 with gradient → body → CTA button                  | All 3 service pages (same skeleton, varied CTAs) | Acceptable   |
+| Pattern                                                                                 | Where it appears                                 | Status       |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------ |
+| "[Built/Designed] to [verb] from [day one / the first click]"                           | growth-strategy FinalCTA (headline only)         | **Resolved** |
+| "I don't [walk away / build and walk away] [after launch / until…]"                     | About.tsx only                                   | **Resolved** |
+| "A [website/site] that [sits/goes] untouched after launch [loses/drops]"                | PainPoints only                                  | **Resolved** |
+| FinalCTA: divider → label → H2 with muted span → body → text-link CTA → two cross-links | All 3 service pages (same skeleton, varied copy) | Acceptable   |
+| Service Hero: grid → H1 with gradient → body → CTA button                               | All 3 service pages (same skeleton, varied CTAs) | Acceptable   |

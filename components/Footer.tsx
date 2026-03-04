@@ -11,9 +11,7 @@ export default function Footer({ variant = "light" }: FooterProps) {
   return (
     <footer
       className={`relative ${
-        isDark
-          ? "border-t border-white/[0.06] bg-[#1C1917]"
-          : "border-t border-stone-200 bg-warm-bg"
+        isDark ? "bg-[#1C1917]" : "border-t border-stone-200 bg-warm-bg"
       }`}
       role="contentinfo"
       aria-label="Site footer"

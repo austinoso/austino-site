@@ -21,7 +21,7 @@ export default function HomePage() {
           <CTA />
         </div>
       </main>
-      <Footer variant="dark" />
+      <Footer />
     </>
   );
 }
