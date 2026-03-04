@@ -47,7 +47,7 @@ export default function About() {
             data-animate="fade"
             className="text-base sm:text-lg text-stone-600 leading-relaxed mt-8 sm:mt-10"
           >
-            I handle everything. Design, development, data, and the ongoing
+            I handle everything: Design, development, data, and the ongoing
             strategy to keep it all growing. Years of working inside small
             agencies taught me how businesses actually operate and what problems
             look like up close. That experience, plus a software engineering

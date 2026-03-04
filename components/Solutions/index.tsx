@@ -74,7 +74,7 @@ export default function Solutions() {
           }}
         >
           <p className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.15] tracking-tight max-w-3xl text-balance">
-            I only work with one business per niche in your area.{" "}
+            I take one client per niche, per area.{" "}
             <span className="text-gradient">
               Your competition won&apos;t get this from me.
             </span>
