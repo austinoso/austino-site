@@ -6,7 +6,7 @@ import { Turnstile } from "@marsidev/react-turnstile";
 // Form field configurations — aligned to ICP (local / small business owners)
 const BUDGET_RANGES = [
   { value: "under-1.5k", label: "Under $1.5k" },
-  { value: "1-3k", label: "$1\u20133k" },
+  { value: "1.5-3k", label: "$1.5\u20133k" },
   { value: "5k+", label: "$5k+" },
   { value: "unsure", label: "Unsure" },
 ];
