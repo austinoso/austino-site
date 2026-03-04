@@ -57,15 +57,7 @@ export default function LawFirmsCentralValleyPage() {
 
         <div className="page-frame">
           {/* ── Hero ── */}
-          <div
-            className="relative border-b border-stone-200 overflow-hidden"
-            style={{
-              backgroundImage: [
-                "radial-gradient(ellipse 80% 70% at 85% 10%, rgba(64,224,255,0.013), rgba(167,139,250,0.011) 40%, rgba(244,114,182,0.005) 70%, transparent 100%)",
-                "radial-gradient(ellipse 60% 55% at 10% 90%, rgba(64,224,255,0.007), rgba(167,139,250,0.005) 50%, transparent 80%)",
-              ].join(", "),
-            }}
-          >
+          <div className="relative border-b border-stone-200 overflow-hidden">
             <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
               <Link
                 href="/#solutions"
@@ -391,13 +383,7 @@ export default function LawFirmsCentralValleyPage() {
           </div>
 
           {/* ── The Demo ── */}
-          <div
-            className="relative border-b border-stone-200 overflow-hidden"
-            style={{
-              backgroundImage:
-                "radial-gradient(ellipse 55% 60% at 55% 15%, rgba(64,224,255,0.005), rgba(167,139,250,0.005) 50%, transparent 80%)",
-            }}
-          >
+          <div className="relative border-b border-stone-200 overflow-hidden">
             <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
               <section data-fade>
                 <p className="section-label mb-4">The Solution</p>
@@ -601,13 +587,7 @@ export default function LawFirmsCentralValleyPage() {
           </div>
 
           {/* ── What You Get ── */}
-          <div
-            className="relative border-b border-stone-200 overflow-hidden"
-            style={{
-              backgroundImage:
-                "radial-gradient(ellipse 65% 60% at 15% 35%, rgba(167,139,250,0.005), rgba(64,224,255,0.005) 50%, transparent 85%)",
-            }}
-          >
+          <div className="relative border-b border-stone-200 overflow-hidden">
             <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
               <section data-fade>
                 <p className="section-label mb-4">What&apos;s Included</p>

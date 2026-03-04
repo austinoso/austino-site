@@ -5,17 +5,7 @@ export default function FinalCTA() {
   return (
     <section data-fade>
       {/* Dark card — echoes homepage CTA */}
-      <div
-        className="dark-section relative rounded-2xl overflow-hidden px-8 sm:px-10 md:px-12 py-10 sm:py-14 md:py-16"
-        style={{
-          backgroundColor: "#1C1917",
-          backgroundImage: [
-            "radial-gradient(ellipse 70% 50% at 85% 80%, rgba(251,191,36,0.07), rgba(244,114,182,0.04) 50%, transparent 100%)",
-            "radial-gradient(ellipse 55% 45% at 10% 90%, rgba(244,114,182,0.05), transparent 70%)",
-            "radial-gradient(ellipse 45% 35% at 50% 10%, rgba(167,139,250,0.03), transparent 70%)",
-          ].join(", "),
-        }}
-      >
+      <div className="dark-section relative rounded-2xl overflow-hidden px-8 sm:px-10 md:px-12 py-10 sm:py-14 md:py-16 bg-[#1C1917]">
         {/* Top gradient edge */}
         <div
           className="absolute top-0 inset-x-0 h-px"

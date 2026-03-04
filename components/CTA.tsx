@@ -12,15 +12,7 @@ export default function CTA() {
   return (
     <ScrollReveal
       as="section"
-      className="dark-section relative w-full pt-20 pb-20 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 overflow-hidden rounded-t-3xl"
-      style={{
-        backgroundColor: "#1C1917",
-        backgroundImage: [
-          "radial-gradient(ellipse 70% 50% at 90% 85%, rgba(251,191,36,0.08), rgba(244,114,182,0.05) 50%, transparent 100%)",
-          "radial-gradient(ellipse 60% 45% at 5% 95%, rgba(244,114,182,0.06), rgba(251,191,36,0.03) 50%, transparent 100%)",
-          "radial-gradient(ellipse 50% 40% at 50% 10%, rgba(167,139,250,0.04), transparent 70%)",
-        ].join(", "),
-      }}
+      className="dark-section relative w-full pt-20 pb-20 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32 overflow-hidden rounded-t-3xl bg-[#1C1917]"
       aria-labelledby="cta-heading"
     >
       {/* Gradient divider line */}
@@ -59,9 +51,9 @@ export default function CTA() {
             data-animate="fade"
             className="text-base sm:text-lg text-stone-400 leading-relaxed"
           >
-            Thinking about a new site, or know your current one isn&apos;t
-            pulling its weight? Let&apos;s talk through what the right build
-            looks like for your business.
+            Thinking about a new site, or not sure if your current one
+            isn&apos;t pulling its weight? Let&apos;s talk through what the
+            right build looks like for your business.
           </p>
 
           <div

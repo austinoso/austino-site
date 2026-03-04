@@ -68,10 +68,6 @@ export default function Solutions() {
         <div
           data-closer
           className="mt-20 sm:mt-28 py-12 sm:py-16 -mx-6 sm:-mx-10 md:-mx-14 lg:-mx-20 px-6 sm:px-10 md:px-14 lg:px-20 border-y border-stone-200"
-          style={{
-            backgroundImage:
-              "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(251,191,36,0.04), transparent 80%)",
-          }}
         >
           <p className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.15] tracking-tight max-w-3xl text-balance">
             I take one client per niche, per area.{" "}

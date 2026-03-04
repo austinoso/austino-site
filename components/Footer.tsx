@@ -1,16 +1,23 @@
 import Link from "next/link";
 
-export default function Footer() {
+interface FooterProps {
+  variant?: "light" | "dark";
+}
+
+export default function Footer({ variant = "light" }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const isDark = variant === "dark";
 
   return (
     <footer
-      className="relative border-t border-stone-200 bg-warm-bg"
+      className={`relative ${
+        isDark
+          ? "border-t border-white/[0.06] bg-[#1C1917]"
+          : "border-t border-stone-200 bg-warm-bg"
+      }`}
       role="contentinfo"
       aria-label="Site footer"
     >
-      {/* Subtle bg */}
-
       <div className="max-w-[1200px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-14 sm:py-18 relative">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8 mb-12">
           {/* Brand */}
@@ -20,10 +27,18 @@ export default function Footer() {
               className="text-lg font-display font-bold hover:opacity-80 transition-opacity inline-block mb-3"
               aria-label="Home"
             >
-              <span className="text-stone-900">austin</span>
-              <span className="text-warm-gold">o</span>
+              <span className={isDark ? "text-white" : "text-stone-900"}>
+                austin
+              </span>
+              <span className={isDark ? "text-amber-400" : "text-warm-gold"}>
+                o
+              </span>
             </Link>
-            <p className="text-sm text-stone-500 leading-relaxed max-w-[240px]">
+            <p
+              className={`text-sm leading-relaxed max-w-[240px] ${
+                isDark ? "text-stone-400" : "text-stone-500"
+              }`}
+            >
               High-performance websites, growth strategies, and automation for
               local businesses.
             </p>
@@ -31,14 +46,22 @@ export default function Footer() {
 
           {/* Solutions */}
           <nav aria-label="Footer navigation - Solutions">
-            <p className="text-sm font-semibold text-stone-900 mb-4">
+            <p
+              className={`text-sm font-semibold mb-4 ${
+                isDark ? "text-stone-200" : "text-stone-900"
+              }`}
+            >
               Solutions
             </p>
             <ul className="space-y-1" role="list">
               <li>
                 <Link
                   href="/services/web-development"
-                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-2 inline-block"
+                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
+                    isDark
+                      ? "text-stone-400"
+                      : "text-stone-500 hover:text-warm-gold"
+                  }`}
                 >
                   Web Development
                 </Link>
@@ -46,7 +69,11 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/automation"
-                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-2 inline-block"
+                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
+                    isDark
+                      ? "text-stone-400"
+                      : "text-stone-500 hover:text-warm-gold"
+                  }`}
                 >
                   Automation
                 </Link>
@@ -54,7 +81,11 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/growth-strategy"
-                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-2 inline-block"
+                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
+                    isDark
+                      ? "text-stone-400"
+                      : "text-stone-500 hover:text-warm-gold"
+                  }`}
                 >
                   Growth Strategy
                 </Link>
@@ -64,14 +95,22 @@ export default function Footer() {
 
           {/* Resources */}
           <nav aria-label="Footer navigation - Resources">
-            <p className="text-sm font-semibold text-stone-900 mb-4">
+            <p
+              className={`text-sm font-semibold mb-4 ${
+                isDark ? "text-stone-200" : "text-stone-900"
+              }`}
+            >
               Resources
             </p>
             <ul className="space-y-1" role="list">
               <li>
                 <Link
                   href="/work"
-                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-2 inline-block"
+                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
+                    isDark
+                      ? "text-stone-400"
+                      : "text-stone-500 hover:text-warm-gold"
+                  }`}
                 >
                   Work
                 </Link>
@@ -79,7 +118,11 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-sm text-stone-500 hover:text-warm-gold transition-colors py-2 inline-block"
+                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
+                    isDark
+                      ? "text-stone-400"
+                      : "text-stone-500 hover:text-warm-gold"
+                  }`}
                 >
                   Contact
                 </Link>
@@ -89,13 +132,23 @@ export default function Footer() {
 
           {/* Connect */}
           <div>
-            <p className="text-sm font-semibold text-stone-900 mb-4">Connect</p>
+            <p
+              className={`text-sm font-semibold mb-4 ${
+                isDark ? "text-stone-200" : "text-stone-900"
+              }`}
+            >
+              Connect
+            </p>
             <div className="space-y-2.5">
               <a
                 href="https://github.com/austinoso"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-stone-500 hover:text-warm-gold transition-colors"
+                className={`flex items-center gap-2 text-sm hover:text-amber-400 transition-colors ${
+                  isDark
+                    ? "text-stone-400"
+                    : "text-stone-500 hover:text-warm-gold"
+                }`}
                 aria-label="GitHub profile (opens in a new tab)"
                 data-umami-event="footer-github"
               >
@@ -117,7 +170,11 @@ export default function Footer() {
                 href="https://linkedin.com/in/austinoso"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-stone-500 hover:text-warm-gold transition-colors"
+                className={`flex items-center gap-2 text-sm hover:text-amber-400 transition-colors ${
+                  isDark
+                    ? "text-stone-400"
+                    : "text-stone-500 hover:text-warm-gold"
+                }`}
                 aria-label="LinkedIn profile (opens in a new tab)"
                 data-umami-event="footer-linkedin"
               >
@@ -136,8 +193,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-stone-200">
-          <p className="text-xs text-stone-500 text-center font-mono">
+        <div
+          className={`pt-8 border-t ${
+            isDark ? "border-white/[0.06]" : "border-stone-200"
+          }`}
+        >
+          <p
+            className={`text-xs text-center font-mono ${
+              isDark ? "text-stone-500" : "text-stone-500"
+            }`}
+          >
             &copy; {currentYear} austino
           </p>
         </div>

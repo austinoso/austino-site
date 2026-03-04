@@ -22,15 +22,7 @@ export default function GrowthStrategyPage() {
 
         <div className="page-frame">
           {/* ── Hero ── */}
-          <div
-            className="relative border-b border-stone-200 overflow-hidden"
-            style={{
-              backgroundImage: [
-                "radial-gradient(ellipse 60% 70% at 10% 15%, rgba(212,168,83,0.009), rgba(184,148,74,0.005) 50%, transparent 100%)",
-                "radial-gradient(ellipse 55% 60% at 95% 90%, rgba(167,139,250,0.007), transparent 70%)",
-              ].join(", "),
-            }}
-          >
+          <div className="relative border-b border-stone-200 overflow-hidden">
             <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-16 pb-0 sm:pt-20 md:pt-24">
               <Link
                 href="/#solutions"

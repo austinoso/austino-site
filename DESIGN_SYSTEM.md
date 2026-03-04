@@ -263,11 +263,10 @@ Every section in a service page gets this wrapper in `page.tsx`:
 
 ### Homepage Section Backgrounds
 
-Most sections use the page background (`#FAF9F6`) with very subtle radial gradient washes at 0.02–0.04 opacity.
+All sections use a flat page background (`#FAF9F6`) — no radial gradient washes. Previous ambient glows at 0.02–0.04 opacity were imperceptible and added code complexity for zero visual payoff. Removed.
 
-- Hero: slight translucency for depth
-- CTA: **Dark island** — `#1C1917` with amber radial glow accent, `rounded-t-3xl`
-- Footer: `bg-warm-bg` (solid)
+- CTA: **Dark island** — flat `#1C1917`, `rounded-t-3xl`. FlowLines SVG provides the decorative element.
+- Footer: `bg-[#1C1917]` (dark variant, continues CTA) or `bg-warm-bg` (light variant, other pages)
 
 ---
 
@@ -467,12 +466,14 @@ The **CTA section** uses a "dark island" pattern — a dramatically dark section
 </section>
 ```
 
-- Background: `#1C1917` (stone-900) with amber radial glow
+- Background: flat `#1C1917` (stone-900), no radial glow — FlowLines SVG is the sole decorative element
 - `rounded-t-3xl` for smooth transition from light content
 - `.dark-section` triggers CSS text-gradient overrides (bright values for dark bg)
 - **Body text:** `text-stone-400` (NOT `text-stone-600` — stone-600 fails contrast on dark bg)
 - **Label:** `text-amber-400` via `.section-label-dark`
 - Button: inverted — amber button with dark text
+- **Homepage:** Dark CTA flows into `<Footer variant="dark" />` — unified dark closing band. No light sandwich.
+- **Service pages:** Dark CTA is a `rounded-2xl` card with padding — stays self-contained, footer stays light.
 
 ---
 
@@ -596,10 +597,25 @@ Very low opacity ambient washes on the light background:
 
 ## 13. Footer
 
+Supports two variants via `variant` prop: `"light"` (default) and `"dark"`.
+
+### Light variant (default — all pages except homepage)
+
 - `bg-warm-bg`, `border-t border-stone-200`
 - Links: `text-stone-500 hover:text-warm-gold`
 - Headings: `text-stone-900`
-- Copyright: `text-xs text-stone-400 font-mono`
+- Copyright: `text-xs text-stone-500 font-mono`
+
+### Dark variant (homepage only)
+
+- `bg-[#1C1917]`, `border-t border-white/[0.06]` — seamlessly continues the dark CTA section
+- Brand: `text-white` + `text-amber-400` (the "o")
+- Links: `text-stone-400 hover:text-amber-400`
+- Headings: `text-stone-200`
+- Copyright: `text-xs text-stone-500 font-mono`
+- Bottom divider: `border-white/[0.06]`
+
+**Why only homepage:** Service pages use self-contained `rounded-2xl` dark CTA cards with padding — the dark block doesn't bleed edge-to-edge, so the light footer still works. The homepage CTA is full-bleed with `rounded-t-3xl`, creating a dark→light→end sandwich without the dark footer.
 
 ---
 
@@ -653,6 +669,7 @@ export default function NewServicePage() {
 - **`border-white/[0.06]` outside dark mockups** — use `border-stone-200`. White-opacity borders only inside dark mockup containers.
 - **`text-white` for headings on page content** — use `text-stone-900` or `text-warm-white`. `text-white` only inside dark mockups, dark island CTA, or on amber buttons.
 - **`bg-white/[0.02]` for cards** — invisible on light bg. Use `bg-white` for white-on-cream cards.
+- **Radial gradient glows on page/section backgrounds** — removed site-wide. At 0.005–0.04 opacity on cream they were invisible; on dark sections they made the surface look muddy. Let flat color + good typography do the work.
 - **Gradient overlays on everything** — max 0.04 opacity on light backgrounds.
 - **Uniform vertical stacks on mobile** — use staggered editorial layout for stats.
 - **`ease-in-out` for everything** — use `power2.out` / `power3.out` for reveals.
