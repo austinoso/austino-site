@@ -11,26 +11,26 @@ const points = [
       "Most local business sites look outdated, load slow, and give visitors no clear reason to stay. A site designed around your customers builds trust in seconds and makes it easy to book, buy, or reach\u00A0out.",
   },
   {
-    title: "Page one belongs to whoever keeps showing\u00A0up",
+    title: "Nobody in your market is doing the work to\u00A0rank",
     description:
-      "A site that goes untouched after launch drops out of results within months. Ranking takes ongoing optimization and new content: detailed service pages, local guides, pages that answer what your customers are actually searching for. Almost nobody in your market is doing this. That\u2019s the\u00A0gap.",
+      "Getting to page one takes more than a good-looking site. Ranking takes ongoing optimization and new content: detailed service pages, local guides, pages that answer what your customers are actually searching for. Almost nobody in your market is doing this. That\u2019s the\u00A0gap.",
   },
 ];
 
 const stats = [
   {
     value: "53%",
-    label: "of mobile users leave after 3\u00A0s",
+    label: "of mobile users leave after 3s",
     color: "text-warm-gold",
   },
   {
     value: "75%",
-    label: "never scroll past page\u00A01",
+    label: "never scroll past page 1",
     color: "text-gradient-brand",
   },
   {
     value: "88%",
-    label: "won\u2019t return after a bad\u00A0UX",
+    label: "won't return after a bad UX",
     color: "text-warm-gold",
   },
 ];
@@ -81,19 +81,19 @@ export default function PainPoints() {
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div
               data-animate="card"
-              className="grid grid-cols-3 lg:grid-cols-1 gap-6 lg:gap-0 lg:divide-y lg:divide-stone-200 border-t border-stone-200 pt-8 lg:border-t-0 lg:pt-0 lg:border-l lg:border-stone-200 lg:pl-12"
+              className="grid grid-cols-3 lg:grid-cols-1 gap-4 sm:gap-6 lg:gap-0 lg:divide-y lg:divide-stone-200 border-t border-stone-200 pt-8 lg:border-t-0 lg:pt-0 lg:border-l lg:border-stone-200 lg:pl-12"
             >
               {stats.map((stat, i) => (
                 <div
                   key={i}
-                  className={`${i > 0 ? "lg:pt-8" : ""} ${i < stats.length - 1 ? "lg:pb-8" : ""}`}
+                  className={`text-center lg:text-left ${i > 0 ? "lg:pt-8" : ""} ${i < stats.length - 1 ? "lg:pb-8" : ""}`}
                 >
                   <span
-                    className={`font-display text-4xl sm:text-5xl lg:text-6xl font-bold ${stat.color} leading-none block`}
+                    className={`font-display text-[2rem] sm:text-5xl lg:text-6xl font-bold ${stat.color} leading-none block`}
                   >
                     {stat.value}
                   </span>
-                  <p className="mt-2 text-sm text-stone-500 leading-relaxed">
+                  <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-stone-500 leading-snug sm:leading-relaxed">
                     {stat.label}
                   </p>
                 </div>

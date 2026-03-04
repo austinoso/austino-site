@@ -24,6 +24,7 @@ Each headline is "claimed" by its page. No other page should use the same line o
 | --------------- | ------------------------------------------------------- |
 | Hero            | Websites built **to outperform.**                       |
 | Pain Points     | Your competitors made **this easy.**                    |
+| Pain Point 2    | Nobody in your market is doing the work to **rank.**    |
 | Solutions       | How you take the **lead.**                              |
 | Web Development | Ranks higher. Loads faster. Converts more.              |
 | Growth Strategy | A great site is just the foundation.                    |
@@ -103,7 +104,7 @@ Phrases that carry weight or appear more than once. If a phrase is listed here, 
 | "don't walk away (after launch)"          | About.tsx                           | **Consolidated** — was 3×, now 1× in About blockquote         |
 | "Good enough has never been the bar"      | About.tsx                           | About blockquote opener — replaced former cliché              |
 | "show up higher on Google"                | WebDevelopment.tsx                  | **Consolidated** — was 2×, now 1× in homepage WebDev          |
-| "untouched after launch"                  | PainPoints.tsx                      | **Consolidated** — was 2×, now 1× in PainPoints               |
+| "doing the work to rank"                  | PainPoints.tsx                      | Replaced "untouched after launch" — clearer framing           |
 | "built to [verb] from day one"            | growth-strategy/FinalCTA.tsx        | **Consolidated** — was 2×, now 1× (headline only)             |
 | "repetitive work"                         | Automation.tsx, automation/Hero.tsx | Acceptable — same service, different pages                    |
 | "what's slowing you down"                 | automation/FinalCTA.tsx             | **Consolidated** — was 2×, now 1× (form placeholder reworded) |
