@@ -3,155 +3,106 @@ import Image from "next/image";
 import Link from "next/link";
 
 const features = [
-  {
-    label: "Design That Builds Trust",
-    desc: "Built around your business and your customers, not a recycled template",
-  },
-  {
-    label: "Features Customers Love",
-    desc: "Online booking, reviews, payments — the things that actually convert visitors",
-  },
-  {
-    label: "Sub-Second Load Times",
-    desc: "Fast on every device. Speed keeps visitors on the page and tells Google your site is worth ranking",
-  },
+  "Design That Builds Trust",
+  "Booking, Reviews & Payments",
+  "Sub-Second Load Times",
 ];
 
 export default function WebDevelopment() {
   return (
-    <div data-subsection className="space-y-10">
-      {/* ── Header row: text left, performance badge right ── */}
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-        <div>
-          <span className="text-xs font-semibold text-warm-gold uppercase tracking-[0.2em] block mb-5">
-            Web Development
-          </span>
-          <h3 className="font-display text-2xl sm:text-3xl md:text-[2.5rem] font-bold text-warm-white leading-[1.15] tracking-tight max-w-xl">
-            Ranks higher. Loads faster. Converts&nbsp;more.
-          </h3>
-          <p className="text-base sm:text-lg text-stone-600 leading-relaxed mt-5 max-w-xl text-pretty">
-            The typical local business site blends in and underperforms. I build
-            sites that match how your customers actually search and give them a
-            reason to choose you over the next&nbsp;result.
-          </p>
-        </div>
-
-        {/* Performance badge — reinforces the speed/ranking message */}
-        <div
-          className="hidden md:flex flex-shrink-0 items-center gap-5 rounded-xl border border-stone-200 bg-white/60 px-6 py-5"
-          aria-hidden="true"
-        >
-          {/* Score ring */}
-          <div className="relative h-16 w-16 flex-shrink-0">
-            <svg viewBox="0 0 48 48" className="h-full w-full -rotate-90">
-              <circle
-                cx="24"
-                cy="24"
-                r="20"
-                fill="none"
-                stroke="currentColor"
-                className="text-stone-200"
-                strokeWidth="3"
-              />
-              <circle
-                cx="24"
-                cy="24"
-                r="20"
-                fill="none"
-                stroke="url(#perf-grad)"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeDasharray="125.66"
-                strokeDashoffset="6.28"
-              />
-              <defs>
-                <linearGradient id="perf-grad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#16a34a" />
-                  <stop offset="100%" stopColor="#22c55e" />
-                </linearGradient>
-              </defs>
-            </svg>
-            <span className="absolute inset-0 flex items-center justify-center font-display text-lg font-bold text-green-600">
-              95
-            </span>
-          </div>
-          {/* Metric labels */}
-          <div className="space-y-1.5 text-xs">
-            <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
-              <span className="text-stone-500">Performance</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
-              <span className="text-stone-500">Accessibility</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
-              <span className="text-stone-500">SEO</span>
-            </div>
-          </div>
-        </div>
+    <div data-subsection>
+      {/* ── Label + Heading ── */}
+      <div className="mb-10">
+        <span className="text-xs font-semibold text-warm-gold uppercase tracking-[0.2em] block mb-5">
+          Web Development
+        </span>
+        <h3 className="font-display text-2xl sm:text-3xl md:text-[2.5rem] font-bold text-warm-white leading-[1.15] tracking-tight max-w-xl">
+          Ranks higher. Loads faster. Converts&nbsp;more.
+        </h3>
       </div>
 
-      {/* ── Full-width browser mockup ── */}
-      <div data-visual>
+      {/* ── Cinematic browser mockup — full width ── */}
+      <div data-visual className="relative mb-10 sm:mb-12">
         <div
           className="rounded-xl border border-stone-200 bg-white overflow-hidden select-none"
           style={{
             boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
           }}
         >
+          {/* Chrome bar */}
           <div
-            className="flex items-center gap-2 px-5 py-3 border-b border-stone-200 bg-stone-50"
+            className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 border-b border-stone-200 bg-stone-50"
             aria-hidden="true"
           >
             <div className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/80" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/80" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/80" />
             </div>
             <div className="flex-1 flex justify-center">
-              <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-stone-100 text-[11px] text-stone-500 font-mono">
+              <div className="flex items-center gap-1.5 px-4 py-1 rounded-md bg-stone-100 text-[11px] text-stone-500 font-mono">
                 mymassagecottage.com
               </div>
             </div>
           </div>
-          <div className="relative aspect-[16/10] sm:aspect-[16/9]">
+
+          {/* Screenshot — 16:9 cinematic crop */}
+          <div className="relative aspect-video">
             <Image
-              src="/assets/mymassagecottage-demo.PNG"
-              alt="My Massage Cottage — client website preview"
+              src="/assets/my-massage-cottage-demo.jpg"
+              alt="My Massage Cottage — client website we designed and built"
               fill
               className="object-cover object-top"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1100px"
+            />
+            {/* Bottom fade — hides dark footer bleed */}
+            <div
+              className="absolute bottom-0 inset-x-0 h-24 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 100%)",
+              }}
+              aria-hidden="true"
             />
           </div>
         </div>
       </div>
 
-      {/* ── Features in cards ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-        {features.map((f, i) => (
-          <div
-            data-feature
-            key={i}
-            className="rounded-xl border border-stone-200 bg-white/60 p-5 sm:p-6"
+      {/* ── Two-column: description left, features right — mirrors Growth Strategy ── */}
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
+        {/* Left — description + CTA */}
+        <div className="flex flex-col justify-between">
+          <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
+            The typical local business site blends in and underperforms. I build
+            sites that match how your customers actually search and give them a
+            reason to choose you over the next&nbsp;result.
+          </p>
+          <Link
+            href="/services/web-development"
+            className="inline-flex self-start items-center gap-2 text-sm font-mono font-medium text-warm-gold hover:text-amber-700 transition-colors duration-300 mt-5"
           >
-            <p className="text-[15px] font-semibold text-warm-white leading-snug">
-              {f.label}
-            </p>
-            <p className="mt-2 text-sm text-stone-500 leading-relaxed">
-              {f.desc}
-            </p>
-          </div>
-        ))}
-      </div>
+            Explore web development
+            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+          </Link>
+        </div>
 
-      <Link
-        href="/services/web-development"
-        className="inline-flex items-center gap-2 text-sm font-mono font-medium text-warm-gold hover:text-amber-700 transition-colors duration-300"
-      >
-        Explore web development{" "}
-        <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-      </Link>
+        {/* Right — feature pills with warm gold tint */}
+        <div className="flex flex-wrap gap-3 items-start content-start">
+          {features.map((label) => (
+            <span
+              data-feature
+              key={label}
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-stone-200 bg-white text-sm text-stone-600"
+            >
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-warm-gold/50"
+                aria-hidden="true"
+              />
+              {label}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
