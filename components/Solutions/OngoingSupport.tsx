@@ -44,15 +44,6 @@ const mapListings = [
     hours: "Open · Closes 9 PM",
     highlighted: false,
   },
-  {
-    name: "Central Valley Strength",
-    rating: 3.8,
-    reviews: 12,
-    type: "Personal Trainer",
-    address: "789 Center St, Manteca",
-    hours: "Open · Closes 7 PM",
-    highlighted: false,
-  },
 ];
 
 export default function OngoingSupport() {
@@ -102,21 +93,35 @@ export default function OngoingSupport() {
       {/* ── Google SERP mockup with map pack ── */}
       <div data-visual>
         <div
-          className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
+          className="rounded-xl border border-stone-300 bg-[#F0EAE2] overflow-hidden select-none"
           style={{
             boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
           }}
           role="img"
           aria-label="Google search results mockup showing a client business ranking #1"
         >
+          {/* Browser chrome */}
+          <div className="flex items-center gap-2 px-4 py-2.5 border-b border-stone-300 bg-[#E8E2DA]">
+            <div className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/85" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/85" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/85" />
+            </div>
+            <div className="flex-1 flex justify-center">
+              <div className="flex items-center gap-1.5 px-4 py-1 rounded-md bg-[#F7F4F0] text-[11px] text-stone-500 font-mono">
+                google.com/search
+              </div>
+            </div>
+          </div>
+
           {/* Search bar */}
-          <div className="px-5 py-4 border-b border-white/[0.06]">
-            <div className="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.06]">
+          <div className="px-5 sm:px-6 pt-5 pb-4 border-b border-stone-200/60 bg-white">
+            <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white border border-stone-200">
               <Search
-                className="w-4 h-4 text-stone-500 flex-shrink-0"
+                className="w-4 h-4 text-stone-400 flex-shrink-0"
                 aria-hidden="true"
               />
-              <span className="text-sm text-stone-300 font-mono">
+              <span className="text-sm text-stone-700 font-normal">
                 personal trainer near me
               </span>
             </div>
@@ -125,18 +130,18 @@ export default function OngoingSupport() {
           {/* Two-column: organic results (left) + map pack (right) */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
             {/* ── Left: organic search results ── */}
-            <div className="md:col-span-7 p-5 space-y-3 md:border-r md:border-white/[0.04]">
+            <div className="md:col-span-7 p-5 space-y-3 md:border-r md:border-stone-200/60 bg-white">
               {/* Result 1 — YOUR CLIENT at #1 (highlighted) */}
               <div
                 data-result
-                className="relative rounded-lg border border-warm-gold/20 bg-warm-gold/[0.04] p-4"
+                className="relative rounded-lg border border-warm-gold/15 bg-warm-gold/[0.06] p-4"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <p className="text-xs text-warm-gold font-mono mb-1 truncate">
                       your-fitness-business.com
                     </p>
-                    <p className="text-sm font-semibold text-white leading-snug">
+                    <p className="text-sm font-medium text-[#4663AC] leading-snug">
                       Your Fitness Business &mdash; Manteca&apos;s Top-Rated
                       Trainer
                     </p>
@@ -150,11 +155,11 @@ export default function OngoingSupport() {
                           />
                         ))}
                       </div>
-                      <span className="text-[10px] text-stone-400">
+                      <span className="text-[10px] text-stone-500">
                         4.9 (84 reviews)
                       </span>
                     </div>
-                    <p className="text-xs text-stone-400 mt-1.5 line-clamp-1">
+                    <p className="text-xs text-stone-600 mt-1.5 line-clamp-1">
                       1-on-1 personal training, group classes &amp; nutrition
                       coaching. Book your free&nbsp;consultation.
                     </p>
@@ -169,57 +174,68 @@ export default function OngoingSupport() {
               {/* Result 2 — competitor (faded) */}
               <div
                 data-result
-                className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-4 opacity-50"
+                className="py-4 border-b border-stone-200/60 opacity-50"
               >
-                <p className="text-xs text-stone-600 font-mono mb-1">
-                  manteca-fitness-center.com
-                </p>
-                <p className="text-sm text-stone-400">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <div className="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center">
+                    <span className="text-[9px] font-medium text-stone-500">
+                      M
+                    </span>
+                  </div>
+                  <span className="text-xs text-stone-500 font-mono">
+                    manteca-fitness-center.com
+                  </span>
+                </div>
+                <p className="text-sm text-[#4663AC]/60 leading-snug mb-1">
                   Manteca Fitness Center &amp; Gym
                 </p>
-                <p className="text-xs text-stone-600 mt-1">
+                <p className="text-xs text-stone-500 leading-relaxed">
                   Gym memberships, personal training, and group&nbsp;classes...
                 </p>
               </div>
 
               {/* Result 3 — directory (more faded) */}
-              <div
-                data-result
-                className="hidden sm:block rounded-lg border border-white/[0.04] bg-white/[0.02] p-4 opacity-35"
-              >
-                <p className="text-xs text-stone-600 font-mono mb-1">
-                  generic-directory.com
-                </p>
-                <p className="text-sm text-stone-400">
+              <div data-result className="hidden sm:block py-4 opacity-35">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <div className="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center">
+                    <span className="text-[9px] font-medium text-stone-500">
+                      G
+                    </span>
+                  </div>
+                  <span className="text-xs text-stone-500 font-mono">
+                    generic-directory.com
+                  </span>
+                </div>
+                <p className="text-sm text-[#4663AC]/40 leading-snug mb-1">
                   Find Personal Trainers | Compare&nbsp;Rates
                 </p>
-                <p className="text-xs text-stone-600 mt-1">
+                <p className="text-xs text-stone-500 leading-relaxed">
                   Browse certified trainers in your&nbsp;area...
                 </p>
               </div>
             </div>
 
             {/* ── Right: Google Map Pack ── */}
-            <div className="hidden md:block md:col-span-5 p-5 border-t md:border-t-0 border-white/[0.04]">
+            <div className="hidden md:block md:col-span-5 p-5 border-t md:border-t-0 border-stone-200/60 bg-white">
               {/* Fake map area */}
-              <div className="rounded-lg bg-[#1a1916] border border-white/[0.06] overflow-hidden mb-4">
-                <div className="relative h-32 bg-[#161412]">
+              <div className="rounded-lg bg-[#F4F1EC] border border-stone-200 overflow-hidden mb-4">
+                <div className="relative h-32 bg-[#F9F7F4]">
                   {/* Map grid lines */}
                   <div
                     className="absolute inset-0 opacity-[0.04]"
                     style={{
                       backgroundImage:
-                        "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
+                        "linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px)",
                       backgroundSize: "40px 40px",
                     }}
                     aria-hidden="true"
                   />
                   {/* Map road lines */}
                   <div className="absolute inset-0" aria-hidden="true">
-                    <div className="absolute top-1/2 left-0 right-0 h-px bg-stone-700/40" />
-                    <div className="absolute top-0 bottom-0 left-1/3 w-px bg-stone-700/30" />
-                    <div className="absolute top-0 bottom-0 right-1/4 w-px bg-stone-700/20" />
-                    <div className="absolute top-1/4 left-0 right-0 h-px bg-stone-700/20 rotate-12 origin-left" />
+                    <div className="absolute top-1/2 left-0 right-0 h-px bg-stone-400/40" />
+                    <div className="absolute top-0 bottom-0 left-1/3 w-px bg-stone-400/30" />
+                    <div className="absolute top-0 bottom-0 right-1/4 w-px bg-stone-400/20" />
+                    <div className="absolute top-1/4 left-0 right-0 h-px bg-stone-400/20 rotate-12 origin-left" />
                   </div>
                   {/* Map pins */}
                   <div
@@ -242,16 +258,6 @@ export default function OngoingSupport() {
                       </span>
                     </div>
                   </div>
-                  <div
-                    className="absolute bottom-6 left-[25%] flex flex-col items-center opacity-40"
-                    aria-hidden="true"
-                  >
-                    <div className="w-4 h-4 rounded-full bg-stone-500 border-2 border-warm-bg flex items-center justify-center">
-                      <span className="text-[7px] font-bold text-warm-bg">
-                        C
-                      </span>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -262,7 +268,7 @@ export default function OngoingSupport() {
                     key={i}
                     data-result
                     className={`py-3 ${
-                      i > 0 ? "border-t border-white/[0.04]" : ""
+                      i > 0 ? "border-t border-stone-200/60" : ""
                     } ${listing.highlighted ? "" : "opacity-45"}`}
                   >
                     <div className="flex items-start gap-2.5">
@@ -279,14 +285,14 @@ export default function OngoingSupport() {
                         <p
                           className={`text-[13px] font-semibold leading-snug ${
                             listing.highlighted
-                              ? "text-white"
-                              : "text-stone-400"
+                              ? "text-stone-900"
+                              : "text-stone-600"
                           }`}
                         >
                           {listing.name}
                         </p>
                         <div className="flex items-center gap-1.5 mt-1">
-                          <span className="text-[10px] text-stone-400">
+                          <span className="text-[10px] text-stone-500">
                             {listing.rating}
                           </span>
                           <div className="flex items-center gap-0.5">
@@ -323,7 +329,7 @@ export default function OngoingSupport() {
           </div>
 
           {/* Ranking keywords bar */}
-          <div className="px-5 pb-4 pt-1 border-t border-white/[0.04]">
+          <div className="px-5 pb-4 pt-1 border-t border-stone-200/60 bg-white">
             <p className="text-[10px] text-stone-500 uppercase tracking-wider font-mono mb-2.5">
               Ranking keywords
             </p>
@@ -332,10 +338,10 @@ export default function OngoingSupport() {
                 <span
                   data-badge
                   key={kw.term}
-                  className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-full border border-white/[0.06] bg-white/[0.03] text-stone-300"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-full border border-stone-200/60 bg-[#F7F4F0] text-stone-600"
                 >
                   {kw.term}
-                  <span className="text-green-400 text-[9px] font-semibold">
+                  <span className="text-[#5C8A64] text-[9px] font-semibold">
                     {kw.trend}
                   </span>
                 </span>

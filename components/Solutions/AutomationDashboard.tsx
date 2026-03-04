@@ -158,12 +158,12 @@ export default function AutomationDashboard() {
 
   return (
     <div
-      className="rounded-xl border border-white/[0.08] bg-[#0A0A08] overflow-hidden"
+      className="rounded-xl border border-white/[0.10] bg-[#14120F] overflow-hidden"
       role="img"
       aria-label="Live automation dashboard showing tasks being processed automatically"
     >
       {/* ── Header ──────────────────────────────────────────── */}
-      <div className="px-4 py-3 border-b border-white/[0.06] bg-[#0D0C09] flex items-center justify-between">
+      <div className="px-4 py-3 border-b border-white/[0.08] bg-[#1A1815] flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -203,12 +203,12 @@ export default function AutomationDashboard() {
                 <div className="flex items-center gap-2.5 flex-shrink-0">
                   <div
                     className={`w-0.5 h-8 rounded-full transition-colors duration-500 ${
-                      isDone ? accentLine(task.accent) : "bg-white/10"
+                      isDone ? accentLine(task.accent) : "bg-white/[0.12]"
                     }`}
                   />
                   <div
                     className={`w-5 h-5 rounded-full flex items-center justify-center transition-all duration-500 ${
-                      isDone ? accentBg(task.accent) : "bg-white/5"
+                      isDone ? accentBg(task.accent) : "bg-white/[0.07]"
                     }`}
                   >
                     {isDone ? (
@@ -246,7 +246,7 @@ export default function AutomationDashboard() {
                   className={`flex-shrink-0 text-[10px] font-mono px-2 py-0.5 rounded-full transition-all duration-500 ${
                     isDone
                       ? `${accentText(task.accent)} ${accentBg(task.accent)}`
-                      : "text-stone-500 bg-white/[0.03]"
+                      : "text-stone-500 bg-white/[0.05]"
                   }`}
                 >
                   {isDone ? "done" : "running"}
@@ -258,7 +258,7 @@ export default function AutomationDashboard() {
       </div>
 
       {/* ── Footer ──────────────────────────────────────────── */}
-      <div className="px-4 py-2.5 border-t border-white/[0.06] bg-[#0D0C09]/50 flex items-center justify-between">
+      <div className="px-4 py-2.5 border-t border-white/[0.08] bg-[#1A1815]/50 flex items-center justify-between">
         <div className="flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
           <span className="text-[11px] text-stone-500">

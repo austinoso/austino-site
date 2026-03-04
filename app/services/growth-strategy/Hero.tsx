@@ -35,30 +35,30 @@ export default function Hero() {
       {/* Google search results mockup */}
       <div data-hero-visual className="lg:col-span-6" aria-hidden="true">
         <div
-          className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
+          className="rounded-xl border border-stone-300 bg-[#F0EAE2] overflow-hidden select-none"
           style={{
             boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
           }}
         >
           {/* Browser chrome */}
-          <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0F0E0B]">
+          <div className="flex items-center gap-2 px-4 py-2.5 border-b border-stone-300 bg-[#E8E2DA]">
             <div className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/85" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/85" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/85" />
             </div>
             <div className="flex-1 flex justify-center">
-              <div className="flex items-center gap-1.5 px-4 py-1 rounded-md bg-white/[0.04] text-[11px] text-stone-500 font-mono">
+              <div className="flex items-center gap-1.5 px-4 py-1 rounded-md bg-[#F7F4F0] text-[11px] text-stone-500 font-mono">
                 google.com/search
               </div>
             </div>
           </div>
 
           {/* Search bar */}
-          <div className="px-5 sm:px-6 pt-5 pb-4 border-b border-white/[0.06]">
-            <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.03]">
+          <div className="px-5 sm:px-6 pt-5 pb-4 border-b border-stone-200/60 bg-white">
+            <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-full border border-stone-200 bg-white">
               <Search className="w-4 h-4 text-stone-400 flex-shrink-0" />
-              <span className="text-sm text-stone-200 font-normal">
+              <span className="text-sm text-stone-700 font-normal">
                 best personal trainer near me
               </span>
             </div>
@@ -68,21 +68,21 @@ export default function Hero() {
           </div>
 
           {/* Search results */}
-          <div className="px-5 sm:px-6 py-2">
+          <div className="px-5 sm:px-6 py-2 bg-white">
             {/* Result #1 — YOUR business, highlighted */}
-            <div className="py-4 -mx-3 px-3 rounded-lg bg-warm-gold/[0.04] border border-warm-gold/[0.08]">
+            <div className="py-4 -mx-3 px-3 rounded-lg bg-warm-gold/[0.06] border border-warm-gold/15">
               <div className="flex items-center gap-2 mb-1.5">
                 <div className="w-5 h-5 rounded-full bg-warm-gold/20 flex items-center justify-center">
                   <span className="text-[9px] font-bold text-warm-gold">Y</span>
                 </div>
-                <span className="text-[11px] text-stone-400">
+                <span className="text-[11px] text-stone-500">
                   yourbusiness.com
                 </span>
               </div>
-              <p className="text-[15px] text-[#8AB4F8] leading-snug mb-1 font-medium">
+              <p className="text-[15px] text-[#4663AC] leading-snug mb-1 font-medium">
                 Personal Training — Programs & Free Consultation
               </p>
-              <p className="text-xs text-stone-400 leading-relaxed mb-2.5">
+              <p className="text-xs text-stone-600 leading-relaxed mb-2.5">
                 Certified personal training in downtown Fresno. Customized
                 programs for weight loss, strength, and mobility. Book a free
                 30-minute consultation today.
@@ -98,36 +98,36 @@ export default function Hero() {
                       />
                     ))}
                   </div>
-                  <span className="text-[10px] text-stone-400 ml-0.5">
+                  <span className="text-[10px] text-stone-500 ml-0.5">
                     4.9 (127)
                   </span>
                 </div>
-                <span className="flex items-center gap-1 text-[10px] text-stone-400">
+                <span className="flex items-center gap-1 text-[10px] text-stone-500">
                   <MapPin className="w-2.5 h-2.5" />
                   Downtown Fresno
                 </span>
-                <span className="flex items-center gap-1 text-[10px] text-stone-400">
+                <span className="flex items-center gap-1 text-[10px] text-stone-500">
                   <Clock className="w-2.5 h-2.5" />
                   Opens 6 AM
                 </span>
               </div>
               {/* Sitelinks */}
-              <div className="grid grid-cols-2 gap-x-4 gap-y-1 mt-3 pt-3 border-t border-white/[0.04]">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1 mt-3 pt-3 border-t border-stone-200/60">
                 {[
                   "Weight Loss Programs",
                   "1-on-1 Training",
                   "Group Classes",
                   "Free Consultation",
                 ].map((link) => (
-                  <span key={link} className="text-[11px] text-[#8AB4F8]">
+                  <span key={link} className="text-[11px] text-[#4663AC]">
                     {link}
                   </span>
                 ))}
               </div>
               {/* Active strategy badge */}
               <div className="flex items-center gap-1.5 mt-3">
-                <CheckCircle2 className="w-3 h-3 text-green-400" />
-                <span className="text-[10px] text-green-400 font-mono">
+                <CheckCircle2 className="w-3 h-3 text-[#5C8A64]" />
+                <span className="text-[10px] text-[#5C8A64] font-mono">
                   Updated this week · 14 pages · Growth strategy active
                 </span>
               </div>
@@ -135,17 +135,16 @@ export default function Hero() {
 
             {/* Result #2 — competitor, decent but stale.
                 On mobile: clip to just the business name + fade out */}
-            <div className="relative py-4 border-b border-white/[0.04] sm:border-b">
+            <div className="relative py-4 border-b border-stone-200/60 sm:border-b">
               {/* Mobile fade-out mask */}
               <div
                 className="sm:hidden absolute inset-x-0 bottom-0 h-16 pointer-events-none z-10"
                 style={{
-                  background:
-                    "linear-gradient(to bottom, transparent, #0C0B09)",
+                  background: "linear-gradient(to bottom, transparent, white)",
                 }}
               />
               <div className="flex items-center gap-2 mb-1.5">
-                <div className="w-5 h-5 rounded-full bg-white/[0.06] flex items-center justify-center">
+                <div className="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center">
                   <span className="text-[9px] font-medium text-stone-500">
                     I
                   </span>
@@ -154,7 +153,7 @@ export default function Hero() {
                   ironworksgym.com
                 </span>
               </div>
-              <p className="text-[15px] text-[#8AB4F8]/60 leading-snug mb-1">
+              <p className="text-[15px] text-[#4663AC]/60 leading-snug mb-1">
                 Certified Personal Trainers — All Levels
               </p>
               <p className="hidden sm:block text-xs text-stone-500 leading-relaxed mb-1">
@@ -169,7 +168,7 @@ export default function Hero() {
             {/* Result #3 — competitor, very stale (hidden on mobile) */}
             <div className="hidden sm:block py-4">
               <div className="flex items-center gap-2 mb-1.5">
-                <div className="w-5 h-5 rounded-full bg-white/[0.06] flex items-center justify-center">
+                <div className="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center">
                   <span className="text-[9px] font-medium text-stone-500">
                     P
                   </span>
@@ -178,7 +177,7 @@ export default function Hero() {
                   peakperformance.co
                 </span>
               </div>
-              <p className="text-[15px] text-[#8AB4F8]/40 leading-snug mb-1">
+              <p className="text-[15px] text-[#4663AC]/40 leading-snug mb-1">
                 Peak Performance — Home
               </p>
               <p className="text-xs text-stone-600 leading-relaxed mb-1">

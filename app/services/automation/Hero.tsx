@@ -83,7 +83,7 @@ export default function Hero() {
       {/* Static Activity Monitor snapshot */}
       <div data-hero-visual className="lg:col-span-7">
         <div
-          className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
+          className="rounded-xl border border-white/[0.10] bg-[#16140F] overflow-hidden select-none"
           style={{
             boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
           }}
@@ -92,7 +92,7 @@ export default function Hero() {
           aria-hidden="true"
         >
           {/* Header */}
-          <div className="px-4 py-3 border-b border-white/[0.06] bg-[#0F0E0B] flex items-center justify-between">
+          <div className="px-4 py-3 border-b border-white/[0.08] bg-[#1C1A16] flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
@@ -158,7 +158,7 @@ export default function Hero() {
           </div>
 
           {/* Footer */}
-          <div className="px-4 py-2.5 border-t border-white/[0.06] bg-[#0F0E0B] flex items-center justify-between">
+          <div className="px-4 py-2.5 border-t border-white/[0.08] bg-[#1C1A16] flex items-center justify-between">
             <div className="flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
               <span className="text-[11px] text-stone-400">

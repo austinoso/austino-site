@@ -466,18 +466,18 @@ export default function HeroDemo() {
   return (
     <div ref={demoRef} className="relative">
       <div
-        className="relative rounded-xl border border-white/[0.06] bg-[#0C0B09] overflow-hidden select-none"
+        className="relative rounded-xl border border-stone-300 bg-white overflow-hidden select-none shadow-xl shadow-stone-900/[0.06]"
         aria-hidden="true"
       >
         {/* Chrome bar */}
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0A0A08]">
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-stone-300/60 bg-[#E8E2DA]">
           <div className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/80" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/80" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/80" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/85" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/85" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/85" />
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="flex items-center gap-1.5 px-4 py-1 rounded-lg bg-white/[0.04] text-[11px] text-stone-500 font-mono">
+            <div className="flex items-center gap-1.5 px-4 py-1 rounded-lg bg-[#F7F4F0] text-[11px] text-stone-400 font-mono">
               <svg
                 className="w-2.5 h-2.5 opacity-40"
                 viewBox="0 0 16 16"
@@ -493,7 +493,7 @@ export default function HeroDemo() {
         {/* â•â• Stage â•â• */}
         <div
           ref={stageRef}
-          className="relative overflow-hidden bg-[#080807]"
+          className="relative overflow-hidden bg-[#F0EAE2]"
           style={{ aspectRatio: `${CANONICAL_W}/${CANONICAL_H}` }}
         >
           {/* Canonical-size inner — scales uniformly to fill container.
@@ -508,67 +508,67 @@ export default function HeroDemo() {
             className="absolute inset-0"
           >
             {/* Scene 1 — Landing Page */}
-            <div ref={s1} className="absolute inset-0 p-6 flex flex-col gap-2">
+            <div ref={s1} className="absolute inset-0 p-8 flex flex-col gap-2">
               {/* Nav */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[14px] font-semibold text-white tracking-tight">
+                  <span className="text-[16px] font-semibold text-stone-800 tracking-tight">
                     Bloom Studio
                   </span>
                 </div>
                 <div className="flex items-center gap-5">
-                  <span className="text-[11px] text-stone-500">Services</span>
-                  <span className="text-[11px] text-stone-500">About</span>
-                  <span className="text-[11px] text-stone-500">Contact</span>
+                  <span className="text-[13px] text-stone-400">Services</span>
+                  <span className="text-[13px] text-stone-400">About</span>
+                  <span className="text-[13px] text-stone-400">Contact</span>
                 </div>
               </div>
 
               {/* Hero area */}
-              <div className="mt-6 flex-1">
-                <p className="text-[28px] font-semibold text-white leading-tight">
+              <div className="mt-5 flex-1">
+                <p className="text-[34px] font-semibold text-stone-900 leading-tight">
                   Look Good.
                   <br />
                   Feel Great.
                 </p>
-                <p className="text-[13px] text-stone-400 mt-3 max-w-[70%] leading-relaxed">
+                <p className="text-[15px] text-stone-500 mt-3 max-w-[75%] leading-relaxed">
                   Premium services tailored to you.
                   <br />
                   Book your next appointment online.
                 </p>
                 <button
                   tabIndex={-1}
-                  className="hbtn-book mt-5 px-5 py-2.5 bg-amber-500 rounded text-[11px] font-semibold text-[#050505]"
+                  className="hbtn-book mt-5 px-6 py-2.5 bg-amber-500 rounded-lg text-[13px] font-semibold text-white"
                 >
                   Book Now
                 </button>
               </div>
 
               {/* Abstract service cards */}
-              <div className="flex gap-2.5 mt-auto">
-                <div className="h-12 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
-                <div className="h-12 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
-                <div className="h-12 flex-1 rounded bg-white/[0.03] border border-white/[0.04]" />
+              <div className="flex gap-3 mt-auto">
+                <div className="h-14 flex-1 rounded-lg bg-[#F7F4F0] border border-stone-200/60" />
+                <div className="h-14 flex-1 rounded-lg bg-[#F7F4F0] border border-stone-200/60" />
+                <div className="h-14 flex-1 rounded-lg bg-[#F7F4F0] border border-stone-200/60" />
               </div>
             </div>
 
             {/* â”â” Scene 2 â€” Booking Form â”â” */}
             <div
               ref={s2}
-              className="absolute inset-0 p-6 flex flex-col"
+              className="absolute inset-0 p-8 flex flex-col"
               style={{ opacity: 0 }}
             >
-              <p className="text-[17px] font-semibold text-white mb-4">
+              <p className="text-[20px] font-semibold text-stone-900 mb-5">
                 Book Your Appointment
               </p>
-              <div className="space-y-2.5 flex-1">
+              <div className="space-y-3 flex-1">
                 {/* Name */}
                 <div>
-                  <span className="text-[8px] text-stone-500 uppercase tracking-wider font-mono">
+                  <span className="text-[10px] text-stone-400 uppercase tracking-wider font-mono">
                     Name
                   </span>
-                  <div className="mt-0.5 px-2.5 py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
+                  <div className="mt-1 px-3 py-2.5 rounded-lg bg-[#F7F4F0] border border-stone-200/60 flex items-center">
                     <span
-                      className="hv text-[13px] text-white leading-none"
+                      className="hv text-[15px] text-stone-800 leading-none"
                       style={{ opacity: 0 }}
                     >
                       Sarah Martinez
@@ -576,14 +576,14 @@ export default function HeroDemo() {
                   </div>
                 </div>
                 {/* Date & Time */}
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <span className="text-[8px] text-stone-500 uppercase tracking-wider font-mono">
+                    <span className="text-[10px] text-stone-400 uppercase tracking-wider font-mono">
                       Date
                     </span>
-                    <div className="mt-0.5 px-2.5 py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
+                    <div className="mt-1 px-3 py-2.5 rounded-lg bg-[#F7F4F0] border border-stone-200/60 flex items-center">
                       <span
-                        className="hv text-[13px] text-white leading-none"
+                        className="hv text-[15px] text-stone-800 leading-none"
                         style={{ opacity: 0 }}
                       >
                         Feb 20
@@ -591,12 +591,12 @@ export default function HeroDemo() {
                     </div>
                   </div>
                   <div>
-                    <span className="text-[8px] text-stone-500 uppercase tracking-wider font-mono">
+                    <span className="text-[10px] text-stone-400 uppercase tracking-wider font-mono">
                       Time
                     </span>
-                    <div className="mt-0.5 px-2.5 py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
+                    <div className="mt-1 px-3 py-2.5 rounded-lg bg-[#F7F4F0] border border-stone-200/60 flex items-center">
                       <span
-                        className="hv text-[13px] text-white leading-none"
+                        className="hv text-[15px] text-stone-800 leading-none"
                         style={{ opacity: 0 }}
                       >
                         2:00 PM
@@ -606,12 +606,12 @@ export default function HeroDemo() {
                 </div>
                 {/* Service */}
                 <div>
-                  <span className="text-[8px] text-stone-500 uppercase tracking-wider font-mono">
+                  <span className="text-[10px] text-stone-400 uppercase tracking-wider font-mono">
                     Service
                   </span>
-                  <div className="mt-0.5 px-2.5 py-[7px] rounded bg-white/[0.04] border border-white/[0.06] flex items-center">
+                  <div className="mt-1 px-3 py-2.5 rounded-lg bg-[#F7F4F0] border border-stone-200/60 flex items-center">
                     <span
-                      className="hv text-[13px] text-white leading-none"
+                      className="hv text-[15px] text-stone-800 leading-none"
                       style={{ opacity: 0 }}
                     >
                       Premium Session &middot; 60 min &middot; $150
@@ -620,10 +620,10 @@ export default function HeroDemo() {
                 </div>
               </div>
               {/* Confirm button */}
-              <div className="mt-2 flex justify-center">
+              <div className="mt-3 flex justify-center">
                 <button
                   tabIndex={-1}
-                  className="hbtn-confirm px-6 py-2.5 bg-amber-500 rounded text-[11px] font-semibold text-[#050505]"
+                  className="hbtn-confirm px-8 py-3 bg-amber-500 rounded-lg text-[13px] font-semibold text-white"
                 >
                   Confirm Booking
                 </button>
@@ -633,18 +633,18 @@ export default function HeroDemo() {
             {/* â”â” Scene 3 â€” Confirmation â”â” */}
             <div
               ref={s3}
-              className="absolute inset-0 flex flex-col items-center justify-center p-6"
+              className="absolute inset-0 flex flex-col items-center justify-center p-8"
               style={{ opacity: 0 }}
             >
-              <svg viewBox="0 0 52 52" className="w-20 h-20 mb-4">
+              <svg viewBox="0 0 52 52" className="w-16 h-16 mb-5">
                 <circle
                   className="hconfirm-circle"
                   cx="26"
                   cy="26"
                   r="24"
                   fill="none"
-                  stroke="#4ADE80"
-                  strokeWidth="2"
+                  stroke="#16A34A"
+                  strokeWidth="2.5"
                   strokeDasharray="150.8"
                   strokeDashoffset="150.8"
                 />
@@ -652,8 +652,8 @@ export default function HeroDemo() {
                   className="hconfirm-check"
                   d="M15 27l7 7 15-15"
                   fill="none"
-                  stroke="#4ADE80"
-                  strokeWidth="2.5"
+                  stroke="#16A34A"
+                  strokeWidth="3"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeDasharray="35"
@@ -661,22 +661,22 @@ export default function HeroDemo() {
                 />
               </svg>
               <p
-                className="hconfirm-text text-[22px] font-semibold text-white"
+                className="hconfirm-text text-[26px] font-semibold text-stone-900"
                 style={{ opacity: 0 }}
               >
                 Booking Confirmed!
               </p>
               <div
-                className="hconfirm-details mt-5 space-y-2 text-center"
+                className="hconfirm-details mt-4 space-y-1.5 text-center"
                 style={{ opacity: 0 }}
               >
-                <p className="text-[13px] text-stone-300">
+                <p className="text-[15px] text-stone-600">
                   Sarah M. &middot; Feb 20 &middot; 2:00 PM
                 </p>
-                <p className="text-[13px] text-stone-400">
+                <p className="text-[14px] text-stone-500">
                   Premium Session &middot; 60 min
                 </p>
-                <p className="text-[10px] text-stone-500 mt-3">
+                <p className="text-[12px] text-stone-400 mt-3">
                   &#9993; Confirmation sent to sarah@email.com
                 </p>
               </div>
@@ -685,19 +685,19 @@ export default function HeroDemo() {
             {/* â”â” Scene 4 â€” Automation Cascade â”â” */}
             <div
               ref={s4}
-              className="absolute inset-0 p-6"
+              className="absolute inset-0 p-8"
               style={{ opacity: 0 }}
             >
               <div className="flex items-center gap-1.5 mb-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-                <p className="text-[12px] font-mono text-stone-400 uppercase tracking-wider">
+                <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                <p className="text-[13px] font-mono text-stone-400 uppercase tracking-wider">
                   Behind the scenes
                 </p>
               </div>
-              <p className="text-[17px] font-semibold text-white mb-3">
+              <p className="text-[20px] font-semibold text-stone-900 mb-4">
                 Automation Running
               </p>
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {(
                   [
                     {
@@ -724,16 +724,16 @@ export default function HeroDemo() {
                 ).map((task, i) => (
                   <div
                     key={i}
-                    className="htask flex items-center gap-3 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.05]"
+                    className="htask flex items-center gap-3 px-4 py-3 rounded-lg bg-[#F7F4F0] border border-stone-200/60"
                     style={{ opacity: 0 }}
                   >
-                    <div className="flex-shrink-0 h-7 w-7 rounded bg-green-400/10 flex items-center justify-center">
-                      <svg viewBox="0 0 16 16" className="w-3.5 h-3.5">
+                    <div className="flex-shrink-0 h-8 w-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                      <svg viewBox="0 0 16 16" className="w-4 h-4">
                         <path
                           className="htask-check"
                           d="M3 8l4 4 6-7"
                           fill="none"
-                          stroke="#4ADE80"
+                          stroke="#16A34A"
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -743,11 +743,11 @@ export default function HeroDemo() {
                       </svg>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[14px] font-semibold text-white">
+                      <p className="text-[15px] font-semibold text-stone-800">
                         {task.text}
                       </p>
                     </div>
-                    <task.Icon className="w-4 h-4 text-stone-500 flex-shrink-0" />
+                    <task.Icon className="w-4.5 h-4.5 text-stone-400 flex-shrink-0" />
                   </div>
                 ))}
               </div>
@@ -756,22 +756,22 @@ export default function HeroDemo() {
             {/* â”â” Scene 5 â€” Results â”â” */}
             <div
               ref={s5}
-              className="absolute inset-0 p-6 flex flex-col"
+              className="absolute inset-0 p-8 flex flex-col"
               style={{ opacity: 0 }}
             >
               {/* Header row */}
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between mb-5">
                 <div>
-                  <p className="text-[12px] font-mono text-stone-500 uppercase tracking-wider">
+                  <p className="text-[13px] font-mono text-stone-400 uppercase tracking-wider">
                     Monthly Overview
                   </p>
-                  <p className="text-[20px] font-semibold text-white mt-0.5">
+                  <p className="text-[24px] font-semibold text-stone-900 mt-0.5">
                     Your Results
                   </p>
                 </div>
-                <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-400/10 border border-green-400/20">
-                  <span className="h-1.5 w-1.5 rounded-full bg-green-400"></span>
-                  <span className="text-[8px] font-mono text-green-400">
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-600/10 border border-green-600/20">
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                  <span className="text-[10px] font-mono text-green-600">
                     Live
                   </span>
                 </div>
@@ -780,7 +780,7 @@ export default function HeroDemo() {
               {/* Stat cards */}
               <div className="flex-1 grid grid-cols-3 gap-3">
                 {/* Lighthouse */}
-                <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-4 flex flex-col items-center justify-center">
+                <div className="rounded-lg bg-[#F7F4F0] border border-stone-200/60 p-4 flex flex-col items-center justify-center">
                   <div className="relative h-20 w-20 mb-2">
                     <svg
                       viewBox="0 0 36 36"
@@ -791,7 +791,7 @@ export default function HeroDemo() {
                         cy="18"
                         r="15.5"
                         fill="none"
-                        stroke="rgba(255,255,255,0.06)"
+                        stroke="rgba(0,0,0,0.06)"
                         strokeWidth="2.5"
                       />
                       <circle
@@ -800,7 +800,7 @@ export default function HeroDemo() {
                         cy="18"
                         r="15.5"
                         fill="none"
-                        stroke="#4ADE80"
+                        stroke="#16A34A"
                         strokeWidth="2.5"
                         strokeLinecap="round"
                         strokeDasharray="97.4"
@@ -809,39 +809,39 @@ export default function HeroDemo() {
                     </svg>
                     <span
                       ref={statScore}
-                      className="absolute inset-0 flex items-center justify-center text-[18px] font-bold text-white"
+                      className="absolute inset-0 flex items-center justify-center text-[20px] font-bold text-stone-900"
                     >
                       0
                     </span>
                   </div>
-                  <p className="text-[10px] text-stone-500 font-mono uppercase tracking-wider">
+                  <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider">
                     Lighthouse
                   </p>
                 </div>
                 {/* Leads */}
-                <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-4 flex flex-col items-center justify-center">
-                  <p className="text-[34px] font-semibold text-white leading-none mb-1.5">
+                <div className="rounded-lg bg-[#F7F4F0] border border-stone-200/60 p-4 flex flex-col items-center justify-center">
+                  <p className="text-[38px] font-semibold text-stone-900 leading-none mb-1.5">
                     <span ref={statLeads}>0</span>
                   </p>
-                  <p className="text-[10px] text-stone-500 font-mono uppercase tracking-wider">
+                  <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider">
                     New Leads
                   </p>
                 </div>
                 {/* Conversion rate */}
-                <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-4 flex flex-col items-center justify-center">
-                  <p className="text-[34px] font-semibold text-green-400 leading-none mb-1.5">
+                <div className="rounded-lg bg-[#F7F4F0] border border-stone-200/60 p-4 flex flex-col items-center justify-center">
+                  <p className="text-[38px] font-semibold text-green-600 leading-none mb-1.5">
                     <span ref={statConv}>0%</span>
                   </p>
-                  <p className="text-[10px] text-stone-500 font-mono uppercase tracking-wider">
+                  <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider">
                     Conv. Rate
                   </p>
                 </div>
               </div>
 
               {/* Footer tagline */}
-              <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-center gap-1.5">
-                <span className="h-1 w-1 rounded-full bg-green-400"></span>
-                <p className="text-[10px] font-mono text-stone-500 uppercase tracking-wider">
+              <div className="mt-3 pt-3 border-t border-stone-200/60 flex items-center justify-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                <p className="text-[11px] font-mono text-stone-400 uppercase tracking-wider">
                   All automated &middot; Zero busywork
                 </p>
               </div>
@@ -856,8 +856,8 @@ export default function HeroDemo() {
               <svg width="18" height="22" viewBox="0 0 16 20" fill="none">
                 <path
                   d="M1 1v14.5l4-4 3.5 7 2-1L7 10.5l5.5 0z"
-                  fill="white"
-                  stroke="#333"
+                  fill="#1C1917"
+                  stroke="#D6D3D1"
                   strokeWidth="0.5"
                 />
               </svg>
@@ -899,7 +899,7 @@ export default function HeroDemo() {
           className="absolute top-0 right-0 z-50 p-2 group"
           aria-label={isPaused ? "Play animation" : "Pause animation"}
         >
-          <span className="flex items-center justify-center w-7 h-7 rounded-md bg-black/50 backdrop-blur-md border border-white/[0.08] text-white/60 group-hover:text-white group-hover:bg-black/70 transition-all">
+          <span className="flex items-center justify-center w-7 h-7 rounded-md bg-white/70 backdrop-blur-md border border-stone-200 text-stone-400 group-hover:text-stone-700 group-hover:bg-white/90 transition-all">
             {isPaused ? (
               <svg
                 width="12"

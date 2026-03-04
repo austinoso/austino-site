@@ -87,10 +87,24 @@ const activityLog = [
 ];
 
 const typeBadgeColor: Record<string, string> = {
-  Content: "bg-emerald-500/15 text-emerald-400 border-emerald-500/20",
-  SEO: "bg-amber-500/15 text-amber-400 border-amber-500/20",
-  GBP: "bg-sky-500/15 text-sky-400 border-sky-500/20",
-  Design: "bg-violet-500/15 text-violet-400 border-violet-500/20",
+  Content: "bg-emerald-500/10 text-[#5C8A64] border-emerald-500/15",
+  SEO: "bg-amber-500/10 text-amber-700 border-amber-500/15",
+  GBP: "bg-sky-500/10 text-[#4663AC] border-sky-500/15",
+  Design: "bg-violet-500/10 text-violet-600 border-violet-500/15",
+};
+
+const typeAccentBar: Record<string, string> = {
+  Content: "bg-[#5C8A64]/50",
+  SEO: "bg-amber-500/40",
+  GBP: "bg-[#4663AC]/40",
+  Design: "bg-violet-500/40",
+};
+
+const typeIconColor: Record<string, string> = {
+  Content: "text-[#5C8A64]",
+  SEO: "text-amber-600",
+  GBP: "text-[#4663AC]",
+  Design: "text-violet-500",
 };
 
 const statusIcon: Record<string, typeof CheckCircle2> = {
@@ -147,7 +161,7 @@ export default function WhatsIncluded() {
         {/* Right — monthly report mockup */}
         <div className="lg:col-span-7">
           <div
-            className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
+            className="rounded-xl border border-stone-300 bg-[#F0EAE2] overflow-hidden select-none"
             style={{
               boxShadow:
                 "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
@@ -155,7 +169,7 @@ export default function WhatsIncluded() {
             aria-hidden="true"
           >
             {/* Report header */}
-            <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/[0.06] bg-[#0F0E0B]">
+            <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-stone-300 bg-[#E8E2DA]">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-warm-gold/10 border border-warm-gold/20 flex items-center justify-center">
                   <BarChart3
@@ -164,7 +178,7 @@ export default function WhatsIncluded() {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white">
+                  <p className="text-sm font-semibold text-stone-900">
                     Growth Report
                   </p>
                   <p className="text-[11px] text-stone-500 font-mono">
@@ -173,28 +187,28 @@ export default function WhatsIncluded() {
                 </div>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-[11px] text-emerald-400/80 font-mono">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#5C8A64] animate-pulse" />
+                <span className="text-[11px] text-[#5C8A64] font-mono">
                   Active
                 </span>
               </div>
             </div>
 
             {/* Metrics row */}
-            <div className="grid grid-cols-3 border-b border-white/[0.06]">
+            <div className="grid grid-cols-3 border-b border-stone-200/60 bg-[#FDFCFA]">
               {metrics.map((m) => (
                 <div
                   key={m.label}
-                  className="px-5 sm:px-6 py-4 border-r border-white/[0.06] last:border-r-0"
+                  className="px-5 sm:px-6 py-5 border-r border-stone-200/60 last:border-r-0"
                 >
-                  <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider mb-1">
+                  <p className="text-[11px] text-stone-500 font-mono uppercase tracking-wider mb-1">
                     {m.label}
                   </p>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-xl sm:text-2xl font-bold font-mono text-white leading-none">
+                    <span className="text-xl sm:text-2xl font-bold font-mono text-stone-900 leading-none">
                       {m.value}
                     </span>
-                    <span className="text-[11px] font-mono font-medium text-emerald-400">
+                    <span className="text-[11px] font-mono font-medium text-[#5C8A64]">
                       {m.change}
                     </span>
                   </div>
@@ -203,26 +217,28 @@ export default function WhatsIncluded() {
             </div>
 
             {/* Activity log */}
-            <div className="px-5 sm:px-6 py-4">
-              <div className="flex items-center gap-2 mb-4">
+            <div className="px-5 sm:px-6 py-5 bg-[#F9F7F4]">
+              <div className="flex items-center gap-2 mb-2.5">
                 <Clock
-                  className="w-3.5 h-3.5 text-stone-500"
+                  className="w-3.5 h-3.5 text-stone-400"
                   aria-hidden="true"
                 />
-                <p className="text-[11px] text-stone-500 font-mono uppercase tracking-wider">
+                <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider">
                   This month&apos;s work
                 </p>
               </div>
-              <div className="space-y-0.5">
+              <div className="space-y-0">
                 {activityLog.map((entry, i) => {
                   const StatusIcon = statusIcon[entry.status];
                   return (
                     <div
                       key={i}
-                      className="group flex items-start gap-3 py-3 px-3 -mx-3 rounded-lg hover:bg-white/[0.03] transition-colors duration-150"
+                      className={`group flex items-start gap-3 py-3 px-3 -mx-3 rounded-lg hover:bg-black/[0.02] transition-colors duration-150 ${
+                        i > 0 ? "border-t border-stone-200/40" : ""
+                      }`}
                     >
                       <StatusIcon
-                        className="w-4 h-4 text-emerald-400/60 mt-0.5 shrink-0"
+                        className={`w-4 h-4 mt-0.5 shrink-0 ${typeIconColor[entry.type]}`}
                         aria-hidden="true"
                       />
                       <div className="min-w-0 flex-1">
@@ -232,11 +248,11 @@ export default function WhatsIncluded() {
                           >
                             {entry.type}
                           </span>
-                          <span className="text-sm text-stone-200 font-medium">
+                          <span className="text-sm text-stone-800 font-medium">
                             {entry.text}
                           </span>
                         </div>
-                        <p className="text-xs text-stone-400 leading-relaxed">
+                        <p className="text-xs text-stone-500 leading-relaxed">
                           {entry.detail}
                         </p>
                       </div>
@@ -247,11 +263,11 @@ export default function WhatsIncluded() {
             </div>
 
             {/* Report footer */}
-            <div className="px-5 sm:px-6 py-3 border-t border-white/[0.06] bg-[#0F0E0B] flex items-center justify-between">
-              <p className="text-[11px] text-stone-400">
+            <div className="px-5 sm:px-6 py-3 border-t border-stone-300 bg-[#E8E2DA] flex items-center justify-between">
+              <p className="text-[11px] text-stone-500">
                 5 tasks completed &middot; 0 issues open
               </p>
-              <p className="text-[11px] text-stone-400 font-mono">
+              <p className="text-[11px] text-stone-500 font-mono">
                 Next report: Mar 1, 2026
               </p>
             </div>

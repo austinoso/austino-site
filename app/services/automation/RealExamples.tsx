@@ -547,14 +547,14 @@ export default function RealExamples() {
       {/* ── Dashboard shell ───────────────────────── */}
       <div
         ref={dashRef}
-        className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
+        className="rounded-xl border border-white/[0.10] bg-[#16140F] overflow-hidden select-none"
         style={{
           boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
         }}
         aria-hidden="true"
       >
         {/* Header bar */}
-        <div className="px-4 sm:px-5 py-3 border-b border-white/[0.06] bg-[#0F0E0B] flex items-center justify-between">
+        <div className="px-4 sm:px-5 py-3 border-b border-white/[0.08] bg-[#1C1A16] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">
@@ -575,7 +575,7 @@ export default function RealExamples() {
         {/* Body: sidebar + main */}
         <div className="flex flex-col lg:flex-row min-h-[350px] sm:min-h-[400px] lg:min-h-[420px]">
           {/* ── Sidebar (desktop) ────────────────── */}
-          <div className="hidden lg:block lg:w-52 xl:w-56 flex-shrink-0 lg:border-r border-white/[0.06] bg-[#0A0A0E]/80">
+          <div className="hidden lg:block lg:w-52 xl:w-56 flex-shrink-0 lg:border-r border-white/[0.08] bg-[#141218]/80">
             <div className="flex flex-col gap-1 p-2">
               {TOOLS.map((entry, i) => {
                 const SideIcon = entry.icon;
@@ -587,8 +587,8 @@ export default function RealExamples() {
                     style={{ animationDelay: `${i * 70}ms` }}
                     className={`group flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-left transition-all duration-200 w-full animate-feed-in ${
                       on
-                        ? "bg-white/[0.06] border border-white/[0.08]"
-                        : "bg-transparent border border-transparent hover:bg-white/[0.03] hover:border-white/[0.04]"
+                        ? "bg-white/[0.08] border border-white/[0.10]"
+                        : "bg-transparent border border-transparent hover:bg-white/[0.05] hover:border-white/[0.06]"
                     }`}
                   >
                     <SideIcon
@@ -623,7 +623,7 @@ export default function RealExamples() {
           </div>
 
           {/* ── Mobile dropdown ───────────────────── */}
-          <div className="lg:hidden border-b border-white/[0.06] bg-[#0A0A0E]/80 relative">
+          <div className="lg:hidden border-b border-white/[0.08] bg-[#141218]/80 relative">
             <div
               onClick={() => setMobileOpen((v) => !v)}
               onKeyDown={(e) => {
@@ -676,7 +676,7 @@ export default function RealExamples() {
                   disabled={isRunning}
                   className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium transition-all duration-300 flex-shrink-0 ml-auto mr-2 ${
                     isRunning
-                      ? "bg-white/[0.04] text-stone-500 cursor-not-allowed"
+                      ? "bg-white/[0.06] text-stone-500 cursor-not-allowed"
                       : "bg-warm-gold/15 text-warm-gold hover:bg-warm-gold/25 border border-warm-gold/20 hover:border-warm-gold/40"
                   }`}
                 >
@@ -695,7 +695,7 @@ export default function RealExamples() {
               )}
             </div>
             {mobileOpen && (
-              <div className="absolute inset-x-0 top-full z-20 bg-[#0A0A0E] border-b border-white/[0.06] shadow-lg">
+              <div className="absolute inset-x-0 top-full z-20 bg-[#141218] border-b border-white/[0.08] shadow-lg">
                 {TOOLS.map((entry, i) => {
                   const MIcon = entry.icon;
                   const on = i === activeTool;
@@ -707,7 +707,7 @@ export default function RealExamples() {
                         setMobileOpen(false);
                       }}
                       className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-left transition-colors ${
-                        on ? "bg-white/[0.06]" : "hover:bg-white/[0.03]"
+                        on ? "bg-white/[0.08]" : "hover:bg-white/[0.05]"
                       }`}
                     >
                       <MIcon
@@ -741,7 +741,7 @@ export default function RealExamples() {
           {/* ── Main panel ───────────────────────── */}
           <div className="flex-1 flex flex-col min-w-0">
             {/* Tool bar – hidden on mobile where dropdown already shows the name */}
-            <div className="hidden lg:flex px-4 sm:px-5 py-3 border-b border-white/[0.06] items-center justify-between gap-3">
+            <div className="hidden lg:flex px-4 sm:px-5 py-3 border-b border-white/[0.08] items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 min-w-0">
                 <div className="w-6 h-6 rounded-md bg-warm-gold/10 flex items-center justify-center flex-shrink-0">
                   <ToolIcon
@@ -766,7 +766,7 @@ export default function RealExamples() {
                   disabled={isRunning}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-300 flex-shrink-0 ${
                     isRunning
-                      ? "bg-white/[0.04] text-stone-500 cursor-not-allowed"
+                      ? "bg-white/[0.06] text-stone-500 cursor-not-allowed"
                       : "bg-warm-gold/15 text-warm-gold hover:bg-warm-gold/25 border border-warm-gold/20 hover:border-warm-gold/40"
                   }`}
                 >
@@ -801,7 +801,7 @@ export default function RealExamples() {
               {idle ? (
                 /* Manual tool — idle state */
                 <div className="h-full flex flex-col items-center justify-center text-center py-10">
-                  <div className="w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 rounded-full bg-white/[0.05] border border-white/[0.08] flex items-center justify-center mb-3">
                     <Terminal className="w-4 h-4 text-stone-500" aria-hidden />
                   </div>
                   <p className="text-stone-500 text-xs mb-1">Ready to run</p>
@@ -838,7 +838,7 @@ export default function RealExamples() {
             </div>
 
             {/* Tool description */}
-            <div className="mt-auto px-4 sm:px-5 py-3 border-t border-white/[0.06] bg-[#0A0A0E]/40">
+            <div className="mt-auto px-4 sm:px-5 py-3 border-t border-white/[0.08] bg-[#141218]/40">
               <p className="text-[11px] sm:text-[12px] text-stone-400 leading-relaxed">
                 {tool.desc}
               </p>
@@ -847,7 +847,7 @@ export default function RealExamples() {
         </div>
 
         {/* Footer bar */}
-        <div className="px-4 sm:px-5 py-2.5 border-t border-white/[0.06] bg-[#0F0E0B] flex items-center justify-between">
+        <div className="px-4 sm:px-5 py-2.5 border-t border-white/[0.08] bg-[#1C1A16] flex items-center justify-between">
           <div className="flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             <span className="text-[11px] text-stone-400">
