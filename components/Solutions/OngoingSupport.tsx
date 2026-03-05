@@ -75,10 +75,12 @@ export default function OngoingSupport() {
         </div>
         <div className="flex flex-col justify-end">
           <p className="text-base text-stone-600 leading-relaxed text-pretty">
-            After launch, I stay on as your web strategist. I use real data to
-            fix what&apos;s underperforming and publish the kind of content
+            After launch, I stay on as your growth strategist. I use real data
+            to fix what&apos;s underperforming and publish the kind of content
             Google rewards with higher rankings. Each month builds on
-            the&nbsp;last.
+            the&nbsp;last. You&apos;ll have a short task list: reply to reviews,
+            snap a few photos, tell me what&apos;s happening in your business. I
+            handle everything&nbsp;else.
           </p>
           <Link
             href="/services/growth-strategy"

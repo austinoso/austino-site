@@ -60,9 +60,9 @@ export default function CTA() {
           data-animate="fade"
           className="mt-5 text-base sm:text-lg text-stone-500 leading-relaxed max-w-xl"
         >
-          Thinking about a new site, or not sure if your current one isn&apos;t
-          pulling its weight? Let&apos;s talk about what the right build looks
-          like for your business.
+          Not sure why your competitors keep showing up above you?
+          Let&apos;s look at the gaps and map out what it would take
+          to get you&nbsp;ranking.
         </p>
 
         {/* ── Steps — quiet reassurance ── */}
