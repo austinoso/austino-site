@@ -29,7 +29,8 @@ export default function TheReality() {
           </h2>
 
           <p className="mt-8 text-[13px] text-stone-500">
-            This isn&apos;t my framework. It&apos;s Google&apos;s.{" "}
+            This isn&apos;t my framework. It&apos;s Google&apos;s.
+            <br className="sm:hidden" />{" "}
             <a
               href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
               target="_blank"
