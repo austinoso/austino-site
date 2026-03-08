@@ -30,11 +30,23 @@ const faqs = [
 export default function FAQ() {
   return (
     <section data-fade>
-      <p className="section-label mb-4">Common Questions</p>
-      <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-10 max-w-2xl">
-        Questions Manteca business owners ask.
-      </h2>
-      <FAQAccordion faqs={faqs} idPrefix="manteca-faq" />
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16">
+        {/* Left — heading + reassurance */}
+        <div>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-5">
+            Questions Manteca business owners{" "}
+            <span className="text-gradient-gold">ask.</span>
+          </h2>
+          <p className="text-[15px] text-stone-600 leading-relaxed text-pretty">
+            No hard sell. If we&apos;re not the right fit, I&apos;ll tell you.
+          </p>
+        </div>
+
+        {/* Right — accordion */}
+        <div>
+          <FAQAccordion faqs={faqs} idPrefix="manteca-faq" />
+        </div>
+      </div>
     </section>
   );
 }

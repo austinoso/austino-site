@@ -51,48 +51,60 @@ export default function WhatYouGet() {
   return (
     <section data-fade>
       <p className="section-label mb-4">What You Get</p>
-      <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 leading-snug tracking-tight text-balance mb-4 max-w-2xl">
-        Everything your Manteca business needs to get found and convert.
+      <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4 max-w-2xl">
+        Everything your Manteca business needs to{" "}
+        <span className="text-gradient-gold">get found and convert.</span>
       </h2>
-      <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12">
-        Not a vague &ldquo;website package.&rdquo; Every deliverable is
-        tied to a specific problem that costs local businesses real
-        customers.
+      <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-12">
+        Not a vague &ldquo;website package.&rdquo; Every deliverable is tied to
+        a specific problem that costs local businesses real customers.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-stone-200">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {deliverables.map((d) => (
           <div
             key={d.title}
-            className="border-b border-r border-stone-200 p-5 sm:p-7 flex flex-col"
+            className="rounded-xl bg-white border border-stone-200 p-6 sm:p-7 transition-colors duration-300 hover:bg-stone-50 hover:border-stone-300"
           >
-            <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0 mb-4">
-              <d.icon
-                className="w-4 h-4 text-cyber-accent"
-                aria-hidden="true"
-              />
+            <div className="flex items-center gap-2.5 mb-2">
+              <d.icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+              <h3 className="text-base font-semibold text-warm-white">
+                {d.title}
+              </h3>
             </div>
-            <h3 className="text-[15px] font-semibold text-stone-900 mb-2">
-              {d.title}
-            </h3>
-            <p className="text-sm text-cyber-gray-400 leading-relaxed">
-              {d.body}
-            </p>
+            <p className="text-sm text-stone-500 leading-relaxed">{d.body}</p>
           </div>
         ))}
+
+        {/* Wildcard — custom needs */}
+        <div className="rounded-xl border border-warm-gold/20 bg-warm-gold/[0.03] p-6 sm:p-7 transition-colors duration-300 hover:bg-warm-gold/[0.06] hover:border-warm-gold/30">
+          <div className="flex items-center gap-2.5 mb-2">
+            <Wrench className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+            <h3 className="text-base font-semibold text-warm-gold">
+              Need something specific?
+            </h3>
+          </div>
+          <p className="text-sm text-stone-500 leading-relaxed">
+            Every business has unique needs. If something isn&apos;t on this
+            list, tell me what it is and I&apos;ll build&nbsp;it.
+          </p>
+        </div>
       </div>
 
       {/* CTA bar */}
-      <div className="mt-8 rounded-lg border border-stone-200 bg-cyber-accent/[0.03] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-        <p className="text-base text-stone-900 font-medium">
+      <div className="mt-8 border-t border-stone-200 p-6 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <p className="text-[15px] text-stone-600 leading-relaxed max-w-md">
           Want to see how this would work for your business?
         </p>
         <Link
           href="/contact"
-          className="inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#060608] font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)] flex-shrink-0"
+          className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg flex-shrink-0"
         >
           Get a Free Local Audit
-          <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          <ArrowRight
+            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
+            aria-hidden="true"
+          />
         </Link>
       </div>
     </section>

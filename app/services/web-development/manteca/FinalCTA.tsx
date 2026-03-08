@@ -4,42 +4,53 @@ import { ArrowRight } from "lucide-react";
 export default function FinalCTA() {
   return (
     <section data-fade>
-      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
-        <div className="max-w-xl">
-          <p className="section-label mb-4">Get Started</p>
-          <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-4">
-            Let&apos;s get your Manteca business found.
-          </h2>
-          <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed">
-            One conversation. I&apos;ll look at your current site, show you
-            where you stand in local search, and map out what it would take to
-            start showing up — whether we work together or not.
-          </p>
-        </div>
-        <div className="flex-shrink-0">
-          <Link
-            href="/contact"
-            className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-[#060608] font-semibold text-base rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)] w-full sm:w-auto"
-          >
-            <span>Get a Free Local Audit</span>
-            <ArrowRight
-              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-              aria-hidden="true"
-            />
-          </Link>
-        </div>
+      {/* Divider */}
+      <div className="h-px bg-stone-200 mb-14 sm:mb-16" />
+
+      <p className="text-xs font-semibold text-amber-700 uppercase tracking-[0.2em] mb-5">
+        Next Step
+      </p>
+
+      <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-stone-900 leading-[1.1] tracking-tight max-w-2xl">
+        Let&apos;s get your Manteca business{" "}
+        <span className="text-gradient-gold">found.</span>
+      </h2>
+
+      <p className="mt-5 text-base sm:text-lg text-stone-500 leading-relaxed max-w-xl">
+        One conversation. I&apos;ll look at your current site, show you where
+        you stand in local search, and map out what it would take to start
+        showing up — whether we work together or not.
+      </p>
+
+      {/* CTA link */}
+      <div className="mt-10 sm:mt-12 flex items-center gap-4">
+        <Link
+          href="/contact"
+          className="group inline-flex items-center gap-2 text-[15px] font-semibold text-warm-gold hover:text-amber-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:ring-offset-2"
+        >
+          <span>Get a Free Local Audit</span>
+          <ArrowRight
+            className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
+            aria-hidden="true"
+          />
+        </Link>
+        <span className="text-[11px] font-mono text-stone-500">
+          Free, no commitment
+        </span>
       </div>
+
+      {/* Cross-links */}
       <div className="border-t border-stone-200 mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
         <Link
           href="/services/web-development"
-          className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300"
+          className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-warm-white transition-colors duration-300"
         >
           Learn more about web development
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
         <Link
           href="/services/growth-strategy"
-          className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300"
+          className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-warm-white transition-colors duration-300"
         >
           Want ongoing growth after launch? See Growth Strategy
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />

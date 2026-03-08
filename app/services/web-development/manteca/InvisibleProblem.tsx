@@ -6,7 +6,7 @@ const problems = [
     stat: "75%",
     statLabel: "never scroll past page 1",
     heading: "Invisible where it counts",
-    body: "If your business isn't on the first page of Google when someone searches \"plumber in Manteca\" or \"massage near me,\" you don't exist to that customer. Three out of four people never click past page one.",
+    body: 'If your business isn\'t on the first page of Google when someone searches "plumber in Manteca" or "massage near me," you don\'t exist to that customer. Three out of four people never click past page one.',
     source: {
       label: "HubSpot, 2024",
       href: "https://www.hubspot.com/marketing-statistics",
@@ -40,14 +40,15 @@ export default function InvisibleProblem() {
   return (
     <section data-fade>
       <p className="section-label mb-4">The Problem</p>
-      <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 leading-snug tracking-tight text-balance mb-4 max-w-2xl">
-        Having a website isn&apos;t the same as being found.
+      <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4 max-w-2xl">
+        Having a website isn&apos;t the same as{" "}
+        <span className="text-gradient-gold">being found.</span>
       </h2>
-      <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12">
-        Most Manteca businesses have some kind of website. But when a
-        potential customer pulls out their phone and searches for what you
-        do, does your site actually show up? For most local businesses, the
-        honest answer is no.
+      <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-12">
+        Most Manteca businesses have some kind of website. But when a potential
+        customer pulls out their phone and searches for what you do, does your
+        site actually show up? For most local businesses, the honest answer is
+        no.
       </p>
 
       <div className="border-t border-stone-200">
@@ -59,9 +60,9 @@ export default function InvisibleProblem() {
             {/* Left — stat + icon */}
             <div className="p-6 sm:p-8 md:border-r md:border-stone-200 flex flex-col justify-center">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 rounded-full border border-warm-gold/20 bg-warm-gold/[0.05] flex items-center justify-center flex-shrink-0">
                   <problem.icon
-                    className="w-[18px] h-[18px] text-cyber-accent"
+                    className="w-[18px] h-[18px] text-warm-gold"
                     aria-hidden="true"
                   />
                 </div>
@@ -70,10 +71,10 @@ export default function InvisibleProblem() {
                 </h3>
               </div>
               <div className="ml-12">
-                <span className="font-display text-2xl sm:text-3xl font-bold text-cyber-accent leading-none">
+                <span className="font-display text-2xl sm:text-3xl font-bold text-warm-gold leading-none">
                   {problem.stat}
                 </span>
-                <p className="text-xs text-cyber-gray-400 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   {problem.statLabel}
                 </p>
               </div>
@@ -81,14 +82,14 @@ export default function InvisibleProblem() {
 
             {/* Right — description */}
             <div className="p-6 sm:p-8 flex flex-col justify-center border-t border-stone-200 md:border-t-0">
-              <p className="text-sm sm:text-[15px] text-cyber-gray-300 leading-relaxed">
+              <p className="text-sm sm:text-[15px] text-stone-600 leading-relaxed">
                 {problem.body}
               </p>
               <a
                 href={problem.source.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] text-cyber-accent/60 hover:text-cyber-accent transition-colors font-mono mt-2 inline-block"
+                className="text-[10px] text-stone-500 hover:text-stone-700 transition-colors font-mono mt-2 inline-block"
               >
                 {problem.source.label} ↗
                 <span className="sr-only"> (opens in a new tab)</span>
