@@ -110,8 +110,8 @@ export default function HeroDemo() {
         case 0:
           gsap.set(cursor, {
             opacity: 1,
-            left: "7%",
-            top: "60%",
+            left: "11%",
+            top: "67%",
           });
           break;
         case 1:
@@ -244,8 +244,8 @@ export default function HeroDemo() {
           tl.to(
             cursor,
             {
-              left: "7%",
-              top: "60%",
+              left: "11%",
+              top: "67%",
               duration: 1.3,
               ease: "power2.inOut",
             },
