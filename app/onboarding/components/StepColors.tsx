@@ -34,18 +34,12 @@ const COLOR_OPTIONS = [
     value: "trust-you",
     label: "I Trust Your Judgment",
     description: "You're the expert — pick what fits my brand.",
-    colors: ["#40E0FF", "#6366F1", "#A855F7", "#EC4899", "#F97316"],
+    colors: ["#B45309", "#D97706", "#DB2777", "#7C3AED", "#A78BFA"],
   },
 ];
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
-const ALLOWED_TYPES = [
-  "image/png",
-  "image/jpeg",
-  "image/webp",
-  "image/svg+xml",
-  "application/pdf",
-];
+const ALLOWED_TYPES = ["image/png", "image/jpeg", "image/webp", "image/svg+xml", "application/pdf"];
 
 interface StepColorsProps {
   data: OnboardingData;
@@ -53,7 +47,7 @@ interface StepColorsProps {
 }
 
 const inputClass =
-  "w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-2 focus:ring-cyber-accent/60 focus:border-cyber-accent/50 transition-all duration-300 hover:border-stone-300 resize-none";
+  "w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-warm-gold/40 focus:border-warm-gold/50 transition-all duration-300 hover:border-stone-300 resize-none";
 
 export default function StepColors({ data, onChange }: StepColorsProps) {
   const [uploading, setUploading] = useState(false);
@@ -99,9 +93,7 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
         onChange("logoFileId", fileId);
         onChange("logoFileName", fileName);
       } catch (err) {
-        setUploadError(
-          err instanceof Error ? err.message : "Upload failed. Try again.",
-        );
+        setUploadError(err instanceof Error ? err.message : "Upload failed. Try again.");
         setPreviewUrl(null);
       } finally {
         setUploading(false);
@@ -133,13 +125,13 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
   return (
     <div className="space-y-8">
       <div>
-        <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
+        <p className="font-mono text-xs text-warm-gold uppercase tracking-[0.2em] mb-4">
           Color Palette
         </p>
         <h2 className="text-2xl sm:text-3xl font-semibold text-stone-900 leading-tight tracking-tight mb-3">
           Choose your flavor.
         </h2>
-        <p className="text-base text-cyber-gray-300 leading-relaxed max-w-lg">
+        <p className="text-base text-stone-600 leading-relaxed max-w-lg">
           No need to get into hex codes — just pick the vibe that feels right.
         </p>
       </div>
@@ -154,16 +146,12 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
       <div
         className="p-5 rounded-xl border border-stone-200 bg-white space-y-5"
         style={{
-          boxShadow:
-            "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
+          boxShadow: "0 4px 24px -4px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.03)",
         }}
       >
         {/* Open-ended brand description */}
         <div className="space-y-3">
-          <label
-            htmlFor="brandColor"
-            className="text-sm text-stone-700 font-medium"
-          >
+          <label htmlFor="brandColor" className="text-sm text-stone-700 font-medium">
             Have a logo or color idea in mind?
           </label>
           <textarea
@@ -179,13 +167,12 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
         {/* Logo upload */}
         <div className="space-y-3">
           <p className="text-sm text-stone-700 font-medium">
-            Upload your logo{" "}
-            <span className="text-cyber-gray-500 font-normal">(optional)</span>
+            Upload your logo <span className="text-stone-400 font-normal">(optional)</span>
           </p>
 
           {hasLogo ? (
             /* Uploaded state */
-            <div className="flex items-center gap-3 p-3 rounded-lg border border-cyber-accent/20 bg-cyber-accent/[0.04]">
+            <div className="flex items-center gap-3 p-3 rounded-lg border border-warm-gold/20 bg-amber-50/50">
               {previewUrl ? (
                 <img
                   src={previewUrl}
@@ -193,18 +180,16 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
                   className="w-10 h-10 rounded object-contain bg-white/5"
                 />
               ) : (
-                <FileImage className="w-10 h-10 text-cyber-accent/60 p-2" />
+                <FileImage className="w-10 h-10 text-warm-gold/60 p-2" />
               )}
               <div className="flex-1 min-w-0">
-                <p className="text-sm text-stone-900 truncate">
-                  {data.logoFileName}
-                </p>
-                <p className="text-xs text-cyber-accent/60">Uploaded</p>
+                <p className="text-sm text-stone-900 truncate">{data.logoFileName}</p>
+                <p className="text-xs text-warm-gold/60">Uploaded</p>
               </div>
               <button
                 type="button"
                 onClick={handleRemove}
-                className="p-1.5 rounded-md text-cyber-gray-400 hover:text-stone-900 hover:bg-stone-100 transition-colors"
+                className="p-1.5 rounded-md text-stone-400 hover:text-stone-900 hover:bg-stone-100 transition-colors"
                 aria-label="Remove logo"
               >
                 <X className="w-4 h-4" />
@@ -222,21 +207,19 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
               onClick={() => inputRef.current?.click()}
               className={`relative flex flex-col items-center gap-2 p-6 rounded-lg border-2 border-dashed cursor-pointer transition-all duration-300 ${
                 dragActive
-                  ? "border-cyber-accent/50 bg-cyber-accent/[0.05]"
+                  ? "border-warm-gold/50 bg-amber-50/50"
                   : "border-stone-200 bg-stone-50 hover:border-stone-300"
               }`}
             >
               {uploading ? (
-                <Loader2 className="w-6 h-6 text-cyber-accent animate-spin" />
+                <Loader2 className="w-6 h-6 text-warm-gold animate-spin" />
               ) : (
-                <Upload className="w-6 h-6 text-cyber-gray-500" />
+                <Upload className="w-6 h-6 text-stone-400" />
               )}
-              <p className="text-sm text-cyber-gray-400 text-center">
-                {uploading ? "Uploading…" : "Drag & drop or click to browse"}
+              <p className="text-sm text-stone-500 text-center">
+                {uploading ? "Uploading\u2026" : "Drag & drop or click to browse"}
               </p>
-              <p className="text-xs text-cyber-gray-600">
-                PNG, JPG, WebP, SVG, or PDF — up to 5 MB
-              </p>
+              <p className="text-xs text-stone-400">PNG, JPG, WebP, SVG, or PDF — up to 5 MB</p>
               <input
                 ref={inputRef}
                 type="file"
@@ -258,9 +241,9 @@ export default function StepColors({ data, onChange }: StepColorsProps) {
           )}
         </div>
 
-        <p className="text-xs text-cyber-gray-500">
-          All optional — if you don&apos;t have anything yet, no worries.
-          We&apos;ll figure it out together.
+        <p className="text-xs text-stone-400">
+          All optional — if you don&apos;t have anything yet, no worries. We&apos;ll figure it out
+          together.
         </p>
       </div>
     </div>

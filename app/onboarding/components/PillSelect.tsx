@@ -44,8 +44,8 @@ export default function PillSelect({
               onClick={() => togglePill(option.value)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                 isSelected
-                  ? "bg-cyber-accent/15 text-cyber-accent border border-cyber-accent/40 shadow-[0_0_12px_rgba(64,224,255,0.08)]"
-                  : "bg-white text-cyber-gray-400 border border-stone-200 hover:border-stone-300 hover:text-cyber-gray-300"
+                  ? "bg-amber-50 text-warm-gold border border-warm-gold/40"
+                  : "bg-white text-stone-500 border border-stone-200 hover:border-stone-300 hover:text-stone-700"
               }`}
               aria-pressed={isSelected}
             >
@@ -59,8 +59,8 @@ export default function PillSelect({
             onClick={() => togglePill("other")}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
               isOtherSelected
-                ? "bg-cyber-accent/15 text-cyber-accent border border-cyber-accent/40 shadow-[0_0_12px_rgba(64,224,255,0.08)]"
-                : "bg-white text-cyber-gray-400 border border-stone-200 hover:border-stone-300 hover:text-cyber-gray-300"
+                ? "bg-amber-50 text-warm-gold border border-warm-gold/40"
+                : "bg-white text-stone-500 border border-stone-200 hover:border-stone-300 hover:text-stone-700"
             }`}
             aria-pressed={isOtherSelected}
           >
@@ -75,7 +75,7 @@ export default function PillSelect({
           onChange={(e) => onOtherChange?.(e.target.value)}
           placeholder="What else do you use?"
           aria-label="Other tools you use"
-          className="w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-1 focus:ring-cyber-accent/50 focus:border-cyber-accent/50 transition-all duration-300 hover:border-stone-300"
+          className="w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-stone-400 focus:outline-none focus:ring-1 focus:ring-warm-gold/40 focus:border-warm-gold/50 transition-all duration-300 hover:border-stone-300"
         />
       )}
     </div>

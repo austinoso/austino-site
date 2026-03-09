@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Suspense,
-  useReducer,
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-} from "react";
+import { Suspense, useReducer, useState, useEffect, useCallback, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Mail, ArrowLeft, ArrowRight } from "lucide-react";
@@ -26,18 +19,13 @@ import Confirmation from "./components/Confirmation";
 
 const TOTAL_STEPS = 7;
 const STORAGE_KEY = "austino-onboarding";
-const CAL_LINK =
-  process.env.NEXT_PUBLIC_CAL_LINK || "https://cal.com/austino/discovery";
+const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK || "https://cal.com/austino/discovery";
 
 // ── Validation per step ──
 function isStepValid(step: number, data: OnboardingData): boolean {
   switch (step) {
     case 1:
-      return (
-        data.name.trim() !== "" &&
-        data.email.trim() !== "" &&
-        data.businessName.trim() !== ""
-      );
+      return data.name.trim() !== "" && data.email.trim() !== "" && data.businessName.trim() !== "";
     case 2:
       return (
         data.websiteJob !== "" &&
@@ -65,7 +53,7 @@ export default function OnboardingPage() {
       fallback={
         <main className="relative min-h-screen bg-warm-bg">
           <div className="min-h-screen flex items-center justify-center">
-            <div className="w-8 h-8 border-2 border-cyber-accent/30 border-t-cyber-accent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-warm-gold/30 border-t-warm-gold rounded-full animate-spin" />
           </div>
         </main>
       }
@@ -110,9 +98,7 @@ function OnboardingInner() {
 
     const fetchPrefill = async () => {
       try {
-        const res = await fetch(
-          `/api/onboarding?id=${encodeURIComponent(slugParam)}`,
-        );
+        const res = await fetch(`/api/onboarding?id=${encodeURIComponent(slugParam)}`);
         if (res.ok) {
           const result = await res.json();
           setPageId(result.pageId);
@@ -199,10 +185,7 @@ function OnboardingInner() {
   useEffect(() => {
     if (!hydrated || isComplete) return;
     try {
-      localStorage.setItem(
-        storageKey,
-        JSON.stringify({ data, step, pageId, slug }),
-      );
+      localStorage.setItem(storageKey, JSON.stringify({ data, step, pageId, slug }));
     } catch {
       // Storage full or unavailable
     }
@@ -230,19 +213,13 @@ function OnboardingInner() {
   );
 
   // ── Field change handlers ──
-  const handleChange = useCallback(
-    (field: keyof OnboardingData, value: string) => {
-      dispatch({ type: "SET_FIELD", field, value });
-    },
-    [],
-  );
+  const handleChange = useCallback((field: keyof OnboardingData, value: string) => {
+    dispatch({ type: "SET_FIELD", field, value });
+  }, []);
 
-  const handleArrayChange = useCallback(
-    (field: keyof OnboardingData, value: string[]) => {
-      dispatch({ type: "SET_ARRAY_FIELD", field, value });
-    },
-    [],
-  );
+  const handleArrayChange = useCallback((field: keyof OnboardingData, value: string[]) => {
+    dispatch({ type: "SET_ARRAY_FIELD", field, value });
+  }, []);
 
   // ── Navigation (auto-saves to Notion on each step) ──
   const goNext = () => {
@@ -304,9 +281,7 @@ function OnboardingInner() {
       if (result.slug) setSlug(result.slug);
       return result.slug || result.id || null;
     } catch (error) {
-      setSubmitError(
-        error instanceof Error ? error.message : "Something went wrong",
-      );
+      setSubmitError(error instanceof Error ? error.message : "Something went wrong");
       setIsSubmitting(false);
       return null;
     }
@@ -340,9 +315,7 @@ function OnboardingInner() {
         window.location.href = url;
       }
     } catch (error) {
-      setSubmitError(
-        error instanceof Error ? error.message : "Payment setup failed",
-      );
+      setSubmitError(error instanceof Error ? error.message : "Payment setup failed");
       setIsSubmitting(false);
     }
   };
@@ -364,7 +337,7 @@ function OnboardingInner() {
       <main id="main-content" className="relative min-h-screen bg-warm-bg">
         <div className="min-h-screen flex items-center justify-center">
           <div
-            className="w-8 h-8 border-2 border-cyber-accent/30 border-t-cyber-accent rounded-full animate-spin"
+            className="w-8 h-8 border-2 border-warm-gold/30 border-t-warm-gold rounded-full animate-spin"
             role="status"
             aria-label="Loading"
           />
@@ -392,7 +365,7 @@ function OnboardingInner() {
           <div className="mb-12 text-center">
             <Link href="/" className="text-xl font-extrabold inline-block">
               <span className="text-stone-900">austin</span>
-              <span className="text-cyber-accent">o</span>
+              <span className="text-warm-gold">o</span>
             </Link>
           </div>
 
@@ -406,13 +379,7 @@ function OnboardingInner() {
   const renderStep = () => {
     switch (step) {
       case 1:
-        return (
-          <StepContact
-            data={data}
-            onChange={handleChange}
-            prefilled={prefilled}
-          />
-        );
+        return <StepContact data={data} onChange={handleChange} prefilled={prefilled} />;
       case 2:
         return <StepHeartbeat data={data} onChange={handleChange} />;
       case 3:
@@ -422,13 +389,7 @@ function OnboardingInner() {
       case 5:
         return <StepColors data={data} onChange={handleChange} />;
       case 6:
-        return (
-          <StepTools
-            data={data}
-            onChange={handleChange}
-            onChangeArray={handleArrayChange}
-          />
-        );
+        return <StepTools data={data} onChange={handleChange} onChangeArray={handleArrayChange} />;
       case 7:
         return (
           <StepCheckout
@@ -459,7 +420,7 @@ function OnboardingInner() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 40% at 30% 10%, rgba(64,224,255,0.04), transparent), radial-gradient(ellipse 60% 30% at 80% 60%, rgba(120,75,255,0.025), transparent)",
+            "radial-gradient(ellipse 80% 40% at 30% 10%, rgba(212,168,83,0.03), transparent), radial-gradient(ellipse 60% 30% at 80% 60%, rgba(167,139,250,0.02), transparent)",
         }}
         aria-hidden="true"
       />
@@ -469,18 +430,18 @@ function OnboardingInner() {
         <div className="flex items-center justify-between mb-10 sm:mb-14">
           <Link href="/" className="text-xl font-extrabold">
             <span className="text-stone-900">austin</span>
-            <span className="text-cyber-accent">o</span>
+            <span className="text-warm-gold">o</span>
           </Link>
           <div className="flex items-center gap-3">
             {isSaving && (
-              <span className="flex items-center gap-1.5 text-xs font-mono text-cyber-gray-500 animate-pulse">
-                <span className="w-1.5 h-1.5 bg-cyber-accent/50 rounded-full" />
+              <span className="flex items-center gap-1.5 text-xs font-mono text-stone-400 animate-pulse">
+                <span className="w-1.5 h-1.5 bg-warm-gold/50 rounded-full" />
                 Saving…
               </span>
             )}
             <a
               href="mailto:connect@austino.dev"
-              className="flex items-center gap-1.5 text-xs font-mono text-cyber-gray-500 hover:text-cyber-gray-300 transition-colors"
+              className="flex items-center gap-1.5 text-xs font-mono text-stone-400 hover:text-stone-600 transition-colors"
             >
               <Mail className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Need help?</span>
@@ -501,7 +462,7 @@ function OnboardingInner() {
         {/* Error */}
         {submitError && (
           <div
-            className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm"
+            className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm"
             role="alert"
             aria-live="assertive"
           >
@@ -516,7 +477,7 @@ function OnboardingInner() {
               type="button"
               onClick={goBack}
               disabled={step === 1}
-              className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-cyber-gray-400 border border-stone-200 rounded-lg transition-all duration-300 hover:border-stone-300 hover:text-stone-900 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+              className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-stone-500 border border-stone-200 rounded-lg transition-all duration-300 hover:border-stone-300 hover:text-stone-900 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back</span>
@@ -526,7 +487,7 @@ function OnboardingInner() {
               type="button"
               onClick={goNext}
               disabled={!isStepValid(step, data)}
-              className="flex items-center gap-2 px-6 py-2.5 bg-cyber-accent text-[#050505] font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+              className="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-600/15 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
             >
               <span>Continue</span>
               <ArrowRight className="w-4 h-4" />
@@ -540,7 +501,7 @@ function OnboardingInner() {
             <button
               type="button"
               onClick={goBack}
-              className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-cyber-gray-400 border border-stone-200 rounded-lg transition-all duration-300 hover:border-stone-300 hover:text-stone-900 cursor-pointer"
+              className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-stone-500 border border-stone-200 rounded-lg transition-all duration-300 hover:border-stone-300 hover:text-stone-900 cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back</span>

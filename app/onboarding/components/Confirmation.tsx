@@ -9,11 +9,7 @@ interface ConfirmationProps {
   name: string;
 }
 
-export default function Confirmation({
-  paid,
-  calLink,
-  name,
-}: ConfirmationProps) {
+export default function Confirmation({ paid, calLink, name }: ConfirmationProps) {
   const firstName = name.split(" ")[0] || "there";
 
   return (
@@ -29,7 +25,7 @@ export default function Confirmation({
         <h2 className="text-2xl sm:text-3xl font-semibold text-stone-900 leading-tight tracking-tight mb-3">
           You&apos;re all set, {firstName}.
         </h2>
-        <p className="text-base text-cyber-gray-300 leading-relaxed">
+        <p className="text-base text-stone-600 leading-relaxed">
           {paid
             ? "Your deposit is confirmed and I'm already reviewing your answers. I'll have a demo ready for our call."
             : "I've got your answers and I'll review everything before our call."}
@@ -40,11 +36,10 @@ export default function Confirmation({
       <div
         className="p-6 rounded-xl border border-stone-200 bg-white text-left"
         style={{
-          boxShadow:
-            "0 16px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)",
+          boxShadow: "0 4px 24px -4px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.03)",
         }}
       >
-        <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
+        <p className="font-mono text-xs text-warm-gold uppercase tracking-[0.2em] mb-4">
           What Happens Next
         </p>
         <ul className="space-y-3.5">
@@ -59,12 +54,10 @@ export default function Confirmation({
             "We kick off the project — no pressure",
           ].map((item, i) => (
             <li key={i} className="flex items-start gap-3">
-              <span className="font-mono text-xs text-cyber-accent/60 mt-0.5 flex-shrink-0">
+              <span className="font-mono text-xs text-warm-gold/60 mt-0.5 flex-shrink-0">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="text-sm text-cyber-gray-300 leading-relaxed">
-                {item}
-              </span>
+              <span className="text-sm text-stone-600 leading-relaxed">{item}</span>
             </li>
           ))}
         </ul>
@@ -76,7 +69,7 @@ export default function Confirmation({
           href={calLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-cyber-accent text-[#050505] font-semibold text-base rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)] w-full sm:w-auto"
+          className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-base rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-600/15 w-full sm:w-auto"
         >
           <Calendar className="w-4 h-4" aria-hidden="true" />
           <span>Schedule Discovery Call</span>
@@ -84,20 +77,17 @@ export default function Confirmation({
           <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </a>
 
-        <p className="text-xs text-cyber-gray-500">
+        <p className="text-xs text-stone-400">
           Or I&apos;ll reach out to schedule within 24 hours.
         </p>
       </div>
 
       {/* Help line */}
       <div className="pt-4 border-t border-stone-200">
-        <div className="flex items-center justify-center gap-2 text-sm text-cyber-gray-400">
+        <div className="flex items-center justify-center gap-2 text-sm text-stone-500">
           <Mail className="w-4 h-4" aria-hidden="true" />
           <span>Questions? Reach me at </span>
-          <a
-            href="mailto:connect@austino.dev"
-            className="text-cyber-accent hover:underline"
-          >
+          <a href="mailto:connect@austino.dev" className="text-warm-gold hover:underline">
             connect@austino.dev
           </a>
         </div>
@@ -106,7 +96,7 @@ export default function Confirmation({
       {/* Back to home */}
       <Link
         href="/"
-        className="inline-block text-sm text-cyber-gray-500 hover:text-cyber-gray-300 transition-colors"
+        className="inline-block text-sm text-stone-400 hover:text-stone-600 transition-colors"
       >
         ← Back to austino.dev
       </Link>

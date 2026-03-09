@@ -12,8 +12,8 @@ const W = {
   line: "#1a1d24",
   block: "#14171d",
   text: "#2a2e38",
-  accent: "#40E0FF",
-  accentDim: "rgba(64,224,255,0.25)",
+  accent: "#D97706",
+  accentDim: "rgba(217,119,6,0.25)",
 } as const;
 
 /**
@@ -31,28 +31,12 @@ const ActionTakerPreview = (
     {/* nav bar */}
     <rect x="0" y="0" width="260" height="18" fill={W.block} />
     <rect x="8" y="6" width="28" height="6" rx="1" fill={W.text} />
-    <rect
-      x="200"
-      y="5"
-      width="52"
-      height="8"
-      rx="4"
-      fill={W.accent}
-      opacity={0.9}
-    />
+    <rect x="200" y="5" width="52" height="8" rx="4" fill={W.accent} opacity={0.9} />
     {/* headline */}
     <rect x="16" y="30" width="120" height="8" rx="2" fill={W.text} />
     <rect x="16" y="42" width="90" height="5" rx="1" fill={W.line} />
     {/* big CTA */}
-    <rect
-      x="16"
-      y="56"
-      width="80"
-      height="14"
-      rx="7"
-      fill={W.accent}
-      opacity={0.85}
-    />
+    <rect x="16" y="56" width="80" height="14" rx="7" fill={W.accent} opacity={0.85} />
     <rect x="30" y="61" width="50" height="4" rx="1" fill={W.bg} />
     {/* service list */}
     <rect x="150" y="30" width="94" height="22" rx="4" fill={W.block} />
@@ -94,31 +78,11 @@ const StorytellerPreview = (
     {/* large hero image area */}
     <rect x="0" y="18" width="260" height="72" fill={W.block} />
     {/* mountains / landscape icon inside hero */}
-    <path
-      d="M100 70 L120 40 L135 55 L150 30 L180 70 Z"
-      fill={W.text}
-      opacity={0.5}
-    />
+    <path d="M100 70 L120 40 L135 55 L150 30 L180 70 Z" fill={W.text} opacity={0.5} />
     <circle cx="175" cy="35" r="6" fill={W.text} opacity={0.3} />
     {/* centered headline over image */}
-    <rect
-      x="70"
-      y="50"
-      width="120"
-      height="7"
-      rx="2"
-      fill="white"
-      opacity={0.15}
-    />
-    <rect
-      x="90"
-      y="60"
-      width="80"
-      height="4"
-      rx="1"
-      fill="white"
-      opacity={0.08}
-    />
+    <rect x="70" y="50" width="120" height="7" rx="2" fill="white" opacity={0.15} />
+    <rect x="90" y="60" width="80" height="4" rx="1" fill="white" opacity={0.08} />
     {/* "About Us" section */}
     <rect x="16" y="98" width="60" height="6" rx="1" fill={W.text} />
     <rect x="16" y="108" width="130" height="4" rx="1" fill={W.line} />
@@ -152,14 +116,7 @@ const AuthorityPreview = (
     {/* certification badges row */}
     <g>
       {/* badge 1 */}
-      <circle
-        cx="68"
-        cy="68"
-        r="14"
-        fill="none"
-        stroke={W.accentDim}
-        strokeWidth="1.5"
-      />
+      <circle cx="68" cy="68" r="14" fill="none" stroke={W.accentDim} strokeWidth="1.5" />
       <path
         d="M61 68 L66 73 L76 63"
         stroke={W.accent}
@@ -170,14 +127,7 @@ const AuthorityPreview = (
       />
       <rect x="52" y="86" width="32" height="3" rx="1" fill={W.line} />
       {/* badge 2 */}
-      <circle
-        cx="130"
-        cy="68"
-        r="14"
-        fill="none"
-        stroke={W.accentDim}
-        strokeWidth="1.5"
-      />
+      <circle cx="130" cy="68" r="14" fill="none" stroke={W.accentDim} strokeWidth="1.5" />
       <path
         d="M123 68 L128 73 L138 63"
         stroke={W.accent}
@@ -188,14 +138,7 @@ const AuthorityPreview = (
       />
       <rect x="114" y="86" width="32" height="3" rx="1" fill={W.line} />
       {/* badge 3 */}
-      <circle
-        cx="192"
-        cy="68"
-        r="14"
-        fill="none"
-        stroke={W.accentDim}
-        strokeWidth="1.5"
-      />
+      <circle cx="192" cy="68" r="14" fill="none" stroke={W.accentDim} strokeWidth="1.5" />
       <path
         d="M185 68 L190 73 L200 63"
         stroke={W.accent}
@@ -209,45 +152,13 @@ const AuthorityPreview = (
     {/* results / stats row */}
     <rect x="16" y="102" width="228" height="1" fill={W.line} />
     <rect x="26" y="112" width="40" height="10" rx="2" fill={W.block} />
-    <rect
-      x="32"
-      y="116"
-      width="28"
-      height="3"
-      rx="1"
-      fill={W.accent}
-      opacity={0.4}
-    />
+    <rect x="32" y="116" width="28" height="3" rx="1" fill={W.accent} opacity={0.4} />
     <rect x="82" y="112" width="40" height="10" rx="2" fill={W.block} />
-    <rect
-      x="88"
-      y="116"
-      width="28"
-      height="3"
-      rx="1"
-      fill={W.accent}
-      opacity={0.4}
-    />
+    <rect x="88" y="116" width="28" height="3" rx="1" fill={W.accent} opacity={0.4} />
     <rect x="138" y="112" width="40" height="10" rx="2" fill={W.block} />
-    <rect
-      x="144"
-      y="116"
-      width="28"
-      height="3"
-      rx="1"
-      fill={W.accent}
-      opacity={0.4}
-    />
+    <rect x="144" y="116" width="28" height="3" rx="1" fill={W.accent} opacity={0.4} />
     <rect x="194" y="112" width="40" height="10" rx="2" fill={W.block} />
-    <rect
-      x="200"
-      y="116"
-      width="28"
-      height="3"
-      rx="1"
-      fill={W.accent}
-      opacity={0.4}
-    />
+    <rect x="200" y="116" width="28" height="3" rx="1" fill={W.accent} opacity={0.4} />
   </svg>
 );
 
@@ -305,20 +216,20 @@ export default function StepVibe({ data, onChange }: StepVibeProps) {
   return (
     <div className="space-y-10">
       <div>
-        <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
+        <p className="font-mono text-xs text-warm-gold uppercase tracking-[0.2em] mb-4">
           The Visual Vibe
         </p>
         <h2 className="text-2xl sm:text-3xl font-semibold text-stone-900 leading-tight tracking-tight mb-3">
           How should your site feel?
         </h2>
-        <p className="text-base text-cyber-gray-300 leading-relaxed max-w-lg">
+        <p className="text-base text-stone-600 leading-relaxed max-w-lg">
           No design jargon — just pick what feels right.
         </p>
       </div>
 
       {/* Hero style */}
       <div className="space-y-4">
-        <p className="text-sm text-cyber-gray-400">
+        <p className="text-sm text-stone-500">
           Which &ldquo;Hero&rdquo; layout feels most like your business? *
         </p>
         <CardSelect
@@ -331,9 +242,7 @@ export default function StepVibe({ data, onChange }: StepVibeProps) {
 
       {/* Personality */}
       <div className="space-y-4">
-        <p className="text-sm text-cyber-gray-400">
-          If your business was a car, what would it be? *
-        </p>
+        <p className="text-sm text-stone-500">If your business was a car, what would it be? *</p>
         <CardSelect
           options={PERSONALITY_OPTIONS}
           value={data.personality}

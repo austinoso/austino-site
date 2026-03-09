@@ -37,19 +37,19 @@ interface StepHeartbeatProps {
 }
 
 const inputClass =
-  "w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-cyber-gray-500 focus:outline-none focus:ring-2 focus:ring-cyber-accent/60 focus:border-cyber-accent/50 transition-all duration-300 hover:border-stone-300";
+  "w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 text-sm placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-warm-gold/40 focus:border-warm-gold/50 transition-all duration-300 hover:border-stone-300";
 
 export default function StepHeartbeat({ data, onChange }: StepHeartbeatProps) {
   return (
     <div className="space-y-8">
       <div>
-        <p className="font-mono text-xs text-cyber-accent/70 uppercase tracking-[0.2em] mb-4">
+        <p className="font-mono text-xs text-warm-gold uppercase tracking-[0.2em] mb-4">
           The Business Heartbeat
         </p>
         <h2 className="text-2xl sm:text-3xl font-semibold text-stone-900 leading-tight tracking-tight mb-3">
           What should your website do?
         </h2>
-        <p className="text-base text-cyber-gray-300 leading-relaxed max-w-lg">
+        <p className="text-base text-stone-600 leading-relaxed max-w-lg">
           If this website were your best employee, what would be its #1 job?
         </p>
       </div>
@@ -63,10 +63,7 @@ export default function StepHeartbeat({ data, onChange }: StepHeartbeatProps) {
 
       {data.websiteJob === "other" && (
         <div>
-          <label
-            htmlFor="websiteJobOther"
-            className="block text-sm text-cyber-gray-400 mb-2"
-          >
+          <label htmlFor="websiteJobOther" className="block text-sm text-stone-500 mb-2">
             Tell me more *
           </label>
           <input
@@ -82,10 +79,7 @@ export default function StepHeartbeat({ data, onChange }: StepHeartbeatProps) {
       )}
 
       <div className="pt-2">
-        <label
-          htmlFor="secretSauce"
-          className="block text-sm text-cyber-gray-400 mb-2"
-        >
+        <label htmlFor="secretSauce" className="block text-sm text-stone-500 mb-2">
           What&apos;s the one thing you do better than anyone else in town? *
         </label>
         <textarea
