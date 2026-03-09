@@ -30,6 +30,7 @@ const dataCenters: City[] = [
 const clientCities: City[] = [
   /* North */
   { name: "Chico", x: 144.8, y: 154.8, labelSide: "r" },
+  { name: "Redding", x: 126.2, y: 106.5, labelSide: "r" },
   /* Central Valley */
   { name: "Stockton", x: 167.2, y: 259.5, labelSide: "r" },
   { name: "Modesto", x: 181.1, y: 278.3, labelSide: "r" },
@@ -37,8 +38,12 @@ const clientCities: City[] = [
   { name: "Fresno", x: 238.2, y: 331.6, labelSide: "r" },
   { name: "Visalia", x: 261.5, y: 355.7, labelSide: "r" },
   { name: "Bakersfield", x: 274.4, y: 412.2, labelSide: "r" },
+  /* Bay Area & Coast */
+  { name: "Oakland", x: 122.5, y: 270.2, labelSide: "l" },
+  { name: "Monterey", x: 140.8, y: 326.5, labelSide: "l" },
   /* Southern California */
   { name: "Santa Barbara", x: 245.8, y: 468.5, labelSide: "l" },
+  { name: "San Diego", x: 365.2, y: 540.8, labelSide: "l" },
   { name: "Palm Springs", x: 394.6, y: 503.4, labelSide: "r" },
 ];
 
@@ -78,9 +83,7 @@ export default function EdgeGlobe() {
 
     (async () => {
       // Respect prefers-reduced-motion — skip all animations
-      const prefersReduced = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (prefersReduced) return;
 
       const { gsap } = await getGSAP();
@@ -95,8 +98,7 @@ export default function EdgeGlobe() {
         el.querySelectorAll<SVGGElement>(".route-group").forEach((group, i) => {
           const streak = group.querySelector<SVGPathElement>(".comet-streak");
           const emitRing = group.querySelector<SVGCircleElement>(".emit-ring");
-          const receiveFlash =
-            group.querySelector<SVGCircleElement>(".receive-flash");
+          const receiveFlash = group.querySelector<SVGCircleElement>(".receive-flash");
           if (!streak || !emitRing || !receiveFlash) return;
 
           const length = streak.getTotalLength();
@@ -173,11 +175,7 @@ export default function EdgeGlobe() {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="absolute inset-0 pointer-events-none"
-      aria-hidden="true"
-    >
+    <div ref={containerRef} className="absolute inset-0 pointer-events-none" aria-hidden="true">
       {/* CSS ambient glow — removed, solid fill handles the territory now */}
       <svg
         viewBox="20 80 500 480"
@@ -298,13 +296,7 @@ export default function EdgeGlobe() {
               stroke="rgba(124,58,237,0.4)"
               strokeWidth="1"
             />
-            <circle
-              className="dc-dot"
-              cx={dc.x}
-              cy={dc.y}
-              r="3.5"
-              fill="rgba(124,58,237,0.85)"
-            />
+            <circle className="dc-dot" cx={dc.x} cy={dc.y} r="3.5" fill="rgba(124,58,237,0.85)" />
             <text
               className="dc-label"
               x={dc.labelSide === "l" ? dc.x - 9 : dc.x + 9}

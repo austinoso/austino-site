@@ -58,7 +58,7 @@ const activityLog = [
     type: "Content" as const,
     status: "published" as const,
     text: "Service page: Emergency Plumbing Repair",
-    detail: "Targeting 'emergency plumber manteca' — 320 searches/mo",
+    detail: "Targeting 'emergency plumber sacramento' — 320 searches/mo",
   },
   {
     type: "SEO" as const,
@@ -116,17 +116,13 @@ const statusIcon: Record<string, typeof CheckCircle2> = {
 
 export default function WhatsIncluded() {
   return (
-    <section
-      data-fade
-      className="px-6 sm:px-10 md:px-14 lg:px-20 pb-14 sm:pb-20 md:pb-24"
-    >
+    <section data-fade className="px-6 sm:px-10 md:px-14 lg:px-20 pb-14 sm:pb-20 md:pb-24">
       <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4 max-w-2xl">
-        Everything your site needs to{" "}
-        <span className="text-gradient-gold">keep growing.</span>
+        Everything your site needs to <span className="text-gradient-gold">keep growing.</span>
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl mb-10 sm:mb-12 text-pretty">
-        This isn&apos;t a one-time audit or a PDF of recommendations. It&apos;s
-        ongoing, hands-on work, every month.
+        This isn&apos;t a one-time audit or a PDF of recommendations. It&apos;s ongoing, hands-on
+        work, every month.
       </p>
 
       <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
@@ -163,8 +159,7 @@ export default function WhatsIncluded() {
           <div
             className="rounded-xl border border-stone-300 bg-[#F0EAE2] overflow-hidden select-none"
             style={{
-              boxShadow:
-                "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+              boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
             }}
             aria-hidden="true"
           >
@@ -172,25 +167,16 @@ export default function WhatsIncluded() {
             <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-stone-300 bg-[#E8E2DA]">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-warm-gold/10 border border-warm-gold/20 flex items-center justify-center">
-                  <BarChart3
-                    className="w-4 h-4 text-warm-gold"
-                    aria-hidden="true"
-                  />
+                  <BarChart3 className="w-4 h-4 text-warm-gold" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-stone-900">
-                    Growth Report
-                  </p>
-                  <p className="text-[11px] text-stone-500 font-mono">
-                    February 2026
-                  </p>
+                  <p className="text-sm font-semibold text-stone-900">Growth Report</p>
+                  <p className="text-[11px] text-stone-500 font-mono">February 2026</p>
                 </div>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#5C8A64] animate-pulse" />
-                <span className="text-[11px] text-[#5C8A64] font-mono">
-                  Active
-                </span>
+                <span className="text-[11px] text-[#5C8A64] font-mono">Active</span>
               </div>
             </div>
 
@@ -219,10 +205,7 @@ export default function WhatsIncluded() {
             {/* Activity log */}
             <div className="px-5 sm:px-6 py-5 bg-[#F9F7F4]">
               <div className="flex items-center gap-2 mb-2.5">
-                <Clock
-                  className="w-3.5 h-3.5 text-stone-400"
-                  aria-hidden="true"
-                />
+                <Clock className="w-3.5 h-3.5 text-stone-400" aria-hidden="true" />
                 <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider">
                   This month&apos;s work
                 </p>
@@ -248,13 +231,9 @@ export default function WhatsIncluded() {
                           >
                             {entry.type}
                           </span>
-                          <span className="text-sm text-stone-800 font-medium">
-                            {entry.text}
-                          </span>
+                          <span className="text-sm text-stone-800 font-medium">{entry.text}</span>
                         </div>
-                        <p className="text-xs text-stone-500 leading-relaxed">
-                          {entry.detail}
-                        </p>
+                        <p className="text-xs text-stone-500 leading-relaxed">{entry.detail}</p>
                       </div>
                     </div>
                   );
@@ -264,12 +243,8 @@ export default function WhatsIncluded() {
 
             {/* Report footer */}
             <div className="px-5 sm:px-6 py-3 border-t border-stone-300 bg-[#E8E2DA] flex items-center justify-between">
-              <p className="text-[11px] text-stone-500">
-                5 tasks completed &middot; 0 issues open
-              </p>
-              <p className="text-[11px] text-stone-500 font-mono">
-                Next report: Mar 1, 2026
-              </p>
+              <p className="text-[11px] text-stone-500">5 tasks completed &middot; 0 issues open</p>
+              <p className="text-[11px] text-stone-500 font-mono">Next report: Mar 1, 2026</p>
             </div>
           </div>
         </div>
@@ -282,8 +257,8 @@ export default function WhatsIncluded() {
             <span className="text-warm-white font-medium">
               This strategy is built on a foundation Google already loves.
             </span>{" "}
-            Sub-second load times, clean code, zero template bloat. A site
-            people trust and search engines reward.
+            Sub-second load times, clean code, zero template bloat. A site people trust and search
+            engines reward.
           </p>
         </div>
         <Link

@@ -134,7 +134,7 @@ export default function Hero() {
                 {/* Hero area */}
                 <div className="rounded-lg bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/[0.06] p-4">
                   <p className="text-[9px] text-stone-500 font-mono uppercase tracking-wider mb-1">
-                    Manteca, CA
+                    Sacramento, CA
                   </p>
                   <p className="text-sm font-bold text-white leading-snug mb-1">
                     Expert care you can trust.
