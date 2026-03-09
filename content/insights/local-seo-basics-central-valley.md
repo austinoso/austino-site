@@ -1,58 +1,79 @@
 ---
-title: "Local SEO Basics Every Central Valley Business Should Know"
-excerpt: "You don't need to become an SEO expert. But understanding these fundamentals can mean the difference between showing up on page one — or not showing up at all."
-date: "2025-07-02"
+title: "Why Your Business Isn't Showing Up on Google"
+excerpt: "Your competitor shows up when someone in Modesto searches for what you do. You don't. Here's what they're probably doing differently."
+date: "2026-02-24"
 category: "SEO"
 readTime: "5 min read"
 ---
 
-If you run a business in Stockton, Modesto, Tracy, or anywhere in the Central Valley, there's a good chance your customers are finding you (or not finding you) through Google. Local SEO is how you make sure they find _you_ instead of your competitor down the street.
+Someone in Stockton just searched for exactly what you sell. Google showed them three businesses. Yours wasn't one of them.
 
-## What Local SEO Actually Means
+That's not random. Google picks those results based on specific signals, and most Central Valley businesses aren't sending them. The good news: your competitors probably aren't either. The ones who start first win.
 
-SEO stands for Search Engine Optimization — but let's skip the jargon. In plain terms, local SEO is everything you do to show up when someone nearby searches for what you offer.
+## How Google decides who shows up
 
-When a potential customer types "best dentist in Manteca" or "plumber near me," Google decides who shows up based on three things:
+When someone types "best dentist in Manteca" or "plumber near me," Google weighs three things:
 
-1. **Relevance** — Does your site clearly describe the service they're looking for?
-2. **Distance** — How close is your business to the person searching?
-3. **Prominence** — How established and trusted does your business appear online?
+1. **Relevance.** Does your site clearly describe the service they searched for?
+2. **Distance.** How close are you to the person searching?
+3. **Prominence.** How established and trusted does your business look online?
 
-You can't control distance. But you absolutely can control relevance and prominence.
+You can't control distance. But relevance and prominence are entirely in your hands.
 
-## The Five Things That Matter Most
+## The five things that actually move the needle
 
 ### 1. Google Business Profile
 
-This is the single most impactful thing you can do for local visibility. Claim your profile, fill out every field, add real photos of your business, and keep your hours updated.
+This is the single most impactful thing you can do for local visibility. [Google's own data](https://support.google.com/business/answer/7091) shows that complete profiles are 2.7x more likely to be considered reputable by searchers.
 
-**The one thing most businesses miss:** Posting regular updates. Google Business lets you publish mini-posts — use them. It signals to Google that your business is active.
+Claim your profile, fill out every field, add real photos, keep your hours current.
 
-### 2. Consistent NAP Information
+<figure>
+  <img src="/assets/articles/gbp-comparison.svg" alt="Side-by-side comparison of a bare Google Business Profile with no photos or hours versus a complete profile with photos, reviews, and posts" />
+  <figcaption>The profile on the right gets 2.7x more trust from searchers. The only difference is effort.</figcaption>
+</figure>
 
-NAP stands for Name, Address, Phone number. Your business information needs to be _identical_ everywhere it appears online — your website, Google Business, Yelp, Facebook, industry directories. Even small differences (like "St." vs "Street") can confuse search engines.
+The thing most businesses skip: posting updates. Google Business lets you publish short posts. Businesses that use them signal activity to Google, which factors into how prominently you appear.
 
-### 3. Reviews (and Responding to Them)
+### 2. Consistent NAP information
 
-Reviews are the single strongest trust signal for local businesses. But here's what most people don't know: _responding_ to reviews matters almost as much as getting them. Google has confirmed that businesses that respond to reviews rank higher in local results.
+NAP = Name, Address, Phone number. Yours needs to be identical everywhere it appears online. Your website, Google Business, Yelp, Facebook, industry directories. Even small differences ("St." vs "Street") can hurt you. [Moz's local search ranking study](https://moz.com/local-search-ranking-factors) consistently ranks NAP consistency as a top factor in local pack placement.
 
-### 4. Location-Specific Content
+<figure>
+  <img src="/assets/articles/nap-mismatch.svg" alt="Four directory listings for the same plumbing business showing mismatched names, addresses, and phone numbers across Website, Google, Yelp, and Facebook" />
+  <figcaption>One business, four directories, three mismatches. Google notices all of them.</figcaption>
+</figure>
 
-If you serve multiple cities in the Central Valley, your website should have content that specifically mentions those areas. Not keyword-stuffed filler — genuine, useful content about serving customers in Stockton, Modesto, Lodi, Tracy, and wherever else you operate.
+### 3. Reviews (and responding to them)
 
-### 5. Mobile Performance
+Reviews are the strongest trust signal for local businesses. But responding matters almost as much as collecting them. [Google's documentation](https://support.google.com/business/answer/3474050) explicitly states: "Respond to reviews to show that you value your customers. High-quality, positive reviews improve your business visibility."
 
-Google uses mobile-first indexing, which means it primarily looks at the mobile version of your site when deciding how to rank you. A site that's slow or clunky on phones is actively hurting your search ranking.
+Most businesses in the Central Valley have a handful of reviews and respond to none of them. If you respond to every one, you're already ahead.
 
-## Quick Wins You Can Do This Week
+### 4. Location-specific content
 
-- **Update your Google Business Profile** — add 3-5 new photos and write a post about what you're offering this month
-- **Check your NAP** — search your business name and make sure the address and phone number match everywhere
-- **Ask your last 3 happy customers for a review** — and respond to every review you already have
-- **Test your site on your phone** — if anything is hard to read, hard to tap, or slow to load, that's costing you customers
+If you serve multiple cities, your website should mention them specifically. Not stuffed into a keyword list, but real content about serving those areas. A plumber who has a page about "Emergency Plumbing in Tracy" with actual useful information will outrank a plumber whose site just says "serving the Central Valley."
 
-## What Comes Next
+### 5. Mobile speed
 
-These basics will get you further than 80% of local businesses who ignore them entirely. But if you want to really pull ahead — service-specific pages, technical SEO, structured data, content strategy — that's where working with someone who knows the landscape pays off.
+[Google uses mobile-first indexing](https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing), meaning it looks at the mobile version of your site first when deciding rankings. A site that's slow or hard to use on a phone is actively pushing you down in results.
 
-The Central Valley is competitive, but most businesses here haven't invested in their digital presence yet. That's your window.
+Pull up your site on your phone right now. If anything is hard to read, hard to tap, or takes more than a couple seconds to load, that's costing you placement.
+
+## Four things you can do this week
+
+<figure>
+  <img src="/assets/articles/seo-checklist.svg" alt="Checklist of four local SEO quick wins: update Google Business Profile, check NAP consistency, ask for reviews, and test mobile speed" />
+  <figcaption>None of these take more than an hour. All of them move the needle.</figcaption>
+</figure>
+
+- **Update your Google Business Profile.** Add 3-5 new photos and write a post about what you're offering this month.
+- **Search your business name.** Make sure the address and phone number match everywhere it shows up.
+- **Ask your last 3 happy customers for a review.** Then respond to every review you already have.
+- **Test your site on your phone.** Time how long it takes to load. Check if buttons are easy to tap. If anything is off, that's a ranking problem.
+
+## The real advantage
+
+Most businesses in the Central Valley aren't doing any of this. That's not a guess. Search for your industry in your city and look at the results. Count how many competitors have complete Google Business Profiles, consistent info across directories, and more than a dozen reviews.
+
+The bar is low. The businesses that clear it first get the traffic.

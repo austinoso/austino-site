@@ -155,18 +155,19 @@ These aren't word-for-word duplicates but _skeleton reuse_ — same sentence str
 
 ### Headlines
 
-| Post slug                          | Headline / Title                                           |
-| ---------------------------------- | ---------------------------------------------------------- |
-| your-website-is-your-best-employee | Your Website Is Your Best Employee                         |
-| local-seo-basics-central-valley    | Local SEO Basics Every Central Valley Business Should Know |
-| modesto-experience-gap             | Modesto Is Growing. Most Local Business Websites Aren't.   |
+| Post slug                       | Headline / Title                                         |
+| ------------------------------- | -------------------------------------------------------- |
+| local-seo-basics-central-valley | Why Your Business Isn't Showing Up on Google             |
+| modesto-experience-gap          | Modesto Is Growing. Most Local Business Websites Aren't. |
 
 ### Signature Phrases (Insights)
 
-| Phrase                                       | Post                               |
-| -------------------------------------------- | ---------------------------------- |
-| "That's the experience gap"                  | modesto-experience-gap             |
-| "Your online presence is the new front door" | your-website-is-your-best-employee |
+| Phrase                                                                | Post                            |
+| --------------------------------------------------------------------- | ------------------------------- |
+| "That's the experience gap"                                           | modesto-experience-gap          |
+| "The bar is low. The businesses that clear it first get the traffic." | local-seo-basics-central-valley |
+| "One business, four directories, three mismatches."                   | local-seo-basics-central-valley |
+| "None of these take more than an hour. All of them move the needle."  | local-seo-basics-central-valley |
 
 ### CTAs (Insights)
 

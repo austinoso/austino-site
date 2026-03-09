@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 360" fill="none" role="img" aria-labelledby="nap-title nap-desc">
+  <title id="nap-title">NAP inconsistency across online directories</title>
+  <desc id="nap-desc">Four directory cards for the same business showing different name spellings, address formats, and phone numbers. Mismatches are highlighted in red to show the problem with inconsistent NAP information.</desc>
+
+  <!-- Background -->
+  <rect width="660" height="360" rx="16" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="330" y="32" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#B45309" letter-spacing="2">NAP CONSISTENCY</text>
+  <text x="330" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#1C1917">Same business, four different versions</text>
+
+  <!-- Card 1: Website -->
+  <rect x="24" y="76" width="146" height="140" rx="10" fill="#FAF9F6" stroke="#E7E5E4" stroke-width="1"/>
+  <text x="97" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="500" fill="#78716C" letter-spacing="1">WEBSITE</text>
+  <line x1="44" y1="110" x2="150" y2="110" stroke="#E7E5E4" stroke-width="1"/>
+  <text x="44" y="128" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1C1917">Mikes Plumbing</text>
+  <text x="44" y="146" font-family="system-ui, sans-serif" font-size="9" fill="#57534E">823 J Street</text>
+  <text x="44" y="160" font-family="system-ui, sans-serif" font-size="9" fill="#57534E">Modesto CA 95354</text>
+  <text x="44" y="180" font-family="system-ui, sans-serif" font-size="9" fill="#57534E">(209) 555-0199</text>
+  <!-- Flag: missing apostrophe -->
+  <rect x="44" y="119" width="96" height="14" rx="2" fill="#FEF2F2" opacity="0.7"/>
+  <text x="44" y="128" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#DC2626">Mikes Plumbing</text>
+
+  <!-- Card 2: Google -->
+  <rect x="184" y="76" width="146" height="140" rx="10" fill="#FAF9F6" stroke="#E7E5E4" stroke-width="1"/>
+  <text x="257" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="500" fill="#78716C" letter-spacing="1">GOOGLE</text>
+  <line x1="204" y1="110" x2="310" y2="110" stroke="#E7E5E4" stroke-width="1"/>
+  <text x="204" y="128" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1C1917">Mike's Plumbing LLC</text>
+  <text x="204" y="146" font-family="system-ui, sans-serif" font-size="9" fill="#57534E">823 J St.</text>
+  <text x="204" y="160" font-family="system-ui, sans-serif" font-size="9" fill="#57534E">Modesto, CA 95354</text>
+  <text x="204" y="180" font-family="system-ui, sans-serif" font-size="9" fill="#57534E">(209) 555-0199</text>
+  <!-- Flags: name different, address abbreviated -->
+  <rect x="204" y="119" width="116" height="14" rx="2" fill="#FEF2F2" opacity="0.7"/>
+  <text x="204" y="128" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#DC2626">Mike's Plumbing LLC</text>
+  <rect x="204" y="137" width="48" height="14" rx="2" fill="#FEF2F2" opacity="0.7"/>
+  <text x="204" y="146" font-family="system-ui, sans-serif" font-size="9" fill="#DC2626">823 J St.</text>
+
+  <!-- Card 3: Yelp -->
+  <rect x="344" y="76" width="146" height="140" rx="10" fill="#FAF9F6" stroke="#E7E5E4" stroke-width="1"/>
+  <text x="417" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="500" fill="#78716C" letter-spacing="1">YELP</text>
+  <line x1="364" y1="110" x2="470" y2="110" stroke="#E7E5E4" stroke-width="1"/>
+  <text x="364" y="128" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1C1917">Mike's Plumbing</text>
+  <text x="364" y="146" font-family="system-ui, sans-serif" font-size="9" fill="#57534E">823 J Street</text>
+  <text x="364" y="160" font-family="system-ui, sans-serif" font-size="9" fill="#57534E">Modesto, CA 95354</text>
+  <text x="364" y="180" font-family="system-ui, sans-serif" font-size="9" fill="#57534E">(209) 555-0188</text>
+  <!-- Flag: wrong phone number -->
+  <rect x="364" y="171" width="92" height="14" rx="2" fill="#FEF2F2" opacity="0.7"/>
+  <text x="364" y="180" font-family="system-ui, sans-serif" font-size="9" fill="#DC2626">(209) 555-0188</text>
+
+  <!-- Card 4: Facebook -->
+  <rect x="504" y="76" width="132" height="140" rx="10" fill="#FAF9F6" stroke="#E7E5E4" stroke-width="1"/>
+  <text x="570" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="500" fill="#78716C" letter-spacing="1">FACEBOOK</text>
+  <line x1="524" y1="110" x2="616" y2="110" stroke="#E7E5E4" stroke-width="1"/>
+  <text x="524" y="128" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1C1917">Mike's Plumbing</text>
+  <text x="524" y="146" font-family="system-ui, sans-serif" font-size="9" fill="#57534E">Modesto, California</text>
+  <text x="524" y="164" font-family="system-ui, sans-serif" font-size="9" fill="#57534E">(209) 555-0199</text>
+  <!-- Flag: no street address -->
+  <rect x="524" y="137" width="96" height="14" rx="2" fill="#FEF2F2" opacity="0.7"/>
+  <text x="524" y="146" font-family="system-ui, sans-serif" font-size="9" fill="#DC2626">Modesto, California</text>
+
+  <!-- Legend -->
+  <rect x="24" y="234" width="612" height="106" rx="10" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="44" y="258" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#DC2626">Mismatches Google sees:</text>
+
+  <circle cx="52" cy="280" r="4" fill="#DC2626"/>
+  <text x="64" y="284" font-family="system-ui, sans-serif" font-size="10" fill="#57534E">Business name: "Mikes" vs "Mike's" vs "Mike's Plumbing LLC"</text>
+
+  <circle cx="52" cy="302" r="4" fill="#DC2626"/>
+  <text x="64" y="306" font-family="system-ui, sans-serif" font-size="10" fill="#57534E">Address: "J Street" vs "J St." vs missing entirely</text>
+
+  <circle cx="52" cy="324" r="4" fill="#DC2626"/>
+  <text x="64" y="328" font-family="system-ui, sans-serif" font-size="10" fill="#57534E">Phone: (209) 555-0199 vs (209) 555-0188 (old number on Yelp)</text>
+</svg>

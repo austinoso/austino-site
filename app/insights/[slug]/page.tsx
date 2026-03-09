@@ -60,7 +60,12 @@ export default async function InsightPage({ params }: Props) {
     .use(remarkGfm)
     .use(html, { sanitize: false })
     .process(insight.content);
-  const contentHtml = processed.toString();
+  const contentHtml = processed
+    .toString()
+    .replace(
+      /<a href="http/g,
+      '<a target="_blank" rel="noopener noreferrer" href="http',
+    );
 
   const articleSchema = {
     "@context": "https://schema.org",
