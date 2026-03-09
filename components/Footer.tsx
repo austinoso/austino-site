@@ -115,6 +115,18 @@ export default function Footer({ variant = "light" }: FooterProps) {
               </li>
               <li>
                 <Link
+                  href="/insights"
+                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
+                    isDark
+                      ? "text-stone-400"
+                      : "text-stone-500 hover:text-warm-gold"
+                  }`}
+                >
+                  Insights
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
                     isDark

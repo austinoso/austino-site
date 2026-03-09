@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllProjectSlugs } from "@/lib/projects";
+import { getAllInsightSlugs } from "@/lib/insights";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.austino.dev";
@@ -66,5 +67,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticRoutes, ...projectRoutes];
+  /* ── Insights (blog) pages ── */
+  const insightRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/insights`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    ...getAllInsightSlugs().map((slug) => ({
+      url: `${baseUrl}/insights/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ];
+
+  return [...staticRoutes, ...projectRoutes, ...insightRoutes];
 }

@@ -349,6 +349,29 @@ export default function Navigation() {
               )}
             </Link>
             <Link
+              href="/insights"
+              className={`relative text-[13px] transition-colors duration-300 tracking-wide ${
+                pathname.startsWith("/insights")
+                  ? "text-stone-900"
+                  : "text-stone-500 hover:text-stone-900"
+              }`}
+              data-umami-event="nav-insights"
+              aria-current={
+                pathname.startsWith("/insights") ? "page" : undefined
+              }
+            >
+              Insights
+              {pathname.startsWith("/insights") && (
+                <span
+                  className="absolute -bottom-1.5 inset-x-0 h-0.5 rounded-full"
+                  style={{
+                    background: "linear-gradient(90deg, #B45309, #DB2777)",
+                  }}
+                  aria-hidden="true"
+                />
+              )}
+            </Link>
+            <Link
               href="/contact"
               className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-600/15"
               data-umami-event="nav-get-started"
@@ -476,6 +499,15 @@ export default function Navigation() {
             onClick={closeMenu}
           >
             Work
+          </Link>
+          <div className="border-t border-stone-200" />
+          <Link
+            href="/insights"
+            className="text-base font-semibold text-stone-900 transition-colors py-3"
+            data-umami-event="mobile-nav-insights"
+            onClick={closeMenu}
+          >
+            Insights
           </Link>
           <div className="border-t border-stone-200" />
           <div className="pt-4">

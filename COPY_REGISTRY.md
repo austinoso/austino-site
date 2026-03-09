@@ -148,3 +148,28 @@ These aren't word-for-word duplicates but _skeleton reuse_ — same sentence str
 | "A [website/site] that [sits/goes] untouched after launch [loses/drops]"                | PainPoints only                                  | **Resolved** |
 | FinalCTA: divider → label → H2 with muted span → body → text-link CTA → two cross-links | All 3 service pages (same skeleton, varied copy) | Acceptable   |
 | Service Hero: grid → H1 with gradient → body → CTA button                               | All 3 service pages (same skeleton, varied CTAs) | Acceptable   |
+
+---
+
+## Local Insights (Blog)
+
+### Headlines
+
+| Post slug                          | Headline / Title                                           |
+| ---------------------------------- | ---------------------------------------------------------- |
+| your-website-is-your-best-employee | Your Website Is Your Best Employee                         |
+| local-seo-basics-central-valley    | Local SEO Basics Every Central Valley Business Should Know |
+| modesto-experience-gap             | Modesto Is Growing. Most Local Business Websites Aren't.   |
+
+### Signature Phrases (Insights)
+
+| Phrase                                       | Post                               |
+| -------------------------------------------- | ---------------------------------- |
+| "That's the experience gap"                  | modesto-experience-gap             |
+| "Your online presence is the new front door" | your-website-is-your-best-employee |
+
+### CTAs (Insights)
+
+| CTA Text   | Where                       |
+| ---------- | --------------------------- |
+| Let's Talk | All post pages (bottom CTA) |

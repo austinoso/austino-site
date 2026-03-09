@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 420" fill="none" role="img" aria-labelledby="booking-title booking-desc">
+  <title id="booking-title">Online booking vs call-only comparison</title>
+  <desc id="booking-desc">Two phone screens side by side. The left shows a basic dental website with only a phone number, reading Closed Now at 9:14 PM. The right shows a modern booking interface with available time slots and a Book Now button, booked in 30 seconds.</desc>
+  <defs>
+    <linearGradient id="amber-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#B45309"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <!-- Clean clip mask — hard cut at bottom -->
+    <clipPath id="phone-clip-l">
+      <rect x="30" y="36" width="240" height="370"/>
+    </clipPath>
+    <clipPath id="phone-clip-r">
+      <rect x="350" y="36" width="240" height="370"/>
+    </clipPath>
+  </defs>
+
+  <!-- Labels ABOVE phones -->
+  <text x="150" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#78716C">9:14 PM · dead end</text>
+  <text x="470" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#B45309">9:14 PM · booked in 30 seconds</text>
+
+  <!-- LEFT PHONE: "Call Us" page -->
+  <g clip-path="url(#phone-clip-l)">
+    <!-- Phone body -->
+    <rect x="30" y="36" width="240" height="480" rx="30" fill="#1C1917" stroke="#44403C" stroke-width="2"/>
+    <!-- Screen -->
+    <rect x="38" y="64" width="224" height="430" fill="#FAF9F6"/>
+    <!-- Notch -->
+    <rect x="115" y="40" width="70" height="6" rx="3" fill="#292524"/>
+
+    <!-- Header bar -->
+    <rect x="38" y="64" width="224" height="38" fill="#FFFFFF"/>
+    <line x1="38" y1="102" x2="262" y2="102" stroke="#E7E5E4" stroke-width="1"/>
+    <text x="150" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1C1917">Acme Dental</text>
+
+    <!-- Placeholder content lines -->
+    <rect x="58" y="118" width="180" height="10" rx="2" fill="#D6D3D1"/>
+    <rect x="72" y="136" width="150" height="7" rx="2" fill="#E7E5E4"/>
+    <rect x="62" y="150" width="170" height="7" rx="2" fill="#E7E5E4"/>
+
+    <!-- Phone number block -->
+    <rect x="54" y="176" width="190" height="62" rx="8" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+    <text x="149" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#78716C">Give us a call</text>
+    <text x="149" y="222" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#1C1917">(209) 555-0142</text>
+
+    <!-- Hours block -->
+    <text x="149" y="264" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#A8A29E" letter-spacing="1">HOURS</text>
+    <text x="149" y="282" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#78716C">Mon–Fri: 8am – 5pm</text>
+    <text x="149" y="298" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#78716C">Sat–Sun: Closed</text>
+
+    <!-- Closed indicator -->
+    <rect x="102" y="318" width="96" height="24" rx="12" fill="#FEF2F2"/>
+    <circle cx="120" cy="330" r="4" fill="#EF4444"/>
+    <text x="157" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#DC2626">Closed now</text>
+
+    <!-- Filler lines -->
+    <rect x="58" y="364" width="180" height="7" rx="2" fill="#F5F5F4"/>
+    <rect x="72" y="380" width="150" height="7" rx="2" fill="#F5F5F4"/>
+  </g>
+
+  <!-- RIGHT PHONE: Modern booking page -->
+  <g clip-path="url(#phone-clip-r)">
+    <!-- Phone body -->
+    <rect x="350" y="36" width="240" height="480" rx="30" fill="#1C1917" stroke="#44403C" stroke-width="2"/>
+    <!-- Screen -->
+    <rect x="358" y="64" width="224" height="430" fill="#FAF9F6"/>
+    <!-- Notch -->
+    <rect x="435" y="40" width="70" height="6" rx="3" fill="#292524"/>
+
+    <!-- Header bar -->
+    <rect x="358" y="64" width="224" height="38" fill="#FFFFFF"/>
+    <line x1="358" y1="102" x2="582" y2="102" stroke="#E7E5E4" stroke-width="1"/>
+    <text x="470" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1C1917">Bright Dental Co.</text>
+
+    <!-- Booking UI -->
+    <text x="378" y="126" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1C1917">New Patient Visit</text>
+    <text x="378" y="142" font-family="system-ui, sans-serif" font-size="10" fill="#78716C">Select a time that works for you</text>
+
+    <!-- Date chips -->
+    <rect x="378" y="156" width="44" height="34" rx="8" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+    <text x="400" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#78716C">TUE</text>
+    <text x="400" y="183" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1C1917">11</text>
+
+    <rect x="430" y="156" width="44" height="34" rx="8" fill="url(#amber-grad)"/>
+    <text x="452" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#FFFFFF" opacity="0.8">WED</text>
+    <text x="452" y="183" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">12</text>
+
+    <rect x="482" y="156" width="44" height="34" rx="8" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+    <text x="504" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#78716C">THU</text>
+    <text x="504" y="183" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1C1917">13</text>
+
+    <rect x="534" y="156" width="44" height="34" rx="8" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+    <text x="556" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#78716C">FRI</text>
+    <text x="556" y="183" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1C1917">14</text>
+
+    <!-- Time slots -->
+    <text x="378" y="214" font-family="system-ui, sans-serif" font-size="10" fill="#78716C">Available times</text>
+
+    <rect x="378" y="224" width="96" height="28" rx="8" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+    <text x="426" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#1C1917">9:00 AM</text>
+
+    <rect x="482" y="224" width="96" height="28" rx="8" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+    <text x="530" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#1C1917">10:30 AM</text>
+
+    <rect x="378" y="260" width="96" height="28" rx="8" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+    <text x="426" y="278" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#1C1917">1:00 PM</text>
+
+    <rect x="482" y="260" width="96" height="28" rx="8" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+    <text x="530" y="278" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#1C1917">3:30 PM</text>
+
+    <!-- Book Now button -->
+    <rect x="378" y="306" width="200" height="36" rx="8" fill="url(#amber-grad)"/>
+    <text x="478" y="328" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Book Now</text>
+
+    <!-- Confirmation text -->
+    <text x="378" y="362" font-family="system-ui, sans-serif" font-size="9" fill="#78716C">✓ Instant confirmation · No account needed</text>
+  </g>
+</svg>

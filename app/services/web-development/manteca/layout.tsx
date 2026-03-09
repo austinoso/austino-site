@@ -117,6 +117,26 @@ const breadcrumbSchema = {
   ],
 };
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["ProfessionalService", "LocalBusiness"],
+  name: "austino — Manteca Web Design",
+  description:
+    "Custom websites for Manteca businesses that show up when locals search. Fast load times, local SEO, and online booking built in.",
+  url: "https://www.austino.dev/services/web-development/manteca",
+  areaServed: {
+    "@type": "City",
+    name: "Manteca",
+    containedInPlace: { "@type": "State", name: "California" },
+  },
+  priceRange: "$$",
+  parentOrganization: {
+    "@type": "ProfessionalService",
+    name: "austino",
+    url: "https://www.austino.dev",
+  },
+};
+
 export default function MantecaLayout({
   children,
 }: {
@@ -135,6 +155,12 @@ export default function MantecaLayout({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
       />
       {children}
     </>

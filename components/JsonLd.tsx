@@ -1,26 +1,50 @@
 export default function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["ProfessionalService", "LocalBusiness"],
+    "@id": "https://www.austino.dev/#business",
     name: "austino",
     url: "https://www.austino.dev",
     description:
       "High-performance websites, growth strategies that climb search rankings, and automation that eliminates busywork — giving local businesses an edge no template can match.",
     areaServed: [
       {
+        "@type": "City",
+        name: "Modesto",
+        containedInPlace: { "@type": "State", name: "California" },
+      },
+      {
+        "@type": "City",
+        name: "Stockton",
+        containedInPlace: { "@type": "State", name: "California" },
+      },
+      {
+        "@type": "City",
+        name: "Manteca",
+        containedInPlace: { "@type": "State", name: "California" },
+      },
+      {
+        "@type": "City",
+        name: "Tracy",
+        containedInPlace: { "@type": "State", name: "California" },
+      },
+      {
+        "@type": "City",
+        name: "Turlock",
+        containedInPlace: { "@type": "State", name: "California" },
+      },
+      {
         "@type": "State",
         name: "California",
       },
-      {
-        "@type": "Country",
-        name: "United States",
-      },
     ],
     serviceType: ["Web Development", "Growth Strategy", "Business Automation"],
+    priceRange: "$$",
     founder: {
       "@type": "Person",
-      name: "Austin O.",
-      jobTitle: "Web Strategist & Engineer",
+      name: "Austin Osorio",
+      jobTitle: "Founder & Lead Engineer",
+      url: "https://www.austino.dev",
     },
     sameAs: [
       "https://github.com/austinoso",
@@ -33,6 +57,7 @@ export default function JsonLd() {
       "Tailwind CSS",
       "Workflow Automation",
       "Small Business Web Development",
+      "Local SEO",
     ],
   };
 
