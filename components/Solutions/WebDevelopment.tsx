@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { BrowserMockup } from "@/components/ui/BrowserMockup";
 
 const features = [
   "Design That Builds Trust",
@@ -23,29 +24,7 @@ export default function WebDevelopment() {
 
       {/* ── Cinematic browser mockup — full width ── */}
       <div data-visual className="relative mb-10 sm:mb-12">
-        <div
-          className="rounded-xl border border-stone-200 bg-white overflow-hidden select-none"
-          style={{
-            boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
-          }}
-        >
-          {/* Chrome bar */}
-          <div
-            className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 border-b border-stone-200 bg-stone-50"
-            aria-hidden="true"
-          >
-            <div className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/80" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/80" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/80" />
-            </div>
-            <div className="flex-1 flex justify-center">
-              <div className="flex items-center gap-1.5 px-4 py-1 rounded-md bg-stone-100 text-[11px] text-stone-500 font-mono">
-                mymassagecottage.com
-              </div>
-            </div>
-          </div>
-
+        <BrowserMockup url="mymassagecottage.com">
           {/* Screenshot — 16:9 cinematic crop */}
           <div className="relative aspect-video">
             <Image
@@ -65,7 +44,7 @@ export default function WebDevelopment() {
               aria-hidden="true"
             />
           </div>
-        </div>
+        </BrowserMockup>
       </div>
 
       {/* ── Two-column: description left, features right — mirrors Growth Strategy ── */}
@@ -73,9 +52,9 @@ export default function WebDevelopment() {
         {/* Left — description + CTA */}
         <div className="flex flex-col justify-between">
           <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
-            The typical local business site blends in and underperforms. I build
-            sites that match how your customers actually search and give them a
-            reason to choose you over the next&nbsp;result.
+            The typical local business site blends in and underperforms. I build sites that match
+            how your customers actually search and give them a reason to choose you over the
+            next&nbsp;result.
           </p>
           <Link
             href="/services/web-development"
@@ -94,10 +73,7 @@ export default function WebDevelopment() {
               key={label}
               className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-stone-200 bg-white text-sm text-stone-600"
             >
-              <span
-                className="h-1.5 w-1.5 rounded-full bg-warm-gold/50"
-                aria-hidden="true"
-              />
+              <span className="h-1.5 w-1.5 rounded-full bg-warm-gold/50" aria-hidden="true" />
               {label}
             </span>
           ))}

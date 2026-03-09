@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 /* ── Static snapshot of the Activity Monitor ──────────────── */
 const SNAPSHOT = [
@@ -36,11 +35,7 @@ const SNAPSHOT = [
 ] as const;
 
 function accentText(a: string) {
-  return a === "amber"
-    ? "text-amber-400"
-    : a === "green"
-      ? "text-emerald-400"
-      : "text-warm-gold";
+  return a === "amber" ? "text-amber-400" : a === "green" ? "text-emerald-400" : "text-warm-gold";
 }
 function accentBg(a: string) {
   return a === "amber"
@@ -65,19 +60,14 @@ export default function Hero() {
           The $37,000 spreadsheet.
         </h1>
         <p className="text-base sm:text-lg text-stone-600 leading-relaxed">
-          Two hours of manual work a day adds up to over $37,000 in four years.
-          Before you count the errors and the missed follow-ups. I build custom
-          code that either connects the tools you already use or creates
-          entirely new ones, so the repetitive work runs itself.
+          Two hours of manual work a day adds up to over $37,000 in four years. Before you count the
+          errors and the missed follow-ups. I build custom code that either connects the tools you
+          already use or creates entirely new ones, so the repetitive work runs itself.
         </p>
 
-        <Link
-          href="/contact"
-          className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
-        >
+        <PrimaryButton href="/contact" size="sm" arrow>
           See What You&apos;d Save
-          <ArrowRight className="w-4 h-4" aria-hidden="true" />
-        </Link>
+        </PrimaryButton>
       </div>
 
       {/* Static Activity Monitor snapshot */}
@@ -100,27 +90,18 @@ export default function Hero() {
                   Live
                 </span>
               </div>
-              <span className="text-xs text-stone-400 font-medium">
-                Activity Monitor
-              </span>
+              <span className="text-xs text-stone-400 font-medium">Activity Monitor</span>
             </div>
-            <span className="text-[11px] text-stone-400 font-mono tabular-nums">
-              47 processed
-            </span>
+            <span className="text-[11px] text-stone-400 font-mono tabular-nums">47 processed</span>
           </div>
 
           {/* Feed */}
           <div className="p-3 min-h-[260px]">
             <div className="space-y-0.5">
               {SNAPSHOT.map((task, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-3 py-2 px-2.5 rounded-lg"
-                >
+                <div key={i} className="flex items-center gap-3 py-2 px-2.5 rounded-lg">
                   <div className="flex items-center gap-2.5 flex-shrink-0">
-                    <div
-                      className={`w-0.5 h-8 rounded-full ${accentLine(task.accent)}`}
-                    />
+                    <div className={`w-0.5 h-8 rounded-full ${accentLine(task.accent)}`} />
                     <div
                       className={`w-5 h-5 rounded-full flex items-center justify-center ${accentBg(task.accent)}`}
                     >
@@ -131,18 +112,12 @@ export default function Hero() {
                         stroke="currentColor"
                         strokeWidth={3}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5 13l4 4L19 7"
-                        />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[13px] text-white/90 leading-tight truncate">
-                      {task.label}
-                    </p>
+                    <p className="text-[13px] text-white/90 leading-tight truncate">{task.label}</p>
                     <p className="text-[11px] text-stone-400 leading-tight mt-0.5 truncate">
                       {task.detail}
                     </p>
@@ -161,13 +136,9 @@ export default function Hero() {
           <div className="px-4 py-2.5 border-t border-white/[0.08] bg-[#1C1A16] flex items-center justify-between">
             <div className="flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              <span className="text-[11px] text-stone-400">
-                All systems operational
-              </span>
+              <span className="text-[11px] text-stone-400">All systems operational</span>
             </div>
-            <span className="text-[11px] text-emerald-400/70 font-mono">
-              ~3.5h saved today
-            </span>
+            <span className="text-[11px] text-emerald-400/70 font-mono">~3.5h saved today</span>
           </div>
         </div>
       </div>

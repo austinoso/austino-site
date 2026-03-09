@@ -41,9 +41,7 @@ export default function ContactForm() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
 
@@ -89,10 +87,7 @@ export default function ContactForm() {
       setSubmitStatus("success");
 
       // Track successful form submission in Umami
-      if (
-        typeof window !== "undefined" &&
-        (window as unknown as Record<string, unknown>).umami
-      ) {
+      if (typeof window !== "undefined" && (window as unknown as Record<string, unknown>).umami) {
         (
           (window as unknown as Record<string, unknown>).umami as {
             track: (event: string, data?: Record<string, string>) => void;
@@ -118,9 +113,7 @@ export default function ContactForm() {
     } catch (error) {
       setIsSubmitting(false);
       setSubmitStatus("error");
-      setErrorMessage(
-        error instanceof Error ? error.message : "An unexpected error occurred",
-      );
+      setErrorMessage(error instanceof Error ? error.message : "An unexpected error occurred");
       setTimeout(() => {
         setSubmitStatus("idle");
         setErrorMessage("");
@@ -129,19 +122,13 @@ export default function ContactForm() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-6"
-      aria-label="Project inquiry form"
-    >
+    <form onSubmit={handleSubmit} className="space-y-6" aria-label="Project inquiry form">
       {/* Name + Email */}
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
@@ -209,8 +196,8 @@ export default function ContactForm() {
           placeholder="https://mybusiness.com"
         />
         <p className="mt-2 text-xs text-stone-500 leading-relaxed">
-          Have a site? I&apos;ll take a look and send a free report on
-          what&apos;s working and what could be better.
+          Have a site? I&apos;ll take a look and send a free report on what&apos;s working and what
+          could be better.
         </p>
       </div>
 
@@ -237,10 +224,7 @@ export default function ContactForm() {
           </select>
         </div>
         <div>
-          <label
-            htmlFor="timeline"
-            className="block text-sm text-stone-500 mb-2"
-          >
+          <label htmlFor="timeline" className="block text-sm text-stone-500 mb-2">
             Timeline
           </label>
           <select
@@ -263,10 +247,7 @@ export default function ContactForm() {
 
       {/* Description */}
       <div>
-        <label
-          htmlFor="description"
-          className="block text-sm text-stone-500 mb-2"
-        >
+        <label htmlFor="description" className="block text-sm text-stone-500 mb-2">
           How can I help? *
         </label>
         <textarea
@@ -288,7 +269,7 @@ export default function ContactForm() {
           type="submit"
           disabled={isSubmitting}
           aria-busy={isSubmitting}
-          className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-amber-600/15"
+          className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           aria-label="Submit project inquiry"
         >
           {isSubmitting ? (
@@ -323,10 +304,7 @@ export default function ContactForm() {
         {/* Turnstile */}
         <div className="mt-4" role="group" aria-label="Security verification">
           <Turnstile
-            siteKey={
-              process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
-              "1x00000000000000000000AA"
-            }
+            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA"}
             onSuccess={(token) => setTurnstileToken(token)}
             onError={() => setTurnstileToken("")}
             onExpire={() => setTurnstileToken("")}
@@ -349,8 +327,7 @@ export default function ContactForm() {
             role="alert"
             aria-live="polite"
           >
-            {errorMessage ||
-              "Something went wrong. Please try again or email directly."}
+            {errorMessage || "Something went wrong. Please try again or email directly."}
           </div>
         )}
       </div>

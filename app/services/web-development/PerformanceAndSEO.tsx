@@ -1,6 +1,5 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import EdgeGlobe from "./EdgeGlobe";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 const seoFeatures = [
   {
@@ -32,8 +31,7 @@ const perfStats = [
   },
   {
     number: "99.9%",
-    label:
-      "Uptime: your site stays online around the clock, even during traffic\u00A0spikes",
+    label: "Uptime: your site stays online around the clock, even during traffic\u00A0spikes",
   },
 ];
 
@@ -47,14 +45,12 @@ export default function PerformanceAndSEO() {
         <div className="relative z-10 pt-12 sm:pt-20 p-6 sm:p-10 max-w-xl">
           <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-6">
             Fast enough to pass{" "}
-            <span className="text-gradient-gold">
-              Google&apos;s speed test.
-            </span>
+            <span className="text-gradient-gold">Google&apos;s speed test.</span>
           </h2>
           <p className="text-base sm:text-lg text-stone-600 leading-relaxed">
-            Your site runs on the same network that powers Shopify and Netflix.
-            Every page is optimized down to the image sizes, fonts, and code, so
-            nothing slows it down, even on a bad connection.
+            Your site runs on the same network that powers Shopify and Netflix. Every page is
+            optimized down to the image sizes, fonts, and code, so nothing slows it down, even on a
+            bad connection.
           </p>
         </div>
         <div className="hidden lg:block">
@@ -69,16 +65,11 @@ export default function PerformanceAndSEO() {
         {perfStats.map((stat, i) => {
           const isRight = i % 2 !== 0;
           return (
-            <div
-              key={stat.label}
-              className={`max-w-[75%] ${isRight ? "text-right ml-auto" : ""}`}
-            >
+            <div key={stat.label} className={`max-w-[75%] ${isRight ? "text-right ml-auto" : ""}`}>
               <span className="block font-display text-[3.25rem] font-bold leading-none mb-2 tracking-tight text-warm-white">
                 {stat.number}
               </span>
-              <p className="text-[13px] text-stone-500 leading-relaxed">
-                {stat.label}
-              </p>
+              <p className="text-[13px] text-stone-500 leading-relaxed">{stat.label}</p>
             </div>
           );
         })}
@@ -96,9 +87,7 @@ export default function PerformanceAndSEO() {
             <span className="block font-display text-4xl sm:text-5xl font-bold leading-none mb-3 tracking-tight text-warm-white">
               {stat.number}
             </span>
-            <p className="text-[15px] text-stone-500 leading-relaxed">
-              {stat.label}
-            </p>
+            <p className="text-[15px] text-stone-500 leading-relaxed">{stat.label}</p>
           </div>
         ))}
       </div>
@@ -110,18 +99,15 @@ export default function PerformanceAndSEO() {
             Built to rank from day one.
           </h3>
           <p className="text-[15px] text-stone-600 leading-relaxed max-w-xl mb-8 sm:mb-16">
-            Most sites launch without any SEO foundation. Yours comes with
-            everything Google looks for, already in place before you go live.
+            Most sites launch without any SEO foundation. Yours comes with everything Google looks
+            for, already in place before you go live.
           </p>
         </div>
 
         {/* Gold-accent editorial list — 1 col mobile, 2 col desktop */}
         <div className="px-10 sm:px-10 sm:grid sm:grid-cols-2 sm:gap-x-16 space-y-6 sm:space-y-0 sm:gap-y-10 pb-8 sm:pb-16">
           {seoFeatures.map((feature) => (
-            <div
-              key={feature.title}
-              className="border-l-2 border-warm-gold/40 pl-5"
-            >
+            <div key={feature.title} className="border-l-2 border-warm-gold/40 pl-5">
               <h4 className="text-[15px] sm:text-base font-semibold text-warm-white mb-1.5 sm:mb-2">
                 {feature.title}
               </h4>
@@ -138,16 +124,9 @@ export default function PerformanceAndSEO() {
         <p className="text-[15px] text-stone-600 leading-relaxed max-w-md">
           Want all of this working for your business?
         </p>
-        <Link
-          href="/contact"
-          className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg flex-shrink-0"
-        >
+        <PrimaryButton href="/contact" size="sm" arrow className="flex-shrink-0">
           Get a Free Consultation
-          <ArrowRight
-            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
-            aria-hidden="true"
-          />
-        </Link>
+        </PrimaryButton>
       </div>
     </section>
   );

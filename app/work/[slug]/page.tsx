@@ -4,8 +4,11 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/projects";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
+import { BackLink } from "@/components/ui/BackLink";
+import { BrowserMockup } from "@/components/ui/BrowserMockup";
 
 export async function generateMetadata({
   params,
@@ -31,11 +34,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function CaseStudyPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const study = getProjectBySlug(slug);
 
@@ -52,27 +51,18 @@ export default async function CaseStudyPage({
           <article>
             {/* Back nav + Header */}
             <header className="border-b border-stone-200 px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-14 sm:pt-24 sm:pb-16 md:pt-28 md:pb-20">
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-2 text-sm font-mono text-stone-400 hover:text-warm-white transition-colors duration-300 mb-10 sm:mb-14 tracking-wide"
-                aria-label="Back to all work"
-              >
-                <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>Back to Work</span>
-              </Link>
+              <BackLink href="/work" className="mb-10 sm:mb-14" aria-label="Back to all work">
+                Back to Work
+              </BackLink>
 
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="text-[10px] font-mono text-warm-gold uppercase tracking-[0.2em]">
                   {study.category}
                 </span>
                 <span className="text-stone-500 text-[10px]">·</span>
-                <span className="text-[10px] font-mono text-stone-400">
-                  {study.readTime}
-                </span>
+                <span className="text-[10px] font-mono text-stone-400">{study.readTime}</span>
                 <span className="text-stone-500 text-[10px]">·</span>
-                <time className="text-[10px] font-mono text-stone-400">
-                  {study.publishedDate}
-                </time>
+                <time className="text-[10px] font-mono text-stone-400">{study.publishedDate}</time>
               </div>
 
               <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white mb-5 leading-[1.1] tracking-tight">
@@ -89,7 +79,7 @@ export default async function CaseStudyPage({
                     href={study.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg shadow-lg shadow-amber-600/20 transition-all duration-300 hover:-translate-y-px hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
+                    className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg px-7 py-3.5 shadow-lg shadow-amber-600/20 transition-all duration-300 hover:brightness-110 hover:-translate-y-px hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
                   >
                     {study.linkText || "Visit Live Site"}
                     <span className="sr-only"> (opens in a new tab)</span>
@@ -115,42 +105,14 @@ export default async function CaseStudyPage({
             {/* Hero Image — browser mockup */}
             {study.image && (
               <section className="border-b border-white/[0.06]">
-                <div
-                  className="overflow-hidden bg-warm-surface select-none"
-                  style={{
-                    boxShadow:
-                      "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
-                  }}
+                <BrowserMockup
+                  variant="dark"
+                  url={
+                    study.link
+                      ? study.link.replace(/^https?:\/\//, "").replace(/\/$/, "")
+                      : undefined
+                  }
                 >
-                  {/* Chrome bar */}
-                  <div
-                    className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-warm-bg"
-                    aria-hidden="true"
-                  >
-                    <div className="flex items-center gap-1.5">
-                      <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-                    </div>
-                    {study.link && (
-                      <div className="flex-1 flex justify-center">
-                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.04] text-[11px] text-stone-400 font-mono">
-                          <svg
-                            className="w-2.5 h-2.5 opacity-40"
-                            viewBox="0 0 16 16"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path d="M11.5 1a3.5 3.5 0 00-3.5 3.5V7H3a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2V9a2 2 0 00-2-2H9V4.5a2.5 2.5 0 015 0V6h1V4.5A3.5 3.5 0 0011.5 1z" />
-                          </svg>
-                          {study.link
-                            .replace(/^https?:\/\//, "")
-                            .replace(/\/$/, "")}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
                   <Image
                     src={study.image}
                     alt={study.title}
@@ -161,7 +123,7 @@ export default async function CaseStudyPage({
                     className="w-full h-auto"
                     priority
                   />
-                </div>
+                </BrowserMockup>
               </section>
             )}
 
@@ -198,11 +160,7 @@ export default async function CaseStudyPage({
                 aria-label="Project results"
               >
                 {study.results.map((result: string, index: number) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-3"
-                    role="listitem"
-                  >
+                  <div key={index} className="flex items-start gap-3" role="listitem">
                     <span className="mt-1.5 flex-shrink-0 h-1.5 w-1.5 rounded-full bg-warm-gold/60" />
                     <p className="text-sm sm:text-base text-stone-500 leading-relaxed text-pretty">
                       {result}
@@ -213,26 +171,21 @@ export default async function CaseStudyPage({
             </section>
 
             {/* Detailed Sections */}
-            {study.sections.map(
-              (
-                section: { heading: string; content: string },
-                index: number,
-              ) => (
-                <section
-                  key={index}
-                  className="border-b border-stone-200 px-6 sm:px-10 md:px-14 lg:px-20 pt-14 pb-14 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20"
-                >
-                  <div className="max-w-3xl">
-                    <h2 className="font-display text-xl sm:text-2xl font-semibold text-warm-white mb-4 leading-snug tracking-tight">
-                      {section.heading}
-                    </h2>
-                    <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
-                      {section.content}
-                    </p>
-                  </div>
-                </section>
-              ),
-            )}
+            {study.sections.map((section: { heading: string; content: string }, index: number) => (
+              <section
+                key={index}
+                className="border-b border-stone-200 px-6 sm:px-10 md:px-14 lg:px-20 pt-14 pb-14 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20"
+              >
+                <div className="max-w-3xl">
+                  <h2 className="font-display text-xl sm:text-2xl font-semibold text-warm-white mb-4 leading-snug tracking-tight">
+                    {section.heading}
+                  </h2>
+                  <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
+                    {section.content}
+                  </p>
+                </div>
+              </section>
+            ))}
 
             {/* CTA */}
             <section className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
@@ -242,22 +195,14 @@ export default async function CaseStudyPage({
                     Need similar results?
                   </h2>
                   <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
-                    I&apos;d love to help your business achieve something
-                    similar. Reach out and I&apos;ll share a clear plan tailored
-                    to your needs.
+                    I&apos;d love to help your business achieve something similar. Reach out and
+                    I&apos;ll share a clear plan tailored to your needs.
                   </p>
                 </div>
                 <div className="flex-shrink-0">
-                  <Link
-                    href="/contact"
-                    className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-base rounded-lg shadow-lg shadow-amber-600/20 transition-all duration-300 hover:-translate-y-px hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg w-full sm:w-auto"
-                  >
-                    <span>Start a Conversation</span>
-                    <ArrowRight
-                      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                      aria-hidden="true"
-                    />
-                  </Link>
+                  <PrimaryButton href="/contact" size="lg" arrow className="w-full sm:w-auto">
+                    Start a Conversation
+                  </PrimaryButton>
                 </div>
               </div>
             </section>

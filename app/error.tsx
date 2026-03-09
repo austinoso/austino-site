@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { ArrowRight } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 export default function Error({
   reset,
@@ -23,8 +22,7 @@ export default function Error({
               Something went wrong.
             </h1>
             <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-md mb-10 text-pretty">
-              An unexpected error occurred. You can try again or head back to
-              the home page.
+              An unexpected error occurred. You can try again or head back to the home page.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
@@ -33,16 +31,9 @@ export default function Error({
               >
                 Try Again
               </button>
-              <Link
-                href="/"
-                className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-[15px] rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
-              >
-                <span>Back to Home</span>
-                <ArrowRight
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
+              <PrimaryButton href="/" arrow>
+                Back to Home
+              </PrimaryButton>
             </div>
           </div>
         </div>

@@ -56,28 +56,23 @@
     right: 0;
   }
 
-  .bento-card {
-    @apply bg-warm-surface border border-stone-200 rounded-lg p-6 transition-all duration-500 hover:border-stone-300 hover:bg-warm-surface-hover shadow-sm;
-  }
-  
   .section-label {
     @apply text-xs font-semibold text-warm-gold uppercase tracking-[0.2em];
-  }
-
-  .section-label-dark {
-    @apply text-xs font-semibold text-amber-400 uppercase tracking-[0.2em];
-  }
-  
-  .cyber-button {
-    @apply px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-lg transition-all duration-300 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg;
-  }
-  
-  .cyber-button-outline {
-    @apply px-7 py-3.5 border border-stone-300 text-stone-800 font-semibold rounded-lg transition-all duration-300 hover:border-warm-gold/40 hover:text-warm-gold focus:outline-none focus:ring-2 focus:ring-warm-gold focus:ring-offset-2 focus:ring-offset-warm-bg;
   }
 }
 
 @layer utilities {
+  /* ── Section spacing utilities ── */
+  .section-px {
+    @apply px-6 sm:px-10 md:px-14 lg:px-20;
+  }
+  .section-py {
+    @apply pt-14 pb-14 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20;
+  }
+  .section-py-lg {
+    @apply pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28;
+  }
+
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, #B45309 0%, #DB2777 50%, #7C3AED 100%);
@@ -122,21 +117,6 @@ select:focus-visible,
   outline: 2px solid #B45309;
   outline-offset: 2px;
   border-radius: 4px;
-}
-
-/* ── FlowLines pulse animation ── */
-@keyframes flow-stream {
-  to {
-    stroke-dashoffset: -1000;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .flow-line-pulse {
-    animation-name: flow-stream;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
 }
 
 /* ── Onboarding step transition ── */

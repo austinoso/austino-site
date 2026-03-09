@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { getAllProjects } from "@/lib/projects";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 export const metadata: Metadata = {
   title: "Results, Not Just Designs | austino",
@@ -36,19 +37,15 @@ export default function WorkPage() {
               Work that speaks for itself.
             </h1>
             <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-pretty">
-              Real projects for real businesses. Each case study walks through
-              the problem, the approach, and the results.
+              Real projects for real businesses. Each case study walks through the problem, the
+              approach, and the results.
             </p>
           </section>
 
           {/* Projects */}
           <div role="list" aria-label="Work projects">
             {projects.map((project) => (
-              <div
-                key={project.slug}
-                role="listitem"
-                className="border-b border-stone-200"
-              >
+              <div key={project.slug} role="listitem" className="border-b border-stone-200">
                 {/* Full-width image — taller ratio to show more */}
                 {project.image && (
                   <div className="relative overflow-hidden aspect-[16/10] lg:aspect-[16/9]">
@@ -114,21 +111,14 @@ export default function WorkPage() {
                   Want results like these?
                 </h2>
                 <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
-                  Have a project in mind? Let&apos;s talk about what&apos;s
-                  possible — no pressure, no commitments.
+                  Have a project in mind? Let&apos;s talk about what&apos;s possible — no pressure,
+                  no commitments.
                 </p>
               </div>
               <div className="flex-shrink-0">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-base rounded-lg shadow-lg shadow-amber-600/20 transition-all duration-300 hover:-translate-y-px hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg w-full sm:w-auto"
-                >
-                  <span>Start a Conversation</span>
-                  <ArrowRight
-                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </Link>
+                <PrimaryButton href="/contact" size="lg" arrow className="w-full sm:w-auto">
+                  Start a Conversation
+                </PrimaryButton>
               </div>
             </div>
           </section>

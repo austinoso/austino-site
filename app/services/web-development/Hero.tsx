@@ -1,37 +1,26 @@
 import Link from "next/link";
 import { ArrowRight, Bell, Smartphone, Search, Star } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 export default function Hero() {
   return (
     <section className="grid lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-start pb-0">
       <div data-hero-copy className="lg:col-span-6 space-y-6 lg:py-10">
         <h1 className="text-4xl sm:text-5xl md:text-[3.25rem] font-bold font-display text-warm-white leading-[1.1] tracking-tight text-balance">
-          Your website could be closing{" "}
-          <span className="text-gradient-gold">more deals.</span>
+          Your website could be closing <span className="text-gradient-gold">more deals.</span>
         </h1>
         <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-balance">
-          Your customers want to book appointments, place orders, and get
-          answers without picking up the phone. If they can&apos;t do it on your
-          website, they&apos;ll do it on someone else&apos;s.
+          Your customers want to book appointments, place orders, and get answers without picking up
+          the phone. If they can&apos;t do it on your website, they&apos;ll do it on someone
+          else&apos;s.
         </p>
-        <Link
-          href="/contact"
-          className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
-        >
+        <PrimaryButton href="/contact" size="sm" arrow>
           Get a Free Site Review
-          <ArrowRight
-            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
-            aria-hidden="true"
-          />
-        </Link>
+        </PrimaryButton>
       </div>
 
       {/* Phone mockup — what the customer actually sees */}
-      <div
-        data-hero-visual
-        className="lg:col-span-6 relative select-none"
-        aria-hidden="true"
-      >
+      <div data-hero-visual className="lg:col-span-6 relative select-none" aria-hidden="true">
         <div className="flex justify-center items-start max-h-[300px] sm:max-h-[540px] lg:max-h-[580px] overflow-hidden">
           <div className="relative w-full max-w-[320px] sm:w-[300px] sm:max-w-none mt-0 sm:mt-6 lg:mt-0">
             {/* ── Floating cards ── */}
@@ -45,10 +34,7 @@ export default function Hero() {
             >
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-7 h-7 rounded-lg bg-warm-green/10 border border-warm-green/20 flex items-center justify-center flex-shrink-0">
-                  <Bell
-                    className="w-3.5 h-3.5 text-warm-green"
-                    aria-hidden="true"
-                  />
+                  <Bell className="w-3.5 h-3.5 text-warm-green" aria-hidden="true" />
                 </div>
                 <div className="min-w-0">
                   <p className="text-[10px] font-semibold text-warm-white leading-tight">
@@ -79,16 +65,12 @@ export default function Hero() {
                 <span className="text-lg font-bold text-warm-green font-mono leading-none">
                   1.2
                 </span>
-                <span className="text-[10px] text-warm-green/70 font-mono">
-                  sec
-                </span>
+                <span className="text-[10px] text-warm-green/70 font-mono">sec</span>
               </div>
               <div className="mt-2 h-1 rounded-full bg-stone-200 overflow-hidden">
                 <div className="h-full w-[25%] rounded-full bg-warm-green/60" />
               </div>
-              <p className="text-[8px] text-stone-500 mt-1">
-                Avg competitor: 4.8s
-              </p>
+              <p className="text-[8px] text-stone-500 mt-1">Avg competitor: 4.8s</p>
             </div>
 
             {/* SEO + Mobile card — right */}
@@ -104,29 +86,19 @@ export default function Hero() {
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded-md bg-warm-gold/10 border border-warm-gold/20 flex items-center justify-center">
-                    <Search
-                      className="w-2.5 h-2.5 text-warm-gold"
-                      aria-hidden="true"
-                    />
+                    <Search className="w-2.5 h-2.5 text-warm-gold" aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-[9px] font-medium text-warm-white leading-tight">
-                      SEO
-                    </p>
+                    <p className="text-[9px] font-medium text-warm-white leading-tight">SEO</p>
                     <p className="text-[8px] text-warm-green">Optimized</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded-md bg-warm-gold/10 border border-warm-gold/20 flex items-center justify-center">
-                    <Smartphone
-                      className="w-2.5 h-2.5 text-warm-gold"
-                      aria-hidden="true"
-                    />
+                    <Smartphone className="w-2.5 h-2.5 text-warm-gold" aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-[9px] font-medium text-warm-white leading-tight">
-                      Mobile
-                    </p>
+                    <p className="text-[9px] font-medium text-warm-white leading-tight">Mobile</p>
                     <p className="text-[8px] text-warm-green">Responsive</p>
                   </div>
                 </div>
@@ -137,8 +109,7 @@ export default function Hero() {
             <div
               className="relative rounded-t-[2.5rem] border-[3px] border-b-0 border-stone-300 bg-[#0C0B09] overflow-hidden"
               style={{
-                boxShadow:
-                  "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+                boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
               }}
             >
               {/* Dynamic Island */}
@@ -169,8 +140,7 @@ export default function Hero() {
                     Expert care you can trust.
                   </p>
                   <p className="text-[9px] text-stone-400 leading-relaxed mb-3">
-                    Professional service with online booking &mdash; available
-                    24/7.
+                    Professional service with online booking &mdash; available 24/7.
                   </p>
                   <div className="flex items-center gap-2">
                     <span className="px-3 py-1.5 bg-amber-400 text-warm-bg text-[9px] font-bold rounded-md">
@@ -194,49 +164,32 @@ export default function Hero() {
                         />
                       ))}
                     </div>
-                    <span className="text-[9px] text-stone-400">
-                      4.9 (84 reviews)
-                    </span>
+                    <span className="text-[9px] text-stone-400">4.9 (84 reviews)</span>
                   </div>
                   <p className="text-[9px] text-stone-300 italic leading-relaxed">
-                    &ldquo;Booked online in seconds. Best experience
-                    I&apos;ve&nbsp;had!&rdquo;
+                    &ldquo;Booked online in seconds. Best experience I&apos;ve&nbsp;had!&rdquo;
                   </p>
-                  <p className="text-[8px] text-stone-500 mt-1">
-                    — Sarah M., verified customer
-                  </p>
+                  <p className="text-[8px] text-stone-500 mt-1">— Sarah M., verified customer</p>
                 </div>
 
                 {/* Quick services */}
                 <div className="grid grid-cols-2 gap-2">
                   <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-2.5 text-center">
-                    <p className="text-[9px] font-medium text-white">
-                      Online Booking
-                    </p>
-                    <p className="text-[8px] text-stone-500 mt-0.5">
-                      24/7 available
-                    </p>
+                    <p className="text-[9px] font-medium text-white">Online Booking</p>
+                    <p className="text-[8px] text-stone-500 mt-0.5">24/7 available</p>
                   </div>
                   <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-2.5 text-center">
-                    <p className="text-[9px] font-medium text-white">
-                      Instant Answers
-                    </p>
-                    <p className="text-[8px] text-stone-500 mt-0.5">
-                      FAQ & pricing
-                    </p>
+                    <p className="text-[9px] font-medium text-white">Instant Answers</p>
+                    <p className="text-[8px] text-stone-500 mt-0.5">FAQ & pricing</p>
                   </div>
                 </div>
 
                 {/* Services list — extends past the clip */}
                 <div className="space-y-2">
-                  <p className="text-[10px] font-semibold text-white">
-                    Popular Services
-                  </p>
+                  <p className="text-[10px] font-semibold text-white">Popular Services</p>
                   <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 flex items-center justify-between">
                     <div>
-                      <p className="text-[9px] font-medium text-white">
-                        Deep Tissue Massage
-                      </p>
+                      <p className="text-[9px] font-medium text-white">Deep Tissue Massage</p>
                       <p className="text-[8px] text-stone-500">60 min · $85</p>
                     </div>
                     <span className="px-2 py-1 bg-amber-500/15 text-[8px] font-semibold text-amber-300 rounded">
@@ -245,9 +198,7 @@ export default function Hero() {
                   </div>
                   <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 flex items-center justify-between">
                     <div>
-                      <p className="text-[9px] font-medium text-white">
-                        Sports Recovery
-                      </p>
+                      <p className="text-[9px] font-medium text-white">Sports Recovery</p>
                       <p className="text-[8px] text-stone-500">90 min · $120</p>
                     </div>
                     <span className="px-2 py-1 bg-amber-500/15 text-[8px] font-semibold text-amber-300 rounded">

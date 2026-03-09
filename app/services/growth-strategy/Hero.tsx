@@ -1,35 +1,21 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Search,
-  Star,
-  MapPin,
-  Clock,
-  CheckCircle2,
-} from "lucide-react";
+import { ArrowRight, Search, Star, MapPin, Clock, CheckCircle2 } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 export default function Hero() {
   return (
     <section className="grid lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-center pb-14 sm:pb-16 lg:pb-20">
       <div data-hero-copy className="lg:col-span-6 space-y-6 lg:py-10">
         <h1 className="text-4xl sm:text-5xl md:text-[3.25rem] font-bold font-display text-warm-white leading-[1.1] tracking-tight text-balance">
-          Launched is just{" "}
-          <span className="text-gradient-gold">the starting line.</span>
+          Launched is just <span className="text-gradient-gold">the starting line.</span>
         </h1>
         <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
-          New pages targeting real searches. Optimization driven by real data.
-          The strategy Google wants from its page one sites.
+          New pages targeting real searches. Optimization driven by real data. The strategy Google
+          wants from its page one sites.
         </p>
-        <Link
-          href="/contact"
-          className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
-        >
+        <PrimaryButton href="/contact" size="sm" arrow>
           Get a Free Consultation
-          <ArrowRight
-            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
-            aria-hidden="true"
-          />
-        </Link>
+        </PrimaryButton>
       </div>
 
       {/* Google search results mockup */}
@@ -62,9 +48,7 @@ export default function Hero() {
                 best personal trainer near me
               </span>
             </div>
-            <p className="text-[11px] text-stone-500 mt-3 pl-1">
-              About 3,100 results
-            </p>
+            <p className="text-[11px] text-stone-500 mt-3 pl-1">About 3,100 results</p>
           </div>
 
           {/* Search results */}
@@ -75,32 +59,24 @@ export default function Hero() {
                 <div className="w-5 h-5 rounded-full bg-warm-gold/20 flex items-center justify-center">
                   <span className="text-[9px] font-bold text-warm-gold">Y</span>
                 </div>
-                <span className="text-[11px] text-stone-500">
-                  yourbusiness.com
-                </span>
+                <span className="text-[11px] text-stone-500">yourbusiness.com</span>
               </div>
               <p className="text-[15px] text-[#4663AC] leading-snug mb-1 font-medium">
                 Personal Training — Programs & Free Consultation
               </p>
               <p className="text-xs text-stone-600 leading-relaxed mb-2.5">
-                Certified personal training in downtown Fresno. Customized
-                programs for weight loss, strength, and mobility. Book a free
-                30-minute consultation today.
+                Certified personal training in downtown Fresno. Customized programs for weight loss,
+                strength, and mobility. Book a free 30-minute consultation today.
               </p>
               {/* Rich snippets row */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
                 <div className="flex items-center gap-1">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-3 h-3 fill-amber-400 text-amber-400"
-                      />
+                      <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <span className="text-[10px] text-stone-500 ml-0.5">
-                    4.9 (127)
-                  </span>
+                  <span className="text-[10px] text-stone-500 ml-0.5">4.9 (127)</span>
                 </div>
                 <span className="flex items-center gap-1 text-[10px] text-stone-500">
                   <MapPin className="w-2.5 h-2.5" />
@@ -145,20 +121,16 @@ export default function Hero() {
               />
               <div className="flex items-center gap-2 mb-1.5">
                 <div className="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center">
-                  <span className="text-[9px] font-medium text-stone-500">
-                    I
-                  </span>
+                  <span className="text-[9px] font-medium text-stone-500">I</span>
                 </div>
-                <span className="text-[11px] text-stone-500">
-                  ironworksgym.com
-                </span>
+                <span className="text-[11px] text-stone-500">ironworksgym.com</span>
               </div>
               <p className="text-[15px] text-[#4663AC]/60 leading-snug mb-1">
                 Certified Personal Trainers — All Levels
               </p>
               <p className="hidden sm:block text-xs text-stone-500 leading-relaxed mb-1">
-                Our trainers are certified and experienced. Contact us for more
-                information about personal training.
+                Our trainers are certified and experienced. Contact us for more information about
+                personal training.
               </p>
               <p className="hidden sm:block text-[10px] text-stone-600 font-mono">
                 Last updated 8 months ago · 3 pages
@@ -169,20 +141,15 @@ export default function Hero() {
             <div className="hidden sm:block py-4">
               <div className="flex items-center gap-2 mb-1.5">
                 <div className="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center">
-                  <span className="text-[9px] font-medium text-stone-500">
-                    P
-                  </span>
+                  <span className="text-[9px] font-medium text-stone-500">P</span>
                 </div>
-                <span className="text-[11px] text-stone-500">
-                  peakperformance.co
-                </span>
+                <span className="text-[11px] text-stone-500">peakperformance.co</span>
               </div>
               <p className="text-[15px] text-[#4663AC]/40 leading-snug mb-1">
                 Peak Performance — Home
               </p>
               <p className="text-xs text-stone-600 leading-relaxed mb-1">
-                Welcome to Peak Performance. We offer personal training
-                services.
+                Welcome to Peak Performance. We offer personal training services.
               </p>
               <p className="text-[10px] text-stone-600 font-mono">
                 Last updated 2 years ago · 1 page

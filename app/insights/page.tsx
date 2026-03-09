@@ -3,14 +3,7 @@ import { ArrowRight, Calendar, Clock } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { getAllInsights } from "@/lib/insights";
-
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+import { formatDate } from "@/lib/format-date";
 
 export default function InsightsPage() {
   const insights = getAllInsights();
@@ -55,12 +48,11 @@ export default function InsightsPage() {
           <section className="pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 px-6 sm:px-10 md:px-14 lg:px-20">
             <p className="section-label mb-5">Local Insights</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-warm-white leading-[1.1] tracking-tight max-w-2xl">
-              Practical advice for{" "}
-              <span className="text-gradient-gold">local businesses</span>
+              Practical advice for <span className="text-gradient-gold">local businesses</span>
             </h1>
             <p className="mt-5 text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl">
-              No jargon, no fluff — just honest insights on websites, SEO, and
-              growing your business online in the Central&nbsp;Valley.
+              No jargon, no fluff — just honest insights on websites, SEO, and growing your business
+              online in the Central&nbsp;Valley.
             </p>
           </section>
 
@@ -88,9 +80,7 @@ export default function InsightsPage() {
                     <div className="flex items-center gap-5 text-xs text-stone-400">
                       <span className="inline-flex items-center gap-1.5">
                         <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
-                        <time dateTime={featured.date}>
-                          {formatDate(featured.date)}
-                        </time>
+                        <time dateTime={featured.date}>{formatDate(featured.date)}</time>
                       </span>
                       <span className="inline-flex items-center gap-1.5">
                         <Clock className="w-3.5 h-3.5" aria-hidden="true" />
@@ -131,9 +121,7 @@ export default function InsightsPage() {
                     <div className="flex items-center gap-5 text-xs text-stone-400">
                       <span className="inline-flex items-center gap-1.5">
                         <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
-                        <time dateTime={insight.date}>
-                          {formatDate(insight.date)}
-                        </time>
+                        <time dateTime={insight.date}>{formatDate(insight.date)}</time>
                       </span>
                       <span className="inline-flex items-center gap-1.5">
                         <Clock className="w-3.5 h-3.5" aria-hidden="true" />

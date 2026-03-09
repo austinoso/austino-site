@@ -3,11 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { formatDate } from "@/lib/format-date";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import html from "remark-html";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
+import { BackLink } from "@/components/ui/BackLink";
 import { getInsightBySlug, getAllInsightSlugs } from "@/lib/insights";
 
 interface Props {
@@ -42,14 +45,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
 export default async function InsightPage({ params }: Props) {
   const { slug } = await params;
   const insight = getInsightBySlug(slug);
@@ -62,10 +57,7 @@ export default async function InsightPage({ params }: Props) {
     .process(insight.content);
   const contentHtml = processed
     .toString()
-    .replace(
-      /<a href="http/g,
-      '<a target="_blank" rel="noopener noreferrer" href="http',
-    );
+    .replace(/<a href="http/g, '<a target="_blank" rel="noopener noreferrer" href="http');
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -132,13 +124,7 @@ export default async function InsightPage({ params }: Props) {
         <div className="page-frame">
           <article className="px-6 sm:px-10 md:px-14 lg:px-20 pt-28 sm:pt-32 lg:pt-36 pb-24 sm:pb-28 md:pb-32">
             {/* Back link */}
-            <Link
-              href="/insights"
-              className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-warm-gold transition-colors duration-300 mb-8 sm:mb-10"
-            >
-              <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-              All Insights
-            </Link>
+            <BackLink href="/insights">All Insights</BackLink>
 
             {/* Header */}
             <header className="max-w-2xl mb-10 sm:mb-14">
@@ -151,9 +137,7 @@ export default async function InsightPage({ params }: Props) {
               <div className="flex items-center gap-5 text-sm text-stone-400">
                 <span className="inline-flex items-center gap-1.5">
                   <Calendar className="w-4 h-4" aria-hidden="true" />
-                  <time dateTime={insight.date}>
-                    {formatDate(insight.date)}
-                  </time>
+                  <time dateTime={insight.date}>{formatDate(insight.date)}</time>
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <Clock className="w-4 h-4" aria-hidden="true" />
@@ -179,19 +163,15 @@ export default async function InsightPage({ params }: Props) {
                   className="rounded-full shrink-0"
                 />
                 <div>
-                  <p className="text-sm font-semibold text-warm-white">
-                    Written by Austin Osorio
-                  </p>
+                  <p className="text-sm font-semibold text-warm-white">Written by Austin Osorio</p>
                   <p className="text-[13px] text-stone-400 mt-0.5">
                     Founder &amp; Lead Engineer at austino.dev
                   </p>
                   <p className="text-sm text-stone-500 leading-relaxed mt-3">
-                    Austin is a software engineer and the founder of
-                    austino.dev. A lifelong resident of the Central Valley, he
-                    has over six years of experience building high-performance
-                    systems. He started austino.dev to close the gap between
-                    what enterprise companies build and what local businesses
-                    can afford.
+                    Austin is a software engineer and the founder of austino.dev. A lifelong
+                    resident of the Central Valley, he has over six years of experience building
+                    high-performance systems. He started austino.dev to close the gap between what
+                    enterprise companies build and what local businesses can afford.
                   </p>
                 </div>
               </div>
@@ -202,13 +182,9 @@ export default async function InsightPage({ params }: Props) {
               <p className="text-[15px] text-stone-500 leading-relaxed mb-5">
                 Want to talk about how this applies to your&nbsp;business?
               </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-600/15"
-              >
+              <PrimaryButton href="/contact" arrow>
                 Let&apos;s Talk
-                <ArrowLeft className="w-4 h-4 rotate-180 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </Link>
+              </PrimaryButton>
             </div>
           </article>
         </div>

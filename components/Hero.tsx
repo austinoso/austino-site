@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Search, MapPin } from "lucide-react";
 import HeroDemoLoader from "./HeroDemoLoader";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 /* ─────────────────────────────────────────────────────────────────── */
 /*  Hero — Server component.  Editorial layout:                       */
@@ -10,10 +11,7 @@ import HeroDemoLoader from "./HeroDemoLoader";
 
 export default function Hero() {
   return (
-    <section
-      className="relative overflow-hidden bg-warm-bg"
-      aria-labelledby="hero-heading"
-    >
+    <section className="relative overflow-hidden bg-warm-bg" aria-labelledby="hero-heading">
       {/* Decorative circles — amber wash, layered */}
       <div
         className="absolute -right-[16rem] sm:-right-[12rem] md:-right-[16rem] top-6 sm:top-12 md:top-16 w-[20rem] h-[20rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] rounded-full pointer-events-none"
@@ -30,37 +28,30 @@ export default function Hero() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* ─── Text column — dominant ─── */}
           <div className="lg:col-span-7 flex flex-col">
-            <span className="section-label mb-5 sm:mb-6">
-              For Local Businesses
-            </span>
+            <span className="section-label mb-5 sm:mb-6">For Local Businesses</span>
 
             <h1
               id="hero-heading"
               className="font-display text-4xl sm:text-5xl md:text-[3.5rem] lg:text-[4.5rem] font-bold text-warm-white leading-[1.06] tracking-tight"
             >
-              Websites built{" "}
-              <span className="text-gradient-brand">to&nbsp;outperform.</span>
+              Websites built <span className="text-gradient-brand">to&nbsp;outperform.</span>
             </h1>
 
             <p className="mt-4 sm:mt-5 text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-pretty">
-              Designed around your business and customers, backed by what
-              Google says gets you to page&nbsp;one.
+              Designed around your business and customers, backed by what Google says gets you to
+              page&nbsp;one.
             </p>
 
             {/* ─── CTA pair ─── */}
             <div className="mt-9 sm:mt-10 flex flex-wrap items-center gap-x-7 gap-y-5">
-              <Link
+              <PrimaryButton
                 href="/contact"
-                className="group inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-lg transition-all duration-200 text-[15px] hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
+                arrow
                 aria-label="Get a free consultation"
                 data-umami-event="hero-cta"
               >
                 Book a Free Strategy Call
-                <ArrowRight
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
+              </PrimaryButton>
               <Link
                 href="/work"
                 className="group inline-flex items-center gap-2 text-[15px] font-medium text-stone-500 hover:text-warm-gold transition-colors duration-200"
@@ -77,17 +68,11 @@ export default function Hero() {
             {/* ─── Trust signals ─── */}
             <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
               <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
-                <Search
-                  className="w-3.5 h-3.5 text-amber-700 flex-shrink-0"
-                  aria-hidden="true"
-                />
+                <Search className="w-3.5 h-3.5 text-amber-700 flex-shrink-0" aria-hidden="true" />
                 Built for Google&nbsp;&&nbsp;your&nbsp;customers
               </span>
               <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
-                <MapPin
-                  className="w-3.5 h-3.5 text-amber-700 flex-shrink-0"
-                  aria-hidden="true"
-                />
+                <MapPin className="w-3.5 h-3.5 text-amber-700 flex-shrink-0" aria-hidden="true" />
                 California based
                 <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
               </span>
@@ -99,8 +84,7 @@ export default function Hero() {
             <div
               className="rounded-xl"
               style={{
-                boxShadow:
-                  "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+                boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
               }}
             >
               <HeroDemoLoader />

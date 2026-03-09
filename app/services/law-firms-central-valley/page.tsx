@@ -2,19 +2,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageScrollAnimator from "@/components/ui/PageScrollAnimator";
 import FAQAccordion from "@/components/ui/FAQAccordion";
+import { BackLink } from "@/components/ui/BackLink";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Scale,
-  Search,
-  Palette,
-  Code,
-  Smartphone,
-  Users,
-  MapPin,
-} from "lucide-react";
+import { ArrowRight, Scale, Search, Palette, Code, Smartphone, Users, MapPin } from "lucide-react";
 
 /* ── FAQ data ── */
 const faqs = [
@@ -59,13 +50,9 @@ export default function LawFirmsCentralValleyPage() {
           {/* ── Hero ── */}
           <div className="relative border-b border-stone-200 overflow-hidden">
             <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
-              <Link
-                href="/#solutions"
-                className="inline-flex items-center gap-2 text-sm font-mono text-cyber-gray-400 hover:text-stone-900 transition-colors duration-300 mb-10 sm:mb-14 tracking-wide"
-              >
-                <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>Back to Home</span>
-              </Link>
+              <BackLink href="/#solutions" className="mb-10 sm:mb-14">
+                Back to Home
+              </BackLink>
               <section className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
                 <div data-hero-copy className="lg:col-span-6 space-y-6">
                   <div className="flex items-center gap-2">
@@ -76,16 +63,13 @@ export default function LawFirmsCentralValleyPage() {
                   </div>
                   <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-stone-900 leading-tight tracking-tight text-balance">
                     Most law firms have a website.{" "}
-                    <span className="text-cyber-accent">
-                      Very few have an online presence.
-                    </span>
+                    <span className="text-cyber-accent">Very few have an online presence.</span>
                   </h1>
                   <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed text-pretty">
-                    An online presence does more than just exist &mdash; it
-                    builds trust, shows up when people search, and makes it easy
-                    to take the next step. Most firms in the Central Valley
-                    aren&apos;t there yet, which means the ones that start now
-                    have a real advantage.
+                    An online presence does more than just exist &mdash; it builds trust, shows up
+                    when people search, and makes it easy to take the next step. Most firms in the
+                    Central Valley aren&apos;t there yet, which means the ones that start now have a
+                    real advantage.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start gap-4">
                     <Link
@@ -146,10 +130,9 @@ export default function LawFirmsCentralValleyPage() {
                   Most firms in the Valley aren&apos;t doing this yet.
                 </h2>
                 <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12 text-pretty">
-                  A site that was built years ago and never updated isn&apos;t
-                  pulling its weight. It&apos;s not ranking on Google, not
-                  earning trust with visitors, and not giving people a clear way
-                  to reach out. That&apos;s not a criticism &mdash; it&apos;s an
+                  A site that was built years ago and never updated isn&apos;t pulling its weight.
+                  It&apos;s not ranking on Google, not earning trust with visitors, and not giving
+                  people a clear way to reach out. That&apos;s not a criticism &mdash; it&apos;s an
                   opportunity.
                 </p>
 
@@ -158,21 +141,17 @@ export default function LawFirmsCentralValleyPage() {
                   {/* Featured — Template Trap (3 cols, 2 rows) */}
                   <div className="md:col-span-3 md:row-span-2 border-b border-r border-stone-200 p-7 sm:p-9 flex flex-col">
                     <div className="w-10 h-10 rounded-full border border-cyber-accent/25 bg-cyber-accent/[0.06] flex items-center justify-center flex-shrink-0 mb-5">
-                      <Palette
-                        className="w-[18px] h-[18px] text-cyber-accent"
-                        aria-hidden="true"
-                      />
+                      <Palette className="w-[18px] h-[18px] text-cyber-accent" aria-hidden="true" />
                     </div>
                     <h3 className="font-display text-lg sm:text-xl font-semibold text-stone-900 leading-snug mb-3">
                       Same templates, same first impression
                     </h3>
                     <p className="text-[15px] text-cyber-gray-300 leading-relaxed max-w-md flex-1">
-                      Most law firm sites come from the same handful of
-                      providers &mdash; FindLaw, Avvo, Justia. Same layout, same
-                      stock photos, same copy. When a potential client visits
-                      three firms and they all look the same, there&apos;s
-                      nothing to remember. Nothing that says &ldquo;this is the
-                      one.&rdquo; The firm that looks different earns the call.
+                      Most law firm sites come from the same handful of providers &mdash; FindLaw,
+                      Avvo, Justia. Same layout, same stock photos, same copy. When a potential
+                      client visits three firms and they all look the same, there&apos;s nothing to
+                      remember. Nothing that says &ldquo;this is the one.&rdquo; The firm that looks
+                      different earns the call.
                     </p>
                     {/* Comparison strip — three identical templates stacked like cards */}
                     <div className="mt-auto pt-6">
@@ -243,11 +222,10 @@ export default function LawFirmsCentralValleyPage() {
                       </h3>
                     </div>
                     <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty flex-1">
-                      75% of people never scroll past page&nbsp;1. Most firm
-                      sites are slow, bloated, and missing the behind-the-scenes
-                      signals Google looks for. If your site isn&apos;t built
-                      for search, people who need you right now can&apos;t find
-                      you.
+                      75% of people never scroll past page&nbsp;1. Most firm sites are slow,
+                      bloated, and missing the behind-the-scenes signals Google looks for. If your
+                      site isn&apos;t built for search, people who need you right now can&apos;t
+                      find you.
                     </p>
                     <div className="mt-auto pt-5">
                       <div className="flex items-end gap-3">
@@ -265,21 +243,17 @@ export default function LawFirmsCentralValleyPage() {
                   <div className="md:col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
-                        <Users
-                          className="w-[18px] h-[18px] text-cyber-accent"
-                          aria-hidden="true"
-                        />
+                        <Users className="w-[18px] h-[18px] text-cyber-accent" aria-hidden="true" />
                       </div>
                       <h3 className="text-[15px] font-semibold text-stone-900">
                         No clear way to reach out
                       </h3>
                     </div>
                     <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty flex-1">
-                      Someone lands on your site, stressed, looking for help. If
-                      there&apos;s no obvious way to reach out &mdash; a form, a
-                      booking link, a clear next step &mdash; they leave. Most
-                      firms bury a phone number three clicks deep and wonder why
-                      the phone isn&apos;t ringing.
+                      Someone lands on your site, stressed, looking for help. If there&apos;s no
+                      obvious way to reach out &mdash; a form, a booking link, a clear next step
+                      &mdash; they leave. Most firms bury a phone number three clicks deep and
+                      wonder why the phone isn&apos;t ringing.
                     </p>
                     <div className="mt-auto pt-5">
                       <div className="flex items-end gap-3">
@@ -297,22 +271,17 @@ export default function LawFirmsCentralValleyPage() {
                   <div className="md:col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
-                        <Code
-                          className="w-[18px] h-[18px] text-cyber-accent"
-                          aria-hidden="true"
-                        />
+                        <Code className="w-[18px] h-[18px] text-cyber-accent" aria-hidden="true" />
                       </div>
                       <h3 className="text-[15px] font-semibold text-stone-900">
                         Built for every firm, not yours
                       </h3>
                     </div>
                     <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty flex-1">
-                      A family law practice in Modesto and a corporate firm in
-                      SF have nothing in common &mdash; but their sites use the
-                      same template, same layout, same stock &ldquo;About
-                      Us&rdquo; page. When your site doesn&apos;t reflect your
-                      actual practice, it doesn&apos;t build trust. It raises
-                      questions.
+                      A family law practice in Modesto and a corporate firm in SF have nothing in
+                      common &mdash; but their sites use the same template, same layout, same stock
+                      &ldquo;About Us&rdquo; page. When your site doesn&apos;t reflect your actual
+                      practice, it doesn&apos;t build trust. It raises questions.
                     </p>
                   </div>
 
@@ -323,10 +292,7 @@ export default function LawFirmsCentralValleyPage() {
                   >
                     <div className="px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13] flex-shrink-0">
                       <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/[0.06]">
-                        <Search
-                          className="w-3 h-3 text-cyber-gray-400"
-                          aria-hidden="true"
-                        />
+                        <Search className="w-3 h-3 text-cyber-gray-400" aria-hidden="true" />
                         <span className="text-[11px] text-cyber-gray-300 font-mono">
                           personal injury attorney fresno
                         </span>
@@ -359,15 +325,10 @@ export default function LawFirmsCentralValleyPage() {
                             {i + 1}
                           </span>
                           <div className="min-w-0">
-                            <p className="text-[11px] text-[#8AB4F8] mb-0.5 truncate">
-                              {r.url}
-                            </p>
-                            <p className="text-[11px] text-white/50 leading-snug">
-                              {r.title}
-                            </p>
+                            <p className="text-[11px] text-[#8AB4F8] mb-0.5 truncate">{r.url}</p>
+                            <p className="text-[11px] text-white/50 leading-snug">{r.title}</p>
                             <p className="text-[9px] text-cyber-gray-500 mt-0.5">
-                              Template &middot; Stock photos &middot; Generic
-                              copy
+                              Template &middot; Stock photos &middot; Generic copy
                             </p>
                           </div>
                         </div>
@@ -388,14 +349,12 @@ export default function LawFirmsCentralValleyPage() {
               <section data-fade>
                 <p className="section-label mb-4">The Solution</p>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-stone-900 leading-[1.1] tracking-tight text-balance mb-4 max-w-2xl">
-                  An online presence that builds trust &mdash; even when
-                  you&apos;re in court.
+                  An online presence that builds trust &mdash; even when you&apos;re in court.
                 </h2>
                 <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12 text-pretty">
-                  I build sites from scratch around your firm &mdash; not from a
-                  template library. Every page, every section, every detail is
-                  there to do one thing: earn trust with the right people and
-                  make it easy to take the next step. Here&apos;s a concept I
+                  I build sites from scratch around your firm &mdash; not from a template library.
+                  Every page, every section, every detail is there to do one thing: earn trust with
+                  the right people and make it easy to take the next step. Here&apos;s a concept I
                   built to show what that looks like.
                 </p>
 
@@ -472,18 +431,11 @@ export default function LawFirmsCentralValleyPage() {
                     >
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
-                          <item.icon
-                            className="w-4 h-4 text-cyber-accent"
-                            aria-hidden="true"
-                          />
+                          <item.icon className="w-4 h-4 text-cyber-accent" aria-hidden="true" />
                         </div>
-                        <h4 className="text-[15px] font-semibold text-stone-900">
-                          {item.title}
-                        </h4>
+                        <h4 className="text-[15px] font-semibold text-stone-900">{item.title}</h4>
                       </div>
-                      <p className="text-sm text-cyber-gray-400 leading-relaxed">
-                        {item.body}
-                      </p>
+                      <p className="text-sm text-cyber-gray-400 leading-relaxed">{item.body}</p>
                     </div>
                   ))}
                 </div>
@@ -497,12 +449,11 @@ export default function LawFirmsCentralValleyPage() {
               <section data-fade>
                 <p className="section-label mb-4">How It Works</p>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-stone-900 leading-[1.1] tracking-tight text-pretty mb-4 max-w-2xl">
-                  You run your practice. I&apos;ll build the presence
-                  around&nbsp;it.
+                  You run your practice. I&apos;ll build the presence around&nbsp;it.
                 </h2>
                 <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-14 text-pretty">
-                  You shouldn&apos;t have to think about SEO, design, or site
-                  performance &mdash; that&apos;s what you have me for.
+                  You shouldn&apos;t have to think about SEO, design, or site performance &mdash;
+                  that&apos;s what you have me for.
                 </p>
 
                 <div className="space-y-12 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-0">
@@ -595,8 +546,7 @@ export default function LawFirmsCentralValleyPage() {
                   Built for how law firms actually get clients.
                 </h2>
                 <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-2 text-pretty">
-                  Every feature helps potential clients find you, trust you, and
-                  reach&nbsp;out.
+                  Every feature helps potential clients find you, trust you, and reach&nbsp;out.
                 </p>
                 <Link
                   href="/services/web-development"
@@ -612,8 +562,7 @@ export default function LawFirmsCentralValleyPage() {
                     <div
                       className="rounded-xl border border-white/[0.06] overflow-hidden"
                       style={{
-                        boxShadow:
-                          "0 4px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.02)",
+                        boxShadow: "0 4px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.02)",
                       }}
                     >
                       {/* Browser chrome */}
@@ -657,9 +606,7 @@ export default function LawFirmsCentralValleyPage() {
                           <span>/</span>
                           <span>Practice Areas</span>
                           <span>/</span>
-                          <span className="text-cyber-accent/60">
-                            Personal Injury
-                          </span>
+                          <span className="text-cyber-accent/60">Personal Injury</span>
                         </div>
                         {/* H1 placeholder */}
                         <div className="space-y-2">
@@ -676,9 +623,7 @@ export default function LawFirmsCentralValleyPage() {
                             </span>
                           </div>
                           <div className="h-9 w-28 rounded-md bg-white/[0.04] border border-white/[0.06] flex items-center justify-center">
-                            <span className="text-[10px] text-cyber-gray-500">
-                              Call Now
-                            </span>
+                            <span className="text-[10px] text-cyber-gray-500">Call Now</span>
                           </div>
                         </div>
                         {/* Stats row */}
@@ -688,24 +633,16 @@ export default function LawFirmsCentralValleyPage() {
                             { stat: "500+", label: "Cases Won" },
                             { stat: "15 yrs", label: "Experience" },
                           ].map((s) => (
-                            <div
-                              key={s.label}
-                              className="text-center py-2 rounded bg-white/[0.02]"
-                            >
-                              <p className="text-sm font-semibold text-white">
-                                {s.stat}
-                              </p>
-                              <p className="text-[10px] text-cyber-gray-500">
-                                {s.label}
-                              </p>
+                            <div key={s.label} className="text-center py-2 rounded bg-white/[0.02]">
+                              <p className="text-sm font-semibold text-white">{s.stat}</p>
+                              <p className="text-[10px] text-cyber-gray-500">{s.label}</p>
                             </div>
                           ))}
                         </div>
                       </div>
                     </div>
                     <p className="mt-3 text-xs text-cyber-gray-600 font-mono">
-                      Each practice area gets its own page, copy, and
-                      search&nbsp;strategy.
+                      Each practice area gets its own page, copy, and search&nbsp;strategy.
                     </p>
                   </div>
 
@@ -740,10 +677,7 @@ export default function LawFirmsCentralValleyPage() {
                         }`}
                       >
                         <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <item.icon
-                            className="w-4 h-4 text-cyber-accent"
-                            aria-hidden="true"
-                          />
+                          <item.icon className="w-4 h-4 text-cyber-accent" aria-hidden="true" />
                         </div>
                         <div>
                           <h3 className="text-[15px] font-semibold text-stone-900 mb-1">
@@ -772,16 +706,14 @@ export default function LawFirmsCentralValleyPage() {
                       I grew up here. I know this market.
                     </h2>
                     <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed mb-6 text-pretty">
-                      I know the Central Valley. Most law firms here
-                      haven&apos;t touched their websites in years &mdash; which
-                      means the firms that start building a real online presence
-                      now become the obvious choice in their&nbsp;city.
+                      I know the Central Valley. Most law firms here haven&apos;t touched their
+                      websites in years &mdash; which means the firms that start building a real
+                      online presence now become the obvious choice in their&nbsp;city.
                     </p>
                     <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed text-pretty">
-                      Most agencies will build sites for every lawyer in town
-                      &mdash; and try to rank them all for the same searches.
-                      You end up paying someone who&apos;s also working for your
-                      direct competition. I don&apos;t do that. When I&apos;m
+                      Most agencies will build sites for every lawyer in town &mdash; and try to
+                      rank them all for the same searches. You end up paying someone who&apos;s also
+                      working for your direct competition. I don&apos;t do that. When I&apos;m
                       building your online presence, I&apos;m all in on yours.
                     </p>
 
@@ -807,19 +739,13 @@ export default function LawFirmsCentralValleyPage() {
                     <div
                       className="rounded-xl border border-white/[0.06] overflow-hidden"
                       style={{
-                        boxShadow:
-                          "0 4px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.02)",
+                        boxShadow: "0 4px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.02)",
                       }}
                     >
                       {/* Header */}
                       <div className="px-5 py-4 border-b border-white/[0.06] bg-[#0D0F13] flex items-center gap-3">
-                        <MapPin
-                          className="w-4 h-4 text-cyber-accent"
-                          aria-hidden="true"
-                        />
-                        <p className="text-sm font-semibold text-white">
-                          Service Area
-                        </p>
+                        <MapPin className="w-4 h-4 text-cyber-accent" aria-hidden="true" />
+                        <p className="text-sm font-semibold text-white">Service Area</p>
                         <span className="ml-auto text-[10px] font-mono text-cyber-gray-500 uppercase tracking-wider">
                           Central Valley
                         </span>
@@ -847,9 +773,7 @@ export default function LawFirmsCentralValleyPage() {
                             >
                               <div className="flex items-center gap-2.5">
                                 <span className="h-1.5 w-1.5 rounded-full bg-cyber-accent/40" />
-                                <span className="text-sm text-cyber-gray-200">
-                                  {item.city}
-                                </span>
+                                <span className="text-sm text-cyber-gray-200">{item.city}</span>
                               </div>
                               <span className="text-[10px] font-mono text-cyber-gray-500">
                                 {item.pop}
@@ -903,10 +827,9 @@ export default function LawFirmsCentralValleyPage() {
                       Most firms won&apos;t do this. That&apos;s your edge.
                     </h2>
                     <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed text-pretty">
-                      One conversation &mdash; no pitch, no pressure. I&apos;ll
-                      look at your current site, show you where the gaps are,
-                      and map out what a real online presence would look like
-                      for your firm. Even if we don&apos;t work together,
+                      One conversation &mdash; no pitch, no pressure. I&apos;ll look at your current
+                      site, show you where the gaps are, and map out what a real online presence
+                      would look like for your firm. Even if we don&apos;t work together,
                       you&apos;ll walk away knowing what to fix.
                     </p>
                   </div>

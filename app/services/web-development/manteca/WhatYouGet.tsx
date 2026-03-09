@@ -5,10 +5,9 @@ import {
   Paintbrush,
   Calendar,
   Wrench,
-  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
-import Link from "next/link";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 const deliverables: {
   icon: LucideIcon;
@@ -56,8 +55,8 @@ export default function WhatYouGet() {
         <span className="text-gradient-gold">get found and convert.</span>
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-12">
-        Not a vague &ldquo;website package.&rdquo; Every deliverable is tied to
-        a specific problem that costs local businesses real customers.
+        Not a vague &ldquo;website package.&rdquo; Every deliverable is tied to a specific problem
+        that costs local businesses real customers.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -68,9 +67,7 @@ export default function WhatYouGet() {
           >
             <div className="flex items-center gap-2.5 mb-2">
               <d.icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
-              <h3 className="text-base font-semibold text-warm-white">
-                {d.title}
-              </h3>
+              <h3 className="text-base font-semibold text-warm-white">{d.title}</h3>
             </div>
             <p className="text-sm text-stone-500 leading-relaxed">{d.body}</p>
           </div>
@@ -80,13 +77,11 @@ export default function WhatYouGet() {
         <div className="rounded-xl border border-warm-gold/20 bg-warm-gold/[0.03] p-6 sm:p-7 transition-colors duration-300 hover:bg-warm-gold/[0.06] hover:border-warm-gold/30">
           <div className="flex items-center gap-2.5 mb-2">
             <Wrench className="w-4 h-4 text-warm-gold" aria-hidden="true" />
-            <h3 className="text-base font-semibold text-warm-gold">
-              Need something specific?
-            </h3>
+            <h3 className="text-base font-semibold text-warm-gold">Need something specific?</h3>
           </div>
           <p className="text-sm text-stone-500 leading-relaxed">
-            Every business has unique needs. If something isn&apos;t on this
-            list, tell me what it is and I&apos;ll build&nbsp;it.
+            Every business has unique needs. If something isn&apos;t on this list, tell me what it
+            is and I&apos;ll build&nbsp;it.
           </p>
         </div>
       </div>
@@ -96,16 +91,9 @@ export default function WhatYouGet() {
         <p className="text-[15px] text-stone-600 leading-relaxed max-w-md">
           Want to see how this would work for your business?
         </p>
-        <Link
-          href="/contact"
-          className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg flex-shrink-0"
-        >
+        <PrimaryButton href="/contact" size="sm" arrow className="flex-shrink-0">
           Get a Free Local Audit
-          <ArrowRight
-            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
-            aria-hidden="true"
-          />
-        </Link>
+        </PrimaryButton>
       </div>
     </section>
   );

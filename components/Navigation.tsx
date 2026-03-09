@@ -152,22 +152,18 @@ export default function Navigation() {
       setIsSolutionsOpen(true);
       // Focus first dropdown link after it opens
       requestAnimationFrame(() => {
-        const firstLink = dropdownRef.current?.querySelector<HTMLAnchorElement>(
-          "[data-dropdown-item] a",
-        );
+        const firstLink =
+          dropdownRef.current?.querySelector<HTMLAnchorElement>("[data-dropdown-item] a");
         firstLink?.focus();
       });
     }
   };
 
   const handleDropdownItemKeyDown = (e: React.KeyboardEvent) => {
-    const items = dropdownRef.current?.querySelectorAll<HTMLAnchorElement>(
-      "[data-dropdown-item] a",
-    );
+    const items =
+      dropdownRef.current?.querySelectorAll<HTMLAnchorElement>("[data-dropdown-item] a");
     if (!items) return;
-    const currentIndex = Array.from(items).indexOf(
-      e.currentTarget as HTMLAnchorElement,
-    );
+    const currentIndex = Array.from(items).indexOf(e.currentTarget as HTMLAnchorElement);
 
     if (e.key === "ArrowDown") {
       e.preventDefault();
@@ -210,15 +206,11 @@ export default function Navigation() {
               ref={dropdownRef}
               className="relative"
               onMouseEnter={() => {
-                if (dropdownTimeout.current)
-                  clearTimeout(dropdownTimeout.current);
+                if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
                 setIsSolutionsOpen(true);
               }}
               onMouseLeave={() => {
-                dropdownTimeout.current = setTimeout(
-                  () => setIsSolutionsOpen(false),
-                  150,
-                );
+                dropdownTimeout.current = setTimeout(() => setIsSolutionsOpen(false), 150);
               }}
             >
               <Link
@@ -356,9 +348,7 @@ export default function Navigation() {
                   : "text-stone-500 hover:text-stone-900"
               }`}
               data-umami-event="nav-insights"
-              aria-current={
-                pathname.startsWith("/insights") ? "page" : undefined
-              }
+              aria-current={pathname.startsWith("/insights") ? "page" : undefined}
             >
               Insights
               {pathname.startsWith("/insights") && (
@@ -373,7 +363,7 @@ export default function Navigation() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 shadow-lg shadow-amber-600/15"
+              className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
               data-umami-event="nav-get-started"
               aria-current={pathname === "/contact" ? "page" : undefined}
             >
@@ -436,9 +426,7 @@ export default function Navigation() {
               aria-label="Solutions submenu"
               hidden={!isMobileSolutionsOpen}
               className={`overflow-hidden transition-all duration-300 ${
-                isMobileSolutionsOpen
-                  ? "max-h-[400px] opacity-100 pb-2"
-                  : "max-h-0 opacity-0"
+                isMobileSolutionsOpen ? "max-h-[400px] opacity-100 pb-2" : "max-h-0 opacity-0"
               }`}
             >
               <div className="space-y-1 pt-1">
@@ -481,9 +469,7 @@ export default function Navigation() {
                   data-umami-event="mobile-nav-service-automation"
                   onClick={closeMenu}
                 >
-                  <span className="block text-[15px] font-medium text-stone-800">
-                    Automation
-                  </span>
+                  <span className="block text-[15px] font-medium text-stone-800">Automation</span>
                   <span className="block text-[12px] text-stone-500 mt-0.5">
                     Replace manual work with code
                   </span>
@@ -513,7 +499,7 @@ export default function Navigation() {
           <div className="pt-4">
             <Link
               href="/contact"
-              className="block px-6 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-lg transition-all text-center text-sm hover:brightness-110 shadow-lg shadow-amber-600/15"
+              className="block px-6 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-lg transition-all text-center text-sm hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
               data-umami-event="mobile-nav-get-started"
               onClick={closeMenu}
             >
