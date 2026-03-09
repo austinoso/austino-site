@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { BrowserMockup } from "@/components/ui/BrowserMockup";
+import { ScrollingScreenshot } from "@/components/ui/ScrollingScreenshot";
 
 const features = [
   "Design That Builds Trust",
@@ -25,25 +25,12 @@ export default function WebDevelopment() {
       {/* ── Cinematic browser mockup — full width ── */}
       <div data-visual className="relative mb-10 sm:mb-12">
         <BrowserMockup url="mymassagecottage.com">
-          {/* Screenshot — 16:9 cinematic crop */}
-          <div className="relative aspect-video">
-            <Image
-              src="/assets/my-massage-cottage-demo.jpg"
-              alt="My Massage Cottage — client website we designed and built"
-              fill
-              className="object-cover object-top"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1100px"
-            />
-            {/* Bottom fade — hides dark footer bleed */}
-            <div
-              className="absolute bottom-0 inset-x-0 h-24 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 100%)",
-              }}
-              aria-hidden="true"
-            />
-          </div>
+          <ScrollingScreenshot
+            src="/assets/mymassagecottage.com.png"
+            alt="My Massage Cottage — full website I designed and built, scrolling through the complete page"
+            width={3448}
+            height={4886}
+          />
         </BrowserMockup>
       </div>
 
