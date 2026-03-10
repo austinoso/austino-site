@@ -8,6 +8,7 @@ import Hero from "./Hero";
 import SoundFamiliar from "./SoundFamiliar";
 import TheReality from "./TheReality";
 import WhatsIncluded from "./TheStrategy";
+import TotalCoverage from "./TotalCoverage";
 import LongTerm from "./LongTerm";
 import WhyMe from "./WhyMe";
 import FAQ from "./FAQ";
@@ -42,6 +43,11 @@ export default function GrowthStrategyPage() {
           {/* ── The Strategy ── */}
           <ServiceSection gradient={1} padding="pt-14 sm:pt-28 md:pt-32">
             <WhatsIncluded />
+          </ServiceSection>
+
+          {/* ── Total Coverage (premium tier) ── */}
+          <ServiceSection gradient={3} padding="pt-14 sm:pt-28 md:pt-32">
+            <TotalCoverage />
           </ServiceSection>
 
           {/* ── Long-Term ── */}
