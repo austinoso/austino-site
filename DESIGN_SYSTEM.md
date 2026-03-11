@@ -661,6 +661,27 @@ export default function NewServicePage() {
 }
 ```
 
+### CompetitorAudit (legal pSEO — `components/pseo/CompetitorAudit.tsx`)
+
+Two-column: heading + summary left, audit scorecard right. Scorecard is a white card with pass/fail rows showing real market scan data. Red `bg-red-50/40` wash on failing rows, green ✓ / red ✗ status badges. Mono font for rates and counts. Header bar with `FileSearch` icon and scan summary. Footer links to full insights article.
+
+- Grid: `lg:grid-cols-12`, heading `lg:col-span-5`, scorecard `lg:col-span-7`
+- Card: `rounded-xl border-stone-200 bg-white`, subtle `box-shadow: 0 2px 12px rgba(0,0,0,0.04)`
+- Row grid: `grid-cols-[1fr_4.5rem_5rem_2.5rem]`, `px-5 py-3`, `border-b border-stone-100`
+- Failing rows: `bg-red-50/40`, `text-red-600/80` for rate, `bg-red-100 text-red-500` badge
+- Passing rows: `text-emerald-600/80` for rate, `bg-emerald-100 text-emerald-600` badge
+- Data lives in `CityOverride.audit` — city-specific, not shared
+
+### SiteMockup (legal pSEO — `components/pseo/SiteMockup.tsx`)
+
+Replaces the generic icon+title+description deliverables grid. Two-column: annotated browser mockup left, numbered deliverable list right.
+
+- Mockup uses **warm parchment chrome** (`bg-[#E8E2DA]`, `bg-[#F0EAE2]`) matching the hero SERP mockup — NOT the dark chrome from main site mockups. Hard offset shadow: `12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)`
+- Mockup internals: wireframe-style law firm site (nav bar, hero, map embed, practice areas grid, reviews strip, footer with schema/PageSpeed indicators)
+- Right column: deliverables as hover-interactive list items with `01`–`06` numbering in amber mono, icon + title + description
+- Grid: `lg:grid-cols-12`, mockup `lg:col-span-7`, list `lg:col-span-5`
+- CTA at bottom of right column, separated by `border-t border-stone-200`
+
 ---
 
 ## 15. Anti-patterns

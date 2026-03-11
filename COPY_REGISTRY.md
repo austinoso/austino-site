@@ -64,6 +64,62 @@ Each headline is "claimed" by its page. No other page should use the same line o
 | ------- | ---------------------------- |
 | Hero    | Tell me about your business. |
 
+### pSEO Legal Template (`content/pseo/legal/shared.ts`)
+
+City-injected via `{city}` placeholder. Per-city overrides replace the shared defaults.
+
+| Section       | Headline                                                          | Override |
+| ------------- | ----------------------------------------------------------------- | -------- |
+| Hero (shared) | {city} has plenty of law firms. **Google shows three.**           | Fallback |
+| Hero (Stockton) | 79% of Stockton law firms forgot to **put themselves on the map.** | Override |
+| Hero (Modesto) | Modesto law firms average 84 Google reviews. **A third of their sites have five pages.** | Override |
+| The Gap (shared) | Why most {city} law firms **don't rank.**                      | Fallback |
+| The Gap (Stockton) | What 20 Stockton law firms **actually look like online.**   | Override |
+| The Gap (Modesto) | **Strong firms. Thin websites.**                              | Override |
+| Authority     | Google holds law firms to a **higher standard.**                  | Shared   |
+| Deliverables  | Built for how people in {city} **find a lawyer.**                 | Shared   |
+| Deliverable 1 | A site that's actually yours                                      | Shared   |
+| Deliverable 2 | A page for every practice area                                    | Shared   |
+| Deliverable 3 | Profiles Google can read                                         | Shared   |
+| Deliverable 4 | Maps and local search                                             | Shared   |
+| Deliverable 5 | See where leads come from                                         | Shared   |
+| FAQ           | Straight answers about law firm websites in **{city}.**           | Shared   |
+| Final CTA     | While other {city} firms wait, **yours could rank.**              | Shared   |
+
+### pSEO Home Services Template (`content/pseo/home-services/`)
+
+City-injected via `{city}` placeholder. Per-city overrides replace the shared defaults.
+
+| Section           | Headline                                                                | Override   |
+| ----------------- | ----------------------------------------------------------------------- | ---------- |
+| Hero (shared)     | When a {city} homeowner's AC dies, your site has **3 seconds.**         | Fallback   |
+| Hero (Stockton)   | 71% of Stockton contractor sites **have no map.**                       | Override   |
+| Hero (Manteca)    | 43% of Manteca contractors **don't have a website.**                    | Override   |
+| Hero (Modesto)    | Over half of Modesto contractor sites **don't have a contact form.**    | Override   |
+| Hero (Tracy)      | Tracy doubled in population. **Its contractor websites didn't move.**    | Override   |
+| Problem (shared)  | Every slow second costs {city} contractors **real jobs.**               | Fallback   |
+| Problem (Stockton)| A website. A form. A map. **Most are missing at least one.**           | Override   |
+| Problem (Manteca) | Half of them **don't exist online.**                                    | Override   |
+| Problem (Modesto) | The web presence **doesn't match the market.**                          | Override   |
+| Problem (Tracy)   | The fastest-growing city. **The thinnest competition.**                 | Override   |
+| Problem Card (Stockton 1) | A third of the market **has nothing.**                           | Override   |
+| Problem Card (Stockton 2) | Half the sites **can't take a lead**                             | Override   |
+| Problem Card (Stockton 3) | No map. **No 'near me' results.**                                | Override   |
+| Problem Card (Manteca 1)  | 40 out of 93 **have nothing.**                                   | Override   |
+| Problem Card (Manteca 2)  | Good luck **reaching them.**                                     | Override   |
+| Problem Card (Manteca 3)  | Over half are **off the map.**                                   | Override   |
+| Problem Card (Modesto 1)  | 37 businesses. **Zero web presence.**                            | Override   |
+| Problem Card (Modesto 2)  | The form is missing. **So is the call.**                         | Override   |
+| Problem Card (Modesto 3)  | 68% **forgot the map.**                                         | Override   |
+| Problem Card (Tracy 1)    | No site. **No chance.**                                          | Override   |
+| Problem Card (Tracy 2)    | Half the sites **hide the phone number.**                        | Override   |
+| Problem Card (Tracy 3)    | The map pack is **wide open.**                                   | Override   |
+| Speed Proof       | Your site speed is **your first impression.**                           | Shared     |
+| The Math          | What one missed call costs a {city} **contractor.**                     | Shared     |
+| Deliverables      | A site built for how {city} **homeowners hire.**                        | Shared     |
+| FAQ               | Questions {city} **contractors ask.**                                   | Shared     |
+| Final CTA         | Every day your site loads slow, **a {city} competitor gets the call.**  | Shared     |
+
 ---
 
 ## CTA Button Text
@@ -85,6 +141,8 @@ Each entry is the exact button label and where it appears. Reusing the same CTA 
 | Explore growth strategy   | Homepage solutions        | Service cross-link          |
 | Explore automation        | Homepage solutions        | Service cross-link          |
 | Send Message              | Contact form              | Form submit                 |
+| See How You Stack Up      | pSEO Legal hero           | City template primary       |
+| See Where You Rank        | pSEO Legal final CTA      | City template close         |
 
 **Resolved:** Hero and FinalCTA button text now varies across service pages.
 
@@ -112,6 +170,28 @@ Phrases that carry weight or appear more than once. If a phrase is listed here, 
 | "your competition"                        | Solutions/index.tsx                 | Homepage solutions only                                       |
 | "within 24 hours"                         | contact/page.tsx, ContactForm.tsx   | **Reduced** — was 5×, now 2× (header + form success)          |
 | "no pressure"                             | contact/page.tsx                    | **Reduced** — was 3×, now 1× (header only)                    |
+| "Page two is a graveyard"                  | pseo/legal/shared.ts                | Problem card heading — shared fallback                          |
+| "Your site has 50 milliseconds"            | pseo/legal/shared.ts                | Problem card heading — shared fallback                          |
+| "You own everything"                       | pseo/legal/shared.ts                | FAQ differentiator vs FindLaw/Justia — pSEO legal template     |
+| "Google shows three"                       | pseo/legal/shared.ts                | Hero headline hook — shared fallback                            |
+| "forgot to put themselves on the map"      | pseo/legal/stockton.ts              | Stockton hero headline — double meaning (maps embed + visibility) |
+| "Most sites are a homepage and a prayer"   | pseo/legal/modesto.ts               | Modesto problem card heading                                     |
+| "Half the market has nothing to publish"   | pseo/legal/modesto.ts               | Modesto problem card heading                                     |
+| "Strong firms. Thin websites."             | pseo/legal/modesto.ts               | Modesto problem section heading                                  |
+| "The basics are broken"                    | pseo/legal/stockton.ts              | Stockton override angle / motif                                  |
+| "Nine out of ten. Invisible."              | **RETIRED**                                 | Replaced — stat was dubious (page 1–2 math)                      |
+| "No map. No 'near me' results."            | pseo/home-services/stockton.ts      | Problem card — maps embed gap                                     |
+| "A third of the market has nothing."       | pseo/home-services/stockton.ts      | Problem card — no-website stat (replaced page 1–2 card)           |
+| "40 out of 93 have nothing."               | pseo/home-services/manteca.ts       | Problem card — no-website stat                                    |
+| "Good luck reaching them."                 | pseo/home-services/manteca.ts       | Problem card — no contact form/click-to-call                      |
+| "Over half are off the map."               | pseo/home-services/manteca.ts       | Problem card — maps embed gap (replaced page 1–2 card)            |
+| "124 businesses. 15 show up."              | **RETIRED**                                 | Replaced — stat was dubious (page 1–2 math)                      |
+| "37 businesses. Zero web presence."        | pseo/home-services/modesto.ts       | Problem card — no-website stat (replaced page 1–2 card)           |
+| "The form is missing. So is the call."     | pseo/home-services/modesto.ts       | Problem card — no contact form/click-to-call                      |
+| "68% forgot the map."                      | pseo/home-services/modesto.ts       | Problem card — maps embed gap                                     |
+| "No site. No chance."                      | pseo/home-services/tracy.ts         | Problem card — no-website stat                                    |
+| "94% invisible. That's your opening."      | **RETIRED**                                 | Replaced — stat was dubious (page 1–2 math)                      |
+| "The map pack is wide open."               | pseo/home-services/tracy.ts         | Problem card — maps embed gap (replaced page 1–2 card)            |
 
 ---
 
@@ -134,6 +214,12 @@ Lines that have been flagged as generic, overused in the industry, or AI-soundin
 | "The kind of work that compounds"                      | Finance jargon as metaphor                     | **Retired** |
 | "compounds every month"                                | Finance jargon in heading                      | **Retired** |
 | "One person accountable for the whole picture"         | Duplicated About-section claim on service page | **Retired** |
+| "This isn't abstract"                                   | Filler opener — The Math subtext               | **Retired** |
+| "Honest answer:"                                        | Filler opener — FAQ timeline answer            | **Retired** |
+| "Right now, someone in {city} is typing..."             | Dramatic scene-setting — problem card          | **Retired** |
+| "building a focused practice around"                    | Odd phrasing for a web developer               | **Retired** |
+| "NAP consistency"                                       | SEO jargon — audience doesn't know this term   | **Retired** |
+| "Straight answers about [X] websites in {city}"        | Skeleton reuse across legal + home services    | **Retired** (legal keeps it, home services changed) |
 
 ---
 
@@ -155,10 +241,16 @@ These aren't word-for-word duplicates but _skeleton reuse_ — same sentence str
 
 ### Headlines
 
-| Post slug                       | Headline / Title                                         |
-| ------------------------------- | -------------------------------------------------------- |
-| local-seo-basics-central-valley | Why Your Business Isn't Showing Up on Google             |
-| modesto-experience-gap          | Modesto Is Growing. Most Local Business Websites Aren't. |
+| Post slug                          | Headline / Title                                                                  |
+| ---------------------------------- | --------------------------------------------------------------------------------- |
+| local-seo-basics-central-valley    | Why Your Business Isn't Showing Up on Google                                      |
+| modesto-experience-gap             | Modesto Is Growing. Most Local Business Websites Aren't.                          |
+| stockton-law-firm-websites         | 79% of Stockton Law Firms Have No Map on Their Website                            |
+| modesto-law-firm-websites          | Modesto Law Firms Have 84 Average Reviews. Their Websites Have 5 Pages.           |
+| stockton-contractor-website-audit  | I Scanned 115 Stockton Contractors. Here's What Their Websites Look Like.         |
+| manteca-contractor-website-audit   | 43% of Manteca Contractors Don't Have a Website                                   |
+| modesto-contractor-website-audit   | I Audited 124 Modesto Contractor Businesses. Most Sites Can't Take a Lead.        |
+| tracy-contractor-website-audit     | Tracy Is the Fastest-Growing City in the Valley. Its Contractor Websites Are the Worst. |
 
 ### Signature Phrases (Insights)
 
@@ -168,6 +260,8 @@ These aren't word-for-word duplicates but _skeleton reuse_ — same sentence str
 | "The bar is low. The businesses that clear it first get the traffic." | local-seo-basics-central-valley |
 | "One business, four directories, three mismatches."                   | local-seo-basics-central-valley |
 | "None of these take more than an hour. All of them move the needle."  | local-seo-basics-central-valley |
+| "That's not competition. That's an open field."                       | **RETIRED** (dubious stat)      |
+| "They're winning because the rest haven't shown up yet."              | **RETIRED**                     |
 
 ### CTAs (Insights)
 

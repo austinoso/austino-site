@@ -1,0 +1,55 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+interface PseoCTAProps {
+  sectionLabel: string;
+  headline: string;
+  body: string;
+  cta: { label: string; href: string };
+  crossLinks?: { label: string; href: string }[];
+}
+
+export default function PseoCTA({ sectionLabel, headline, body, cta, crossLinks }: PseoCTAProps) {
+  return (
+    <section data-fade>
+      <p className="text-xs font-semibold text-amber-700 uppercase tracking-[0.2em] mb-5">
+        {sectionLabel}
+      </p>
+
+      <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-stone-900 leading-[1.1] tracking-tight max-w-2xl">
+        {headline}
+      </h2>
+
+      <p className="mt-5 text-base sm:text-lg text-stone-500 leading-relaxed max-w-xl">{body}</p>
+
+      <div className="mt-10 sm:mt-12 flex items-center gap-4">
+        <Link
+          href={cta.href}
+          className="group inline-flex items-center gap-2 text-[15px] font-semibold text-warm-gold hover:text-amber-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:ring-offset-2"
+        >
+          <span>{cta.label}</span>
+          <ArrowRight
+            className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
+            aria-hidden="true"
+          />
+        </Link>
+        <span className="text-[11px] font-mono text-stone-500">Free, no commitment</span>
+      </div>
+
+      {crossLinks && crossLinks.length > 0 && (
+        <div className="border-t border-stone-200 mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
+          {crossLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-warm-white transition-colors duration-300"
+            >
+              {link.label}
+              <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+            </Link>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}

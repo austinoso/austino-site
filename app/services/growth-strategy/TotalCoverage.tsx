@@ -29,13 +29,12 @@ export default function TotalCoverage() {
   const totalPages = cities.length * services.length;
 
   return (
-    <section
-      data-fade
-      className="px-6 sm:px-10 md:px-14 lg:px-20 pb-14 sm:pb-20 md:pb-24"
-    >
+    <section data-fade className="px-6 sm:px-10 md:px-14 lg:px-20 pb-14 sm:pb-20 md:pb-24">
       {/* ── Add-on label ── */}
       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-warm-gold/20 bg-warm-gold/[0.06] mb-8 sm:mb-10">
-        <span className="text-[11px] font-mono font-medium text-warm-gold uppercase tracking-[0.15em]">Add-on</span>
+        <span className="text-[11px] font-mono font-medium text-warm-gold uppercase tracking-[0.15em]">
+          Add-on
+        </span>
       </div>
 
       {/* ── Heading ── */}
@@ -44,23 +43,20 @@ export default function TotalCoverage() {
         <span className="text-gradient-gold">own every&nbsp;search.</span>
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-4 text-pretty">
-        Not every business needs this. But if you&apos;re in a competitive
-        market, offer a range of services, or cover more than one city, a
-        handful of pages won&apos;t cut&nbsp;it.
+        Not every business needs this. But if you&apos;re in a competitive market, offer a range of
+        services, or cover more than one city, a handful of pages won&apos;t cut&nbsp;it.
       </p>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-10 sm:mb-12 text-pretty">
-        I build a dedicated page for every service you offer, in every city you
-        serve. Each one targets a specific search and is built with real local
-        detail. The result isn&apos;t just more pages. It&apos;s a site Google
-        treats as the authority in your&nbsp;market.
+        I build a dedicated page for every service you offer, in every city you serve. Each one
+        targets a specific search and is built with real local detail. The result isn&apos;t just
+        more pages. It&apos;s a site Google treats as the authority in your&nbsp;market.
       </p>
 
       {/* ── Coverage matrix mockup ── */}
       <div
         className="rounded-xl border border-stone-300 bg-[#F0EAE2] overflow-hidden select-none"
         style={{
-          boxShadow:
-            "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+          boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
         }}
         aria-hidden="true"
       >
@@ -71,19 +67,13 @@ export default function TotalCoverage() {
               <Globe className="w-4 h-4 text-warm-gold" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-stone-900">
-                Search Coverage
-              </p>
-              <p className="text-[11px] text-stone-500 font-mono">
-                Example: Local Plumbing Co.
-              </p>
+              <p className="text-sm font-semibold text-stone-900">Search Coverage</p>
+              <p className="text-[11px] text-stone-500 font-mono">Example: Local Plumbing Co.</p>
             </div>
           </div>
           <div className="hidden sm:flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-[#5C8A64] animate-pulse" />
-            <span className="text-[11px] text-[#5C8A64] font-mono">
-              {totalPages} pages
-            </span>
+            <span className="text-[11px] text-[#5C8A64] font-mono">{totalPages} pages</span>
           </div>
         </div>
 
@@ -109,11 +99,7 @@ export default function TotalCoverage() {
               {services.map((service, i) => (
                 <tr
                   key={service}
-                  className={
-                    i < services.length - 1
-                      ? "border-b border-stone-200/40"
-                      : ""
-                  }
+                  className={i < services.length - 1 ? "border-b border-stone-200/40" : ""}
                 >
                   <td className="px-5 sm:px-6 py-3.5 text-sm text-stone-800 font-medium">
                     {service}
@@ -136,38 +122,28 @@ export default function TotalCoverage() {
           <p className="text-[11px] text-stone-500">
             {totalPages} pages &middot; {totalPages} keywords targeted
           </p>
-          <p className="text-[11px] text-stone-500 font-mono">
-            Each page ranks independently
-          </p>
+          <p className="text-[11px] text-stone-500 font-mono">Each page ranks independently</p>
         </div>
       </div>
 
       {/* ── Authority callout ── */}
       <div className="mt-8 sm:mt-10 rounded-xl border border-warm-gold/15 bg-warm-gold/[0.04] px-6 sm:px-8 py-6 sm:py-7">
         <h3 className="font-display text-lg sm:text-xl font-bold text-warm-white leading-snug tracking-tight mb-2">
-          This is how Google picks the{" "}
-          <span className="text-gradient-gold">authority.</span>
+          This is how Google picks the <span className="text-gradient-gold">authority.</span>
         </h3>
         <p className="text-[15px] text-stone-600 leading-relaxed max-w-2xl text-pretty">
-          A business with 20+ interlinked, well-structured pages covering every
-          service and city sends a clear signal: this is the expert. That&apos;s
-          how you stop competing for page one and start owning&nbsp;it.
+          A business with 20+ interlinked, well-structured pages covering every service and city
+          sends a clear signal: this is the expert. That&apos;s how you stop competing for page one
+          and start owning&nbsp;it.
         </p>
       </div>
 
       {/* ── Features ── */}
       <div className="grid sm:grid-cols-3 gap-5 sm:gap-6 mt-5 sm:mt-6">
         {features.map((f) => (
-          <div
-            key={f.title}
-            className="border-l-2 border-warm-gold/20 pl-5 py-1"
-          >
-            <h3 className="text-sm font-semibold text-warm-white mb-1.5">
-              {f.title}
-            </h3>
-            <p className="text-[13px] text-stone-500 leading-relaxed">
-              {f.desc}
-            </p>
+          <div key={f.title} className="border-l-2 border-warm-gold/20 pl-5 py-1">
+            <h3 className="text-sm font-semibold text-warm-white mb-1.5">{f.title}</h3>
+            <p className="text-[13px] text-stone-500 leading-relaxed">{f.desc}</p>
           </div>
         ))}
       </div>

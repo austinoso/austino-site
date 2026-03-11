@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import PageScrollAnimator from "@/components/ui/PageScrollAnimator";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import { BackLink } from "@/components/ui/BackLink";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
+import { ServiceSection } from "@/components/ui/ServiceSection";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Scale, Search, Palette, Code, Smartphone, Users, MapPin } from "lucide-react";
@@ -39,64 +41,138 @@ const faqs = [
   },
 ];
 
+/* ── City data ── */
+const cities = [
+  { city: "Fresno", pop: "545K" },
+  { city: "Bakersfield", pop: "407K" },
+  { city: "Stockton", pop: "322K" },
+  { city: "Modesto", pop: "218K" },
+  { city: "Visalia", pop: "144K" },
+  { city: "Merced", pop: "86K" },
+  { city: "Clovis", pop: "120K" },
+  { city: "Turlock", pop: "75K" },
+  { city: "Manteca", pop: "84K" },
+  { city: "Tracy", pop: "96K" },
+  { city: "Hanford", pop: "58K" },
+  { city: "Lodi", pop: "68K" },
+];
+
 export default function LawFirmsCentralValleyPage() {
   return (
     <>
-      <main id="main-content" className="relative min-h-screen bg-cyber-dark">
+      <main id="main-content" className="relative min-h-screen bg-warm-bg">
         <PageScrollAnimator />
         <Navigation />
 
         <div className="page-frame">
           {/* ── Hero ── */}
           <div className="relative border-b border-stone-200 overflow-hidden">
-            <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
+            {/* Decorative circles */}
+            <div
+              className="absolute -right-[16rem] sm:-right-[12rem] md:-right-[16rem] top-6 sm:top-12 md:top-16 w-[20rem] h-[20rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] rounded-full pointer-events-none"
+              style={{ background: "rgba(180, 83, 9, 0.06)" }}
+              aria-hidden="true"
+            />
+            <div
+              className="absolute -right-[10rem] sm:-right-[6rem] md:-right-[8rem] top-[14rem] sm:top-[18rem] md:top-[22rem] w-[12rem] h-[12rem] sm:w-[14rem] sm:h-[14rem] md:w-[18rem] md:h-[18rem] rounded-full pointer-events-none"
+              style={{ background: "rgba(180, 83, 9, 0.04)" }}
+              aria-hidden="true"
+            />
+
+            <div className="relative z-10 px-6 sm:px-10 md:px-14 lg:px-20 pt-16 pb-0 sm:pt-20 md:pt-24">
               <BackLink href="/#solutions" className="mb-10 sm:mb-14">
                 Back to Home
               </BackLink>
-              <section className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                <div data-hero-copy className="lg:col-span-6 space-y-6">
-                  <div className="flex items-center gap-2">
-                    <p className="section-label">Law Firms</p>
-                    <span className="text-xs font-mono text-cyber-gray-500 tracking-wide">
+
+              <section className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center pb-20 sm:pb-24 lg:pb-28">
+                <div data-hero-copy className="lg:col-span-7 flex flex-col">
+                  <div className="flex items-center gap-2 mb-5 sm:mb-6">
+                    <Scale className="w-3.5 h-3.5 text-warm-gold" aria-hidden="true" />
+                    <span className="section-label">Law Firms</span>
+                    <span className="text-xs font-mono text-stone-400 tracking-wide">
                       · Central Valley
                     </span>
                   </div>
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-stone-900 leading-tight tracking-tight text-balance">
+
+                  <h1 className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold text-warm-white leading-[1.08] tracking-tight text-balance">
                     Most law firms have a website.{" "}
-                    <span className="text-cyber-accent">Very few have an online presence.</span>
+                    <span className="text-gradient-gold">
+                      Very few have an online&nbsp;presence.
+                    </span>
                   </h1>
-                  <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed text-pretty">
+
+                  <p className="mt-4 sm:mt-5 text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-pretty">
                     An online presence does more than just exist &mdash; it builds trust, shows up
                     when people search, and makes it easy to take the next step. Most firms in the
                     Central Valley aren&apos;t there yet, which means the ones that start now have a
                     real advantage.
                   </p>
-                  <div className="flex flex-col sm:flex-row items-start gap-4">
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-3 px-7 py-3.5 bg-cyber-accent text-[#060608] font-semibold text-sm rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)]"
-                    >
+
+                  <div className="mt-9 sm:mt-10 flex flex-wrap items-center gap-x-7 gap-y-5">
+                    <PrimaryButton href="/contact" arrow>
                       Get Your Free Site Review
-                      <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                    </PrimaryButton>
+                    <Link
+                      href="#demo"
+                      className="group inline-flex items-center gap-2 text-[15px] font-medium text-stone-500 hover:text-warm-gold transition-colors duration-200"
+                    >
+                      See the Demo
+                      <ArrowRight
+                        className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
                     </Link>
+                  </div>
+
+                  {/* Trust signals */}
+                  <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
+                    <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
+                      <Search
+                        className="w-3.5 h-3.5 text-amber-700 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      Built for Google
+                    </span>
+                    <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
+                      <Scale
+                        className="w-3.5 h-3.5 text-amber-700 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      One firm per practice area
+                    </span>
+                    <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
+                      <MapPin
+                        className="w-3.5 h-3.5 text-amber-700 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      Central Valley
+                      <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    </span>
                   </div>
                 </div>
 
-                {/* Hero visual — browser mockup with screenshot */}
-                <div data-hero-visual className="lg:col-span-6">
-                  <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0E] overflow-hidden select-none">
+                {/* Hero visual — warm browser mockup */}
+                <div data-hero-visual className="lg:col-span-5">
+                  <div
+                    className="rounded-xl border border-stone-300 bg-[#0C0B09] overflow-hidden select-none"
+                    style={{
+                      boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+                    }}
+                  >
                     <div
-                      className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13]"
+                      className="flex items-center gap-3 px-4 py-2 border-b border-white/[0.04]"
                       aria-hidden="true"
                     >
                       <div className="flex items-center gap-1.5">
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/70" />
+                        <span className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
+                        <span className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
+                        <span className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
                       </div>
                       <div className="flex-1 flex justify-center">
-                        <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
-                          law-demo.austino.dev
+                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.04]">
+                          <span className="text-[10px] text-white/25 font-mono tracking-wide">
+                            law-demo.austino.dev
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -104,11 +180,10 @@ export default function LawFirmsCentralValleyPage() {
                       href="https://law-demo.austino.dev"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative block"
                     >
                       <Image
                         src="/assets/law-site.PNG"
-                        alt="Custom law firm website concept designed for a Central Valley practice — this is a design demo, not a template"
+                        alt="Custom law firm website concept — design demo for Central Valley attorneys"
                         width={800}
                         height={500}
                         className="w-full h-auto"
@@ -116,263 +191,231 @@ export default function LawFirmsCentralValleyPage() {
                       />
                     </a>
                   </div>
+                  <p className="text-sm text-stone-500 mt-4">
+                    Design concept.{" "}
+                    <a
+                      href="https://law-demo.austino.dev"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-warm-gold hover:underline"
+                    >
+                      View live demo &rarr;
+                    </a>
+                  </p>
                 </div>
               </section>
             </div>
+
+            {/* Brand gradient bottom border */}
+            <div
+              className="absolute bottom-0 inset-x-0 h-[2px]"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent 5%, #B45309 25%, #DB2777 50%, #7C3AED 75%, transparent 95%)",
+                opacity: 0.7,
+              }}
+              aria-hidden="true"
+            />
           </div>
 
           {/* ── The Problem ── */}
-          <div className="border-b border-stone-200">
-            <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
-              <section data-fade>
-                <p className="section-label mb-4">The Gap</p>
-                <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-4 max-w-2xl">
-                  Most firms in the Valley aren&apos;t doing this yet.
+          <ServiceSection
+            gradient={0}
+            padding="section-px pt-14 pb-14 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32"
+          >
+            <section data-fade>
+              <div className="mb-10 sm:mb-14">
+                <p className="section-label mb-5">The Gap</p>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance max-w-2xl">
+                  Most firms in the Valley aren&apos;t doing this&nbsp;yet.
                 </h2>
-                <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12 text-pretty">
+                <p className="mt-4 text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl">
                   A site that was built years ago and never updated isn&apos;t pulling its weight.
                   It&apos;s not ranking on Google, not earning trust with visitors, and not giving
                   people a clear way to reach out. That&apos;s not a criticism &mdash; it&apos;s an
                   opportunity.
                 </p>
+              </div>
 
-                {/* Bento grid */}
-                <div className="grid grid-cols-1 md:grid-cols-5 border-t border-l border-stone-200">
-                  {/* Featured — Template Trap (3 cols, 2 rows) */}
-                  <div className="md:col-span-3 md:row-span-2 border-b border-r border-stone-200 p-7 sm:p-9 flex flex-col">
-                    <div className="w-10 h-10 rounded-full border border-cyber-accent/25 bg-cyber-accent/[0.06] flex items-center justify-center flex-shrink-0 mb-5">
-                      <Palette className="w-[18px] h-[18px] text-cyber-accent" aria-hidden="true" />
+              {/* Bento stat cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
+                {/* Featured — Template Trap */}
+                <div className="md:col-span-2 rounded-xl bg-white border border-stone-200 p-6 sm:p-8 hover:shadow-sm transition-shadow duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <Palette className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                      <h3 className="text-lg font-semibold text-warm-white">
+                        Same templates, same first impression
+                      </h3>
                     </div>
-                    <h3 className="font-display text-lg sm:text-xl font-semibold text-stone-900 leading-snug mb-3">
-                      Same templates, same first impression
-                    </h3>
-                    <p className="text-[15px] text-cyber-gray-300 leading-relaxed max-w-md flex-1">
+                    <p className="text-[15px] text-stone-500 leading-relaxed max-w-lg">
                       Most law firm sites come from the same handful of providers &mdash; FindLaw,
                       Avvo, Justia. Same layout, same stock photos, same copy. When a potential
                       client visits three firms and they all look the same, there&apos;s nothing to
-                      remember. Nothing that says &ldquo;this is the one.&rdquo; The firm that looks
-                      different earns the call.
+                      remember. The firm that looks different earns the&nbsp;call.
                     </p>
-                    {/* Comparison strip — three identical templates stacked like cards */}
-                    <div className="mt-auto pt-6">
-                      <div className="relative h-[110px] sm:h-[130px]">
-                        {[0, 1, 2].map((i) => (
-                          <div
-                            key={i}
-                            className="absolute rounded-md border border-white/[0.08] bg-[#0A0C0F] overflow-hidden shadow-lg"
-                            style={{
-                              width: "55%",
-                              left: `${i * 20}%`,
-                              top: `${i * 8}px`,
-                              zIndex: i,
-                            }}
-                          >
-                            {/* Browser chrome */}
-                            <div className="flex items-center gap-1.5 px-2.5 py-1.5 border-b border-white/[0.06] bg-white/[0.02]">
-                              <div className="flex items-center gap-0.5">
-                                <span className="h-1 w-1 rounded-full bg-[#FF5F57]/50" />
-                                <span className="h-1 w-1 rounded-full bg-[#FEBC2E]/50" />
-                                <span className="h-1 w-1 rounded-full bg-[#28C840]/50" />
-                              </div>
-                              <div className="flex-1 flex justify-center">
-                                <div className="h-1 w-14 rounded-sm bg-white/[0.06]" />
-                              </div>
+                  </div>
+                  {/* Template comparison — stacked cards */}
+                  <div className="mt-6 pt-6 border-t border-stone-200">
+                    <div className="relative h-[110px] sm:h-[130px]">
+                      {[0, 1, 2].map((i) => (
+                        <div
+                          key={i}
+                          className="absolute rounded-lg border border-stone-300 bg-white overflow-hidden"
+                          style={{
+                            width: "55%",
+                            left: `${i * 20}%`,
+                            top: `${i * 8}px`,
+                            zIndex: i,
+                            boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+                          }}
+                        >
+                          <div className="flex items-center gap-1.5 px-2.5 py-1.5 border-b border-stone-200 bg-stone-50">
+                            <div className="flex items-center gap-0.5">
+                              <span className="h-1 w-1 rounded-full bg-stone-300" />
+                              <span className="h-1 w-1 rounded-full bg-stone-300" />
+                              <span className="h-1 w-1 rounded-full bg-stone-300" />
                             </div>
-                            {/* Page content */}
-                            <div className="p-2.5">
-                              {/* Nav */}
-                              <div className="flex items-center gap-1 mb-1.5">
-                                <div className="h-0.5 w-5 rounded-sm bg-white/[0.10]" />
-                                <div className="ml-auto flex gap-0.5">
-                                  <div className="h-0.5 w-2 rounded-sm bg-white/[0.06]" />
-                                  <div className="h-0.5 w-2 rounded-sm bg-white/[0.06]" />
-                                </div>
-                              </div>
-                              {/* Hero */}
-                              <div className="h-7 sm:h-9 rounded-sm bg-white/[0.03] mb-1.5 flex items-end p-1.5">
-                                <div className="h-0.5 w-3/4 rounded-sm bg-white/[0.08]" />
-                              </div>
-                              {/* Body */}
-                              <div className="space-y-0.5">
-                                <div className="h-px w-full rounded-sm bg-white/[0.05]" />
-                                <div className="h-px w-5/6 rounded-sm bg-white/[0.05]" />
-                                <div className="h-px w-2/3 rounded-sm bg-white/[0.04]" />
-                              </div>
+                            <div className="flex-1 flex justify-center">
+                              <div className="h-1 w-14 rounded-sm bg-stone-200" />
                             </div>
                           </div>
-                        ))}
-                      </div>
-                      <p className="text-[10px] text-cyber-gray-500 font-mono mt-3">
-                        Three firms. One template. No one stands out.
-                      </p>
+                          <div className="p-2.5">
+                            <div className="flex items-center gap-1 mb-1.5">
+                              <div className="h-0.5 w-5 rounded-sm bg-stone-200" />
+                              <div className="ml-auto flex gap-0.5">
+                                <div className="h-0.5 w-2 rounded-sm bg-stone-200" />
+                                <div className="h-0.5 w-2 rounded-sm bg-stone-200" />
+                              </div>
+                            </div>
+                            <div className="h-7 sm:h-9 rounded-sm bg-stone-100 mb-1.5 flex items-end p-1.5">
+                              <div className="h-0.5 w-3/4 rounded-sm bg-stone-200" />
+                            </div>
+                            <div className="space-y-0.5">
+                              <div className="h-px w-full rounded-sm bg-stone-100" />
+                              <div className="h-px w-5/6 rounded-sm bg-stone-100" />
+                              <div className="h-px w-2/3 rounded-sm bg-stone-100" />
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
+                    <p className="text-[11px] text-stone-400 font-mono mt-3">
+                      Three firms. One template. No one stands out.
+                    </p>
                   </div>
+                </div>
 
-                  {/* Invisible on Google */}
-                  <div className="md:col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
-                        <Search
-                          className="w-[18px] h-[18px] text-cyber-accent"
-                          aria-hidden="true"
-                        />
-                      </div>
-                      <h3 className="text-[15px] font-semibold text-stone-900">
-                        Not showing up on Google
+                {/* Right column — stacked cards */}
+                <div className="flex flex-col gap-2">
+                  {/* Not showing up on Google */}
+                  <div className="rounded-xl bg-white border border-stone-200 p-6 sm:p-7 hover:shadow-sm transition-shadow duration-300 flex-1 flex flex-col">
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <Search className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                      <h3 className="text-base font-semibold text-warm-white">
+                        Invisible on Google
                       </h3>
                     </div>
-                    <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty flex-1">
+                    <p className="text-sm text-stone-500 leading-relaxed flex-1">
                       75% of people never scroll past page&nbsp;1. Most firm sites are slow,
-                      bloated, and missing the behind-the-scenes signals Google looks for. If your
-                      site isn&apos;t built for search, people who need you right now can&apos;t
-                      find you.
+                      bloated, and missing the signals Google looks&nbsp;for.
                     </p>
-                    <div className="mt-auto pt-5">
-                      <div className="flex items-end gap-3">
-                        <span className="font-display text-3xl sm:text-4xl font-bold text-cyber-accent leading-none">
-                          75%
-                        </span>
-                        <p className="text-xs text-cyber-gray-400 leading-snug pb-0.5">
-                          never scroll past page&nbsp;1
-                        </p>
-                      </div>
+                    <div className="mt-4 pt-4 border-t border-stone-200">
+                      <span className="font-display text-3xl font-bold text-warm-gold leading-none">
+                        75%
+                      </span>
+                      <p className="text-[11px] font-mono text-stone-400 uppercase tracking-wider mt-1">
+                        never scroll past page 1
+                      </p>
                     </div>
                   </div>
 
                   {/* No path to action */}
-                  <div className="md:col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
-                        <Users className="w-[18px] h-[18px] text-cyber-accent" aria-hidden="true" />
-                      </div>
-                      <h3 className="text-[15px] font-semibold text-stone-900">
+                  <div className="rounded-xl bg-white border border-stone-200 p-6 sm:p-7 hover:shadow-sm transition-shadow duration-300 flex-1 flex flex-col">
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <Users className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                      <h3 className="text-base font-semibold text-warm-white">
                         No clear way to reach out
                       </h3>
                     </div>
-                    <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty flex-1">
-                      Someone lands on your site, stressed, looking for help. If there&apos;s no
-                      obvious way to reach out &mdash; a form, a booking link, a clear next step
-                      &mdash; they leave. Most firms bury a phone number three clicks deep and
-                      wonder why the phone isn&apos;t ringing.
+                    <p className="text-sm text-stone-500 leading-relaxed flex-1">
+                      Most firms bury a phone number three clicks deep and wonder why it isn&apos;t
+                      ringing.
                     </p>
-                    <div className="mt-auto pt-5">
-                      <div className="flex items-end gap-3">
-                        <span className="font-display text-3xl sm:text-4xl font-bold text-cyber-accent leading-none">
-                          81%
-                        </span>
-                        <p className="text-xs text-cyber-gray-400 leading-snug pb-0.5">
-                          won&apos;t make a cold call
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* One-size-fits-none */}
-                  <div className="md:col-span-2 border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
-                        <Code className="w-[18px] h-[18px] text-cyber-accent" aria-hidden="true" />
-                      </div>
-                      <h3 className="text-[15px] font-semibold text-stone-900">
-                        Built for every firm, not yours
-                      </h3>
-                    </div>
-                    <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty flex-1">
-                      A family law practice in Modesto and a corporate firm in SF have nothing in
-                      common &mdash; but their sites use the same template, same layout, same stock
-                      &ldquo;About Us&rdquo; page. When your site doesn&apos;t reflect your actual
-                      practice, it doesn&apos;t build trust. It raises questions.
-                    </p>
-                  </div>
-
-                  {/* Search results visual — all results look identical */}
-                  <div
-                    className="md:col-span-3 border-b border-r border-white/[0.06] bg-[#0A0A0E] flex flex-col overflow-hidden"
-                    aria-hidden="true"
-                  >
-                    <div className="px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13] flex-shrink-0">
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/[0.06]">
-                        <Search className="w-3 h-3 text-cyber-gray-400" aria-hidden="true" />
-                        <span className="text-[11px] text-cyber-gray-300 font-mono">
-                          personal injury attorney fresno
-                        </span>
-                      </div>
-                    </div>
-                    <div className="p-4 sm:p-5 flex-1 flex flex-col">
-                      {[
-                        {
-                          url: "fresnolawteam.com",
-                          title: "Fresno Law Team — Injury Attorneys",
-                        },
-                        {
-                          url: "valleylawgroup.com",
-                          title: "Valley Law Group — Personal Injury",
-                        },
-                        {
-                          url: "smithandpartners.com",
-                          title: "Smith & Partners — Injury Lawyers",
-                        },
-                        {
-                          url: "centralvalleylaw.com",
-                          title: "Central Valley Law — PI Attorney",
-                        },
-                      ].map((r, i) => (
-                        <div
-                          key={r.url}
-                          className={`flex items-start gap-3 py-2.5 ${i > 0 ? "border-t border-white/[0.06]" : ""}`}
-                        >
-                          <span className="text-[10px] font-mono text-cyber-gray-500 w-3 pt-0.5 flex-shrink-0">
-                            {i + 1}
-                          </span>
-                          <div className="min-w-0">
-                            <p className="text-[11px] text-[#8AB4F8] mb-0.5 truncate">{r.url}</p>
-                            <p className="text-[11px] text-white/50 leading-snug">{r.title}</p>
-                            <p className="text-[9px] text-cyber-gray-500 mt-0.5">
-                              Template &middot; Stock photos &middot; Generic copy
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                      <p className="text-[10px] text-cyber-gray-500 font-mono mt-auto pt-3 text-center border-t border-white/[0.06]">
-                        4 results. Same template. Who stands out?
+                    <div className="mt-4 pt-4 border-t border-stone-200">
+                      <span className="font-display text-3xl font-bold text-warm-gold leading-none">
+                        81%
+                      </span>
+                      <p className="text-[11px] font-mono text-stone-400 uppercase tracking-wider mt-1">
+                        won&apos;t make a cold call
                       </p>
                     </div>
                   </div>
                 </div>
-              </section>
-            </div>
-          </div>
+              </div>
+
+              {/* Full-width card — built for every firm */}
+              <div className="rounded-xl bg-white border border-stone-200 p-6 sm:p-8 hover:shadow-sm transition-shadow duration-300 flex flex-col sm:flex-row sm:items-center sm:gap-10">
+                <div className="flex items-center gap-2.5 mb-3 sm:mb-0 sm:flex-shrink-0">
+                  <Code className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                  <h3 className="text-base font-semibold text-warm-white">
+                    Built for every firm, not yours
+                  </h3>
+                </div>
+                <p className="text-sm text-stone-500 leading-relaxed">
+                  A family law practice in Modesto and a corporate firm in SF have nothing in common
+                  &mdash; but their sites use the same template, same layout, same stock
+                  &ldquo;About Us&rdquo; page. When your site doesn&apos;t reflect your actual
+                  practice, it doesn&apos;t build trust. It raises&nbsp;questions.
+                </p>
+              </div>
+            </section>
+          </ServiceSection>
 
           {/* ── The Demo ── */}
-          <div className="relative border-b border-stone-200 overflow-hidden">
-            <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
-              <section data-fade>
-                <p className="section-label mb-4">The Solution</p>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-stone-900 leading-[1.1] tracking-tight text-balance mb-4 max-w-2xl">
-                  An online presence that builds trust &mdash; even when you&apos;re in court.
+          <ServiceSection
+            gradient={1}
+            className="overflow-hidden"
+            padding="section-px pt-14 pb-14 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32"
+          >
+            <section id="demo" data-fade>
+              <div className="mb-10 sm:mb-14">
+                <p className="section-label mb-5">The Solution</p>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance max-w-2xl mb-3">
+                  An online presence that builds trust &mdash; even when you&apos;re in&nbsp;court.
                 </h2>
-                <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-12 text-pretty">
+                <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl">
                   I build sites from scratch around your firm &mdash; not from a template library.
-                  Every page, every section, every detail is there to do one thing: earn trust with
-                  the right people and make it easy to take the next step. Here&apos;s a concept I
-                  built to show what that looks like.
+                  Every page, every section, every detail is there to earn trust and make it easy to
+                  take the next step. Here&apos;s a concept I built to show what that
+                  looks&nbsp;like.
                 </p>
+              </div>
 
-                {/* Bento: demo + feature cards */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 border-t border-l border-stone-200">
-                  {/* Screenshot cell */}
-                  <div className="lg:row-span-2 border-b border-r border-white/[0.06] bg-[#0A0A0E] overflow-hidden flex flex-col">
-                    {/* Browser chrome */}
-                    <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-[#0D0F13]">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+                {/* Left — browser mockup */}
+                <div className="lg:col-span-7">
+                  <div
+                    className="rounded-xl border border-stone-300 bg-[#0C0B09] overflow-hidden select-none"
+                    style={{
+                      boxShadow: "-12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+                    }}
+                  >
+                    <div
+                      className="flex items-center gap-3 px-4 py-2 border-b border-white/[0.04]"
+                      aria-hidden="true"
+                    >
                       <div className="flex items-center gap-1.5">
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/70" />
+                        <span className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
+                        <span className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
+                        <span className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
                       </div>
                       <div className="flex-1 flex justify-center">
-                        <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/[0.04] text-[11px] text-cyber-gray-500 font-mono">
-                          <MapPin className="w-2.5 h-2.5" />
-                          law-demo.austino.dev
+                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.04]">
+                          <MapPin className="w-2.5 h-2.5 text-white/20" aria-hidden="true" />
+                          <span className="text-[10px] text-white/25 font-mono tracking-wide">
+                            law-demo.austino.dev
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -380,491 +423,458 @@ export default function LawFirmsCentralValleyPage() {
                       href="https://law-demo.austino.dev"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1"
                     >
                       <Image
                         src="/assets/law-site.PNG"
                         alt="Full view of custom law firm website concept — design demo for Central Valley attorneys"
                         width={800}
                         height={600}
-                        className="w-full h-auto flex-1 object-cover object-top"
+                        className="w-full h-auto object-cover object-top"
                       />
                     </a>
-                    <div className="border-t border-white/[0.06] bg-[#0D0F13] px-4 py-2.5 flex items-center justify-center">
-                      <a
-                        href="https://law-demo.austino.dev"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-cyber-accent/70 hover:text-cyber-accent transition-colors font-mono"
-                      >
-                        View live demo &rarr;
-                      </a>
-                    </div>
                   </div>
+                  <p className="text-sm text-stone-500 mt-4">
+                    Design concept built in{" "}
+                    <span className="text-warm-white font-medium">2 weeks</span>.{" "}
+                    <a
+                      href="https://law-demo.austino.dev"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-warm-gold hover:underline"
+                    >
+                      View live demo &rarr;
+                    </a>
+                  </p>
+                </div>
 
-                  {/* Feature cards — 2×2 on right */}
+                {/* Right — feature selling points */}
+                <div className="lg:col-span-5 space-y-1">
                   {[
                     {
                       icon: Palette,
-                      title: "Builds trust at first glance",
-                      body: "No stock gavel photos. No cookie-cutter layouts. Every color, section, and word is chosen to make visitors feel like they\u2019re in the right place \u2014 before they read the fine print. When your site looks like it was built for your firm, people trust it.",
+                      label: "Builds trust at first glance",
+                      desc: "No stock gavel photos. No cookie-cutter layouts. Every color, section, and word is chosen to make visitors feel like they\u2019re in the right place.",
                     },
                     {
                       icon: Users,
-                      title: "Turns visitors into consultations",
-                      body: "Most people on a law firm site are stressed and short on time. The layout guides them from \u2018I need help\u2019 to \u2018here\u2019s how to reach out\u2019 \u2014 naturally, without friction. Forms, booking links, and calls-to-action right where they\u2019re already looking.",
+                      label: "Turns visitors into consultations",
+                      desc: "The layout guides people from \u2018I need help\u2019 to \u2018here\u2019s how to reach out\u2019 \u2014 naturally. Forms, booking links, and CTAs right where they\u2019re already looking.",
                     },
                     {
                       icon: Search,
-                      title: "Shows up when people search",
-                      body: "Dedicated practice area pages, local search signals, and the technical foundation Google rewards. Built so you rank for searches like \u201Cpersonal injury attorney Fresno\u201D \u2014 not buried on page\u00A03.",
+                      label: "Shows up when people search",
+                      desc: "Dedicated practice area pages, local search signals, and the technical foundation Google rewards. Built to rank for \u201C[specialty] attorney [city]\u201D searches.",
                     },
                     {
                       icon: Smartphone,
-                      title: "Fast and sharp on every device",
-                      body: "Over 60% of people searching for an attorney do it from their phone. Your site loads in under 2 seconds, reads clean on any screen, and makes it easy to take action with one tap.",
+                      label: "Fast and sharp on every device",
+                      desc: "Over 60% of people searching for an attorney do it from their phone. Your site loads in under 2 seconds and reads clean on any screen.",
                     },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="border-b border-r border-stone-200 p-5 sm:p-6 flex flex-col"
-                    >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0">
-                          <item.icon className="w-4 h-4 text-cyber-accent" aria-hidden="true" />
+                  ].map((d) => {
+                    const Icon = d.icon;
+                    return (
+                      <div
+                        key={d.label}
+                        className="flex items-start gap-3 py-3 px-3 rounded-lg border border-transparent hover:border-stone-300 hover:bg-stone-50 transition-colors duration-200"
+                      >
+                        <div className="w-8 h-8 rounded-md bg-warm-gold/10 flex items-center justify-center shrink-0 mt-0.5">
+                          <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
                         </div>
-                        <h4 className="text-[15px] font-semibold text-stone-900">{item.title}</h4>
+                        <div>
+                          <span className="text-sm font-medium text-warm-white block leading-snug">
+                            {d.label}
+                          </span>
+                          <span className="text-[13px] text-stone-500 leading-relaxed block mt-0.5">
+                            {d.desc}
+                          </span>
+                        </div>
                       </div>
-                      <p className="text-sm text-cyber-gray-400 leading-relaxed">{item.body}</p>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
-              </section>
-            </div>
-          </div>
+              </div>
+            </section>
+          </ServiceSection>
 
-          {/* ── Not a Template ── */}
-          <div className="border-b border-stone-200">
-            <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
-              <section data-fade>
-                <p className="section-label mb-4">How It Works</p>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-stone-900 leading-[1.1] tracking-tight text-pretty mb-4 max-w-2xl">
+          {/* ── How It Works ── */}
+          <ServiceSection
+            gradient={2}
+            padding="section-px pt-14 pb-14 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32"
+          >
+            <section data-fade>
+              <div className="mb-10 sm:mb-14">
+                <p className="section-label mb-5">How It Works</p>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance max-w-2xl mb-3">
                   You run your practice. I&apos;ll build the presence around&nbsp;it.
                 </h2>
-                <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-14 text-pretty">
+                <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl">
                   You shouldn&apos;t have to think about SEO, design, or site performance &mdash;
                   that&apos;s what you have me for.
                 </p>
+              </div>
 
-                <div className="space-y-12 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-0">
-                  {[
-                    {
-                      step: "01",
-                      title: "Discovery",
-                      body: "I learn your firm \u2014 the cases you take, the clients you want more of, and what the online landscape looks like in your market. This isn\u2019t a questionnaire. It\u2019s a real conversation about what will actually move the needle.",
-                    },
-                    {
-                      step: "02",
-                      title: "Design & Build",
-                      body: "Every page is built from scratch around your firm. Practice area pages that rank. Attorney bios that build trust. Contact flows people actually use. Nothing recycled \u2014 every decision is made to earn consultations.",
-                    },
-                    {
-                      step: "03",
-                      title: "Launch & Grow",
-                      body: "Your site goes live with search optimization, analytics, and a strategy behind it. From there, I watch the data \u2014 what\u2019s working, what\u2019s not, where the opportunities are \u2014 and keep building on it.",
-                    },
-                  ].map((item, i) => (
-                    <div key={item.step} className="relative group">
-                      {i < 2 && (
-                        <div
-                          className="hidden sm:block absolute top-[18px] right-0 w-full h-px z-0 pointer-events-none"
-                          style={{
-                            background:
-                              "linear-gradient(to right, rgba(64,224,255,0.018), rgba(64,224,255,0.005))",
-                            left: "calc(38px + 1rem)",
-                            width: "calc(100% - 38px - 1rem)",
-                          }}
-                        />
-                      )}
-
-                      <div className="relative z-10 sm:pr-8">
-                        <div className="flex items-center gap-4 mb-5">
-                          <div className="flex items-center justify-center h-[38px] w-[38px] rounded-full bg-cyber-dark border border-cyber-accent/25 shadow-[0_0_16px_rgba(64,224,255,0.06)]">
-                            <span className="text-xs font-mono text-cyber-accent font-semibold">
-                              {item.step}
-                            </span>
-                          </div>
-                          {i < 2 && (
-                            <div
-                              className="flex-1 h-px sm:hidden"
-                              style={{
-                                background:
-                                  "linear-gradient(to right, rgba(64,224,255,0.018), rgba(64,224,255,0.005))",
-                              }}
-                            />
-                          )}
-                        </div>
-
-                        <h3 className="text-base sm:text-lg font-semibold text-stone-900 mb-2.5">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty max-w-sm">
-                          {item.body}
-                        </p>
+              <div className="space-y-12 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-8">
+                {[
+                  {
+                    step: "01",
+                    title: "Discovery",
+                    body: "I learn your firm \u2014 the cases you take, the clients you want more of, and what the online landscape looks like in your market. This isn\u2019t a questionnaire. It\u2019s a real conversation about what will actually move the needle.",
+                  },
+                  {
+                    step: "02",
+                    title: "Design & Build",
+                    body: "Every page is built from scratch around your firm. Practice area pages that rank. Attorney bios that build trust. Contact flows people actually use. Nothing recycled \u2014 every decision is made to earn consultations.",
+                  },
+                  {
+                    step: "03",
+                    title: "Launch & Grow",
+                    body: "Your site goes live with search optimization, analytics, and a strategy behind it. From there, I watch the data \u2014 what\u2019s working, what\u2019s not, where the opportunities are \u2014 and keep building on it.",
+                  },
+                ].map((item) => (
+                  <div key={item.step}>
+                    <div className="flex items-center gap-4 mb-5">
+                      <div className="flex items-center justify-center h-[38px] w-[38px] rounded-full bg-warm-gold/10 border border-warm-gold/20">
+                        <span className="text-xs font-mono text-warm-gold font-semibold">
+                          {item.step}
+                        </span>
                       </div>
                     </div>
-                  ))}
-                </div>
+                    <h3 className="text-base sm:text-lg font-semibold text-warm-white mb-2.5">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-stone-500 leading-relaxed text-pretty max-w-sm">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
 
-                {/* Service links */}
-                <div className="mt-12 pt-8 border-t border-stone-200 flex flex-col sm:flex-row gap-4 sm:gap-8">
-                  <Link
-                    href="/services/web-development"
-                    className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300"
-                  >
-                    More about the build process
-                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                  </Link>
-                  <Link
-                    href="/services/growth-strategy"
-                    className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300"
-                  >
-                    How ongoing growth works
-                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                  </Link>
-                </div>
-              </section>
-            </div>
-          </div>
-
-          {/* ── What You Get ── */}
-          <div className="relative border-b border-stone-200 overflow-hidden">
-            <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
-              <section data-fade>
-                <p className="section-label mb-4">What&apos;s Included</p>
-                <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-4 max-w-2xl">
-                  Built for how law firms actually get clients.
-                </h2>
-                <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed max-w-2xl mb-2 text-pretty">
-                  Every feature helps potential clients find you, trust you, and reach&nbsp;out.
-                </p>
+              {/* Service links */}
+              <div className="mt-12 pt-8 border-t border-stone-200 flex flex-col sm:flex-row gap-4 sm:gap-8">
                 <Link
                   href="/services/web-development"
-                  className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors mb-8"
+                  className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-warm-white transition-colors duration-300"
                 >
-                  See all features
+                  More about the build process
                   <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                 </Link>
+                <Link
+                  href="/services/growth-strategy"
+                  className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-warm-white transition-colors duration-300"
+                >
+                  How ongoing growth works
+                  <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                </Link>
+              </div>
+            </section>
+          </ServiceSection>
 
-                <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-                  {/* Left — browser mockup showing practice area pages */}
-                  <div className="lg:col-span-7">
+          {/* ── What's Included ── */}
+          <ServiceSection
+            gradient={3}
+            className="overflow-hidden"
+            padding="section-px pt-14 pb-14 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32"
+          >
+            <section data-fade>
+              <div className="mb-10 sm:mb-14">
+                <p className="section-label mb-5">What&apos;s Included</p>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance max-w-2xl mb-3">
+                  Built for how law firms actually get&nbsp;clients.
+                </h2>
+                <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl">
+                  Every feature helps potential clients find you, trust you, and reach&nbsp;out.{" "}
+                  <Link href="/services/web-development" className="text-warm-gold hover:underline">
+                    See all features &rarr;
+                  </Link>
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+                {/* Left — practice area mockup */}
+                <div className="lg:col-span-7">
+                  <div
+                    className="rounded-xl border border-stone-300 bg-[#0C0B09] overflow-hidden select-none"
+                    style={{
+                      boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+                    }}
+                  >
+                    {/* Browser chrome */}
                     <div
-                      className="rounded-xl border border-white/[0.06] overflow-hidden"
-                      style={{
-                        boxShadow: "0 4px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.02)",
-                      }}
+                      className="flex items-center gap-3 px-4 py-2 border-b border-white/[0.04]"
+                      aria-hidden="true"
                     >
-                      {/* Browser chrome */}
-                      <div className="px-4 py-3 bg-[#0D0F13] border-b border-white/[0.06] flex items-center gap-3">
-                        <div className="flex gap-1.5">
-                          <span className="w-2.5 h-2.5 rounded-full bg-white/[0.06]" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-white/[0.06]" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-white/[0.06]" />
-                        </div>
-                        <div className="flex-1 mx-2 px-3 py-1 rounded bg-white/[0.03] border border-white/[0.04]">
-                          <span className="text-[10px] font-mono text-cyber-gray-500">
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
+                        <span className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
+                        <span className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
+                      </div>
+                      <div className="flex-1 flex justify-center">
+                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.04]">
+                          <span className="text-[10px] text-white/25 font-mono">
                             yourfirm.com/practice-areas
                           </span>
                         </div>
                       </div>
-                      {/* Tab bar */}
-                      <div className="bg-[#0A0A0E] border-b border-white/[0.06] flex">
+                    </div>
+                    {/* Tab bar */}
+                    <div className="bg-[#0A0A0E] border-b border-white/[0.06] flex">
+                      {[
+                        { label: "Personal Injury", active: true },
+                        { label: "Family Law", active: false },
+                        { label: "Criminal Defense", active: false },
+                        { label: "Estate Planning", active: false },
+                      ].map((tab) => (
+                        <div
+                          key={tab.label}
+                          className={`px-4 sm:px-5 py-3 text-xs font-medium border-r border-white/[0.04] transition-colors ${
+                            tab.active
+                              ? "text-white bg-[#0D0F13] border-b-2 border-b-amber-500"
+                              : "text-white/30"
+                          }`}
+                        >
+                          {tab.label}
+                        </div>
+                      ))}
+                    </div>
+                    {/* Page preview */}
+                    <div className="bg-[#0A0A0E] p-6 sm:p-8 space-y-5">
+                      <div className="flex items-center gap-2 text-[10px] font-mono text-white/20">
+                        <span>Home</span>
+                        <span>/</span>
+                        <span>Practice Areas</span>
+                        <span>/</span>
+                        <span className="text-amber-500/60">Personal Injury</span>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="h-6 w-3/4 rounded bg-white/[0.06]" />
+                        <div className="h-3 w-full rounded bg-white/[0.03]" />
+                        <div className="h-3 w-5/6 rounded bg-white/[0.03]" />
+                        <div className="h-3 w-2/3 rounded bg-white/[0.03]" />
+                      </div>
+                      <div className="flex items-center gap-3 pt-2">
+                        <div className="h-9 w-36 rounded-md bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
+                          <span className="text-[10px] font-semibold text-amber-400">
+                            Free Consultation
+                          </span>
+                        </div>
+                        <div className="h-9 w-28 rounded-md bg-white/[0.04] border border-white/[0.06] flex items-center justify-center">
+                          <span className="text-[10px] text-white/30">Call Now</span>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-3 gap-3 pt-3 border-t border-white/[0.04]">
                         {[
-                          { label: "Personal Injury", active: true },
-                          { label: "Family Law", active: false },
-                          { label: "Criminal Defense", active: false },
-                          { label: "Estate Planning", active: false },
-                        ].map((tab) => (
-                          <div
-                            key={tab.label}
-                            className={`px-4 sm:px-5 py-3 text-xs font-medium border-r border-white/[0.04] transition-colors ${
-                              tab.active
-                                ? "text-white bg-[#0D0F13] border-b-2 border-b-cyber-accent"
-                                : "text-cyber-gray-500"
-                            }`}
-                          >
-                            {tab.label}
+                          { stat: "$2.1M+", label: "Recovered" },
+                          { stat: "500+", label: "Cases Won" },
+                          { stat: "15 yrs", label: "Experience" },
+                        ].map((s) => (
+                          <div key={s.label} className="text-center py-2 rounded bg-white/[0.02]">
+                            <p className="text-sm font-semibold text-white">{s.stat}</p>
+                            <p className="text-[10px] text-white/30">{s.label}</p>
                           </div>
                         ))}
                       </div>
-                      {/* Page preview */}
-                      <div className="bg-[#0A0A0E] p-6 sm:p-8 space-y-5">
-                        {/* Breadcrumb */}
-                        <div className="flex items-center gap-2 text-[10px] font-mono text-cyber-gray-600">
-                          <span>Home</span>
-                          <span>/</span>
-                          <span>Practice Areas</span>
-                          <span>/</span>
-                          <span className="text-cyber-accent/60">Personal Injury</span>
-                        </div>
-                        {/* H1 placeholder */}
-                        <div className="space-y-2">
-                          <div className="h-6 w-3/4 rounded bg-white/[0.06]" />
-                          <div className="h-3 w-full rounded bg-white/[0.03]" />
-                          <div className="h-3 w-5/6 rounded bg-white/[0.03]" />
-                          <div className="h-3 w-2/3 rounded bg-white/[0.03]" />
-                        </div>
-                        {/* CTA placeholder */}
-                        <div className="flex items-center gap-3 pt-2">
-                          <div className="h-9 w-36 rounded-md bg-cyber-accent/20 border border-cyber-accent/30 flex items-center justify-center">
-                            <span className="text-[10px] font-semibold text-cyber-accent">
-                              Free Consultation
-                            </span>
-                          </div>
-                          <div className="h-9 w-28 rounded-md bg-white/[0.04] border border-white/[0.06] flex items-center justify-center">
-                            <span className="text-[10px] text-cyber-gray-500">Call Now</span>
-                          </div>
-                        </div>
-                        {/* Stats row */}
-                        <div className="grid grid-cols-3 gap-3 pt-3 border-t border-white/[0.04]">
-                          {[
-                            { stat: "$2.1M+", label: "Recovered" },
-                            { stat: "500+", label: "Cases Won" },
-                            { stat: "15 yrs", label: "Experience" },
-                          ].map((s) => (
-                            <div key={s.label} className="text-center py-2 rounded bg-white/[0.02]">
-                              <p className="text-sm font-semibold text-white">{s.stat}</p>
-                              <p className="text-[10px] text-cyber-gray-500">{s.label}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
                     </div>
-                    <p className="mt-3 text-xs text-cyber-gray-600 font-mono">
-                      Each practice area gets its own page, copy, and search&nbsp;strategy.
-                    </p>
                   </div>
+                  <p className="mt-3 text-[11px] text-stone-400 font-mono">
+                    Each practice area gets its own page, copy, and search&nbsp;strategy.
+                  </p>
+                </div>
 
-                  {/* Right — feature list */}
-                  <div className="lg:col-span-5 space-y-0 lg:pt-2">
-                    {[
-                      {
-                        icon: Scale,
-                        title: "Practice Area Pages",
-                        body: "A dedicated page for each type of law you handle \u2014 written and optimized to rank for that specific search.",
-                      },
-                      {
-                        icon: Users,
-                        title: "Client Intake Flow",
-                        body: "Online forms that let people describe their situation and request a consultation. You get case details before the first call.",
-                      },
-                      {
-                        icon: Search,
-                        title: "Local Search Signals",
-                        body: "Location data, business listings, and site structure built so you show up for \u201C[specialty] attorney [city]\u201D searches.",
-                      },
-                      {
-                        icon: MapPin,
-                        title: "Central Valley Content",
-                        body: "Pages and search signals built around Fresno, Bakersfield, Stockton, Modesto, Visalia, and surrounding areas.",
-                      },
-                    ].map((item, i) => (
+                {/* Right — feature list */}
+                <div className="lg:col-span-5 space-y-1">
+                  {[
+                    {
+                      icon: Scale,
+                      label: "Practice Area Pages",
+                      desc: "A dedicated page for each type of law you handle \u2014 written and optimized to rank for that specific search.",
+                    },
+                    {
+                      icon: Users,
+                      label: "Client Intake Flow",
+                      desc: "Online forms that let people describe their situation and request a consultation. You get case details before the first call.",
+                    },
+                    {
+                      icon: Search,
+                      label: "Local Search Signals",
+                      desc: "Location data, business listings, and site structure built so you show up for \u201C[specialty] attorney [city]\u201D searches.",
+                    },
+                    {
+                      icon: MapPin,
+                      label: "Central Valley Content",
+                      desc: "Pages and search signals built around Fresno, Bakersfield, Stockton, Modesto, Visalia, and surrounding areas.",
+                    },
+                  ].map((d) => {
+                    const Icon = d.icon;
+                    return (
                       <div
-                        key={item.title}
-                        className={`flex items-start gap-4 py-5 ${
-                          i > 0 ? "border-t border-stone-200" : ""
-                        }`}
+                        key={d.label}
+                        className="flex items-start gap-3 py-3.5 px-3 rounded-lg border border-transparent hover:border-stone-300 hover:bg-stone-50 transition-colors duration-200"
                       >
-                        <div className="w-9 h-9 rounded-full border border-cyber-accent/20 bg-cyber-accent/[0.05] flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <item.icon className="w-4 h-4 text-cyber-accent" aria-hidden="true" />
+                        <div className="w-8 h-8 rounded-md bg-warm-gold/10 flex items-center justify-center shrink-0 mt-0.5">
+                          <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
                         </div>
                         <div>
-                          <h3 className="text-[15px] font-semibold text-stone-900 mb-1">
-                            {item.title}
-                          </h3>
-                          <p className="text-sm text-cyber-gray-400 leading-relaxed text-pretty">
-                            {item.body}
-                          </p>
+                          <span className="text-sm font-medium text-warm-white block leading-snug">
+                            {d.label}
+                          </span>
+                          <span className="text-[13px] text-stone-500 leading-relaxed block mt-0.5">
+                            {d.desc}
+                          </span>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    );
+                  })}
                 </div>
-              </section>
-            </div>
-          </div>
+              </div>
+            </section>
+          </ServiceSection>
 
           {/* ── Why Central Valley ── */}
-          <div className="border-b border-stone-200">
-            <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
-              <section data-fade>
-                <p className="section-label mb-4">Why the Central Valley</p>
-                <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-                  <div className="lg:col-span-7">
-                    <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-4">
-                      I grew up here. I know this market.
-                    </h2>
-                    <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed mb-6 text-pretty">
-                      I know the Central Valley. Most law firms here haven&apos;t touched their
-                      websites in years &mdash; which means the firms that start building a real
-                      online presence now become the obvious choice in their&nbsp;city.
-                    </p>
-                    <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed text-pretty">
-                      Most agencies will build sites for every lawyer in town &mdash; and try to
-                      rank them all for the same searches. You end up paying someone who&apos;s also
-                      working for your direct competition. I don&apos;t do that. When I&apos;m
-                      building your online presence, I&apos;m all in on yours.
-                    </p>
+          <ServiceSection
+            gradient={4}
+            padding="section-px pt-14 pb-14 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32"
+          >
+            <section data-fade>
+              <p className="section-label mb-5">Why the Central Valley</p>
+              <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+                <div className="lg:col-span-7">
+                  <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4">
+                    I grew up here. I know this&nbsp;market.
+                  </h2>
+                  <p className="text-base sm:text-lg text-stone-600 leading-relaxed mb-6 text-pretty">
+                    I know the Central Valley. Most law firms here haven&apos;t touched their
+                    websites in years &mdash; which means the firms that start building a real
+                    online presence now become the obvious choice in their&nbsp;city.
+                  </p>
+                  <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
+                    Most agencies will build sites for every lawyer in town &mdash; and try to rank
+                    them all for the same searches. You end up paying someone who&apos;s also
+                    working for your direct competition. I don&apos;t do that. When I&apos;m
+                    building your online presence, I&apos;m all in on&nbsp;yours.
+                  </p>
 
-                    {/* Closer — mirrors homepage style */}
-                    <div className="mt-10 sm:mt-12 pt-8 border-t border-stone-200">
-                      <p className="font-display text-2xl sm:text-3xl font-semibold text-cyber-gray-300 leading-snug">
-                        One firm per practice area. One city.{" "}
-                        <span className="text-gradient">
-                          Your competition won&apos;t get this from&nbsp;me.
-                        </span>
-                      </p>
-                      <div className="mt-5 flex items-center gap-3">
-                        <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-                        <span className="text-xs font-mono text-cyber-gray-400">
-                          Spots are limited — check availability
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right column — cities served */}
-                  <div className="lg:col-span-5">
-                    <div
-                      className="rounded-xl border border-white/[0.06] overflow-hidden"
-                      style={{
-                        boxShadow: "0 4px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.02)",
-                      }}
-                    >
-                      {/* Header */}
-                      <div className="px-5 py-4 border-b border-white/[0.06] bg-[#0D0F13] flex items-center gap-3">
-                        <MapPin className="w-4 h-4 text-cyber-accent" aria-hidden="true" />
-                        <p className="text-sm font-semibold text-white">Service Area</p>
-                        <span className="ml-auto text-[10px] font-mono text-cyber-gray-500 uppercase tracking-wider">
-                          Central Valley
-                        </span>
-                      </div>
-                      {/* City grid */}
-                      <div className="bg-[#0A0A0E] p-5">
-                        <div className="grid grid-cols-2 gap-x-4 gap-y-0.5">
-                          {[
-                            { city: "Fresno", pop: "545K" },
-                            { city: "Bakersfield", pop: "407K" },
-                            { city: "Stockton", pop: "322K" },
-                            { city: "Modesto", pop: "218K" },
-                            { city: "Visalia", pop: "144K" },
-                            { city: "Merced", pop: "86K" },
-                            { city: "Clovis", pop: "120K" },
-                            { city: "Turlock", pop: "75K" },
-                            { city: "Manteca", pop: "84K" },
-                            { city: "Tracy", pop: "96K" },
-                            { city: "Hanford", pop: "58K" },
-                            { city: "Lodi", pop: "68K" },
-                          ].map((item) => (
-                            <div
-                              key={item.city}
-                              className="flex items-center justify-between py-2.5 border-b border-white/[0.04] last:border-0"
-                            >
-                              <div className="flex items-center gap-2.5">
-                                <span className="h-1.5 w-1.5 rounded-full bg-cyber-accent/40" />
-                                <span className="text-sm text-cyber-gray-200">{item.city}</span>
-                              </div>
-                              <span className="text-[10px] font-mono text-cyber-gray-500">
-                                {item.pop}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      {/* Footer */}
-                      <div className="px-5 py-3.5 border-t border-white/[0.06] bg-[#0D0F13]">
-                        <p className="text-xs text-cyber-gray-400 leading-relaxed">
-                          Not listed? If you&apos;re in the Valley or nearby,{" "}
-                          <Link
-                            href="/contact"
-                            className="text-cyber-accent/70 hover:text-cyber-accent transition-colors"
-                          >
-                            let&apos;s talk
-                          </Link>
-                          .
-                        </p>
-                      </div>
+                  {/* Closer */}
+                  <div className="mt-10 sm:mt-12 pt-8 border-t border-stone-200">
+                    <p className="font-display text-2xl sm:text-3xl font-semibold text-warm-white leading-snug">
+                      One firm per practice area. One city.{" "}
+                      <span className="text-gradient-gold">
+                        Your competition won&apos;t get this from&nbsp;me.
+                      </span>
+                    </p>
+                    <div className="mt-5 flex items-center gap-3">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="text-xs font-mono text-stone-500">
+                        Spots are limited &mdash; check availability
+                      </span>
                     </div>
                   </div>
                 </div>
-              </section>
-            </div>
-          </div>
+
+                {/* Right — cities served (warm card) */}
+                <div className="lg:col-span-5">
+                  <div className="rounded-xl border border-stone-200 bg-white overflow-hidden">
+                    <div className="px-5 py-4 border-b border-stone-200 bg-stone-50 flex items-center gap-3">
+                      <MapPin className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                      <p className="text-sm font-semibold text-warm-white">Service Area</p>
+                      <span className="ml-auto text-[10px] font-mono text-stone-400 uppercase tracking-wider">
+                        Central Valley
+                      </span>
+                    </div>
+                    <div className="p-5">
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-0.5">
+                        {cities.map((item) => (
+                          <div
+                            key={item.city}
+                            className="flex items-center justify-between py-2.5 border-b border-stone-100 last:border-0"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <span className="h-1.5 w-1.5 rounded-full bg-warm-gold/40" />
+                              <span className="text-sm text-stone-700">{item.city}</span>
+                            </div>
+                            <span className="text-[10px] font-mono text-stone-400">{item.pop}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="px-5 py-3.5 border-t border-stone-200 bg-stone-50">
+                      <p className="text-xs text-stone-500 leading-relaxed">
+                        Not listed? If you&apos;re in the Valley or nearby,{" "}
+                        <Link href="/contact" className="text-warm-gold hover:underline">
+                          let&apos;s talk
+                        </Link>
+                        .
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </ServiceSection>
 
           {/* ── FAQ ── */}
-          <div className="border-b border-stone-200">
-            <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
-              <section data-fade>
-                <p className="section-label mb-4">Common Questions</p>
-                <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-10 max-w-2xl">
-                  Straight answers to the questions I hear most.
-                </h2>
-
-                <FAQAccordion faqs={faqs} idPrefix="law-firm-faq" />
-              </section>
-            </div>
-          </div>
+          <ServiceSection gradient={5}>
+            <section data-fade>
+              <p className="section-label mb-5">Common Questions</p>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-10 max-w-2xl">
+                Straight answers to the questions I hear&nbsp;most.
+              </h2>
+              <FAQAccordion faqs={faqs} idPrefix="law-firm-faq" />
+            </section>
+          </ServiceSection>
 
           {/* ── Final CTA ── */}
-          <div className="border-b border-stone-200">
-            <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28">
-              <section data-fade>
-                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
-                  <div className="max-w-xl">
-                    <p className="section-label mb-4">Get Started</p>
-                    <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 leading-snug tracking-tight text-balance mb-4">
-                      Most firms won&apos;t do this. That&apos;s your edge.
-                    </h2>
-                    <p className="text-base sm:text-lg text-cyber-gray-300 leading-relaxed text-pretty">
-                      One conversation &mdash; no pitch, no pressure. I&apos;ll look at your current
-                      site, show you where the gaps are, and map out what a real online presence
-                      would look like for your firm. Even if we don&apos;t work together,
-                      you&apos;ll walk away knowing what to fix.
-                    </p>
-                  </div>
-                  <div className="flex-shrink-0">
-                    <Link
-                      href="/contact"
-                      className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-cyber-accent text-[#060608] font-semibold text-base rounded-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(64,224,255,0.3)] w-full sm:w-auto"
-                    >
-                      <span>Get Your Free Site Review</span>
-                      <ArrowRight
-                        className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                        aria-hidden="true"
-                      />
-                    </Link>
-                  </div>
-                </div>
-                <div className="border-t border-stone-200 mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
-                  <Link
-                    href="/services/web-development"
-                    className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300"
-                  >
-                    Explore Web Development
-                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                  </Link>
-                  <Link
-                    href="/services/growth-strategy"
-                    className="inline-flex items-center gap-2 text-sm text-cyber-accent/70 hover:text-cyber-accent transition-colors duration-300"
-                  >
-                    Explore Growth Strategy
-                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                  </Link>
-                </div>
-              </section>
-            </div>
-          </div>
+          <ServiceSection
+            gradient={6}
+            padding="section-px pt-14 pb-14 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32"
+          >
+            <section data-fade>
+              <p className="text-xs font-semibold text-amber-700 uppercase tracking-[0.2em] mb-5">
+                Get Started
+              </p>
+
+              <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-stone-900 leading-[1.1] tracking-tight max-w-2xl">
+                Most firms won&apos;t do this.{" "}
+                <span className="text-stone-500">That&apos;s your&nbsp;edge.</span>
+              </h2>
+
+              <p className="mt-5 text-base sm:text-lg text-stone-500 leading-relaxed max-w-xl">
+                One conversation &mdash; no pitch, no pressure. I&apos;ll look at your current site,
+                show you where the gaps are, and map out what a real online presence would look like
+                for your firm.
+              </p>
+
+              <div className="mt-10 sm:mt-12 flex items-center gap-4">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 text-[15px] font-semibold text-warm-gold hover:text-amber-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:ring-offset-2"
+                >
+                  <span>Get Your Free Site Review</span>
+                  <ArrowRight
+                    className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
+                </Link>
+                <span className="text-[11px] font-mono text-stone-500">Free, no commitment</span>
+              </div>
+
+              <div className="border-t border-stone-200 mt-10 pt-6 flex flex-col sm:flex-row gap-4 sm:gap-8">
+                <Link
+                  href="/services/web-development"
+                  className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-warm-white transition-colors duration-300"
+                >
+                  Explore Web Development
+                  <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                </Link>
+                <Link
+                  href="/services/growth-strategy"
+                  className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-warm-white transition-colors duration-300"
+                >
+                  Explore Growth Strategy
+                  <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                </Link>
+              </div>
+            </section>
+          </ServiceSection>
         </div>
       </main>
       <Footer />
