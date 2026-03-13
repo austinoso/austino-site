@@ -271,3 +271,26 @@ select:focus-visible,
 .insight-prose td:first-child {
   @apply text-warm-white font-medium;
 }
+
+/* ── Print styles (service menu + general) ── */
+@media print {
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page-frame::before,
+  .page-frame::after {
+    display: none !important;
+  }
+
+  /* Avoid orphaned sections across page breaks */
+  section {
+    break-inside: avoid;
+  }
+
+  table {
+    break-inside: avoid;
+  }
+}

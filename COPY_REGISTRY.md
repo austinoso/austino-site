@@ -268,3 +268,23 @@ These aren't word-for-word duplicates but _skeleton reuse_ — same sentence str
 | CTA Text   | Where                       |
 | ---------- | --------------------------- |
 | Let's Talk | All post pages (bottom CTA) |
+
+---
+
+### Service Menu (`app/menu/`)
+
+Private page (noindex). Sent to clients directly.
+
+| Section              | Headline / Key Line                                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Header H1            | Service Menu                                                                                                 |
+| Header body          | Three tiers. Pick the one that fits where your business is now — you can always move up.                     |
+| Tier 1 title         | Small Business Kickstart                                                                                     |
+| Tier 1 tagline       | A real website built by someone who understands search. Not a template you're left to figure out on your own. |
+| Tier 1 goal          | Get a clean, professional site that shows up when customers search your business name.                       |
+| Tier 2 title         | Standard Growth                                                                                              |
+| Tier 2 tagline       | You're past the basics. Now you need to show up for the specific things you do — and rank higher than the other guys. |
+| Tier 2 goal          | Rank on Google for the specific services you offer, not just your business name.                             |
+| Tier 3 title         | Market Dominator                                                                                             |
+| Tier 3 tagline       | You serve multiple cities. This makes sure every one of them finds you first.                                |
+| Tier 3 goal          | Show up first in every city you serve. Convert more of the traffic that finds you.                           |
