@@ -35,6 +35,7 @@ const tiers = [
       },
     ],
     price: { upfront: "Starts at $400", monthly: "$50/mo" },
+    priceNote: "Lower upfront available with a higher monthly\u00A0rate.",
     bestFor:
       "Solo entrepreneurs, new local service providers, and \u201coffline\u201d businesses going\u00A0digital.",
     note: "Limited spots available",
@@ -68,7 +69,8 @@ const tiers = [
         detail: "Monthly updates on traffic and how customers are finding\u00A0you.",
       },
     ],
-    price: { upfront: "Starts at $1.5k", monthly: "$150+/mo" },
+    price: { upfront: "Starts at $1.2k", monthly: "$150+/mo" },
+    priceNote: "Lower upfront available with a higher monthly\u00A0rate.",
     bestFor: "Established local businesses that want to rank higher and get more\u00A0calls.",
     buildsOn: "Everything in Kickstart, plus:",
     accent: "gold" as const,
@@ -110,7 +112,7 @@ const comparisonRows = [
   {
     feature: "Upfront Cost",
     kickstart: "Starts at $400*",
-    standard: "Starts at $1.5k*",
+    standard: "Starts at $1.2k*",
     dominator: "Contact for Quote",
   },
   { feature: "Monthly Support", kickstart: "$50", standard: "$150+", dominator: "$300+" },
@@ -142,6 +144,7 @@ type Tier = {
   goal: string;
   includes: readonly { label: string; detail: string }[];
   price: { upfront: string; monthly: string };
+  priceNote?: string;
   bestFor: string;
   note?: string;
   spotsOpen?: number;
@@ -215,6 +218,16 @@ function TierCard({ tier, index }: { tier: Tier; index: number }) {
           </span>
           <span className="text-sm font-semibold text-stone-600">{tier.price.monthly}</span>
         </div>
+        {tier.priceNote && (
+          <p className="text-xs -mt-4 mb-6">
+            <a
+              href="#footnote-flexible"
+              className="text-stone-500 hover:text-stone-700 underline underline-offset-2 decoration-stone-300 hover:decoration-stone-500 transition-colors"
+            >
+              <span aria-hidden="true">†</span> {tier.priceNote}
+            </a>
+          </p>
+        )}
 
         {/* The Goal */}
         <div
@@ -435,9 +448,13 @@ export default function ServiceMenuPage() {
           and can be adjusted as your needs&nbsp;change.
         </p>
 
-        <p className="text-xs text-stone-500 leading-relaxed max-w-lg mt-3">
-          † Kickstart and Standard tiers offer a reduced upfront cost when you commit to a
-          1&#8209;year monthly support term. Ask about it during your&nbsp;call.
+        <p
+          id="footnote-flexible"
+          className="text-xs text-stone-500 leading-relaxed max-w-lg mt-3 scroll-mt-8"
+        >
+          † Not every business budgets the same way. These tiers offer a flexible payment option: a
+          reduced upfront fee in exchange for a higher monthly rate over an agreed term. Same scope,
+          same quality — just a different way to structure the&nbsp;cost.
         </p>
 
         <div className="mt-6 flex items-center gap-3 print:mt-4">
