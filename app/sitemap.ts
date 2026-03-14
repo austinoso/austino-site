@@ -1,10 +1,10 @@
-import type { MetadataRoute } from "next";
+﻿import type { MetadataRoute } from "next";
 import { getAllProjectSlugs } from "@/lib/projects";
 import { getAllInsightSlugs } from "@/lib/insights";
 import { niches } from "@/content/pseo/niches";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.austino.dev";
+  const baseUrl = "https://www.loudbark.dev";
 
   /* ── Static pages ── */
   const staticRoutes: MetadataRoute.Sitemap = [

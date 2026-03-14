@@ -1,4 +1,4 @@
-name: Post-Deploy Scan
+﻿name: Post-Deploy Scan
 
 on:
   deployment_status:
@@ -13,5 +13,5 @@ jobs:
           curl -s -X POST \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
             -H "Content-Type: application/json" \
-            -d '{"domain": "austino.dev"}' \
+            -d '{"domain": "loudbark.dev"}' \
             ${{ secrets.DASHBOARD_URL }}/api/webhook/deploy

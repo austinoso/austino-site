@@ -1,4 +1,4 @@
-/**
+﻿/**
  * One-time script: configure the Notion "Onboarding" database
  * with the pro-standard schema.
  *
@@ -249,7 +249,7 @@ async function main() {
     console.log("   Automation Wish, etc.) are stored in the page body on submission.");
     console.log("\n🔗 Workflow:");
     console.log("   1. Create a row manually or via script → set Slug");
-    console.log("   2. Send client: austino.dev/onboarding?id=the-slug");
+    console.log("   2. Send client: loudbark.dev/onboarding?id=the-slug");
     console.log("   3. Form prefills from Notion, saves progress per step");
     console.log("   4. Final submit updates the page with all answers");
   } catch (error) {

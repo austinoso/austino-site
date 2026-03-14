@@ -1,4 +1,4 @@
-// ── Modesto-specific overrides for home-services pSEO ──
+﻿// ── Modesto-specific overrides for home-services pSEO ──
 // Data source: 124-business scan across 5 service categories, 2026.
 
 export const modestoHomeServices = {
@@ -22,21 +22,21 @@ export const modestoHomeServices = {
       statLabel: "no website at all",
       heading: "37 businesses. Zero web presence.",
       body: "30% of Modesto contractors don't have a website. In a market serving over 210K residents, 37 businesses are invisible to anyone who searches before they call.",
-      source: { label: "austino.dev · 124-business scan", href: "/contact" },
+      source: { label: "loudbark.dev · 124-business scan", href: "/contact" },
     },
     {
       stat: "53%",
       statLabel: "no contact form",
       heading: "The form is missing. So is the call.",
       body: "53% of sites don't have a contact form. 29% have no click-to-call. The homeowner is ready to book and there's no obvious way to do it.",
-      source: { label: "austino.dev · 124-business scan", href: "/contact" },
+      source: { label: "loudbark.dev · 124-business scan", href: "/contact" },
     },
     {
       stat: "68%",
       statLabel: "no Google Maps embed",
       heading: "68% forgot the map.",
       body: "68% of Modesto contractor sites have no maps embed. Google treats that as a location signal for 'near me' searches. No map, no map pack.",
-      source: { label: "austino.dev · 124-business scan", href: "/contact" },
+      source: { label: "loudbark.dev · 124-business scan", href: "/contact" },
     },
   ],
 

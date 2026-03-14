@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Get Your Free Game Plan | austino",
+  title: "Get Your Free Game Plan | Loud Bark",
   description:
     "Answer a few quick questions about your business and I'll build a custom plan before we even talk. Takes 3 minutes.",
   alternates: {
-    canonical: "https://www.austino.dev/onboarding",
+    canonical: "https://www.loudbark.dev/onboarding",
   },
   openGraph: {
-    title: "Get Your Free Game Plan | austino",
+    title: "Get Your Free Game Plan | Loud Bark",
     description:
       "Answer a few quick questions about your business and I'll build a custom plan before we even talk. Takes 3 minutes.",
-    url: "https://www.austino.dev/onboarding",
+    url: "https://www.loudbark.dev/onboarding",
   },
 };
 

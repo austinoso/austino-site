@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Marketing Image Generator
  * ─────────────────────────
  * Uses satori + resvg (same stack as next/og) to generate
@@ -54,28 +54,28 @@ const PRESETS = [
     headline: "Second Place Doesn't Get Clicked",
     subtext:
       "Anyone can build a website. I build the strategy that puts your business at the top of Google — and keeps it there.",
-    cta: "austino.dev",
+    cta: "loudbark.dev",
   },
   {
     id: "automation",
     headline: "Run Leaner Than Every Business on Your Block",
     subtext:
       "Most local businesses waste hours on tasks a machine could handle. I plug in automation that gives you an edge nobody around you has yet.",
-    cta: "austino.dev/services/automation",
+    cta: "loudbark.dev/services/automation",
   },
   {
     id: "web",
     headline: "A Website Isn't a Strategy. This Is.",
     subtext:
       "Templates don't rank. I build fast, conversion-driven sites engineered to dominate local search — not just exist on it.",
-    cta: "austino.dev/services/web-development",
+    cta: "loudbark.dev/services/web-development",
   },
   {
     id: "support",
     headline: "If You're Not #1, I'm Not Done",
     subtext:
       "This isn't a one-and-done project. I work with you continuously until you own the top spot — then I keep you there.",
-    cta: "austino.dev/services/growth-strategy",
+    cta: "loudbark.dev/services/growth-strategy",
   },
 ];
 
@@ -124,8 +124,7 @@ function brandMark(fontSize = 36) {
   return h(
     "div",
     { display: "flex", alignItems: "center" },
-    h("div", { fontSize: `${fontSize}px`, fontWeight: 800, color: brand.white }, "austin"),
-    h("div", { fontSize: `${fontSize}px`, fontWeight: 800, color: brand.accent }, "o"),
+    h("div", { fontSize: `${fontSize}px`, fontWeight: 800, color: brand.white }, "Loud Bark"),
   );
 }
 
@@ -260,7 +259,7 @@ function storyTemplate(preset, fmt) {
         color: brand.accentDim,
         letterSpacing: "0.1em",
       },
-      "austino.dev",
+      "loudbark.dev",
     ),
   );
 }
@@ -458,7 +457,7 @@ function gbpTemplate(preset, fmt) {
         color: brand.accentDim,
         letterSpacing: "0.1em",
       },
-      "austino.dev",
+      "loudbark.dev",
     ),
   );
 }

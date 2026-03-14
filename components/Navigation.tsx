@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -191,12 +192,21 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           <Link
             href="/"
-            className="text-lg font-display font-bold hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             aria-label="Home"
             onClick={closeMenu}
           >
-            <span className="text-stone-900">austin</span>
-            <span className="text-warm-gold">o</span>
+            <Image
+              src="/assets/loudbark-logo.svg"
+              alt=""
+              width={27}
+              height={20}
+              className="h-5 w-auto"
+              priority
+            />
+            <span className="text-lg font-display font-bold tracking-tight text-stone-900">
+              Loud Bark
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

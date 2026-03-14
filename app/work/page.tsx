@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -8,17 +8,17 @@ import { getAllProjects } from "@/lib/projects";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 export const metadata: Metadata = {
-  title: "Results, Not Just Designs | austino",
+  title: "Results, Not Just Designs | Loud Bark",
   description:
     "See how local businesses went from invisible online to booked solid. Real projects, real strategy, real numbers.",
   alternates: {
-    canonical: "https://www.austino.dev/work",
+    canonical: "https://www.loudbark.dev/work",
   },
   openGraph: {
-    title: "Results, Not Just Designs | austino",
+    title: "Results, Not Just Designs | Loud Bark",
     description:
       "See how local businesses went from invisible online to booked solid. Real projects, real strategy, real numbers.",
-    url: "https://www.austino.dev/work",
+    url: "https://www.loudbark.dev/work",
   },
 };
 

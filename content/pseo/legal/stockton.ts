@@ -1,4 +1,4 @@
-// ── Stockton-specific overrides for legal pSEO ──
+﻿// ── Stockton-specific overrides for legal pSEO ──
 // Angle: "The basics are broken." Most Stockton firms haven't gotten the fundamentals right.
 // Data source: 42-firm market scan (38 sites analyzed), 2026.
 
@@ -23,21 +23,21 @@ export const stocktonLegal = {
       statLabel: "no Google Maps embed",
       heading: "No map, no local results",
       body: "79% of Stockton firms don't have a Google Maps embed. Your competitor doesn't need to be great at SEO. They just need a map.",
-      source: { label: "austino.dev · 42-firm scan", href: "/insights/stockton-law-firm-websites" },
+      source: { label: "loudbark.dev · 42-firm scan", href: "/insights/stockton-law-firm-websites" },
     },
     {
       stat: "21%",
       statLabel: "missing their own contact info",
       heading: "One in five can't list their address",
       body: "Name, address, phone number. One in five Stockton firms don't have it in a format Google can read. Without it, Google can't confirm you exist where you say you do.",
-      source: { label: "austino.dev · 42-firm scan", href: "/insights/stockton-law-firm-websites" },
+      source: { label: "loudbark.dev · 42-firm scan", href: "/insights/stockton-law-firm-websites" },
     },
     {
       stat: "10%",
       statLabel: "have no website at all",
       heading: "Some firms skipped the website entirely",
       body: "4 out of 42 Stockton firms don't have a site at all. The bar here is: a site that loads and shows your contact info with proper markup. If yours does that, you're already ahead.",
-      source: { label: "austino.dev · 42-firm scan", href: "/insights/stockton-law-firm-websites" },
+      source: { label: "loudbark.dev · 42-firm scan", href: "/insights/stockton-law-firm-websites" },
     },
   ],
 
@@ -84,7 +84,7 @@ export const stocktonLegal = {
       { label: "No website at all", pct: "10%", fraction: "4/42", failing: true },
       { label: "Has a website", pct: "90%", fraction: "38/42", failing: false },
     ],
-    source: { label: "austino.dev · Full breakdown", href: "/insights/stockton-law-firm-websites" },
+    source: { label: "loudbark.dev · Full breakdown", href: "/insights/stockton-law-firm-websites" },
   },
 
   additionalFAQ: [

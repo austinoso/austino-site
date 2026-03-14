@@ -5,7 +5,7 @@ export const runtime = "edge";
 export const size = ogSize;
 export const contentType = ogContentType;
 
-export const alt = "Law Firm Websites — austino";
+export const alt = "Law Firm Websites — Loud Bark";
 
 interface Props {
   params: Promise<{ city: string }>;

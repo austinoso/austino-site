@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
@@ -25,8 +25,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.austino.dev"),
-  title: "Modern Web Strategy & Automation | austino",
+  metadataBase: new URL("https://www.loudbark.dev"),
+  title: "Modern Web Strategy & Automation | Loud Bark",
   description:
     "Websites that rank, automation that saves hours, and growth strategy backed by real data. Built for local businesses tired of templates and guesswork.",
   keywords: [
@@ -46,20 +46,20 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   alternates: {
-    canonical: "https://www.austino.dev",
+    canonical: "https://www.loudbark.dev",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.austino.dev",
-    siteName: "austino",
-    title: "Modern Web Strategy & Automation | austino",
+    url: "https://www.loudbark.dev",
+    siteName: "Loud Bark",
+    title: "Modern Web Strategy & Automation | Loud Bark",
     description:
       "Websites that rank, automation that saves hours, and growth strategy backed by real data. Built for local businesses tired of templates and guesswork.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Modern Web Strategy & Automation | austino",
+    title: "Modern Web Strategy & Automation | Loud Bark",
     description:
       "Websites that rank, automation that saves hours, and growth strategy backed by real data. Built for local businesses tired of templates and guesswork.",
   },
@@ -86,7 +86,7 @@ export default function RootLayout({
           defer
           src="/stats/script.js"
           data-website-id="acac45ad-5413-4bdd-9e96-5d60f56a21ff"
-          data-domains="austino.dev,www.austino.dev"
+          data-domains="loudbark.dev,www.loudbark.dev"
           strategy="afterInteractive"
         />
         <a

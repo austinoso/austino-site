@@ -1,9 +1,8 @@
-import { ImageResponse } from "next/og";
+﻿import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt =
-  "austino — Web Strategy, Growth & Automation for Local Businesses";
+export const alt = "Loud Bark — Web Strategy, Growth & Automation for Local Businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -43,21 +42,13 @@ export default function Image() {
           left: 0,
           right: 0,
           height: "5px",
-          background:
-            "linear-gradient(90deg, #B45309 0%, #DB2777 70%, rgba(124,58,237,0.5) 100%)",
+          background: "linear-gradient(90deg, #B45309 0%, #DB2777 70%, rgba(124,58,237,0.5) 100%)",
         }}
       />
 
       {/* Brand */}
-      <div
-        style={{ display: "flex", alignItems: "center", marginBottom: "40px" }}
-      >
-        <span style={{ fontSize: "36px", fontWeight: 800, color: "#1C1917" }}>
-          austin
-        </span>
-        <span style={{ fontSize: "36px", fontWeight: 800, color: "#B45309" }}>
-          o
-        </span>
+      <div style={{ display: "flex", alignItems: "center", marginBottom: "40px" }}>
+        <span style={{ fontSize: "36px", fontWeight: 800, color: "#1C1917" }}>Loud Bark</span>
       </div>
 
       {/* Heading */}
@@ -83,8 +74,8 @@ export default function Image() {
           maxWidth: "700px",
         }}
       >
-        High-performance websites. Growth strategies. Automation. Built to give
-        your business an edge.
+        High-performance websites. Growth strategies. Automation. Built to give your business an
+        edge.
       </div>
 
       {/* Bottom domain */}
@@ -99,7 +90,7 @@ export default function Image() {
           letterSpacing: "0.1em",
         }}
       >
-        austino.dev
+        loudbark.dev
       </div>
     </div>,
     { ...size },

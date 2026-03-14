@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -16,18 +16,18 @@ export default function InsightsPage() {
     name: "Local Insights",
     description:
       "Practical advice on websites, SEO, and automation for small businesses in the Central Valley.",
-    url: "https://www.austino.dev/insights",
+    url: "https://www.loudbark.dev/insights",
     publisher: {
       "@type": "Organization",
-      name: "austino.dev",
-      url: "https://www.austino.dev",
+      name: "loudbark.dev",
+      url: "https://www.loudbark.dev",
     },
     blogPost: insights.map((post) => ({
       "@type": "BlogPosting",
       headline: post.title,
       description: post.excerpt,
       datePublished: post.date,
-      url: `https://www.austino.dev/insights/${post.slug}`,
+      url: `https://www.loudbark.dev/insights/${post.slug}`,
       author: {
         "@type": "Person",
         name: "Austin Osorio",

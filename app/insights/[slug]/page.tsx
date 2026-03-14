@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -27,16 +27,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!insight) return {};
 
   return {
-    title: `${insight.title} | Local Insights | austino`,
+    title: `${insight.title} | Local Insights | Loud Bark`,
     description: insight.excerpt,
-    authors: [{ name: "Austin Osorio", url: "https://www.austino.dev" }],
+    authors: [{ name: "Austin Osorio", url: "https://www.loudbark.dev" }],
     alternates: {
-      canonical: `https://www.austino.dev/insights/${slug}`,
+      canonical: `https://www.loudbark.dev/insights/${slug}`,
     },
     openGraph: {
-      title: `${insight.title} | austino`,
+      title: `${insight.title} | Loud Bark`,
       description: insight.excerpt,
-      url: `https://www.austino.dev/insights/${slug}`,
+      url: `https://www.loudbark.dev/insights/${slug}`,
       type: "article",
       publishedTime: insight.date,
       authors: ["Austin Osorio"],
@@ -69,17 +69,17 @@ export default async function InsightPage({ params }: Props) {
     author: {
       "@type": "Person",
       name: "Austin Osorio",
-      url: "https://www.austino.dev",
+      url: "https://www.loudbark.dev",
       jobTitle: "Founder & Lead Engineer",
     },
     publisher: {
       "@type": "Organization",
-      name: "austino.dev",
-      url: "https://www.austino.dev",
+      name: "loudbark.dev",
+      url: "https://www.loudbark.dev",
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.austino.dev/insights/${slug}`,
+      "@id": `https://www.loudbark.dev/insights/${slug}`,
     },
     articleSection: insight.category,
   };
@@ -92,19 +92,19 @@ export default async function InsightPage({ params }: Props) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.austino.dev",
+        item: "https://www.loudbark.dev",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Insights",
-        item: "https://www.austino.dev/insights",
+        item: "https://www.loudbark.dev/insights",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: insight.title,
-        item: `https://www.austino.dev/insights/${slug}`,
+        item: `https://www.loudbark.dev/insights/${slug}`,
       },
     ],
   };
@@ -165,12 +165,12 @@ export default async function InsightPage({ params }: Props) {
                 <div>
                   <p className="text-sm font-semibold text-warm-white">Written by Austin Osorio</p>
                   <p className="text-[13px] text-stone-400 mt-0.5">
-                    Founder &amp; Lead Engineer at austino.dev
+                    Founder &amp; Lead Engineer at loudbark.dev
                   </p>
                   <p className="text-sm text-stone-500 leading-relaxed mt-3">
-                    Austin is a software engineer and the founder of austino.dev. A lifelong
+                    Austin is a software engineer and the founder of loudbark.dev. A lifelong
                     resident of the Central Valley, he has over six years of experience building
-                    high-performance systems. He started austino.dev to close the gap between what
+                    high-performance systems. He started loudbark.dev to close the gap between what
                     enterprise companies build and what local businesses can afford.
                   </p>
                 </div>

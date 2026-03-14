@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const DEPOSIT_AMOUNT = 200_00; // $200 in cents
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const origin = request.headers.get("origin") || "https://www.austino.dev";
+    const origin = request.headers.get("origin") || "https://www.loudbark.dev";
     const idParam = slug ? `&id=${encodeURIComponent(slug)}` : "";
 
     const stripe = getStripe();
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
     // Dev fallback when Stripe isn't configured
     if (!process.env.STRIPE_SECRET_KEY) {
       console.warn("STRIPE_SECRET_KEY not set — returning mock URL");
-      const origin = request.headers.get("origin") || "https://www.austino.dev";
+      const origin = request.headers.get("origin") || "https://www.loudbark.dev";
       const idParam = bodySlug ? `&id=${encodeURIComponent(bodySlug)}` : "";
       return NextResponse.json({
         url: `${origin}/onboarding?paid=true${idParam}&session_id=mock`,

@@ -1,4 +1,4 @@
-import { ImageResponse } from "next/og";
+﻿import { ImageResponse } from "next/og";
 
 export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = "image/png";
@@ -10,11 +10,7 @@ interface OGImageOptions {
   backgroundImageUrl?: string;
 }
 
-export function generateOGImage({
-  heading,
-  subtext,
-  backgroundImageUrl,
-}: OGImageOptions) {
+export function generateOGImage({ heading, subtext, backgroundImageUrl }: OGImageOptions) {
   /* When a background image is provided (case studies), use a warm dark overlay
      so white text stays legible. Otherwise use the warm cream palette. */
   const hasBg = !!backgroundImageUrl;
@@ -86,8 +82,7 @@ export function generateOGImage({
           left: 0,
           right: 0,
           height: "5px",
-          background:
-            "linear-gradient(90deg, #B45309 0%, #DB2777 70%, rgba(124,58,237,0.5) 100%)",
+          background: "linear-gradient(90deg, #B45309 0%, #DB2777 70%, rgba(124,58,237,0.5) 100%)",
         }}
       />
 
@@ -106,10 +101,7 @@ export function generateOGImage({
             color: hasBg ? "#FFFFFF" : "#1C1917",
           }}
         >
-          austin
-        </span>
-        <span style={{ fontSize: "36px", fontWeight: 800, color: "#B45309" }}>
-          o
+          Loud Bark
         </span>
       </div>
 
@@ -151,7 +143,7 @@ export function generateOGImage({
           letterSpacing: "0.1em",
         }}
       >
-        austino.dev
+        loudbark.dev
       </div>
     </div>,
     { ...ogSize },

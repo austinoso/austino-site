@@ -1,4 +1,4 @@
-// ── Tracy-specific overrides for home-services pSEO ──
+﻿// ── Tracy-specific overrides for home-services pSEO ──
 // Data source: 86-business scan across 5 service categories, 2026.
 
 export const tracyHomeServices = {
@@ -21,21 +21,21 @@ export const tracyHomeServices = {
       statLabel: "no website at all",
       heading: "No site. No chance.",
       body: "47% of Tracy contractors don't have a website. Half the market is invisible online. A site that loads and shows your number puts you ahead of all of them.",
-      source: { label: "austino.dev · 86-business scan", href: "/contact" },
+      source: { label: "loudbark.dev · 86-business scan", href: "/contact" },
     },
     {
       stat: "50%",
       statLabel: "no click-to-call button",
       heading: "Half the sites hide the phone number.",
       body: "Of the 46 with websites, half don't have click-to-call and 59% lack a contact form. Someone searching for an emergency electrician is calling the first number they can tap.",
-      source: { label: "austino.dev · 86-business scan", href: "/contact" },
+      source: { label: "loudbark.dev · 86-business scan", href: "/contact" },
     },
     {
       stat: "83%",
       statLabel: "no Google Maps embed",
       heading: "The map pack is wide open.",
       body: "83% of Tracy contractor sites have no maps embed. That's Google's signal for 'near me' results. Almost nobody here has bothered.",
-      source: { label: "austino.dev · 86-business scan", href: "/contact" },
+      source: { label: "loudbark.dev · 86-business scan", href: "/contact" },
     },
   ],
 

@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { PrintButton } from "./PrintButton";
 
 export const metadata: Metadata = {
-  title: "Service Menu | austino.dev",
-  description: "Service tiers and pricing for austino.dev web development and growth packages.",
+  title: "Service Menu | loudbark.dev",
+  description: "Service tiers and pricing for loudbark.dev web development and growth packages.",
   robots: { index: false, follow: false },
 };
 
@@ -373,7 +373,7 @@ export default function ServiceMenuPage() {
       <header className="pt-12 sm:pt-16 pb-10 sm:pb-14 px-6 sm:px-10 md:px-14 lg:px-20 max-w-[800px] mx-auto print:pt-6 print:pb-6">
         <div className="mb-6 print:mb-3">
           <span className="text-[11px] font-mono font-semibold text-warm-gold uppercase tracking-[0.2em]">
-            austino.dev
+            loudbark.dev
           </span>
         </div>
 
@@ -459,14 +459,14 @@ export default function ServiceMenuPage() {
 
         <div className="mt-6 flex items-center gap-3 print:mt-4">
           <span className="text-[11px] font-mono text-stone-500 uppercase tracking-[0.15em]">
-            austino.dev
+            loudbark.dev
           </span>
           <span className="text-stone-300">·</span>
           <a
-            href="mailto:connect@austino.dev"
+            href="mailto:connect@loudbark.dev"
             className="text-[11px] font-mono text-warm-gold hover:text-amber-700 transition-colors print:text-stone-600 print:no-underline"
           >
-            connect@austino.dev
+            connect@loudbark.dev
           </a>
         </div>
       </footer>

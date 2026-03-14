@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Local Insights — Tips for Central Valley Businesses | austino",
+  title: "Local Insights — Tips for Central Valley Businesses | Loud Bark",
   description:
     "Practical advice on websites, SEO, and automation for small businesses in the Central Valley. No jargon — just what works.",
   alternates: {
-    canonical: "https://www.austino.dev/insights",
+    canonical: "https://www.loudbark.dev/insights",
   },
   openGraph: {
-    title: "Local Insights — Tips for Central Valley Businesses | austino",
+    title: "Local Insights — Tips for Central Valley Businesses | Loud Bark",
     description:
       "Practical advice on websites, SEO, and automation for small businesses in the Central Valley. No jargon — just what works.",
-    url: "https://www.austino.dev/insights",
+    url: "https://www.loudbark.dev/insights",
   },
 };
 

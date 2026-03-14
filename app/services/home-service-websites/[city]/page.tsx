@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageScrollAnimator from "@/components/ui/PageScrollAnimator";
@@ -172,7 +172,7 @@ export default async function HomeServiceCityPage({ params }: Props) {
                 scanSummary={audit.scanSummary}
                 sitesSummary={audit.sitesSummary}
                 rows={audit.rows}
-                source={{ label: "austino.dev · Market scan", href: "/contact" }}
+                source={{ label: "loudbark.dev · Market scan", href: "/contact" }}
               />
             </ServiceSection>
           )}

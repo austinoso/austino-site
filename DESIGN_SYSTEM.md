@@ -1,4 +1,4 @@
-# austino.dev — Design System
+﻿# loudbark.dev — Design System
 
 Living reference for visual consistency across all pages. Updated for the **warm light theme** migration (June 2025). **Every new page or component must follow these patterns.**
 
@@ -583,7 +583,7 @@ Very low opacity ambient washes on the light background:
 
 - Scrolled: `bg-warm-bg/80 backdrop-blur-2xl border-stone-200 shadow-[0_4px_30px_rgba(0,0,0,0.04)]`
 - Links: `text-stone-500 hover:text-stone-900`
-- Logo: "austin" `text-stone-900` + "o" `text-warm-gold`
+- Logo: Icon `/assets/loudbark-logo.svg` (`h-5 w-auto`) + "Loud Bark" `text-stone-900 text-lg font-display font-bold tracking-tight` — `flex items-center gap-2`. Icon carries brand orange; text stays dark.
 
 ### Mobile
 

@@ -1,10 +1,10 @@
-export default function JsonLd() {
+﻿export default function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@type": ["ProfessionalService", "LocalBusiness"],
-    "@id": "https://www.austino.dev/#business",
-    name: "austino",
-    url: "https://www.austino.dev",
+    "@id": "https://www.loudbark.dev/#business",
+    name: "Loud Bark",
+    url: "https://www.loudbark.dev",
     description:
       "High-performance websites, growth strategies that climb search rankings, and automation that eliminates busywork — giving local businesses an edge no template can match.",
     areaServed: [
@@ -44,7 +44,7 @@ export default function JsonLd() {
       "@type": "Person",
       name: "Austin Osorio",
       jobTitle: "Founder & Lead Engineer",
-      url: "https://www.austino.dev",
+      url: "https://www.loudbark.dev",
     },
     sameAs: [
       "https://github.com/austinoso",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPseoPageData, getCitySlugsForNiche } from "@/lib/pseo";
 
@@ -19,9 +19,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return {};
 
   const { city, niche } = data;
-  const title = `${niche.label} in ${city.name} | austino`;
+  const title = `${niche.label} in ${city.name} | Loud Bark`;
   const description = `Custom websites for ${city.name} gyms, medspas, and chiropractors. Built for local search, online booking, and client retention.`;
-  const url = `https://www.austino.dev/services/${niche.nicheSlug}/${city.slug}`;
+  const url = `https://www.loudbark.dev/services/${niche.nicheSlug}/${city.slug}`;
 
   return {
     title,

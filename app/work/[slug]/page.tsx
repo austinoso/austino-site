@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -17,19 +17,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const study = getProjectBySlug(slug);
-  if (!study) return { title: "Project Not Found | austino" };
+  if (!study) return { title: "Project Not Found | Loud Bark" };
   const metaTitle = study.seoTitle || study.title;
   const metaDescription = study.seoExcerpt || study.excerpt;
   return {
-    title: `${metaTitle} | austino`,
+    title: `${metaTitle} | Loud Bark`,
     description: metaDescription,
     alternates: {
-      canonical: `https://www.austino.dev/work/${slug}`,
+      canonical: `https://www.loudbark.dev/work/${slug}`,
     },
     openGraph: {
-      title: `${metaTitle} | austino`,
+      title: `${metaTitle} | Loud Bark`,
       description: metaDescription,
-      url: `https://www.austino.dev/work/${slug}`,
+      url: `https://www.loudbark.dev/work/${slug}`,
     },
   };
 }

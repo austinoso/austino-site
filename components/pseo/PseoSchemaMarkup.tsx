@@ -1,4 +1,4 @@
-import type { CityData } from "@/content/pseo/cities";
+﻿import type { CityData } from "@/content/pseo/cities";
 import type { NicheConfig } from "@/content/pseo/niches";
 
 interface PseoSchemaMarkupProps {
@@ -8,12 +8,12 @@ interface PseoSchemaMarkupProps {
 }
 
 export default function PseoSchemaMarkup({ city, niche, faqItems }: PseoSchemaMarkupProps) {
-  const url = `https://www.austino.dev/services/${niche.nicheSlug}/${city.slug}`;
+  const url = `https://www.loudbark.dev/services/${niche.nicheSlug}/${city.slug}`;
 
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "austino — Web Development",
+    name: "Loud Bark — Web Development",
     description: `Custom ${niche.label.toLowerCase()} built for ${city.name}, CA businesses. Fast, SEO-optimized, local-first.`,
     url,
     areaServed: {
@@ -27,7 +27,7 @@ export default function PseoSchemaMarkup({ city, niche, faqItems }: PseoSchemaMa
     provider: {
       "@type": "Person",
       name: "Austin Osorio",
-      url: "https://www.austino.dev",
+      url: "https://www.loudbark.dev",
     },
   };
 

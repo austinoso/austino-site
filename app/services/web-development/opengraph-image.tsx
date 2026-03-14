@@ -1,7 +1,7 @@
 import { generateOGImage, ogSize, ogContentType } from "@/lib/og-image";
 
 export const runtime = "edge";
-export const alt = "Web Development — austino";
+export const alt = "Web Development — Loud Bark";
 export const size = ogSize;
 export const contentType = ogContentType;
 

@@ -14,6 +14,14 @@ Purpose: prevent phrase reuse across pages, track CTA labels, and catch repetiti
 
 ---
 
+## Brand
+
+| Element  | Copy                              |
+| -------- | --------------------------------- |
+| Tagline  | Give your business some bite.     |
+
+---
+
 ## Headlines & Subheadlines
 
 Each headline is "claimed" by its page. No other page should use the same line or a minor rewording of it.

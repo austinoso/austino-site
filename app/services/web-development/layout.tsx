@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Websites That Work While You Sleep | austino",
+  title: "Websites That Work While You Sleep | Loud Bark",
   description:
     "Fast, search-optimized sites that turn visitors into customers around the clock. No templates, no page builders — just clean code built for results.",
   alternates: {
-    canonical: "https://www.austino.dev/services/web-development",
+    canonical: "https://www.loudbark.dev/services/web-development",
   },
   openGraph: {
-    title: "Websites That Work While You Sleep | austino",
+    title: "Websites That Work While You Sleep | Loud Bark",
     description:
       "Fast, search-optimized sites that turn visitors into customers around the clock. No templates, no page builders — just clean code built for results.",
-    url: "https://www.austino.dev/services/web-development",
+    url: "https://www.loudbark.dev/services/web-development",
   },
 };
 
@@ -78,14 +78,14 @@ const serviceSchema = {
     "Fast, search-optimized websites that turn visitors into customers around the clock. No templates, no bloat — just clean code built for results.",
   provider: {
     "@type": "ProfessionalService",
-    name: "austino",
-    url: "https://www.austino.dev",
+    name: "Loud Bark",
+    url: "https://www.loudbark.dev",
   },
   areaServed: {
     "@type": "Country",
     name: "United States",
   },
-  url: "https://www.austino.dev/services/web-development",
+  url: "https://www.loudbark.dev/services/web-development",
 };
 
 const breadcrumbSchema = {
@@ -96,13 +96,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.austino.dev",
+      item: "https://www.loudbark.dev",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Web Development",
-      item: "https://www.austino.dev/services/web-development",
+      item: "https://www.loudbark.dev/services/web-development",
     },
   ],
 };

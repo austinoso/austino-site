@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { CheckCircle, Calendar, ArrowRight, Mail } from "lucide-react";
 import Link from "next/link";
@@ -87,8 +87,8 @@ export default function Confirmation({ paid, calLink, name }: ConfirmationProps)
         <div className="flex items-center justify-center gap-2 text-sm text-stone-500">
           <Mail className="w-4 h-4" aria-hidden="true" />
           <span>Questions? Reach me at </span>
-          <a href="mailto:connect@austino.dev" className="text-warm-gold hover:underline">
-            connect@austino.dev
+          <a href="mailto:connect@loudbark.dev" className="text-warm-gold hover:underline">
+            connect@loudbark.dev
           </a>
         </div>
       </div>
@@ -98,7 +98,7 @@ export default function Confirmation({ paid, calLink, name }: ConfirmationProps)
         href="/"
         className="inline-block text-sm text-stone-400 hover:text-stone-600 transition-colors"
       >
-        ← Back to austino.dev
+        ← Back to loudbark.dev
       </Link>
     </div>
   );

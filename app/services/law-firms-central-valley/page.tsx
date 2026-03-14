@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+﻿import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageScrollAnimator from "@/components/ui/PageScrollAnimator";
 import FAQAccordion from "@/components/ui/FAQAccordion";
@@ -171,13 +171,13 @@ export default function LawFirmsCentralValleyPage() {
                       <div className="flex-1 flex justify-center">
                         <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.04]">
                           <span className="text-[10px] text-white/25 font-mono tracking-wide">
-                            law-demo.austino.dev
+                            law-demo.loudbark.dev
                           </span>
                         </div>
                       </div>
                     </div>
                     <a
-                      href="https://law-demo.austino.dev"
+                      href="https://law-demo.loudbark.dev"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -194,7 +194,7 @@ export default function LawFirmsCentralValleyPage() {
                   <p className="text-sm text-stone-500 mt-4">
                     Design concept.{" "}
                     <a
-                      href="https://law-demo.austino.dev"
+                      href="https://law-demo.loudbark.dev"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-warm-gold hover:underline"
@@ -414,13 +414,13 @@ export default function LawFirmsCentralValleyPage() {
                         <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.04]">
                           <MapPin className="w-2.5 h-2.5 text-white/20" aria-hidden="true" />
                           <span className="text-[10px] text-white/25 font-mono tracking-wide">
-                            law-demo.austino.dev
+                            law-demo.loudbark.dev
                           </span>
                         </div>
                       </div>
                     </div>
                     <a
-                      href="https://law-demo.austino.dev"
+                      href="https://law-demo.loudbark.dev"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -437,7 +437,7 @@ export default function LawFirmsCentralValleyPage() {
                     Design concept built in{" "}
                     <span className="text-warm-white font-medium">2 weeks</span>.{" "}
                     <a
-                      href="https://law-demo.austino.dev"
+                      href="https://law-demo.loudbark.dev"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-warm-gold hover:underline"

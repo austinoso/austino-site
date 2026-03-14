@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+﻿/** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
     inlineCss: true,
@@ -6,12 +6,12 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Eliminate the austino.dev → www.austino.dev redirect chain
+      // Eliminate the loudbark.dev → www.loudbark.dev redirect chain
       // by handling it at the application level with a 308 permanent redirect
       {
         source: "/:path*",
-        has: [{ type: "host", value: "austino.dev" }],
-        destination: "https://www.austino.dev/:path*",
+        has: [{ type: "host", value: "loudbark.dev" }],
+        destination: "https://www.loudbark.dev/:path*",
         permanent: true,
       },
     ];

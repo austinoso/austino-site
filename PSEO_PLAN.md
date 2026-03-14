@@ -1,8 +1,8 @@
-# Programmatic SEO Plan
+﻿# Programmatic SEO Plan
 
 ## Overview
 
-Scale austino.dev's organic reach by generating high-quality, niche × city landing pages across three verticals — each with a distinct design language, value proposition, and audience psychology. No database. Everything lives in TypeScript data files, builds statically at deploy time, and ships to Vercel with zero runtime dependencies.
+Scale loudbark.dev's organic reach by generating high-quality, niche × city landing pages across three verticals — each with a distinct design language, value proposition, and audience psychology. No database. Everything lives in TypeScript data files, builds statically at deploy time, and ships to Vercel with zero runtime dependencies.
 
 ---
 
@@ -333,9 +333,9 @@ Every pSEO page automatically gets:
 
 | Element | Implementation |
 |---|---|
-| `<title>` | `{Niche} Websites in {City} | austino` |
+| `<title>` | `{Niche} Websites in {City} | Loud Bark` |
 | `<meta description>` | Generated from niche value prop + city name |
-| Canonical URL | `https://www.austino.dev/services/{niche-slug}/{city}` |
+| Canonical URL | `https://www.loudbark.dev/services/{niche-slug}/{city}` |
 | OG image | Dynamic — city name + niche label rendered at build time |
 | JSON-LD | `LocalBusiness` + `FAQPage` + niche-specific schema |
 | Sitemap entry | Auto-generated from `generateStaticParams` |
@@ -434,7 +434,7 @@ As you gain clients and data, these files grow — but they're shippable with ju
 ## Relationship to Existing Pages
 
 ```
-                    austino.dev
+                    loudbark.dev
                         │
           ┌─────────────┼──────────────┐
           │             │              │

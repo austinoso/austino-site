@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+﻿import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
 
     // Send email to yourself
     const { data, error } = await resend.emails.send({
-      from: "Contact Form <contact@email.austino.dev>",
+      from: "Contact Form <contact@email.loudbark.dev>",
       to: process.env.CONTACT_EMAIL || "osorio.austin@gmail.com",
       replyTo: email, // Client's email
       subject: `New Contact Form Submission from ${name}`,

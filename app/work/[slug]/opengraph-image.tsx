@@ -1,18 +1,14 @@
-import { generateOGImage, ogSize, ogContentType } from "@/lib/og-image";
+﻿import { generateOGImage, ogSize, ogContentType } from "@/lib/og-image";
 import { getProjectBySlug } from "@/lib/projects";
 
 export const runtime = "edge";
-export const alt = "Case Study — austino";
+export const alt = "Case Study — Loud Bark";
 export const size = ogSize;
 export const contentType = ogContentType;
 
-const BASE_URL = "https://www.austino.dev";
+const BASE_URL = "https://www.loudbark.dev";
 
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const study = getProjectBySlug(slug);
 
@@ -23,9 +19,7 @@ export default async function Image({
     });
   }
 
-  const backgroundImageUrl = study.image
-    ? `${BASE_URL}${study.image}`
-    : undefined;
+  const backgroundImageUrl = study.image ? `${BASE_URL}${study.image}` : undefined;
 
   return generateOGImage({
     heading: study.seoTitle || study.title,

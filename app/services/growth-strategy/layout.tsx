@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SEO & Growth Strategy That Actually Moves the Needle | austino",
+  title: "SEO & Growth Strategy That Actually Moves the Needle | Loud Bark",
   description:
     "Data-driven SEO and content strategy that builds search authority month over month. No vanity metrics — just more of the right people finding your business.",
   alternates: {
-    canonical: "https://www.austino.dev/services/growth-strategy",
+    canonical: "https://www.loudbark.dev/services/growth-strategy",
   },
   openGraph: {
-    title: "SEO & Growth Strategy That Actually Moves the Needle | austino",
+    title: "SEO & Growth Strategy That Actually Moves the Needle | Loud Bark",
     description:
       "Data-driven SEO and content strategy that builds search authority month over month. No vanity metrics — just more of the right people finding your business.",
-    url: "https://www.austino.dev/services/growth-strategy",
+    url: "https://www.loudbark.dev/services/growth-strategy",
   },
 };
 
@@ -70,14 +70,14 @@ const serviceSchema = {
     "A web strategist in your corner — using real data to improve what's underperforming and building content that earns search authority every month.",
   provider: {
     "@type": "ProfessionalService",
-    name: "austino",
-    url: "https://www.austino.dev",
+    name: "Loud Bark",
+    url: "https://www.loudbark.dev",
   },
   areaServed: {
     "@type": "Country",
     name: "United States",
   },
-  url: "https://www.austino.dev/services/growth-strategy",
+  url: "https://www.loudbark.dev/services/growth-strategy",
 };
 
 const breadcrumbSchema = {
@@ -88,13 +88,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.austino.dev",
+      item: "https://www.loudbark.dev",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Growth Strategy",
-      item: "https://www.austino.dev/services/growth-strategy",
+      item: "https://www.loudbark.dev/services/growth-strategy",
     },
   ],
 };

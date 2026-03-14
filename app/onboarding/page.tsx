@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import { Suspense, useReducer, useState, useEffect, useCallback, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, ArrowLeft, ArrowRight } from "lucide-react";
 
 import { initialData, onboardingReducer, type OnboardingData } from "./types";
@@ -18,8 +19,8 @@ import StepCheckout from "./components/StepCheckout";
 import Confirmation from "./components/Confirmation";
 
 const TOTAL_STEPS = 7;
-const STORAGE_KEY = "austino-onboarding";
-const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK || "https://cal.com/austino/discovery";
+const STORAGE_KEY = "loudbark-onboarding";
+const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK || "https://cal.com/loudbark/discovery";
 
 // ── Validation per step ──
 function isStepValid(step: number, data: OnboardingData): boolean {
@@ -363,9 +364,17 @@ function OnboardingInner() {
         <div className="relative max-w-3xl mx-auto px-6 sm:px-8 md:px-12 pt-20 sm:pt-28 pb-20 sm:pb-28">
           {/* Logo */}
           <div className="mb-12 text-center">
-            <Link href="/" className="text-xl font-extrabold inline-block">
-              <span className="text-stone-900">austin</span>
-              <span className="text-warm-gold">o</span>
+            <Link href="/" className="inline-flex items-center gap-2.5">
+              <Image
+                src="/assets/loudbark-logo.svg"
+                alt=""
+                width={31}
+                height={23}
+                className="h-[22px] w-auto"
+              />
+              <span className="text-xl font-display font-bold tracking-tight text-stone-900">
+                Loud Bark
+              </span>
             </Link>
           </div>
 
@@ -428,9 +437,17 @@ function OnboardingInner() {
       <div className="relative max-w-3xl mx-auto px-6 sm:px-8 md:px-12 pt-8 sm:pt-12 pb-20 sm:pb-28">
         {/* Header bar: logo + help */}
         <div className="flex items-center justify-between mb-10 sm:mb-14">
-          <Link href="/" className="text-xl font-extrabold">
-            <span className="text-stone-900">austin</span>
-            <span className="text-warm-gold">o</span>
+          <Link href="/" className="inline-flex items-center gap-2">
+            <Image
+              src="/assets/loudbark-logo.svg"
+              alt=""
+              width={27}
+              height={20}
+              className="h-5 w-auto"
+            />
+            <span className="text-lg font-display font-bold tracking-tight text-stone-900">
+              Loud Bark
+            </span>
           </Link>
           <div className="flex items-center gap-3">
             {isSaving && (
@@ -440,7 +457,7 @@ function OnboardingInner() {
               </span>
             )}
             <a
-              href="mailto:connect@austino.dev"
+              href="mailto:connect@loudbark.dev"
               className="flex items-center gap-1.5 text-xs font-mono text-stone-400 hover:text-stone-600 transition-colors"
             >
               <Mail className="w-3.5 h-3.5" />

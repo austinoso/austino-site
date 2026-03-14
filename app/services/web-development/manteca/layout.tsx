@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Manteca Web Design That Actually Gets Found | austino",
+  title: "Manteca Web Design That Actually Gets Found | Loud Bark",
   description:
     "Custom websites for Manteca businesses that show up when locals search. Fast load times, local SEO, and online booking built in — no templates.",
   alternates: {
-    canonical: "https://www.austino.dev/services/web-development/manteca",
+    canonical: "https://www.loudbark.dev/services/web-development/manteca",
   },
   openGraph: {
-    title: "Manteca Web Design That Actually Gets Found | austino",
+    title: "Manteca Web Design That Actually Gets Found | Loud Bark",
     description:
       "Custom websites for Manteca businesses that show up when locals search. Fast load times, local SEO, and online booking built in — no templates.",
-    url: "https://www.austino.dev/services/web-development/manteca",
+    url: "https://www.loudbark.dev/services/web-development/manteca",
   },
 };
 
@@ -78,8 +78,8 @@ const serviceSchema = {
     "Custom websites built for Manteca, CA businesses with local SEO, fast load times, and conversion-focused design.",
   provider: {
     "@type": "ProfessionalService",
-    name: "austino",
-    url: "https://www.austino.dev",
+    name: "Loud Bark",
+    url: "https://www.loudbark.dev",
   },
   areaServed: {
     "@type": "City",
@@ -89,7 +89,7 @@ const serviceSchema = {
       name: "California",
     },
   },
-  url: "https://www.austino.dev/services/web-development/manteca",
+  url: "https://www.loudbark.dev/services/web-development/manteca",
 };
 
 const breadcrumbSchema = {
@@ -100,19 +100,19 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.austino.dev",
+      item: "https://www.loudbark.dev",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Web Development",
-      item: "https://www.austino.dev/services/web-development",
+      item: "https://www.loudbark.dev/services/web-development",
     },
     {
       "@type": "ListItem",
       position: 3,
       name: "Manteca",
-      item: "https://www.austino.dev/services/web-development/manteca",
+      item: "https://www.loudbark.dev/services/web-development/manteca",
     },
   ],
 };
@@ -120,10 +120,10 @@ const breadcrumbSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["ProfessionalService", "LocalBusiness"],
-  name: "austino — Manteca Web Design",
+  name: "Loud Bark — Manteca Web Design",
   description:
     "Custom websites for Manteca businesses that show up when locals search. Fast load times, local SEO, and online booking built in.",
-  url: "https://www.austino.dev/services/web-development/manteca",
+  url: "https://www.loudbark.dev/services/web-development/manteca",
   areaServed: {
     "@type": "City",
     name: "Manteca",
@@ -132,16 +132,12 @@ const localBusinessSchema = {
   priceRange: "$$",
   parentOrganization: {
     "@type": "ProfessionalService",
-    name: "austino",
-    url: "https://www.austino.dev",
+    name: "Loud Bark",
+    url: "https://www.loudbark.dev",
   },
 };
 
-export default function MantecaLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function MantecaLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <script

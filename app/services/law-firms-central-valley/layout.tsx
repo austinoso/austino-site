@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Central Valley Law Firm Websites That Win Clients | austino",
+  title: "Central Valley Law Firm Websites That Win Clients | Loud Bark",
   description:
     "Custom websites for attorneys in Fresno, Bakersfield, Stockton, and Modesto. Built to rank locally, convert visitors, and reflect your practice — not a template.",
   alternates: {
-    canonical: "https://www.austino.dev/services/law-firms-central-valley",
+    canonical: "https://www.loudbark.dev/services/law-firms-central-valley",
   },
   openGraph: {
-    title: "Central Valley Law Firm Websites That Win Clients | austino",
+    title: "Central Valley Law Firm Websites That Win Clients | Loud Bark",
     description:
       "Custom websites for attorneys in Fresno, Bakersfield, Stockton, and Modesto. Built to rank locally, convert visitors, and reflect your practice — not a template.",
-    url: "https://www.austino.dev/services/law-firms-central-valley",
+    url: "https://www.loudbark.dev/services/law-firms-central-valley",
   },
 };
 
@@ -86,8 +86,8 @@ const serviceSchema = {
     "Custom-built websites for law firms in Fresno, Bakersfield, Stockton, Modesto, and the Central Valley. Designed around your practice, your values, and your brand.",
   provider: {
     "@type": "ProfessionalService",
-    name: "austino",
-    url: "https://www.austino.dev",
+    name: "Loud Bark",
+    url: "https://www.loudbark.dev",
   },
   areaServed: [
     {
@@ -116,7 +116,7 @@ const serviceSchema = {
       containedInPlace: { "@type": "State", name: "California" },
     },
   ],
-  url: "https://www.austino.dev/services/law-firms-central-valley",
+  url: "https://www.loudbark.dev/services/law-firms-central-valley",
 };
 
 const breadcrumbSchema = {
@@ -127,13 +127,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.austino.dev",
+      item: "https://www.loudbark.dev",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Law Firms — Central Valley",
-      item: "https://www.austino.dev/services/law-firms-central-valley",
+      item: "https://www.loudbark.dev/services/law-firms-central-valley",
     },
   ],
 };

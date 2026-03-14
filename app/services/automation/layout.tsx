@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Stop Doing Work Your Computer Should Handle | austino",
+  title: "Stop Doing Work Your Computer Should Handle | Loud Bark",
   description:
     "Custom automation that connects your tools, kills repetitive tasks, and runs 24/7. You focus on the business — the busywork handles itself.",
   alternates: {
-    canonical: "https://www.austino.dev/services/automation",
+    canonical: "https://www.loudbark.dev/services/automation",
   },
   openGraph: {
-    title: "Stop Doing Work Your Computer Should Handle | austino",
+    title: "Stop Doing Work Your Computer Should Handle | Loud Bark",
     description:
       "Custom automation that connects your tools, kills repetitive tasks, and runs 24/7. You focus on the business — the busywork handles itself.",
-    url: "https://www.austino.dev/services/automation",
+    url: "https://www.loudbark.dev/services/automation",
   },
 };
 
@@ -70,14 +70,14 @@ const serviceSchema = {
     "Custom automation that connects your tools, eliminates repetitive tasks, and runs 24/7 — so you can focus on growing your business.",
   provider: {
     "@type": "ProfessionalService",
-    name: "austino",
-    url: "https://www.austino.dev",
+    name: "Loud Bark",
+    url: "https://www.loudbark.dev",
   },
   areaServed: {
     "@type": "Country",
     name: "United States",
   },
-  url: "https://www.austino.dev/services/automation",
+  url: "https://www.loudbark.dev/services/automation",
 };
 
 const breadcrumbSchema = {
@@ -88,13 +88,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.austino.dev",
+      item: "https://www.loudbark.dev",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Automation",
-      item: "https://www.austino.dev/services/automation",
+      item: "https://www.loudbark.dev/services/automation",
     },
   ],
 };

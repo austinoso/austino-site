@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+﻿import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactForm from "./ContactForm";
 
@@ -25,10 +25,10 @@ export default function ContactPage() {
               No jargon, no pressure. Fill out what you can and I&apos;ll follow
               up with a clear plan within 24 hours. Or email me directly at{" "}
               <a
-                href="mailto:connect@austino.dev"
+                href="mailto:connect@loudbark.dev"
                 className="text-warm-gold hover:underline"
               >
-                connect@austino.dev
+                connect@loudbark.dev
               </a>
               .
             </p>

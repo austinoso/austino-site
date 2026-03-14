@@ -1,4 +1,4 @@
-// ── Modesto-specific overrides for legal pSEO ──
+﻿// ── Modesto-specific overrides for legal pSEO ──
 // Angle: "Good firms, thin sites." Strong reputations, hollow web presence.
 // Data source: 36-firm market scan (35 sites analyzed), 2026.
 
@@ -22,21 +22,21 @@ export const modestoLegal = {
       statLabel: "five pages or fewer",
       heading: "Most sites are a homepage and a prayer",
       body: "Over a third of Modesto firm sites have five or fewer pages. No practice area detail, no attorney bios with substance. You can't win searches you haven't built pages for.",
-      source: { label: "austino.dev · 36-firm scan", href: "/insights/modesto-law-firm-websites" },
+      source: { label: "loudbark.dev · 36-firm scan", href: "/insights/modesto-law-firm-websites" },
     },
     {
       stat: "51%",
       statLabel: "no blog or resources",
       heading: "Half the market has nothing to publish",
       body: "Half of Modesto firm sites have zero educational content. Google's quality raters look for this on legal sites specifically. The firms that publish rank. The rest get page two.",
-      source: { label: "austino.dev · 36-firm scan", href: "/insights/modesto-law-firm-websites" },
+      source: { label: "loudbark.dev · 36-firm scan", href: "/insights/modesto-law-firm-websites" },
     },
     {
       stat: "40%",
       statLabel: "no structured data",
       heading: "Invisible to rich results",
       body: "40% of Modesto firm sites have no Schema markup. With 84 average reviews, the proof is there. The sites just aren't telling Google about it.",
-      source: { label: "austino.dev · 36-firm scan", href: "/insights/modesto-law-firm-websites" },
+      source: { label: "loudbark.dev · 36-firm scan", href: "/insights/modesto-law-firm-websites" },
     },
   ],
 
@@ -83,7 +83,7 @@ export const modestoLegal = {
       { label: "Has a website", pct: "97%", fraction: "35/36", failing: false },
       { label: "Strong review presence", pct: "84 avg", fraction: "35 firms", failing: false },
     ],
-    source: { label: "austino.dev · Full breakdown", href: "/insights/modesto-law-firm-websites" },
+    source: { label: "loudbark.dev · Full breakdown", href: "/insights/modesto-law-firm-websites" },
   },
 
   additionalFAQ: [
