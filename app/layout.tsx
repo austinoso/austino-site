@@ -42,9 +42,6 @@ export const metadata: Metadata = {
     "custom business websites",
   ],
   authors: [{ name: "Austin O." }],
-  icons: {
-    icon: "/favicon.ico",
-  },
   alternates: {
     canonical: "https://www.loudbark.dev",
   },
@@ -65,19 +62,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link
-          rel="preconnect"
-          href="https://api-gateway.umami.dev"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://api-gateway.umami.dev" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://api-gateway.umami.dev" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       </head>
