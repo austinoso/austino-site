@@ -23,6 +23,27 @@ Google evaluates content along four dimensions. They call it E-E-A-T:
 - **Authoritativeness.** Is this person or business recognized as a source in their field?
 - **Trustworthiness.** Can a visitor trust what's on this page? Is the site transparent about who's behind it?
 
+<div role="img" aria-label="Diagram of Google's E-E-A-T framework. Experience, Expertise, and Authoritativeness all feed into Trust, which is the most important signal." style="margin: 1.5em 0;">
+  <div aria-hidden="true" style="background: #ffffff; border: 1px solid #E7E5E4; border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem;">
+      <div style="text-align: center; padding: 0.75rem 0.5rem; background: #FAF9F6; border-radius: 0.5rem; border: 1px solid #E7E5E4;">
+        <div style="font-size: 0.8125rem; font-weight: 600; color: #1C1917;">Experience</div>
+      </div>
+      <div style="text-align: center; padding: 0.75rem 0.5rem; background: #FAF9F6; border-radius: 0.5rem; border: 1px solid #E7E5E4;">
+        <div style="font-size: 0.8125rem; font-weight: 600; color: #1C1917;">Expertise</div>
+      </div>
+      <div style="text-align: center; padding: 0.75rem 0.5rem; background: #FAF9F6; border-radius: 0.5rem; border: 1px solid #E7E5E4;">
+        <div style="font-size: 0.8125rem; font-weight: 600; color: #1C1917;">Authoritativeness</div>
+      </div>
+    </div>
+    <div style="text-align: center; color: #B45309; font-size: 1rem; line-height: 1; padding: 0.375rem 0;">↓ ↓ ↓</div>
+    <div style="text-align: center; padding: 1rem; background: #1C1917; border-radius: 0.5rem;">
+      <div style="font-size: 0.9375rem; font-weight: 700; color: #ffffff;">Trust</div>
+      <div style="font-size: 0.6875rem; color: #a8a29e; margin-top: 0.25rem;">The foundation — without it, nothing else matters</div>
+    </div>
+  </div>
+</div>
+
 These aren't pass/fail checkboxes. They're signals that Google picks up on across your site. A page written by someone with real experience reads differently than generic advice scraped from other sites, and Google has gotten better at spotting which is which.
 
 **Trust is the center of it.** Google says so directly: of the four, trust matters most. A site can have expertise and authority, but if something feels off — no contact info, no real author, vague claims — none of the other signals make up for it.

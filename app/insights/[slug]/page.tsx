@@ -201,7 +201,7 @@ export default async function InsightPage({ params }: Props) {
                           <a
                             href={`#${h.id}`}
                             className={`block py-1 text-[13px] leading-snug transition-colors duration-150 hover:text-warm-gold ${
-                              h.level === 3 ? "pl-4 text-stone-400" : "text-stone-600 font-medium"
+                              h.level === 3 ? "pl-4 text-stone-500" : "text-stone-600 font-medium"
                             }`}
                           >
                             {h.text}

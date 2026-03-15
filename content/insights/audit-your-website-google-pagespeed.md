@@ -40,6 +40,36 @@ PageSpeed shows a handful of timing metrics. Two are worth knowing.
 
 **Largest Contentful Paint (LCP)** is when the biggest element finishes loading. Usually your hero image or main heading. This is when the page feels *done*. Google considers LCP under 2.5 seconds good. Over 4 seconds is poor.
 
+<div role="img" aria-label="Page load timeline showing two key moments: First Contentful Paint (FCP) when the first text or image appears, and Largest Contentful Paint (LCP) when the main content finishes loading. Google considers LCP under 2.5 seconds good, 2.5 to 4 seconds needs improvement, and over 4 seconds poor." style="margin: 1.5em 0;">
+  <div aria-hidden="true" style="background: #ffffff; border: 1px solid #E7E5E4; border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
+    <div style="font-size: 0.625rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #a8a29e; margin-bottom: 1rem;">Page Load Timeline</div>
+    <div style="display: flex; gap: 0.75rem; padding-bottom: 1.25rem;">
+      <div style="display: flex; flex-direction: column; align-items: center; padding-top: 0.25rem;">
+        <div style="width: 10px; height: 10px; border-radius: 50%; background: #1C1917; flex-shrink: 0;"></div>
+        <div style="width: 2px; flex: 1; background: #E7E5E4; margin-top: 0.25rem;"></div>
+      </div>
+      <div>
+        <div style="font-size: 0.8125rem; font-weight: 600; color: #1C1917;">First Contentful Paint (FCP)</div>
+        <div style="font-size: 0.8125rem; color: #78716c; margin-top: 0.125rem;">First text or image appears — visitor knows it's loading</div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 0.75rem;">
+      <div style="display: flex; flex-direction: column; align-items: center; padding-top: 0.25rem;">
+        <div style="width: 10px; height: 10px; border-radius: 50%; background: #B45309; flex-shrink: 0;"></div>
+      </div>
+      <div>
+        <div style="font-size: 0.8125rem; font-weight: 600; color: #1C1917;">Largest Contentful Paint (LCP)</div>
+        <div style="font-size: 0.8125rem; color: #78716c; margin-top: 0.125rem;">Main content finishes loading — page feels done</div>
+        <div style="display: flex; gap: 0.75rem; margin-top: 0.625rem; flex-wrap: wrap;">
+          <span style="font-size: 0.6875rem; color: #16a34a;">● Good: under 2.5s</span>
+          <span style="font-size: 0.6875rem; color: #d97706;">● Needs work: 2.5–4s</span>
+          <span style="font-size: 0.6875rem; color: #dc2626;">● Poor: over 4s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 If FCP fires fast but LCP is slow, your visitor sees a flash of text and then stares at an empty box while a huge image downloads. That pattern is the most common performance problem on business sites, and it leads to the easiest fix.
 
 ### The fix: compress your images
