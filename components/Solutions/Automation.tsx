@@ -1,26 +1,18 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import AutomationDashboard from "@/components/Solutions/AutomationDashboard";
+import AutomationDashboard from "./AutomationDashboardLoader";
 
-const capabilities = [
-  "Workflow Automation",
-  "Software Integration",
-  "Go Paperless",
-];
+const capabilities = ["Workflow Automation", "Software Integration", "Go Paperless"];
 
 export default function Automation() {
   return (
-    <div
-      data-subsection
-      className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start"
-    >
+    <div data-subsection className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
       {/* ── Dashboard — left, compact ── */}
       <div data-visual className="order-2 lg:order-1">
         <div
           className="rounded-xl"
           style={{
-            boxShadow:
-              "-12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+            boxShadow: "-12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
           }}
         >
           <AutomationDashboard />
@@ -41,9 +33,9 @@ export default function Automation() {
           Automate what slows you&nbsp;down.
         </h3>
         <p className="text-base text-stone-600 leading-relaxed">
-          Once your website and growth strategy are in place, automation takes
-          repetitive work off your plate. Follow-ups, scheduling, and data entry
-          run in the background so you can focus on sales and service.
+          Once your website and growth strategy are in place, automation takes repetitive work off
+          your plate. Follow-ups, scheduling, and data entry run in the background so you can focus
+          on sales and service.
         </p>
 
         {/* ── Capabilities as inline tags ── */}
@@ -54,10 +46,7 @@ export default function Automation() {
               key={c}
               className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-rose-200 bg-rose-50 text-sm text-stone-600"
             >
-              <span
-                className="h-1.5 w-1.5 rounded-full bg-rose-400/60"
-                aria-hidden="true"
-              />
+              <span className="h-1.5 w-1.5 rounded-full bg-rose-400/60" aria-hidden="true" />
               {c}
             </span>
           ))}
@@ -67,8 +56,7 @@ export default function Automation() {
           href="/services/automation"
           className="inline-flex items-center gap-2 text-sm font-mono font-medium text-rose-600 hover:text-rose-700 transition-colors duration-300 mt-1"
         >
-          Explore automation{" "}
-          <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+          Explore automation <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
       </div>
     </div>

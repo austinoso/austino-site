@@ -22,11 +22,7 @@ type Props = HTMLAttributes<HTMLElement> & {
   as?: "div" | "section";
 };
 
-export default function ScrollReveal({
-  children,
-  as: Tag = "div",
-  ...htmlProps
-}: Props) {
+export default function ScrollReveal({ children, as: Tag = "div", ...htmlProps }: Props) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -37,91 +33,96 @@ export default function ScrollReveal({
     let ctx: { revert: () => void } | null = null;
     let reverted = false;
 
-    getGSAP().then(({ gsap }) => {
-      if (reverted) return;
+    /* Wait until the section is near the viewport before loading GSAP.
+       rootMargin: 200px means we start ~200px before it scrolls in,
+       giving GSAP time to initialise before the user actually sees it. */
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
 
-      ctx = gsap.context(() => {
-        /* ── label — simple fade ── */
-        el.querySelectorAll<HTMLElement>("[data-animate='label']").forEach(
-          (t) => {
-            gsap.from(t, {
-              opacity: 0,
-              duration: 0.4,
-              ease: "power2.out",
-              scrollTrigger: { trigger: t, start: "top 85%" },
+        getGSAP().then(({ gsap }) => {
+          if (reverted) return;
+
+          ctx = gsap.context(() => {
+            /* ── label — simple fade ── */
+            el.querySelectorAll<HTMLElement>("[data-animate='label']").forEach((t) => {
+              gsap.from(t, {
+                opacity: 0,
+                duration: 0.4,
+                ease: "power2.out",
+                scrollTrigger: { trigger: t, start: "top 85%" },
+              });
             });
-          },
-        );
 
-        /* ── fade — slide-up + stagger ── */
-        const fades = el.querySelectorAll<HTMLElement>("[data-animate='fade']");
-        if (fades.length) {
-          gsap.from(fades, {
-            y: 12,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.12,
-            scrollTrigger: { trigger: fades[0], start: "top 88%" },
-          });
-        }
+            /* ── fade — slide-up + stagger ── */
+            const fades = el.querySelectorAll<HTMLElement>("[data-animate='fade']");
+            if (fades.length) {
+              gsap.from(fades, {
+                y: 12,
+                opacity: 0,
+                duration: 0.5,
+                ease: "power3.out",
+                stagger: 0.12,
+                scrollTrigger: { trigger: fades[0], start: "top 88%" },
+              });
+            }
 
-        /* ── card — larger slide-up + stagger ── */
-        const cards = el.querySelectorAll<HTMLElement>("[data-animate='card']");
-        if (cards.length) {
-          gsap.from(cards, {
-            y: 32,
-            opacity: 0,
-            duration: 0.7,
-            ease: "power3.out",
-            stagger: 0.15,
-            scrollTrigger: { trigger: cards[0], start: "top 82%" },
-          });
-        }
+            /* ── card — larger slide-up + stagger ── */
+            const cards = el.querySelectorAll<HTMLElement>("[data-animate='card']");
+            if (cards.length) {
+              gsap.from(cards, {
+                y: 32,
+                opacity: 0,
+                duration: 0.7,
+                ease: "power3.out",
+                stagger: 0.15,
+                scrollTrigger: { trigger: cards[0], start: "top 82%" },
+              });
+            }
 
-        /* ── slide-up — individual elements ── */
-        el.querySelectorAll<HTMLElement>("[data-animate='slide-up']").forEach(
-          (t) => {
-            gsap.from(t, {
-              y: 20,
-              opacity: 0,
-              duration: 0.6,
-              ease: "power3.out",
-              scrollTrigger: { trigger: t, start: "top 85%" },
+            /* ── slide-up — individual elements ── */
+            el.querySelectorAll<HTMLElement>("[data-animate='slide-up']").forEach((t) => {
+              gsap.from(t, {
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power3.out",
+                scrollTrigger: { trigger: t, start: "top 85%" },
+              });
             });
-          },
-        );
 
-        /* ── slide-up-delayed — same with delay ── */
-        el.querySelectorAll<HTMLElement>(
-          "[data-animate='slide-up-delayed']",
-        ).forEach((t) => {
-          gsap.from(t, {
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            delay: 0.1,
-            ease: "power3.out",
-            scrollTrigger: { trigger: t, start: "top 85%" },
-          });
+            /* ── slide-up-delayed — same with delay ── */
+            el.querySelectorAll<HTMLElement>("[data-animate='slide-up-delayed']").forEach((t) => {
+              gsap.from(t, {
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                delay: 0.1,
+                ease: "power3.out",
+                scrollTrigger: { trigger: t, start: "top 85%" },
+              });
+            });
+
+            /* ── line — scaleX from left ── */
+            el.querySelectorAll<HTMLElement>("[data-animate='line']").forEach((t) => {
+              gsap.from(t, {
+                scaleX: 0,
+                duration: 0.6,
+                ease: "power2.out",
+                scrollTrigger: { trigger: t, start: "top 92%" },
+              });
+            });
+          }, el);
         });
-
-        /* ── line — scaleX from left ── */
-        el.querySelectorAll<HTMLElement>("[data-animate='line']").forEach(
-          (t) => {
-            gsap.from(t, {
-              scaleX: 0,
-              duration: 0.6,
-              ease: "power2.out",
-              scrollTrigger: { trigger: t, start: "top 92%" },
-            });
-          },
-        );
-      }, el);
-    });
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(el);
 
     return () => {
       reverted = true;
+      io.disconnect();
       ctx?.revert();
     };
   }, []);
