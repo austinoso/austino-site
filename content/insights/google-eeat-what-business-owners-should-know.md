@@ -1,5 +1,5 @@
 ---
-title: "Google Wrote the Rulebook for Ranking. Here's What It Says."
+title: "E-E-A-T: How Google Decides Your Site Is Worth Ranking"
 excerpt: "Google's quality guidelines tell you exactly what they look for in a website. Most of it isn't technical. It's about proving you're real, credible, and worth someone's time."
 date: "2026-03-15"
 category: "SEO"
