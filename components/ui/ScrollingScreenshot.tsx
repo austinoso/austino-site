@@ -83,7 +83,7 @@ export function ScrollingScreenshot({
           height={height}
           className="w-full h-auto"
           sizes={sizes}
-          quality={80}
+          quality={75}
         />
       </div>
     </div>
