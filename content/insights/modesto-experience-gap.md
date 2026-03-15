@@ -4,7 +4,9 @@ excerpt: "Modesto is absorbing thousands of Bay Area transplants who expect more
 date: "2026-03-08"
 category: "Local Market"
 readTime: "5 min read"
-featured: true
+relatedSlugs:
+  - modesto-contractor-website-audit
+  - modesto-law-firm-websites
 ---
 
 Something is shifting in the Central Valley. Modesto, Tracy, Manteca — these cities are growing fast, fueled by people moving inland from the Bay Area and East Bay looking for space and lower cost of living.

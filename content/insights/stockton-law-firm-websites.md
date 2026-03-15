@@ -4,6 +4,9 @@ excerpt: "42 Stockton law firms. 38 websites. 79% with no maps embed and 42% wit
 date: "2026-03-10"
 category: "Local Market"
 readTime: "3 min read"
+relatedSlugs:
+  - modesto-law-firm-websites
+  - stockton-contractor-website-audit
 ---
 
 I scanned 42 law firms in the Stockton and San Joaquin County area. Checked their websites for the signals Google actually uses to rank local businesses: maps embeds, NAP consistency, structured data, content depth.

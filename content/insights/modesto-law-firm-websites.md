@@ -4,6 +4,9 @@ excerpt: "Strong reputations, weak web presence. 36 Modesto law firms scanned â€
 date: "2026-03-10"
 category: "Local Market"
 readTime: "3 min read"
+relatedSlugs:
+  - stockton-law-firm-websites
+  - modesto-experience-gap
 ---
 
 Modesto has good law firms. 84 average Google reviews per firm, 4.5 stars. Clients trust these practices.

@@ -4,6 +4,10 @@ excerpt: "93 home service businesses in Manteca. 40 of them have no website at a
 date: "2026-03-10"
 category: "Market Data"
 readTime: "3 min read"
+relatedSlugs:
+  - stockton-contractor-website-audit
+  - modesto-contractor-website-audit
+  - tracy-contractor-website-audit
 ---
 
 Of the four Central Valley cities I scanned for contractor web presence, Manteca's number was the most stark: 43% have no website. Forty out of ninety-three businesses. Gone from any search that starts in a browser.

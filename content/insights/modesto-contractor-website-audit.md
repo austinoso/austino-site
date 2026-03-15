@@ -4,6 +4,11 @@ excerpt: "The largest contractor market I've scanned. 124 businesses, 87 website
 date: "2026-03-10"
 category: "Market Data"
 readTime: "3 min read"
+relatedSlugs:
+  - stockton-contractor-website-audit
+  - manteca-contractor-website-audit
+  - tracy-contractor-website-audit
+  - modesto-experience-gap
 ---
 
 Modesto has the most contractors of any Central Valley city I scanned. It also has the highest rate of sites without a contact form: 53%.

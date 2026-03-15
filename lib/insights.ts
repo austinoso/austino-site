@@ -9,6 +9,7 @@ export interface InsightFrontmatter {
   category: string;
   readTime: string;
   featured?: boolean;
+  relatedSlugs?: string[];
 }
 
 export interface InsightMeta extends InsightFrontmatter {
@@ -36,9 +37,7 @@ export function getAllInsights(): InsightMeta[] {
   });
 
   // Sort newest first
-  return insights.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
+  return insights.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getInsightBySlug(slug: string): Insight | undefined {
@@ -61,4 +60,16 @@ export function getAllInsightSlugs(): string[] {
     .readdirSync(insightsDir)
     .filter((f) => f.endsWith(".md"))
     .map((f) => f.replace(/\.md$/, ""));
+}
+
+export function getRelatedInsights(slugs: string[]): InsightMeta[] {
+  return slugs
+    .map((slug) => {
+      const filePath = path.join(insightsDir, `${slug}.md`);
+      if (!fs.existsSync(filePath)) return undefined;
+      const raw = fs.readFileSync(filePath, "utf-8");
+      const { data } = matter(raw);
+      return { slug, ...(data as InsightFrontmatter) };
+    })
+    .filter((item): item is InsightMeta => item !== undefined);
 }

@@ -4,6 +4,10 @@ excerpt: "86 home service businesses, 46 websites. The worst web presence scores
 date: "2026-03-10"
 category: "Market Data"
 readTime: "3 min read"
+relatedSlugs:
+  - stockton-contractor-website-audit
+  - modesto-contractor-website-audit
+  - manteca-contractor-website-audit
 ---
 
 Tracy is growing faster than its contractor web presence. New housing, Bay Area transplants, rising demand for home services. Of the four cities I scanned, Tracy scored worst on nearly every metric.

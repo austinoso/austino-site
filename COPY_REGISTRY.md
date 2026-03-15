@@ -259,6 +259,8 @@ These aren't word-for-word duplicates but _skeleton reuse_ — same sentence str
 | manteca-contractor-website-audit   | 43% of Manteca Contractors Don't Have a Website                                   |
 | modesto-contractor-website-audit   | I Audited 124 Modesto Contractor Businesses. Most Sites Can't Take a Lead.        |
 | tracy-contractor-website-audit     | Tracy Is the Fastest-Growing City in the Valley. Its Contractor Websites Are the Worst. |
+| audit-your-website-google-pagespeed | How to Audit Your Own Website with Google PageSpeed Insights                     |
+| google-eeat-what-business-owners-should-know | Google Wrote the Rulebook for Ranking. Here's What It Says.            |
 
 ### Signature Phrases (Insights)
 
@@ -268,6 +270,10 @@ These aren't word-for-word duplicates but _skeleton reuse_ — same sentence str
 | "The bar is low. The businesses that clear it first get the traffic." | local-seo-basics-central-valley |
 | "One business, four directories, three mismatches."                   | local-seo-basics-central-valley |
 | "None of these take more than an hour. All of them move the needle."  | local-seo-basics-central-valley |
+| "53% of mobile visitors leave a site that takes longer than 3 seconds to load" | audit-your-website-google-pagespeed |
+| "The gap between FCP and LCP is often where the real problem lives." | audit-your-website-google-pagespeed |
+| "That's the one that matters."                                        | audit-your-website-google-pagespeed |
+| "If I send a real person here, will they be glad I did?"              | google-eeat-what-business-owners-should-know |
 | "That's not competition. That's an open field."                       | **RETIRED** (dubious stat)      |
 | "They're winning because the rest haven't shown up yet."              | **RETIRED**                     |
 

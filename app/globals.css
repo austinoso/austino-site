@@ -155,12 +155,14 @@ select:focus-visible,
   @apply text-2xl sm:text-[1.625rem] font-bold font-display text-warm-white leading-[1.2] tracking-tight;
   margin-top: 2.5em;
   margin-bottom: 0.75em;
+  scroll-margin-top: 6rem;
 }
 
 .insight-prose h3 {
   @apply text-xl font-bold font-display text-warm-white leading-[1.25] tracking-tight;
   margin-top: 2em;
   margin-bottom: 0.5em;
+  scroll-margin-top: 6rem;
 }
 
 .insight-prose h4 {

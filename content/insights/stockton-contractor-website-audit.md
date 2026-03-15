@@ -4,6 +4,10 @@ excerpt: "115 home service businesses, 79 websites, and almost half with no cont
 date: "2026-03-10"
 category: "Market Data"
 readTime: "3 min read"
+relatedSlugs:
+  - modesto-contractor-website-audit
+  - manteca-contractor-website-audit
+  - tracy-contractor-website-audit
 ---
 
 I pulled data on 115 home service contractors in Stockton across HVAC, roofing, plumbing, electrical, and restoration. Checked whether they have a website, and if they do, what's actually on it.

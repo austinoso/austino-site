@@ -4,6 +4,9 @@ excerpt: "Your competitor shows up when someone in Modesto searches for what you
 date: "2026-02-24"
 category: "SEO"
 readTime: "5 min read"
+relatedSlugs:
+  - audit-your-website-google-pagespeed
+  - google-eeat-what-business-owners-should-know
 ---
 
 Someone in Stockton just searched for exactly what you sell. Google showed them three businesses. Yours wasn't one of them.

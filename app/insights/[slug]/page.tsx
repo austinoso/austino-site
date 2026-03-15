@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, PenLine } from "lucide-react";
 import { formatDate } from "@/lib/format-date";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
@@ -11,7 +11,38 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import { BackLink } from "@/components/ui/BackLink";
-import { getInsightBySlug, getAllInsightSlugs } from "@/lib/insights";
+import { getInsightBySlug, getAllInsightSlugs, getRelatedInsights } from "@/lib/insights";
+
+interface TocHeading {
+  id: string;
+  text: string;
+  level: 2 | 3;
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function processHeadings(htmlStr: string): { html: string; headings: TocHeading[] } {
+  const headings: TocHeading[] = [];
+  const processed = htmlStr.replace(
+    /<(h[23])>(.*?)<\/\1>/g,
+    (_match, tag: string, content: string) => {
+      const text = content
+        .replace(/<[^>]+>/g, "")
+        .replace(/&[^;]+;/g, " ")
+        .trim();
+      const id = slugify(text);
+      const level = tag === "h2" ? 2 : 3;
+      headings.push({ id, text, level });
+      return `<${tag} id="${id}">${content}</${tag}>`;
+    },
+  );
+  return { html: processed, headings };
+}
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -51,13 +82,18 @@ export default async function InsightPage({ params }: Props) {
 
   if (!insight) notFound();
 
+  const relatedInsights = insight.relatedSlugs?.length
+    ? getRelatedInsights(insight.relatedSlugs)
+    : [];
+
   const processed = await remark()
     .use(remarkGfm)
     .use(html, { sanitize: false })
     .process(insight.content);
-  const contentHtml = processed
+  const rawHtml = processed
     .toString()
     .replace(/<a href="http/g, '<a target="_blank" rel="noopener noreferrer" href="http');
+  const { html: contentHtml, headings } = processHeadings(rawHtml);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -146,6 +182,37 @@ export default async function InsightPage({ params }: Props) {
               </div>
             </header>
 
+            {/* Table of Contents */}
+            {headings.length > 2 &&
+              (() => {
+                const tocHeadings = headings.filter((h) => !/^tl;?\s*dr$/i.test(h.text));
+                if (tocHeadings.length < 3) return null;
+                return (
+                  <nav
+                    aria-label="Table of contents"
+                    className="max-w-2xl mb-12 sm:mb-16 rounded-xl border border-stone-200/80 bg-white/60 px-6 py-5 sm:px-7 sm:py-6"
+                  >
+                    <p className="text-[11px] font-mono text-warm-gold uppercase tracking-wider mb-4">
+                      In this article
+                    </p>
+                    <ol className="space-y-0.5">
+                      {tocHeadings.map((h) => (
+                        <li key={h.id}>
+                          <a
+                            href={`#${h.id}`}
+                            className={`block py-1 text-[13px] leading-snug transition-colors duration-150 hover:text-warm-gold ${
+                              h.level === 3 ? "pl-4 text-stone-400" : "text-stone-600 font-medium"
+                            }`}
+                          >
+                            {h.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ol>
+                  </nav>
+                );
+              })()}
+
             {/* Prose Content */}
             <div
               className="insight-prose max-w-2xl"
@@ -173,9 +240,42 @@ export default async function InsightPage({ params }: Props) {
                     high-performance systems. He started loudbark.dev to close the gap between what
                     enterprise companies build and what local businesses can afford.
                   </p>
+                  <p className="text-[13px] text-stone-400 leading-relaxed mt-3 flex items-start gap-1.5">
+                    <PenLine className="w-3.5 h-3.5 shrink-0 mt-0.5" aria-hidden="true" />
+                    <span>
+                      I use AI as a drafting and editing tool. The direction, advice, and technical
+                      detail come from me&nbsp;&mdash; I outline the topics, vet the facts, and edit
+                      everything before it goes up.
+                    </span>
+                  </p>
                 </div>
               </div>
             </div>
+
+            {/* Related Articles */}
+            {relatedInsights.length > 0 && (
+              <div className="max-w-2xl mt-10 sm:mt-12 pt-10 border-t border-stone-200">
+                <h2 className="text-sm font-mono text-warm-gold uppercase tracking-wider mb-6">
+                  Related
+                </h2>
+                <div className="space-y-5">
+                  {relatedInsights.map((related) => (
+                    <Link
+                      key={related.slug}
+                      href={`/insights/${related.slug}`}
+                      className="block group"
+                    >
+                      <p className="text-[15px] font-semibold text-warm-white group-hover:text-warm-gold transition-colors duration-200 leading-snug">
+                        {related.title}
+                      </p>
+                      <p className="text-[13px] text-stone-400 mt-1 line-clamp-2">
+                        {related.excerpt}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Bottom CTA */}
             <div className="max-w-2xl mt-10 sm:mt-12 pt-10 border-t border-stone-200">
