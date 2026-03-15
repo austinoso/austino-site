@@ -28,7 +28,7 @@ For most business sites, mobile performance in the 70s or above is solid. Below 
 
 ### Why speed matters
 
-[Google's research](https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/) found that 53% of mobile visitors leave a site that takes longer than 3 seconds to load. Half your traffic, gone before they see anything.
+[Google's own data](https://web.dev/articles/why-speed-matters) found that 53% of mobile visitors leave a site that takes longer than 3 seconds to load. Half your traffic, gone before they see anything.
 
 The people who do stick around on a fast site are more likely to call, fill out a form, or buy something. And Google has used page speed as a ranking factor [since 2018](https://developers.google.com/search/blog/2018/01/using-page-speed-in-mobile-search). So a slow site loses visitors *and* makes it harder for new ones to find you.
 
@@ -38,7 +38,7 @@ PageSpeed shows a handful of timing metrics. Two are worth knowing.
 
 **First Contentful Paint (FCP)** is when the first thing appears on screen. Some text, a logo, a background color. It's when your visitor knows the site is responding. Slow FCP feels like nothing is happening, and people leave.
 
-**Largest Contentful Paint (LCP)** is when the biggest element finishes loading. Usually your hero image or main heading. This is when the page feels *done*. Google considers LCP under 2.5 seconds good. Over 4 seconds is poor.
+**Largest Contentful Paint (LCP)** is when the biggest element finishes loading. Usually the large banner image at the top of your page or your main heading. This is when the page feels *done*. Google considers LCP under 2.5 seconds good. Over 4 seconds is poor.
 
 <div role="img" aria-label="Page load timeline showing two key moments: First Contentful Paint (FCP) when the first text or image appears, and Largest Contentful Paint (LCP) when the main content finishes loading. Google considers LCP under 2.5 seconds good, 2.5 to 4 seconds needs improvement, and over 4 seconds poor." style="margin: 1.5em 0;">
   <div aria-hidden="true" style="background: #ffffff; border: 1px solid #E7E5E4; border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
