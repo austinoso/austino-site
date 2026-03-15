@@ -59,6 +59,16 @@
   .section-label {
     @apply text-xs font-semibold text-warm-gold uppercase tracking-[0.2em];
   }
+
+  /* ── Native <dialog> reset for mobile nav ── */
+  .nav-dialog {
+    border: none;
+    outline: none;
+    overscroll-behavior: contain;
+  }
+  .nav-dialog::backdrop {
+    display: none;
+  }
 }
 
 @layer utilities {

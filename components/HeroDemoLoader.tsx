@@ -1,10 +1,15 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useState, useEffect } from "react";
 
 const HeroDemo = dynamic(() => import("./HeroDemo"), {
   ssr: false,
-  loading: () => (
+  loading: () => <HeroDemoSkeleton />,
+});
+
+function HeroDemoSkeleton() {
+  return (
     <div
       className="relative rounded-xl border border-stone-300 bg-white overflow-hidden select-none shadow-xl shadow-stone-900/[0.06]"
       aria-hidden="true"
@@ -25,9 +30,19 @@ const HeroDemo = dynamic(() => import("./HeroDemo"), {
       {/* Empty stage — matches demo aspect ratio (640/400) */}
       <div style={{ aspectRatio: "640/400" }} className="bg-[#F0EAE2]" />
     </div>
-  ),
-});
+  );
+}
 
 export default function HeroDemoLoader() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    // Yield to the browser so the LCP text paints first,
+    // then load the heavy demo + GSAP bundle.
+    const id = requestIdleCallback(() => setReady(true), { timeout: 1500 });
+    return () => cancelIdleCallback(id);
+  }, []);
+
+  if (!ready) return <HeroDemoSkeleton />;
   return <HeroDemo />;
 }

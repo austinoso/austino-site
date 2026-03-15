@@ -2,522 +2,323 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useCallback, useRef } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
-  const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
-  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const dropdownTriggerRef = useRef<HTMLAnchorElement>(null);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const mobileToggleRef = useRef<HTMLButtonElement>(null);
-  const pathname = usePathname();
-  const router = useRouter();
+/* ── Shared link data ── */
+const SOLUTIONS = [
+  {
+    label: "Core",
+    color: "text-amber-700",
+    items: [
+      {
+        href: "/services/web-development",
+        name: "Web Development",
+        desc: "Fast, search-optimized sites",
+        event: "nav-service-web",
+      },
+      {
+        href: "/services/growth-strategy",
+        name: "Growth Strategy",
+        desc: "Data + content that ranks",
+        event: "nav-service-growth",
+      },
+    ],
+  },
+  {
+    label: "Add-on",
+    color: "text-rose-700",
+    items: [
+      {
+        href: "/services/automation",
+        name: "Automation",
+        desc: "Replace manual work with code",
+        event: "nav-service-automation",
+      },
+    ],
+  },
+] as const;
 
+const NAV_LINKS = [
+  { href: "/work", label: "Work", prefix: "/work" },
+  { href: "/insights", label: "Insights", prefix: "/insights" },
+] as const;
+
+/* ── Active link indicator ── */
+function ActiveBar() {
+  return (
+    <span
+      className="absolute -bottom-1.5 inset-x-0 h-0.5 rounded-full"
+      style={{ background: "linear-gradient(90deg, #B45309, #DB2777)" }}
+      aria-hidden="true"
+    />
+  );
+}
+
+/* ── Component ── */
+export default function Navigation() {
+  const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
+
+  /* Scroll detection — the only effect we need */
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /* Mobile menu via <dialog> — using .show() so the nav bar stays interactive */
+  const openMobileMenu = useCallback(() => {
+    dialogRef.current?.show();
+    document.body.style.overflow = "hidden";
+    setMobileOpen(true);
+  }, []);
+
+  const closeMobileMenu = useCallback(() => {
+    dialogRef.current?.close();
+    document.body.style.overflow = "";
+    setMobileOpen(false);
+    setMobileSolutionsOpen(false);
+  }, []);
+
+  /* Close on Escape — .show() doesn't auto-close on Escape like .showModal() */
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
+    if (!mobileOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMobileMenu();
     };
-  }, [isMobileMenuOpen]);
-
-  /* ── Close mobile menu on Escape ── */
-  useEffect(() => {
-    if (!isMobileMenuOpen) return;
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsMobileMenuOpen(false);
-        mobileToggleRef.current?.focus();
-      }
-    };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [isMobileMenuOpen]);
-
-  /* ── Focus trap for mobile menu ── */
-  useEffect(() => {
-    if (!isMobileMenuOpen || !mobileMenuRef.current) return;
-    const menu = mobileMenuRef.current;
-    const focusable = menu.querySelectorAll<HTMLElement>(
-      'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])',
-    );
-    if (focusable.length === 0) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-
-    // Focus first item when menu opens
-    requestAnimationFrame(() => first.focus());
-
-    const trap = (e: KeyboardEvent) => {
-      if (e.key !== "Tab") return;
-      if (e.shiftKey) {
-        if (document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        }
-      } else {
-        if (document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    };
-    menu.addEventListener("keydown", trap);
-    return () => menu.removeEventListener("keydown", trap);
-  }, [isMobileMenuOpen, isMobileSolutionsOpen]);
-
-  /* ── Close desktop dropdown on Escape ── */
-  useEffect(() => {
-    if (!isSolutionsOpen) return;
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsSolutionsOpen(false);
-        dropdownTriggerRef.current?.focus();
-      }
-    };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [isSolutionsOpen]);
-
-  /* ── Close desktop dropdown when focus leaves the dropdown container ── */
-  useEffect(() => {
-    if (!isSolutionsOpen || !dropdownRef.current) return;
-    const container = dropdownRef.current;
-    const handleFocusOut = (e: FocusEvent) => {
-      if (!container.contains(e.relatedTarget as Node)) {
-        setIsSolutionsOpen(false);
-      }
-    };
-    container.addEventListener("focusout", handleFocusOut);
-    return () => container.removeEventListener("focusout", handleFocusOut);
-  }, [isSolutionsOpen]);
-
-  const closeMenu = () => setIsMobileMenuOpen(false);
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen, closeMobileMenu]);
 
   const scrollToSolutions = useCallback(
-    (e: React.MouseEvent | React.KeyboardEvent) => {
+    (e: React.MouseEvent) => {
       e.preventDefault();
-      closeMenu();
-
-      const doScroll = () => {
-        const el = document.getElementById("solutions");
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-        }
-      };
-
       if (pathname === "/") {
-        doScroll();
+        document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" });
       } else {
-        router.push("/");
-        // Wait for navigation and DOM to settle, then scroll
-        const wait = setInterval(() => {
-          const el = document.getElementById("solutions");
-          if (el) {
-            clearInterval(wait);
-            setTimeout(doScroll, 100);
-          }
-        }, 50);
-        // Safety timeout
-        setTimeout(() => clearInterval(wait), 5000);
+        window.location.assign("/#solutions");
       }
     },
-    [pathname, router],
+    [pathname],
   );
 
-  const toggleDropdown = () => setIsSolutionsOpen((prev) => !prev);
-
-  const handleDropdownKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      toggleDropdown();
-    } else if (e.key === "ArrowDown") {
-      e.preventDefault();
-      setIsSolutionsOpen(true);
-      // Focus first dropdown link after it opens
-      requestAnimationFrame(() => {
-        const firstLink =
-          dropdownRef.current?.querySelector<HTMLAnchorElement>("[data-dropdown-item] a");
-        firstLink?.focus();
-      });
-    }
-  };
-
-  const handleDropdownItemKeyDown = (e: React.KeyboardEvent) => {
-    const items =
-      dropdownRef.current?.querySelectorAll<HTMLAnchorElement>("[data-dropdown-item] a");
-    if (!items) return;
-    const currentIndex = Array.from(items).indexOf(e.currentTarget as HTMLAnchorElement);
-
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      const next = items[currentIndex + 1] || items[0];
-      next.focus();
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      const prev = items[currentIndex - 1] || items[items.length - 1];
-      prev.focus();
-    }
-  };
+  const isServicesActive = pathname.startsWith("/services");
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 ${
-        isMobileMenuOpen
-          ? "bg-warm-bg border-b border-stone-200"
-          : isScrolled
-            ? "transition-all duration-500 bg-warm-bg/80 backdrop-blur-2xl border-b border-stone-200 shadow-[0_4px_30px_rgba(0,0,0,0.04)]"
-            : "transition-all duration-500 bg-transparent"
-      }`}
-      aria-label="Main navigation"
-    >
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-4">
-        <div className="flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-            aria-label="Home"
-            onClick={closeMenu}
-          >
-            <Image
-              src="/assets/loudbark-logo.svg"
-              alt=""
-              width={27}
-              height={20}
-              className="h-5 w-auto"
-              priority
-            />
-            <span className="text-lg font-display font-bold tracking-tight text-stone-900">
-              Loud Bark
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {/* Solutions Dropdown */}
-            <div
-              ref={dropdownRef}
-              className="relative"
-              onMouseEnter={() => {
-                if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
-                setIsSolutionsOpen(true);
-              }}
-              onMouseLeave={() => {
-                dropdownTimeout.current = setTimeout(() => setIsSolutionsOpen(false), 150);
-              }}
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,box-shadow] duration-500 ${
+          mobileOpen
+            ? "bg-warm-bg border-b border-stone-200"
+            : isScrolled
+              ? "bg-warm-bg/80 backdrop-blur-2xl border-b border-stone-200 shadow-[0_4px_30px_rgba(0,0,0,0.04)]"
+              : "bg-transparent border-b border-transparent"
+        }`}
+        aria-label="Main navigation"
+      >
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-4">
+          <div className="flex items-center justify-between">
+            {/* ── Logo ── */}
+            <Link
+              href="/"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+              aria-label="Home"
             >
-              <Link
-                ref={dropdownTriggerRef}
-                href="/#solutions"
-                className={`relative inline-flex items-center gap-1.5 text-[13px] transition-colors duration-300 tracking-wide ${
-                  pathname.startsWith("/services")
-                    ? "text-stone-900"
-                    : "text-stone-500 hover:text-stone-900"
-                }`}
-                aria-haspopup="true"
-                aria-expanded={isSolutionsOpen}
-                aria-controls="solutions-dropdown"
-                data-umami-event="nav-solutions"
-                onClick={scrollToSolutions}
-                onKeyDown={handleDropdownKeyDown}
-              >
-                Solutions
-                <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    isSolutionsOpen ? "rotate-180" : ""
+              <Image
+                src="/assets/loudbark-logo.svg"
+                alt=""
+                width={27}
+                height={20}
+                className="h-5 w-auto"
+                priority
+              />
+              <span className="text-lg font-display font-bold tracking-tight text-stone-900">
+                Loud Bark
+              </span>
+            </Link>
+
+            {/* ── Desktop links ── */}
+            <div className="hidden md:flex items-center gap-8">
+              {/* Solutions dropdown — CSS :hover/:focus-within, zero JS */}
+              <div className="group/dd relative">
+                <Link
+                  href="/#solutions"
+                  className={`relative inline-flex items-center gap-1.5 text-[13px] tracking-wide transition-colors duration-300 ${
+                    isServicesActive ? "text-stone-900" : "text-stone-500 hover:text-stone-900"
                   }`}
-                  aria-hidden="true"
-                />
-                {pathname.startsWith("/services") && (
-                  <span
-                    className="absolute -bottom-1.5 inset-x-0 h-0.5 rounded-full"
-                    style={{
-                      background: "linear-gradient(90deg, #B45309, #DB2777)",
-                    }}
+                  data-umami-event="nav-solutions"
+                  onClick={scrollToSolutions}
+                >
+                  Solutions
+                  <ChevronDown
+                    className="w-3.5 h-3.5 transition-transform duration-200 group-hover/dd:rotate-180 group-focus-within/dd:rotate-180"
                     aria-hidden="true"
                   />
-                )}
-              </Link>
+                  {isServicesActive && <ActiveBar />}
+                </Link>
 
-              {/* Dropdown */}
-              <div
-                id="solutions-dropdown"
-                role="menu"
-                aria-hidden={!isSolutionsOpen}
-                className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-200 ${
-                  isSolutionsOpen
-                    ? "opacity-100 translate-y-0 pointer-events-auto"
-                    : "opacity-0 -translate-y-2 pointer-events-none"
-                }`}
-              >
-                <div className="w-56 rounded-lg border border-stone-200 bg-white/95 backdrop-blur-xl overflow-hidden shadow-lg shadow-black/[0.06]">
-                  <div className="p-1.5">
-                    <p className="px-3.5 pt-2 pb-1 text-[10px] font-mono text-amber-700 uppercase tracking-wider">
-                      Core
-                    </p>
-                    <div data-dropdown-item role="none">
-                      <Link
-                        href="/services/web-development"
-                        role="menuitem"
-                        className="block px-3.5 py-2.5 rounded-md text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors duration-200"
-                        data-umami-event="nav-service-web"
-                        tabIndex={isSolutionsOpen ? 0 : -1}
-                        onClick={() => setIsSolutionsOpen(false)}
-                        onKeyDown={handleDropdownItemKeyDown}
-                      >
-                        <span className="font-medium">Web Development</span>
-                        <span className="block text-[11px] text-stone-500 mt-0.5">
-                          Fast, search-optimized sites
-                        </span>
-                      </Link>
-                    </div>
-                    <div data-dropdown-item role="none">
-                      <Link
-                        href="/services/growth-strategy"
-                        role="menuitem"
-                        className="block px-3.5 py-2.5 rounded-md text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors duration-200"
-                        data-umami-event="nav-service-growth"
-                        tabIndex={isSolutionsOpen ? 0 : -1}
-                        onClick={() => setIsSolutionsOpen(false)}
-                        onKeyDown={handleDropdownItemKeyDown}
-                      >
-                        <span className="font-medium">Growth Strategy</span>
-                        <span className="block text-[11px] text-stone-500 mt-0.5">
-                          Data + content that ranks
-                        </span>
-                      </Link>
-                    </div>
-                    <div className="mx-3 my-1.5 border-t border-stone-200" />
-                    <p className="px-3.5 pt-1.5 pb-1 text-[10px] font-mono text-rose-700 uppercase tracking-wider">
-                      Add-on
-                    </p>
-                    <div data-dropdown-item role="none">
-                      <Link
-                        href="/services/automation"
-                        role="menuitem"
-                        className="block px-3.5 py-2.5 rounded-md text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors duration-200"
-                        data-umami-event="nav-service-automation"
-                        tabIndex={isSolutionsOpen ? 0 : -1}
-                        onClick={() => setIsSolutionsOpen(false)}
-                        onKeyDown={handleDropdownItemKeyDown}
-                      >
-                        <span className="font-medium">Automation</span>
-                        <span className="block text-[11px] text-stone-500 mt-0.5">
-                          Replace manual work with code
-                        </span>
-                      </Link>
+                {/* Dropdown panel — visible on hover/focus-within */}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 -translate-y-2 pointer-events-none transition-all duration-200 group-hover/dd:opacity-100 group-hover/dd:translate-y-0 group-hover/dd:pointer-events-auto group-focus-within/dd:opacity-100 group-focus-within/dd:translate-y-0 group-focus-within/dd:pointer-events-auto">
+                  <div className="w-56 rounded-lg border border-stone-200 bg-white/95 backdrop-blur-xl overflow-hidden shadow-lg shadow-black/[0.06]">
+                    <div className="p-1.5">
+                      {SOLUTIONS.map((group, gi) => (
+                        <div key={group.label}>
+                          {gi > 0 && <div className="mx-3 my-1.5 border-t border-stone-200" />}
+                          <p
+                            className={`px-3.5 pt-2 pb-1 text-[10px] font-mono uppercase tracking-wider ${group.color}`}
+                          >
+                            {group.label}
+                          </p>
+                          {group.items.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className="block px-3.5 py-2.5 rounded-md text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors duration-200"
+                              data-umami-event={item.event}
+                            >
+                              <span className="font-medium">{item.name}</span>
+                              <span className="block text-[11px] text-stone-500 mt-0.5">
+                                {item.desc}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
               </div>
+
+              {/* Simple nav links */}
+              {NAV_LINKS.map((link) => {
+                const active = pathname.startsWith(link.prefix);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`relative text-[13px] tracking-wide transition-colors duration-300 ${
+                      active ? "text-stone-900" : "text-stone-500 hover:text-stone-900"
+                    }`}
+                    data-umami-event={`nav-${link.label.toLowerCase()}`}
+                    aria-current={active ? "page" : undefined}
+                  >
+                    {link.label}
+                    {active && <ActiveBar />}
+                  </Link>
+                );
+              })}
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
+                data-umami-event="nav-get-started"
+                aria-current={pathname === "/contact" ? "page" : undefined}
+              >
+                Get Started
+              </Link>
             </div>
 
-            <Link
-              href="/work"
-              className={`relative text-[13px] transition-colors duration-300 tracking-wide ${
-                pathname.startsWith("/work")
-                  ? "text-stone-900"
-                  : "text-stone-500 hover:text-stone-900"
-              }`}
-              data-umami-event="nav-work"
-              aria-current={pathname.startsWith("/work") ? "page" : undefined}
+            {/* ── Mobile toggle ── */}
+            <button
+              className="md:hidden text-stone-500 hover:text-stone-900 transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              onClick={mobileOpen ? closeMobileMenu : openMobileMenu}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
             >
-              Work
-              {pathname.startsWith("/work") && (
-                <span
-                  className="absolute -bottom-1.5 inset-x-0 h-0.5 rounded-full"
-                  style={{
-                    background: "linear-gradient(90deg, #B45309, #DB2777)",
-                  }}
-                  aria-hidden="true"
-                />
+              {mobileOpen ? (
+                <X size={20} aria-hidden="true" />
+              ) : (
+                <Menu size={20} aria-hidden="true" />
               )}
-            </Link>
-            <Link
-              href="/insights"
-              className={`relative text-[13px] transition-colors duration-300 tracking-wide ${
-                pathname.startsWith("/insights")
-                  ? "text-stone-900"
-                  : "text-stone-500 hover:text-stone-900"
-              }`}
-              data-umami-event="nav-insights"
-              aria-current={pathname.startsWith("/insights") ? "page" : undefined}
-            >
-              Insights
-              {pathname.startsWith("/insights") && (
-                <span
-                  className="absolute -bottom-1.5 inset-x-0 h-0.5 rounded-full"
-                  style={{
-                    background: "linear-gradient(90deg, #B45309, #DB2777)",
-                  }}
-                  aria-hidden="true"
-                />
-              )}
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
-              data-umami-event="nav-get-started"
-              aria-current={pathname === "/contact" ? "page" : undefined}
-            >
-              Get Started
-            </Link>
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            ref={mobileToggleRef}
-            className="md:hidden text-stone-500 hover:text-stone-900 transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-menu"
-          >
-            {isMobileMenuOpen ? (
-              <X size={20} aria-hidden="true" />
-            ) : (
-              <Menu size={20} aria-hidden="true" />
-            )}
-          </button>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Menu */}
-      <div
-        ref={mobileMenuRef}
-        id="mobile-menu"
-        role="dialog"
-        aria-label="Mobile navigation menu"
-        aria-modal={isMobileMenuOpen || undefined}
-        {...(!isMobileMenuOpen ? { inert: true } : {})}
-        className={`md:hidden fixed inset-0 top-[56px] bg-warm-bg transition-all duration-300 ${
-          isMobileMenuOpen
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-4 pointer-events-none"
-        }`}
+      {/* ── Mobile menu (native <dialog>) ── */}
+      {/* Browser provides: focus trapping, Escape-to-close, inert background */}
+      <dialog
+        ref={dialogRef}
+        className="nav-dialog fixed inset-0 top-[56px] z-40 m-0 w-full h-[calc(100dvh-56px)] max-w-none max-h-none bg-warm-bg p-0 md:hidden"
       >
         <div className="flex flex-col px-6 py-8 gap-2">
-          {/* Mobile Solutions Expandable */}
+          {/* Solutions expandable */}
           <div>
             <button
-              className="flex items-center justify-between w-full text-base font-semibold text-stone-900 transition-colors py-3"
-              onClick={() => setIsMobileSolutionsOpen(!isMobileSolutionsOpen)}
-              aria-expanded={isMobileSolutionsOpen}
-              aria-controls="mobile-solutions-panel"
+              className="flex items-center justify-between w-full text-base font-semibold text-stone-900 py-3"
+              onClick={() => setMobileSolutionsOpen((o) => !o)}
+              aria-expanded={mobileSolutionsOpen}
             >
               Solutions
               <ChevronDown
                 className={`w-4 h-4 text-stone-400 transition-transform duration-200 ${
-                  isMobileSolutionsOpen ? "rotate-180" : ""
+                  mobileSolutionsOpen ? "rotate-180" : ""
                 }`}
                 aria-hidden="true"
               />
             </button>
-            <div
-              id="mobile-solutions-panel"
-              role="region"
-              aria-label="Solutions submenu"
-              hidden={!isMobileSolutionsOpen}
-              className={`overflow-hidden transition-all duration-300 ${
-                isMobileSolutionsOpen ? "max-h-[400px] opacity-100 pb-2" : "max-h-0 opacity-0"
-              }`}
-            >
-              <div className="space-y-1 pt-1">
-                <p className="text-[10px] font-mono text-amber-700 uppercase tracking-wider px-3 pb-1">
-                  Core
-                </p>
-                <Link
-                  href="/services/web-development"
-                  className="block px-3 py-2.5 rounded-lg hover:bg-stone-100 transition-colors"
-                  data-umami-event="mobile-nav-service-web"
-                  onClick={closeMenu}
-                >
-                  <span className="block text-[15px] font-medium text-stone-800">
-                    Web Development
-                  </span>
-                  <span className="block text-[12px] text-stone-500 mt-0.5">
-                    Fast, search-optimized sites
-                  </span>
-                </Link>
-                <Link
-                  href="/services/growth-strategy"
-                  className="block px-3 py-2.5 rounded-lg hover:bg-stone-100 transition-colors"
-                  data-umami-event="mobile-nav-service-growth"
-                  onClick={closeMenu}
-                >
-                  <span className="block text-[15px] font-medium text-stone-800">
-                    Growth Strategy
-                  </span>
-                  <span className="block text-[12px] text-stone-500 mt-0.5">
-                    Data + content that ranks
-                  </span>
-                </Link>
-                <div className="mx-3 my-2 border-t border-stone-200" />
-                <p className="text-[10px] font-mono text-rose-700 uppercase tracking-wider px-3 pb-1">
-                  Add-on
-                </p>
-                <Link
-                  href="/services/automation"
-                  className="block px-3 py-2.5 rounded-lg hover:bg-stone-100 transition-colors"
-                  data-umami-event="mobile-nav-service-automation"
-                  onClick={closeMenu}
-                >
-                  <span className="block text-[15px] font-medium text-stone-800">Automation</span>
-                  <span className="block text-[12px] text-stone-500 mt-0.5">
-                    Replace manual work with code
-                  </span>
-                </Link>
+            {mobileSolutionsOpen && (
+              <div className="space-y-1 pt-1 pb-2">
+                {SOLUTIONS.map((group, gi) => (
+                  <div key={group.label}>
+                    {gi > 0 && <div className="mx-3 my-2 border-t border-stone-200" />}
+                    <p
+                      className={`text-[10px] font-mono uppercase tracking-wider px-3 pb-1 ${group.color}`}
+                    >
+                      {group.label}
+                    </p>
+                    {group.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block px-3 py-2.5 rounded-lg hover:bg-stone-100 transition-colors"
+                        data-umami-event={`mobile-${item.event}`}
+                        onClick={closeMobileMenu}
+                      >
+                        <span className="block text-[15px] font-medium text-stone-800">
+                          {item.name}
+                        </span>
+                        <span className="block text-[12px] text-stone-500 mt-0.5">{item.desc}</span>
+                      </Link>
+                    ))}
+                  </div>
+                ))}
               </div>
-            </div>
+            )}
           </div>
+
           <div className="border-t border-stone-200" />
-          <Link
-            href="/work"
-            className="text-base font-semibold text-stone-900 transition-colors py-3"
-            data-umami-event="mobile-nav-work"
-            onClick={closeMenu}
-          >
-            Work
-          </Link>
-          <div className="border-t border-stone-200" />
-          <Link
-            href="/insights"
-            className="text-base font-semibold text-stone-900 transition-colors py-3"
-            data-umami-event="mobile-nav-insights"
-            onClick={closeMenu}
-          >
-            Insights
-          </Link>
-          <div className="border-t border-stone-200" />
+          {NAV_LINKS.map((link) => (
+            <div key={link.href}>
+              <Link
+                href={link.href}
+                className="block text-base font-semibold text-stone-900 py-3"
+                data-umami-event={`mobile-nav-${link.label.toLowerCase()}`}
+                onClick={closeMobileMenu}
+              >
+                {link.label}
+              </Link>
+              <div className="border-t border-stone-200" />
+            </div>
+          ))}
+
           <div className="pt-4">
             <Link
               href="/contact"
-              className="block px-6 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-lg transition-all text-center text-sm hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
+              className="block px-6 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-lg text-center text-sm transition-all hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
               data-umami-event="mobile-nav-get-started"
-              onClick={closeMenu}
+              onClick={closeMobileMenu}
             >
               Get Started
             </Link>
           </div>
         </div>
-      </div>
-    </nav>
+      </dialog>
+    </>
   );
 }

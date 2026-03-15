@@ -30,7 +30,7 @@ export default function WebDevelopment() {
             alt="My Massage Cottage — full website I designed and built, scrolling through the complete page"
             width={3448}
             height={4886}
-            sizes="(max-width: 640px) calc(100vw - 3.5rem), (max-width: 1024px) calc(100vw - 8rem), calc(100vw - 10rem)"
+            sizes="(max-width: 640px) calc(100vw - 5rem), (max-width: 1024px) calc(50vw - 4rem), 520px"
           />
         </BrowserMockup>
       </div>
