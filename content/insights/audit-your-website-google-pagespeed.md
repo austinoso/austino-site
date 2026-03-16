@@ -113,8 +113,10 @@ Think building inspection. Passing means the doors open and the address is poste
 
 The work that actually moves rankings — content strategy, backlinks, local signals, domain authority — none of that shows up here. A site can score 100 and still sit on page five. This score confirms the foundation exists. What you build on it is separate.
 
-## What green scores get you
+## Why any of this matters
 
-All 100s won't automatically push you up in rankings. But Google wants to serve quality sites to its users, and strong PageSpeed scores are one signal that yours is fast and usable. It improves the experience for visitors who do find you, and those visitors are more likely to convert.
+All 100s shouldn't be the goal. Aim for a mobile performance score in the 60s or 70s and high 90s in the other categories. That's a realistic target for most business sites and it's enough to stop your scores from working against you.
 
-PageSpeed doesn't tell you if your site is good. It tells you if anything is actively working against you. Fix what it flags and you remove friction for your visitors and reasons for Google to rank you lower.
+Google wants to serve quality pages. A decent PageSpeed score is one signal it looks at. Others — like having real, credible content on your site — carry even more weight. If you want to understand what Google looks for beyond speed, [this piece on E-E-A-T breaks it down](/insights/google-eeat-what-business-owners-should-know).
+
+It also matters for the people actually visiting your site. If a potential client is loading your page in a parking lot with one bar of signal and it takes eight seconds, they're going somewhere else. If they can't read a section because the contrast is too low, same thing. These aren't hypothetical losses. They're the calls and form fills that never happen.
