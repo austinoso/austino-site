@@ -13,6 +13,8 @@ Google built a free tool called [PageSpeed Insights](https://pagespeed.web.dev/)
 
 It's a developer tool, but the results are readable enough that anyone can get something useful out of it. This walks through what the scores mean and where a non-developer can make real improvements.
 
+If someone else manages your site, send them the report. PageSpeed gives you a shareable URL for each scan. It saves a phone call and gives them exactly what they need to prioritize fixes. The rest of this article will help you understand what you're looking at.
+
 <figure>
   <img src="/assets/articles/pagespeed-loudbark.PNG" alt="Google PageSpeed Insights report for loudbark.dev showing performance, accessibility, best practices, and SEO scores" />
   <figcaption>What a PageSpeed report looks like. This is the one for my own site.</figcaption>
