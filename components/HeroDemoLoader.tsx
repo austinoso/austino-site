@@ -39,8 +39,13 @@ export default function HeroDemoLoader() {
   useEffect(() => {
     // Yield to the browser so the LCP text paints first,
     // then load the heavy demo + GSAP bundle.
-    const id = requestIdleCallback(() => setReady(true), { timeout: 1500 });
-    return () => cancelIdleCallback(id);
+    if (typeof requestIdleCallback === "function") {
+      const id = requestIdleCallback(() => setReady(true), { timeout: 1500 });
+      return () => cancelIdleCallback(id);
+    }
+    // Safari doesn't support requestIdleCallback — fall back to setTimeout
+    const id = setTimeout(() => setReady(true), 1500);
+    return () => clearTimeout(id);
   }, []);
 
   if (!ready) return <HeroDemoSkeleton />;
