@@ -42,6 +42,7 @@ const SOLUTIONS = [
 
 const NAV_LINKS = [
   { href: "/work", label: "Work", prefix: "/work" },
+  { href: "/about", label: "About", prefix: "/about" },
   { href: "/insights", label: "Insights", prefix: "/insights" },
 ] as const;
 
@@ -126,20 +127,25 @@ export default function Navigation() {
             {/* ── Logo ── */}
             <Link
               href="/"
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+              className="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
               aria-label="Home"
             >
               <Image
                 src="/assets/loudbark-logo.svg"
                 alt=""
-                width={27}
-                height={20}
-                className="h-5 w-auto"
+                width={34}
+                height={26}
+                className="h-7 w-auto"
                 priority
               />
-              <span className="text-lg font-display font-bold tracking-tight text-stone-900">
-                Loud Bark
-              </span>
+              <div className="flex flex-col -space-y-0.5">
+                <span className="text-lg font-display font-bold tracking-tight leading-tight text-stone-900">
+                  Loud Bark
+                </span>
+                <span className="hidden sm:block text-[10px] font-semibold tracking-[0.12em] uppercase text-stone-500">
+                  SEO & Web Strategy
+                </span>
+              </div>
             </Link>
 
             {/* ── Desktop links ── */}

@@ -73,7 +73,7 @@ export default function Hero() {
               </span>
               <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
                 <MapPin className="w-3.5 h-3.5 text-amber-700 flex-shrink-0" aria-hidden="true" />
-                California based
+                Serving Modesto, Stockton &amp; the Central Valley
                 <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
               </span>
             </div>

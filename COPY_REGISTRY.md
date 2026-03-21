@@ -20,6 +20,17 @@ Purpose: prevent phrase reuse across pages, track CTA labels, and catch repetiti
 | -------- | --------------------------------- |
 | Tagline  | Give your business some bite.     |
 
+## Location Signals (Main Site)
+
+Target markets for local SEO. These city names appear in body copy on the homepage and service pages — not in headlines.
+
+| Element | Copy | File |
+| --- | --- | --- |
+| Hero location badge | Serving Modesto, Stockton & the Central Valley | `components/Hero.tsx` |
+| About — Austin bio | "...businesses in Modesto, Stockton, Manteca, Tracy, Turlock, and the wider Central Valley." | `components/About.tsx` |
+| PainPoints — Pain Point 2 body | "In Modesto, Stockton, Manteca, Tracy, and Turlock, the top three spots for most service searches are held by whoever put in the work." | `components/PainPoints.tsx` |
+| Growth Strategy SERP mockup | "Certified personal training in downtown Modesto." | `app/services/growth-strategy/Hero.tsx` |
+
 ---
 
 ## Headlines & Subheadlines
@@ -39,6 +50,14 @@ Each headline is "claimed" by its page. No other page should use the same line o
 | Automation      | Automate what slows you down.                        |
 | About           | One person. **The whole picture.**                   |
 | CTA             | It starts with **20 minutes.**                       |
+
+### About Page (`app/about/page.tsx`)
+
+| Section         | Headline                                                                      |
+| --------------- | ----------------------------------------------------------------------------- |
+| Hero            | I'd rather show you how it works than ask you to **trust** me.                |
+| Background      | Six years of building. Now focused **here.**                                  |
+| CTA             | Judge the results.                                                            |
 
 ### Automation Service (`app/services/automation/`)
 
@@ -149,6 +168,8 @@ Each entry is the exact button label and where it appears. Reusing the same CTA 
 | Explore growth strategy   | Homepage solutions        | Service cross-link          |
 | Explore automation        | Homepage solutions        | Service cross-link          |
 | Send Message              | Contact form              | Form submit                 |
+| See Selected Work         | About CTA                 | Links to /work              |
+| More about how I work     | Homepage About section    | Links to /about             |
 | See How You Stack Up      | pSEO Legal hero           | City template primary       |
 | See Where You Rank        | pSEO Legal final CTA      | City template close         |
 
@@ -177,6 +198,10 @@ Phrases that carry weight or appear more than once. If a phrase is listed here, 
 | "paying customers"                        | WebDevelopment.tsx                  | Removed — replaced with "pick up the phone"                   |
 | "your competition"                        | Solutions/index.tsx                 | Homepage solutions only                                       |
 | "within 24 hours"                         | contact/page.tsx, ContactForm.tsx   | **Reduced** — was 5×, now 2× (header + form success)          |
+| "no pressure"                             | contact/page.tsx                    | **Reduced** — was 3×, now 1× (header only)                    |
+| "No black boxes"                          | about/page.tsx                      | Anti-agency card title — About page only                       |
+| "ten clients actually ranking"            | about/page.tsx                      | About page pull-quote — About page only                        |
+| "The focus is narrower"                   | about/page.tsx                      | Background section closer — About page only                    |
 | "no pressure"                             | contact/page.tsx                    | **Reduced** — was 3×, now 1× (header only)                    |
 | "Page two is a graveyard"                  | pseo/legal/shared.ts                | Problem card heading — shared fallback                          |
 | "Your site has 50 milliseconds"            | pseo/legal/shared.ts                | Problem card heading — shared fallback                          |

@@ -21,21 +21,28 @@ export default function Footer({ variant = "light" }: FooterProps) {
           <div className="sm:col-span-2 md:col-span-1">
             <Link
               href="/"
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity mb-3"
+              className="flex items-center gap-2.5 hover:opacity-80 transition-opacity mb-3"
               aria-label="Home"
             >
               <Image
                 src="/assets/loudbark-logo.svg"
                 alt=""
-                width={27}
-                height={20}
-                className={`h-5 w-auto ${isDark ? "brightness-0 invert" : ""}`}
+                width={34}
+                height={26}
+                className={`h-7 w-auto ${isDark ? "brightness-0 invert" : ""}`}
               />
-              <span
-                className={`text-lg font-display font-bold tracking-tight ${isDark ? "text-white" : "text-stone-900"}`}
-              >
-                Loud Bark
-              </span>
+              <div className="flex flex-col -space-y-0.5">
+                <span
+                  className={`text-lg font-display font-bold tracking-tight leading-tight ${isDark ? "text-white" : "text-stone-900"}`}
+                >
+                  Loud Bark
+                </span>
+                <span
+                  className={`text-[10px] font-semibold tracking-[0.12em] uppercase ${isDark ? "text-stone-400" : "text-stone-500"}`}
+                >
+                  SEO & Web Strategy
+                </span>
+              </div>
             </Link>
             <p
               className={`text-sm leading-relaxed max-w-[240px] ${

@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 /* ────────────────────────────────────────────────────────────────── */
@@ -47,36 +49,44 @@ export default function About() {
             data-animate="fade"
             className="text-base sm:text-lg text-stone-600 leading-relaxed mt-8 sm:mt-10"
           >
-            I handle everything: Design, development, data, and the ongoing
-            strategy to keep it all growing. Years of working inside small
-            agencies taught me how businesses actually operate and what problems
-            look like up close. That experience, plus a software engineering
-            background that means I actually understand how Google&apos;s
-            ranking systems work under the hood, is why I can look at your
-            business and know what needs to happen to get it ranking.
+            I handle everything: Design, development, data, and the ongoing strategy to keep it all
+            growing. Years of working inside small agencies taught me how businesses actually
+            operate and what problems look like up close. That experience, plus a software
+            engineering background that means I actually understand how Google&apos;s ranking
+            systems work under the hood, is why I can look at your business and know what needs to
+            happen to get it ranking.
           </p>
 
           {/* Mission — pull-quote treatment */}
-          <blockquote
-            data-animate="fade"
-            className="mt-8 sm:mt-10 pl-5 sm:pl-6 relative"
-          >
+          <blockquote data-animate="fade" className="mt-8 sm:mt-10 pl-5 sm:pl-6 relative">
             {/* Brand gradient border-left */}
             <div
               className="absolute left-0 top-0 bottom-0 w-0.5 rounded-full"
               style={{
-                background:
-                  "linear-gradient(to bottom, #B45309 0%, #DB2777 50%, #7C3AED 100%)",
+                background: "linear-gradient(to bottom, #B45309 0%, #DB2777 50%, #7C3AED 100%)",
               }}
               aria-hidden="true"
             />
             <p className="text-base sm:text-lg text-stone-700 leading-relaxed font-medium">
-              &ldquo;Good enough&rdquo; has never been the bar I&apos;m aiming
-              for. Once I take something on, I stay with it. I don&apos;t walk
-              away until the solution is something we&apos;re both
-              proud&nbsp;of.
+              &ldquo;Good enough&rdquo; has never been the bar I&apos;m aiming for. Once I take
+              something on, I stay with it. I don&apos;t walk away until the solution is something
+              we&apos;re both proud&nbsp;of.
             </p>
           </blockquote>
+        </div>
+
+        {/* Link to full About page */}
+        <div data-animate="fade" className="mt-8 sm:mt-10">
+          <Link
+            href="/about"
+            className="group inline-flex items-center gap-2 text-[15px] font-medium text-warm-gold hover:text-amber-800 transition-colors duration-200"
+          >
+            More about how I work
+            <ArrowRight
+              className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
+          </Link>
         </div>
 
         {/* Team */}
@@ -104,8 +114,8 @@ export default function About() {
                   Developer &amp; Founder
                 </p>
                 <p className="text-[13px] sm:text-sm text-stone-500 leading-relaxed mt-2.5">
-                  Six years in software engineering, building sites and
-                  automated workflows for local businesses.
+                  Six years in software engineering, building sites and automated workflows for
+                  local businesses.
                 </p>
               </div>
             </div>
@@ -132,8 +142,8 @@ export default function About() {
                   Head of Morale
                 </p>
                 <p className="text-[13px] sm:text-sm text-stone-500 leading-relaxed mt-2.5">
-                  Three years experience in stress management, perimeter
-                  security, and unsolicited desk visits.
+                  Three years experience in stress management, perimeter security, and unsolicited
+                  desk visits.
                 </p>
               </div>
             </div>

@@ -13,7 +13,7 @@ const points = [
   {
     title: "Nobody in your market is doing the work to\u00A0rank",
     description:
-      "Getting to page one takes more than a good-looking site. Ranking takes ongoing optimization and new content: detailed service pages, local guides, pages that answer what your customers are actually searching for. Almost nobody in your market is doing this. That\u2019s the\u00A0gap.",
+      "Getting to page one takes more than a good-looking site. Ranking takes ongoing optimization and new content: detailed service pages, local guides, pages that answer what your customers are actually searching for. In Modesto, Stockton, Manteca, Tracy, and Turlock, the top three spots for most service searches are held by whoever put in the work. Almost nobody in your market is doing this. That\u2019s the\u00A0gap.",
   },
 ];
 
