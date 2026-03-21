@@ -29,22 +29,7 @@ export const metadata: Metadata = {
   title: "Modern Web Strategy & Automation | Loud Bark",
   description:
     "Websites that rank, automation that saves hours, and growth strategy backed by real data. Built for local businesses tired of templates and guesswork.",
-  keywords: [
-    "small business web development",
-    "local business website",
-    "business automation",
-    "local SEO strategy",
-    "workflow automation",
-    "growth strategy small business",
-    "search engine optimization",
-    "web developer for small business",
-    "Central Valley web developer",
-    "custom business websites",
-  ],
-  authors: [{ name: "Austin O." }],
-  alternates: {
-    canonical: "https://www.loudbark.dev",
-  },
+  authors: [{ name: "Austin Osorio", url: "https://www.loudbark.dev" }],
   openGraph: {
     type: "website",
     locale: "en_US",

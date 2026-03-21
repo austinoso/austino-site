@@ -6,14 +6,14 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "About | Loud Bark",
+  title: "Austin Osorio — Web Developer & SEO Strategist, Central Valley | Loud Bark",
   description:
     "One person, the whole picture. I handle design, development, data, and strategy — no black boxes, no jargon, no promises I can\u2019t back up.",
   alternates: {
     canonical: "https://www.loudbark.dev/about",
   },
   openGraph: {
-    title: "About | Loud Bark",
+    title: "Austin Osorio — Web Developer & SEO Strategist, Central Valley | Loud Bark",
     description:
       "One person, the whole picture. I handle design, development, data, and strategy — no black boxes, no jargon, no promises I can\u2019t back up.",
     url: "https://www.loudbark.dev/about",
@@ -68,6 +68,34 @@ function BrowserMockup({
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://www.loudbark.dev/#founder",
+            name: "Austin Osorio",
+            jobTitle: "Founder & Lead Engineer",
+            url: "https://www.loudbark.dev",
+            image: "https://www.loudbark.dev/assets/bio-pic.png",
+            worksFor: {
+              "@id": "https://www.loudbark.dev/#business",
+            },
+            knowsAbout: [
+              "Web Development",
+              "Local SEO",
+              "Business Automation",
+              "Next.js",
+              "TypeScript",
+            ],
+            sameAs: [
+              "https://github.com/austinoso",
+              "https://linkedin.com/in/austinoso",
+            ],
+          }),
+        }}
+      />
       <main id="main-content" className="relative min-h-screen bg-warm-bg">
         <Navigation />
 

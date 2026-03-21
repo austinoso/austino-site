@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!insight) return {};
 
   return {
-    title: `${insight.title} | Local Insights | Loud Bark`,
+    title: `${insight.title} | Loud Bark`,
     description: insight.excerpt,
     authors: [{ name: "Austin Osorio", url: "https://www.loudbark.dev" }],
     alternates: {
@@ -70,6 +70,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://www.loudbark.dev/insights/${slug}`,
       type: "article",
       publishedTime: insight.date,
+      modifiedTime: insight.date,
       authors: ["Austin Osorio"],
       section: insight.category,
     },
