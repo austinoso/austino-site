@@ -6,9 +6,9 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const points = [
   {
-    title: "First impressions decide who gets the\u00A0call",
+    title: "The site either earns the next step or it\u00A0doesn\u2019t",
     description:
-      "Most local business sites look outdated, load slow, and give visitors no clear reason to stay. A site designed around your customers builds trust in seconds and makes it easy to book, buy, or reach\u00A0out.",
+      "Every decision\u00A0\u2014 how fast it loads, how it\u2019s laid out, what the visitor is asked to do\u00A0\u2014 either moves them toward calling you or toward hitting back. A site built around how your specific customers think and search is a different thing from a template with your logo on\u00A0it.",
   },
   {
     title: "Nobody in your market is doing the work to\u00A0rank",
@@ -59,8 +59,7 @@ export default function PainPoints() {
               data-animate="card"
               className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight mb-10 sm:mb-12 text-balance"
             >
-              Your competitors made{" "}
-              <span className="text-gradient-gold">this&nbsp;easy.</span>
+              Your competitors made <span className="text-gradient-gold">this&nbsp;easy.</span>
             </h2>
 
             <div data-animate="card" className="space-y-8">

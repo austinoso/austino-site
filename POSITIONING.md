@@ -6,9 +6,12 @@ Single source of truth for who this business is, what it does, why it's differen
 
 ## 1. Business Overview
 
-**Loud Bark** is a solo web studio run by Austin O., a software engineer with 6+ years of experience. It builds high-performance, custom-coded websites and automation systems for small businesses in California's Central Valley.
+**Loud Bark** is a solo web studio run by Austin O., a software engineer with 6+ years of experience. It manages the complete online presence of small businesses in California's Central Valley — from showing up on Google, to building a site that earns trust and converts visitors, to growing rankings month over month.
 
 This is not a freelance marketplace shop or a template-reseller. It's a technical partner that stays involved after launch.
+
+**Core concept: Full Presence**
+Most agencies hand you a website and disappear. Most SEO vendors promise results and don't deliver. Loud Bark handles the entire pipeline: get found → get chosen → get better. That's Full Presence.
 
 **Tagline:** Give your business some bite.
 
@@ -17,65 +20,74 @@ This is not a freelance marketplace shop or a template-reseller. It's a technica
 
 ---
 
-## 2. What We Do (Services)
+## 2. The Full Presence System
 
-### Web Development
-Custom-coded websites built with Next.js. No page builders, no templates. Built for speed (90+ Lighthouse), SEO, and conversion. Every section is engineered to move visitors toward a specific action.
+Every engagement follows the same three-stage arc:
 
-Key differentiators:
-- Custom code = faster load times = better Google rankings
-- Strategic layout (not just visual design)
-- Online booking, payments, and other features customers actually use
+### Stage 1 — Get Found
+Show up when people in your city search for what you do. This means a properly built and optimized Google Business Profile, technically sound site structure, and search-targeted content. Most clients are losing ground here and don't know why.
 
-### Automation
-Workflow automation that eliminates manual, repetitive work. We find the bottlenecks in a business's daily operations and build the systems that remove them.
+### Stage 2 — Get Chosen
+When someone lands on the site, the job is to earn their trust before they pick up the phone. That means fast load times, clear layout, copy that speaks to the specific customer — not just "welcome to our website." Custom code, not a template dragged into the client's brand colors.
 
-Key differentiators:
-- Custom scripts tailored to the specific business, not off-the-shelf tools
-- Software integrations that connect existing tools
-- Paper/manual → secure digital workflows
-
-### Growth Strategy (Ongoing)
-Treating the website as a living asset, not a one-time project. Data-driven optimization + ongoing content to improve rankings month over month.
-
-Key differentiators:
-- Traffic and ranking tracking → fixing what's not converting
-- Local landing pages and FAQ content that rank for real searches
-- Available as an on-call strategist, not a set-it-and-forget-it vendor
+### Stage 3 — Get Better
+The site isn't a brochure — it's a working asset. Higher growth tiers include ranking checks, competitor monitoring, city-page expansion, conversion testing, and GBP management. The data informs what gets worked on next.
 
 ---
 
-## 3. Target Audience
+## 3. What We Sell
+
+### Full Presence (Primary)
+Website build + ongoing growth support, sold together. The website is the foundation; growth tiers are the engine. This is the preferred engagement because the site is built *for* the strategy from day one.
+
+- **Tier 1 — Small Business Kickstart:** $399 upfront + $50/mo. Custom site, GBP setup and optimization, hosting, quick edits, direct advisory access. Founding-client rate. Best for businesses going digital for the first time or replacing a non-performing template site.
+- **Tier 2 — Standard Growth:** from $999 upfront + $150+/mo. Everything in Tier 1, plus dedicated service pages, monthly ranking checks, competitor insights, and performance reporting. Best for established businesses that want to rank for their actual services.
+- **Tier 3 — Market Dominator:** Custom quote + $300+/mo. Everything in Tiers 1–2, plus city-specific landing pages, competitor deep-dives, conversion testing, and priority support. Best for businesses competing across multiple cities or in high-volume markets.
+
+Lower upfront cost is available on Tier 1 and 2 in exchange for a higher monthly rate. Annual term discounts available.
+
+### Standalone Website
+A one-time custom build for clients who aren't ready for ongoing growth support. Built to the same technical standard — fast, custom-coded, optimized — but without the ongoing ranking and GBP work. Can upgrade into Full Presence at any time.
+
+### Automation (Add-On)
+Workflow automation is always optional and scoped separately when it requires custom script work. Simple automations — online booking, intake forms, follow-up messages — are typically included in the build when relevant. Complex integrations (multi-system workflows, data pipelines, paper-to-digital processes) are quoted independently.
+
+---
+
+## 4. Target Audience
 
 **Primary:** Small business owners aged 30–60 in the Central Valley who are:
 - Non-technical — they care about outcomes, not implementation
-- Currently on a slow, template-based site (Wix, Squarespace, etc.)
-- Watching competitors outrank them and not knowing why
-- Skeptical of agencies (been burned before, or feel like they won't understand their business)
+- Currently invisible on Google or can't explain why competitors are outranking them
+- Previously burned by an SEO vendor who promised results and went quiet
+- Previously burned by a web designer who delivered something slow, generic, or unusable
+- On a template site (Wix, Squarespace, GoDaddy) that performs poorly and looks like everyone else's
+- Skeptical of agencies — they don't feel understood, or don't trust the promises
+
+**What they need to feel:** That the person they're talking to actually understands their business, tells them the truth, and has a track record. Not a sales pitch — a plan.
 
 **Key markets:** Modesto, Stockton, Manteca, Tracy, Turlock  
 **Key niches (PSEO):** Law firms, home service contractors (HVAC, roofing, restoration), wellness businesses
 
-**What they want to feel:** Trust and competence. Not intimidated. Not sold to. Confident that the person they're talking to actually understands their business.
-
 ---
 
-## 4. Core Positioning: Why We're Different
-
-The three things that distinguish Loud Bark from local agencies and freelancers:
+## 5. Core Positioning: Why We're Different
 
 ### 01 — No black boxes
-Every decision has a reason, and we walk the client through it. Site architecture, keyword targeting, why one page structure beats another. Clients should be able to explain the strategy themselves before we start.
+Every decision has a reason. Site architecture, keyword targeting, GBP strategy — clients get the explanation before work starts. They should be able to describe the plan themselves. No mystery vendor.
 
 ### 02 — Custom code. Not a template with your logo on it
-Template sites are built for the platform, not for the customer or for Google. Loud Bark builds from scratch. The result: faster sites, cleaner code, pages Google actually wants to rank.
+Template sites are built for the platform, not for Google or the customer. Custom code loads faster, ranks easier, and can be built around how a specific business actually works — not the closest available theme.
 
 ### 03 — No promises we can't back up
-No "page one in 30 days." We tell clients what it takes to get there, how long it'll realistically take, and what the milestones look like.
+No "page one in 30 days." Clients are told what it takes to get there, how long it realistically takes, and what the milestones look like. This directly addresses the #1 reason they don't trust agencies.
+
+### 04 — One part of the system doesn't work without the other
+A site without a search strategy stays invisible. An SEO strategy without a site that converts wastes the traffic. Full Presence is built on the idea that these aren't separate services — they're the same job.
 
 ---
 
-## 5. Brand Voice
+## 6. Brand Voice
 
 | Trait | What it means in practice |
 |---|---|
@@ -93,37 +105,46 @@ No "page one in 30 days." We tell clients what it takes to get there, how long i
 
 ---
 
-## 6. Pricing Tier (Reference)
+## 7. Pricing Reference
 
-Operates at the boutique agency level:
-- Sites: $5,000–$15,000+
-- Automation projects: varies by scope
-- Growth/retainer: ongoing monthly engagement
+All engagements include a one-time build fee plus a monthly retainer. The retainer is intentionally low at the entry tier to reduce friction — the real relationship is ongoing.
 
-This price point is justified by: measurable performance, ongoing involvement, and ROI (not just deliverables).
+| Tier | Upfront | Monthly |
+|---|---|---|
+| Tier 1 — Kickstart | $399* | $50/mo |
+| Tier 2 — Standard Growth | from $999* | $150+/mo |
+| Tier 3 — Market Dominator | Contact for quote | $300+/mo |
+| Standalone Site | $399–$5,000+ | N/A |
+| Automation (add-on) | Varies by scope | N/A |
+
+*Lower upfront available with higher monthly rate. Annual term discounts available on Tiers 1–2.
+
+Pricing is justified by measurable performance, ongoing involvement, and ROI — not just deliverables.
 
 ---
 
-## 7. Exclusivity Model
+## 8. Exclusivity Model
 
-**One client per niche per city.** A law firm in Stockton won't be competing against another law firm in Stockton that Loud Bark also built. This is a core sales point and differentiator — used on the homepage CTA and PSEO pages.
+**One client per niche per city.** A law firm in Stockton won't compete against another Loud Bark client in Stockton. This is a core sales point — used on the homepage CTA and PSEO pages. It reinforces trust and scarcity.
 
 ---
 
-## 8. Key Proof Points
+## 9. Key Proof Points
 
 - **My Massage Cottage** — live client; professional presence, automated booking & payments, mobile-optimized for local discovery
 - Lighthouse 90+ score targets on every build
+- GBP setup and optimization included in every Full Presence engagement
 - Founded by Austin O., 6 yrs software engineering (agencies + freelance)
 
 ---
 
-## 9. Tone by Page Type
+## 10. Tone by Page Type
 
 | Page type | Tone notes |
 |---|---|
-| Homepage | Confident, competitive framing ("your competitors aren't doing this") |
+| Homepage | Confident, competitive framing — "your competitors are already doing this" |
 | About | Personal, transparent, proof-forward. Warm but no-BS. |
 | PSEO pages | Local-specific, data-backed, urgency without fear-mongering |
 | Service pages | Problem → solution → results. No fluff. |
+| Pricing / Menu | Clear and honest. Explain what each tier actually does, not just what it includes. |
 | Contact | Short, welcoming, low friction |

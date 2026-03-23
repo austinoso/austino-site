@@ -8,7 +8,7 @@ const points = [
   },
   {
     title: "Your site grows with you",
-    body: "New service? New location? I update the site to match. New pages, updated copy, whatever it needs. And with a Growth Strategy plan, I\u2019m actively building new content and improving what\u2019s already\u00A0there.",
+    body: "New service? New location? I update the site to match. But keeping it accurate isn\u2019t the same as growing it. Growth Strategy is where new content gets built around real searches, rankings get tracked month over month, and your Google Business Profile stays\u00A0active.",
   },
   {
     title: "Results compound over time",
@@ -25,8 +25,8 @@ export default function AfterLaunch() {
           After launch, you&apos;re not on your own.
         </h2>
         <p className="text-[15px] text-stone-600 leading-relaxed max-w-xl mb-10 sm:mb-16">
-          This isn&apos;t a build-and-disappear situation. Your site stays
-          managed, supported, and working harder for you over time.
+          This isn&apos;t a build-and-disappear situation. Your site stays managed, supported, and
+          working harder for you over time.
         </p>
 
         {/* Points — 3-col on md+, stacked on mobile */}
@@ -36,12 +36,8 @@ export default function AfterLaunch() {
               <span className="absolute left-0 top-0 sm:static text-2xl sm:text-3xl font-display font-bold text-warm-gold/30 leading-none sm:mb-3 block">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-base font-semibold text-warm-white mb-1.5">
-                {point.title}
-              </h3>
-              <p className="text-sm text-stone-500 leading-relaxed">
-                {point.body}
-              </p>
+              <h3 className="text-base font-semibold text-warm-white mb-1.5">{point.title}</h3>
+              <p className="text-sm text-stone-500 leading-relaxed">{point.body}</p>
             </div>
           ))}
         </div>
@@ -53,7 +49,8 @@ export default function AfterLaunch() {
           href="/services/growth-strategy"
           className="inline-flex items-center gap-2 text-sm text-warm-gold hover:text-warm-white transition-colors duration-300"
         >
-          Learn more about Growth Strategy
+          Most clients move into Growth Strategy after launch &mdash; here&apos;s what that looks
+          like
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
       </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Search, MapPin } from "lucide-react";
+import { ArrowRight, Search, MapPin, TrendingUp } from "lucide-react";
 import HeroDemoLoader from "./HeroDemoLoader";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
@@ -34,12 +34,13 @@ export default function Hero() {
               id="hero-heading"
               className="font-display text-4xl sm:text-5xl md:text-[3.5rem] lg:text-[4.5rem] font-bold text-warm-white leading-[1.06] tracking-tight"
             >
-              Websites built <span className="text-gradient-brand">to&nbsp;outperform.</span>
+              Found on Google.{" "}
+              <span className="text-gradient-brand">Chosen by&nbsp;customers.</span>
             </h1>
 
             <p className="mt-4 sm:mt-5 text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-pretty">
-              Designed around your business and customers, backed by what Google says gets you to
-              page&nbsp;one.
+              Most small businesses are losing on one or both. I build the site that earns the click
+              and manage the search presence that brings people to&nbsp;it.
             </p>
 
             {/* ─── CTA pair ─── */}
@@ -65,16 +66,36 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* ─── Trust signals ─── */}
-            <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
+            {/* Service chips */}
+            <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-2.5">
               <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
                 <Search className="w-3.5 h-3.5 text-amber-700 flex-shrink-0" aria-hidden="true" />
-                Built for Google&nbsp;&&nbsp;your&nbsp;customers
+                Custom Website Design
               </span>
               <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
                 <MapPin className="w-3.5 h-3.5 text-amber-700 flex-shrink-0" aria-hidden="true" />
+                Local SEO &amp; Google Maps
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
+                <TrendingUp
+                  className="w-3.5 h-3.5 text-amber-700 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                Ongoing Growth Strategy
+              </span>
+            </div>
+
+            {/* Location signal — active service indicator */}
+            <div
+              className="mt-3 flex items-center gap-2.5"
+              aria-label="Currently serving the Central Valley"
+            >
+              <span className="relative flex h-2 w-2 flex-shrink-0" aria-hidden="true">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              <span className="text-[12px] font-medium text-stone-400 tracking-wide">
                 Serving Modesto, Stockton &amp; the Central Valley
-                <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
               </span>
             </div>
           </div>

@@ -41,12 +41,14 @@ Each headline is "claimed" by its page. No other page should use the same line o
 
 | Section         | Headline                                             |
 | --------------- | ---------------------------------------------------- |
-| Hero            | Websites built **to outperform.**                    |
+| Hero            | Found on Google. **Chosen by customers.**             |
 | Pain Points     | Your competitors made **this easy.**                 |
+| Pain Point 1    | The site either earns the next step or it **doesn't.** |
 | Pain Point 2    | Nobody in your market is doing the work to **rank.** |
 | Solutions       | How you take the **lead.**                           |
 | Web Development | Ranks higher. Loads faster. Converts more.           |
 | Growth Strategy | A great site is just the foundation.                 |
+| Solutions bridge | The site gets them there. Growth strategy keeps them coming. |
 | Automation      | Automate what slows you down.                        |
 | About           | One person. **The whole picture.**                   |
 | CTA             | It starts with **20 minutes.**                       |

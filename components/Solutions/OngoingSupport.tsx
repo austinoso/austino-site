@@ -64,10 +64,7 @@ export default function OngoingSupport() {
                 key={label}
                 className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-stone-200 bg-white text-sm text-stone-600"
               >
-                <Icon
-                  className="w-3.5 h-3.5 text-stone-500 flex-shrink-0"
-                  aria-hidden="true"
-                />
+                <Icon className="w-3.5 h-3.5 text-stone-500 flex-shrink-0" aria-hidden="true" />
                 {label}
               </div>
             ))}
@@ -75,11 +72,11 @@ export default function OngoingSupport() {
         </div>
         <div className="flex flex-col justify-end">
           <p className="text-base text-stone-600 leading-relaxed text-pretty">
-            After launch, I stay on as your growth strategist. I use real data
-            to fix what&apos;s underperforming and publish the kind of content
-            Google rewards with higher rankings. Each month builds on
-            the&nbsp;last. You&apos;ll have a short task list: reply to reviews,
-            snap a few photos, tell me what&apos;s happening in your business. I
+            After launch, I stay on as your growth strategist. I use real data to fix what&apos;s
+            underperforming and publish the kind of content Google rewards with higher rankings.
+            Each month builds on the&nbsp;last. I manage your Google Business Profile, track your
+            rankings for the searches that matter, and build the content that earns you higher
+            placement. Your job: reply to reviews, snap a few photos, let me know what&apos;s new. I
             handle everything&nbsp;else.
           </p>
           <Link
@@ -119,13 +116,8 @@ export default function OngoingSupport() {
           {/* Search bar */}
           <div className="px-5 sm:px-6 pt-5 pb-4 border-b border-stone-200/60 bg-white">
             <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white border border-stone-200">
-              <Search
-                className="w-4 h-4 text-stone-400 flex-shrink-0"
-                aria-hidden="true"
-              />
-              <span className="text-sm text-stone-700 font-normal">
-                personal trainer near me
-              </span>
+              <Search className="w-4 h-4 text-stone-400 flex-shrink-0" aria-hidden="true" />
+              <span className="text-sm text-stone-700 font-normal">personal trainer near me</span>
             </div>
           </div>
 
@@ -144,8 +136,7 @@ export default function OngoingSupport() {
                       your-fitness-business.com
                     </p>
                     <p className="text-sm font-medium text-[#4663AC] leading-snug">
-                      Your Fitness Business &mdash; Manteca&apos;s Top-Rated
-                      Trainer
+                      Your Fitness Business &mdash; Manteca&apos;s Top-Rated Trainer
                     </p>
                     <div className="flex items-center gap-2 mt-1.5">
                       <div className="flex items-center gap-0.5">
@@ -157,13 +148,11 @@ export default function OngoingSupport() {
                           />
                         ))}
                       </div>
-                      <span className="text-[10px] text-stone-500">
-                        4.9 (84 reviews)
-                      </span>
+                      <span className="text-[10px] text-stone-500">4.9 (84 reviews)</span>
                     </div>
                     <p className="text-xs text-stone-600 mt-1.5 line-clamp-1">
-                      1-on-1 personal training, group classes &amp; nutrition
-                      coaching. Book your free&nbsp;consultation.
+                      1-on-1 personal training, group classes &amp; nutrition coaching. Book your
+                      free&nbsp;consultation.
                     </p>
                   </div>
                   <span className="flex-shrink-0 flex items-center gap-1 text-[10px] font-bold text-warm-gold bg-warm-gold/10 px-2 py-1 rounded-full whitespace-nowrap">
@@ -174,15 +163,10 @@ export default function OngoingSupport() {
               </div>
 
               {/* Result 2 — competitor (faded) */}
-              <div
-                data-result
-                className="py-4 border-b border-stone-200/60 opacity-50"
-              >
+              <div data-result className="py-4 border-b border-stone-200/60 opacity-50">
                 <div className="flex items-center gap-2 mb-1.5">
                   <div className="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center">
-                    <span className="text-[9px] font-medium text-stone-500">
-                      M
-                    </span>
+                    <span className="text-[9px] font-medium text-stone-500">M</span>
                   </div>
                   <span className="text-xs text-stone-500 font-mono">
                     manteca-fitness-center.com
@@ -200,13 +184,9 @@ export default function OngoingSupport() {
               <div data-result className="hidden sm:block py-4 opacity-35">
                 <div className="flex items-center gap-2 mb-1.5">
                   <div className="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center">
-                    <span className="text-[9px] font-medium text-stone-500">
-                      G
-                    </span>
+                    <span className="text-[9px] font-medium text-stone-500">G</span>
                   </div>
-                  <span className="text-xs text-stone-500 font-mono">
-                    generic-directory.com
-                  </span>
+                  <span className="text-xs text-stone-500 font-mono">generic-directory.com</span>
                 </div>
                 <p className="text-sm text-[#4663AC]/40 leading-snug mb-1">
                   Find Personal Trainers | Compare&nbsp;Rates
@@ -245,9 +225,7 @@ export default function OngoingSupport() {
                     aria-hidden="true"
                   >
                     <div className="w-5 h-5 rounded-full bg-warm-gold border-2 border-warm-bg flex items-center justify-center shadow-lg shadow-warm-gold/30">
-                      <span className="text-[8px] font-bold text-warm-bg">
-                        A
-                      </span>
+                      <span className="text-[8px] font-bold text-warm-bg">A</span>
                     </div>
                   </div>
                   <div
@@ -255,9 +233,7 @@ export default function OngoingSupport() {
                     aria-hidden="true"
                   >
                     <div className="w-4 h-4 rounded-full bg-stone-500 border-2 border-warm-bg flex items-center justify-center">
-                      <span className="text-[7px] font-bold text-warm-bg">
-                        B
-                      </span>
+                      <span className="text-[7px] font-bold text-warm-bg">B</span>
                     </div>
                   </div>
                 </div>
@@ -276,9 +252,7 @@ export default function OngoingSupport() {
                     <div className="flex items-start gap-2.5">
                       <span
                         className={`text-[10px] font-bold mt-0.5 flex-shrink-0 ${
-                          listing.highlighted
-                            ? "text-warm-gold"
-                            : "text-stone-500"
+                          listing.highlighted ? "text-warm-gold" : "text-stone-500"
                         }`}
                       >
                         {String.fromCharCode(65 + i)}
@@ -286,17 +260,13 @@ export default function OngoingSupport() {
                       <div className="min-w-0">
                         <p
                           className={`text-[13px] font-semibold leading-snug ${
-                            listing.highlighted
-                              ? "text-stone-900"
-                              : "text-stone-600"
+                            listing.highlighted ? "text-stone-900" : "text-stone-600"
                           }`}
                         >
                           {listing.name}
                         </p>
                         <div className="flex items-center gap-1.5 mt-1">
-                          <span className="text-[10px] text-stone-500">
-                            {listing.rating}
-                          </span>
+                          <span className="text-[10px] text-stone-500">{listing.rating}</span>
                           <div className="flex items-center gap-0.5">
                             {[...Array(5)].map((_, j) => (
                               <Star
@@ -312,16 +282,12 @@ export default function OngoingSupport() {
                               />
                             ))}
                           </div>
-                          <span className="text-[10px] text-stone-500">
-                            ({listing.reviews})
-                          </span>
+                          <span className="text-[10px] text-stone-500">({listing.reviews})</span>
                         </div>
                         <p className="text-[10px] text-stone-500 mt-0.5">
                           {listing.type} · {listing.address}
                         </p>
-                        <p className="text-[10px] text-stone-500">
-                          {listing.hours}
-                        </p>
+                        <p className="text-[10px] text-stone-500">{listing.hours}</p>
                       </div>
                     </div>
                   </div>
@@ -343,9 +309,7 @@ export default function OngoingSupport() {
                   className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-full border border-stone-200/60 bg-[#F7F4F0] text-stone-600"
                 >
                   {kw.term}
-                  <span className="text-[#5C8A64] text-[9px] font-semibold">
-                    {kw.trend}
-                  </span>
+                  <span className="text-[#5C8A64] text-[9px] font-semibold">{kw.trend}</span>
                 </span>
               ))}
             </div>

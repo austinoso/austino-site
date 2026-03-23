@@ -54,7 +54,10 @@ export default function Solutions() {
           {/* ── Core offering: Build + Grow ── */}
           <WebDevelopment />
 
-          <div className="mt-20 sm:mt-24">
+          <div className="mt-16 sm:mt-20 pt-12 sm:pt-14 border-t border-stone-200">
+            <span className="section-label block mb-10 sm:mb-14">
+              The site gets them there. Growth strategy keeps them coming.
+            </span>
             <OngoingSupport />
           </div>
 
@@ -71,9 +74,7 @@ export default function Solutions() {
         >
           <p className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.15] tracking-tight max-w-3xl text-balance">
             I take one client per niche, per area.{" "}
-            <span className="text-gradient">
-              Your competition won&apos;t get this from me.
-            </span>
+            <span className="text-gradient">Your competition won&apos;t get this from me.</span>
           </p>
         </div>
       </div>
