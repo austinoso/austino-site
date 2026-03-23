@@ -64,7 +64,7 @@ const faqSchema = {
       name: "How much does a custom website cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most projects start at $1,500. You're paying for custom code and local SEO strategy — not a reskinned template. For businesses that want ongoing growth support after launch, I offer partnership models that lower the upfront cost in exchange for continued optimization.",
+        text: "Entry packages start at $399 + $50/month — a limited-time offer for new clients. Larger custom projects start at $999. You're paying for custom code and local SEO strategy — not a reskinned template.",
       },
     },
   ],

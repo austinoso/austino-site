@@ -64,7 +64,7 @@ const faqSchema = {
       name: "How much does a high-performance site cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most custom projects start at $1,500. Because I'm a specialized engineer — not a bloated agency — you're paying for code and strategy, not office rent and project managers.",
+        text: "Entry packages start at $399 + $50/month — a limited-time offer for new clients. Larger custom projects start at $999. Because I'm a specialized engineer — not a bloated agency — you're paying for code and strategy, not office rent and project managers.",
       },
     },
   ],
@@ -107,11 +107,7 @@ const breadcrumbSchema = {
   ],
 };
 
-export default function WebDevelopmentLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function WebDevelopmentLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <script

@@ -34,11 +34,11 @@ const tiers = [
           "After launch, you have a web and software person in your contacts. Questions about reviews, Google posts, or anything web-related \u2014 text or email me. I can’t fix your printer, but everything else is fair game.",
       },
     ],
-    price: { upfront: "Starts at $400", monthly: "$50/mo" },
+    price: { upfront: "$399", monthly: "$50/mo" },
     priceNote: "Lower upfront available with a higher monthly\u00A0rate.",
     bestFor:
       "Solo entrepreneurs, new local service providers, and \u201coffline\u201d businesses going\u00A0digital.",
-    note: "Limited spots available",
+    note: "Founding-client rate",
     spotsOpen: 3,
     accent: "stone" as const,
   },
@@ -69,7 +69,7 @@ const tiers = [
         detail: "Monthly updates on traffic and how customers are finding\u00A0you.",
       },
     ],
-    price: { upfront: "Starts at $1.2k", monthly: "$150+/mo" },
+    price: { upfront: "Starts at $999", monthly: "$150+/mo" },
     priceNote: "Lower upfront available with a higher monthly\u00A0rate.",
     bestFor: "Established local businesses that want to rank higher and get more\u00A0calls.",
     buildsOn: "Everything in Kickstart, plus:",
@@ -111,8 +111,8 @@ const tiers = [
 const comparisonRows = [
   {
     feature: "Upfront Cost",
-    kickstart: "Starts at $400*",
-    standard: "Starts at $1.2k*",
+    kickstart: "$399*",
+    standard: "Starts at $999*",
     dominator: "Contact for Quote",
   },
   { feature: "Monthly Support", kickstart: "$50", standard: "$150+", dominator: "$300+" },
@@ -455,6 +455,12 @@ export default function ServiceMenuPage() {
           † Not every business budgets the same way. These tiers offer a flexible payment option: a
           reduced upfront fee in exchange for a higher monthly rate over an agreed term. Same scope,
           same quality — just a different way to structure the&nbsp;cost.
+        </p>
+
+        <p className="text-xs text-stone-500 leading-relaxed max-w-lg mt-3">
+          Founding-client rate. Kickstart is priced below where it&apos;ll settle long-term. The
+          first few clients get a better deal while the roster is being built. Once those spots
+          fill, pricing moves&nbsp;up.
         </p>
 
         <div className="mt-6 flex items-center gap-3 print:mt-4">

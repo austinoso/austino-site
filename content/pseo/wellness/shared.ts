@@ -216,7 +216,7 @@ export const faq = {
     {
       q: (_city: string, _county: string) => "How much does a custom wellness website cost?",
       a: (_city: string, _county: string) =>
-        "Most projects start at $1,500. You're paying for strategy, design, local SEO, and clean code — not templates or page builders. The site pays for itself when it starts bringing clients through the door instead of through a platform that takes a cut.",
+        "Entry packages start at $399 + $50/month — a limited-time offer for new clients. Larger custom projects start at $999. Either way, you're paying for strategy, design, local SEO, and clean code — not templates or page builders. The site pays for itself when it starts bringing clients through the door instead of through a platform that takes a cut.",
     },
   ],
 };

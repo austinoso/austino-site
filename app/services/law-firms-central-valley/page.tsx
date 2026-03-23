@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: "How much does a custom law firm website cost?",
-    a: "Most projects start at $1,500. You\u2019re paying for strategy, design, and clean code \u2014 not agency overhead, account managers, and recycled templates.",
+    a: "Entry packages start at $399 + $50/month \u2014 a limited-time rate. Custom law firm sites start at $999. You\u2019re paying for strategy, design, and clean code \u2014 not agency overhead, account managers, and recycled templates.",
   },
 ];
 

@@ -72,7 +72,7 @@ const faqSchema = {
       name: "How much does a custom law firm website cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most projects start at $1,500. You're paying for strategy, design, and clean code — not agency overhead, account managers, and recycled templates.",
+        text: "Entry packages start at $399 + $50/month — a limited-time rate. Custom law firm sites start at $999. You're paying for strategy, design, and clean code — not agency overhead, account managers, and recycled templates.",
       },
     },
   ],
@@ -138,11 +138,7 @@ const breadcrumbSchema = {
   ],
 };
 
-export default function LawFirmsCentralValleyLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function LawFirmsCentralValleyLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <script

@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: "How much does a high-performance site cost?",
-    a: "Most custom projects start at $1,500. I\u2019m a specialized engineer, not a bloated agency, so you\u2019re paying for code and strategy, not office rent and project managers. For businesses looking for a long-term Growth Partnership, I offer flexible pricing that lowers the upfront cost in exchange for ongoing optimization and tech support. My goal is to build a tool that pays for itself.",
+    a: "Entry packages start at $399 + $50/month \u2014 a limited-time offer for new clients. Larger custom projects start at $999. I\u2019m a specialized engineer, not a bloated agency, so you\u2019re paying for code and strategy, not office rent and project managers. My goal is to build a tool that pays for itself.",
   },
 ];
 
@@ -34,8 +34,7 @@ export default function FAQ() {
         {/* Left — heading + reassurance */}
         <div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-5">
-            Things you might be{" "}
-            <span className="text-gradient-gold">wondering.</span>
+            Things you might be <span className="text-gradient-gold">wondering.</span>
           </h2>
           <p className="text-[15px] text-stone-600 leading-relaxed text-pretty">
             No hard sell. If we&apos;re not the right fit, I&apos;ll tell you.

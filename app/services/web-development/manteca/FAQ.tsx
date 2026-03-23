@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: "How much does a custom website cost?",
-    a: "Most projects start at $1,500. You\u2019re paying for custom code and local SEO strategy \u2014 not a reskinned template. For businesses that want ongoing growth support after launch, I offer partnership models that lower the upfront cost in exchange for continued optimization.",
+    a: "Entry packages start at $399 + $50/month \u2014 a limited-time offer for new clients. Larger custom projects start at $999. You\u2019re paying for custom code and local SEO strategy \u2014 not a reskinned template.",
   },
 ];
 
@@ -34,8 +34,7 @@ export default function FAQ() {
         {/* Left — heading + reassurance */}
         <div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-5">
-            Questions Manteca business owners{" "}
-            <span className="text-gradient-gold">ask.</span>
+            Questions Manteca business owners <span className="text-gradient-gold">ask.</span>
           </h2>
           <p className="text-[15px] text-stone-600 leading-relaxed text-pretty">
             No hard sell. If we&apos;re not the right fit, I&apos;ll tell you.
