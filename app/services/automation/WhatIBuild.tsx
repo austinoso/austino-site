@@ -75,19 +75,19 @@ export default function WhatIBuild() {
               key={pillar.label}
               className={`rounded-xl p-6 sm:p-7 flex flex-col transition-colors duration-300 ${
                 pillar.featured
-                  ? "border border-warm-gold/25 bg-warm-gold/[0.04] hover:bg-warm-gold/[0.07] hover:border-warm-gold/35 ring-1 ring-warm-gold/10"
+                  ? "border border-[#004D3A]/25 bg-[#004D3A]/[0.04] hover:bg-[#004D3A]/[0.07] hover:border-[#004D3A]/35 ring-1 ring-[#004D3A]/10"
                   : "border border-stone-200 bg-white hover:bg-stone-50 hover:border-stone-300"
               }`}
             >
               {/* Header */}
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-9 h-9 rounded-md bg-warm-gold/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 rounded-md bg-[#004D3A]/10 flex items-center justify-center flex-shrink-0">
                   <PillarIcon
-                    className="w-4 h-4 text-warm-gold"
+                    className="w-4 h-4 text-[#004D3A]"
                     aria-hidden="true"
                   />
                 </div>
-                <p className="text-[11px] font-mono text-warm-gold uppercase tracking-wider font-medium">
+                <p className="text-[11px] font-mono text-[#004D3A] uppercase tracking-wider font-medium">
                   {pillar.label}
                 </p>
               </div>
@@ -110,7 +110,7 @@ export default function WhatIBuild() {
                   return (
                     <div key={ex.text} className="flex items-start gap-3">
                       <ExIcon
-                        className="w-4 h-4 text-warm-gold/70 flex-shrink-0 mt-0.5"
+                        className="w-4 h-4 text-[#004D3A]/70 flex-shrink-0 mt-0.5"
                         aria-hidden="true"
                       />
                       <p className="text-[13px] text-stone-500 leading-relaxed">

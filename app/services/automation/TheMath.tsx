@@ -56,11 +56,11 @@ export default function TheMath() {
         </div>
 
         {/* Automated */}
-        <div className="rounded-xl border border-warm-gold/20 bg-warm-gold/[0.03] p-7 sm:p-8 relative overflow-hidden transition-colors duration-300 hover:bg-warm-gold/[0.06] hover:border-warm-gold/30">
+        <div className="rounded-xl border border-[#004D3A]/20 bg-[#004D3A]/[0.03] p-7 sm:p-8 relative overflow-hidden transition-colors duration-300 hover:bg-[#004D3A]/[0.06] hover:border-[#004D3A]/30">
           <div className="relative">
             <div className="flex items-center gap-2 mb-5">
               <div className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-              <p className="font-mono text-xs text-warm-gold uppercase tracking-wider">
+              <p className="font-mono text-xs text-[#004D3A] uppercase tracking-wider">
                 Automated
               </p>
             </div>
@@ -69,7 +69,7 @@ export default function TheMath() {
                 <p className="text-3xl sm:text-4xl font-semibold text-warm-white font-mono">
                   One-time
                 </p>
-                <p className="text-sm text-warm-gold font-mono">
+                <p className="text-sm text-[#004D3A] font-mono">
                   build cost, then $0/hr forever
                 </p>
               </div>

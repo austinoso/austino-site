@@ -23,19 +23,25 @@ export default function TheReality() {
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         {/* Left — heading + citation */}
         <div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-white leading-[1.2] tracking-tight text-balance">
             Google rewards the businesses that{" "}
-            <span className="text-gradient-gold">keep showing up.</span>
+            <span className="text-emerald-300">keep showing up.</span>
           </h2>
 
-          <p className="mt-8 text-[13px] text-stone-500">
+          <p className="mt-5 text-base sm:text-lg text-white/75 leading-relaxed text-pretty">
+            Rankings move when someone is actively working them — new content,
+            updated pages, tracked and adjusted every month. The strategy
+            doesn&apos;t run itself.
+          </p>
+
+          <p className="mt-6 text-[13px] text-white/70">
             This isn&apos;t my framework. It&apos;s Google&apos;s.
             <br className="sm:hidden" />{" "}
             <a
               href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-warm-gold hover:text-amber-700 transition-colors"
+              className="text-emerald-300 hover:text-emerald-200 transition-colors"
             >
               Google&apos;s Helpful Content Guidelines &rarr;
               <span className="sr-only"> (opens in a new tab)</span>
@@ -48,9 +54,9 @@ export default function TheReality() {
           {googleFactors.map((factor) => (
             <div
               key={factor.title}
-              className="rounded-xl border border-stone-200 bg-white p-5"
+              className="rounded-xl border border-white/10 bg-white p-5"
               style={{
-                boxShadow: "6px 6px 0px 0px #C4B5A0",
+                boxShadow: "6px 6px 0px 0px rgba(167,234,188,0.5), 0 4px 16px rgba(0,0,0,0.15)",
               }}
             >
               <p className="text-[15px] font-semibold text-warm-white">

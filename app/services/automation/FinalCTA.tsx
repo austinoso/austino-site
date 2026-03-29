@@ -7,7 +7,7 @@ export default function FinalCTA() {
       {/* Divider */}
       <div className="h-px bg-stone-200 mb-14 sm:mb-16" />
 
-      <p className="text-xs font-semibold text-amber-700 uppercase tracking-[0.2em] mb-5">
+      <p className="text-xs font-semibold text-[#004D3A] uppercase tracking-[0.2em] mb-5">
         Next Step
       </p>
 
@@ -24,7 +24,7 @@ export default function FinalCTA() {
       <div className="mt-10 sm:mt-12 flex items-center gap-4">
         <Link
           href="/contact"
-          className="group inline-flex items-center gap-2 text-[15px] font-semibold text-warm-gold hover:text-amber-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:ring-offset-2"
+          className="group inline-flex items-center gap-2 text-[15px] font-semibold text-[#004D3A] hover:text-[#003027] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#004D3A]/40 focus:ring-offset-2"
         >
           <span>Map Out Your Savings</span>
           <ArrowRight

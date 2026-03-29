@@ -50,8 +50,8 @@ export default function Integration() {
         {/* Divider */}
         <div className="hidden lg:flex flex-col items-center">
           <div className="w-px flex-1 bg-gradient-to-b from-transparent via-stone-700 to-transparent" />
-          <div className="my-4 flex items-center justify-center w-8 h-8 rounded-full border border-warm-gold/30">
-            <Zap className="w-3.5 h-3.5 text-warm-gold" aria-hidden="true" />
+          <div className="my-4 flex items-center justify-center w-8 h-8 rounded-full border border-[#004D3A]/30">
+            <Zap className="w-3.5 h-3.5 text-[#004D3A]" aria-hidden="true" />
           </div>
           <div className="w-px flex-1 bg-gradient-to-b from-transparent via-stone-700 to-transparent" />
         </div>
@@ -59,15 +59,15 @@ export default function Integration() {
         {/* Mobile divider */}
         <div className="lg:hidden flex items-center gap-4">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700 to-transparent" />
-          <div className="flex items-center justify-center w-8 h-8 rounded-full border border-warm-gold/30">
-            <Zap className="w-3.5 h-3.5 text-warm-gold" aria-hidden="true" />
+          <div className="flex items-center justify-center w-8 h-8 rounded-full border border-[#004D3A]/30">
+            <Zap className="w-3.5 h-3.5 text-[#004D3A]" aria-hidden="true" />
           </div>
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-700 to-transparent" />
         </div>
 
         {/* With integration */}
         <div className="lg:pl-12">
-          <p className="text-xs font-mono text-warm-gold uppercase tracking-wider mb-6">
+          <p className="text-xs font-mono text-[#004D3A] uppercase tracking-wider mb-6">
             With integration
           </p>
           <div className="space-y-4">
@@ -76,7 +76,7 @@ export default function Integration() {
               "Everything else happens automatically",
             ].map((step, i) => (
               <div key={i} className="flex items-start gap-3">
-                <span className="text-xs font-mono text-warm-gold mt-0.5 w-5 flex-shrink-0 text-right">
+                <span className="text-xs font-mono text-[#004D3A] mt-0.5 w-5 flex-shrink-0 text-right">
                   {i + 1}.
                 </span>
                 <p className="text-sm text-warm-white leading-relaxed">
@@ -96,7 +96,7 @@ export default function Integration() {
             ].map((task) => (
               <span
                 key={task}
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-warm-gold/80"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#004D3A]/80"
               >
                 <CheckCircle2 className="w-3 h-3" aria-hidden="true" />
                 {task}

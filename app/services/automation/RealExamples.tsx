@@ -349,7 +349,7 @@ const logDot = (k: LogEntry["kind"]) =>
     : k === "warn"
       ? "bg-amber-400/60"
       : k === "work"
-        ? "bg-warm-gold/60"
+        ? "bg-amber-400/60"
         : "bg-white/20";
 
 /* ── Component ────────────────────────────────────────────── */
@@ -549,7 +549,7 @@ export default function RealExamples() {
         ref={dashRef}
         className="rounded-xl border border-white/[0.10] bg-[#16140F] overflow-hidden select-none"
         style={{
-          boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+          boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
         }}
         aria-hidden="true"
       >
@@ -565,7 +565,7 @@ export default function RealExamples() {
             </span>
           </div>
           <div className="hidden sm:flex items-center gap-1.5">
-            <Zap className="w-3 h-3 text-warm-gold/50" aria-hidden />
+            <Zap className="w-3 h-3 text-emerald-400/50" aria-hidden />
             <span className="text-[11px] text-stone-400 font-mono tabular-nums">
               {TOOLS.length} automations
             </span>
@@ -594,7 +594,7 @@ export default function RealExamples() {
                     <SideIcon
                       className={`w-3.5 h-3.5 flex-shrink-0 transition-colors ${
                         on
-                          ? "text-warm-gold"
+                          ? "text-emerald-400"
                           : "text-stone-500 group-hover:text-stone-400"
                       }`}
                     />
@@ -641,7 +641,7 @@ export default function RealExamples() {
               {(() => {
                 const ActiveIcon = TOOLS[activeTool].icon;
                 return (
-                  <ActiveIcon className="w-3.5 h-3.5 text-warm-gold flex-shrink-0" />
+                  <ActiveIcon className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
                 );
               })()}
               <span className="text-xs font-medium text-white truncate">
@@ -657,7 +657,7 @@ export default function RealExamples() {
                 {TOOLS[activeTool].mode}
               </span>
               <ChevronDown
-                className={`w-5 h-5 text-warm-gold flex-shrink-0 transition-transform duration-200 animate-chevron-glow drop-shadow-[0_0_4px_rgba(212,168,83,0.5)] ${
+                className={`w-5 h-5 text-emerald-400 flex-shrink-0 transition-transform duration-200 animate-chevron-glow drop-shadow-[0_0_4px_rgba(74,222,128,0.5)] ${
                   mobileOpen ? "rotate-180" : ""
                 }`}
               />
@@ -677,7 +677,7 @@ export default function RealExamples() {
                   className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium transition-all duration-300 flex-shrink-0 ml-auto mr-2 ${
                     isRunning
                       ? "bg-white/[0.06] text-stone-500 cursor-not-allowed"
-                      : "bg-warm-gold/15 text-warm-gold hover:bg-warm-gold/25 border border-warm-gold/20 hover:border-warm-gold/40"
+                      : "bg-emerald-400/15 text-emerald-400 hover:bg-emerald-400/25 border border-emerald-400/20 hover:border-emerald-400/40"
                   }`}
                 >
                   {isRunning ? (
@@ -712,7 +712,7 @@ export default function RealExamples() {
                     >
                       <MIcon
                         className={`w-3.5 h-3.5 flex-shrink-0 ${
-                          on ? "text-warm-gold" : "text-stone-500"
+                          on ? "text-emerald-400" : "text-stone-500"
                         }`}
                       />
                       <span
@@ -743,9 +743,9 @@ export default function RealExamples() {
             {/* Tool bar – hidden on mobile where dropdown already shows the name */}
             <div className="hidden lg:flex px-4 sm:px-5 py-3 border-b border-white/[0.08] items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-6 h-6 rounded-md bg-warm-gold/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-6 h-6 rounded-md bg-emerald-400/10 flex items-center justify-center flex-shrink-0">
                   <ToolIcon
-                    className="w-3.5 h-3.5 text-warm-gold"
+                    className="w-3.5 h-3.5 text-emerald-400"
                     aria-hidden
                   />
                 </div>
@@ -767,7 +767,7 @@ export default function RealExamples() {
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-300 flex-shrink-0 ${
                     isRunning
                       ? "bg-white/[0.06] text-stone-500 cursor-not-allowed"
-                      : "bg-warm-gold/15 text-warm-gold hover:bg-warm-gold/25 border border-warm-gold/20 hover:border-warm-gold/40"
+                      : "bg-emerald-400/15 text-emerald-400 hover:bg-emerald-400/25 border border-emerald-400/20 hover:border-emerald-400/40"
                   }`}
                 >
                   {isRunning ? (

@@ -488,9 +488,9 @@ function ShuffleChip({ activePhase }: { activePhase: Phase }) {
     activePhase === "maps" ? "maps" : activePhase === "ai" ? "ai" : "organic";
   const channel = DISCOVERY_CHANNELS.find((c) => c.id === resolvedId)!;
   const prevRef = useRef(resolvedId);
-  const [slots, setSlots] = useState<{ id: string; channel: DiscoveryChannel; state: "in" | "out" }[]>([
-    { id: "init", channel, state: "in" },
-  ]);
+  const [slots, setSlots] = useState<
+    { id: string; channel: DiscoveryChannel; state: "in" | "out" }[]
+  >([{ id: "init", channel, state: "in" }]);
 
   useEffect(() => {
     if (resolvedId === prevRef.current) return;
@@ -548,7 +548,10 @@ export default function Hero() {
 
       <div className="relative z-0 w-full max-w-[1600px] mx-auto px-4 sm:px-10 md:px-16 lg:px-20 pt-28 sm:pt-28 pb-16 sm:pb-24 flex flex-col">
         {/* Visual — mockup with ambient back-glow */}
-        <div className="order-2 sm:order-1 w-full max-w-[960px] mx-auto mb-8 sm:mb-10 mt-8 sm:mt-0" style={fadeAnim(0.05)}>
+        <div
+          className="order-2 sm:order-1 w-full max-w-[960px] mx-auto mb-8 sm:mb-10 mt-8 sm:mt-0"
+          style={fadeAnim(0.05)}
+        >
           {/* Mobile/tablet: single chip above demo, shuffle animation */}
           <div className="xl:hidden mb-4 flex justify-center">
             <ShuffleChip activePhase={activePhase} />

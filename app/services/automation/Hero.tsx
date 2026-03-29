@@ -35,21 +35,21 @@ const SNAPSHOT = [
 ] as const;
 
 function accentText(a: string) {
-  return a === "amber" ? "text-amber-400" : a === "green" ? "text-emerald-400" : "text-warm-gold";
+  return a === "amber" ? "text-amber-400" : a === "green" ? "text-emerald-400" : "text-emerald-400";
 }
 function accentBg(a: string) {
   return a === "amber"
     ? "bg-amber-400/15"
     : a === "green"
       ? "bg-emerald-400/15"
-      : "bg-warm-gold/15";
+      : "bg-emerald-400/15";
 }
 function accentLine(a: string) {
   return a === "amber"
     ? "bg-amber-400/50"
     : a === "green"
       ? "bg-emerald-400/50"
-      : "bg-warm-gold/50";
+      : "bg-emerald-400/50";
 }
 
 export default function Hero() {
@@ -75,7 +75,7 @@ export default function Hero() {
         <div
           className="rounded-xl border border-white/[0.10] bg-[#16140F] overflow-hidden select-none"
           style={{
-            boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+            boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
           }}
           role="img"
           aria-label="Automation dashboard showing completed tasks"

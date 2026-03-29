@@ -14,11 +14,11 @@ export default function AlwaysOn() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
         {/* 24/7/365 — featured card */}
-        <div className="rounded-xl border border-warm-gold/20 bg-warm-gold/[0.03] p-7 sm:p-8 flex flex-col transition-colors duration-300 hover:bg-warm-gold/[0.06] hover:border-warm-gold/30">
+        <div className="rounded-xl border border-[#004D3A]/20 bg-[#004D3A]/[0.03] p-7 sm:p-8 flex flex-col transition-colors duration-300 hover:bg-[#004D3A]/[0.06] hover:border-[#004D3A]/30">
           <div className="flex items-center justify-between mb-6">
-            <div className="w-10 h-10 rounded-md border border-warm-gold/15 bg-warm-gold/10 flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-md border border-[#004D3A]/15 bg-[#004D3A]/10 flex items-center justify-center flex-shrink-0">
               <Clock
-                className="w-[18px] h-[18px] text-warm-gold"
+                className="w-[18px] h-[18px] text-[#004D3A]"
                 aria-hidden="true"
               />
             </div>
@@ -34,11 +34,11 @@ export default function AlwaysOn() {
           </div>
           <p className="font-display text-[2.5rem] sm:text-5xl font-bold text-warm-white tracking-tight leading-none mb-3">
             24
-            <span className="text-warm-gold/30 text-[0.6em] mx-[0.05em]">
+            <span className="text-[#004D3A]/30 text-[0.6em] mx-[0.05em]">
               /
             </span>
             7
-            <span className="text-warm-gold/30 text-[0.6em] mx-[0.05em]">
+            <span className="text-[#004D3A]/30 text-[0.6em] mx-[0.05em]">
               /
             </span>
             365
@@ -51,9 +51,9 @@ export default function AlwaysOn() {
 
         {/* Speed card */}
         <div className="rounded-xl border border-stone-200 bg-white p-7 sm:p-8 flex flex-col transition-colors duration-300 hover:bg-stone-50 hover:border-stone-300">
-          <div className="w-10 h-10 rounded-md border border-warm-gold/15 bg-warm-gold/10 flex items-center justify-center flex-shrink-0 mb-6">
+          <div className="w-10 h-10 rounded-md border border-[#004D3A]/15 bg-[#004D3A]/10 flex items-center justify-center flex-shrink-0 mb-6">
             <Zap
-              className="w-[18px] h-[18px] text-warm-gold"
+              className="w-[18px] h-[18px] text-[#004D3A]"
               aria-hidden="true"
             />
           </div>
@@ -74,9 +74,9 @@ export default function AlwaysOn() {
 
         {/* Accuracy card */}
         <div className="rounded-xl border border-stone-200 bg-white p-7 sm:p-8 flex flex-col transition-colors duration-300 hover:bg-stone-50 hover:border-stone-300">
-          <div className="w-10 h-10 rounded-md border border-warm-gold/15 bg-warm-gold/10 flex items-center justify-center flex-shrink-0 mb-6">
+          <div className="w-10 h-10 rounded-md border border-[#004D3A]/15 bg-[#004D3A]/10 flex items-center justify-center flex-shrink-0 mb-6">
             <CheckCircle2
-              className="w-[18px] h-[18px] text-warm-gold"
+              className="w-[18px] h-[18px] text-[#004D3A]"
               aria-hidden="true"
             />
           </div>

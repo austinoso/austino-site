@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="grid lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-center pb-14 sm:pb-16 lg:pb-20">
       <div data-hero-copy className="lg:col-span-6 space-y-6 lg:py-10">
         <h1 className="text-4xl sm:text-5xl md:text-[3.25rem] font-bold font-display text-warm-white leading-[1.1] tracking-tight text-balance">
-          Launched is just <span className="text-gradient-gold">the starting line.</span>
+          Launched is just <span className="text-[#004D3A]">the starting line.</span>
         </h1>
         <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
           New pages targeting real searches. Optimization driven by real data. The strategy Google
@@ -23,7 +23,7 @@ export default function Hero() {
         <div
           className="rounded-xl border border-stone-300 bg-[#F0EAE2] overflow-hidden select-none"
           style={{
-            boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+            boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
           }}
         >
           {/* Browser chrome */}
@@ -54,10 +54,10 @@ export default function Hero() {
           {/* Search results */}
           <div className="px-5 sm:px-6 py-2 bg-white">
             {/* Result #1 — YOUR business, highlighted */}
-            <div className="py-4 -mx-3 px-3 rounded-lg bg-warm-gold/[0.06] border border-warm-gold/15">
+            <div className="py-4 -mx-3 px-3 rounded-lg bg-[#004D3A]/[0.06] border border-[#004D3A]/15">
               <div className="flex items-center gap-2 mb-1.5">
-                <div className="w-5 h-5 rounded-full bg-warm-gold/20 flex items-center justify-center">
-                  <span className="text-[9px] font-bold text-warm-gold">Y</span>
+                <div className="w-5 h-5 rounded-full bg-[#004D3A]/20 flex items-center justify-center">
+                  <span className="text-[9px] font-bold text-[#004D3A]">Y</span>
                 </div>
                 <span className="text-[11px] text-stone-500">yourbusiness.com</span>
               </div>

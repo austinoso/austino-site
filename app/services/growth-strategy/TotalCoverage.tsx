@@ -31,8 +31,8 @@ export default function TotalCoverage() {
   return (
     <section data-fade className="px-6 sm:px-10 md:px-14 lg:px-20 pb-14 sm:pb-20 md:pb-24">
       {/* ── Add-on label ── */}
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-warm-gold/20 bg-warm-gold/[0.06] mb-8 sm:mb-10">
-        <span className="text-[11px] font-mono font-medium text-warm-gold uppercase tracking-[0.15em]">
+      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#004D3A]/20 bg-[#004D3A]/[0.06] mb-8 sm:mb-10">
+        <span className="text-[11px] font-mono font-medium text-[#004D3A] uppercase tracking-[0.15em]">
           Add-on
         </span>
       </div>
@@ -40,7 +40,7 @@ export default function TotalCoverage() {
       {/* ── Heading ── */}
       <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4 max-w-2xl">
         For businesses that need to{" "}
-        <span className="text-gradient-gold">own every&nbsp;search.</span>
+        <span className="text-[#004D3A]">own every&nbsp;search.</span>
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-4 text-pretty">
         Not every business needs this. But if you&apos;re in a competitive market, offer a range of
@@ -56,15 +56,15 @@ export default function TotalCoverage() {
       <div
         className="rounded-xl border border-stone-300 bg-[#F0EAE2] overflow-hidden select-none"
         style={{
-          boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+          boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
         }}
         aria-hidden="true"
       >
         {/* Header */}
         <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-stone-300 bg-[#E8E2DA]">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-warm-gold/10 border border-warm-gold/20 flex items-center justify-center">
-              <Globe className="w-4 h-4 text-warm-gold" />
+            <div className="w-8 h-8 rounded-lg bg-[#004D3A]/10 border border-[#004D3A]/20 flex items-center justify-center">
+              <Globe className="w-4 h-4 text-[#004D3A]" />
             </div>
             <div>
               <p className="text-sm font-semibold text-stone-900">Search Coverage</p>
@@ -127,9 +127,9 @@ export default function TotalCoverage() {
       </div>
 
       {/* ── Authority callout ── */}
-      <div className="mt-8 sm:mt-10 rounded-xl border border-warm-gold/15 bg-warm-gold/[0.04] px-6 sm:px-8 py-6 sm:py-7">
+      <div className="mt-8 sm:mt-10 rounded-xl border border-[#004D3A]/15 bg-[#004D3A]/[0.04] px-6 sm:px-8 py-6 sm:py-7">
         <h3 className="font-display text-lg sm:text-xl font-bold text-warm-white leading-snug tracking-tight mb-2">
-          This is how Google picks the <span className="text-gradient-gold">authority.</span>
+          This is how Google picks the <span className="text-[#004D3A]">authority.</span>
         </h3>
         <p className="text-[15px] text-stone-600 leading-relaxed max-w-2xl text-pretty">
           A business with 20+ interlinked, well-structured pages covering every service and city
@@ -141,7 +141,7 @@ export default function TotalCoverage() {
       {/* ── Features ── */}
       <div className="grid sm:grid-cols-3 gap-5 sm:gap-6 mt-5 sm:mt-6">
         {features.map((f) => (
-          <div key={f.title} className="border-l-2 border-warm-gold/20 pl-5 py-1">
+          <div key={f.title} className="border-l-2 border-[#004D3A]/20 pl-5 py-1">
             <h3 className="text-sm font-semibold text-warm-white mb-1.5">{f.title}</h3>
             <p className="text-[13px] text-stone-500 leading-relaxed">{f.desc}</p>
           </div>

@@ -43,7 +43,7 @@ export default function TheProcess() {
           className="absolute left-[15px] sm:left-[19px] top-0 bottom-0 w-px"
           style={{
             background:
-              "linear-gradient(to bottom, transparent, rgba(212,168,83,0.2) 10%, rgba(212,168,83,0.2) 90%, transparent)",
+              "linear-gradient(to bottom, transparent, rgba(0,77,58,0.2) 10%, rgba(0,77,58,0.2) 90%, transparent)",
           }}
         />
         <div className="space-y-10 sm:space-y-12">
@@ -53,8 +53,8 @@ export default function TheProcess() {
               data-step
               className="relative flex items-start gap-5 sm:gap-8"
             >
-              <div className="relative z-10 flex-shrink-0 flex items-center justify-center h-[30px] w-[30px] sm:h-[38px] sm:w-[38px] rounded-full bg-warm-bg border border-warm-gold/30 shadow-[0_0_12px_rgba(212,168,83,0.08)]">
-                <span className="text-[10px] sm:text-xs font-mono text-warm-gold font-semibold">
+              <div className="relative z-10 flex-shrink-0 flex items-center justify-center h-[30px] w-[30px] sm:h-[38px] sm:w-[38px] rounded-full bg-warm-bg border border-[#004D3A]/30 shadow-[0_0_12px_rgba(0,77,58,0.08)]">
+                <span className="text-[10px] sm:text-xs font-mono text-[#004D3A] font-semibold">
                   {item.step}
                 </span>
               </div>
@@ -82,8 +82,8 @@ export default function TheProcess() {
             >
               {/* Marker row with connecting line */}
               <div className="relative flex items-center w-full mb-5">
-                <div className="relative z-10 flex-shrink-0 flex items-center justify-center h-[38px] w-[38px] rounded-full bg-warm-bg border border-warm-gold/30 shadow-[0_0_12px_rgba(212,168,83,0.08)]">
-                  <span className="text-xs font-mono text-warm-gold font-semibold">
+                <div className="relative z-10 flex-shrink-0 flex items-center justify-center h-[38px] w-[38px] rounded-full bg-warm-bg border border-[#004D3A]/30 shadow-[0_0_12px_rgba(0,77,58,0.08)]">
+                  <span className="text-xs font-mono text-[#004D3A] font-semibold">
                     {item.step}
                   </span>
                 </div>
@@ -93,7 +93,7 @@ export default function TheProcess() {
                     className="flex-1 h-px ml-3"
                     style={{
                       background:
-                        "linear-gradient(to right, rgba(212,168,83,0.25), rgba(212,168,83,0.08))",
+                        "linear-gradient(to right, rgba(0,77,58,0.25), rgba(0,77,58,0.08))",
                     }}
                   />
                 )}

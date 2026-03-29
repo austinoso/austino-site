@@ -5,7 +5,6 @@ import { BackLink } from "@/components/ui/BackLink";
 import { ServiceSection } from "@/components/ui/ServiceSection";
 
 import Hero from "./Hero";
-import SoundFamiliar from "./SoundFamiliar";
 import TheReality from "./TheReality";
 import WhatsIncluded from "./TheStrategy";
 import TotalCoverage from "./TotalCoverage";
@@ -30,15 +29,12 @@ export default function GrowthStrategyPage() {
             </div>
           </div>
 
-          {/* ── Sound Familiar ── */}
-          <ServiceSection gradient={0} padding="pt-14 sm:pt-28 md:pt-32">
-            <SoundFamiliar />
-          </ServiceSection>
-
           {/* ── The Reality ── */}
-          <ServiceSection gradient={2} padding="pt-14 sm:pt-28 md:pt-32">
-            <TheReality />
-          </ServiceSection>
+          <div className="relative border-b border-stone-900/20 bg-[#004D3A]">
+            <div className="pt-14 sm:pt-28 md:pt-32">
+              <TheReality />
+            </div>
+          </div>
 
           {/* ── The Strategy ── */}
           <ServiceSection gradient={1} padding="pt-14 sm:pt-28 md:pt-32">

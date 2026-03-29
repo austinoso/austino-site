@@ -11,7 +11,7 @@ export default function WhyMe() {
       <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 md:gap-14 lg:gap-20 items-start">
         {/* ── Photo + name ── */}
         <div className="flex md:flex-col items-center md:items-start gap-5 md:gap-0 md:pt-1">
-          <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border border-warm-gold/15 shadow-lg shadow-black/40 flex-shrink-0">
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border border-[#004D3A]/15 shadow-lg shadow-black/40 flex-shrink-0">
             <Image
               src="/assets/bio-pic.png"
               alt="Austin Osorio, developer and founder"
@@ -24,7 +24,7 @@ export default function WhyMe() {
             <p className="text-lg font-semibold text-warm-white leading-snug tracking-tight">
               Austin Osorio
             </p>
-            <p className="font-mono text-[10px] text-warm-gold/60 uppercase tracking-[0.2em] mt-1">
+            <p className="font-mono text-[10px] text-[#004D3A]/60 uppercase tracking-[0.2em] mt-1">
               Developer &amp; Founder
             </p>
           </div>
@@ -34,7 +34,7 @@ export default function WhyMe() {
         <div className="max-w-xl">
           <h2 className="font-display text-2xl sm:text-3xl md:text-[2.1rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-5">
             An engineer who understands{" "}
-            <span className="text-gradient-gold">
+            <span className="text-[#004D3A]">
               how growth actually works.
             </span>
           </h2>
@@ -53,7 +53,7 @@ export default function WhyMe() {
           </div>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 mt-8 text-sm font-medium text-warm-gold hover:text-amber-700 transition-colors duration-200"
+            className="group inline-flex items-center gap-2 mt-8 text-sm font-medium text-[#004D3A] hover:text-[#003027] transition-colors duration-200"
           >
             Let&apos;s talk about your business
             <ArrowRight

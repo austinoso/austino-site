@@ -96,7 +96,7 @@ export default function TimelineCards() {
         className="absolute left-[19px] sm:left-[23px] top-3 bottom-3 w-px"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(180,83,9,0.12), rgba(180,83,9,0.25) 40%, rgba(180,83,9,0.45) 75%, rgba(180,83,9,0.7))",
+            "linear-gradient(to bottom, rgba(0,77,58,0.12), rgba(0,77,58,0.25) 40%, rgba(0,77,58,0.45) 75%, rgba(0,77,58,0.7))",
         }}
         aria-hidden="true"
       />
@@ -120,15 +120,15 @@ export default function TimelineCards() {
                   className="w-2.5 h-2.5 rounded-full transition-all duration-500 ease-out"
                   style={{
                     backgroundColor: isActive
-                      ? "#B45309"
+                      ? "#004D3A"
                       : isLast
-                        ? "rgba(180,83,9,0.7)"
-                        : "rgba(180,83,9,0.35)",
+                        ? "rgba(0,77,58,0.7)"
+                        : "rgba(0,77,58,0.35)",
                     boxShadow: isActive
-                      ? "0 0 0 5px rgba(180,83,9,0.15), 0 0 12px rgba(180,83,9,0.2)"
+                      ? "0 0 0 5px rgba(0,77,58,0.15), 0 0 12px rgba(0,77,58,0.2)"
                       : isLast
-                        ? "0 0 0 5px rgba(180,83,9,0.1)"
-                        : "0 0 0 4px rgba(180,83,9,0.06)",
+                        ? "0 0 0 5px rgba(0,77,58,0.1)"
+                        : "0 0 0 4px rgba(0,77,58,0.06)",
                   }}
                 />
               </div>
@@ -141,13 +141,13 @@ export default function TimelineCards() {
                     isActive
                       ? "bg-white border-stone-300"
                       : isLast
-                        ? "bg-warm-gold/[0.04] border-warm-gold/20"
+                        ? "bg-[#004D3A]/[0.04] border-[#004D3A]/20"
                         : "bg-white border-stone-200",
                   ].join(" ")}
                   style={{
                     transform: isActive ? "translateY(-4px)" : "translateY(0)",
                     boxShadow: isActive
-                      ? "6px 6px 0px 0px #C4B5A0, 0 4px 16px rgba(0,0,0,0.06)"
+                      ? "6px 6px 0px 0px #A8CCBF, 0 4px 16px rgba(0,0,0,0.06)"
                       : "0 0 0 0 transparent",
                   }}
                 >
@@ -157,10 +157,10 @@ export default function TimelineCards() {
                       className="text-3xl sm:text-4xl font-display font-bold leading-none transition-colors duration-500"
                       style={{
                         color: isActive
-                          ? "#B45309"
+                          ? "#004D3A"
                           : isLast
-                            ? "#B45309"
-                            : "rgba(180,83,9,0.55)",
+                            ? "#004D3A"
+                            : "rgba(0,77,58,0.55)",
                       }}
                     >
                       {milestone.month}
@@ -171,9 +171,9 @@ export default function TimelineCards() {
                     <div
                       className={`flex-1 h-px transition-colors duration-500 ${
                         isActive
-                          ? "bg-warm-gold/20"
+                          ? "bg-[#004D3A]/20"
                           : isLast
-                            ? "bg-warm-gold/15"
+                            ? "bg-[#004D3A]/15"
                             : "bg-stone-200"
                       }`}
                     />

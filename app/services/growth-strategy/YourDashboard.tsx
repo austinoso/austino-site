@@ -5,7 +5,7 @@ export default function YourDashboard() {
         <p className="section-label mb-4">Your Dashboard</p>
         <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4 max-w-2xl">
           Numbers that mean something to{" "}
-          <span className="text-gradient-gold">your business.</span>
+          <span className="text-[#004D3A]">your business.</span>
         </h2>
         <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-10 text-pretty">
           Every metric I track maps directly to a business outcome you care

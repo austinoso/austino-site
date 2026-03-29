@@ -118,7 +118,7 @@ export default function WhatsIncluded() {
   return (
     <section data-fade className="px-6 sm:px-10 md:px-14 lg:px-20 pb-14 sm:pb-20 md:pb-24">
       <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4 max-w-2xl">
-        Everything your site needs to <span className="text-gradient-gold">keep growing.</span>
+        Everything your site needs to <span className="text-[#004D3A]">keep growing.</span>
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl mb-10 sm:mb-12 text-pretty">
         This isn&apos;t a one-time audit or a PDF of recommendations. It&apos;s ongoing, hands-on
@@ -135,8 +135,8 @@ export default function WhatsIncluded() {
                 key={d.label}
                 className="flex items-start gap-3 py-3 px-3 rounded-lg border border-transparent hover:border-stone-300 hover:bg-stone-50 transition-colors duration-200"
               >
-                <div className="w-8 h-8 rounded-md bg-warm-gold/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                <div className="w-8 h-8 rounded-md bg-[#004D3A]/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                 </div>
                 <div>
                   <span className="text-sm font-medium text-warm-white block leading-snug">
@@ -159,15 +159,15 @@ export default function WhatsIncluded() {
           <div
             className="rounded-xl border border-stone-300 bg-[#F0EAE2] overflow-hidden select-none"
             style={{
-              boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+                  boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
             }}
             aria-hidden="true"
           >
             {/* Report header */}
             <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-stone-300 bg-[#E8E2DA]">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-warm-gold/10 border border-warm-gold/20 flex items-center justify-center">
-                  <BarChart3 className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                <div className="w-8 h-8 rounded-lg bg-[#004D3A]/10 border border-[#004D3A]/20 flex items-center justify-center">
+                  <BarChart3 className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-stone-900">Growth Report</p>
@@ -263,7 +263,7 @@ export default function WhatsIncluded() {
         </div>
         <Link
           href="/services/web-development"
-          className="inline-flex items-center gap-2 text-sm font-medium text-warm-gold hover:text-amber-700 transition-colors duration-200 shrink-0 whitespace-nowrap"
+          className="inline-flex items-center gap-2 text-sm font-medium text-[#004D3A] hover:text-[#003027] transition-colors duration-200 shrink-0 whitespace-nowrap"
         >
           See the web dev service
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
