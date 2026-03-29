@@ -38,7 +38,7 @@ function BrowserMockup({
     <div
       className={`rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none ${className}`}
       style={{
-        boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+        boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
       }}
     >
       {/* Chrome bar */}
@@ -108,7 +108,7 @@ export default function AboutPage() {
             {/* Decorative semicircle — amber, right edge */}
             <div
               className="absolute -right-[10rem] sm:-right-[12rem] md:-right-[16rem] top-0 sm:top-4 md:top-6 w-[16rem] h-[16rem] sm:w-[20rem] sm:h-[20rem] md:w-[28rem] md:h-[28rem] rounded-full pointer-events-none"
-              style={{ background: "rgba(180, 83, 9, 0.06)" }}
+              style={{ background: "rgba(0, 77, 58, 0.06)" }}
               aria-hidden="true"
             />
 
@@ -121,7 +121,7 @@ export default function AboutPage() {
                   className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900 leading-[1.1] tracking-tight mb-5"
                 >
                   I&apos;d rather show you how it works than ask you to{"\u00A0"}
-                  <span className="text-gradient-gold">trust</span> me.
+                  <span className="text-[#004D3A]">trust</span> me.
                 </h1>
                 <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-pretty">
                   Most agencies hand you a proposal full of jargon and expect you to take their word
@@ -155,7 +155,7 @@ export default function AboutPage() {
             <div className="max-w-3xl">
               {/* Item 01 */}
               <div className="grid grid-cols-[3.5rem_1fr] sm:grid-cols-[4.5rem_1fr] gap-x-4 sm:gap-x-6 pb-10 sm:pb-12 border-b border-stone-200">
-                <span className="font-mono text-3xl sm:text-4xl font-bold text-warm-gold/30 leading-none pt-0.5 select-none">
+                <span className="font-mono text-3xl sm:text-4xl font-bold text-[#004D3A]/30 leading-none pt-0.5 select-none">
                   01
                 </span>
                 <div>
@@ -172,7 +172,7 @@ export default function AboutPage() {
 
               {/* Item 02 */}
               <div className="grid grid-cols-[3.5rem_1fr] sm:grid-cols-[4.5rem_1fr] gap-x-4 sm:gap-x-6 py-10 sm:py-12 border-b border-stone-200">
-                <span className="font-mono text-3xl sm:text-4xl font-bold text-warm-gold/30 leading-none pt-0.5 select-none">
+                <span className="font-mono text-3xl sm:text-4xl font-bold text-[#004D3A]/30 leading-none pt-0.5 select-none">
                   02
                 </span>
                 <div>
@@ -190,7 +190,7 @@ export default function AboutPage() {
 
               {/* Item 03 */}
               <div className="grid grid-cols-[3.5rem_1fr] sm:grid-cols-[4.5rem_1fr] gap-x-4 sm:gap-x-6 py-10 sm:py-12">
-                <span className="font-mono text-3xl sm:text-4xl font-bold text-warm-gold/30 leading-none pt-0.5 select-none">
+                <span className="font-mono text-3xl sm:text-4xl font-bold text-[#004D3A]/30 leading-none pt-0.5 select-none">
                   03
                 </span>
                 <div>
@@ -221,7 +221,7 @@ export default function AboutPage() {
                   <div
                     className="relative w-52 h-64 sm:w-60 sm:h-72 md:w-64 md:h-80 rounded-2xl overflow-hidden border border-stone-200"
                     style={{
-                      boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.06)",
+                      boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.06)",
                     }}
                   >
                     <Image
@@ -238,7 +238,7 @@ export default function AboutPage() {
                   <p className="text-lg font-semibold text-warm-white leading-snug tracking-tight">
                     Austin O.
                   </p>
-                  <p className="font-mono text-[10px] text-warm-gold uppercase tracking-widest mt-1">
+                  <p className="font-mono text-[10px] text-[#004D3A] uppercase tracking-widest mt-1">
                     Developer &amp; Founder
                   </p>
                 </div>
@@ -251,7 +251,7 @@ export default function AboutPage() {
                   className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.1] tracking-tight"
                 >
                   Six years of building. Now focused{"\u00A0"}
-                  <span className="text-gradient-gold">here.</span>
+                  <span className="text-[#004D3A]">here.</span>
                 </h2>
 
                 <p className="text-base sm:text-lg text-stone-600 leading-relaxed mt-8 sm:mt-10">
@@ -298,7 +298,7 @@ export default function AboutPage() {
                   <div>
                     <p className="text-sm font-medium text-warm-white">
                       Rosa{" "}
-                      <span className="font-mono text-[10px] text-warm-gold uppercase tracking-widest ml-1.5">
+                      <span className="font-mono text-[10px] text-[#004D3A] uppercase tracking-widest ml-1.5">
                         Head of Morale
                       </span>
                     </p>
@@ -345,7 +345,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <div className="p-4">
-                  <p className="text-sm font-medium text-warm-white group-hover:text-warm-gold transition-colors duration-200">
+                  <p className="text-sm font-medium text-warm-white group-hover:text-[#004D3A] transition-colors duration-200">
                     My Massage Cottage
                   </p>
                   <p className="text-xs text-stone-400 mt-0.5">Web + Growth</p>
@@ -367,7 +367,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <div className="p-4">
-                  <p className="text-sm font-medium text-warm-white group-hover:text-warm-gold transition-colors duration-200">
+                  <p className="text-sm font-medium text-warm-white group-hover:text-[#004D3A] transition-colors duration-200">
                     Law Firm Website
                   </p>
                   <p className="text-xs text-stone-400 mt-0.5">Web Development</p>
@@ -378,7 +378,7 @@ export default function AboutPage() {
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
               <Link
                 href="/work"
-                className="group inline-flex items-center gap-2 text-[15px] font-semibold text-warm-gold hover:text-amber-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:ring-offset-2"
+                className="group inline-flex items-center gap-2 text-[15px] font-semibold text-[#004D3A] hover:text-[#003328] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#004D3A]/40 focus:ring-offset-2"
               >
                 <span>See All Projects</span>
                 <ArrowRight

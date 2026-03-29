@@ -64,7 +64,7 @@ export default function WorkPage() {
                 {/* Project info — below image */}
                 <div className="px-6 sm:px-10 md:px-14 lg:px-20 pt-10 pb-14 sm:pt-12 sm:pb-16">
                   <div className="mb-8">
-                    <span className="text-[10px] font-mono text-warm-gold uppercase tracking-[0.2em] mb-4 block">
+                    <span className="text-[10px] font-mono text-[#004D3A] uppercase tracking-[0.2em] mb-4 block">
                       {project.category}
                     </span>
                     <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-warm-white leading-[1.1] tracking-tight mb-3">
@@ -79,7 +79,7 @@ export default function WorkPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3 mb-8 pt-8 border-t border-stone-200">
                     {project.results.map((result, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <span className="mt-1.5 flex-shrink-0 h-1.5 w-1.5 rounded-full bg-warm-gold/60" />
+                        <span className="mt-1.5 flex-shrink-0 h-1.5 w-1.5 rounded-full bg-[#004D3A]/60" />
                         <p className="text-sm text-stone-500 leading-relaxed text-pretty">
                           {result}
                         </p>
@@ -90,7 +90,7 @@ export default function WorkPage() {
                   {/* CTA */}
                   <Link
                     href={`/work/${project.slug}`}
-                    className="group inline-flex items-center gap-2 text-sm font-mono text-warm-gold hover:text-amber-700 transition-colors duration-300"
+                    className="group inline-flex items-center gap-2 text-sm font-mono text-[#004D3A] hover:text-[#003328] transition-colors duration-300"
                   >
                     <span>Read case study</span>
                     <ArrowRight

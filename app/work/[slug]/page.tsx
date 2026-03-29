@@ -56,7 +56,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               </BackLink>
 
               <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="text-[10px] font-mono text-warm-gold uppercase tracking-[0.2em]">
+                <span className="text-[10px] font-mono text-[#004D3A] uppercase tracking-[0.2em]">
                   {study.category}
                 </span>
                 <span className="text-stone-500 text-[10px]">·</span>
@@ -79,7 +79,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                     href={study.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-sm rounded-lg px-7 py-3.5 shadow-lg shadow-amber-600/20 transition-all duration-300 hover:brightness-110 hover:-translate-y-px hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
+                    className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#004D3A] to-[#006B57] text-white font-semibold text-sm rounded-lg px-7 py-3.5 shadow-lg shadow-[#004D3A]/20 transition-all duration-300 hover:brightness-110 hover:-translate-y-px hover:shadow-xl hover:shadow-[#004D3A]/30 focus:outline-none focus:ring-2 focus:ring-[#004D3A] focus:ring-offset-2 focus:ring-offset-warm-bg"
                   >
                     {study.linkText || "Visit Live Site"}
                     <span className="sr-only"> (opens in a new tab)</span>
@@ -161,7 +161,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               >
                 {study.results.map((result: string, index: number) => (
                   <div key={index} className="flex items-start gap-3" role="listitem">
-                    <span className="mt-1.5 flex-shrink-0 h-1.5 w-1.5 rounded-full bg-warm-gold/60" />
+                    <span className="mt-1.5 flex-shrink-0 h-1.5 w-1.5 rounded-full bg-[#004D3A]/60" />
                     <p className="text-sm sm:text-base text-stone-500 leading-relaxed text-pretty">
                       {result}
                     </p>
