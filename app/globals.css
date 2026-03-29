@@ -123,12 +123,7 @@
     background-image: linear-gradient(135deg, #92400E 0%, #B45309 100%);
   }
 
-  .text-gradient-green {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #15803D 0%, #16A34A 50%, #22C55E 100%);
-  }
-
-  /* Dark-context gradient overrides (for CTA, dark mockups) */
+/* Dark-context gradient overrides (for CTA, dark mockups) */
   .dark-section .text-gradient {
     background-image: linear-gradient(135deg, #FBBF24 0%, #F472B6 50%, #A78BFA 100%);
   }
