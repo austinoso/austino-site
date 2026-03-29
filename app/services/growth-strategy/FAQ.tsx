@@ -38,8 +38,7 @@ export default function FAQ() {
         {/* Left — heading */}
         <div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-5">
-            Honest answers{" "}
-            <span className="text-[#004D3A]">before you commit.</span>
+            Honest answers <span className="text-[#004D3A]">before you commit.</span>
           </h2>
           <p className="text-[15px] text-stone-500 leading-relaxed text-pretty">
             If we&apos;re not the right fit, I&apos;ll tell you.

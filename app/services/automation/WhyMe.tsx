@@ -35,14 +35,13 @@ export default function WhyMe() {
           </h2>
           <div className="space-y-4 text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
             <p>
-              When someone brings me a problem, I find a solution. If one
-              doesn&apos;t exist, I build it.
+              When someone brings me a problem, I find a solution. If one doesn&apos;t exist, I
+              build it.
             </p>
             <p>
-              Integrations, internal tools, scheduled jobs, full operations
-              dashboards. For other companies and my own. The scope changes
-              every project, but the approach stays the same: understand the
-              problem, then build the simplest thing that solves it.
+              Integrations, internal tools, scheduled jobs, full operations dashboards. For other
+              companies and my own. The scope changes every project, but the approach stays the
+              same: understand the problem, then build the simplest thing that solves it.
             </p>
           </div>
 

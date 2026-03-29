@@ -4,10 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function WhyMe() {
   return (
-    <section
-      data-fade
-      className="px-6 sm:px-10 md:px-14 lg:px-20 py-14 sm:py-20 md:py-24"
-    >
+    <section data-fade className="px-6 sm:px-10 md:px-14 lg:px-20 py-14 sm:py-20 md:py-24">
       <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 md:gap-14 lg:gap-20 items-start">
         {/* ── Photo + name ── */}
         <div className="flex md:flex-col items-center md:items-start gap-5 md:gap-0 md:pt-1">
@@ -34,21 +31,18 @@ export default function WhyMe() {
         <div className="max-w-xl">
           <h2 className="font-display text-2xl sm:text-3xl md:text-[2.1rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-5">
             An engineer who understands{" "}
-            <span className="text-[#004D3A]">
-              how growth actually works.
-            </span>
+            <span className="text-[#004D3A]">how growth actually works.</span>
           </h2>
           <div className="space-y-4 text-base sm:text-lg text-stone-600 leading-relaxed text-pretty">
             <p>
-              I&apos;ve spent six years as a software engineer. That background
-              means I understand how Google&apos;s ranking systems, analytics
-              platforms, and data tools actually work. I don&apos;t just read
-              dashboards. I understand what&apos;s happening underneath them.
+              I&apos;ve spent six years as a software engineer. That background means I understand
+              how Google&apos;s ranking systems, analytics platforms, and data tools actually work.
+              I don&apos;t just read dashboards. I understand what&apos;s happening underneath them.
             </p>
             <p>
-              That means I build your site, read the data, and adjust the plan
-              myself. One person who sees the whole picture: the code that makes
-              your site fast and the content that makes it rank.
+              That means I build your site, read the data, and adjust the plan myself. One person
+              who sees the whole picture: the code that makes your site fast and the content that
+              makes it rank.
             </p>
           </div>
           <Link

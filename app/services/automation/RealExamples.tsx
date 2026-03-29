@@ -375,10 +375,7 @@ export default function RealExamples() {
 
   /* ── Play a set of log entries one-by-one ───── */
   const playLogs = useCallback(
-    (
-      logs: LogEntry[],
-      opts?: { delay?: number; onDone?: () => void; toolIdx?: number },
-    ) => {
+    (logs: LogEntry[], opts?: { delay?: number; onDone?: () => void; toolIdx?: number }) => {
       const startDelay = opts?.delay ?? 300;
       const toolIdx = opts?.toolIdx ?? activeRef.current;
 
@@ -537,11 +534,9 @@ export default function RealExamples() {
         This is what you&apos;d actually get.
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-12 sm:mb-14">
-        A custom automation hub built around your business. Some tools run on
-        their own. Others are ready when you are.{" "}
-        <span className="text-warm-white/80">
-          Click around. It&apos;s a live demo.
-        </span>
+        A custom automation hub built around your business. Some tools run on their own. Others are
+        ready when you are.{" "}
+        <span className="text-warm-white/80">Click around. It&apos;s a live demo.</span>
       </p>
 
       {/* ── Dashboard shell ───────────────────────── */}
@@ -593,16 +588,12 @@ export default function RealExamples() {
                   >
                     <SideIcon
                       className={`w-3.5 h-3.5 flex-shrink-0 transition-colors ${
-                        on
-                          ? "text-emerald-400"
-                          : "text-stone-500 group-hover:text-stone-400"
+                        on ? "text-emerald-400" : "text-stone-500 group-hover:text-stone-400"
                       }`}
                     />
                     <span
                       className={`text-xs font-medium truncate transition-colors ${
-                        on
-                          ? "text-white"
-                          : "text-stone-400 group-hover:text-stone-300"
+                        on ? "text-white" : "text-stone-400 group-hover:text-stone-300"
                       }`}
                     >
                       {entry.name}
@@ -640,9 +631,7 @@ export default function RealExamples() {
             >
               {(() => {
                 const ActiveIcon = TOOLS[activeTool].icon;
-                return (
-                  <ActiveIcon className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-                );
+                return <ActiveIcon className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />;
               })()}
               <span className="text-xs font-medium text-white truncate">
                 {TOOLS[activeTool].name}
@@ -744,14 +733,9 @@ export default function RealExamples() {
             <div className="hidden lg:flex px-4 sm:px-5 py-3 border-b border-white/[0.08] items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 min-w-0">
                 <div className="w-6 h-6 rounded-md bg-emerald-400/10 flex items-center justify-center flex-shrink-0">
-                  <ToolIcon
-                    className="w-3.5 h-3.5 text-emerald-400"
-                    aria-hidden
-                  />
+                  <ToolIcon className="w-3.5 h-3.5 text-emerald-400" aria-hidden />
                 </div>
-                <span className="text-sm font-medium text-white truncate">
-                  {tool.name}
-                </span>
+                <span className="text-sm font-medium text-white truncate">{tool.name}</span>
                 {tool.mode === "auto" && (
                   <span className="flex items-center gap-1 text-[10px] font-mono text-emerald-400/60 flex-shrink-0">
                     <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
@@ -792,8 +776,7 @@ export default function RealExamples() {
               aria-live="polite"
               className="relative px-4 sm:px-5 py-4 overflow-hidden font-mono text-[11px] sm:text-[12px] leading-relaxed h-[260px] sm:h-[300px]"
               style={{
-                maskImage:
-                  "linear-gradient(to bottom, transparent 0%, black 12%, black 100%)",
+                maskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 100%)",
                 WebkitMaskImage:
                   "linear-gradient(to bottom, transparent 0%, black 12%, black 100%)",
               }}
@@ -819,17 +802,11 @@ export default function RealExamples() {
                 /* Log feed — stacks from bottom, older entries fade at top */
                 <div className="absolute inset-x-0 bottom-0 px-4 sm:px-5 pb-4 space-y-0.5">
                   {visibleLogs.map((l) => (
-                    <div
-                      key={l.uid}
-                      data-log
-                      className="flex gap-2.5 sm:gap-3 py-[3px]"
-                    >
+                    <div key={l.uid} data-log className="flex gap-2.5 sm:gap-3 py-[3px]">
                       <span className="text-stone-500 flex-shrink-0 select-none tabular-nums">
                         {l.time}
                       </span>
-                      <span
-                        className={`w-1 flex-shrink-0 rounded-full ${logDot(l.kind)}`}
-                      />
+                      <span className={`w-1 flex-shrink-0 rounded-full ${logDot(l.kind)}`} />
                       <span className={logColor(l.kind)}>{l.text}</span>
                     </div>
                   ))}
@@ -850,9 +827,7 @@ export default function RealExamples() {
         <div className="px-4 sm:px-5 py-2.5 border-t border-white/[0.08] bg-[#1C1A16] flex items-center justify-between">
           <div className="flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            <span className="text-[11px] text-stone-400">
-              All systems operational
-            </span>
+            <span className="text-[11px] text-stone-400">All systems operational</span>
           </div>
           <span className="text-[11px] text-stone-400/60 font-mono">
             custom-built for your business

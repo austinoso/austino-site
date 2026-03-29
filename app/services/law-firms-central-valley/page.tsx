@@ -598,7 +598,7 @@ export default function LawFirmsCentralValleyPage() {
                       boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
                     }}
                   >
-                    {/* Browser chrome */}}
+                    {/* Browser chrome */}
                     <div
                       className="flex items-center gap-3 px-4 py-2 border-b border-white/[0.04]"
                       aria-hidden="true"

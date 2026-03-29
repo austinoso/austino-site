@@ -159,7 +159,7 @@ export default function WhatsIncluded() {
           <div
             className="rounded-xl border border-stone-300 bg-[#F0EAE2] overflow-hidden select-none"
             style={{
-                  boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
+              boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
             }}
             aria-hidden="true"
           >

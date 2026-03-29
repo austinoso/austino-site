@@ -60,11 +60,7 @@ export default function TimelineCards() {
         const cardCenter = rect.top + rect.height / 2;
         const dist = Math.abs(cardCenter - anchor);
 
-        if (
-          rect.bottom > 0 &&
-          rect.top < window.innerHeight &&
-          dist < closestDist
-        ) {
+        if (rect.bottom > 0 && rect.top < window.innerHeight && dist < closestDist) {
           closestDist = dist;
           closestIdx = i;
         }
@@ -156,11 +152,7 @@ export default function TimelineCards() {
                     <span
                       className="text-3xl sm:text-4xl font-display font-bold leading-none transition-colors duration-500"
                       style={{
-                        color: isActive
-                          ? "#004D3A"
-                          : isLast
-                            ? "#004D3A"
-                            : "rgba(0,77,58,0.55)",
+                        color: isActive ? "#004D3A" : isLast ? "#004D3A" : "rgba(0,77,58,0.55)",
                       }}
                     >
                       {milestone.month}
@@ -170,11 +162,7 @@ export default function TimelineCards() {
                     </span>
                     <div
                       className={`flex-1 h-px transition-colors duration-500 ${
-                        isActive
-                          ? "bg-[#004D3A]/20"
-                          : isLast
-                            ? "bg-[#004D3A]/15"
-                            : "bg-stone-200"
+                        isActive ? "bg-[#004D3A]/20" : isLast ? "bg-[#004D3A]/15" : "bg-stone-200"
                       }`}
                     />
                   </div>

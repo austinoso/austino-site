@@ -29,12 +29,11 @@ export default function TheProcess() {
   return (
     <section data-fade>
       <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-warm-white leading-snug tracking-tight text-balance mb-4 max-w-2xl">
-        How we get from &quot;this is eating my time&quot; to &quot;it just
-        runs.&quot;
+        How we get from &quot;this is eating my time&quot; to &quot;it just runs.&quot;
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-10">
-        You don&apos;t need to know how automation works. You just need to tell
-        me what&apos;s slowing you down.
+        You don&apos;t need to know how automation works. You just need to tell me what&apos;s
+        slowing you down.
       </p>
 
       {/* ── Mobile: vertical timeline ── */}
@@ -48,11 +47,7 @@ export default function TheProcess() {
         />
         <div className="space-y-10 sm:space-y-12">
           {steps.map((item) => (
-            <div
-              key={item.step}
-              data-step
-              className="relative flex items-start gap-5 sm:gap-8"
-            >
+            <div key={item.step} data-step className="relative flex items-start gap-5 sm:gap-8">
               <div className="relative z-10 flex-shrink-0 flex items-center justify-center h-[30px] w-[30px] sm:h-[38px] sm:w-[38px] rounded-full bg-warm-bg border border-[#004D3A]/30 shadow-[0_0_12px_rgba(0,77,58,0.08)]">
                 <span className="text-[10px] sm:text-xs font-mono text-[#004D3A] font-semibold">
                   {item.step}
@@ -75,11 +70,7 @@ export default function TheProcess() {
       <div className="hidden lg:block relative">
         <div className="grid grid-cols-4 gap-0 mb-8">
           {steps.map((item, i) => (
-            <div
-              key={item.step}
-              data-step
-              className="relative flex flex-col items-start"
-            >
+            <div key={item.step} data-step className="relative flex flex-col items-start">
               {/* Marker row with connecting line */}
               <div className="relative flex items-center w-full mb-5">
                 <div className="relative z-10 flex-shrink-0 flex items-center justify-center h-[38px] w-[38px] rounded-full bg-warm-bg border border-[#004D3A]/30 shadow-[0_0_12px_rgba(0,77,58,0.08)]">
@@ -100,12 +91,8 @@ export default function TheProcess() {
               </div>
               {/* Content below the marker */}
               <div className="pr-8">
-                <p className="text-base font-semibold text-warm-white mb-2">
-                  {item.title}
-                </p>
-                <p className="text-sm text-stone-500 leading-relaxed">
-                  {item.description}
-                </p>
+                <p className="text-base font-semibold text-warm-white mb-2">{item.title}</p>
+                <p className="text-sm text-stone-500 leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}

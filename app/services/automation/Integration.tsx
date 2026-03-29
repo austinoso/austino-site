@@ -8,10 +8,9 @@ export default function Integration() {
         You already pay for the tools. They just don&apos;t talk to each other.
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-10">
-        Most businesses already use Calendly, QuickBooks, Google Sheets,
-        Mailchimp, or a dozen other apps. The problem isn&apos;t the tools.
-        It&apos;s the gap between them. That gap is where your time and money
-        disappear, and it&apos;s exactly what I fill.
+        Most businesses already use Calendly, QuickBooks, Google Sheets, Mailchimp, or a dozen other
+        apps. The problem isn&apos;t the tools. It&apos;s the gap between them. That gap is where
+        your time and money disappear, and it&apos;s exactly what I fill.
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-0">
@@ -42,8 +41,7 @@ export default function Integration() {
             ))}
           </div>
           <p className="mt-6 text-xs font-mono text-stone-500 tracking-wide">
-            ~20 min every time &middot; multiply that by every customer, every
-            week
+            ~20 min every time &middot; multiply that by every customer, every week
           </p>
         </div>
 
@@ -71,17 +69,12 @@ export default function Integration() {
             With integration
           </p>
           <div className="space-y-4">
-            {[
-              "A customer reaches out",
-              "Everything else happens automatically",
-            ].map((step, i) => (
+            {["A customer reaches out", "Everything else happens automatically"].map((step, i) => (
               <div key={i} className="flex items-start gap-3">
                 <span className="text-xs font-mono text-[#004D3A] mt-0.5 w-5 flex-shrink-0 text-right">
                   {i + 1}.
                 </span>
-                <p className="text-sm text-warm-white leading-relaxed">
-                  {step}
-                </p>
+                <p className="text-sm text-warm-white leading-relaxed">{step}</p>
               </div>
             ))}
           </div>

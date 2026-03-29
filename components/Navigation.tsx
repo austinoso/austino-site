@@ -4,7 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Globe, TrendingUp, Zap, Lightbulb, type LucideIcon } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Globe,
+  TrendingUp,
+  Zap,
+  Lightbulb,
+  type LucideIcon,
+} from "lucide-react";
 
 /* ── Types ── */
 type ServiceItem = {
@@ -328,9 +337,7 @@ export default function Navigation() {
                     </div>
                     {/* Bottom helper row */}
                     <div className="border-t border-stone-100 px-6 py-3.5 bg-stone-50/80 flex items-center justify-between">
-                      <span className="text-[12px] text-stone-500">
-                        Not sure which fits?
-                      </span>
+                      <span className="text-[12px] text-stone-500">Not sure which fits?</span>
                       <Link
                         href="/contact"
                         className="inline-flex items-center gap-1 text-[12px] font-semibold text-[#004D3A] hover:text-[#003328] transition-colors"
@@ -431,7 +438,9 @@ export default function Navigation() {
                     data-umami-event={`mobile-${item.event}`}
                     onClick={closeMobileMenu}
                   >
-                    <span className="block text-[15px] font-medium text-stone-800">{item.name}</span>
+                    <span className="block text-[15px] font-medium text-stone-800">
+                      {item.name}
+                    </span>
                     <span className="block text-[12px] text-stone-500 mt-0.5">{item.desc}</span>
                   </Link>
                 ))}
@@ -462,10 +471,12 @@ export default function Navigation() {
                       data-umami-event={`mobile-${item.event}`}
                       onClick={closeMobileMenu}
                     >
-                      <span className="block text-[15px] font-medium text-stone-800">{item.name}</span>
+                      <span className="block text-[15px] font-medium text-stone-800">
+                        {item.name}
+                      </span>
                       <span className="block text-[12px] text-stone-500 mt-0.5">{item.desc}</span>
                     </Link>
-                  )
+                  ),
                 )}
               </div>
             )}

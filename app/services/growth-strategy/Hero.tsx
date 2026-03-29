@@ -65,8 +65,8 @@ export default function Hero() {
                 Personal Training — Programs & Free Consultation
               </p>
               <p className="text-xs text-stone-600 leading-relaxed mb-2.5">
-                Certified personal training in downtown Modesto. Customized programs for weight loss,
-                strength, and mobility. Book a free 30-minute consultation today.
+                Certified personal training in downtown Modesto. Customized programs for weight
+                loss, strength, and mobility. Book a free 30-minute consultation today.
               </p>
               {/* Rich snippets row */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">

@@ -16,8 +16,8 @@ export default function FinalCTA() {
       </h2>
 
       <p className="mt-5 text-base sm:text-lg text-stone-500 leading-relaxed max-w-xl">
-        Tell me what&apos;s slowing you down and I&apos;ll map out exactly what
-        can be automated, and what it would save you.
+        Tell me what&apos;s slowing you down and I&apos;ll map out exactly what can be automated,
+        and what it would save you.
       </p>
 
       {/* CTA link */}
@@ -32,9 +32,7 @@ export default function FinalCTA() {
             aria-hidden="true"
           />
         </Link>
-        <span className="text-[11px] font-mono text-stone-500">
-          Free, no commitment
-        </span>
+        <span className="text-[11px] font-mono text-stone-500">Free, no commitment</span>
       </div>
 
       {/* Cross-links */}

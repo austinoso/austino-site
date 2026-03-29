@@ -1,18 +1,10 @@
-import {
-  Link2,
-  Hammer,
-  RefreshCw,
-  FileSpreadsheet,
-  LayoutDashboard,
-  Bell,
-} from "lucide-react";
+import { Link2, Hammer, RefreshCw, FileSpreadsheet, LayoutDashboard, Bell } from "lucide-react";
 
 const pillars = [
   {
     icon: Link2,
     label: "Connect what you have",
-    heading:
-      "Your tools already work. They just don\u2019t talk to each other.",
+    heading: "Your tools already work. They just don\u2019t talk to each other.",
     body: "You probably pay for Calendly, Google Sheets, QuickBooks, Mailchimp, or a dozen other apps. The problem isn\u2019t the tools. It\u2019s the gaps between them. I write the code that closes those gaps so data flows automatically instead of being copy-pasted by a human.",
     examples: [
       {
@@ -60,11 +52,10 @@ export default function WhatIBuild() {
         Custom code, built around how you actually&nbsp;work.
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-12 sm:mb-16">
-        Every business runs differently. I study how your operation works,
-        identify what&apos;s costing you time or money, and find the best way to
-        fix it. Sometimes that&apos;s custom code. Sometimes it&apos;s an
-        existing tool configured the right way. Either way, the solution fits
-        your workflow, not the other way around.
+        Every business runs differently. I study how your operation works, identify what&apos;s
+        costing you time or money, and find the best way to fix it. Sometimes that&apos;s custom
+        code. Sometimes it&apos;s an existing tool configured the right way. Either way, the
+        solution fits your workflow, not the other way around.
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
@@ -82,10 +73,7 @@ export default function WhatIBuild() {
               {/* Header */}
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-9 h-9 rounded-md bg-[#004D3A]/10 flex items-center justify-center flex-shrink-0">
-                  <PillarIcon
-                    className="w-4 h-4 text-[#004D3A]"
-                    aria-hidden="true"
-                  />
+                  <PillarIcon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                 </div>
                 <p className="text-[11px] font-mono text-[#004D3A] uppercase tracking-wider font-medium">
                   {pillar.label}
@@ -96,9 +84,7 @@ export default function WhatIBuild() {
               <h3 className="text-lg sm:text-xl font-semibold font-display text-warm-white leading-snug tracking-tight mb-3">
                 {pillar.heading}
               </h3>
-              <p className="text-sm text-stone-500 leading-relaxed mb-8">
-                {pillar.body}
-              </p>
+              <p className="text-sm text-stone-500 leading-relaxed mb-8">{pillar.body}</p>
 
               {/* Examples */}
               <div className="mt-auto pt-6 border-t border-stone-200/60 space-y-4">
@@ -113,9 +99,7 @@ export default function WhatIBuild() {
                         className="w-4 h-4 text-[#004D3A]/70 flex-shrink-0 mt-0.5"
                         aria-hidden="true"
                       />
-                      <p className="text-[13px] text-stone-500 leading-relaxed">
-                        {ex.text}
-                      </p>
+                      <p className="text-[13px] text-stone-500 leading-relaxed">{ex.text}</p>
                     </div>
                   );
                 })}
@@ -131,9 +115,9 @@ export default function WhatIBuild() {
           The range is wide, and that&apos;s the point.
         </p>
         <p className="text-[15px] text-stone-500 leading-relaxed max-w-2xl">
-          A nightly sync between your spreadsheet and your CRM. A full custom
-          dashboard that replaces four tools. Big or small, I&apos;ll put
-          together something that fits your goals and&nbsp;budget.
+          A nightly sync between your spreadsheet and your CRM. A full custom dashboard that
+          replaces four tools. Big or small, I&apos;ll put together something that fits your goals
+          and&nbsp;budget.
         </p>
       </div>
     </section>

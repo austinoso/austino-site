@@ -16,9 +16,8 @@ export default function FinalCTA() {
       </h2>
 
       <p className="mt-5 text-base sm:text-lg text-stone-500 leading-relaxed max-w-xl">
-        Growth strategy comes standard with every Build + Grow project. Your
-        site launches with momentum already behind it, and I keep pushing it
-        forward.
+        Growth strategy comes standard with every Build + Grow project. Your site launches with
+        momentum already behind it, and I keep pushing it forward.
       </p>
 
       {/* CTA link */}
@@ -33,9 +32,7 @@ export default function FinalCTA() {
             aria-hidden="true"
           />
         </Link>
-        <span className="text-[11px] font-mono text-stone-500">
-          Free, no commitment
-        </span>
+        <span className="text-[11px] font-mono text-stone-500">Free, no commitment</span>
       </div>
 
       {/* Cross-links */}

@@ -12,14 +12,13 @@ export default function FinalCTA() {
       </p>
 
       <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-stone-900 leading-[1.1] tracking-tight max-w-2xl">
-        Let&apos;s get your Manteca business{" "}
-        <span className="text-[#004D3A]">found.</span>
+        Let&apos;s get your Manteca business <span className="text-[#004D3A]">found.</span>
       </h2>
 
       <p className="mt-5 text-base sm:text-lg text-stone-500 leading-relaxed max-w-xl">
-        One conversation. I&apos;ll look at your current site, show you where
-        you stand in local search, and map out what it would take to start
-        showing up — whether we work together or not.
+        One conversation. I&apos;ll look at your current site, show you where you stand in local
+        search, and map out what it would take to start showing up — whether we work together or
+        not.
       </p>
 
       {/* CTA link */}
@@ -34,9 +33,7 @@ export default function FinalCTA() {
             aria-hidden="true"
           />
         </Link>
-        <span className="text-[11px] font-mono text-stone-500">
-          Free, no commitment
-        </span>
+        <span className="text-[11px] font-mono text-stone-500">Free, no commitment</span>
       </div>
 
       {/* Cross-links */}

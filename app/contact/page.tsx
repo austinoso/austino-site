@@ -22,12 +22,9 @@ export default function ContactPage() {
               Tell me about your business.
             </h1>
             <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-pretty">
-              No jargon, no pressure. Fill out what you can and I&apos;ll follow
-              up with a clear plan within 24 hours. Or email me directly at{" "}
-              <a
-                href="mailto:connect@loudbark.dev"
-                className="text-[#004D3A] hover:underline"
-              >
+              No jargon, no pressure. Fill out what you can and I&apos;ll follow up with a clear
+              plan within 24 hours. Or email me directly at{" "}
+              <a href="mailto:connect@loudbark.dev" className="text-[#004D3A] hover:underline">
                 connect@loudbark.dev
               </a>
               .
@@ -43,10 +40,7 @@ export default function ContactPage() {
               </div>
 
               {/* Sidebar — 1/3 */}
-              <aside
-                className="lg:col-span-1 space-y-10"
-                aria-label="Additional information"
-              >
+              <aside className="lg:col-span-1 space-y-10" aria-label="Additional information">
                 {/* Availability */}
                 <div>
                   <div className="flex items-center gap-2.5 mb-3">
@@ -56,8 +50,8 @@ export default function ContactPage() {
                     </span>
                   </div>
                   <p className="text-sm text-stone-500 leading-relaxed text-pretty">
-                    Based in California&apos;s Central Valley, serving clients
-                    everywhere. Typical response time: same business day.
+                    Based in California&apos;s Central Valley, serving clients everywhere. Typical
+                    response time: same business day.
                   </p>
                 </div>
 

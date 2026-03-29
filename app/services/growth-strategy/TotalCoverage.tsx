@@ -39,8 +39,7 @@ export default function TotalCoverage() {
 
       {/* ── Heading ── */}
       <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4 max-w-2xl">
-        For businesses that need to{" "}
-        <span className="text-[#004D3A]">own every&nbsp;search.</span>
+        For businesses that need to <span className="text-[#004D3A]">own every&nbsp;search.</span>
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-4 text-pretty">
         Not every business needs this. But if you&apos;re in a competitive market, offer a range of

@@ -5,8 +5,7 @@ const googleFactors = [
   },
   {
     title: "Genuinely useful pages",
-    description:
-      "Each one answers a real question your customers are\u00A0searching.",
+    description: "Each one answers a real question your customers are\u00A0searching.",
   },
   {
     title: "Actively maintained",
@@ -16,10 +15,7 @@ const googleFactors = [
 
 export default function TheReality() {
   return (
-    <section
-      data-fade
-      className="px-6 sm:px-10 md:px-14 lg:px-20 pb-14 sm:pb-20 md:pb-24"
-    >
+    <section data-fade className="px-6 sm:px-10 md:px-14 lg:px-20 pb-14 sm:pb-20 md:pb-24">
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         {/* Left — heading + citation */}
         <div>
@@ -29,9 +25,8 @@ export default function TheReality() {
           </h2>
 
           <p className="mt-5 text-base sm:text-lg text-white/75 leading-relaxed text-pretty">
-            Rankings move when someone is actively working them — new content,
-            updated pages, tracked and adjusted every month. The strategy
-            doesn&apos;t run itself.
+            Rankings move when someone is actively working them — new content, updated pages,
+            tracked and adjusted every month. The strategy doesn&apos;t run itself.
           </p>
 
           <p className="mt-6 text-[13px] text-white/70">
@@ -59,12 +54,8 @@ export default function TheReality() {
                 boxShadow: "6px 6px 0px 0px rgba(167,234,188,0.5), 0 4px 16px rgba(0,0,0,0.15)",
               }}
             >
-              <p className="text-[15px] font-semibold text-warm-white">
-                {factor.title}
-              </p>
-              <p className="text-sm text-stone-500 leading-relaxed mt-1">
-                {factor.description}
-              </p>
+              <p className="text-[15px] font-semibold text-warm-white">{factor.title}</p>
+              <p className="text-sm text-stone-500 leading-relaxed mt-1">{factor.description}</p>
             </div>
           ))}
         </div>

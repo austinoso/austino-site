@@ -89,10 +89,7 @@ export default function AboutPage() {
               "Next.js",
               "TypeScript",
             ],
-            sameAs: [
-              "https://github.com/austinoso",
-              "https://linkedin.com/in/austinoso",
-            ],
+            sameAs: ["https://github.com/austinoso", "https://linkedin.com/in/austinoso"],
           }),
         }}
       />
