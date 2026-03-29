@@ -441,7 +441,7 @@ export default function ServicePillars() {
             {/* RIGHT: Copy */}
             <div className="flex flex-col">
               <h3 className="font-display text-[1.95rem] font-bold leading-[1.02] tracking-tight text-white sm:text-[2.35rem]">
-                Keep good leads from slipping through.
+                Keep good leads from slipping&nbsp;through.
               </h3>
 
               <p className="mt-5 text-[16px] leading-relaxed text-emerald-100/75 sm:text-[17px]">
