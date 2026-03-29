@@ -165,7 +165,7 @@ export default async function InsightPage({ params }: Props) {
 
             {/* Header */}
             <header className="max-w-2xl mb-10 sm:mb-14">
-              <span className="inline-block text-[11px] font-mono text-warm-gold uppercase tracking-wider mb-4">
+              <span className="inline-block text-[11px] font-mono text-[#004D3A] uppercase tracking-wider mb-4">
                 {insight.category}
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-warm-white leading-[1.15] tracking-tight mb-5">
@@ -193,7 +193,7 @@ export default async function InsightPage({ params }: Props) {
                     aria-label="Table of contents"
                     className="max-w-2xl mb-12 sm:mb-16 rounded-xl border border-stone-200/80 bg-white/60 px-6 py-5 sm:px-7 sm:py-6"
                   >
-                    <p className="text-[11px] font-mono text-warm-gold uppercase tracking-wider mb-4">
+                    <p className="text-[11px] font-mono text-[#004D3A] uppercase tracking-wider mb-4">
                       In this article
                     </p>
                     <ol className="space-y-0.5">
@@ -201,7 +201,7 @@ export default async function InsightPage({ params }: Props) {
                         <li key={h.id}>
                           <a
                             href={`#${h.id}`}
-                            className={`block py-1 text-[13px] leading-snug transition-colors duration-150 hover:text-warm-gold ${
+                            className={`block py-1 text-[13px] leading-snug transition-colors duration-150 hover:text-[#004D3A] ${
                               h.level === 3 ? "pl-4 text-stone-500" : "text-stone-600 font-medium"
                             }`}
                           >
@@ -256,7 +256,7 @@ export default async function InsightPage({ params }: Props) {
             {/* Related Articles */}
             {relatedInsights.length > 0 && (
               <div className="max-w-2xl mt-10 sm:mt-12 pt-10 border-t border-stone-200">
-                <h2 className="text-sm font-mono text-warm-gold uppercase tracking-wider mb-6">
+                <h2 className="text-sm font-mono text-[#004D3A] uppercase tracking-wider mb-6">
                   Related
                 </h2>
                 <div className="space-y-5">
@@ -266,7 +266,7 @@ export default async function InsightPage({ params }: Props) {
                       href={`/insights/${related.slug}`}
                       className="block group"
                     >
-                      <p className="text-[15px] font-semibold text-warm-white group-hover:text-warm-gold transition-colors duration-200 leading-snug">
+                      <p className="text-[15px] font-semibold text-warm-white group-hover:text-[#004D3A] transition-colors duration-200 leading-snug">
                         {related.title}
                       </p>
                       <p className="text-[13px] text-stone-400 mt-1 line-clamp-2">

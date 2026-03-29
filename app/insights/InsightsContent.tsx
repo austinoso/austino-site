@@ -50,11 +50,11 @@ export default function InsightsContent({ insights }: { insights: InsightMeta[] 
       {showFeatured && featured && (
         <section aria-label="Featured article" className="section-px pb-10 sm:pb-14">
           <Link href={`/insights/${featured.slug}`} className="group block">
-            <div className="border-l-[3px] border-warm-gold pl-6 sm:pl-8 py-1">
-              <span className="inline-block text-[11px] font-mono text-warm-gold uppercase tracking-wider mb-3">
+            <div className="border-l-[3px] border-[#004D3A] pl-6 sm:pl-8 py-1">
+              <span className="inline-block text-[11px] font-mono text-[#004D3A] uppercase tracking-wider mb-3">
                 {featured.category}
               </span>
-              <h2 className="text-2xl sm:text-3xl md:text-[2.25rem] font-bold font-display text-warm-white leading-[1.15] tracking-tight mb-3 group-hover:text-warm-gold transition-colors duration-200">
+              <h2 className="text-2xl sm:text-3xl md:text-[2.25rem] font-bold font-display text-warm-white leading-[1.15] tracking-tight mb-3 group-hover:text-[#004D3A] transition-colors duration-200">
                 {featured.title}
               </h2>
               <p className="text-[15px] sm:text-base text-stone-500 leading-relaxed max-w-xl mb-4">
@@ -69,7 +69,7 @@ export default function InsightsContent({ insights }: { insights: InsightMeta[] 
                   <Clock className="w-3.5 h-3.5" aria-hidden="true" />
                   {featured.readTime}
                 </span>
-                <span className="inline-flex items-center gap-1 text-warm-gold opacity-0 group-hover:opacity-100 transition-opacity duration-200 ml-auto">
+                <span className="inline-flex items-center gap-1 text-[#004D3A] opacity-0 group-hover:opacity-100 transition-opacity duration-200 ml-auto">
                   Read <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                 </span>
               </div>
@@ -88,10 +88,10 @@ export default function InsightsContent({ insights }: { insights: InsightMeta[] 
                 href={`/insights/${insight.slug}`}
                 className="group rounded-xl border border-stone-200 bg-white p-6 sm:p-7 transition-all duration-200 hover:border-stone-300 hover:shadow-sm"
               >
-                <span className="inline-block text-[11px] font-mono text-warm-gold uppercase tracking-wider mb-3">
+                <span className="inline-block text-[11px] font-mono text-[#004D3A] uppercase tracking-wider mb-3">
                   {insight.category}
                 </span>
-                <h3 className="text-lg sm:text-xl font-bold font-display text-warm-white leading-[1.25] tracking-tight mb-3 group-hover:text-warm-gold transition-colors duration-200">
+                <h3 className="text-lg sm:text-xl font-bold font-display text-warm-white leading-[1.25] tracking-tight mb-3 group-hover:text-[#004D3A] transition-colors duration-200">
                   {insight.title}
                 </h3>
                 <p className="text-sm text-stone-500 leading-relaxed mb-5 line-clamp-2">
@@ -123,10 +123,10 @@ export default function InsightsContent({ insights }: { insights: InsightMeta[] 
                 href={`/insights/${insight.slug}`}
                 className="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 py-5 border-b border-stone-200 transition-colors duration-200 hover:bg-stone-50 -mx-3 px-3 rounded-lg"
               >
-                <span className="text-[11px] font-mono text-warm-gold uppercase tracking-wider shrink-0 sm:w-28">
+                <span className="text-[11px] font-mono text-[#004D3A] uppercase tracking-wider shrink-0 sm:w-28">
                   {insight.category}
                 </span>
-                <h3 className="text-[15px] font-semibold text-warm-white leading-snug group-hover:text-warm-gold transition-colors duration-200 flex-1 min-w-0">
+                <h3 className="text-[15px] font-semibold text-warm-white leading-snug group-hover:text-[#004D3A] transition-colors duration-200 flex-1 min-w-0">
                   {insight.title}
                 </h3>
                 <span className="text-xs text-stone-400 shrink-0 hidden sm:block">
