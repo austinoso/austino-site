@@ -19,7 +19,7 @@ const TIMELINES = [
 ];
 
 const inputClass =
-  "w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-200 text-stone-900 text-sm placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-warm-gold/60 focus:border-warm-gold/50 transition-all duration-300 hover:border-stone-300";
+  "w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-200 text-stone-900 text-sm placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-[#004D3A]/40 focus:border-[#004D3A]/40 transition-all duration-300 hover:border-stone-300";
 
 const selectArrowStyle = {
   backgroundImage:
@@ -269,7 +269,7 @@ export default function ContactForm() {
           type="submit"
           disabled={isSubmitting}
           aria-busy={isSubmitting}
-          className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold text-[15px] rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full sm:w-auto px-8 py-3.5 bg-[#004D3A] text-white font-semibold text-[15px] rounded-lg transition-all duration-300 hover:bg-[#003328] hover:-translate-y-px shadow-lg shadow-[#004D3A]/20 hover:shadow-xl hover:shadow-[#004D3A]/30 focus:outline-none focus:ring-2 focus:ring-[#004D3A] focus:ring-offset-2 focus:ring-offset-warm-bg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           aria-label="Submit project inquiry"
         >
           {isSubmitting ? (

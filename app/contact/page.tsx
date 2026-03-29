@@ -14,7 +14,7 @@ export default function ContactPage() {
             {/* Decorative semicircle — amber, right edge (matches hero) */}
             <div
               className="absolute -right-[10rem] sm:-right-[12rem] md:-right-[16rem] top-0 sm:top-4 md:top-6 w-[16rem] h-[16rem] sm:w-[20rem] sm:h-[20rem] md:w-[28rem] md:h-[28rem] rounded-full pointer-events-none"
-              style={{ background: "rgba(180, 83, 9, 0.06)" }}
+              style={{ background: "rgba(0, 77, 58, 0.06)" }}
               aria-hidden="true"
             />
             <p className="section-label mb-5">Get Started</p>
@@ -26,7 +26,7 @@ export default function ContactPage() {
               up with a clear plan within 24 hours. Or email me directly at{" "}
               <a
                 href="mailto:connect@loudbark.dev"
-                className="text-warm-gold hover:underline"
+                className="text-[#004D3A] hover:underline"
               >
                 connect@loudbark.dev
               </a>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                       "You decide. Zero obligation",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <span className="font-mono text-[10px] text-warm-gold/60 mt-1 flex-shrink-0">
+                        <span className="font-mono text-[10px] text-[#004D3A]/60 mt-1 flex-shrink-0">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span className="text-sm text-stone-500 leading-relaxed text-pretty">
