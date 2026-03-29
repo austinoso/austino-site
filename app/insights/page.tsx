@@ -44,7 +44,7 @@ export default function InsightsPage() {
           <section className="pt-28 sm:pt-32 lg:pt-36 pb-10 sm:pb-12 section-px">
             <p className="section-label mb-5">Local Insights</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-warm-white leading-[1.1] tracking-tight max-w-2xl">
-              Practical advice for <span className="text-gradient-gold">local businesses</span>
+              Practical advice for <span className="text-gradient-green">local businesses</span>
             </h1>
             <p className="mt-5 text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl">
               No jargon, no fluff — just honest insights on websites, SEO, and growing your business
