@@ -82,9 +82,9 @@ const NAV_LINKS = [
 function ActiveBar({ onDark = false }: { onDark?: boolean }) {
   return (
     <span
-      className="absolute -bottom-1.5 inset-x-0 h-0.5 rounded-full"
+      className="absolute -bottom-1.5 inset-x-0 h-[2px] rounded-full"
       style={{
-        background: onDark ? "rgba(255,255,255,0.4)" : "linear-gradient(90deg, #B45309, #DB2777)",
+        background: onDark ? "rgba(255,255,255,0.5)" : "#004D3A",
       }}
       aria-hidden="true"
     />
@@ -192,14 +192,14 @@ export default function Navigation() {
               <div className="group/dd relative">
                 <Link
                   href="/#solutions"
-                  className={`relative inline-flex items-center gap-1.5 text-[13px] tracking-wide transition-colors duration-300 ${
+                  className={`relative inline-flex items-center gap-1.5 text-[14px] transition-colors duration-200 ${
                     isServicesActive
                       ? isScrolled
-                        ? "text-white"
-                        : "text-stone-900"
+                        ? "text-white font-semibold"
+                        : "text-stone-900 font-semibold"
                       : isScrolled
-                        ? "text-white/65 hover:text-white"
-                        : "text-stone-500 hover:text-stone-900"
+                        ? "text-white/65 hover:text-white font-medium"
+                        : "text-stone-500 hover:text-stone-800 font-medium"
                   }`}
                   data-umami-event="nav-solutions"
                   onClick={scrollToSolutions}
@@ -357,14 +357,14 @@ export default function Navigation() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`relative text-[13px] tracking-wide transition-colors duration-300 ${
+                    className={`relative text-[14px] transition-colors duration-200 ${
                       active
                         ? isScrolled
-                          ? "text-white"
-                          : "text-stone-900"
+                          ? "text-white font-semibold"
+                          : "text-stone-900 font-semibold"
                         : isScrolled
-                          ? "text-white/65 hover:text-white"
-                          : "text-stone-500 hover:text-stone-900"
+                          ? "text-white/65 hover:text-white font-medium"
+                          : "text-stone-500 hover:text-stone-800 font-medium"
                     }`}
                     data-umami-event={`nav-${link.label.toLowerCase()}`}
                     aria-current={active ? "page" : undefined}
