@@ -53,11 +53,11 @@ const MORE_SERVICES: ServiceColumn = {
       icon: Zap,
     },
     {
-      href: null,
+      href: "/services/consulting",
       name: "Consulting",
       desc: "Strategic guidance for businesses ready to grow deliberately",
       event: "nav-service-consulting",
-      comingSoon: true,
+      comingSoon: false,
       icon: Lightbulb,
     },
   ],
