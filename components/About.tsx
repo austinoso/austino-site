@@ -46,9 +46,8 @@ export default function About() {
               I handle everything: Design, development, data, and the ongoing strategy to keep it
               all growing. Years of working inside small agencies taught me how businesses actually
               operate and what problems look like up close. That experience, plus a software
-              engineering background that means I actually understand how Google&apos;s ranking
-              systems work under the hood, is why I can look at your business and know what needs to
-              happen to get it&nbsp;ranking.
+              engineering background, means I understand how Google&apos;s ranking systems work. Not
+              just what to do, but why it&nbsp;works.
             </p>
 
             {/* Pull-quote */}

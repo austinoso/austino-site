@@ -53,7 +53,9 @@ function AutomationVisual({ className = "" }: { className?: string }) {
           <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#004D3A]">
             Workflow support
           </p>
-          <p className="mt-1 text-[18px] font-semibold text-warm-white">What gets handled faster</p>
+          <p className="mt-1 text-[18px] font-semibold text-warm-white">
+            What stops falling through the cracks
+          </p>
         </div>
         <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-stone-200 bg-stone-50">
           <Workflow className="h-4 w-4 text-[#004D3A]" aria-hidden="true" />
@@ -278,8 +280,8 @@ export default function ServicePillars() {
               </h2>
 
               <p className="mt-5 max-w-[42ch] text-[16px] leading-relaxed text-stone-600">
-                Everything starts from scratch &mdash; nothing to limit how fast it loads or how
-                well it converts.
+                The business with the most convincing site gets the call. A site built around your
+                customers signals you take your work seriously, before you&apos;ve said a&nbsp;word.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
@@ -445,14 +447,15 @@ export default function ServicePillars() {
               </h3>
 
               <p className="mt-5 text-[16px] leading-relaxed text-emerald-100/75 sm:text-[17px]">
-                I naturally include automation where it makes sense — follow-up, scheduling,
-                repeatable admin. If a business needs deeper workflow support, that can become its
-                own project&nbsp;too.
+                Most of the tools I set up already handle the basics: appointment reminders, review
+                requests, intake follow-ups. For businesses that need more, I build custom workflows
+                too. Dashboards, backend scripts, whatever cuts the repetitive work out of
+                your&nbsp;week.
               </p>
 
               <Link
                 href="/services/automation"
-                className="group mt-8 inline-flex items-center gap-2 text-[15px] font-semibold text-[#E07A5F] transition-colors duration-200 hover:text-[#C9604A]"
+                className="group mt-8 inline-flex items-center gap-2 text-[15px] font-semibold text-[#FCA5A5] transition-colors duration-200 hover:text-[#FCD6D6]"
               >
                 Explore automation
                 <ArrowRight

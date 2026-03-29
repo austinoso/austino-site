@@ -1,7 +1,7 @@
 const stats = [
   {
     number: "46%",
-    label: "of people judge a business\u2019s credibility on visual design alone.",
+    label: "of people say visual design is the #1 factor in judging a business\u2019s credibility.",
     source: {
       label: "Stanford Web Credibility Research",
       href: "https://credibility.stanford.edu/pdf/Stanford-MakovskyWebCredStudy2002-prelim.pdf",
