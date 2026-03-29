@@ -105,7 +105,7 @@ export default function AboutPage() {
             className="relative overflow-hidden border-b border-stone-200 px-6 sm:px-10 md:px-14 lg:px-20 pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-28 md:pb-24"
             aria-labelledby="about-hero-heading"
           >
-            {/* Decorative semicircle — amber, right edge */}
+            {/* Decorative semicircle — right edge */}
             <div
               className="absolute -right-[10rem] sm:-right-[12rem] md:-right-[16rem] top-0 sm:top-4 md:top-6 w-[16rem] h-[16rem] sm:w-[20rem] sm:h-[20rem] md:w-[28rem] md:h-[28rem] rounded-full pointer-events-none"
               style={{ background: "rgba(0, 77, 58, 0.06)" }}

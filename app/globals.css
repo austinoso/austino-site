@@ -149,7 +149,7 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid #B45309;
+  outline: 2px solid #004D3A;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -246,7 +246,7 @@ select:focus-visible,
 }
 
 .insight-prose a {
-  @apply text-warm-gold hover:text-amber-700 transition-colors duration-300 underline underline-offset-2 decoration-warm-gold/30 hover:decoration-warm-gold;
+  @apply text-[#004D3A] hover:text-[#003328] transition-colors duration-300 underline underline-offset-2 decoration-[#004D3A]/30 hover:decoration-[#004D3A];
 }
 
 .insight-prose ul,
@@ -275,7 +275,7 @@ select:focus-visible,
 }
 
 .insight-prose blockquote {
-  @apply border-l-[3px] border-warm-gold/25 pl-5 italic text-stone-500;
+  @apply border-l-[3px] border-[#004D3A]/20 pl-5 italic text-stone-500;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
@@ -319,7 +319,7 @@ select:focus-visible,
 }
 
 .insight-prose figcaption a {
-  @apply text-stone-500 underline decoration-stone-300 hover:text-warm-gold hover:decoration-warm-gold;
+  @apply text-stone-500 underline decoration-stone-300 hover:text-[#004D3A] hover:decoration-[#004D3A];
 }
 
 .insight-prose table {
