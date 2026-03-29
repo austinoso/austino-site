@@ -157,7 +157,7 @@ export default function Navigation() {
         aria-label="Main navigation"
       >
         <div className="site-frame px-6 sm:px-10 md:px-16 lg:px-20 py-2.5 sm:py-4">
-          <div className="grid grid-cols-[auto_1fr_auto] items-center gap-6">
+          <div className="flex items-center justify-between md:grid md:grid-cols-[auto_1fr_auto] md:gap-6">
             {/* ── Logo ── */}
             <Link
               href="/"
@@ -169,17 +169,17 @@ export default function Navigation() {
                 alt=""
                 width={34}
                 height={26}
-                className={`h-7 w-auto transition-[filter] duration-500 ${isScrolled ? "brightness-0 invert" : ""}`}
+                className={`h-7 w-auto transition-[filter] duration-500 ${isScrolled && !mobileOpen ? "brightness-0 invert" : ""}`}
                 priority
               />
               <div className="flex flex-col -space-y-0.5">
                 <span
-                  className={`text-lg font-display font-bold tracking-tight leading-tight transition-colors duration-500 ${isScrolled ? "text-white" : "text-stone-900"}`}
+                  className={`text-lg font-display font-bold tracking-tight leading-tight transition-colors duration-500 ${isScrolled && !mobileOpen ? "text-white" : "text-stone-900"}`}
                 >
                   Loud Bark
                 </span>
                 <span
-                  className={`hidden sm:block text-[10px] font-semibold tracking-[0.12em] uppercase transition-colors duration-500 ${isScrolled ? "text-white/50" : "text-stone-500"}`}
+                  className={`hidden sm:block text-[10px] font-semibold tracking-[0.12em] uppercase transition-colors duration-500 ${isScrolled && !mobileOpen ? "text-white/50" : "text-stone-500"}`}
                 >
                   SEO & Web Strategy
                 </span>
@@ -387,7 +387,7 @@ export default function Navigation() {
                 Get Started
               </Link>
               <button
-                className={`md:hidden transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center ${isScrolled ? "text-white/70 hover:text-white" : "text-stone-500 hover:text-stone-900"}`}
+                className={`md:hidden transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center ${isScrolled && !mobileOpen ? "text-white/70 hover:text-white" : "text-stone-500 hover:text-stone-900"}`}
                 onClick={mobileOpen ? closeMobileMenu : openMobileMenu}
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileOpen}
