@@ -7,7 +7,7 @@ export default function FinalCTA() {
       {/* Divider */}
       <div className="h-px bg-stone-200 mb-14 sm:mb-16" />
 
-      <p className="text-xs font-semibold text-amber-700 uppercase tracking-[0.2em] mb-5">
+      <p className="text-xs font-semibold text-[#004D3A] uppercase tracking-[0.2em] mb-5">
         Next Step
       </p>
 
@@ -17,15 +17,15 @@ export default function FinalCTA() {
       </h2>
 
       <p className="mt-5 text-base sm:text-lg text-stone-500 leading-relaxed max-w-xl">
-        Tell me about your business and what you need the site to do. I&apos;ll
-        put together a clear plan with timeline and cost.
+        Tell me about your business and what you need the site to do. I&apos;ll put together a clear
+        plan with timeline and cost.
       </p>
 
       {/* CTA link */}
       <div className="mt-10 sm:mt-12 flex items-center gap-4">
         <Link
           href="/contact"
-          className="group inline-flex items-center gap-2 text-[15px] font-semibold text-warm-gold hover:text-amber-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:ring-offset-2"
+          className="group inline-flex items-center gap-2 text-[15px] font-semibold text-[#004D3A] hover:text-[#003328] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#004D3A]/40 focus:ring-offset-2"
         >
           <span>Get Your Free Plan</span>
           <ArrowRight
@@ -33,9 +33,7 @@ export default function FinalCTA() {
             aria-hidden="true"
           />
         </Link>
-        <span className="text-[11px] font-mono text-stone-500">
-          Free, no commitment
-        </span>
+        <span className="text-[11px] font-mono text-stone-500">Free, no commitment</span>
       </div>
 
       {/* Cross-links */}

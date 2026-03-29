@@ -28,20 +28,17 @@ export default function CTA() {
   return (
     <ScrollReveal
       as="section"
-      className="relative w-full pt-10 pb-24 sm:pt-14 sm:pb-32 md:pt-16 md:pb-36"
+      className="relative w-full pt-20 pb-24 sm:pt-24 sm:pb-32 md:pt-28 md:pb-36"
       aria-labelledby="cta-heading"
     >
       <div className="px-6 sm:px-10 md:px-14 lg:px-20">
         {/* Divider line from previous section */}
-        <div
-          data-animate="line"
-          className="h-px bg-stone-200 mb-14 sm:mb-18 md:mb-20"
-        />
+        <div data-animate="line" className="h-px bg-stone-200 mb-10 sm:mb-12" />
 
         {/* ── Label ── */}
         <p
           data-animate="label"
-          className="text-xs font-semibold text-amber-700 uppercase tracking-[0.2em] mb-5"
+          className="text-xs font-semibold text-[#004D3A] uppercase tracking-[0.2em] mb-5"
         >
           Your Move
         </p>
@@ -60,9 +57,8 @@ export default function CTA() {
           data-animate="fade"
           className="mt-5 text-base sm:text-lg text-stone-500 leading-relaxed max-w-xl"
         >
-          Not sure why your competitors keep showing up above you?
-          Let&apos;s look at the gaps and map out what it would take
-          to get you&nbsp;ranking.
+          Not sure why your competitors keep showing up above you? Let&apos;s look at the gaps and
+          map out what it would take to get you&nbsp;ranking.
         </p>
 
         {/* ── Steps — quiet reassurance ── */}
@@ -73,25 +69,18 @@ export default function CTA() {
                 {step.num}
               </span>
               <div>
-                <p className="text-sm font-medium text-stone-700 leading-snug mb-1">
-                  {step.title}
-                </p>
-                <p className="text-[13px] text-stone-500 leading-relaxed">
-                  {step.desc}
-                </p>
+                <p className="text-sm font-medium text-stone-700 leading-snug mb-1">{step.title}</p>
+                <p className="text-[13px] text-stone-500 leading-relaxed">{step.desc}</p>
               </div>
             </li>
           ))}
         </ol>
 
         {/* ── CTA link ── */}
-        <div
-          data-animate="fade"
-          className="mt-10 sm:mt-12 flex items-center gap-4"
-        >
+        <div data-animate="fade" className="mt-10 sm:mt-12 flex items-center gap-4">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 text-[15px] font-semibold text-warm-gold hover:text-amber-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:ring-offset-2"
+            className="group inline-flex items-center gap-2 text-[14px] font-semibold text-[#004D3A] hover:text-[#003328] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#004D3A]/40 focus:ring-offset-2"
             data-umami-event="cta-start-conversation"
           >
             <span>Start a Conversation</span>
@@ -100,9 +89,7 @@ export default function CTA() {
               aria-hidden="true"
             />
           </Link>
-          <span className="text-[11px] font-mono text-stone-500">
-            Free, no commitment
-          </span>
+          <span className="text-[11px] font-mono text-stone-500">Free, no commitment</span>
         </div>
       </div>
     </ScrollReveal>

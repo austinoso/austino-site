@@ -10,7 +10,7 @@ const sizeClasses: Record<ButtonSize, string> = {
 };
 
 const base =
-  "group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg";
+  "group inline-flex items-center justify-center gap-3 bg-[#B84C3A] text-white font-semibold rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-[#B84C3A]/20 hover:shadow-xl hover:shadow-[#B84C3A]/30 focus:outline-none focus:ring-2 focus:ring-[#B84C3A] focus:ring-offset-2 focus:ring-offset-warm-bg";
 
 type CommonProps = {
   children: React.ReactNode;

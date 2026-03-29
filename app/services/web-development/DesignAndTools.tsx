@@ -70,13 +70,11 @@ export default function DesignAndTools() {
       {/* ── Design & Credibility ── */}
       <div className="px-6 sm:px-10 md:px-14 lg:px-20 pb-0">
         <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance max-w-2xl mb-6">
-          A site that looks as good as{" "}
-          <span className="text-gradient-gold">your work.</span>
+          A site that looks as good as <span className="text-[#004D3A]">your work.</span>
         </h2>
         <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-10 sm:mb-14">
-          No templates. No page builders. Every layout, animation, and
-          interaction is designed from scratch to make your business look
-          premium — because first impressions are everything.
+          No templates. No page builders. Every layout, animation, and interaction is designed from
+          scratch to make your business look premium — because first impressions are everything.
         </p>
       </div>
 
@@ -87,8 +85,7 @@ export default function DesignAndTools() {
           <div
             className="rounded-xl border border-stone-300 bg-[#0C0B09] overflow-hidden select-none"
             style={{
-              boxShadow:
-                "-12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+              boxShadow: "-12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
             }}
           >
             {/* Browser chrome */}
@@ -126,17 +123,9 @@ export default function DesignAndTools() {
             />
           </div>
           <p className="text-sm text-stone-500 mt-4">
-            Built in{" "}
-            <span className="text-warm-white font-medium">2 weeks</span> and
-            ranking on{" "}
-            <span className="text-warm-white font-medium">
-              page 1 of Google
-            </span>
-            .{" "}
-            <Link
-              href="/work/my-massage-cottage"
-              className="text-warm-gold hover:underline"
-            >
+            Built in <span className="text-warm-white font-medium">2 weeks</span> and ranking on{" "}
+            <span className="text-warm-white font-medium">page 1 of Google</span>.{" "}
+            <Link href="/work/my-massage-cottage" className="text-[#004D3A] hover:underline">
               Read the case study &rarr;
             </Link>
           </p>
@@ -151,8 +140,8 @@ export default function DesignAndTools() {
                 key={d.label}
                 className="flex items-start gap-3 py-3 px-3 rounded-lg border border-transparent hover:border-stone-300 hover:bg-stone-50 transition-colors duration-200"
               >
-                <div className="w-8 h-8 rounded-md bg-warm-gold/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                <div className="w-8 h-8 rounded-md bg-[#004D3A]/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                 </div>
                 <div>
                   <span className="text-sm font-medium text-warm-white block leading-snug">
@@ -188,29 +177,23 @@ export default function DesignAndTools() {
                 className="rounded-xl bg-white border border-stone-200 p-6 sm:p-7 transition-colors duration-300 hover:bg-stone-50 hover:border-stone-300"
               >
                 <div className="flex items-center gap-2.5 mb-2">
-                  <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
-                  <h4 className="text-base font-semibold text-warm-white">
-                    {tool.title}
-                  </h4>
+                  <Icon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
+                  <h4 className="text-base font-semibold text-warm-white">{tool.title}</h4>
                 </div>
-                <p className="text-sm text-stone-500 leading-relaxed">
-                  {tool.body}
-                </p>
+                <p className="text-sm text-stone-500 leading-relaxed">{tool.body}</p>
               </div>
             );
           })}
 
           {/* Wildcard — custom development */}
-          <div className="rounded-xl border border-warm-gold/20 bg-warm-gold/[0.03] p-6 sm:p-7 transition-colors duration-300 hover:bg-warm-gold/[0.06] hover:border-warm-gold/30">
+          <div className="rounded-xl border border-[#004D3A]/20 bg-[#004D3A]/[0.03] p-6 sm:p-7 transition-colors duration-300 hover:bg-[#004D3A]/[0.06] hover:border-[#004D3A]/30">
             <div className="flex items-center gap-2.5 mb-2">
-              <Wrench className="w-4 h-4 text-warm-gold" aria-hidden="true" />
-              <h4 className="text-base font-semibold text-warm-gold">
-                Need something specific?
-              </h4>
+              <Wrench className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
+              <h4 className="text-base font-semibold text-[#004D3A]">Need something specific?</h4>
             </div>
             <p className="text-sm text-stone-500 leading-relaxed">
-              Most of the time the right tool already exists. But if your
-              business needs something that doesn&apos;t, I build it.
+              Most of the time the right tool already exists. But if your business needs something
+              that doesn&apos;t, I build it.
             </p>
           </div>
         </div>

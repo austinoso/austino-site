@@ -4,13 +4,13 @@
  */
 
 const GRADIENTS = [
-  "linear-gradient(90deg, transparent, rgba(212,168,83,0.05) 30%, rgba(244,114,182,0.04) 55%, rgba(167,139,250,0.03) 75%, transparent)",
-  "linear-gradient(90deg, transparent 5%, rgba(244,114,182,0.04) 30%, rgba(212,168,83,0.05) 55%, rgba(167,139,250,0.03) 80%, transparent 95%)",
-  "linear-gradient(90deg, transparent, rgba(167,139,250,0.04) 25%, rgba(244,114,182,0.05) 50%, rgba(212,168,83,0.03) 75%, transparent)",
-  "linear-gradient(90deg, transparent, rgba(212,168,83,0.04) 30%, rgba(244,114,182,0.05) 55%, rgba(167,139,250,0.03) 75%, transparent)",
-  "linear-gradient(90deg, transparent 5%, rgba(244,114,182,0.04) 25%, rgba(212,168,83,0.05) 50%, rgba(167,139,250,0.04) 75%, transparent 95%)",
-  "linear-gradient(90deg, transparent, rgba(212,168,83,0.04) 35%, rgba(244,114,182,0.04) 55%, rgba(167,139,250,0.03) 75%, transparent)",
-  "linear-gradient(90deg, transparent, rgba(244,114,182,0.04) 25%, rgba(212,168,83,0.05) 50%, rgba(167,139,250,0.04) 75%, transparent)",
+  "linear-gradient(90deg, transparent, rgba(0,77,58,0.06) 30%, rgba(0,77,58,0.04) 55%, rgba(0,77,58,0.02) 75%, transparent)",
+  "linear-gradient(90deg, transparent 5%, rgba(0,77,58,0.04) 30%, rgba(0,77,58,0.06) 55%, rgba(0,77,58,0.03) 80%, transparent 95%)",
+  "linear-gradient(90deg, transparent, rgba(0,77,58,0.03) 25%, rgba(0,77,58,0.06) 50%, rgba(0,77,58,0.04) 75%, transparent)",
+  "linear-gradient(90deg, transparent, rgba(0,77,58,0.05) 30%, rgba(0,77,58,0.04) 55%, rgba(0,77,58,0.02) 75%, transparent)",
+  "linear-gradient(90deg, transparent 5%, rgba(0,77,58,0.04) 25%, rgba(0,77,58,0.06) 50%, rgba(0,77,58,0.03) 75%, transparent 95%)",
+  "linear-gradient(90deg, transparent, rgba(0,77,58,0.05) 35%, rgba(0,77,58,0.04) 55%, rgba(0,77,58,0.02) 75%, transparent)",
+  "linear-gradient(90deg, transparent, rgba(0,77,58,0.03) 25%, rgba(0,77,58,0.06) 50%, rgba(0,77,58,0.04) 75%, transparent)",
 ];
 
 type ServiceSectionProps = {

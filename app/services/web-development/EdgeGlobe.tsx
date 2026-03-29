@@ -218,13 +218,13 @@ export default function EdgeGlobe() {
         />
 
         {/* State fill — solid territory */}
-        <path className="ca-fill" d={CA_PATH} fill="rgba(180,83,9,0.07)" />
+        <path className="ca-fill" d={CA_PATH} fill="rgba(0,77,58,0.07)" />
 
         {/* State outline — clean uniform stroke */}
         <path
           className="ca-outline"
           d={CA_PATH}
-          stroke="rgba(180,83,9,0.45)"
+          stroke="rgba(0,77,58,0.45)"
           strokeWidth="1.2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -239,7 +239,7 @@ export default function EdgeGlobe() {
             y1={route.from.y}
             x2={route.to.x}
             y2={route.to.y}
-            stroke="rgba(180,83,9,0.12)"
+            stroke="rgba(0,77,58,0.12)"
             strokeWidth="1"
             strokeDasharray="3 6"
           />
@@ -255,7 +255,7 @@ export default function EdgeGlobe() {
               cy={route.from.y}
               r="4"
               fill="none"
-              stroke="rgba(167,139,250,0.6)"
+              stroke="rgba(0,77,58,0.6)"
               strokeWidth="1.5"
               opacity="0"
             />
@@ -264,7 +264,7 @@ export default function EdgeGlobe() {
             <path
               className="comet-streak"
               d={`M${route.from.x},${route.from.y} L${route.to.x},${route.to.y}`}
-              stroke="rgba(251,191,36,0.9)"
+              stroke="rgba(16,185,129,0.9)"
               strokeWidth="2"
               strokeLinecap="round"
               filter="url(#pkt-glow)"
@@ -278,7 +278,7 @@ export default function EdgeGlobe() {
               cy={route.to.y}
               r="3"
               fill="none"
-              stroke="rgba(212,168,83,0.7)"
+              stroke="rgba(0,77,58,0.7)"
               strokeWidth="1"
               opacity="0"
             />
@@ -292,11 +292,11 @@ export default function EdgeGlobe() {
               cx={dc.x}
               cy={dc.y}
               r="6"
-              fill="rgba(124,58,237,0.15)"
-              stroke="rgba(124,58,237,0.4)"
+              fill="rgba(0,77,58,0.15)"
+              stroke="rgba(0,77,58,0.4)"
               strokeWidth="1"
             />
-            <circle className="dc-dot" cx={dc.x} cy={dc.y} r="3.5" fill="rgba(124,58,237,0.85)" />
+            <circle className="dc-dot" cx={dc.x} cy={dc.y} r="3.5" fill="rgba(0,77,58,0.85)" />
             <text
               className="dc-label"
               x={dc.labelSide === "l" ? dc.x - 9 : dc.x + 9}
@@ -320,7 +320,7 @@ export default function EdgeGlobe() {
               cx={city.x}
               cy={city.y}
               r={2.5}
-              fill="rgba(180,83,9,0.85)"
+              fill="rgba(0,77,58,0.85)"
             />
             <text
               className="client-label"

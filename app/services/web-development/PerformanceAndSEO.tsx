@@ -41,11 +41,10 @@ export default function PerformanceAndSEO() {
       {/* ── Speed & Performance — 2-col with CA edge map ── */}
       <div className="relative overflow-x-clip sm:pt-28 md:pt-32">
         {/* Subtle fade so the globe doesn't fight with the heading */}
-        <div className="hidden lg:block absolute inset-0 z-[5] bg-gradient-to-r from-warm-bg from-30% via-warm-bg/40 via-45% to-transparent to-55% pointer-events-none" />
+        <div className="hidden lg:block absolute inset-0 z-[5] bg-gradient-to-r from-[#F2F7F5] from-30% via-[#F2F7F5]/40 via-45% to-transparent to-55% pointer-events-none" />
         <div className="relative z-10 pt-12 sm:pt-20 p-6 sm:p-10 max-w-xl">
           <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-6">
-            Fast enough to pass{" "}
-            <span className="text-gradient-gold">Google&apos;s speed test.</span>
+            Fast enough to pass <span className="text-[#004D3A]">Google&apos;s speed test.</span>
           </h2>
           <p className="text-base sm:text-lg text-stone-600 leading-relaxed">
             Your site runs on the same network that powers Shopify and Netflix. Every page is
@@ -107,7 +106,7 @@ export default function PerformanceAndSEO() {
         {/* Gold-accent editorial list — 1 col mobile, 2 col desktop */}
         <div className="px-10 sm:px-10 sm:grid sm:grid-cols-2 sm:gap-x-16 space-y-6 sm:space-y-0 sm:gap-y-10 pb-8 sm:pb-16">
           {seoFeatures.map((feature) => (
-            <div key={feature.title} className="border-l-2 border-warm-gold/40 pl-5">
+            <div key={feature.title} className="border-l-2 border-[#004D3A]/40 pl-5">
               <h4 className="text-[15px] sm:text-base font-semibold text-warm-white mb-1.5 sm:mb-2">
                 {feature.title}
               </h4>

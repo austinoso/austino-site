@@ -22,14 +22,18 @@ export default function WebDevelopmentPage() {
         <div className="page-frame">
           {/* -- Hero -- */}
           <div className="relative border-b border-stone-200 overflow-hidden">
-            <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-16 pb-0 sm:pt-20 md:pt-24">
+            <div className="relative px-6 sm:px-10 md:px-14 lg:px-20 pt-24 pb-0 sm:pt-20 md:pt-24">
               <BackLink href="/#solutions">Back to Home</BackLink>
               <Hero />
             </div>
           </div>
 
           {/* -- The Evidence -- */}
-          <ServiceSection gradient={0} padding="pt-14 pb-6 sm:pt-28 sm:pb-10 md:pt-32 md:pb-14">
+          <ServiceSection
+            gradient={0}
+            padding="pt-14 pb-6 sm:pt-28 sm:pb-10 md:pt-32 md:pb-14"
+            className="bg-[#004D3A]"
+          >
             <TheEvidence />
           </ServiceSection>
 
@@ -43,7 +47,7 @@ export default function WebDevelopmentPage() {
           </ServiceSection>
 
           {/* -- Performance & SEO -- */}
-          <ServiceSection className="overflow-hidden bg-warm-surface/30" padding="">
+          <ServiceSection className="overflow-hidden bg-[#F2F7F5]" padding="">
             <PerformanceAndSEO />
           </ServiceSection>
 

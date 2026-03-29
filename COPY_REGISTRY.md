@@ -41,15 +41,13 @@ Each headline is "claimed" by its page. No other page should use the same line o
 
 | Section         | Headline                                             |
 | --------------- | ---------------------------------------------------- |
-| Hero            | Found on Google. **Chosen by customers.**             |
-| Pain Points     | Your competitors made **this easy.**                 |
-| Pain Point 1    | The site either earns the next step or it **doesn't.** |
-| Pain Point 2    | Nobody in your market is doing the work to **rank.** |
-| Solutions       | How you take the **lead.**                           |
-| Web Development | Ranks higher. Loads faster. Converts more.           |
-| Growth Strategy | A great site is just the foundation.                 |
-| Solutions bridge | The site gets them there. Growth strategy keeps them coming. |
-| Automation      | Automate what slows you down.                        |
+| Hero            | Get Found on Google. **Turn searchers into customers.** |
+| Transition      | Showing up is one part. Being chosen is the rest.    |
+| Services        | What I actually do for a business.                   |
+| Visibility      | Get found when they search.                          |
+| Website         | Give them a site worth trusting.                     |
+| Mid-page CTA    | *(no heading — body copy only)*                      |
+| Automation      | Fix the work that keeps slipping through.            |
 | About           | One person. **The whole picture.**                   |
 | CTA             | It starts with **20 minutes.**                       |
 
@@ -158,7 +156,7 @@ Each entry is the exact button label and where it appears. Reusing the same CTA 
 | CTA Text                  | Page                      | Notes                       |
 | ------------------------- | ------------------------- | --------------------------- |
 | Book a Free Strategy Call | Homepage hero             | Primary homepage conversion |
-| See Selected Work         | Homepage hero             | Secondary / scroll link     |
+| See How It Works          | Homepage hero             | Secondary / scroll link     |
 | Start a Conversation      | Homepage bottom CTA       | Lowkey text-link close      |
 | See What You'd Save       | Automation hero           | Service page primary        |
 | Get a Free Site Review    | Web Development hero      | Service page primary        |

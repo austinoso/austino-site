@@ -2,52 +2,41 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { signalHeroReady } from "@/lib/heroReady";
-import {
-  Mail,
-  Calendar,
-  FileText,
-  Star,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 
 type GSAPType = (typeof import("gsap"))["gsap"];
 
 /* ------------------------------------------------------------------ */
-/*  Cinematic hero demo: 5-scene loop animating a full user â†’          */
-/*  automation journey inside a browser frame.                         */
+/*  Hero demo: "The Three Acts" — Get Found, Get Chosen, Get Better.   */
+/*  No browser frame. Clean canvas. Three visual vignettes morph into  */
+/*  each other in a smooth infinite loop (~16s per cycle).             */
 /* ------------------------------------------------------------------ */
 
-/* Canonical stage dimensions — all scene content is designed at this
-   fixed size, then CSS-scaled to fit the actual container. This means
-   internal layout never changes with viewport, cursor always lands
-   correctly, and resizing can't break element positioning. */
 const CANONICAL_W = 640;
 const CANONICAL_H = 400;
+
+/* Unified easing */
+const EASE_SMOOTH = "power3.out";
+const EASE_GLIDE = "power2.inOut";
 
 export default function HeroDemo() {
   const demoRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const [stageScale, setStageScale] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
+  const isPausedRef = useRef(false);
   const masterTlRef = useRef<gsap.core.Timeline | null>(null);
 
-  /* Scenes */
-  const s1 = useRef<HTMLDivElement>(null);
-  const s2 = useRef<HTMLDivElement>(null);
-  const s3 = useRef<HTMLDivElement>(null);
-  const s4 = useRef<HTMLDivElement>(null);
-  const s5 = useRef<HTMLDivElement>(null);
+  /* Acts */
+  const act1 = useRef<HTMLDivElement>(null);
+  const act2 = useRef<HTMLDivElement>(null);
+  const act3 = useRef<HTMLDivElement>(null);
 
-  /* Cursor */
-  const cursorRef = useRef<HTMLDivElement>(null);
-
-  /* Stat counters (scene 5) */
+  /* Counter refs for Act 3 */
   const statLeads = useRef<HTMLSpanElement>(null);
   const statConv = useRef<HTMLSpanElement>(null);
-  const statScore = useRef<HTMLSpanElement>(null);
 
-  /* Debug mode â€” client-only URL check */
+  /* Debug mode */
   const [isDebug, setIsDebug] = useState(false);
   const [debugScene, setDebugScene] = useState(0);
 
@@ -58,7 +47,7 @@ export default function HeroDemo() {
     }
   }, []);
 
-  /* ── Scale stage to fit container ── */
+  /* -- Scale stage to fit container -- */
   useEffect(() => {
     const el = stageRef.current;
     if (!el) return;
@@ -69,377 +58,258 @@ export default function HeroDemo() {
     return () => ro.disconnect();
   }, []);
 
-  const SCENE_LABELS = [
-    "Scene 1 â€” Landing Page",
-    "Scene 2 â€” Booking Form",
-    "Scene 3 â€” Confirmation",
-    "Scene 4 â€” Automation",
-    "Scene 5 â€” Results",
-  ];
+  const SCENE_LABELS = ["Act 1 - Get Found", "Act 2 - Get Chosen", "Act 3 - Get Better"];
 
-  const prevScene = useCallback(
-    () => setDebugScene((s) => Math.max(0, s - 1)),
-    [],
-  );
-  const nextScene = useCallback(
-    () => setDebugScene((s) => Math.min(4, s + 1)),
-    [],
-  );
+  const prevScene = useCallback(() => setDebugScene((s) => Math.max(0, s - 1)), []);
+  const nextScene = useCallback(() => setDebugScene((s) => Math.min(2, s + 1)), []);
 
-  /* â”€â”€ Debug mode: show one scene at a time with all elements visible â”€â”€ */
+  /* -- Debug mode: show one act at a time -- */
   useEffect(() => {
     if (!isDebug) return;
-    const scenes = [s1, s2, s3, s4, s5].map((r) => r.current!);
-    const cursor = cursorRef.current;
-    if (!scenes.every(Boolean) || !cursor) return;
+    const acts = [act1, act2, act3].map((r) => r.current!);
+    if (!acts.every(Boolean)) return;
 
     let cancelled = false;
     import("gsap").then(({ gsap }) => {
       if (cancelled) return;
-
       signalHeroReady();
 
-      // Hide all scenes, then show only the active one
-      scenes.forEach((s) => gsap.set(s, { opacity: 0, xPercent: 0, scale: 1 }));
-      gsap.set(scenes[debugScene], { opacity: 1 });
-
-      // Reset cursor
-      gsap.set(cursor, { opacity: 0, scale: 1 });
+      acts.forEach((a) => gsap.set(a, { opacity: 0, scale: 1 }));
+      gsap.set(acts[debugScene], { opacity: 1 });
 
       switch (debugScene) {
         case 0:
-          gsap.set(cursor, {
-            opacity: 1,
-            left: "11%",
-            top: "67%",
-          });
+          gsap.set(".a1-search", { opacity: 1 });
+          gsap.set(".a1-query", { clipPath: "inset(0 0% 0 0)" });
+          gsap.set(".a1-result", { opacity: 1, y: 0 });
+          gsap.set(".a1-ghost", { opacity: 1, y: 0 });
           break;
         case 1:
-          gsap.set(".hv", { opacity: 1 });
-          gsap.set(cursor, {
-            opacity: 1,
-            left: "46%",
-            top: "90%",
-          });
+          gsap.set(".a2-nav", { opacity: 1, y: 0 });
+          gsap.set(".a2-headline", { opacity: 1, y: 0 });
+          gsap.set(".a2-rule", { scaleX: 1 });
+          gsap.set(".a2-body", { opacity: 1, y: 0 });
+          gsap.set(".a2-cta", { opacity: 1, y: 0 });
+          gsap.set(".a2-cards", { opacity: 1, y: 0 });
           break;
         case 2:
-          gsap.set(".hv", { opacity: 0 });
-          gsap.set(".hconfirm-circle", { strokeDashoffset: 0 });
-          gsap.set(".hconfirm-check", { strokeDashoffset: 0 });
-          gsap.set(".hconfirm-text", { opacity: 1, y: 0 });
-          gsap.set(".hconfirm-details", { opacity: 1 });
-          break;
-        case 3:
-          gsap.set(".hv", { opacity: 0 });
-          gsap.set(".hconfirm-circle", { strokeDashoffset: 150.8 });
-          gsap.set(".hconfirm-check", { strokeDashoffset: 35 });
-          gsap.set(".hconfirm-text", { opacity: 0 });
-          gsap.set(".hconfirm-details", { opacity: 0 });
-          gsap.set(".htask", { opacity: 1, x: 0 });
-          gsap.set(".htask-check", { strokeDashoffset: 0 });
-          break;
-        case 4:
-          gsap.set(".hv", { opacity: 0 });
-          gsap.set(".htask", { opacity: 0 });
-          gsap.set(".hstat-ring", { strokeDashoffset: 0 });
+          gsap.set(".a3-chart-line", { strokeDashoffset: 0 });
+          gsap.set(".a3-chart-fill", { opacity: 0.12 });
+          gsap.set(".a3-stat", { opacity: 1, y: 0 });
+          gsap.set(".a3-label", { opacity: 1 });
+          gsap.set(".a3-title", { opacity: 1 });
           if (statLeads.current) statLeads.current.textContent = "47";
           if (statConv.current) statConv.current.textContent = "23%";
-          if (statScore.current) statScore.current.textContent = "100";
           break;
       }
     });
+
     return () => {
       cancelled = true;
     };
   }, [isDebug, debugScene]);
 
-  /* â”€â”€ Normal animation (skipped in debug mode) â”€â”€ */
+  /* -- Main animation timeline -- */
   useEffect(() => {
     if (isDebug) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
+    const acts = [act1, act2, act3].map((r) => r.current!);
+    if (!acts.every(Boolean)) return;
 
-    const scenes = [s1, s2, s3, s4, s5].map((r) => r.current!);
-    const cursor = cursorRef.current;
-    if (!scenes.every(Boolean) || !cursor) return;
+    let ctx: ReturnType<GSAPType["context"]> | undefined;
 
-    let ctx: ReturnType<GSAPType["context"]>;
     import("gsap").then(({ gsap }) => {
-      ctx = gsap.context(() => {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (prefersReducedMotion) {
+        /* Show Act 1 final state */
+        gsap.set(acts[0], { opacity: 1 });
+        gsap.set(".a1-search", { opacity: 1 });
+        gsap.set(".a1-query", { clipPath: "inset(0 0% 0 0)" });
+        gsap.set(".a1-result", { opacity: 1, y: 0 });
+        gsap.set(".a1-ghost", { opacity: 1, y: 0 });
         signalHeroReady();
+        return;
+      }
 
-        if (prefersReducedMotion) {
-          gsap.set(scenes[0], { opacity: 1 });
-          scenes.slice(1).forEach((s) => gsap.set(s, { opacity: 0 }));
-          return;
-        }
-
-        let firstPlay = true;
+      ctx = gsap.context(() => {
         const buildTimeline = () => {
-          // Kill previous timeline if rebuilding (loop restart)
-          if (masterTlRef.current) {
-            masterTlRef.current.kill();
-            masterTlRef.current = null;
-          }
+          /* ---- Reset everything ---- */
+          gsap.set(acts, { opacity: 0, scale: 1 });
+
+          /* Act 1 resets */
+          gsap.set(".a1-search", { opacity: 0 });
+          gsap.set(".a1-query", { clipPath: "inset(0 100% 0 0)" });
+          gsap.set(".a1-result", { opacity: 0, y: 14 });
+          gsap.set(".a1-ghost", { opacity: 0, y: 10 });
+
+          /* Act 2 resets */
+          gsap.set(".a2-nav", { opacity: 0, y: -10 });
+          gsap.set(".a2-headline", { opacity: 0, y: 16 });
+          gsap.set(".a2-rule", { scaleX: 0, transformOrigin: "left" });
+          gsap.set(".a2-body", { opacity: 0, y: 12 });
+          gsap.set(".a2-cta", { opacity: 0, y: 12 });
+          gsap.set(".a2-cards", { opacity: 0, y: 20 });
+
+          /* Act 3 resets */
+          gsap.set(".a3-chart-line", { strokeDashoffset: 600 });
+          gsap.set(".a3-chart-fill", { opacity: 0 });
+          gsap.set(".a3-stat", { opacity: 0, y: 16 });
+          gsap.set(".a3-label", { opacity: 0 });
+          gsap.set(".a3-title", { opacity: 0, y: 8 });
+          if (statLeads.current) statLeads.current.textContent = "0";
+          if (statConv.current) statConv.current.textContent = "0%";
 
           const tl = gsap.timeline({
-            delay: firstPlay ? 1.5 : 0,
-            paused: false,
-            onComplete: () => {
-              const xfade = gsap.timeline({
-                onComplete: () => {
-                  xfade.kill();
-                  masterTlRef.current = null;
-                  gsap.set(scenes.slice(1), {
-                    opacity: 0,
-                    xPercent: 0,
-                    scale: 1,
-                  });
-                  gsap.set(cursor, {
-                    opacity: 0,
-                    left: "60%",
-                    top: "20%",
-                    scale: 1,
-                  });
-                  gsap.set(".hv", { opacity: 0 });
-                  gsap.set(".hbtn-book, .hbtn-confirm", { scale: 1 });
-                  gsap.set(".hconfirm-circle", { strokeDashoffset: 150.8 });
-                  gsap.set(".hconfirm-check", { strokeDashoffset: 35 });
-                  gsap.set(".hconfirm-text", { opacity: 0, y: 8 });
-                  gsap.set(".hconfirm-details", { opacity: 0 });
-                  gsap.set(".htask", { opacity: 0, x: 20 });
-                  gsap.set(".htask-check", { strokeDashoffset: 20 });
-                  gsap.set(".hstat-ring", { strokeDashoffset: 97.4 });
-                  if (statLeads.current) statLeads.current.textContent = "0";
-                  if (statConv.current) statConv.current.textContent = "0%";
-                  if (statScore.current) statScore.current.textContent = "0";
-                  buildTimeline();
-                },
-              });
-              xfade.to(
-                scenes[4],
-                { opacity: 0, duration: 0.6, ease: "power2.inOut" },
-                0,
-              );
-              xfade.fromTo(
-                scenes[0],
-                { xPercent: 0, opacity: 0, scale: 1 },
-                { opacity: 1, duration: 0.6 },
-                0.15,
-              );
-              // Track crossfade so pause/resume works during loop transition
-              masterTlRef.current = xfade;
-            },
+            onComplete: () => buildTimeline(),
           });
-          firstPlay = false;
-          // Store the timeline so pause/resume can target it directly
+
           masterTlRef.current = tl;
-          /* â”€â”€â”€ ACT 1 â€” The Customer Experience â”€â”€â”€ */
+          if (isPausedRef.current) tl.pause();
 
-          /* Scene 1: Landing page â€” cursor glides to CTA */
-          tl.addLabel("scene1", "+=0.2");
-          tl.to(cursor, { opacity: 1, duration: 0.35 }, "scene1+=0.15");
+          /* ================================================= */
+          /* ===== ACT 1: GET FOUND                       ===== */
+          /* ================================================= */
+          tl.set(acts[0], { opacity: 1 });
+          tl.call(() => signalHeroReady());
+
+          /* Search bar fades in */
+          tl.to(".a1-search", { opacity: 1, duration: 0.5, ease: EASE_SMOOTH }, "+=0.4");
+
+          /* Query text reveals left-to-right */
           tl.to(
-            cursor,
+            ".a1-query",
             {
-              left: "11%",
-              top: "67%",
-              duration: 1.3,
-              ease: "power2.inOut",
+              clipPath: "inset(0 0% 0 0)",
+              duration: 1.0,
+              ease: "power2.out",
             },
-            ">0.1",
-          );
-          tl.to(cursor, { scale: 0.7, duration: 0.07 });
-          tl.to(".hbtn-book", { scale: 0.96, duration: 0.1 }, "<");
-          tl.to(cursor, { scale: 1, duration: 0.15, ease: "back.out(3)" });
-          tl.to(
-            ".hbtn-book",
-            { scale: 1, duration: 0.25, ease: "power2.out" },
-            "<",
-          );
-          tl.to({}, { duration: 0.35 });
-          tl.to(cursor, { opacity: 0, duration: 0.15 });
-
-          /* Transition 1 â†’ 2 */
-          tl.addLabel("t12", "+=0.12");
-          tl.to(
-            scenes[0],
-            {
-              xPercent: -30,
-              opacity: 0,
-              duration: 0.5,
-              ease: "power2.inOut",
-            },
-            "t12",
-          );
-          tl.fromTo(
-            scenes[1],
-            { xPercent: 30, opacity: 0 },
-            { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
-            "t12",
+            "+=0.25",
           );
 
-          /* Scene 2: Booking form â€” fields auto-fill */
-          tl.addLabel("scene2", "+=0.25");
-          tl.to(".hv", { opacity: 1, duration: 0.25, stagger: 0.4 }, "scene2");
-          tl.set(
-            cursor,
-            {
-              left: "46%",
-              top: "90%",
-            },
-            "+=0.35",
-          );
-          tl.to(cursor, { opacity: 1, duration: 0.3 });
-          tl.to(cursor, { scale: 0.7, duration: 0.07 });
-          tl.to(".hbtn-confirm", { scale: 0.96, duration: 0.1 }, "<");
-          tl.to(cursor, { scale: 1, duration: 0.15, ease: "back.out(3)" });
-          tl.to(
-            ".hbtn-confirm",
-            { scale: 1, duration: 0.25, ease: "power2.out" },
-            "<",
-          );
-          tl.to(cursor, { opacity: 0, duration: 0.15 }, "+=0.2");
+          /* Result #1 slides up with highlight */
+          tl.to(".a1-result", { opacity: 1, y: 0, duration: 0.5, ease: EASE_SMOOTH }, "+=0.4");
 
-          /* Transition 2 â†’ 3 */
-          tl.addLabel("t23", "+=0.12");
+          /* Ghost results stagger in below */
           tl.to(
-            scenes[1],
-            {
-              xPercent: -30,
-              opacity: 0,
-              duration: 0.5,
-              ease: "power2.inOut",
-            },
-            "t23",
-          );
-          tl.fromTo(
-            scenes[2],
-            { xPercent: 30, opacity: 0 },
-            { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
-            "t23",
-          );
-
-          /* Scene 3: Confirmation â€” checkmark draws */
-          tl.addLabel("scene3", "+=0.12");
-          tl.to(
-            ".hconfirm-circle",
-            { strokeDashoffset: 0, duration: 0.55, ease: "power2.out" },
-            "scene3",
-          );
-          tl.to(
-            ".hconfirm-check",
-            { strokeDashoffset: 0, duration: 0.35, ease: "power2.out" },
-            "scene3+=0.3",
-          );
-          tl.to(
-            ".hconfirm-text",
-            { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
-            "scene3+=0.5",
-          );
-          tl.to(
-            ".hconfirm-details",
-            { opacity: 1, duration: 0.3 },
-            "scene3+=0.7",
-          );
-          tl.to({}, { duration: 1.0 });
-
-          /* â”€â”€â”€ ACT 2 â€” Behind the Scenes â”€â”€â”€ */
-
-          /* Transition 3 â†’ 4 */
-          tl.addLabel("t34", "+=0.12");
-          tl.to(
-            scenes[2],
-            { scale: 0.92, opacity: 0, duration: 0.4, ease: "power2.in" },
-            "t34",
-          );
-          tl.fromTo(
-            scenes[3],
-            { scale: 1.06, opacity: 0, xPercent: 0 },
-            { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" },
-            "t34+=0.3",
-          );
-
-          /* Scene 4: Automation cascade */
-          tl.addLabel("scene4", "+=0.2");
-          tl.to(
-            ".htask",
+            ".a1-ghost",
             {
               opacity: 1,
-              x: 0,
-              duration: 0.35,
-              stagger: 0.65,
-              ease: "power2.out",
+              y: 0,
+              duration: 0.4,
+              stagger: 0.08,
+              ease: EASE_SMOOTH,
             },
-            "scene4",
+            "-=0.2",
           );
-          tl.to(
-            ".htask-check",
-            {
-              strokeDashoffset: 0,
-              duration: 0.3,
-              stagger: 0.65,
-              ease: "power2.out",
-            },
-            "scene4+=0.25",
-          );
-          tl.to({}, { duration: 0.8 });
 
-          /* Transition 4 â†’ 5 */
-          tl.addLabel("t45", "+=0.12");
+          /* Hold */
+          tl.to({}, { duration: 1.6 });
+
+          /* --- Transition Act 1 -> 2 --- */
+          tl.to(acts[0], {
+            opacity: 0,
+            scale: 0.97,
+            duration: 0.7,
+            ease: EASE_GLIDE,
+          });
+
+          /* ================================================= */
+          /* ===== ACT 2: GET CHOSEN                      ===== */
+          /* ================================================= */
+          tl.set(acts[1], { opacity: 1 });
+
+          /* Nav slides down from top */
+          tl.to(".a2-nav", { opacity: 1, y: 0, duration: 0.4, ease: EASE_SMOOTH }, "+=0.1");
+
+          /* Headline fades up */
+          tl.to(".a2-headline", { opacity: 1, y: 0, duration: 0.5, ease: EASE_SMOOTH }, "-=0.15");
+
+          /* Accent rule sweeps from left */
+          tl.to(".a2-rule", { scaleX: 1, duration: 0.6, ease: "power2.out" }, "-=0.2");
+
+          /* Body text */
+          tl.to(".a2-body", { opacity: 1, y: 0, duration: 0.4, ease: EASE_SMOOTH }, "-=0.3");
+
+          /* CTA button with subtle bounce */
+          tl.to(".a2-cta", { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)" }, "-=0.1");
+
+          /* Service cards slide up from bottom */
+          tl.to(".a2-cards", { opacity: 1, y: 0, duration: 0.5, ease: EASE_SMOOTH }, "-=0.15");
+
+          /* Hold — this is the "design skill" showcase moment */
+          tl.to({}, { duration: 1.8 });
+
+          /* --- Transition Act 2 -> 3 --- */
+          tl.to(acts[1], {
+            opacity: 0,
+            scale: 0.97,
+            duration: 0.7,
+            ease: EASE_GLIDE,
+          });
+
+          /* ================================================= */
+          /* ===== ACT 3: GET BETTER                      ===== */
+          /* ================================================= */
+          tl.set(acts[2], { opacity: 1 });
+
+          /* Label fades in */
+          tl.to(".a3-label", { opacity: 1, duration: 0.3, ease: EASE_SMOOTH }, "+=0.1");
+
+          /* Title */
+          tl.to(".a3-title", { opacity: 1, y: 0, duration: 0.4, ease: EASE_SMOOTH }, "-=0.1");
+
+          /* Chart line draws itself */
           tl.to(
-            scenes[3],
+            ".a3-chart-line",
+            { strokeDashoffset: 0, duration: 1.6, ease: "power2.out" },
+            "+=0.15",
+          );
+
+          /* Gradient fill fades in under the line */
+          tl.to(".a3-chart-fill", { opacity: 0.12, duration: 1.0, ease: EASE_SMOOTH }, "-=1.0");
+
+          /* Stat cards slide in with stagger */
+          tl.to(
+            ".a3-stat",
             {
-              xPercent: -30,
-              opacity: 0,
+              opacity: 1,
+              y: 0,
               duration: 0.5,
-              ease: "power2.inOut",
+              stagger: 0.12,
+              ease: EASE_SMOOTH,
             },
-            "t45",
-          );
-          tl.fromTo(
-            scenes[4],
-            { xPercent: 30, opacity: 0 },
-            { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
-            "t45",
+            "-=0.5",
           );
 
-          /* Scene 5: Results â€” counters tick up */
-          tl.addLabel("scene5", "+=0.2");
+          /* Counters tick up */
+          const counters = { leads: 0, conv: 0 };
           tl.to(
-            ".hstat-ring",
-            { strokeDashoffset: 0, duration: 1.2, ease: "power2.out" },
-            "scene5",
-          );
-          const counters = { leads: 0, conv: 0, score: 0 };
-          tl.fromTo(
             counters,
-            { leads: 0, conv: 0, score: 0 },
             {
               leads: 47,
               conv: 23,
-              score: 100,
               duration: 1.2,
               ease: "power2.out",
               onUpdate: () => {
                 if (statLeads.current)
-                  statLeads.current.textContent = Math.round(
-                    counters.leads,
-                  ).toString();
+                  statLeads.current.textContent = Math.round(counters.leads).toString();
                 if (statConv.current)
-                  statConv.current.textContent =
-                    Math.round(counters.conv).toString() + "%";
-                if (statScore.current)
-                  statScore.current.textContent = Math.round(
-                    counters.score,
-                  ).toString();
+                  statConv.current.textContent = Math.round(counters.conv).toString() + "%";
               },
             },
-            "scene5",
+            "-=0.8",
           );
-          tl.to({}, { duration: 1.5 });
+
+          /* Hold before loop */
+          tl.to({}, { duration: 2.0 });
+
+          /* Fade out Act 3 (inside timeline so pause works) */
+          tl.to(acts[2], {
+            opacity: 0,
+            duration: 0.8,
+            ease: EASE_GLIDE,
+          });
         };
 
         buildTimeline();
@@ -449,55 +319,27 @@ export default function HeroDemo() {
     return () => ctx?.revert();
   }, [isDebug]);
 
-  /* â”€â”€ Pause / Resume â”€â”€ */
+  /* -- Pause / Resume -- */
   useEffect(() => {
     if (isDebug) return;
+    isPausedRef.current = isPaused;
     const tl = masterTlRef.current;
     if (!tl) return;
 
-    if (isPaused) {
-      tl.pause();
-    } else {
-      tl.resume();
-    }
+    if (isPaused) tl.pause();
+    else tl.resume();
   }, [isPaused, isDebug]);
 
-  /* â”€â”€ Render â”€â”€ */
+  /* -- Render -- */
   return (
     <div ref={demoRef} className="relative">
-      <div
-        className="relative rounded-xl border border-stone-300 bg-white overflow-hidden select-none shadow-xl shadow-stone-900/[0.06]"
-        aria-hidden="true"
-      >
-        {/* Chrome bar */}
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-stone-300/60 bg-[#E8E2DA]">
-          <div className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/85" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/85" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/85" />
-          </div>
-          <div className="flex-1 flex justify-center">
-            <div className="flex items-center gap-1.5 px-4 py-1 rounded-lg bg-[#F7F4F0] text-[11px] text-stone-400 font-mono">
-              <svg
-                className="w-2.5 h-2.5 opacity-40"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-              >
-                <path d="M11.5 1a3.5 3.5 0 00-3.5 3.5V7H3a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2V9a2 2 0 00-2-2H9V4.5a2.5 2.5 0 015 0V6h1V4.5A3.5 3.5 0 0011.5 1z" />
-              </svg>
-              bloomstudio.com
-            </div>
-          </div>
-        </div>
-
-        {/* â•â• Stage â•â• */}
+      <div className="relative rounded-2xl bg-white overflow-hidden select-none" aria-hidden="true">
+        {/* Stage */}
         <div
           ref={stageRef}
-          className="relative overflow-hidden bg-[#F0EAE2]"
+          className="relative overflow-hidden"
           style={{ aspectRatio: `${CANONICAL_W}/${CANONICAL_H}` }}
         >
-          {/* Canonical-size inner — scales uniformly to fill container.
-              Position absolute so the 640px width doesn't affect parent layout. */}
           <div
             style={{
               width: CANONICAL_W,
@@ -507,363 +349,270 @@ export default function HeroDemo() {
             }}
             className="absolute inset-0"
           >
-            {/* Scene 1 — Landing Page */}
-            <div ref={s1} className="absolute inset-0 p-8 flex flex-col gap-2">
-              {/* Nav */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-[16px] font-semibold text-stone-800 tracking-tight">
-                    Bloom Studio
-                  </span>
+            {/* ===================================== */}
+            {/* Act 1: Get Found                      */}
+            {/* ===================================== */}
+            <div ref={act1} className="absolute inset-0 flex flex-col bg-white px-8 pt-8">
+              {/* Search bar */}
+              <div
+                className="a1-search flex items-center gap-3 px-5 py-3.5 rounded-full border border-stone-200 shadow-sm bg-white"
+                style={{ opacity: 0 }}
+              >
+                <Search className="w-5 h-5 text-stone-400 flex-shrink-0" />
+                <span
+                  className="a1-query text-[16px] text-stone-700"
+                  style={{ clipPath: "inset(0 100% 0 0)" }}
+                >
+                  best [your service] near me
+                </span>
+              </div>
+
+              {/* Results list */}
+              <div className="mt-6 space-y-5 flex-1">
+                {/* Result #1 — YOUR business */}
+                <div
+                  className="a1-result relative -mx-3 px-3 py-3 rounded-lg"
+                  style={{ opacity: 0, transform: "translateY(14px)" }}
+                >
+                  {/* Subtle highlight behind #1 result */}
+                  <div className="absolute inset-0 rounded-lg bg-amber-50/80 border border-amber-200/40" />
+                  <div className="relative">
+                    <div className="flex items-center gap-2">
+                      <p className="text-[14px] text-green-700 font-mono leading-none">
+                        yourbusiness.com
+                      </p>
+                      <span className="text-[11px] font-semibold text-amber-600 bg-amber-100 px-1.5 py-0.5 rounded">
+                        #1
+                      </span>
+                    </div>
+                    <p className="text-[22px] font-semibold text-blue-700 leading-snug mt-1.5">
+                      Your Business &mdash; Trusted&nbsp;Locally
+                    </p>
+                    <p className="text-[15px] text-stone-500 mt-1 leading-relaxed">
+                      Quality service your neighbors count on. Book online&nbsp;today.
+                      <span className="text-amber-500">
+                        &nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;
+                      </span>
+                      &nbsp;4.9
+                    </p>
+                  </div>
                 </div>
+
+                {/* Ghost results — stagger in */}
+                <div
+                  className="a1-ghost space-y-2 px-1"
+                  style={{ opacity: 0, transform: "translateY(10px)" }}
+                >
+                  <div className="h-2.5 w-36 rounded bg-stone-100" />
+                  <div className="h-3 w-60 rounded bg-stone-100" />
+                  <div className="h-2.5 w-80 rounded bg-stone-100" />
+                </div>
+
+                <div
+                  className="a1-ghost space-y-2 px-1"
+                  style={{ opacity: 0, transform: "translateY(10px)" }}
+                >
+                  <div className="h-2.5 w-32 rounded bg-stone-100" />
+                  <div className="h-3 w-52 rounded bg-stone-100" />
+                  <div className="h-2.5 w-72 rounded bg-stone-100" />
+                </div>
+
+                <div
+                  className="a1-ghost space-y-2 px-1"
+                  style={{ opacity: 0, transform: "translateY(10px)" }}
+                >
+                  <div className="h-2.5 w-28 rounded bg-stone-100" />
+                  <div className="h-3 w-48 rounded bg-stone-100" />
+                  <div className="h-2.5 w-64 rounded bg-stone-100" />
+                </div>
+              </div>
+            </div>
+
+            {/* ===================================== */}
+            {/* Act 2: Get Chosen                     */}
+            {/* ===================================== */}
+            <div
+              ref={act2}
+              className="absolute inset-0 p-8 flex flex-col bg-[#FAF9F6]"
+              style={{ opacity: 0 }}
+            >
+              {/* Nav */}
+              <div
+                className="a2-nav flex items-center justify-between"
+                style={{ opacity: 0, transform: "translateY(-10px)" }}
+              >
+                <span className="text-[18px] font-semibold text-stone-800 tracking-tight">
+                  Your Business
+                </span>
                 <div className="flex items-center gap-5">
-                  <span className="text-[13px] text-stone-400">Services</span>
-                  <span className="text-[13px] text-stone-400">About</span>
-                  <span className="text-[13px] text-stone-400">Contact</span>
+                  <span className="text-[14px] text-stone-400">Services</span>
+                  <span className="text-[14px] text-stone-400">About</span>
+                  <span className="text-[14px] text-stone-400">Contact</span>
                 </div>
               </div>
 
               {/* Hero area */}
-              <div className="mt-5 flex-1">
-                <p className="text-[34px] font-semibold text-stone-900 leading-tight">
-                  Look Good.
+              <div className="mt-7 flex-1">
+                <p
+                  className="a2-headline text-[40px] font-semibold text-stone-900 leading-tight"
+                  style={{ opacity: 0, transform: "translateY(16px)" }}
+                >
+                  Quality You
                   <br />
-                  Feel Great.
+                  Can Count&nbsp;On.
                 </p>
-                <p className="text-[15px] text-stone-500 mt-3 max-w-[75%] leading-relaxed">
-                  Premium services tailored to you.
+                <div
+                  className="a2-rule mt-3 w-12 h-[3px] rounded-full bg-amber-500"
+                  style={{
+                    transform: "scaleX(0)",
+                    transformOrigin: "left",
+                  }}
+                />
+                <p
+                  className="a2-body text-[16px] text-stone-500 mt-4 max-w-[75%] leading-relaxed"
+                  style={{ opacity: 0, transform: "translateY(12px)" }}
+                >
+                  Trusted by families in the Central Valley.
                   <br />
-                  Book your next appointment online.
+                  Book your appointment online.
                 </p>
-                <button
-                  tabIndex={-1}
-                  className="hbtn-book mt-5 px-6 py-2.5 bg-amber-500 rounded-lg text-[13px] font-semibold text-white"
+                <div
+                  className="a2-cta mt-5 inline-block px-7 py-3 bg-amber-500 rounded-lg text-[15px] font-semibold text-white"
+                  style={{ opacity: 0, transform: "translateY(12px)" }}
                 >
                   Book Now
-                </button>
-              </div>
-
-              {/* Abstract service cards */}
-              <div className="flex gap-3 mt-auto">
-                <div className="h-14 flex-1 rounded-lg bg-[#F7F4F0] border border-stone-200/60" />
-                <div className="h-14 flex-1 rounded-lg bg-[#F7F4F0] border border-stone-200/60" />
-                <div className="h-14 flex-1 rounded-lg bg-[#F7F4F0] border border-stone-200/60" />
-              </div>
-            </div>
-
-            {/* â”â” Scene 2 â€” Booking Form â”â” */}
-            <div
-              ref={s2}
-              className="absolute inset-0 p-8 flex flex-col"
-              style={{ opacity: 0 }}
-            >
-              <p className="text-[20px] font-semibold text-stone-900 mb-5">
-                Book Your Appointment
-              </p>
-              <div className="space-y-3 flex-1">
-                {/* Name */}
-                <div>
-                  <span className="text-[10px] text-stone-400 uppercase tracking-wider font-mono">
-                    Name
-                  </span>
-                  <div className="mt-1 px-3 py-2.5 rounded-lg bg-[#F7F4F0] border border-stone-200/60 flex items-center">
-                    <span
-                      className="hv text-[15px] text-stone-800 leading-none"
-                      style={{ opacity: 0 }}
-                    >
-                      Sarah Martinez
-                    </span>
-                  </div>
-                </div>
-                {/* Date & Time */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <span className="text-[10px] text-stone-400 uppercase tracking-wider font-mono">
-                      Date
-                    </span>
-                    <div className="mt-1 px-3 py-2.5 rounded-lg bg-[#F7F4F0] border border-stone-200/60 flex items-center">
-                      <span
-                        className="hv text-[15px] text-stone-800 leading-none"
-                        style={{ opacity: 0 }}
-                      >
-                        Feb 20
-                      </span>
-                    </div>
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-stone-400 uppercase tracking-wider font-mono">
-                      Time
-                    </span>
-                    <div className="mt-1 px-3 py-2.5 rounded-lg bg-[#F7F4F0] border border-stone-200/60 flex items-center">
-                      <span
-                        className="hv text-[15px] text-stone-800 leading-none"
-                        style={{ opacity: 0 }}
-                      >
-                        2:00 PM
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                {/* Service */}
-                <div>
-                  <span className="text-[10px] text-stone-400 uppercase tracking-wider font-mono">
-                    Service
-                  </span>
-                  <div className="mt-1 px-3 py-2.5 rounded-lg bg-[#F7F4F0] border border-stone-200/60 flex items-center">
-                    <span
-                      className="hv text-[15px] text-stone-800 leading-none"
-                      style={{ opacity: 0 }}
-                    >
-                      Premium Session &middot; 60 min &middot; $150
-                    </span>
-                  </div>
                 </div>
               </div>
-              {/* Confirm button */}
-              <div className="mt-3 flex justify-center">
-                <button
-                  tabIndex={-1}
-                  className="hbtn-confirm px-8 py-3 bg-amber-500 rounded-lg text-[13px] font-semibold text-white"
-                >
-                  Confirm Booking
-                </button>
-              </div>
-            </div>
 
-            {/* â”â” Scene 3 â€” Confirmation â”â” */}
-            <div
-              ref={s3}
-              className="absolute inset-0 flex flex-col items-center justify-center p-8"
-              style={{ opacity: 0 }}
-            >
-              <svg viewBox="0 0 52 52" className="w-16 h-16 mb-5">
-                <circle
-                  className="hconfirm-circle"
-                  cx="26"
-                  cy="26"
-                  r="24"
-                  fill="none"
-                  stroke="#16A34A"
-                  strokeWidth="2.5"
-                  strokeDasharray="150.8"
-                  strokeDashoffset="150.8"
-                />
-                <path
-                  className="hconfirm-check"
-                  d="M15 27l7 7 15-15"
-                  fill="none"
-                  stroke="#16A34A"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeDasharray="35"
-                  strokeDashoffset="35"
-                />
-              </svg>
-              <p
-                className="hconfirm-text text-[26px] font-semibold text-stone-900"
-                style={{ opacity: 0 }}
-              >
-                Booking Confirmed!
-              </p>
+              {/* Service cards */}
               <div
-                className="hconfirm-details mt-4 space-y-1.5 text-center"
-                style={{ opacity: 0 }}
+                className="a2-cards flex gap-3 pt-6 mt-auto"
+                style={{ opacity: 0, transform: "translateY(20px)" }}
               >
-                <p className="text-[15px] text-stone-600">
-                  Sarah M. &middot; Feb 20 &middot; 2:00 PM
-                </p>
-                <p className="text-[14px] text-stone-500">
-                  Premium Session &middot; 60 min
-                </p>
-                <p className="text-[12px] text-stone-400 mt-3">
-                  &#9993; Confirmation sent to sarah@email.com
-                </p>
+                <div className="h-12 flex-1 rounded-lg bg-white border border-stone-200/60" />
+                <div className="h-12 flex-1 rounded-lg bg-white border border-stone-200/60" />
+                <div className="h-12 flex-1 rounded-lg bg-white border border-stone-200/60" />
               </div>
             </div>
 
-            {/* â”â” Scene 4 â€” Automation Cascade â”â” */}
+            {/* ===================================== */}
+            {/* Act 3: Get Better                     */}
+            {/* ===================================== */}
             <div
-              ref={s4}
-              className="absolute inset-0 p-8"
+              ref={act3}
+              className="absolute inset-0 px-8 pt-7 pb-5 flex flex-col bg-white"
               style={{ opacity: 0 }}
             >
-              <div className="flex items-center gap-1.5 mb-2">
-                <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                <p className="text-[13px] font-mono text-stone-400 uppercase tracking-wider">
-                  Behind the scenes
-                </p>
+              {/* Header */}
+              <div className="a3-label flex items-center gap-2" style={{ opacity: 0 }}>
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inset-0 rounded-full bg-emerald-400 opacity-75 animate-ping" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                </span>
+                <span className="text-[12px] font-mono text-stone-400 uppercase tracking-widest">
+                  Growth Dashboard &middot; Live
+                </span>
               </div>
-              <p className="text-[20px] font-semibold text-stone-900 mb-4">
-                Automation Running
+              <p
+                className="a3-title text-[28px] font-semibold text-stone-900 mt-2"
+                style={{ opacity: 0, transform: "translateY(8px)" }}
+              >
+                Your Results
               </p>
-              <div className="space-y-2.5">
-                {(
-                  [
-                    {
-                      Icon: Mail,
-                      text: "Confirmation email sent",
-                      detail: "sarah@email.com",
-                    },
-                    {
-                      Icon: FileText,
-                      text: "Invoice generated",
-                      detail: "$150.00",
-                    },
-                    {
-                      Icon: Calendar,
-                      text: "Google Calendar updated",
-                      detail: "Feb 20, 2:00 PM",
-                    },
-                    {
-                      Icon: Star,
-                      text: "Follow-up scheduled",
-                      detail: "Review request \u00B7 3 days",
-                    },
-                  ] as const
-                ).map((task, i) => (
-                  <div
-                    key={i}
-                    className="htask flex items-center gap-3 px-4 py-3 rounded-lg bg-[#F7F4F0] border border-stone-200/60"
-                    style={{ opacity: 0 }}
-                  >
-                    <div className="flex-shrink-0 h-8 w-8 rounded-lg bg-green-500/10 flex items-center justify-center">
-                      <svg viewBox="0 0 16 16" className="w-4 h-4">
-                        <path
-                          className="htask-check"
-                          d="M3 8l4 4 6-7"
-                          fill="none"
-                          stroke="#16A34A"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeDasharray="20"
-                          strokeDashoffset="20"
-                        />
-                      </svg>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-[15px] font-semibold text-stone-800">
-                        {task.text}
-                      </p>
-                    </div>
-                    <task.Icon className="w-4.5 h-4.5 text-stone-400 flex-shrink-0" />
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            {/* â”â” Scene 5 â€” Results â”â” */}
-            <div
-              ref={s5}
-              className="absolute inset-0 p-8 flex flex-col"
-              style={{ opacity: 0 }}
-            >
-              {/* Header row */}
-              <div className="flex items-center justify-between mb-5">
-                <div>
-                  <p className="text-[13px] font-mono text-stone-400 uppercase tracking-wider">
-                    Monthly Overview
-                  </p>
-                  <p className="text-[24px] font-semibold text-stone-900 mt-0.5">
-                    Your Results
-                  </p>
-                </div>
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-600/10 border border-green-600/20">
-                  <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
-                  <span className="text-[10px] font-mono text-green-600">
-                    Live
-                  </span>
-                </div>
+              {/* Chart area */}
+              <div className="flex-1 mt-4 relative">
+                <svg
+                  viewBox="0 0 570 185"
+                  className="w-full h-full"
+                  preserveAspectRatio="none"
+                  style={{ overflow: "visible" }}
+                >
+                  {/* Grid lines */}
+                  <line x1="0" y1="45" x2="560" y2="45" stroke="#F5F5F4" strokeWidth="1" />
+                  <line x1="0" y1="90" x2="560" y2="90" stroke="#F5F5F4" strokeWidth="1" />
+                  <line x1="0" y1="135" x2="560" y2="135" stroke="#F5F5F4" strokeWidth="1" />
+
+                  {/* Gradient fill under the line */}
+                  <path
+                    className="a3-chart-fill"
+                    d="M 0 160 C 40 155, 80 148, 120 135 S 200 110, 260 95 S 360 55, 420 40 S 500 22, 555 14 V 185 H 0 Z"
+                    fill="url(#chartGradient)"
+                    style={{ opacity: 0 }}
+                  />
+
+                  {/* Growth line */}
+                  <path
+                    className="a3-chart-line"
+                    d="M 0 160 C 40 155, 80 148, 120 135 S 200 110, 260 95 S 360 55, 420 40 S 500 22, 555 14"
+                    fill="none"
+                    stroke="#B45309"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeDasharray="600"
+                    strokeDashoffset="600"
+                  />
+
+                  {/* Dot at the end of the line */}
+                  <circle
+                    className="a3-chart-line"
+                    cx="555"
+                    cy="14"
+                    r="5"
+                    fill="#B45309"
+                    strokeDasharray="600"
+                    strokeDashoffset="600"
+                  />
+
+                  <defs>
+                    <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#B45309" />
+                      <stop offset="100%" stopColor="#B45309" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
               </div>
 
               {/* Stat cards */}
-              <div className="flex-1 grid grid-cols-3 gap-3">
-                {/* Lighthouse */}
-                <div className="rounded-lg bg-[#F7F4F0] border border-stone-200/60 p-4 flex flex-col items-center justify-center">
-                  <div className="relative h-20 w-20 mb-2">
-                    <svg
-                      viewBox="0 0 36 36"
-                      className="h-full w-full -rotate-90"
-                    >
-                      <circle
-                        cx="18"
-                        cy="18"
-                        r="15.5"
-                        fill="none"
-                        stroke="rgba(0,0,0,0.06)"
-                        strokeWidth="2.5"
-                      />
-                      <circle
-                        className="hstat-ring"
-                        cx="18"
-                        cy="18"
-                        r="15.5"
-                        fill="none"
-                        stroke="#16A34A"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeDasharray="97.4"
-                        strokeDashoffset="97.4"
-                      />
-                    </svg>
-                    <span
-                      ref={statScore}
-                      className="absolute inset-0 flex items-center justify-center text-[20px] font-bold text-stone-900"
-                    >
-                      0
-                    </span>
-                  </div>
-                  <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider">
-                    Lighthouse
-                  </p>
-                </div>
-                {/* Leads */}
-                <div className="rounded-lg bg-[#F7F4F0] border border-stone-200/60 p-4 flex flex-col items-center justify-center">
-                  <p className="text-[38px] font-semibold text-stone-900 leading-none mb-1.5">
+              <div className="grid grid-cols-3 gap-3 mt-2">
+                <div
+                  className="a3-stat rounded-xl bg-stone-50 border border-stone-200/60 px-3 py-2.5 text-center"
+                  style={{ opacity: 0, transform: "translateY(16px)" }}
+                >
+                  <p className="text-[30px] font-bold text-stone-900 leading-none">
                     <span ref={statLeads}>0</span>
                   </p>
-                  <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider">
+                  <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider mt-1">
                     New Leads
                   </p>
                 </div>
-                {/* Conversion rate */}
-                <div className="rounded-lg bg-[#F7F4F0] border border-stone-200/60 p-4 flex flex-col items-center justify-center">
-                  <p className="text-[38px] font-semibold text-green-600 leading-none mb-1.5">
+                <div
+                  className="a3-stat rounded-xl bg-stone-50 border border-stone-200/60 px-3 py-2.5 text-center"
+                  style={{ opacity: 0, transform: "translateY(16px)" }}
+                >
+                  <p className="text-[30px] font-bold text-emerald-600 leading-none">
                     <span ref={statConv}>0%</span>
                   </p>
-                  <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider">
+                  <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider mt-1">
                     Conv. Rate
                   </p>
                 </div>
-              </div>
-
-              {/* Footer tagline */}
-              <div className="mt-3 pt-3 border-t border-stone-200/60 flex items-center justify-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
-                <p className="text-[11px] font-mono text-stone-400 uppercase tracking-wider">
-                  All automated &middot; Zero busywork
-                </p>
+                <div
+                  className="a3-stat rounded-xl bg-stone-50 border border-stone-200/60 px-3 py-2.5 text-center"
+                  style={{ opacity: 0, transform: "translateY(16px)" }}
+                >
+                  <div className="flex items-center justify-center gap-1">
+                    <span className="text-amber-400 text-[18px]">&#9733;</span>
+                    <p className="text-[30px] font-bold text-stone-900 leading-none">4.9</p>
+                  </div>
+                  <p className="text-[11px] text-stone-400 font-mono uppercase tracking-wider mt-1">
+                    Rating
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* â”â” Cursor â”â” */}
-            <div
-              ref={cursorRef}
-              className="absolute z-30 pointer-events-none"
-              style={{ opacity: 0, left: "60%", top: "20%" }}
-            >
-              <svg width="18" height="22" viewBox="0 0 16 20" fill="none">
-                <path
-                  d="M1 1v14.5l4-4 3.5 7 2-1L7 10.5l5.5 0z"
-                  fill="#1C1917"
-                  stroke="#D6D3D1"
-                  strokeWidth="0.5"
-                />
-              </svg>
-            </div>
-
-            {/* â”â” Debug overlay â”â” */}
+            {/* Debug overlay */}
             {isDebug && (
               <div className="absolute inset-x-0 bottom-0 z-40 flex items-center justify-between px-3 py-2 bg-black/80 backdrop-blur-sm border-t border-white/10">
                 <button
@@ -875,11 +624,11 @@ export default function HeroDemo() {
                   Prev
                 </button>
                 <span className="text-[10px] font-mono text-warm-gold">
-                  {debugScene + 1}/5 â€” {SCENE_LABELS[debugScene]}
+                  {debugScene + 1}/3 &mdash; {SCENE_LABELS[debugScene]}
                 </span>
                 <button
                   onClick={nextScene}
-                  disabled={debugScene === 4}
+                  disabled={debugScene === 2}
                   className="flex items-center gap-1 px-2 py-1 rounded text-[10px] font-mono text-white bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 >
                   Next
@@ -888,22 +637,21 @@ export default function HeroDemo() {
               </div>
             )}
           </div>
-          {/* end canonical inner */}
         </div>
       </div>
 
-      {/* Pause/Play control â€” WCAG 2.2.2 compliance */}
+      {/* Pause/Play control */}
       {!isDebug && (
         <button
           onClick={() => setIsPaused((p) => !p)}
-          className="absolute top-0 right-0 z-50 p-2 group"
+          className="absolute top-2 right-2 z-50 group"
           aria-label={isPaused ? "Play animation" : "Pause animation"}
         >
-          <span className="flex items-center justify-center w-7 h-7 rounded-md bg-white/70 backdrop-blur-md border border-stone-200 text-stone-400 group-hover:text-stone-700 group-hover:bg-white/90 transition-all">
+          <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white/80 backdrop-blur-md border border-stone-200/60 text-stone-400 group-hover:text-stone-600 group-hover:bg-white transition-all shadow-sm">
             {isPaused ? (
               <svg
-                width="12"
-                height="12"
+                width="10"
+                height="10"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
@@ -912,8 +660,8 @@ export default function HeroDemo() {
               </svg>
             ) : (
               <svg
-                width="12"
-                height="12"
+                width="10"
+                height="10"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"

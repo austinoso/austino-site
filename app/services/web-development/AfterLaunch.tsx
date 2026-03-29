@@ -33,7 +33,7 @@ export default function AfterLaunch() {
         <div className="grid sm:grid-cols-3 gap-6 sm:gap-8">
           {points.map((point, i) => (
             <div key={point.title} className="relative pl-8 sm:pl-0">
-              <span className="absolute left-0 top-0 sm:static text-2xl sm:text-3xl font-display font-bold text-warm-gold/30 leading-none sm:mb-3 block">
+              <span className="absolute left-0 top-0 sm:static text-2xl sm:text-3xl font-display font-bold text-[#004D3A]/30 leading-none sm:mb-3 block">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="text-base font-semibold text-warm-white mb-1.5">{point.title}</h3>
@@ -47,7 +47,7 @@ export default function AfterLaunch() {
       <div className="border-t border-stone-200 px-8 sm:px-10 md:px-14 lg:px-20 py-8 sm:py-10">
         <Link
           href="/services/growth-strategy"
-          className="inline-flex items-center gap-2 text-sm text-warm-gold hover:text-warm-white transition-colors duration-300"
+          className="inline-flex items-center gap-2 text-sm text-[#004D3A] hover:text-[#003328] transition-colors duration-300"
         >
           Most clients move into Growth Strategy after launch &mdash; here&apos;s what that looks
           like

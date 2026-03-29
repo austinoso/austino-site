@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="grid lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-start pb-0">
       <div data-hero-copy className="lg:col-span-6 space-y-6 lg:py-10">
         <h1 className="text-4xl sm:text-5xl md:text-[3.25rem] font-bold font-display text-warm-white leading-[1.1] tracking-tight text-balance">
-          Your website could be closing <span className="text-gradient-gold">more deals.</span>
+          Your website could be closing <span className="text-[#004D3A]">more deals.</span>
         </h1>
         <p className="text-base sm:text-lg text-stone-600 leading-relaxed text-balance">
           Your customers want to book appointments, place orders, and get answers without picking up
@@ -85,8 +85,8 @@ export default function Hero() {
               </p>
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-md bg-warm-gold/10 border border-warm-gold/20 flex items-center justify-center">
-                    <Search className="w-2.5 h-2.5 text-warm-gold" aria-hidden="true" />
+                  <div className="w-5 h-5 rounded-md bg-[#004D3A]/10 border border-[#004D3A]/20 flex items-center justify-center">
+                    <Search className="w-2.5 h-2.5 text-[#004D3A]" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-[9px] font-medium text-warm-white leading-tight">SEO</p>
@@ -94,8 +94,8 @@ export default function Hero() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-md bg-warm-gold/10 border border-warm-gold/20 flex items-center justify-center">
-                    <Smartphone className="w-2.5 h-2.5 text-warm-gold" aria-hidden="true" />
+                  <div className="w-5 h-5 rounded-md bg-[#004D3A]/10 border border-[#004D3A]/20 flex items-center justify-center">
+                    <Smartphone className="w-2.5 h-2.5 text-[#004D3A]" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-[9px] font-medium text-warm-white leading-tight">Mobile</p>
@@ -109,7 +109,7 @@ export default function Hero() {
             <div
               className="relative rounded-t-[2.5rem] border-[3px] border-b-0 border-stone-300 bg-[#0C0B09] overflow-hidden"
               style={{
-                boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+                boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
               }}
             >
               {/* Dynamic Island */}
@@ -143,7 +143,7 @@ export default function Hero() {
                     Professional service with online booking &mdash; available 24/7.
                   </p>
                   <div className="flex items-center gap-2">
-                    <span className="px-3 py-1.5 bg-amber-400 text-warm-bg text-[9px] font-bold rounded-md">
+                    <span className="px-3 py-1.5 bg-[#B84C3A] text-white text-[9px] font-bold rounded-md">
                       Book Now
                     </span>
                     <span className="px-3 py-1.5 border border-white/[0.1] text-[9px] text-white rounded-md">
@@ -192,7 +192,7 @@ export default function Hero() {
                       <p className="text-[9px] font-medium text-white">Deep Tissue Massage</p>
                       <p className="text-[8px] text-stone-500">60 min · $85</p>
                     </div>
-                    <span className="px-2 py-1 bg-amber-500/15 text-[8px] font-semibold text-amber-300 rounded">
+                    <span className="px-2 py-1 bg-[#004D3A]/15 text-[8px] font-semibold text-emerald-300 rounded">
                       Book
                     </span>
                   </div>
@@ -201,7 +201,7 @@ export default function Hero() {
                       <p className="text-[9px] font-medium text-white">Sports Recovery</p>
                       <p className="text-[8px] text-stone-500">90 min · $120</p>
                     </div>
-                    <span className="px-2 py-1 bg-amber-500/15 text-[8px] font-semibold text-amber-300 rounded">
+                    <span className="px-2 py-1 bg-[#004D3A]/15 text-[8px] font-semibold text-emerald-300 rounded">
                       Book
                     </span>
                   </div>

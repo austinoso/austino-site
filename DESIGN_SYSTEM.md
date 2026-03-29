@@ -1,6 +1,6 @@
-﻿# loudbark.dev — Design System
+# loudbark.dev — Design System
 
-Living reference for visual consistency across all pages. Updated for the **warm light theme** migration (June 2025). **Every new page or component must follow these patterns.**
+Living reference for visual consistency across all pages. Updated July 2025 for the **green accent migration**. **Every new page or component must follow these patterns.**
 
 ---
 
@@ -8,8 +8,10 @@ Living reference for visual consistency across all pages. Updated for the **warm
 
 - **Business:** Solo web development & automation agency serving Central Valley small businesses
 - **Audience:** Small business owners (30–60), non-technical, evaluating local web partners — trust, competence, and clarity matter more than flashy tech aesthetics
-- **Design direction:** "Warm Studio" — light, warm, approachable. Cream paper base with rich amber accents and dark warm text. Think refined stationery store, not sterile SaaS white. Typography-driven hierarchy, generous whitespace, restraint with color. The warmth speaks directly to local business owners who need to feel trust and competence, not intimidation.
-- **Previous direction (deprecated):** Dark UI with gold accents ("high-end whiskey bar") — this spoke to dev portfolios/tech startups, not the actual audience.
+- **Design direction:** "Warm Studio" — light, warm, approachable. Cream paper base with deep forest green accents and dark warm text. Typography-driven hierarchy, generous whitespace, restrained color. Green signals growth and trust; the warm cream base keeps it from feeling clinical.
+- **Previous directions (deprecated):**
+  - Dark UI with gold accents ("high-end whiskey bar") — spoke to dev portfolios, not the actual audience.
+  - Amber/warm-gold accent system — replaced by `#004D3A` forest green in July 2025.
 
 ---
 
@@ -23,97 +25,102 @@ Living reference for visual consistency across all pages. Updated for the **warm
 | `warm-surface`       | `#FFFFFF` | Card/elevated backgrounds — white on cream             |
 | `warm-surface-hover` | `#F5F4F0` | Active/hover card fills                                |
 | `warm-border`        | `#E7E5E4` | Structural borders (rarely used directly)              |
-| `warm-gold`          | `#B45309` | Primary accent — labels, links, highlights (amber-700) |
-| `warm-gold-bright`   | `#D97706` | CTA gradient start (amber-600)                         |
-| `warm-gold-dim`      | `#92400E` | Muted gold for gradient fallbacks (amber-800)          |
 | `warm-white`         | `#1C1917` | Headings, high-emphasis text (stone-900)               |
 | `warm-green`         | `#16A34A` | Success/live indicators (green-600)                    |
 | `warm-green-dim`     | `#15803D` | Muted success (green-700)                              |
 
+> **Note:** `warm-gold` (`#B45309`) and related gold tokens still exist in tailwind config but are deprecated for homepage/component use. They remain for backward compatibility with blog prose links and some legacy patterns.
+
 ### Brand Color Identity
 
-The brand palette is a **warm-to-cool analogous sweep**: amber (#B45309) → rose (#DB2777) → violet (#7C3AED), covering ~130° of the color wheel. Visually it reads like a sunset gradient — warm colors leading into cool creates a sense of _movement and progression_, which narratively fits a business that takes clients from "stuck" to "growing."
+The accent palette is built on **forest green** (`#004D3A`) as the primary brand color, paired with **brick red** (`#B84C3A`) for call-to-action elements. This creates a complementary warm + cool tension — green for trust and growth, brick red for urgency and action.
 
-**Why these colors work (color theory rationale):**
+**Color roles:**
 
-- **Archetype fit:** Bridges **Creator** (bold, unconventional combos) and **Caregiver** (warm earth tones, trust). Amber is warm enough to feel approachable to a Central Valley business owner, distinctive enough to not look like every blue-default agency.
-- **Blue Ocean position:** Most web agencies use blue (trust/corporate), dark + neon green (tech-bro), or black + white (minimalist). Amber + cream is **uncontested territory** in the web services space. Nobody owns this color position.
-- **Harmony system:** Warm-to-cool analogous sweep. Not a textbook complementary pair — more organic and natural-feeling than mechanical color theory.
-- **60-30-10 execution:** Cream surfaces (60%) → stone text layers (30%) → amber/rose/violet accents (10%).
+| Role | Value | Where |
+|------|-------|-------|
+| **Primary accent** | `#004D3A` | Section labels, heading accent spans, text links, icon tints, blockquote borders, team card titles |
+| **Primary accent hover** | `#003328` | Hover state for green text links |
+| **CTA / action** | `#B84C3A` | PrimaryButton background, hero CTA, mid-page CTA |
+| **CTA shadow** | `#B84C3A/20` | Button shadow (`shadow-[#B84C3A]/20`) |
+| **Automation link accent** | `#E07A5F` | Coral link on dark green bg (automation section only) |
 
-**Two-tier gradient system:**
+### Homepage Section Background Ramp
 
-| Tier                 | Gradient                | Values                                               | When to use                                                             |
-| -------------------- | ----------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------- |
-| **Brand signature**  | Amber → Rose (→ Violet) | `#B45309 → #DB2777` or `#B45309 → #DB2777 → #7C3AED` | Hero headlines, homepage CTA, brand-defining moments — max 1-2 per page |
-| **Section emphasis** | Gold                    | `#92400E → #B45309`                                  | H2 accent spans, section-level highlights — used more freely            |
+The homepage uses a deliberate **green temperature ramp** — backgrounds warm from neutral toward green as the user scrolls:
 
-The brand signature gradient is the equivalent of Stripe's gradient or Linear's purple-to-blue — a deliberate visual mark, not decoration. Use it sparingly so it retains impact.
+| Section | Background | Notes |
+|---------|-----------|-------|
+| Hero | `bg-[#004D3A]` | Dark green — immersive, text is white/emerald tones |
+| 01 Website | `bg-white` | Clean, lightest surface |
+| 02 Visibility | `bg-[#F2F7F5]` | Faint green tint — barely perceptible warmth |
+| Mid CTA | `bg-[#C5E8DC]` | Light mint — clear green presence |
+| 03 Automation | `bg-[#004D3A]` | Full dark green — mirroring the hero |
+| Work | `bg-[#FAF5F2]` | Warm cream — deliberate break from green |
+| About | `bg-warm-bg` | Default cream |
+| CTA (footer) | `bg-warm-bg` | Default cream |
 
-### Secondary Accent Colors (brand gradient extended)
+### Accent Panel System (Service Section Visuals)
 
-| Token          | Value                       | Usage                                                                                               |
-| -------------- | --------------------------- | --------------------------------------------------------------------------------------------------- |
-| `cyber-violet` | `#A78BFA` (rgb 167,139,250) | Brand gradient cool end, ambient radial gradients (very subtle), Solutions/WebDev subsection accent |
-| `cyber-rose`   | `#F472B6` (rgb 244,114,182) | Brand gradient midpoint, ambient radial gradients, Solutions/Automation subsection accent           |
+Each service section visual (screenshot, SERP mockup) sits on a decorative **green accent panel** that peeks out behind it:
+
+| Panel element | Value | Notes |
+|---------------|-------|-------|
+| Panel gradient | `linear-gradient(155deg, #D4EAE2 0%, #C2DED5 100%)` | Soft green wash |
+| Hard offset shadow | `#A8CCBF` | Visible block shadow |
+| Left-aligned mockup (Section 01) | `boxShadow: '-8px 10px 0px 0px #A8CCBF'` | Shadow falls left |
+| Right-aligned mockup (Section 02) | `boxShadow: '8px 10px 0px 0px #A8CCBF'` | Shadow falls right |
+| Automation card shadow | `boxShadow: '12px 12px 0px 0px #00382A, 0 8px 32px rgba(0,0,0,0.25)'` | Dark green shadow on dark section |
 
 ### Text Color Hierarchy
 
-| Role                | Class                | Hex                 | Usage                                        |
-| ------------------- | -------------------- | ------------------- | -------------------------------------------- |
-| Primary (headings)  | `text-warm-white`    | `#1C1917`           | All h1, h2, h3, h4, card titles, emphasis    |
-| Primary body        | `text-stone-600`     | `#57534E`           | Main paragraphs directly under headings      |
-| Secondary body      | `text-stone-500`     | `#78716C`           | Descriptions, stat labels, card body text    |
-| Tertiary/meta       | `text-stone-400`     | `#A8A29E`           | Eyebrow sources, chevron icons, timestamps   |
-| Accent              | `text-warm-gold`     | `#B45309`           | Section labels, signal stats, highlight text |
-| Accent (gradient)   | `text-gradient-gold` | `#92400E → #B45309` | Gradient highlight spans in h1/h2            |
-| CTA text on gold bg | `text-white`         | `#FFFFFF`           | Button text on amber gradient buttons        |
+| Role | Class / Value | Hex | Usage |
+|------|---------------|-----|-------|
+| Primary (headings) | `text-warm-white` | `#1C1917` | All h1–h4, card titles, emphasis |
+| Accent heading span | `text-[#004D3A]` | `#004D3A` | Colored word in section headings |
+| Primary body | `text-stone-600` | `#57534E` | Main paragraphs directly under headings |
+| Secondary body | `text-stone-500` | `#78716C` | Descriptions, stat labels, card body text |
+| Tertiary/meta | `text-stone-400` | `#A8A29E` | Eyebrow sources, timestamps, mono labels |
+| Accent label | `text-[#004D3A]` | `#004D3A` | Section labels (`.section-label`), signal stats |
+| Dark bg — primary | `text-white` | `#FFFFFF` | Headings on `#004D3A` backgrounds |
+| Dark bg — body | `text-emerald-100/75` | — | Body text on `#004D3A` backgrounds |
+| Dark bg — accent link | `text-[#E07A5F]` | `#E07A5F` | Link on dark green (automation section) |
+| Dark bg — meta | `text-[#114232]/50` | — | Mono meta text on green backgrounds |
 
 ### Surface & Border Colors
 
-| Value                         | Usage                                                                 |
-| ----------------------------- | --------------------------------------------------------------------- |
-| `bg-warm-bg` / `#FAF9F6`      | Page background                                                       |
-| `bg-white`                    | Cards, elevated surfaces (white on cream creates subtle lift)         |
-| `bg-stone-50`                 | Hover fills, skeleton backgrounds, subtle surface tint                |
-| `bg-stone-100`                | Stronger hover fills, secondary surfaces                              |
-| `border-stone-200`            | **Primary border** — section dividers, card edges, grid cells, inputs |
-| `border-stone-300`            | Hover border state, stronger dividers                                 |
-| `border-warm-gold/20` – `/30` | Gold-accent card borders, highlight hover states                      |
-| `border-warm-gold/25`         | Gold left accent bars (editorial lists)                               |
+| Value | Usage |
+|-------|-------|
+| `bg-warm-bg` / `#FAF9F6` | Default page background |
+| `bg-white` | Cards, elevated surfaces, Section 01 background |
+| `bg-[#F2F7F5]` | Section 02 (Visibility) background |
+| `bg-[#C5E8DC]` | Mid-page CTA background |
+| `bg-[#004D3A]` | Hero, Section 03 (Automation) |
+| `bg-[#FAF5F2]` | Work section — warm cream variant |
+| `bg-stone-50` | Hover fills, inner card backgrounds |
+| `border-stone-200` | **Primary border** — section dividers, card edges, inputs |
+| `border-stone-300` | Hover border state |
+| `border-[#004D3A]/25` | Green-tinted button borders (outline CTA) |
+| `border-[#004D3A]/40` | Blockquote left bars |
+| `border-[#A8CCBF]` | Mid CTA top border |
+| `border-white/10` | Section borders on dark green backgrounds |
 
 #### Dark Mockup Surfaces (kept dark for contrast)
 
-| Value                 | Usage                                                  |
-| --------------------- | ------------------------------------------------------ |
-| `bg-[#0C0B09]`        | Browser mockup frames, phone frames                    |
-| `bg-[#0A0A0E]`        | Dashboard mockup frames                                |
-| `bg-[#0D0F13]`        | Mockup chrome bars, dashboard headers                  |
-| `border-white/[0.06]` | Inside dark mockups ONLY — never on page-level content |
-| `border-white/[0.08]` | Dark mockup frames                                     |
+| Value | Usage |
+|-------|-------|
+| `bg-[#0C0B09]` | Browser mockup frames, phone frames |
+| `bg-[#0A0A0E]` | Dashboard mockup frames |
+| `border-white/[0.06]` | Inside dark mockups ONLY |
+| `border-white/[0.08]` | Dark mockup frames |
 
 ### Color Rules
 
-- **60-30-10:** Cream surfaces (60%) → stone text layers (30%) → amber accent (10%)
-- **Amber is for emphasis** — section labels, stat callouts, heading gradient spans, CTAs. Never for body paragraphs.
-- **Rose and violet are brand colors** — they appear in the brand signature gradient (hero headlines, CTA) and in radial gradients at very low opacity (0.01–0.04). Also used in their specific Solutions subsection contexts.
-- Radial gradients use the original `rgba(212,168,83,...)` for gold and `rgba(167,139,250,...)` for violet but at **~30% of dark-theme opacity** (gold ≤0.04, violet ≤0.03).
-- **Dark mockups sit as embedded "islands"** on the light page — their dark bg creates striking contrast that makes screenshots and demos pop.
-
-### Brand Color Expansion Opportunities
-
-Currently, rose and violet only appear in the hero gradient and very low-opacity radial washes. The audit identified tasteful places to bring more brand color in without diluting the amber-dominant hierarchy:
-
-| Opportunity                             | Color                 | How                                                                                                                                                              |
-| --------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Service page accent differentiation     | Rose / Violet         | Each service page could use a tinted accent (rose for automation, violet for web dev) on section dividers, icon tints, or card borders — subtle, ~10-15% opacity |
-| Testimonial/review highlights           | Rose                  | Subtle rose tint behind a pull-quote or star rating row. Reads warm and positive without competing with gold CTAs                                                |
-| "Before → After" or comparison sections | Rose → Amber gradient | A horizontal bar or timeline connecting the "pain" (rose) to the "solution" (amber) — reinforces the brand sweep narratively                                     |
-| Footer or secondary CTA band            | Violet                | A violet-tinted ambient gradient at very low opacity behind the pre-footer CTA — signals "premium" without competing with the primary amber CTA                  |
-| Interactive/hover micro-accents         | Rose                  | On dark mockup elements: hover states on dashboard components, glowing dot indicators. Dark bg makes rose pop safely                                             |
-| Navigation active indicator             | Rose → Amber          | Current page indicator could use a tiny gradient bar instead of a plain amber dot — adds brand identity to a high-visibility element                             |
-
-**Rule: Never let rose or violet overpower amber.** Amber is the primary brand signal. Rose and violet are supporting temperature shifts. If you squint at the page, it should still read "warm amber on cream" — the other colors are felt more than noticed.
+- **60-30-10:** Cream surfaces (60%) → stone text layers (30%) → green + brick red accents (10%)
+- **Green is for emphasis and trust** — section labels, heading accent words, text links, icon tints, blockquote borders. Never for body paragraphs.
+- **Brick red is for action only** — PrimaryButton, hero CTA. One CTA color, used consistently.
+- **Dark mockups sit as embedded "islands"** on the light page — their dark bg creates contrast that makes screenshots pop.
+- Radial gradient washes on homepage have been **removed** — they were imperceptible and added code complexity for zero visual payoff.
 
 ---
 
@@ -121,152 +128,143 @@ Currently, rose and violet only appear in the hero gradient and very low-opacity
 
 ### Fonts
 
-| Role    | Font              | Class          | CSS Variable     | Usage                                      |
-| ------- | ----------------- | -------------- | ---------------- | ------------------------------------------ |
-| Body    | Inter             | `font-sans`    | `--font-inter`   | Default body text, navigation              |
+| Role | Font | Class | CSS Variable | Usage |
+|------|------|-------|-------------|-------|
+| Body | Inter | `font-sans` | `--font-inter` | Default body text, navigation |
 | Display | Plus Jakarta Sans | `font-display` | `--font-jakarta` | All headings, section titles, stat numbers |
-| Mono    | System monospace  | `font-mono`    | —                | Labels, eyebrows, stat values, code        |
+| Mono | System monospace | `font-mono` | — | Labels, eyebrows, stat values, code |
 
 Loaded via `next/font/google` in `app/layout.tsx`.
 
 ### Heading Scale
 
-| Element                          | Classes                                                                                                                       | Context                                           |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| **H1** (hero)                    | `text-4xl sm:text-5xl md:text-[3.5rem] lg:text-[4.5rem] font-bold font-display text-warm-white leading-[1.06] tracking-tight` | Homepage hero (service heroes may be smaller)     |
-| **H2** (section) — homepage      | `text-3xl sm:text-4xl md:text-5xl font-bold font-display text-warm-white leading-[1.1] tracking-tight`                        | PainPoints, Solutions, Work, About                |
-| **H2** (section) — service pages | `text-3xl sm:text-4xl md:text-[2.75rem] font-bold font-display text-stone-900 leading-[1.2] tracking-tight text-balance`      | All service page sections                         |
-| **H2** (CTA — large)             | Add `lg:text-6xl` to homepage H2 scale                                                                                        | Homepage CTA section only (dark island)           |
-| **H3** (subsection)              | `text-2xl sm:text-3xl font-bold font-display text-warm-white leading-[1.2] tracking-tight text-balance`                       | Tools section, SEO section, Solutions subsections |
-| **H4** / `<dt>`                  | `text-base font-semibold text-warm-white mb-2`                                                                                | Card titles, definition terms                     |
+| Element | Classes | Context |
+|---------|---------|---------|
+| **H1** (hero) | `font-display tracking-tight` + `clamp(2.2rem, 5.6vw, 4.7rem)` line-height `0.99` | Homepage hero — fluid sizing |
+| **H2** (service section) | `font-display text-[2.2rem] sm:text-[2.7rem] font-bold leading-[1.04] tracking-tight text-warm-white` | Service pillar sections (01, 02, 03) |
+| **H2** (standalone section) | `font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.1] tracking-tight` | About, CTA sections |
+| **H2** (centered) | `font-display text-3xl sm:text-4xl md:text-5xl font-bold text-warm-white leading-[1.1] tracking-tight` | Work section |
+| **H3** (subsection) | `font-display text-[1.95rem] sm:text-[2.35rem] font-bold leading-[1.02] tracking-tight` | Automation copy (white text on dark) |
+| **H3** (project title) | `font-display text-2xl sm:text-3xl font-semibold text-warm-white leading-snug` | Work project title below image |
+| **H4** / `<dt>` | `text-base font-semibold text-warm-white mb-2` | Card titles, definition terms |
 
 ### Body Text Scale
 
-| Role                    | Classes                                               | Where used                                                |
-| ----------------------- | ----------------------------------------------------- | --------------------------------------------------------- |
-| Primary body (under h2) | `text-base sm:text-lg text-stone-600 leading-relaxed` | Hero body, FinalCTA body, section intros                  |
-| Secondary body          | `text-[15px] text-stone-500 leading-relaxed`          | Card descriptions, stat labels (desktop), FAQ reassurance |
-| Card/list body          | `text-sm text-stone-500 leading-relaxed`              | Tool cards, FAQ answers, feature descriptions             |
-| Mobile stat label       | `text-[13px] text-stone-500 leading-relaxed`          | Staggered mobile stat layout                              |
-| Caption/meta            | `text-xs text-stone-400` or `text-stone-500`          | Source links, timestamps, fine print                      |
+| Role | Classes | Where used |
+|------|---------|-----------|
+| Primary body (under h2) | `text-base sm:text-lg text-stone-600 leading-relaxed` | About body, CTA body, section intros |
+| Body (service section) | `text-[16px] leading-relaxed text-stone-600` | Under service headings |
+| Secondary body | `text-[15px] text-stone-500 leading-relaxed` | Card descriptions, pull quotes |
+| Card/list body | `text-[13px] leading-relaxed text-stone-500` | Tool cards, small descriptions |
+| Caption/meta | `text-xs text-stone-400` or `text-stone-500` | Timestamps, fine print |
 
 ### Mono Text
 
-| Usage            | Classes                                                                       |
-| ---------------- | ----------------------------------------------------------------------------- |
-| Section eyebrows | `text-[11px] font-mono text-stone-500 uppercase tracking-wider`               |
-| Stat annotations | `text-[10px] font-mono text-warm-gold uppercase tracking-[0.15em]`            |
-| Source links     | `text-[11px] text-stone-500 hover:text-stone-700 transition-colors font-mono` |
-
-### Text Gradient Utilities (globals.css)
-
-| Class                 | Gradient                              | Tier                | Usage                                                      |
-| --------------------- | ------------------------------------- | ------------------- | ---------------------------------------------------------- |
-| `text-gradient-brand` | `135deg, #B45309 → #DB2777`           | **Brand signature** | Hero H1 accent span — the primary brand mark               |
-| `text-gradient`       | `135deg, #B45309 → #DB2777 → #7C3AED` | **Brand signature** | Homepage CTA, multi-color brand moments — max 1-2 per page |
-| `text-gradient-gold`  | `135deg, #92400E → #B45309`           | Section emphasis    | H2 accent spans, section-level highlights                  |
-| `text-gradient-green` | `135deg, #15803D → #16A34A → #22C55E` | Contextual          | Success/growth callouts                                    |
-
-**Dark-section overrides:** Inside `.dark-section` (CTA), gradients revert to bright values (`#FBBF24→#F472B6→#A78BFA` for multi, `#F59E0B→#FDE68A` for gold).
+| Usage | Classes |
+|-------|---------|
+| Section eyebrows | `text-[11px] font-mono text-stone-400 uppercase tracking-widest` |
+| Stat annotations | `text-[10px] font-mono text-[#004D3A] uppercase tracking-[0.2em]` |
+| CTA reassurance | `text-[11px] font-mono text-stone-500` |
 
 ### Orphan Prevention
 
-Use `\u00A0` (non-breaking space) or `&nbsp;` between the last 2–3 words of any line that risks orphaning a single word. Applied in stat labels, body text, FAQ answers.
+Use `\u00A0` (non-breaking space) or `&nbsp;` between the last 2–3 words of any line that risks orphaning a single word.
 
 ---
 
 ## 4. Layout
 
-### Page Frame
+### Site Frame
 
 ```html
-<div className="page-frame">{/* sections */}</div>
+<div className="site-frame">{/* sections */}</div>
 ```
 
-- `max-w-[1200px] mx-auto` with `::before`/`::after` pseudo-element vertical rails (1px, `rgba(0,0,0,0.06)`)
+- `max-w-[1600px] mx-auto` with `::before`/`::after` pseudo-element vertical rails (1px, `rgba(0,0,0,0.06)`)
 - Navigation sits **above** the frame (fixed, full-width)
-- Footer sits **inside** the frame
+- Footer sits **outside** the frame
+
+> **Note:** The old `page-frame` (`max-w-[1200px]`) still exists in CSS but is no longer used on the homepage. The homepage uses `site-frame` at 1600px. Some inner elements (like MidCTA) may use `max-w-[1200px]` for narrower content.
 
 ### Section Horizontal Padding
 
-All sections use this responsive padding (either on their inner wrapper or directly):
+All sections use this responsive padding pattern:
 
 ```
 px-6 sm:px-10 md:px-14 lg:px-20
 ```
 
+Service pillar sections within the 1600px container use slightly different breakpoints:
+
+```
+px-6 sm:px-10 md:px-16 lg:px-20
+```
+
 ### Section Vertical Spacing
 
-**Homepage sections:**
+**Homepage service sections:**
 
 ```
-pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32
+py-20 sm:py-24 lg:py-28
 ```
 
-**Service page sections** (slightly tighter, no bottom padding — components own their pb):
+**Homepage non-service sections (Work, About):**
 
 ```
-pt-14 sm:pt-28 md:pt-32
+pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28
 ```
 
-**Hero** (top-heavy for nav clearance):
+**CTA section (asymmetric — more bottom breathing room):**
 
-- Homepage: `pt-28 sm:pt-32 lg:pt-36 pb-20 sm:pb-24 lg:pb-28`
-- Service: `pt-16 pb-0 sm:pt-20 md:pt-24` + back link `mb-8 sm:mb-10`
+```
+pt-20 pb-24 sm:pt-24 sm:pb-32 md:pt-28 md:pb-36
+```
+
+**Mid CTA (compact):**
+
+```
+py-14 sm:py-16
+```
 
 **Footer:** `py-14 sm:py-18`
 
-### Section Wrapper Pattern (service pages)
+### Service Section Grid
 
-Every section in a service page gets this wrapper in `page.tsx`:
+All three service pillar sections use this consistent grid:
 
-```tsx
-<div
-  className="relative border-b border-stone-200 overflow-hidden"
-  style={{
-    backgroundImage: [
-      "radial-gradient(ellipse 55% 60% at ..., rgba(212,168,83,0.024), ...transparent 70%)",
-      "radial-gradient(ellipse 50% 50% at ..., rgba(167,139,250,0.024), ...transparent 70%)",
-    ].join(", "),
-  }}
->
-  {/* Optional gradient top line */}
-  <div
-    className="absolute top-0 inset-x-0 h-px"
-    style={{
-      background:
-        "linear-gradient(90deg, transparent, rgba(212,168,83,0.036) 30%, rgba(167,139,250,0.03) 65%, transparent)",
-    }}
-    aria-hidden="true"
-  />
-
-  {/* Inner padding wrapper */}
-  <div className="pt-14 sm:pt-28 md:pt-32">
-    <SectionComponent />
-  </div>
-</div>
+```
+grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 xl:gap-20
 ```
 
-**Key principles:**
+- Section 01 (Website): Visual (1.1fr) LEFT, Copy (0.9fr) RIGHT
+- Section 02 (Visibility): Copy (0.9fr) LEFT, Visual (1.1fr) RIGHT — `lg:grid-cols-[0.9fr_1.1fr]`
+- Section 03 (Automation): Visual (1.1fr) LEFT, Copy (0.9fr) RIGHT
 
-- Every section has `border-b border-stone-200`
-- Each section gets 2 subtle radial gradients at **very low opacity** (0.02–0.04 on light bg)
-- Gradient glow line (`h-px`) only on sections that aren't the first
+Each section lives inside `mx-auto max-w-[1600px]`.
 
 ### Section Dividers
 
-| Type               | Pattern                                                          | Where                                    |
-| ------------------ | ---------------------------------------------------------------- | ---------------------------------------- |
-| Bottom border      | `border-b border-stone-200`                                      | Every section                            |
-| Gradient h-px line | `absolute top-0 inset-x-0 h-px` with gold→violet linear gradient | Between sections (not on hero)           |
-| Internal border    | `border-t border-stone-200`                                      | Inside sections (stat grids, CTA strips) |
+| Type | Pattern | Where |
+|------|---------|-------|
+| Bottom border | `border-b border-stone-200` | Most sections |
+| Green gradient h-px | `linear-gradient(90deg, transparent, rgba(0,77,58,0.05-0.12)...)` | Work, About top edges |
+| Green border on dark | `border-b border-white/10` | Automation section |
+| Green solid border | `border-t border-[#A8CCBF]` | Mid CTA top edge |
 
-### Homepage Section Backgrounds
+### Homepage Section Order
 
-All sections use a flat page background (`#FAF9F6`) — no radial gradient washes. Previous ambient glows at 0.02–0.04 opacity were imperceptible and added code complexity for zero visual payoff. Removed.
-
-- CTA: **Dark island** — flat `#1C1917`, `rounded-t-3xl`. FlowLines SVG provides the decorative element.
-- Footer: `bg-[#1C1917]` (dark variant, continues CTA) or `bg-warm-bg` (light variant, other pages)
+```
+Hero (bg-[#004D3A])
+  └─ ServicePillars wrapper
+       ├─ 01 Website (bg-white)
+       ├─ 02 Visibility (bg-[#F2F7F5])
+       └─ 03 Automation (bg-[#004D3A])
+  └─ MidCTA (bg-[#C5E8DC])
+  └─ Work (bg-[#FAF5F2])
+  └─ About (bg-warm-bg)
+  └─ CTA (bg-warm-bg)
+Footer (bg-warm-bg, light variant)
+```
 
 ---
 
@@ -274,316 +272,339 @@ All sections use a flat page background (`#FAF9F6`) — no radial gradient washe
 
 ### Section Label (`.section-label`)
 
-```
-text-xs font-semibold text-warm-gold uppercase tracking-[0.2em]
+```css
+text-xs font-semibold text-[#004D3A] uppercase tracking-[0.2em]
 ```
 
 Used above section headings. Spacing: `mb-5` or `mb-5 sm:mb-6`.
 
-**Dark context variant:** `.section-label-dark` uses `text-amber-400` for visibility on dark backgrounds.
+> **Note:** Service pillar sections (01, 02, 03) no longer have section labels or numbers. Only About and other standalone sections use them.
 
-### Primary CTA Button
+### Primary CTA Button (`PrimaryButton`)
 
 ```
-group inline-flex items-center gap-3 px-7 py-3.5
-bg-gradient-to-r from-amber-600 to-amber-500
-text-white font-semibold text-[15px] rounded-lg
-transition-all duration-300 hover:brightness-110
-shadow-lg shadow-amber-600/15
+group inline-flex items-center justify-center gap-3
+bg-[#B84C3A] text-white font-semibold rounded-lg
+transition-all duration-300 hover:brightness-110 hover:-translate-y-px
+shadow-lg shadow-[#B84C3A]/20 hover:shadow-xl hover:shadow-[#B84C3A]/30
+focus:outline-none focus:ring-2 focus:ring-[#B84C3A] focus:ring-offset-2 focus:ring-offset-warm-bg
 ```
 
-- Arrow icon inside: `w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5`
-- Variant — FinalCTA (larger): `px-7 sm:px-8 py-3.5 sm:py-4 text-base w-full sm:w-auto`
-- Variant — Nav desktop (compact): `px-5 py-2 text-sm`
-- Variant — Nav mobile: Same as primary but `rounded-xl` and `text-center`
+**Size variants:**
 
-**Dark island CTA variant:** `from-amber-500 to-amber-400 text-stone-900` (amber button with dark text, contrasting against dark bg)
+| Size | Classes |
+|------|---------|
+| `sm` | `px-5 py-2 text-sm` |
+| `default` | `px-7 py-3.5 text-[15px]` |
+| `lg` | `px-7 sm:px-8 py-3.5 sm:py-4 text-base` |
 
-### Outline Button
+Arrow icon (optional): `w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5`
+
+### Outline Button (Green)
+
+Used for "Read Case Study" in the Work section:
 
 ```
 group inline-flex items-center gap-2.5 px-6 py-3
-border border-stone-300 rounded-lg
-text-[14px] font-medium text-stone-800
-hover:border-warm-gold/30 hover:text-warm-gold
-transition-all duration-500
+border border-[#004D3A]/25 rounded-lg
+text-[14px] font-medium text-[#004D3A]
+hover:bg-[#004D3A] hover:text-white hover:border-[#004D3A]
+transition-all duration-300
 ```
 
-### Text Link
+**Hover behavior:** Fills solid green on hover — a deliberate "commitment" interaction that matches the CTA energy.
 
-**Gold link (primary):**
-
-```
-inline-flex items-center gap-2 text-sm text-warm-gold
-hover:text-amber-700 transition-colors duration-300
-```
-
-**Muted link (secondary — cross-links, FinalCTA alternates):**
+### Ghost Button (Hero secondary)
 
 ```
-inline-flex items-center gap-2 text-sm text-stone-500
-hover:text-warm-white transition-colors duration-300
+group inline-flex items-center gap-2 rounded-lg
+border border-white/15 bg-white/[0.07] px-5 py-3
+text-[15px] font-medium text-white/80
+shadow-[0_10px_24px_rgba(0,0,0,0.15)]
+hover:border-white/25 hover:bg-white/[0.12] hover:text-white
+transition-all duration-200
 ```
 
-**Never use `hover:text-amber-300`** on light backgrounds — it's a lighter yellow that reduces contrast. `amber-300` hover was a dark-theme holdover.
+### Text Link (Green)
 
-### Border Radius System
+**Primary text link (most usage):**
 
-Standardized radius values by element type. Every radius choice has a reason.
+```
+group inline-flex items-center gap-2 text-[14px] font-semibold
+text-[#004D3A] hover:text-[#003328] transition-colors duration-200
+```
 
-| Element type                           | Radius                | Class                | Rationale                                                                                 |
-| -------------------------------------- | --------------------- | -------------------- | ----------------------------------------------------------------------------------------- |
-| **Buttons**                            | 8px                   | `rounded-lg`         | Consistent across all CTAs — primary, secondary, nav, form submit                         |
-| **Form inputs**                        | 8px                   | `rounded-lg`         | Matches button radius — inputs and buttons sit together in forms                          |
-| **Pills / tags**                       | 8px                   | `rounded-lg`         | Content tags, capability pills, trust badges — grounded, substantial feel                 |
-| **Cards / containers**                 | 12px                  | `rounded-xl`         | All content cards, feature cards, stat containers, team cards, project cards              |
-| **Mockup frames**                      | 12px                  | `rounded-xl`         | Browser/dashboard/demo frames — matches card radius for cohesion                          |
-| **Photo containers**                   | 16px                  | `rounded-2xl`        | WhyMe photos — slightly softer frame for personal/editorial imagery                       |
-| **Section containers**                 | 16px                  | `rounded-2xl`        | Service page FinalCTA dark sections                                                       |
-| **Homepage CTA section**               | 24px (top only)       | `rounded-t-3xl`      | Large dark island — extra softness at the seam with cream page                            |
-| **Phone frame (web dev)**              | Physical device shape | `rounded-t-[2.5rem]` | Mimics real phone hardware — exception to the system                                      |
-| **Micro status badges**                | Full capsule          | `rounded-full`       | Tiny mono-text badges (10px or smaller) — "Add-on", "Online", status pills inside mockups |
-| **Onboarding selection pills**         | Full capsule          | `rounded-full`       | Interactive chip selectors — different UX context from content tags                       |
-| **Nav dropdown items**                 | 6px                   | `rounded-md`         | Smaller interactive targets inside dropdown panels                                        |
-| **Inner images (avatars, thumbnails)** | 8px                   | `rounded-lg`         | Photos inside cards — subordinate to the card's own radius                                |
+Arrow icon: `w-3.5 h-3.5` or `w-4 h-4`, `transition-transform duration-300 group-hover:translate-x-0.5`
 
-**Key rules:**
+**Muted text link (captions, live site links):**
 
-- `rounded-lg` is the workhorse — buttons, inputs, pills, inner images
-- `rounded-xl` is for containers — cards, mockups, anything that holds content
-- `rounded-full` is reserved for micro-badges and interactive selection chips only — never for content-level tags
-- Radius should increase with element size: inner elements ≤ outer elements
+```
+inline-flex items-center gap-2 text-[13px] font-mono
+text-stone-400 hover:text-[#004D3A] transition-colors
+```
 
-### Browser Mockup Frame (DARK — embedded on light page)
+### Service Section — Visual with Accent Panel
+
+The visual side of each service section wraps the mockup in a decorative green accent panel:
 
 ```tsx
-<div className="rounded-xl border border-white/[0.08] bg-[#0C0B09] overflow-hidden select-none"
-     style={{ boxShadow: '12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)' }}>
-  {/* Chrome bar */}
-  <div className="flex items-center gap-3 px-4 py-2 border-b border-white/[0.04]">
-    <div className="flex gap-1.5">
-      <div className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
-      <div className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
-      <div className="h-[9px] w-[9px] rounded-full bg-white/[0.08]" />
-    </div>
-    <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.04]">
-      <span className="text-[10px] text-white/25 font-mono">domain.com</span>
-    </div>
+<div className="relative">
+  {/* Panel behind mockup — offset to create peek effect */}
+  <div
+    className="absolute -left-3 top-5 right-5 bottom-[-10px] rounded-2xl"
+    style={{
+      background: "linear-gradient(155deg, #D4EAE2 0%, #C2DED5 100%)",
+      boxShadow: "-8px 10px 0px 0px #A8CCBF",
+    }}
+    aria-hidden="true"
+  />
+  {/* Mockup on top */}
+  <div className="relative z-10">
+    <MockupComponent />
   </div>
-  <Image ... className="w-full h-auto object-cover" />
 </div>
 ```
 
-**Hard shadow spec:**
+**Direction depends on section alignment:**
+- Left-aligned visual: panel offset `-left-3 ... right-5`, shadow falls LEFT (`-8px`)
+- Right-aligned visual: panel offset `-right-3 ... left-5`, shadow falls RIGHT (`8px`)
 
-- Right-aligned or centered mockups: `boxShadow: '12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)'`
-- Left-column mockups: `boxShadow: '-12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)'`
-- Hard offset color `#C4B5A0` is a warm stone tone (warmer than previous `#CEC8C1`) — **light-bg pages only**
-- Ambient layer `0 8px 32px rgba(0,0,0,0.08)` adds subtle real-world depth beneath the hard offset
-- Skip on dark-bg pages (`bg-cyber-dark`) — the warm shadow doesn't suit dark surfaces
+### Capability Chips
 
-**Note:** Browser/phone/dashboard mockups stay dark. All `border-white/[0.XX]`, `bg-white/[0.XX]`, `bg-[#0C0B09]` patterns inside mockups are intentional.
-
-### Tool/Feature Card
+Inline pills showing what a service includes:
 
 ```
-rounded-xl bg-white border border-stone-200
-p-6 sm:p-7 transition-colors duration-300
-hover:bg-stone-50 hover:border-stone-300
+rounded-full border border-stone-200 bg-white px-4 py-2
+text-[13px] font-medium text-stone-600
 ```
 
-- H4: `text-base font-semibold text-warm-white mb-2`
-- Body: `text-sm text-stone-500 leading-relaxed`
-- `shadow-sm` only on homepage About cards — omit elsewhere
+On tinted backgrounds (Section 02): `bg-white/80` instead of `bg-white`.
 
-**Card padding tiers:**
+No hover state — these are informational, not interactive.
 
-| Tier     | Padding      | When                                                           |
-| -------- | ------------ | -------------------------------------------------------------- |
-| Standard | `p-6 sm:p-7` | List cards, tool cards, grouped cards in grids                 |
-| Spacious | `p-7 sm:p-8` | Standalone feature cards, comparison cards (TheMath, AlwaysOn) |
+### Proof Badge (Floating)
 
-**Card hover standard:** Always `hover:bg-stone-50 hover:border-stone-300`. Never `hover:bg-stone-100` — the 2-step jump is too harsh on cream.
-
-### Gold Wildcard Card (variant)
+Small result badges anchored to visuals. Used on Website screenshot and SERP mockup:
 
 ```
-rounded-xl border border-warm-gold/20 bg-warm-gold/[0.03]
-p-6 sm:p-7 transition-colors duration-300
-hover:bg-warm-gold/[0.06] hover:border-warm-gold/30
+flex items-center gap-2.5 rounded-xl border border-stone-100 bg-white
+px-3 py-2 shadow-[0_8px_28px_rgba(28,25,23,0.14),0_2px_6px_rgba(28,25,23,0.06)]
 ```
 
-### FAQ Accordion Item
+Content: green dot (`bg-green-500` with ring `0 0 0 3px rgba(22,163,74,0.2)`) + stat text.
+
+### Work Section — Centered Layout with Floating Badges
+
+The Work section uses a centered vertical layout (not a left/right grid):
 
 ```
-rounded-lg border border-stone-200 bg-white
-overflow-hidden transition-colors duration-200
-hover:border-stone-300
+Heading (centered) → Image (max-w-[720px], centered) → Info below (centered)
 ```
 
-- Question: `text-sm font-medium text-warm-white pr-4`
-- Answer text: `px-6 pb-5 text-sm text-stone-600 leading-relaxed text-pretty`
-
-### Bento Grid Cell (PainPoints)
-
-Grid container: `grid grid-cols-1 md:grid-cols-12 border-t border-l border-stone-200`
-Cell: `border-b border-r border-stone-200 p-8 sm:p-10 md:p-12`
-
-### CTA Strip (bottom of section)
-
-```
-border-t border-stone-200 p-6 sm:p-10
-```
-
-Text: `text-[15px] text-stone-500 leading-relaxed max-w-md`
-
-### Form Inputs (Contact page)
-
-```
-w-full px-4 py-3 rounded-lg border border-stone-200
-bg-white text-stone-900 text-[15px]
-focus:outline-none focus:ring-2 focus:ring-warm-gold/30 focus:border-warm-gold
-transition-colors placeholder:text-stone-400
-```
-
-- Label: `text-sm font-medium text-stone-700 mb-1.5`
-- Submit button: Should match the Primary CTA Button pattern (gradient, not flat `bg-amber-500 text-black`)
-
----
-
-## 6. Dark Island Pattern
-
-The **CTA section** uses a "dark island" pattern — a dramatically dark section floating on the light page. Creates a visual anchor before the footer.
+**Floating outcome badges** appear on `xl+` screens, positioned absolutely around the image:
 
 ```tsx
-<section className="dark-section relative bg-[#1C1917] rounded-t-3xl overflow-hidden">
-  <span className="section-label-dark">...</span>
-  <h2 className="text-white">
-    ... <span className="text-amber-400">accent</span>
-  </h2>
-  <p className="text-stone-400">...</p>
-  <button className="from-amber-500 to-amber-400 text-stone-900">CTA</button>
-</section>
+<div className="hidden xl:flex absolute z-20 -left-[9rem] top-[14%] items-center gap-2.5
+  rounded-xl border border-stone-200 bg-white px-4 py-3
+  shadow-[0_4px_16px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.04)]">
+  <CheckCircle2 className="w-4 h-4 text-warm-green flex-shrink-0" />
+  <span className="text-[13px] font-medium text-stone-700 whitespace-nowrap">Badge text</span>
+</div>
 ```
 
-- Background: flat `#1C1917` (stone-900), no radial glow — FlowLines SVG is the sole decorative element
-- `rounded-t-3xl` for smooth transition from light content
-- `.dark-section` triggers CSS text-gradient overrides (bright values for dark bg)
-- **Body text:** `text-stone-400` (NOT `text-stone-600` — stone-600 fails contrast on dark bg)
-- **Label:** `text-amber-400` via `.section-label-dark`
-- Button: inverted — amber button with dark text
-- **Homepage:** Dark CTA flows into `<Footer variant="dark" />` — unified dark closing band. No light sandwich.
-- **Service pages:** Dark CTA is a `rounded-2xl` card with padding — stays self-contained, footer stays light.
+Three badges: "Page 1 on Google" (top-left), "Booking & payments automated" (mid-right), "Ongoing growth strategy" (bottom-left).
+
+**Mobile fallback:** `xl:hidden` horizontal badge row below the image with smaller styling (`rounded-lg`, `px-3.5 py-2.5`, `text-[12px]`).
+
+**Critical:** The section wrapper must NOT have `overflow-hidden` — it would clip the floating badges.
+
+### About Section — Two-Column with Team Cards
+
+Layout: `grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 xl:gap-20`
+
+**Left column:** Heading, bio paragraph, blockquote, "More about how I work" link.
+
+**Right column:** "The Team" mono label, stacked cards (`flex flex-col gap-5`):
+- Austin card: photo + name + "Developer & Founder" + description
+- Rosa card: photo + name + "Head of Morale" + description
+
+Team card pattern:
+
+```
+flex items-start gap-5 p-6 sm:p-7 rounded-xl border border-stone-200 bg-white shadow-sm
+```
+
+Photo: `w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-stone-200 shadow-md shadow-black/8`
+
+Name: `text-lg font-semibold text-warm-white leading-snug tracking-tight`
+
+Title: `font-mono text-[10px] text-[#004D3A] uppercase tracking-widest mt-1`
+
+### CTA Section — Lowkey Steps
+
+No dark island. Cream background, simple layout:
+- Divider line (`h-px bg-stone-200`)
+- "Your Move" section label
+- Heading + body
+- 3-step ordered list (`sm:grid-cols-3`)
+- Text link "Start a Conversation" + "Free, no commitment" mono note
+
+Step pattern:
+
+```
+flex gap-3
+├─ span: text-[11px] font-mono text-stone-500 font-medium
+└─ div: title text-sm font-medium text-stone-700 + desc text-[13px] text-stone-500
+```
+
+### Mid CTA (Confidence Pivot)
+
+Sits between service sections and the case study. Light mint background (`#C5E8DC`):
+
+```
+border-t border-[#A8CCBF] bg-[#C5E8DC] py-14 sm:py-16
+```
+
+Layout: flex row on `sm+`, blockquote-style text left, PrimaryButton right. Inner content uses `max-w-[1200px]` (narrower than main sections).
+
+### Browser Mockup Frame (Light)
+
+```tsx
+<div className="overflow-hidden rounded-xl border border-stone-200 bg-white"
+     style={{ boxShadow: "0 2px 0 0 rgba(28,25,23,0.06) inset" }}>
+  {/* Chrome bar */}
+  <div className="flex items-center gap-2 border-b border-stone-200 bg-stone-100 px-3 py-2">
+    <span className="flex gap-1.5">
+      {[0, 1, 2].map(i => <span key={i} className="h-[9px] w-[9px] rounded-full bg-stone-300" />)}
+    </span>
+    <span className="mx-auto ... rounded-md border border-stone-200 bg-white px-2 py-[3px] text-center text-[11px] text-stone-400">
+      domain.com
+    </span>
+  </div>
+  <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
+    <Image ... />
+  </div>
+</div>
+```
+
+### Border Radius System
+
+| Element type | Radius | Class | Rationale |
+|------|--------|-------|-----------|
+| **Buttons** | 8px | `rounded-lg` | Consistent across all CTAs |
+| **Form inputs** | 8px | `rounded-lg` | Matches button radius |
+| **Pills / tags** | full | `rounded-full` | Capability chips, trust badges |
+| **Cards / containers** | 12px | `rounded-xl` | Content cards, team cards, mockup frames |
+| **Images (Work)** | 16px | `rounded-2xl` | Project image — softer frame |
+| **Accent panels** | 16px | `rounded-2xl` | Decorative panels behind mockups |
+| **Shell (Hero demo)** | 28px | `rounded-[28px]` | Hero search demo container |
+| **Automation decorative rect** | 34px | `rounded-[34px]` | Subtle background shape on dark section |
+| **Inner images (avatars)** | 8px | `rounded-lg` | Photos inside cards |
 
 ---
 
-## 7. Mobile Patterns
-
-### Staggered Editorial Layout
-
-For stat lists on mobile. Creates editorial rhythm with alternating left/right alignment.
-
-- Container: `sm:hidden px-10 space-y-8 pb-6`
-- Items: `max-w-[75%]`, odd indices: `text-right ml-auto`
-- Stat: `text-[3.25rem] font-display font-bold text-warm-white`
-- Label: `text-[13px] text-stone-500`
-
-### Floating Cards Hidden on Mobile
-
-`hidden sm:block` — they clip on small screens.
-
----
-
-## 8. Motion & Animation
+## 6. Motion & Animation
 
 ### Philosophy
 
-Minimal by default. Quality comes from typography and spacing, not effects.
+Minimal by default. Quality comes from typography and spacing, not effects. Animations should match the "trustworthy local partner" feel — nothing flashy.
 
-### GSAP + ScrollTrigger
+### Hero Animations
 
-| Context                     | Animation                       | Ease           |
-| --------------------------- | ------------------------------- | -------------- |
-| SolutionsAnimator labels    | `opacity: 0→1` (0.4s)           | `power2.out`   |
-| SolutionsAnimator content   | `x: ±20→0, opacity: 0→1` (0.6s) | `power3.out`   |
-| PageScrollAnimator sections | `y: 24→0, opacity: 0→1` (0.7s)  | `power3.out`   |
-| HeroDemo browser timeline   | Complex multi-scene             | `power2.inOut` |
+| Element | Animation | Timing |
+|---------|-----------|--------|
+| Headline lines | `heroLineReveal` (clip from below) | `1s cubic-bezier(0.16, 1, 0.3, 1)`, staggered 0.15s/0.25s |
+| Body text, CTAs | `heroFadeIn` (fade + translateY 6px) | `0.7s ease`, staggered from 0.5s |
+| SearchDemo | Multi-phase typing + reveals | Custom JS with `sleep()` timers |
+
+### ScrollReveal (homepage sections)
+
+Uses `data-animate` attributes on children. Elements reveal on scroll intersection.
+
+| Attribute | Effect |
+|-----------|--------|
+| `data-animate="label"` | Fade in |
+| `data-animate="fade"` | Fade in with slight upward translate |
+| `data-animate="slide-up"` | Slide up from below |
+| `data-animate="card"` | Card entrance |
+| `data-animate="line"` | Line/divider reveal |
 
 ### CSS Transitions
 
-| Element             | Duration       | Properties                     |
-| ------------------- | -------------- | ------------------------------ |
-| Card hover          | `duration-300` | border-color, background-color |
-| `.bento-card` hover | `duration-500` | border-color, background-color |
-| Nav background      | `duration-500` | background, border, box-shadow |
-| Link color          | `duration-300` | color                          |
+| Element | Duration | Properties |
+|---------|----------|-----------|
+| Card hover | `duration-300` | border-color, background-color |
+| Button hover | `duration-300` | brightness, transform, shadow |
+| Link hover | `duration-200` | color |
+| Image hover (Work) | `duration-700` | transform (scale) |
+| Outline button fill | `duration-300` | all (background, color, border) |
+| Nav background | `duration-500` | background, border, box-shadow |
 
 ### prefers-reduced-motion
 
-Fully respected — all keyframes disabled, GSAP checks before creating timelines.
+Fully respected — all keyframes disabled, GSAP checks before creating timelines. Hero falls back to static `phase: "organic"`.
 
 ---
 
-## 9. Accessibility
+## 7. Accessibility
 
 ### Focus Rings
 
 ```css
-outline: 2px solid #b45309;
+outline: 2px solid #B45309;
 outline-offset: 2px;
 border-radius: 4px;
 ```
 
+> **Note:** Focus ring color is still amber (`#B45309`) — retained for visibility contrast on both light and dark backgrounds.
+
 ### Color Contrast
 
-| Pair                   | Ratio  | Verdict                |
-| ---------------------- | ------ | ---------------------- |
-| `#1C1917` on `#FAF9F6` | ~17:1  | ✅ Headings            |
-| `#57534E` on `#FAF9F6` | ~5.5:1 | ✅ Body text           |
-| `#78716C` on `#FAF9F6` | ~4.6:1 | ✅ Secondary text      |
-| `#B45309` on `#FAF9F6` | ~5.2:1 | ✅ Accent labels       |
-| `#FFFFFF` on `#D97706` | ~3.2:1 | ✅ Button text (large) |
-| `#FFFFFF` on `#1C1917` | ~17:1  | ✅ Dark island text    |
+| Pair | Ratio | Verdict |
+|------|-------|---------|
+| `#1C1917` on `#FAF9F6` | ~17:1 | ✅ Headings |
+| `#57534E` on `#FAF9F6` | ~5.5:1 | ✅ Body text |
+| `#78716C` on `#FAF9F6` | ~4.6:1 | ✅ Secondary text |
+| `#004D3A` on `#FAF9F6` | ~8.7:1 | ✅ Green accent on cream |
+| `#004D3A` on `#FFFFFF` | ~9.7:1 | ✅ Green accent on white |
+| `#FFFFFF` on `#004D3A` | ~9.7:1 | ✅ White text on dark green |
+| `#FFFFFF` on `#B84C3A` | ~4.8:1 | ✅ Button text on brick red |
+| `#114232` on `#C5E8DC` | ~6.2:1 | ✅ Text on mid CTA bg |
 
 ---
 
-## 10. Radial Gradient Recipes
+## 8. Shared CSS Utilities (globals.css)
 
-Very low opacity ambient washes on the light background:
+| Class | Definition | Usage |
+|-------|-----------|-------|
+| `.site-frame` | `max-w-[1600px] mx-auto` + rail pseudo-elements | Homepage container |
+| `.page-frame` | `max-w-[1200px] mx-auto` + rail pseudo-elements | Service/inner pages |
+| `.section-label` | `text-xs font-semibold text-[#004D3A] uppercase tracking-[0.2em]` | Eyebrows |
+| `.section-px` | `px-6 sm:px-10 md:px-14 lg:px-20` | Horizontal padding |
+| `.section-py-lg` | `pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-28 md:pb-28` | Standard vertical spacing |
 
-- Gold: `0.01` – `0.04` opacity
-- Violet: `0.01` – `0.03` opacity
-- Alternate gold/violet positions across sections to avoid striping
+### Text Gradient Utilities (deprecated for homepage)
 
----
+These still exist in globals.css but are **not used on the current homepage**. Green accent spans use solid `text-[#004D3A]` instead.
 
-## 11. Shared CSS Utilities (globals.css)
-
-| Class                   | Definition                                                        | Usage                 |
-| ----------------------- | ----------------------------------------------------------------- | --------------------- |
-| `.page-frame`           | `max-w-[1200px] mx-auto` + rail pseudo-elements                   | Page container        |
-| `.bento-card`           | `bg-white border-stone-200 rounded-lg` + hover                    | Bento cards           |
-| `.section-label`        | `text-xs font-semibold text-warm-gold uppercase tracking-[0.2em]` | Eyebrows              |
-| `.section-label-dark`   | Same but `text-amber-400`                                         | Dark section eyebrows |
-| `.cyber-button`         | `from-amber-600 to-amber-500 text-white`                          | CTA buttons           |
-| `.cyber-button-outline` | `border-stone-300 text-stone-800`                                 | Secondary buttons     |
-| `.dark-section`         | Triggers text-gradient overrides for bright-on-dark               | CTA wrapper           |
-
-**Removed utilities (previously here, deleted as unused):**
-
-- `.section-heading` — was not referenced by any component
-- `.section-subheading` — was not referenced; also used `text-stone-400` which is wrong for light theme
-- `.glass-card` — dark-theme holdover, no longer used
+| Class | Gradient | Status |
+|-------|---------|--------|
+| `.text-gradient` | `#B45309 → #DB2777 → #7C3AED` | Deprecated — amber/rose/violet |
+| `.text-gradient-brand` | `#B45309 → #DB2777` | Deprecated |
+| `.text-gradient-gold` | `#92400E → #B45309` | Deprecated |
+| `.text-gradient-green` | `#15803D → #16A34A → #22C55E` | Available but unused |
 
 ---
 
-## 12. Navigation
+## 9. Navigation
 
 ### Desktop
 
 - Scrolled: `bg-warm-bg/80 backdrop-blur-2xl border-stone-200 shadow-[0_4px_30px_rgba(0,0,0,0.04)]`
 - Links: `text-stone-500 hover:text-stone-900`
-- Logo: Icon `/assets/loudbark-logo.svg` (`h-5 w-auto`) + "Loud Bark" `text-stone-900 text-lg font-display font-bold tracking-tight` — `flex items-center gap-2`. Icon carries brand orange; text stays dark.
+- Active indicator: gradient bar `linear-gradient(90deg, #B45309, #DB2777)` — **still uses legacy amber/rose gradient** (TODO: consider updating)
+- Logo: Icon + "Loud Bark" `text-stone-900 text-lg font-display font-bold tracking-tight`
+- CTA button: Uses `PrimaryButton` (brick red)
 
 ### Mobile
 
@@ -595,110 +616,52 @@ Very low opacity ambient washes on the light background:
 
 ---
 
-## 13. Footer
+## 10. Footer
 
-Supports two variants via `variant` prop: `"light"` (default) and `"dark"`.
+Supports `variant` prop: `"light"` (default) and `"dark"`.
 
-### Light variant (default — all pages except homepage)
+### Light variant (default — all pages including homepage)
 
 - `bg-warm-bg`, `border-t border-stone-200`
-- Links: `text-stone-500 hover:text-warm-gold`
+- `max-w-[1600px] mx-auto` inner container
+- Links: `text-stone-500 hover:text-[#004D3A]`
 - Headings: `text-stone-900`
 - Copyright: `text-xs text-stone-500 font-mono`
 
-### Dark variant (homepage only)
+### Dark variant (available but currently unused on homepage)
 
-- `bg-[#1C1917]`, `border-t border-white/[0.06]` — seamlessly continues the dark CTA section
-- Brand: `text-white` + `text-amber-400` (the "o")
-- Links: `text-stone-400 hover:text-amber-400`
-- Headings: `text-stone-200`
-- Copyright: `text-xs text-stone-500 font-mono`
-- Bottom divider: `border-white/[0.06]`
-
-**Why only homepage:** Service pages use self-contained `rounded-2xl` dark CTA cards with padding — the dark block doesn't bleed edge-to-edge, so the light footer still works. The homepage CTA is full-bleed with `rounded-t-3xl`, creating a dark→light→end sandwich without the dark footer.
+- `bg-[#1C1917]`, links `text-stone-400 hover:text-emerald-500`
 
 ---
 
-## 14. Page Template
+## 11. Mobile Patterns
 
-```tsx
-export default function NewServicePage() {
-  return (
-    <main id="main-content" className="relative min-h-screen bg-warm-bg">
-      <Navigation />
-      <div className="page-frame">
-        <PageScrollAnimator>
-          <div
-            className="relative border-b border-stone-200 overflow-hidden"
-            style={{ backgroundImage: "..." }}
-          >
-            <HeroComponent />
-          </div>
-          <div
-            className="relative border-b border-stone-200"
-            style={{ backgroundImage: "..." }}
-          >
-            <div
-              className="absolute top-0 inset-x-0 h-px"
-              style={{ background: "linear-gradient(...)" }}
-              aria-hidden="true"
-            />
-            <div className="pt-14 sm:pt-28 md:pt-32">
-              <ContentSection />
-            </div>
-          </div>
-          <div
-            className="relative border-b border-stone-200"
-            style={{ backgroundImage: "..." }}
-          >
-            <FinalCTA />
-          </div>
-        </PageScrollAnimator>
-      </div>
-      <Footer />
-    </main>
-  );
-}
+### Floating Badges → Horizontal Row
+
+Work section floating badges (`xl+`) collapse to a horizontal wrap row below the image on smaller screens:
+
+```
+xl:hidden mt-5 flex flex-wrap justify-center gap-2.5
 ```
 
-### CompetitorAudit (legal pSEO — `components/pseo/CompetitorAudit.tsx`)
+Each badge: `rounded-lg border border-stone-200 bg-white px-3.5 py-2.5 shadow-sm` with `text-[12px]`.
 
-Two-column: heading + summary left, audit scorecard right. Scorecard is a white card with pass/fail rows showing real market scan data. Red `bg-red-50/40` wash on failing rows, green ✓ / red ✗ status badges. Mono font for rates and counts. Header bar with `FileSearch` icon and scan summary. Footer links to full insights article.
+### Service Section Grids → Single Column
 
-- Grid: `lg:grid-cols-12`, heading `lg:col-span-5`, scorecard `lg:col-span-7`
-- Card: `rounded-xl border-stone-200 bg-white`, subtle `box-shadow: 0 2px 12px rgba(0,0,0,0.04)`
-- Row grid: `grid-cols-[1fr_4.5rem_5rem_2.5rem]`, `px-5 py-3`, `border-b border-stone-100`
-- Failing rows: `bg-red-50/40`, `text-red-600/80` for rate, `bg-red-100 text-red-500` badge
-- Passing rows: `text-emerald-600/80` for rate, `bg-emerald-100 text-emerald-600` badge
-- Data lives in `CityOverride.audit` — city-specific, not shared
-
-### SiteMockup (legal pSEO — `components/pseo/SiteMockup.tsx`)
-
-Replaces the generic icon+title+description deliverables grid. Two-column: annotated browser mockup left, numbered deliverable list right.
-
-- Mockup uses **warm parchment chrome** (`bg-[#E8E2DA]`, `bg-[#F0EAE2]`) matching the hero SERP mockup — NOT the dark chrome from main site mockups. Hard offset shadow: `12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)`
-- Mockup internals: wireframe-style law firm site (nav bar, hero, map embed, practice areas grid, reviews strip, footer with schema/PageSpeed indicators)
-- Right column: deliverables as hover-interactive list items with `01`–`06` numbering in amber mono, icon + title + description
-- Grid: `lg:grid-cols-12`, mockup `lg:col-span-7`, list `lg:col-span-5`
-- CTA at bottom of right column, separated by `border-t border-stone-200`
+On mobile (`<lg`), the `1.1fr/0.9fr` grid stacks to single column with `gap-12`.
 
 ---
 
-## 15. Anti-patterns
+## 12. Anti-Patterns (rejected approaches)
 
-- **Dark theme for local business audience** — deprecated. Cream/amber speaks trust to non-technical visitors.
-- **`border-white/[0.06]` outside dark mockups** — use `border-stone-200`. White-opacity borders only inside dark mockup containers.
-- **`text-white` for headings on page content** — use `text-stone-900` or `text-warm-white`. `text-white` only inside dark mockups, dark island CTA, or on amber buttons.
-- **`bg-white/[0.02]` for cards** — invisible on light bg. Use `bg-white` for white-on-cream cards.
-- **Radial gradient glows on page/section backgrounds** — removed site-wide. At 0.005–0.04 opacity on cream they were invisible; on dark sections they made the surface look muddy. Let flat color + good typography do the work.
-- **Gradient overlays on everything** — max 0.04 opacity on light backgrounds.
-- **Uniform vertical stacks on mobile** — use staggered editorial layout for stats.
-- **`ease-in-out` for everything** — use `power2.out` / `power3.out` for reveals.
-- **Same card size in feature grids** — vary sizes or add wildcard cards.
-- **`hover:bg-stone-100` on cards** — too harsh on cream bg. Use `hover:bg-stone-50`.
-- **`hover:text-amber-300` on light backgrounds** — dark-theme holdover, low contrast on cream. Use `hover:text-amber-700`.
-- **`text-stone-600` inside `.dark-section`** — fails WCAG contrast. Use `text-stone-400`.
-- **Raw `#4ADE80` hex for green** — use `green-400` class (dark mockups) or `warm-green` token (light page). Don't hardcode hex values in Tailwind classes. SVG `stroke`/`fill` attributes can keep the hex since SVG doesn't read Tailwind tokens.
-- **Flat `bg-amber-500 text-black` for buttons** — always use the gradient CTA pattern (`from-amber-600 to-amber-500 text-white`).
-- **Colored glows / brand-colored box-shadows** — avoid glowing shadow effects (e.g. `rgba(180,83,9,0.15)` spread shadows). Use structural depth techniques instead: hard shadows, layered borders. Glows feel techy/SaaS — this brand is warm & tactile.
-- **Soft `boxShadow` on mockups/demos** — don't use soft drop shadows (`shadow-2xl`, `shadow-black/40`, `rgba(0,0,0,0.25)` blur) as the _primary_ depth technique on browser mockups, dashboards, or demo frames. Use the **hard shadow pattern** instead: `boxShadow: '12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)'` (right-aligned mockups) or `'-12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)'` (left-column mockups). Hard offset (`#C4B5A0`) + subtle ambient layer. This treatment is for **light-bg pages only** (`bg-warm-bg`). Skip on dark-bg pages (`bg-cyber-dark`).
+| Rejected | Why | What replaced it |
+|----------|-----|-----------------|
+| Dark CTA island (`rounded-t-3xl bg-[#1C1917]`) | Too heavy, broke warm studio feel | Light cream CTA with simple steps |
+| Amber/rose/violet brand gradient | Generic, didn't match green rebrand | Solid `text-[#004D3A]` accent spans |
+| `page-frame` max-w-[1200px] on homepage | Too narrow for full-width section backgrounds | `site-frame` max-w-[1600px] |
+| Section numbers ("01", "02", "03") as eyebrows | Added clutter without value | Removed — sections speak for themselves |
+| Radial gradient washes on section backgrounds | Imperceptible at low opacity, code overhead | Flat section-specific background colors |
+| Icon + heading + description 3-col card grid | Template look | Alternating editorial layouts with mockups |
+| `overflow-hidden` on Work section wrapper | Clipped floating badges | Removed; badges use `z-20` |
+| Giant portrait + name plate (About) | Felt like a template hero, not personal | Two-column with stacked team cards |
+| Coral gradient CTA (`from-[#C9604A] to-[#E07A5F]`) | Replaced by flat brick red | Solid `bg-[#B84C3A]` via PrimaryButton |

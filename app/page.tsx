@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import PainPoints from "@/components/PainPoints";
-import Solutions from "@/components/Solutions";
+import ServicePillars from "@/components/ServicePillars";
+import MidCTA from "@/components/MidCTA";
 import Work from "@/components/Work";
 import About from "@/components/About";
 import CTA from "@/components/CTA";
@@ -12,10 +12,10 @@ export default function HomePage() {
     <>
       <main id="main-content" className="relative bg-warm-bg">
         <Navigation />
-        <div className="page-frame">
+        <div className="site-frame">
           <Hero />
-          <PainPoints />
-          <Solutions />
+          <ServicePillars />
+          <MidCTA />
           <Work />
           <About />
           <CTA />

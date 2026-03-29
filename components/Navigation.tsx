@@ -47,11 +47,13 @@ const NAV_LINKS = [
 ] as const;
 
 /* ── Active link indicator ── */
-function ActiveBar() {
+function ActiveBar({ onDark = false }: { onDark?: boolean }) {
   return (
     <span
       className="absolute -bottom-1.5 inset-x-0 h-0.5 rounded-full"
-      style={{ background: "linear-gradient(90deg, #B45309, #DB2777)" }}
+      style={{
+        background: onDark ? "rgba(255,255,255,0.4)" : "linear-gradient(90deg, #B45309, #DB2777)",
+      }}
       aria-hidden="true"
     />
   );
@@ -117,12 +119,12 @@ export default function Navigation() {
           mobileOpen
             ? "bg-warm-bg border-b border-stone-200"
             : isScrolled
-              ? "bg-warm-bg/80 backdrop-blur-2xl border-b border-stone-200 shadow-[0_4px_30px_rgba(0,0,0,0.04)]"
-              : "bg-transparent border-b border-transparent"
+              ? "bg-[#004D3A] border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.2)]"
+              : "bg-warm-bg border-b border-stone-200/60"
         }`}
         aria-label="Main navigation"
       >
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-4">
+        <div className="site-frame px-6 sm:px-10 md:px-16 lg:px-20 py-2.5 sm:py-4">
           <div className="flex items-center justify-between">
             {/* ── Logo ── */}
             <Link
@@ -135,14 +137,18 @@ export default function Navigation() {
                 alt=""
                 width={34}
                 height={26}
-                className="h-7 w-auto"
+                className={`h-7 w-auto transition-[filter] duration-500 ${isScrolled ? "brightness-0 invert" : ""}`}
                 priority
               />
               <div className="flex flex-col -space-y-0.5">
-                <span className="text-lg font-display font-bold tracking-tight leading-tight text-stone-900">
+                <span
+                  className={`text-lg font-display font-bold tracking-tight leading-tight transition-colors duration-500 ${isScrolled ? "text-white" : "text-stone-900"}`}
+                >
                   Loud Bark
                 </span>
-                <span className="hidden sm:block text-[10px] font-semibold tracking-[0.12em] uppercase text-stone-500">
+                <span
+                  className={`hidden sm:block text-[10px] font-semibold tracking-[0.12em] uppercase transition-colors duration-500 ${isScrolled ? "text-white/50" : "text-stone-500"}`}
+                >
                   SEO & Web Strategy
                 </span>
               </div>
@@ -155,7 +161,13 @@ export default function Navigation() {
                 <Link
                   href="/#solutions"
                   className={`relative inline-flex items-center gap-1.5 text-[13px] tracking-wide transition-colors duration-300 ${
-                    isServicesActive ? "text-stone-900" : "text-stone-500 hover:text-stone-900"
+                    isServicesActive
+                      ? isScrolled
+                        ? "text-white"
+                        : "text-stone-900"
+                      : isScrolled
+                        ? "text-white/65 hover:text-white"
+                        : "text-stone-500 hover:text-stone-900"
                   }`}
                   data-umami-event="nav-solutions"
                   onClick={scrollToSolutions}
@@ -165,7 +177,7 @@ export default function Navigation() {
                     className="w-3.5 h-3.5 transition-transform duration-200 group-hover/dd:rotate-180 group-focus-within/dd:rotate-180"
                     aria-hidden="true"
                   />
-                  {isServicesActive && <ActiveBar />}
+                  {isServicesActive && <ActiveBar onDark={isScrolled} />}
                 </Link>
 
                 {/* Dropdown panel — visible on hover/focus-within */}
@@ -208,20 +220,26 @@ export default function Navigation() {
                     key={link.href}
                     href={link.href}
                     className={`relative text-[13px] tracking-wide transition-colors duration-300 ${
-                      active ? "text-stone-900" : "text-stone-500 hover:text-stone-900"
+                      active
+                        ? isScrolled
+                          ? "text-white"
+                          : "text-stone-900"
+                        : isScrolled
+                          ? "text-white/65 hover:text-white"
+                          : "text-stone-500 hover:text-stone-900"
                     }`}
                     data-umami-event={`nav-${link.label.toLowerCase()}`}
                     aria-current={active ? "page" : undefined}
                   >
                     {link.label}
-                    {active && <ActiveBar />}
+                    {active && <ActiveBar onDark={isScrolled} />}
                   </Link>
                 );
               })}
 
               <Link
                 href="/contact"
-                className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
+                className="inline-flex items-center px-5 py-2 bg-[#B84C3A] text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-[#B84C3A]/20 hover:shadow-xl hover:shadow-[#B84C3A]/30 focus:outline-none focus:ring-2 focus:ring-[#B84C3A] focus:ring-offset-2 focus:ring-offset-warm-bg"
                 data-umami-event="nav-get-started"
                 aria-current={pathname === "/contact" ? "page" : undefined}
               >
@@ -231,7 +249,7 @@ export default function Navigation() {
 
             {/* ── Mobile toggle ── */}
             <button
-              className="md:hidden text-stone-500 hover:text-stone-900 transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className={`md:hidden transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center ${isScrolled ? "text-white/70 hover:text-white" : "text-stone-500 hover:text-stone-900"}`}
               onClick={mobileOpen ? closeMobileMenu : openMobileMenu}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
@@ -250,7 +268,7 @@ export default function Navigation() {
       {/* Browser provides: focus trapping, Escape-to-close, inert background */}
       <dialog
         ref={dialogRef}
-        className="nav-dialog fixed inset-0 top-[56px] z-40 m-0 w-full h-[calc(100dvh-56px)] max-w-none max-h-none bg-warm-bg p-0 md:hidden"
+        className="nav-dialog fixed inset-0 top-[48px] sm:top-[56px] z-40 m-0 w-full h-[calc(100dvh-48px)] sm:h-[calc(100dvh-56px)] max-w-none max-h-none bg-warm-bg p-0 md:hidden"
       >
         <div className="flex flex-col px-6 py-8 gap-2">
           {/* Solutions expandable */}
@@ -316,7 +334,7 @@ export default function Navigation() {
           <div className="pt-4">
             <Link
               href="/contact"
-              className="block px-6 py-3.5 bg-gradient-to-r from-amber-600 to-amber-500 text-white font-semibold rounded-lg text-center text-sm transition-all hover:brightness-110 hover:-translate-y-px shadow-lg shadow-amber-600/20 hover:shadow-xl hover:shadow-amber-600/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-warm-bg"
+              className="block px-6 py-3.5 bg-[#B84C3A] text-white font-semibold rounded-lg text-center text-sm transition-all hover:brightness-110 hover:-translate-y-px shadow-lg shadow-[#B84C3A]/20 hover:shadow-xl hover:shadow-[#B84C3A]/30 focus:outline-none focus:ring-2 focus:ring-[#B84C3A] focus:ring-offset-2 focus:ring-offset-warm-bg"
               data-umami-event="mobile-nav-get-started"
               onClick={closeMobileMenu}
             >

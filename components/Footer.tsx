@@ -15,7 +15,7 @@ export default function Footer({ variant = "light" }: FooterProps) {
       role="contentinfo"
       aria-label="Site footer"
     >
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-14 sm:py-18 relative">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-14 sm:py-18 relative">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8 mb-12">
           {/* Brand */}
           <div className="sm:col-span-2 md:col-span-1">
@@ -67,8 +67,8 @@ export default function Footer({ variant = "light" }: FooterProps) {
               <li>
                 <Link
                   href="/services/web-development"
-                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
-                    isDark ? "text-stone-400" : "text-stone-500 hover:text-warm-gold"
+                  className={`text-sm hover:text-emerald-500 transition-colors py-2 inline-block ${
+                    isDark ? "text-stone-400" : "text-stone-500 hover:text-[#004D3A]"
                   }`}
                 >
                   Web Development
@@ -77,8 +77,8 @@ export default function Footer({ variant = "light" }: FooterProps) {
               <li>
                 <Link
                   href="/services/automation"
-                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
-                    isDark ? "text-stone-400" : "text-stone-500 hover:text-warm-gold"
+                  className={`text-sm hover:text-emerald-500 transition-colors py-2 inline-block ${
+                    isDark ? "text-stone-400" : "text-stone-500 hover:text-[#004D3A]"
                   }`}
                 >
                   Automation
@@ -87,8 +87,8 @@ export default function Footer({ variant = "light" }: FooterProps) {
               <li>
                 <Link
                   href="/services/growth-strategy"
-                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
-                    isDark ? "text-stone-400" : "text-stone-500 hover:text-warm-gold"
+                  className={`text-sm hover:text-emerald-500 transition-colors py-2 inline-block ${
+                    isDark ? "text-stone-400" : "text-stone-500 hover:text-[#004D3A]"
                   }`}
                 >
                   Growth Strategy
@@ -110,7 +110,7 @@ export default function Footer({ variant = "light" }: FooterProps) {
               <li>
                 <Link
                   href="/work"
-                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
+                  className={`text-sm hover:text-emerald-500 transition-colors py-2 inline-block ${
                     isDark ? "text-stone-400" : "text-stone-500 hover:text-warm-gold"
                   }`}
                 >
@@ -120,8 +120,8 @@ export default function Footer({ variant = "light" }: FooterProps) {
               <li>
                 <Link
                   href="/insights"
-                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
-                    isDark ? "text-stone-400" : "text-stone-500 hover:text-warm-gold"
+                  className={`text-sm hover:text-emerald-500 transition-colors py-2 inline-block ${
+                    isDark ? "text-stone-400" : "text-stone-500 hover:text-[#004D3A]"
                   }`}
                 >
                   Insights
@@ -130,8 +130,8 @@ export default function Footer({ variant = "light" }: FooterProps) {
               <li>
                 <Link
                   href="/contact"
-                  className={`text-sm hover:text-amber-400 transition-colors py-2 inline-block ${
-                    isDark ? "text-stone-400" : "text-stone-500 hover:text-warm-gold"
+                  className={`text-sm hover:text-emerald-500 transition-colors py-2 inline-block ${
+                    isDark ? "text-stone-400" : "text-stone-500 hover:text-[#004D3A]"
                   }`}
                 >
                   Contact
@@ -154,8 +154,8 @@ export default function Footer({ variant = "light" }: FooterProps) {
                 href="https://github.com/austinoso"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center gap-2 text-sm hover:text-amber-400 transition-colors ${
-                  isDark ? "text-stone-400" : "text-stone-500 hover:text-warm-gold"
+                className={`flex items-center gap-2 text-sm hover:text-emerald-500 transition-colors ${
+                  isDark ? "text-stone-400" : "text-stone-500 hover:text-[#004D3A]"
                 }`}
                 aria-label="GitHub profile (opens in a new tab)"
                 data-umami-event="footer-github"
@@ -173,8 +173,8 @@ export default function Footer({ variant = "light" }: FooterProps) {
                 href="https://linkedin.com/in/austinoso"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center gap-2 text-sm hover:text-amber-400 transition-colors ${
-                  isDark ? "text-stone-400" : "text-stone-500 hover:text-warm-gold"
+                className={`flex items-center gap-2 text-sm hover:text-emerald-500 transition-colors ${
+                  isDark ? "text-stone-400" : "text-stone-500 hover:text-[#004D3A]"
                 }`}
                 aria-label="LinkedIn profile (opens in a new tab)"
                 data-umami-event="footer-linkedin"
@@ -188,8 +188,8 @@ export default function Footer({ variant = "light" }: FooterProps) {
                 href="https://www.facebook.com/loudbarkweb"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center gap-2 text-sm hover:text-amber-400 transition-colors ${
-                  isDark ? "text-stone-400" : "text-stone-500 hover:text-warm-gold"
+                className={`flex items-center gap-2 text-sm hover:text-emerald-500 transition-colors ${
+                  isDark ? "text-stone-400" : "text-stone-500 hover:text-[#004D3A]"
                 }`}
                 aria-label="Facebook page (opens in a new tab)"
                 data-umami-event="footer-facebook"
