@@ -41,7 +41,7 @@ export default function PseoDeliverables({
             className="rounded-xl bg-white border border-stone-200 p-6 sm:p-7 transition-colors duration-300 hover:bg-stone-50 hover:border-stone-300"
           >
             <div className="flex items-center gap-2.5 mb-2">
-              <d.icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+              <d.icon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
               <h3 className="text-base font-semibold text-warm-white">{d.title}</h3>
             </div>
             <p className="text-sm text-stone-500 leading-relaxed">{d.body}</p>

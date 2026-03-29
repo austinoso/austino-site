@@ -88,21 +88,21 @@ const activityLog = [
 
 const typeBadgeColor: Record<string, string> = {
   Content: "bg-emerald-500/10 text-[#5C8A64] border-emerald-500/15",
-  SEO: "bg-amber-500/10 text-amber-700 border-amber-500/15",
+  SEO: "bg-orange-500/10 text-orange-700 border-orange-500/15",
   GBP: "bg-sky-500/10 text-[#4663AC] border-sky-500/15",
   Design: "bg-violet-500/10 text-violet-600 border-violet-500/15",
 };
 
 const typeAccentBar: Record<string, string> = {
   Content: "bg-[#5C8A64]/50",
-  SEO: "bg-amber-500/40",
+  SEO: "bg-orange-500/40",
   GBP: "bg-[#4663AC]/40",
   Design: "bg-violet-500/40",
 };
 
 const typeIconColor: Record<string, string> = {
   Content: "text-[#5C8A64]",
-  SEO: "text-amber-600",
+  SEO: "text-orange-600",
   GBP: "text-[#4663AC]",
   Design: "text-violet-500",
 };

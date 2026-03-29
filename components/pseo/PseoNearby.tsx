@@ -34,7 +34,7 @@ export default function PseoNearby({
               <Link
                 key={city}
                 href={`${basePath}/${slug}`}
-                className="inline-flex items-center px-3.5 py-1.5 rounded-lg border border-stone-200 bg-white text-xs font-medium text-stone-600 hover:border-warm-gold/30 hover:text-warm-gold transition-all duration-300"
+                className="inline-flex items-center px-3.5 py-1.5 rounded-lg border border-stone-200 bg-white text-xs font-medium text-stone-600 hover:border-[#004D3A]/30 hover:text-[#004D3A] transition-all duration-300"
               >
                 {city}
               </Link>

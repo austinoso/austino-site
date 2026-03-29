@@ -51,7 +51,7 @@ export default function CompetitorAudit({
 
           {/* Summary stats */}
           <div className="flex items-center gap-4 mb-2">
-            <span className="font-display text-3xl font-bold text-warm-gold leading-none">
+            <span className="font-display text-3xl font-bold text-[#004D3A] leading-none">
               {failCount}/{rows.length}
             </span>
             <span className="text-sm text-stone-500">categories failing</span>
@@ -70,7 +70,7 @@ export default function CompetitorAudit({
             {/* Card header */}
             <div className="flex items-center justify-between px-5 py-3.5 border-b border-stone-200 bg-stone-50/60">
               <div className="flex items-center gap-2.5">
-                <FileSearch className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                <FileSearch className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                 <span className="text-xs font-mono text-stone-500 uppercase tracking-wider">
                   Market Audit
                 </span>

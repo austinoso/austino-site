@@ -7,11 +7,11 @@ export default function Hero() {
     <section className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start pb-0">
       <div data-hero-copy className="lg:col-span-7 space-y-6 lg:py-10">
         <div className="flex items-center gap-2">
-          <MapPin className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+          <MapPin className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
           <p className="section-label">Manteca, CA</p>
         </div>
         <h1 className="text-4xl sm:text-5xl md:text-[3.25rem] font-bold font-display text-warm-white leading-[1.1] tracking-tight text-balance">
-          Do Manteca customers find <span className="text-gradient-gold">you</span> — or your
+          Do Manteca customers find <span className="text-[#004D3A]">you</span> — or your
           competitor?
         </h1>
         <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-balance">
@@ -25,7 +25,7 @@ export default function Hero() {
           </PrimaryButton>
           <Link
             href="#case-study"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-stone-300 rounded-lg text-[14px] font-medium text-stone-800 hover:border-warm-gold/30 hover:text-warm-gold transition-all duration-500"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-stone-300 rounded-lg text-[14px] font-medium text-stone-800 hover:border-[#004D3A]/30 hover:text-[#004D3A] transition-all duration-500"
           >
             See a Real Example
           </Link>
@@ -54,12 +54,12 @@ export default function Hero() {
             </p>
 
             {/* Result 1 — the client */}
-            <div className="rounded-lg border border-warm-gold/20 bg-warm-gold/[0.04] p-3 mb-2">
+            <div className="rounded-lg border border-[#004D3A]/20 bg-[#004D3A]/[0.04] p-3 mb-2">
               <div className="flex items-center gap-2 mb-1">
-                <div className="w-1.5 h-1.5 rounded-full bg-warm-gold" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#004D3A]" />
                 <span className="text-xs font-semibold text-warm-white">My Massage Cottage</span>
               </div>
-              <p className="text-[11px] text-warm-gold font-mono ml-3.5">mymassagecottage.com</p>
+              <p className="text-[11px] text-[#004D3A] font-mono ml-3.5">mymassagecottage.com</p>
               <p className="text-[11px] text-stone-500 ml-3.5 mt-0.5">
                 Professional massage therapy in Manteca, CA
               </p>

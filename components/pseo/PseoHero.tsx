@@ -57,12 +57,12 @@ export default function PseoHero({
       {/* Decorative circles */}
       <div
         className="absolute -right-[16rem] sm:-right-[12rem] md:-right-[16rem] top-6 sm:top-12 md:top-16 w-[20rem] h-[20rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] rounded-full pointer-events-none"
-        style={{ background: "rgba(180, 83, 9, 0.06)" }}
+        style={{ background: "rgba(0, 77, 58, 0.06)" }}
         aria-hidden="true"
       />
       <div
         className="absolute -right-[10rem] sm:-right-[6rem] md:-right-[8rem] top-[14rem] sm:top-[18rem] md:top-[22rem] w-[12rem] h-[12rem] sm:w-[14rem] sm:h-[14rem] md:w-[18rem] md:h-[18rem] rounded-full pointer-events-none"
-        style={{ background: "rgba(180, 83, 9, 0.04)" }}
+        style={{ background: "rgba(0, 77, 58, 0.04)" }}
         aria-hidden="true"
       />
 
@@ -70,7 +70,7 @@ export default function PseoHero({
         {/* ── Text column ── */}
         <div data-hero-copy className="lg:col-span-7 flex flex-col">
           <div className="flex items-center gap-2 mb-5 sm:mb-6">
-            <MapPin className="w-3.5 h-3.5 text-warm-gold" aria-hidden="true" />
+            <MapPin className="w-3.5 h-3.5 text-[#004D3A]" aria-hidden="true" />
             <span className="section-label">{sectionLabel}</span>
             <span className="text-xs font-mono text-stone-400 tracking-wide">
               · {city.name}, CA
@@ -101,7 +101,7 @@ export default function PseoHero({
             </PrimaryButton>
             <Link
               href="#deliverables"
-              className="group inline-flex items-center gap-2 text-[15px] font-medium text-stone-500 hover:text-warm-gold transition-colors duration-200"
+              className="group inline-flex items-center gap-2 text-[15px] font-medium text-stone-500 hover:text-[#004D3A] transition-colors duration-200"
             >
               What You Get
               <ArrowRight
@@ -114,11 +114,11 @@ export default function PseoHero({
           {/* Trust signals */}
           <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
             <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
-              <Search className="w-3.5 h-3.5 text-amber-700 flex-shrink-0" aria-hidden="true" />
+              <Search className="w-3.5 h-3.5 text-[#004D3A] flex-shrink-0" aria-hidden="true" />
               Built for Google&nbsp;&&nbsp;your&nbsp;clients
             </span>
             <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
-              <MapPin className="w-3.5 h-3.5 text-amber-700 flex-shrink-0" aria-hidden="true" />
+              <MapPin className="w-3.5 h-3.5 text-[#004D3A] flex-shrink-0" aria-hidden="true" />
               {city.county} County
               <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
             </span>
@@ -130,7 +130,7 @@ export default function PseoHero({
           <div
             className="rounded-xl border border-stone-300 bg-[#F0EAE2] overflow-hidden"
             style={{
-              boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+              boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
             }}
             role="img"
             aria-label={`Google search mockup showing a ${city.name} law firm ranking #1`}
@@ -162,10 +162,10 @@ export default function PseoHero({
             {/* Search results */}
             <div className="p-4 sm:p-5 space-y-2.5 bg-white">
               {/* Result 1 — highlighted #1 */}
-              <div className="relative rounded-lg border border-warm-gold/15 bg-warm-gold/[0.06] p-3.5">
+              <div className="relative rounded-lg border border-[#004D3A]/15 bg-[#004D3A]/[0.06] p-3.5">
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0">
-                    <p className="text-[11px] text-warm-gold font-mono mb-0.5 truncate">
+                    <p className="text-[11px] text-[#004D3A] font-mono mb-0.5 truncate">
                       {serp.domain}
                     </p>
                     <p className="text-[13px] font-medium text-[#4663AC] leading-snug">
@@ -185,7 +185,7 @@ export default function PseoHero({
                     </div>
                     <p className="text-[11px] text-stone-600 mt-1 line-clamp-1">{serp.snippet}</p>
                   </div>
-                  <span className="flex-shrink-0 flex items-center gap-1 text-[9px] font-bold text-warm-gold bg-warm-gold/10 px-1.5 py-0.5 rounded-full whitespace-nowrap">
+                  <span className="flex-shrink-0 flex items-center gap-1 text-[9px] font-bold text-[#004D3A] bg-[#004D3A]/10 px-1.5 py-0.5 rounded-full whitespace-nowrap">
                     <TrendingUp className="w-2.5 h-2.5" aria-hidden="true" />
                     #1
                   </span>
@@ -232,7 +232,7 @@ export default function PseoHero({
 
           {/* Stat callout below mockup */}
           <div className="mt-4 flex items-center gap-3">
-            <span className="font-display text-2xl font-bold text-warm-gold leading-none">
+            <span className="font-display text-2xl font-bold text-[#004D3A] leading-none">
               {override.localStat.value}
             </span>
             <span className="text-sm text-stone-500">{override.localStat.label}</span>

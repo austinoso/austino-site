@@ -12,7 +12,7 @@ interface PseoCTAProps {
 export default function PseoCTA({ sectionLabel, headline, body, cta, crossLinks }: PseoCTAProps) {
   return (
     <section data-fade>
-      <p className="text-xs font-semibold text-amber-700 uppercase tracking-[0.2em] mb-5">
+      <p className="text-xs font-semibold text-[#004D3A] uppercase tracking-[0.2em] mb-5">
         {sectionLabel}
       </p>
 
@@ -25,7 +25,7 @@ export default function PseoCTA({ sectionLabel, headline, body, cta, crossLinks 
       <div className="mt-10 sm:mt-12 flex items-center gap-4">
         <Link
           href={cta.href}
-          className="group inline-flex items-center gap-2 text-[15px] font-semibold text-warm-gold hover:text-amber-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:ring-offset-2"
+          className="group inline-flex items-center gap-2 text-[15px] font-semibold text-[#004D3A] hover:text-[#003328] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#004D3A]/40 focus:ring-offset-2"
         >
           <span>{cta.label}</span>
           <ArrowRight

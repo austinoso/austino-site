@@ -41,7 +41,7 @@ export default function CaseStudy() {
       <p className="section-label mb-4">Local Proof</p>
       <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4 max-w-2xl">
         How a new Manteca business started{" "}
-        <span className="text-gradient-gold">getting found.</span>
+        <span className="text-[#004D3A]">getting found.</span>
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-12">
         My Massage Cottage came to me with zero online presence and an opening
@@ -53,7 +53,7 @@ export default function CaseStudy() {
       <div
         className="rounded-xl border border-white/[0.08] overflow-hidden bg-[#0C0B09] mb-10"
         style={{
-          boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+          boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
         }}
       >
         <div className="flex items-center gap-3 px-4 py-2 border-b border-white/[0.04]">
@@ -82,7 +82,7 @@ export default function CaseStudy() {
         <span className="text-warm-white font-medium">page 1 of Google</span>.{" "}
         <Link
           href="/work/my-massage-cottage"
-          className="text-warm-gold hover:underline"
+          className="text-[#004D3A] hover:underline"
         >
           Read the case study &rarr;
         </Link>
@@ -97,9 +97,9 @@ export default function CaseStudy() {
             className="border-b border-r border-stone-200 p-6 sm:p-8 flex flex-col"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-full border border-warm-gold/20 bg-warm-gold/[0.05] flex items-center justify-center flex-shrink-0">
+              <div className="w-9 h-9 rounded-full border border-[#004D3A]/20 bg-[#004D3A]/[0.05] flex items-center justify-center flex-shrink-0">
                 <step.icon
-                  className="w-4 h-4 text-warm-gold"
+                  className="w-4 h-4 text-[#004D3A]"
                   aria-hidden="true"
                 />
               </div>
@@ -127,26 +127,26 @@ export default function CaseStudy() {
           </p>
           <ul className="space-y-1.5">
             <li className="flex items-center gap-2 text-sm text-stone-600">
-              <span className="w-1 h-1 rounded-full bg-warm-gold flex-shrink-0" />
+              <span className="w-1 h-1 rounded-full bg-[#004D3A] flex-shrink-0" />
               Accepting online bookings from day one
             </li>
             <li className="flex items-center gap-2 text-sm text-stone-600">
-              <span className="w-1 h-1 rounded-full bg-warm-gold flex-shrink-0" />
+              <span className="w-1 h-1 rounded-full bg-[#004D3A] flex-shrink-0" />
               Fast, mobile-first site that builds trust with new clients
             </li>
             <li className="flex items-center gap-2 text-sm text-stone-600">
-              <span className="w-1 h-1 rounded-full bg-warm-gold flex-shrink-0" />
+              <span className="w-1 h-1 rounded-full bg-[#004D3A] flex-shrink-0" />
               Showing up in local search results and growing
             </li>
             <li className="flex items-center gap-2 text-sm text-stone-600">
-              <span className="w-1 h-1 rounded-full bg-warm-gold flex-shrink-0" />
+              <span className="w-1 h-1 rounded-full bg-[#004D3A] flex-shrink-0" />
               Ongoing content strategy driving organic traffic
             </li>
           </ul>
         </div>
         <Link
           href="/work/my-massage-cottage"
-          className="inline-flex items-center gap-2 text-sm text-warm-gold hover:text-amber-700 transition-colors flex-shrink-0"
+          className="inline-flex items-center gap-2 text-sm text-[#004D3A] hover:text-[#003328] transition-colors flex-shrink-0"
         >
           Read the full case study
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />

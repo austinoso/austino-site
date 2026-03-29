@@ -44,8 +44,8 @@ export default function CommunityProof({
                 key={p.title}
                 className="flex items-start gap-3 py-3.5 px-3 rounded-lg border border-transparent hover:border-stone-300 hover:bg-stone-50 transition-colors duration-200"
               >
-                <div className="w-8 h-8 rounded-md bg-warm-gold/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                <div className="w-8 h-8 rounded-md bg-[#004D3A]/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                 </div>
                 <div>
                   <span className="text-sm font-medium text-warm-white block leading-snug">

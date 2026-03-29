@@ -52,7 +52,7 @@ export default function WhatYouGet() {
       <p className="section-label mb-4">What You Get</p>
       <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4 max-w-2xl">
         Everything your Manteca business needs to{" "}
-        <span className="text-gradient-gold">get found and convert.</span>
+        <span className="text-[#004D3A]">get found and convert.</span>
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-12">
         Not a vague &ldquo;website package.&rdquo; Every deliverable is tied to a specific problem
@@ -66,7 +66,7 @@ export default function WhatYouGet() {
             className="rounded-xl bg-white border border-stone-200 p-6 sm:p-7 transition-colors duration-300 hover:bg-stone-50 hover:border-stone-300"
           >
             <div className="flex items-center gap-2.5 mb-2">
-              <d.icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+              <d.icon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
               <h3 className="text-base font-semibold text-warm-white">{d.title}</h3>
             </div>
             <p className="text-sm text-stone-500 leading-relaxed">{d.body}</p>
@@ -74,10 +74,10 @@ export default function WhatYouGet() {
         ))}
 
         {/* Wildcard — custom needs */}
-        <div className="rounded-xl border border-warm-gold/20 bg-warm-gold/[0.03] p-6 sm:p-7 transition-colors duration-300 hover:bg-warm-gold/[0.06] hover:border-warm-gold/30">
+        <div className="rounded-xl border border-[#004D3A]/20 bg-[#004D3A]/[0.03] p-6 sm:p-7 transition-colors duration-300 hover:bg-[#004D3A]/[0.06] hover:border-[#004D3A]/30">
           <div className="flex items-center gap-2.5 mb-2">
-            <Wrench className="w-4 h-4 text-warm-gold" aria-hidden="true" />
-            <h3 className="text-base font-semibold text-warm-gold">Need something specific?</h3>
+            <Wrench className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
+            <h3 className="text-base font-semibold text-[#004D3A]">Need something specific?</h3>
           </div>
           <p className="text-sm text-stone-500 leading-relaxed">
             Every business has unique needs. If something isn&apos;t on this list, tell me what it

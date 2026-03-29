@@ -50,7 +50,7 @@ export default function TheMath({ sectionLabel, heading, subtext, rows, closer }
                 >
                   {row.highlight && (
                     <ArrowRight
-                      className="w-3.5 h-3.5 text-warm-gold inline mr-2 -mt-0.5"
+                      className="w-3.5 h-3.5 text-[#004D3A] inline mr-2 -mt-0.5"
                       aria-hidden="true"
                     />
                   )}
@@ -58,7 +58,7 @@ export default function TheMath({ sectionLabel, heading, subtext, rows, closer }
                 </span>
                 <span
                   className={`font-display text-lg font-bold leading-none ${
-                    row.highlight ? "text-warm-gold" : "text-warm-white"
+                    row.highlight ? "text-[#004D3A]" : "text-warm-white"
                   }`}
                 >
                   {row.value}

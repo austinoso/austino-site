@@ -39,8 +39,8 @@ export default function RetentionEngine({
             className="rounded-xl bg-white border border-stone-200 p-6 sm:p-7 hover:shadow-sm transition-shadow duration-300 flex flex-col"
           >
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-7 h-7 rounded-md bg-warm-gold/10 flex items-center justify-center shrink-0">
-                <Repeat className="w-3.5 h-3.5 text-warm-gold" aria-hidden="true" />
+              <div className="w-7 h-7 rounded-md bg-[#004D3A]/10 flex items-center justify-center shrink-0">
+                <Repeat className="w-3.5 h-3.5 text-[#004D3A]" aria-hidden="true" />
               </div>
               <span className="text-xs font-mono text-stone-400 uppercase tracking-wider">
                 {String(i + 1).padStart(2, "0")}

@@ -82,8 +82,8 @@ export default function ContractorMockup({
             {/* Nav */}
             <div className="flex items-center justify-between mb-5 pb-2.5 border-b border-stone-100">
               <div className="flex items-center gap-1.5">
-                <div className="w-6 h-6 rounded bg-amber-700/15 flex items-center justify-center">
-                  <Wrench className="w-3 h-3 text-amber-800" />
+                <div className="w-6 h-6 rounded bg-[#004D3A]/15 flex items-center justify-center">
+                  <Wrench className="w-3 h-3 text-[#004D3A]" />
                 </div>
                 <span className="text-[11px] font-semibold text-stone-600">Your Business</span>
               </div>
@@ -91,7 +91,7 @@ export default function ContractorMockup({
                 <span className="text-[10px] text-stone-400">Services</span>
                 <span className="text-[10px] text-stone-400">Areas</span>
                 <span className="text-[10px] text-stone-400">Reviews</span>
-                <span className="text-[10px] px-2.5 py-1 rounded bg-amber-700 text-white font-medium">
+                <span className="text-[10px] px-2.5 py-1 rounded bg-[#004D3A] text-white font-medium">
                   Call Now
                 </span>
               </div>
@@ -105,7 +105,7 @@ export default function ContractorMockup({
                 <div className="h-1.5 w-full rounded bg-stone-200 mb-1" />
                 <div className="h-1.5 w-4/5 rounded bg-stone-200 mb-3.5" />
                 <div className="flex gap-2">
-                  <div className="h-6 w-24 rounded bg-amber-700" />
+                  <div className="h-6 w-24 rounded bg-[#004D3A]" />
                   <div className="h-6 w-20 rounded bg-stone-100 flex items-center justify-center">
                     <span className="text-[8px] text-stone-500 font-medium">📞 (209) 555-…</span>
                   </div>
@@ -156,7 +156,7 @@ export default function ContractorMockup({
         {/* ── Featured card (1 col, beside mockup) ── */}
         <div className={`${card} flex flex-col justify-center`}>
           <div className="flex items-center gap-2.5 mb-2">
-            <featured.icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+            <featured.icon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
             <h3 className="text-base font-semibold text-warm-white">{featured.title}</h3>
           </div>
           <p className="text-[15px] text-stone-500 leading-relaxed">{featured.body}</p>
@@ -168,7 +168,7 @@ export default function ContractorMockup({
           return (
             <div key={d.title} className={card}>
               <div className="flex items-center gap-2.5 mb-2">
-                <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                <Icon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                 <h3 className="text-base font-semibold text-warm-white">{d.title}</h3>
               </div>
               <p className="text-sm text-stone-500 leading-relaxed">{d.body}</p>
@@ -182,7 +182,7 @@ export default function ContractorMockup({
           return (
             <div key={d.title} className={card}>
               <div className="flex items-center gap-2.5 mb-2">
-                <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                <Icon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                 <h3 className="text-base font-semibold text-warm-white">{d.title}</h3>
               </div>
               <p className="text-sm text-stone-500 leading-relaxed">{d.body}</p>
@@ -193,8 +193,8 @@ export default function ContractorMockup({
         {growthLink && (
           <div className={`${card} md:col-span-2`}>
             <div className="flex items-start gap-4">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-warm-gold/10 shrink-0">
-                <TrendingUp className="w-5 h-5 text-warm-gold" aria-hidden="true" />
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#004D3A]/10 shrink-0">
+                <TrendingUp className="w-5 h-5 text-[#004D3A]" aria-hidden="true" />
               </div>
               <div>
                 <h3 className="text-base font-semibold text-warm-white mb-1">
@@ -206,7 +206,7 @@ export default function ContractorMockup({
                 </p>
                 <Link
                   href={growthLink.href}
-                  className="group inline-flex items-center gap-2 text-[14px] font-medium text-warm-gold hover:text-amber-800 transition-colors duration-200 mt-2"
+                  className="group inline-flex items-center gap-2 text-[14px] font-medium text-[#004D3A] hover:text-[#003328] transition-colors duration-200 mt-2"
                 >
                   {growthLink.label}
                   <ArrowRight

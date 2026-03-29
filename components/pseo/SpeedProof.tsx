@@ -34,12 +34,12 @@ export default function SpeedProof({ sectionLabel, heading, subtext, metrics }: 
             className="rounded-xl bg-white border border-stone-200 p-6 hover:shadow-sm transition-shadow duration-300 flex flex-col"
           >
             <div className="flex items-center gap-2.5 mb-4">
-              <Gauge className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+              <Gauge className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
               <span className="text-xs font-mono text-stone-400 uppercase tracking-wider">
                 {m.label}
               </span>
             </div>
-            <span className="font-display text-3xl sm:text-4xl font-bold text-warm-gold leading-none mb-3">
+            <span className="font-display text-3xl sm:text-4xl font-bold text-[#004D3A] leading-none mb-3">
               {m.value}
             </span>
             <p className="text-sm text-stone-500 leading-relaxed mt-auto">{m.description}</p>

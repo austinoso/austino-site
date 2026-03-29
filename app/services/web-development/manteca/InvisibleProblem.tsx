@@ -42,7 +42,7 @@ export default function InvisibleProblem() {
       <p className="section-label mb-4">The Problem</p>
       <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-warm-white leading-[1.2] tracking-tight text-balance mb-4 max-w-2xl">
         Having a website isn&apos;t the same as{" "}
-        <span className="text-gradient-gold">being found.</span>
+        <span className="text-[#004D3A]">being found.</span>
       </h2>
       <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-12">
         Most Manteca businesses have some kind of website. But when a potential
@@ -60,9 +60,9 @@ export default function InvisibleProblem() {
             {/* Left — stat + icon */}
             <div className="p-6 sm:p-8 md:border-r md:border-stone-200 flex flex-col justify-center">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-full border border-warm-gold/20 bg-warm-gold/[0.05] flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 rounded-full border border-[#004D3A]/20 bg-[#004D3A]/[0.05] flex items-center justify-center flex-shrink-0">
                   <problem.icon
-                    className="w-[18px] h-[18px] text-warm-gold"
+                    className="w-[18px] h-[18px] text-[#004D3A]"
                     aria-hidden="true"
                   />
                 </div>
@@ -71,7 +71,7 @@ export default function InvisibleProblem() {
                 </h3>
               </div>
               <div className="ml-12">
-                <span className="font-display text-2xl sm:text-3xl font-bold text-warm-gold leading-none">
+                <span className="font-display text-2xl sm:text-3xl font-bold text-[#004D3A] leading-none">
                   {problem.stat}
                 </span>
                 <p className="text-xs text-stone-500 mt-1">

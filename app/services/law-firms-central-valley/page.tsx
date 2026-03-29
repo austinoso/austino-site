@@ -70,12 +70,12 @@ export default function LawFirmsCentralValleyPage() {
             {/* Decorative circles */}
             <div
               className="absolute -right-[16rem] sm:-right-[12rem] md:-right-[16rem] top-6 sm:top-12 md:top-16 w-[20rem] h-[20rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] rounded-full pointer-events-none"
-              style={{ background: "rgba(180, 83, 9, 0.06)" }}
+              style={{ background: "rgba(0, 77, 58, 0.06)" }}
               aria-hidden="true"
             />
             <div
               className="absolute -right-[10rem] sm:-right-[6rem] md:-right-[8rem] top-[14rem] sm:top-[18rem] md:top-[22rem] w-[12rem] h-[12rem] sm:w-[14rem] sm:h-[14rem] md:w-[18rem] md:h-[18rem] rounded-full pointer-events-none"
-              style={{ background: "rgba(180, 83, 9, 0.04)" }}
+              style={{ background: "rgba(0, 77, 58, 0.04)" }}
               aria-hidden="true"
             />
 
@@ -87,7 +87,7 @@ export default function LawFirmsCentralValleyPage() {
               <section className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center pb-20 sm:pb-24 lg:pb-28">
                 <div data-hero-copy className="lg:col-span-7 flex flex-col">
                   <div className="flex items-center gap-2 mb-5 sm:mb-6">
-                    <Scale className="w-3.5 h-3.5 text-warm-gold" aria-hidden="true" />
+                    <Scale className="w-3.5 h-3.5 text-[#004D3A]" aria-hidden="true" />
                     <span className="section-label">Law Firms</span>
                     <span className="text-xs font-mono text-stone-400 tracking-wide">
                       · Central Valley
@@ -96,7 +96,7 @@ export default function LawFirmsCentralValleyPage() {
 
                   <h1 className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold text-warm-white leading-[1.08] tracking-tight text-balance">
                     Most law firms have a website.{" "}
-                    <span className="text-gradient-gold">
+                    <span className="text-[#004D3A]">
                       Very few have an online&nbsp;presence.
                     </span>
                   </h1>
@@ -114,7 +114,7 @@ export default function LawFirmsCentralValleyPage() {
                     </PrimaryButton>
                     <Link
                       href="#demo"
-                      className="group inline-flex items-center gap-2 text-[15px] font-medium text-stone-500 hover:text-warm-gold transition-colors duration-200"
+                      className="group inline-flex items-center gap-2 text-[15px] font-medium text-stone-500 hover:text-[#004D3A] transition-colors duration-200"
                     >
                       See the Demo
                       <ArrowRight
@@ -128,21 +128,21 @@ export default function LawFirmsCentralValleyPage() {
                   <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
                     <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
                       <Search
-                        className="w-3.5 h-3.5 text-amber-700 flex-shrink-0"
+                        className="w-3.5 h-3.5 text-[#004D3A] flex-shrink-0"
                         aria-hidden="true"
                       />
                       Built for Google
                     </span>
                     <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
                       <Scale
-                        className="w-3.5 h-3.5 text-amber-700 flex-shrink-0"
+                        className="w-3.5 h-3.5 text-[#004D3A] flex-shrink-0"
                         aria-hidden="true"
                       />
                       One firm per practice area
                     </span>
                     <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
                       <MapPin
-                        className="w-3.5 h-3.5 text-amber-700 flex-shrink-0"
+                        className="w-3.5 h-3.5 text-[#004D3A] flex-shrink-0"
                         aria-hidden="true"
                       />
                       Central Valley
@@ -156,7 +156,7 @@ export default function LawFirmsCentralValleyPage() {
                   <div
                     className="rounded-xl border border-stone-300 bg-[#0C0B09] overflow-hidden select-none"
                     style={{
-                      boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+                      boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
                     }}
                   >
                     <div
@@ -197,7 +197,7 @@ export default function LawFirmsCentralValleyPage() {
                       href="https://law-demo.loudbark.dev"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-warm-gold hover:underline"
+                      className="text-[#004D3A] hover:underline"
                     >
                       View live demo &rarr;
                     </a>
@@ -243,7 +243,7 @@ export default function LawFirmsCentralValleyPage() {
                 <div className="md:col-span-2 rounded-xl bg-white border border-stone-200 p-6 sm:p-8 hover:shadow-sm transition-shadow duration-300 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2.5 mb-3">
-                      <Palette className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                      <Palette className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                       <h3 className="text-lg font-semibold text-warm-white">
                         Same templates, same first impression
                       </h3>
@@ -311,7 +311,7 @@ export default function LawFirmsCentralValleyPage() {
                   {/* Not showing up on Google */}
                   <div className="rounded-xl bg-white border border-stone-200 p-6 sm:p-7 hover:shadow-sm transition-shadow duration-300 flex-1 flex flex-col">
                     <div className="flex items-center gap-2.5 mb-2">
-                      <Search className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                      <Search className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                       <h3 className="text-base font-semibold text-warm-white">
                         Invisible on Google
                       </h3>
@@ -321,7 +321,7 @@ export default function LawFirmsCentralValleyPage() {
                       bloated, and missing the signals Google looks&nbsp;for.
                     </p>
                     <div className="mt-4 pt-4 border-t border-stone-200">
-                      <span className="font-display text-3xl font-bold text-warm-gold leading-none">
+                      <span className="font-display text-3xl font-bold text-[#004D3A] leading-none">
                         75%
                       </span>
                       <p className="text-[11px] font-mono text-stone-400 uppercase tracking-wider mt-1">
@@ -333,7 +333,7 @@ export default function LawFirmsCentralValleyPage() {
                   {/* No path to action */}
                   <div className="rounded-xl bg-white border border-stone-200 p-6 sm:p-7 hover:shadow-sm transition-shadow duration-300 flex-1 flex flex-col">
                     <div className="flex items-center gap-2.5 mb-2">
-                      <Users className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                      <Users className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                       <h3 className="text-base font-semibold text-warm-white">
                         No clear way to reach out
                       </h3>
@@ -343,7 +343,7 @@ export default function LawFirmsCentralValleyPage() {
                       ringing.
                     </p>
                     <div className="mt-4 pt-4 border-t border-stone-200">
-                      <span className="font-display text-3xl font-bold text-warm-gold leading-none">
+                      <span className="font-display text-3xl font-bold text-[#004D3A] leading-none">
                         81%
                       </span>
                       <p className="text-[11px] font-mono text-stone-400 uppercase tracking-wider mt-1">
@@ -357,7 +357,7 @@ export default function LawFirmsCentralValleyPage() {
               {/* Full-width card — built for every firm */}
               <div className="rounded-xl bg-white border border-stone-200 p-6 sm:p-8 hover:shadow-sm transition-shadow duration-300 flex flex-col sm:flex-row sm:items-center sm:gap-10">
                 <div className="flex items-center gap-2.5 mb-3 sm:mb-0 sm:flex-shrink-0">
-                  <Code className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                  <Code className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                   <h3 className="text-base font-semibold text-warm-white">
                     Built for every firm, not yours
                   </h3>
@@ -398,7 +398,7 @@ export default function LawFirmsCentralValleyPage() {
                   <div
                     className="rounded-xl border border-stone-300 bg-[#0C0B09] overflow-hidden select-none"
                     style={{
-                      boxShadow: "-12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+                      boxShadow: "-12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
                     }}
                   >
                     <div
@@ -440,7 +440,7 @@ export default function LawFirmsCentralValleyPage() {
                       href="https://law-demo.loudbark.dev"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-warm-gold hover:underline"
+                      className="text-[#004D3A] hover:underline"
                     >
                       View live demo &rarr;
                     </a>
@@ -477,8 +477,8 @@ export default function LawFirmsCentralValleyPage() {
                         key={d.label}
                         className="flex items-start gap-3 py-3 px-3 rounded-lg border border-transparent hover:border-stone-300 hover:bg-stone-50 transition-colors duration-200"
                       >
-                        <div className="w-8 h-8 rounded-md bg-warm-gold/10 flex items-center justify-center shrink-0 mt-0.5">
-                          <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                        <div className="w-8 h-8 rounded-md bg-[#004D3A]/10 flex items-center justify-center shrink-0 mt-0.5">
+                          <Icon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                         </div>
                         <div>
                           <span className="text-sm font-medium text-warm-white block leading-snug">
@@ -533,8 +533,8 @@ export default function LawFirmsCentralValleyPage() {
                 ].map((item) => (
                   <div key={item.step}>
                     <div className="flex items-center gap-4 mb-5">
-                      <div className="flex items-center justify-center h-[38px] w-[38px] rounded-full bg-warm-gold/10 border border-warm-gold/20">
-                        <span className="text-xs font-mono text-warm-gold font-semibold">
+                      <div className="flex items-center justify-center h-[38px] w-[38px] rounded-full bg-[#004D3A]/10 border border-[#004D3A]/20">
+                        <span className="text-xs font-mono text-[#004D3A] font-semibold">
                           {item.step}
                         </span>
                       </div>
@@ -583,7 +583,7 @@ export default function LawFirmsCentralValleyPage() {
                 </h2>
                 <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl">
                   Every feature helps potential clients find you, trust you, and reach&nbsp;out.{" "}
-                  <Link href="/services/web-development" className="text-warm-gold hover:underline">
+                  <Link href="/services/web-development" className="text-[#004D3A] hover:underline">
                     See all features &rarr;
                   </Link>
                 </p>
@@ -595,10 +595,10 @@ export default function LawFirmsCentralValleyPage() {
                   <div
                     className="rounded-xl border border-stone-300 bg-[#0C0B09] overflow-hidden select-none"
                     style={{
-                      boxShadow: "12px 12px 0px 0px #C4B5A0, 0 8px 32px rgba(0,0,0,0.08)",
+                      boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
                     }}
                   >
-                    {/* Browser chrome */}
+                    {/* Browser chrome */}}
                     <div
                       className="flex items-center gap-3 px-4 py-2 border-b border-white/[0.04]"
                       aria-hidden="true"
@@ -628,7 +628,7 @@ export default function LawFirmsCentralValleyPage() {
                           key={tab.label}
                           className={`px-4 sm:px-5 py-3 text-xs font-medium border-r border-white/[0.04] transition-colors ${
                             tab.active
-                              ? "text-white bg-[#0D0F13] border-b-2 border-b-amber-500"
+                              ? "text-white bg-[#0D0F13] border-b-2 border-b-[#004D3A]"
                               : "text-white/30"
                           }`}
                         >
@@ -643,7 +643,7 @@ export default function LawFirmsCentralValleyPage() {
                         <span>/</span>
                         <span>Practice Areas</span>
                         <span>/</span>
-                        <span className="text-amber-500/60">Personal Injury</span>
+                        <span className="text-[#004D3A]/60">Personal Injury</span>
                       </div>
                       <div className="space-y-2">
                         <div className="h-6 w-3/4 rounded bg-white/[0.06]" />
@@ -652,8 +652,8 @@ export default function LawFirmsCentralValleyPage() {
                         <div className="h-3 w-2/3 rounded bg-white/[0.03]" />
                       </div>
                       <div className="flex items-center gap-3 pt-2">
-                        <div className="h-9 w-36 rounded-md bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-                          <span className="text-[10px] font-semibold text-amber-400">
+                        <div className="h-9 w-36 rounded-md bg-[#004D3A]/20 border border-[#004D3A]/30 flex items-center justify-center">
+                          <span className="text-[10px] font-semibold text-[#004D3A]">
                             Free Consultation
                           </span>
                         </div>
@@ -710,8 +710,8 @@ export default function LawFirmsCentralValleyPage() {
                         key={d.label}
                         className="flex items-start gap-3 py-3.5 px-3 rounded-lg border border-transparent hover:border-stone-300 hover:bg-stone-50 transition-colors duration-200"
                       >
-                        <div className="w-8 h-8 rounded-md bg-warm-gold/10 flex items-center justify-center shrink-0 mt-0.5">
-                          <Icon className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                        <div className="w-8 h-8 rounded-md bg-[#004D3A]/10 flex items-center justify-center shrink-0 mt-0.5">
+                          <Icon className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                         </div>
                         <div>
                           <span className="text-sm font-medium text-warm-white block leading-snug">
@@ -757,7 +757,7 @@ export default function LawFirmsCentralValleyPage() {
                   <div className="mt-10 sm:mt-12 pt-8 border-t border-stone-200">
                     <p className="font-display text-2xl sm:text-3xl font-semibold text-warm-white leading-snug">
                       One firm per practice area. One city.{" "}
-                      <span className="text-gradient-gold">
+                      <span className="text-[#004D3A]">
                         Your competition won&apos;t get this from&nbsp;me.
                       </span>
                     </p>
@@ -774,7 +774,7 @@ export default function LawFirmsCentralValleyPage() {
                 <div className="lg:col-span-5">
                   <div className="rounded-xl border border-stone-200 bg-white overflow-hidden">
                     <div className="px-5 py-4 border-b border-stone-200 bg-stone-50 flex items-center gap-3">
-                      <MapPin className="w-4 h-4 text-warm-gold" aria-hidden="true" />
+                      <MapPin className="w-4 h-4 text-[#004D3A]" aria-hidden="true" />
                       <p className="text-sm font-semibold text-warm-white">Service Area</p>
                       <span className="ml-auto text-[10px] font-mono text-stone-400 uppercase tracking-wider">
                         Central Valley
@@ -788,7 +788,7 @@ export default function LawFirmsCentralValleyPage() {
                             className="flex items-center justify-between py-2.5 border-b border-stone-100 last:border-0"
                           >
                             <div className="flex items-center gap-2.5">
-                              <span className="h-1.5 w-1.5 rounded-full bg-warm-gold/40" />
+                              <span className="h-1.5 w-1.5 rounded-full bg-[#004D3A]/40" />
                               <span className="text-sm text-stone-700">{item.city}</span>
                             </div>
                             <span className="text-[10px] font-mono text-stone-400">{item.pop}</span>
@@ -799,7 +799,7 @@ export default function LawFirmsCentralValleyPage() {
                     <div className="px-5 py-3.5 border-t border-stone-200 bg-stone-50">
                       <p className="text-xs text-stone-500 leading-relaxed">
                         Not listed? If you&apos;re in the Valley or nearby,{" "}
-                        <Link href="/contact" className="text-warm-gold hover:underline">
+                        <Link href="/contact" className="text-[#004D3A] hover:underline">
                           let&apos;s talk
                         </Link>
                         .
@@ -828,7 +828,7 @@ export default function LawFirmsCentralValleyPage() {
             padding="section-px pt-14 pb-14 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32"
           >
             <section data-fade>
-              <p className="text-xs font-semibold text-amber-700 uppercase tracking-[0.2em] mb-5">
+              <p className="text-xs font-semibold text-[#004D3A] uppercase tracking-[0.2em] mb-5">
                 Get Started
               </p>
 
@@ -846,7 +846,7 @@ export default function LawFirmsCentralValleyPage() {
               <div className="mt-10 sm:mt-12 flex items-center gap-4">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-2 text-[15px] font-semibold text-warm-gold hover:text-amber-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:ring-offset-2"
+                  className="group inline-flex items-center gap-2 text-[15px] font-semibold text-[#004D3A] hover:text-[#003328] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#004D3A]/40 focus:ring-offset-2"
                 >
                   <span>Get Your Free Site Review</span>
                   <ArrowRight

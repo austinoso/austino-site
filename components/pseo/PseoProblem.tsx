@@ -49,7 +49,7 @@ export default function PseoProblem({ sectionLabel, heading, subtext, cards }: P
       <div className="md:hidden space-y-2">
         {cards.map((c) => (
           <div key={c.heading} className={card}>
-            <span className="block font-display text-4xl font-bold leading-none mb-1.5 tracking-tight text-warm-gold">
+            <span className="block font-display text-4xl font-bold leading-none mb-1.5 tracking-tight text-[#004D3A]">
               {c.stat}
             </span>
             <p className="text-[11px] font-mono text-stone-400 uppercase tracking-wider mb-3">
@@ -67,7 +67,7 @@ export default function PseoProblem({ sectionLabel, heading, subtext, cards }: P
         {cards.map((c) => (
           <div key={c.heading} className={`${card} flex flex-col justify-between`}>
             <div>
-              <span className="block font-display text-5xl lg:text-6xl font-bold leading-none mb-1.5 tracking-tight text-warm-gold">
+              <span className="block font-display text-5xl lg:text-6xl font-bold leading-none mb-1.5 tracking-tight text-[#004D3A]">
                 {c.stat}
               </span>
               <p className="text-[11px] font-mono text-stone-400 uppercase tracking-wider mb-4">
