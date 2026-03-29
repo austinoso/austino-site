@@ -4,41 +4,64 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, TrendingUp, Zap, Lightbulb, type LucideIcon } from "lucide-react";
 
-/* ── Shared link data ── */
-const SOLUTIONS = [
-  {
-    label: "Core",
-    color: "text-amber-700",
-    items: [
-      {
-        href: "/services/web-development",
-        name: "Web Development",
-        desc: "Fast, search-optimized sites",
-        event: "nav-service-web",
-      },
-      {
-        href: "/services/growth-strategy",
-        name: "Growth Strategy",
-        desc: "Data + content that ranks",
-        event: "nav-service-growth",
-      },
-    ],
-  },
-  {
-    label: "Add-on",
-    color: "text-rose-700",
-    items: [
-      {
-        href: "/services/automation",
-        name: "Automation",
-        desc: "Replace manual work with code",
-        event: "nav-service-automation",
-      },
-    ],
-  },
-] as const;
+/* ── Types ── */
+type ServiceItem = {
+  href: string | null;
+  name: string;
+  desc: string;
+  event: string;
+  comingSoon: boolean;
+  icon: LucideIcon;
+};
+
+type ServiceColumn = { heading: string; items: ServiceItem[] };
+
+/* ── Service data ── */
+const CORE_SERVICES: ServiceColumn = {
+  heading: "Core Services",
+  items: [
+    {
+      href: "/services/web-development",
+      name: "Web Development",
+      desc: "Fast, search-optimized websites built around your business goals",
+      event: "nav-service-web",
+      comingSoon: false,
+      icon: Globe,
+    },
+    {
+      href: "/services/growth-strategy",
+      name: "SEO & Web Strategy",
+      desc: "Local SEO and content strategy that pulls in the right clients",
+      event: "nav-service-growth",
+      comingSoon: false,
+      icon: TrendingUp,
+    },
+  ],
+};
+
+const MORE_SERVICES: ServiceColumn = {
+  heading: "Growth Add-ons", // TODO: refine with copywriter
+  items: [
+    {
+      href: "/services/automation",
+      name: "Automation",
+      desc: "Replace manual workflows with code — CRMs, follow-ups, forms",
+      event: "nav-service-automation",
+      comingSoon: false,
+      icon: Zap,
+    },
+    {
+      href: null,
+      name: "Consulting",
+      desc: "Strategic guidance for businesses ready to grow deliberately",
+      event: "nav-service-consulting",
+      comingSoon: true,
+      icon: Lightbulb,
+    },
+  ],
+};
 
 const NAV_LINKS = [
   { href: "/work", label: "Work", prefix: "/work" },
@@ -125,7 +148,7 @@ export default function Navigation() {
         aria-label="Main navigation"
       >
         <div className="site-frame px-6 sm:px-10 md:px-16 lg:px-20 py-2.5 sm:py-4">
-          <div className="flex items-center justify-between">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center gap-6">
             {/* ── Logo ── */}
             <Link
               href="/"
@@ -154,9 +177,9 @@ export default function Navigation() {
               </div>
             </Link>
 
-            {/* ── Desktop links ── */}
-            <div className="hidden md:flex items-center gap-8">
-              {/* Solutions dropdown — CSS :hover/:focus-within, zero JS */}
+            {/* ── Desktop nav links (centered) ── */}
+            <div className="hidden md:flex items-center justify-center gap-8">
+              {/* Solutions megamenu — CSS :hover/:focus-within, zero JS */}
               <div className="group/dd relative">
                 <Link
                   href="/#solutions"
@@ -180,33 +203,141 @@ export default function Navigation() {
                   {isServicesActive && <ActiveBar onDark={isScrolled} />}
                 </Link>
 
-                {/* Dropdown panel — visible on hover/focus-within */}
+                {/* Megamenu panel */}
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 -translate-y-2 pointer-events-none transition-all duration-200 group-hover/dd:opacity-100 group-hover/dd:translate-y-0 group-hover/dd:pointer-events-auto group-focus-within/dd:opacity-100 group-focus-within/dd:translate-y-0 group-focus-within/dd:pointer-events-auto">
-                  <div className="w-56 rounded-lg border border-stone-200 bg-white/95 backdrop-blur-xl overflow-hidden shadow-lg shadow-black/[0.06]">
-                    <div className="p-1.5">
-                      {SOLUTIONS.map((group, gi) => (
-                        <div key={group.label}>
-                          {gi > 0 && <div className="mx-3 my-1.5 border-t border-stone-200" />}
-                          <p
-                            className={`px-3.5 pt-2 pb-1 text-[10px] font-mono uppercase tracking-wider ${group.color}`}
-                          >
-                            {group.label}
-                          </p>
-                          {group.items.map((item) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              className="block px-3.5 py-2.5 rounded-md text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors duration-200"
-                              data-umami-event={item.event}
-                            >
-                              <span className="font-medium">{item.name}</span>
-                              <span className="block text-[11px] text-stone-500 mt-0.5">
-                                {item.desc}
-                              </span>
-                            </Link>
-                          ))}
+                  <div className="w-[700px] rounded-2xl border border-stone-200/80 bg-white overflow-hidden shadow-2xl shadow-black/[0.14] ring-1 ring-stone-900/[0.04]">
+                    {/* Top accent bar */}
+                    <div className="h-[2px] bg-gradient-to-r from-[#004D3A]/0 via-[#004D3A]/60 to-[#004D3A]/0" />
+                    {/* Two-column grid */}
+                    <div className="grid grid-cols-2 divide-x divide-stone-100">
+                      {/* Core Services */}
+                      <div className="p-6">
+                        <p className="text-[10px] font-mono uppercase tracking-widest text-stone-400 font-medium mb-3">
+                          {CORE_SERVICES.heading}
+                        </p>
+                        <div className="space-y-1">
+                          {CORE_SERVICES.items.map((item) => {
+                            const Icon = item.icon;
+                            const active = pathname === item.href;
+                            return (
+                              <Link
+                                key={item.href!}
+                                href={item.href!}
+                                className={`flex items-start gap-3.5 px-3.5 py-3.5 rounded-xl transition-all duration-150 group/item ${
+                                  active ? "bg-[#004D3A]/[0.07]" : "hover:bg-stone-50"
+                                }`}
+                                data-umami-event={item.event}
+                              >
+                                <div
+                                  className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
+                                    active
+                                      ? "bg-[#004D3A] text-white"
+                                      : "bg-stone-100 text-stone-500 group-hover/item:bg-[#004D3A]/[0.1] group-hover/item:text-[#004D3A]"
+                                  }`}
+                                >
+                                  <Icon className="w-4 h-4" aria-hidden="true" />
+                                </div>
+                                <div className="min-w-0">
+                                  <span
+                                    className={`block text-[14px] font-semibold leading-tight transition-colors ${
+                                      active
+                                        ? "text-[#004D3A]"
+                                        : "text-stone-800 group-hover/item:text-[#004D3A]"
+                                    }`}
+                                  >
+                                    {item.name}
+                                  </span>
+                                  <span className="block text-[12.5px] text-stone-500 mt-1 leading-snug">
+                                    {item.desc}
+                                  </span>
+                                </div>
+                              </Link>
+                            );
+                          })}
                         </div>
-                      ))}
+                      </div>
+                      {/* Growth Add-ons */}
+                      <div className="p-6">
+                        <p className="text-[10px] font-mono uppercase tracking-widest text-stone-400 font-medium mb-3">
+                          {MORE_SERVICES.heading}
+                        </p>
+                        <div className="space-y-1">
+                          {MORE_SERVICES.items.map((item) => {
+                            const Icon = item.icon;
+                            const active = pathname === item.href;
+                            return item.comingSoon ? (
+                              <div
+                                key={item.name}
+                                className="flex items-start gap-3.5 px-3.5 py-3.5 rounded-xl cursor-default select-none opacity-50"
+                                aria-disabled="true"
+                              >
+                                <div className="w-9 h-9 rounded-lg bg-stone-100 text-stone-400 flex items-center justify-center shrink-0 mt-0.5">
+                                  <Icon className="w-4 h-4" aria-hidden="true" />
+                                </div>
+                                <div className="min-w-0">
+                                  <span className="flex items-center gap-2">
+                                    <span className="text-[14px] font-semibold text-stone-600 leading-tight">
+                                      {item.name}
+                                    </span>
+                                    <span className="inline-flex items-center text-[9px] font-mono font-semibold bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded-md tracking-widest uppercase border border-stone-200">
+                                      Soon
+                                    </span>
+                                  </span>
+                                  <span className="block text-[12.5px] text-stone-400 mt-1 leading-snug">
+                                    {item.desc}
+                                  </span>
+                                </div>
+                              </div>
+                            ) : (
+                              <Link
+                                key={item.href!}
+                                href={item.href!}
+                                className={`flex items-start gap-3.5 px-3.5 py-3.5 rounded-xl transition-all duration-150 group/item ${
+                                  active ? "bg-[#004D3A]/[0.07]" : "hover:bg-stone-50"
+                                }`}
+                                data-umami-event={item.event}
+                              >
+                                <div
+                                  className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
+                                    active
+                                      ? "bg-[#004D3A] text-white"
+                                      : "bg-stone-100 text-stone-500 group-hover/item:bg-[#004D3A]/[0.1] group-hover/item:text-[#004D3A]"
+                                  }`}
+                                >
+                                  <Icon className="w-4 h-4" aria-hidden="true" />
+                                </div>
+                                <div className="min-w-0">
+                                  <span
+                                    className={`block text-[14px] font-semibold leading-tight transition-colors ${
+                                      active
+                                        ? "text-[#004D3A]"
+                                        : "text-stone-800 group-hover/item:text-[#004D3A]"
+                                    }`}
+                                  >
+                                    {item.name}
+                                  </span>
+                                  <span className="block text-[12.5px] text-stone-500 mt-1 leading-snug">
+                                    {item.desc}
+                                  </span>
+                                </div>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                    {/* Bottom helper row */}
+                    <div className="border-t border-stone-100 px-6 py-3.5 bg-stone-50/80 flex items-center justify-between">
+                      <span className="text-[12px] text-stone-500">
+                        Not sure which fits?
+                      </span>
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center gap-1 text-[12px] font-semibold text-[#004D3A] hover:text-[#003328] transition-colors"
+                        data-umami-event="nav-dd-contact"
+                      >
+                        Let&apos;s talk &rarr;
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -236,30 +367,31 @@ export default function Navigation() {
                   </Link>
                 );
               })}
+            </div>
 
+            {/* ── Right: CTA + mobile toggle ── */}
+            <div className="flex items-center gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center px-5 py-2 bg-[#B84C3A] text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-[#B84C3A]/20 hover:shadow-xl hover:shadow-[#B84C3A]/30 focus:outline-none focus:ring-2 focus:ring-[#B84C3A] focus:ring-offset-2 focus:ring-offset-warm-bg"
+                className="hidden md:inline-flex items-center px-5 py-2 bg-[#B84C3A] text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-px shadow-lg shadow-[#B84C3A]/20 hover:shadow-xl hover:shadow-[#B84C3A]/30 focus:outline-none focus:ring-2 focus:ring-[#B84C3A] focus:ring-offset-2 focus:ring-offset-warm-bg"
                 data-umami-event="nav-get-started"
                 aria-current={pathname === "/contact" ? "page" : undefined}
               >
                 Get Started
               </Link>
+              <button
+                className={`md:hidden transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center ${isScrolled ? "text-white/70 hover:text-white" : "text-stone-500 hover:text-stone-900"}`}
+                onClick={mobileOpen ? closeMobileMenu : openMobileMenu}
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileOpen}
+              >
+                {mobileOpen ? (
+                  <X size={20} aria-hidden="true" />
+                ) : (
+                  <Menu size={20} aria-hidden="true" />
+                )}
+              </button>
             </div>
-
-            {/* ── Mobile toggle ── */}
-            <button
-              className={`md:hidden transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center ${isScrolled ? "text-white/70 hover:text-white" : "text-stone-500 hover:text-stone-900"}`}
-              onClick={mobileOpen ? closeMobileMenu : openMobileMenu}
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-            >
-              {mobileOpen ? (
-                <X size={20} aria-hidden="true" />
-              ) : (
-                <Menu size={20} aria-hidden="true" />
-              )}
-            </button>
           </div>
         </div>
       </nav>
@@ -287,31 +419,54 @@ export default function Navigation() {
               />
             </button>
             {mobileSolutionsOpen && (
-              <div className="space-y-1 pt-1 pb-2">
-                {SOLUTIONS.map((group, gi) => (
-                  <div key={group.label}>
-                    {gi > 0 && <div className="mx-3 my-2 border-t border-stone-200" />}
-                    <p
-                      className={`text-[10px] font-mono uppercase tracking-wider px-3 pb-1 ${group.color}`}
-                    >
-                      {group.label}
-                    </p>
-                    {group.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block px-3 py-2.5 rounded-lg hover:bg-stone-100 transition-colors"
-                        data-umami-event={`mobile-${item.event}`}
-                        onClick={closeMobileMenu}
-                      >
-                        <span className="block text-[15px] font-medium text-stone-800">
-                          {item.name}
-                        </span>
-                        <span className="block text-[12px] text-stone-500 mt-0.5">{item.desc}</span>
-                      </Link>
-                    ))}
-                  </div>
+              <div className="space-y-0.5 pt-1 pb-3">
+                <p className="text-[10px] font-mono uppercase tracking-widest px-3 pb-1.5 pt-1 text-[#004D3A]">
+                  {CORE_SERVICES.heading}
+                </p>
+                {CORE_SERVICES.items.map((item) => (
+                  <Link
+                    key={item.href!}
+                    href={item.href!}
+                    className="block px-3 py-2.5 rounded-lg hover:bg-stone-100 transition-colors"
+                    data-umami-event={`mobile-${item.event}`}
+                    onClick={closeMobileMenu}
+                  >
+                    <span className="block text-[15px] font-medium text-stone-800">{item.name}</span>
+                    <span className="block text-[12px] text-stone-500 mt-0.5">{item.desc}</span>
+                  </Link>
                 ))}
+                <div className="mx-3 my-2 border-t border-stone-200" />
+                <p className="text-[10px] font-mono uppercase tracking-widest px-3 pb-1.5 text-stone-400">
+                  {MORE_SERVICES.heading}
+                </p>
+                {MORE_SERVICES.items.map((item) =>
+                  item.comingSoon ? (
+                    <div
+                      key={item.name}
+                      className="px-3 py-2.5 rounded-lg opacity-50 cursor-default"
+                      aria-disabled="true"
+                    >
+                      <span className="flex items-center gap-2 text-[15px] font-medium text-stone-600">
+                        {item.name}
+                        <span className="text-[9px] font-mono bg-stone-100 text-stone-400 px-1.5 py-0.5 rounded uppercase tracking-wide border border-stone-200">
+                          Soon
+                        </span>
+                      </span>
+                      <span className="block text-[12px] text-stone-400 mt-0.5">{item.desc}</span>
+                    </div>
+                  ) : (
+                    <Link
+                      key={item.href!}
+                      href={item.href!}
+                      className="block px-3 py-2.5 rounded-lg hover:bg-stone-100 transition-colors"
+                      data-umami-event={`mobile-${item.event}`}
+                      onClick={closeMobileMenu}
+                    >
+                      <span className="block text-[15px] font-medium text-stone-800">{item.name}</span>
+                      <span className="block text-[12px] text-stone-500 mt-0.5">{item.desc}</span>
+                    </Link>
+                  )
+                )}
               </div>
             )}
           </div>
