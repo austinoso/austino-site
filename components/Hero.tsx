@@ -644,7 +644,7 @@ export default function Hero() {
               Book a Free Strategy Call
             </PrimaryButton>
             <Link
-              href="#full-presence"
+              href="#services"
               className="group inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/[0.07] px-5 py-3 text-[15px] font-medium text-white/80 shadow-[0_10px_24px_rgba(0,0,0,0.15)] transition-all duration-200 hover:border-white/25 hover:bg-white/[0.12] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004D3A]"
               data-umami-event="hero-see-how"
             >
