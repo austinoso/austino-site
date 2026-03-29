@@ -96,9 +96,7 @@ export default function LawFirmsCentralValleyPage() {
 
                   <h1 className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold text-warm-white leading-[1.08] tracking-tight text-balance">
                     Most law firms have a website.{" "}
-                    <span className="text-[#004D3A]">
-                      Very few have an online&nbsp;presence.
-                    </span>
+                    <span className="text-[#004D3A]">Very few have an online&nbsp;presence.</span>
                   </h1>
 
                   <p className="mt-4 sm:mt-5 text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-pretty">
