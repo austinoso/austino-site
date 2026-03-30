@@ -3,7 +3,7 @@ import Image from "next/image";
 import {
   Fingerprint,
   Target,
-  Smartphone,
+  ShieldCheck,
   Zap,
   CalendarCheck,
   FileText,
@@ -25,9 +25,9 @@ const designPoints = [
     desc: "Not a digital brochure. Each page builds trust, answers questions, and drives bookings.",
   },
   {
-    icon: Smartphone,
-    label: "Mobile-first, always",
-    desc: "Most local sites are desktop designs crammed onto a phone. Yours starts where your customers are.",
+    icon: ShieldCheck,
+    label: "Credibility at first glance",
+    desc: "Your best proof: reviews, credentials, clear expertise. Front and center, not buried three\u00A0clicks\u00A0deep.",
   },
   {
     icon: Zap,

@@ -70,10 +70,11 @@ Each headline is "claimed" by its page. No other page should use the same line o
 
 ### Web Development Service (`app/services/web-development/`)
 
-| Section   | Headline                                                     |
-| --------- | ------------------------------------------------------------ |
-| Hero      | Your website could be closing **more deals.**                |
-| Final CTA | Let's build something that **actually brings in customers.** |
+| Section      | Headline                                                     |
+| ------------ | ------------------------------------------------------------ |
+| Hero         | Your website could be closing **more deals.**                |
+| TheEvidence  | They searched. They clicked. Now they're **judging.**        |
+| Final CTA    | Let's build something that **actually brings in customers.** |
 
 ### Growth Strategy Service (`app/services/growth-strategy/`)
 
