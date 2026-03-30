@@ -22,7 +22,7 @@ export const hero = {
   headline: (city: string) => `${city} has plenty of law firms. Google shows three.`,
   subtext: (city: string) =>
     `When someone in ${city} needs a lawyer, they search Google. The top three results get most of the clicks — everyone else is invisible. If your site was built by a legal directory or hasn't been updated in years, you're probably not in those three.`,
-  cta: { label: "See How You Stack Up", href: "/contact" },
+  cta: { label: "Get a Free Site Review", href: "/contact" },
 };
 
 // ── The Gap (problem section) ──

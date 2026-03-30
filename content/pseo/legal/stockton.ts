@@ -3,13 +3,13 @@
 // Data source: 42-firm market scan (38 sites analyzed), 2026.
 
 export const stocktonLegal = {
-  headline: "79% of Stockton law firms forgot to put themselves on the map.",
+  headline: "A law firm website that earns trust before they call.",
 
   subtext:
     "The firms ranking in Stockton search results aren't necessarily better. They showed up. They added their address. They built pages for the things their clients search for. That's the whole secret.",
 
   heroContext:
-    "I scanned 42 Stockton-area law firms on the fundamentals that drive local rankings. Of the 38 with websites, 30 have no Google Maps embed on their site. The other basics look about the same.",
+    "79% of Stockton firms are missing the basics Google uses to rank them. The ones showing up aren't better — they just got there first.",
 
   localStat: { value: "79%", label: "of Stockton firm sites have no Google Maps embed" },
 
@@ -22,21 +22,21 @@ export const stocktonLegal = {
       stat: "79%",
       statLabel: "no Google Maps embed",
       heading: "No map, no local results",
-      body: "79% of Stockton firms don't have a Google Maps embed. Your competitor doesn't need to be great at SEO. They just need a map.",
+      body: "79% of Stockton firms don't have a Google Maps embed. Your competitor doesn't need to be better at SEO — they just need a map.",
       source: { label: "loudbark.dev · 42-firm scan", href: "/insights/stockton-law-firm-websites" },
     },
     {
       stat: "21%",
       statLabel: "missing their own contact info",
       heading: "One in five can't list their address",
-      body: "Name, address, phone number. One in five Stockton firms don't have it in a format Google can read. Without it, Google can't confirm you exist where you say you do.",
+      body: "Name, address, phone number — in a format Google can actually read. One in five Stockton firms don't have it. Google can't confirm you exist where you say you do.",
       source: { label: "loudbark.dev · 42-firm scan", href: "/insights/stockton-law-firm-websites" },
     },
     {
       stat: "10%",
       statLabel: "have no website at all",
       heading: "Some firms skipped the website entirely",
-      body: "4 out of 42 Stockton firms don't have a site at all. The bar here is: a site that loads and shows your contact info with proper markup. If yours does that, you're already ahead.",
+      body: "4 out of 42 Stockton firms don't have a site at all. If yours loads and shows your contact info with proper markup, you're already ahead of them.",
       source: { label: "loudbark.dev · 42-firm scan", href: "/insights/stockton-law-firm-websites" },
     },
   ],
@@ -48,22 +48,22 @@ export const stocktonLegal = {
     {
       title: "E-E-A-T signals",
       description:
-        "Google scores Experience, Expertise, Authoritativeness, and Trustworthiness. For Stockton firms: attorney credentials, bar associations, and structured case history. Most local firm sites don't communicate any of this in a way Google can read.",
+        "Attorney credentials, bar admissions, case history — structured so Google can read them. Most Stockton firm sites bury this or leave it out entirely.",
     },
     {
       title: "Legal schema markup",
       description:
-        "32% of Stockton firms have no structured data at all. Schema is what makes you eligible for star ratings and practice areas in search results. A third of the market is handing you that advantage.",
+        "Schema markup makes you eligible for star ratings and practice area labels in search results. 32% of Stockton firms have none — a third of the market is handing you that slot.",
     },
     {
       title: "YMYL-grade site quality",
       description:
-        "Legal sites need faster load times, cleaner code, and stronger security than most businesses. Google penalizes slow, insecure law firm sites harder than it would a restaurant or retail store.",
+        "Google holds legal sites to a stricter standard than a restaurant or retail store. Slow load times and weak security get penalized harder here.",
     },
     {
       title: "Local authority signals",
       description:
-        "Google Business Profile integration, consistent contact data, and city-specific content. Most Stockton firms are missing the basics. The local signal gap is wide open.",
+        "Consistent name, address, and phone across your site and Google Business Profile. Most Stockton firms have gaps here — and the map pack has room.",
     },
   ],
 

@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Signal {
@@ -11,6 +13,7 @@ interface AuthoritySignalsProps {
   heading: string;
   subtext: string;
   signals: Signal[];
+  crossLink?: { href: string; label: string };
 }
 
 export default function AuthoritySignals({
@@ -18,6 +21,7 @@ export default function AuthoritySignals({
   heading,
   subtext,
   signals,
+  crossLink,
 }: AuthoritySignalsProps) {
   return (
     <section data-fade>
@@ -29,6 +33,18 @@ export default function AuthoritySignals({
             {heading}
           </h2>
           <p className="mt-4 text-base sm:text-lg text-stone-600 leading-relaxed">{subtext}</p>
+          {crossLink && (
+            <Link
+              href={crossLink.href}
+              className="group inline-flex items-center gap-2 text-[14px] font-medium text-[#004D3A] hover:text-[#003328] transition-colors duration-200 mt-5"
+            >
+              {crossLink.label}
+              <ArrowRight
+                className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </Link>
+          )}
         </div>
 
         {/* Right — signal list items with hover */}

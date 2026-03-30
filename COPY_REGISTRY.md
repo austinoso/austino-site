@@ -99,7 +99,7 @@ City-injected via `{city}` placeholder. Per-city overrides replace the shared de
 | Section       | Headline                                                          | Override |
 | ------------- | ----------------------------------------------------------------- | -------- |
 | Hero (shared) | {city} has plenty of law firms. **Google shows three.**           | Fallback |
-| Hero (Stockton) | 79% of Stockton law firms forgot to **put themselves on the map.** | Override |
+| Hero (Stockton) | A law firm website that earns trust **before they call.** | Override |
 | Hero (Modesto) | Modesto law firms average 84 Google reviews. **A third of their sites have five pages.** | Override |
 | The Gap (shared) | Why most {city} law firms **don't rank.**                      | Fallback |
 | The Gap (Stockton) | What 20 Stockton law firms **actually look like online.**   | Override |
@@ -171,7 +171,7 @@ Each entry is the exact button label and where it appears. Reusing the same CTA 
 | Send Message              | Contact form              | Form submit                 |
 | See Selected Work         | About CTA                 | Links to /work              |
 | More about how I work     | Homepage About section    | Links to /about             |
-| See How You Stack Up      | pSEO Legal hero           | City template primary       |
+| Get a Free Site Review    | pSEO Legal hero           | All city pages; also on Web Dev hero (different audience) |
 | See Where You Rank        | pSEO Legal final CTA      | City template close         |
 
 **Resolved:** Hero and FinalCTA button text now varies across service pages.

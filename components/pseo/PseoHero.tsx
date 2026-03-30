@@ -20,6 +20,7 @@ interface PseoHeroProps {
   subtext?: string;
   cta: { label: string; href: string };
   serpConfig?: SerpConfig;
+  dark?: boolean;
 }
 
 export default function PseoHero({
@@ -30,7 +31,26 @@ export default function PseoHero({
   subtext,
   cta,
   serpConfig,
+  dark = false,
 }: PseoHeroProps) {
+  const t = {
+    label: dark ? "text-white/60 text-xs font-semibold uppercase tracking-[0.2em]" : "section-label",
+    labelIcon: dark ? "text-white/40" : "text-[#004D3A]",
+    cityMono: dark ? "text-white/40" : "text-stone-400",
+    heading: dark ? "text-white" : "text-warm-white",
+    body: dark ? "text-stone-200" : "text-stone-600",
+    muted: dark ? "text-white/60" : "text-stone-500",
+    ctaLink: dark ? "text-white/60 hover:text-white" : "text-stone-500 hover:text-[#004D3A]",
+    pill: dark ? "bg-white/[0.08] border-white/[0.12] text-white/70" : "bg-stone-50 border-stone-200 text-stone-600",
+    pillIcon: dark ? "text-white/40" : "text-[#004D3A]",
+    statVal: dark ? "text-white" : "text-[#004D3A]",
+    statLabel: dark ? "text-white/50" : "text-stone-500",
+    shadow: dark
+      ? "0 28px 60px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.2)"
+      : "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
+    mockupBorder: dark ? "border-white/[0.12]" : "border-stone-300",
+  };
+
   const serp: SerpConfig = serpConfig ?? {
     query: `lawyer near me ${city.name.toLowerCase()}`,
     domain: `your-${city.slug}-firm.com`,
@@ -54,42 +74,30 @@ export default function PseoHero({
 
   return (
     <section className="relative" aria-labelledby="pseo-hero-heading">
-      {/* Decorative circles */}
-      <div
-        className="absolute -right-[16rem] sm:-right-[12rem] md:-right-[16rem] top-6 sm:top-12 md:top-16 w-[20rem] h-[20rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] rounded-full pointer-events-none"
-        style={{ background: "rgba(0, 77, 58, 0.06)" }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute -right-[10rem] sm:-right-[6rem] md:-right-[8rem] top-[14rem] sm:top-[18rem] md:top-[22rem] w-[12rem] h-[12rem] sm:w-[14rem] sm:h-[14rem] md:w-[18rem] md:h-[18rem] rounded-full pointer-events-none"
-        style={{ background: "rgba(0, 77, 58, 0.04)" }}
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center pb-20 sm:pb-24 lg:pb-28">
+      <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center pb-14 sm:pb-20 lg:pb-24">
         {/* ── Text column ── */}
         <div data-hero-copy className="lg:col-span-7 flex flex-col">
           <div className="flex items-center gap-2 mb-5 sm:mb-6">
-            <MapPin className="w-3.5 h-3.5 text-[#004D3A]" aria-hidden="true" />
-            <span className="section-label">{sectionLabel}</span>
-            <span className="text-xs font-mono text-stone-400 tracking-wide">
+            <MapPin className={`w-3.5 h-3.5 ${t.labelIcon}`} aria-hidden="true" />
+            <span className={t.label}>{sectionLabel}</span>
+            <span className={`text-xs font-mono tracking-wide ${t.cityMono}`}>
               · {city.name}, CA
             </span>
           </div>
 
           <h1
             id="pseo-hero-heading"
-            className="font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold text-warm-white leading-[1.14] tracking-tight text-balance"
+            className={`font-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold leading-[1.14] tracking-tight text-balance ${t.heading}`}
           >
             {headline}
           </h1>
 
-          <p className="mt-5 sm:mt-6 text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl text-pretty">
+          <p className={`mt-5 sm:mt-6 text-base sm:text-lg leading-relaxed max-w-xl text-pretty ${t.body}`}>
             {override.heroContext}
           </p>
 
           {subtext && (
-            <p className="mt-3 text-[15px] text-stone-500 leading-relaxed max-w-xl text-pretty">
+            <p className={`mt-3 text-[15px] leading-relaxed max-w-xl text-pretty ${t.muted}`}>
               {subtext}
             </p>
           )}
@@ -101,7 +109,7 @@ export default function PseoHero({
             </PrimaryButton>
             <Link
               href="#deliverables"
-              className="group inline-flex items-center gap-2 text-[15px] font-medium text-stone-500 hover:text-[#004D3A] transition-colors duration-200"
+              className={`group inline-flex items-center gap-2 text-[15px] font-medium transition-colors duration-200 ${t.ctaLink}`}
             >
               What You Get
               <ArrowRight
@@ -113,12 +121,12 @@ export default function PseoHero({
 
           {/* Trust signals */}
           <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
-              <Search className="w-3.5 h-3.5 text-[#004D3A] flex-shrink-0" aria-hidden="true" />
+            <span className={`inline-flex items-center gap-2 rounded-lg border px-3.5 py-1.5 text-[13px] font-medium ${t.pill}`}>
+              <Search className={`w-3.5 h-3.5 flex-shrink-0 ${t.pillIcon}`} aria-hidden="true" />
               Built for Google&nbsp;&&nbsp;your&nbsp;clients
             </span>
-            <span className="inline-flex items-center gap-2 rounded-lg bg-stone-50 border border-stone-200 px-3.5 py-1.5 text-[13px] font-medium text-stone-600">
-              <MapPin className="w-3.5 h-3.5 text-[#004D3A] flex-shrink-0" aria-hidden="true" />
+            <span className={`inline-flex items-center gap-2 rounded-lg border px-3.5 py-1.5 text-[13px] font-medium ${t.pill}`}>
+              <MapPin className={`w-3.5 h-3.5 flex-shrink-0 ${t.pillIcon}`} aria-hidden="true" />
               {city.county} County
               <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
             </span>
@@ -126,11 +134,18 @@ export default function PseoHero({
         </div>
 
         {/* ── Visual column — Google SERP mockup ── */}
-        <div data-hero-visual className="lg:col-span-5 select-none" aria-hidden="true">
+        <div data-hero-visual className="lg:col-span-5 select-none relative" aria-hidden="true">
+          {/* Ambient glow — dark mode only */}
+          {dark && (
+            <div
+              className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4/5 h-32 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse at center, rgba(0,180,120,0.18) 0%, transparent 70%)", filter: "blur(24px)" }}
+            />
+          )}
           <div
-            className="rounded-xl border border-stone-300 bg-[#F0EAE2] overflow-hidden"
+            className={`rounded-xl border bg-[#F0EAE2] overflow-hidden ${t.mockupBorder}`}
             style={{
-              boxShadow: "12px 12px 0px 0px #A8CCBF, 0 8px 32px rgba(0,0,0,0.08)",
+              boxShadow: t.shadow,
             }}
             role="img"
             aria-label={`Google search mockup showing a ${city.name} law firm ranking #1`}
@@ -231,11 +246,11 @@ export default function PseoHero({
           </div>
 
           {/* Stat callout below mockup */}
-          <div className="mt-4 flex items-center gap-3">
-            <span className="font-display text-2xl font-bold text-[#004D3A] leading-none">
+          <div className={`mt-5 flex items-baseline gap-3 ${dark ? "pl-4 border-l-2 border-white/20" : ""}`}>
+            <span className={`font-display text-3xl font-bold leading-none ${t.statVal}`}>
               {override.localStat.value}
             </span>
-            <span className="text-sm text-stone-500">{override.localStat.label}</span>
+            <span className={`text-sm leading-snug max-w-[180px] ${t.statLabel}`}>{override.localStat.label}</span>
           </div>
         </div>
       </div>

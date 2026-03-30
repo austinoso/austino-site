@@ -23,6 +23,7 @@ interface SiteMockupProps {
   cityName: string;
   citySlug: string;
   growthLink?: { href: string; label: string };
+  webDevLink?: { href: string; label: string };
 }
 
 const card =
@@ -37,6 +38,7 @@ export default function SiteMockup({
   cityName,
   citySlug,
   growthLink,
+  webDevLink,
 }: SiteMockupProps) {
   const [featured, ...rest] = items;
 
@@ -48,6 +50,18 @@ export default function SiteMockup({
           {heading}
         </h2>
         <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl">{subtext}</p>
+        {webDevLink && (
+          <Link
+            href={webDevLink.href}
+            className="group inline-flex items-center gap-2 text-[14px] font-medium text-[#004D3A] hover:text-[#003328] transition-colors duration-200 mt-4"
+          >
+            {webDevLink.label}
+            <ArrowRight
+              className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
+          </Link>
+        )}
       </div>
 
       {/* ── Bento grid ── */}
