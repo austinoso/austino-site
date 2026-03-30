@@ -112,7 +112,10 @@ export default async function LawFirmCityPage({ params }: Props) {
               heading={authority.heading}
               subtext={override.authoritySubtext ?? authority.subtext}
               signals={resolvedAuthority}
-              crossLink={{ href: "/services/growth-strategy", label: "See the full growth strategy approach" }}
+              crossLink={{
+                href: "/services/growth-strategy",
+                label: "See the full growth strategy approach",
+              }}
             />
           </ServiceSection>
 
@@ -166,7 +169,10 @@ export default async function LawFirmCityPage({ params }: Props) {
                 href: "/services/growth-strategy",
                 label: "How the growth strategy works",
               }}
-              webDevLink={{ href: "/services/web-development", label: "See the full web development approach" }}
+              webDevLink={{
+                href: "/services/web-development",
+                label: "See the full web development approach",
+              }}
             />
           </ServiceSection>
 

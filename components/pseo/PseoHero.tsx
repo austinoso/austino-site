@@ -34,14 +34,18 @@ export default function PseoHero({
   dark = false,
 }: PseoHeroProps) {
   const t = {
-    label: dark ? "text-white/60 text-xs font-semibold uppercase tracking-[0.2em]" : "section-label",
+    label: dark
+      ? "text-white/60 text-xs font-semibold uppercase tracking-[0.2em]"
+      : "section-label",
     labelIcon: dark ? "text-white/40" : "text-[#004D3A]",
     cityMono: dark ? "text-white/40" : "text-stone-400",
     heading: dark ? "text-white" : "text-warm-white",
     body: dark ? "text-stone-200" : "text-stone-600",
     muted: dark ? "text-white/60" : "text-stone-500",
     ctaLink: dark ? "text-white/60 hover:text-white" : "text-stone-500 hover:text-[#004D3A]",
-    pill: dark ? "bg-white/[0.08] border-white/[0.12] text-white/70" : "bg-stone-50 border-stone-200 text-stone-600",
+    pill: dark
+      ? "bg-white/[0.08] border-white/[0.12] text-white/70"
+      : "bg-stone-50 border-stone-200 text-stone-600",
     pillIcon: dark ? "text-white/40" : "text-[#004D3A]",
     statVal: dark ? "text-white" : "text-[#004D3A]",
     statLabel: dark ? "text-white/50" : "text-stone-500",
@@ -92,7 +96,9 @@ export default function PseoHero({
             {headline}
           </h1>
 
-          <p className={`mt-5 sm:mt-6 text-base sm:text-lg leading-relaxed max-w-xl text-pretty ${t.body}`}>
+          <p
+            className={`mt-5 sm:mt-6 text-base sm:text-lg leading-relaxed max-w-xl text-pretty ${t.body}`}
+          >
             {override.heroContext}
           </p>
 
@@ -121,11 +127,15 @@ export default function PseoHero({
 
           {/* Trust signals */}
           <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
-            <span className={`inline-flex items-center gap-2 rounded-lg border px-3.5 py-1.5 text-[13px] font-medium ${t.pill}`}>
+            <span
+              className={`inline-flex items-center gap-2 rounded-lg border px-3.5 py-1.5 text-[13px] font-medium ${t.pill}`}
+            >
               <Search className={`w-3.5 h-3.5 flex-shrink-0 ${t.pillIcon}`} aria-hidden="true" />
               Built for Google&nbsp;&&nbsp;your&nbsp;clients
             </span>
-            <span className={`inline-flex items-center gap-2 rounded-lg border px-3.5 py-1.5 text-[13px] font-medium ${t.pill}`}>
+            <span
+              className={`inline-flex items-center gap-2 rounded-lg border px-3.5 py-1.5 text-[13px] font-medium ${t.pill}`}
+            >
               <MapPin className={`w-3.5 h-3.5 flex-shrink-0 ${t.pillIcon}`} aria-hidden="true" />
               {city.county} County
               <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -139,7 +149,11 @@ export default function PseoHero({
           {dark && (
             <div
               className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4/5 h-32 pointer-events-none"
-              style={{ background: "radial-gradient(ellipse at center, rgba(0,180,120,0.18) 0%, transparent 70%)", filter: "blur(24px)" }}
+              style={{
+                background:
+                  "radial-gradient(ellipse at center, rgba(0,180,120,0.18) 0%, transparent 70%)",
+                filter: "blur(24px)",
+              }}
             />
           )}
           <div
@@ -246,11 +260,15 @@ export default function PseoHero({
           </div>
 
           {/* Stat callout below mockup */}
-          <div className={`mt-5 flex items-baseline gap-3 ${dark ? "pl-4 border-l-2 border-white/20" : ""}`}>
+          <div
+            className={`mt-5 flex items-baseline gap-3 ${dark ? "pl-4 border-l-2 border-white/20" : ""}`}
+          >
             <span className={`font-display text-3xl font-bold leading-none ${t.statVal}`}>
               {override.localStat.value}
             </span>
-            <span className={`text-sm leading-snug max-w-[180px] ${t.statLabel}`}>{override.localStat.label}</span>
+            <span className={`text-sm leading-snug max-w-[180px] ${t.statLabel}`}>
+              {override.localStat.label}
+            </span>
           </div>
         </div>
       </div>

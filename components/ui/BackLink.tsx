@@ -9,7 +9,13 @@ type BackLinkProps = {
   "aria-label"?: string;
 };
 
-export function BackLink({ href, children, className = "mb-8 sm:mb-10", inverted = false, ...rest }: BackLinkProps) {
+export function BackLink({
+  href,
+  children,
+  className = "mb-8 sm:mb-10",
+  inverted = false,
+  ...rest
+}: BackLinkProps) {
   const colors = inverted
     ? "text-white/40 hover:text-white/80"
     : "text-stone-500 hover:text-warm-white";

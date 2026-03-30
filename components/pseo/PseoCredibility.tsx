@@ -14,8 +14,8 @@ export default function PseoCredibility() {
           </h2>
           <p className="mt-4 text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl">
             I&apos;m Austin, a software engineer based in the Central Valley. I do the research,
-            build the site, write the SEO content, and manage what comes after launch. No
-            handoffs, no account manager, no junior team.
+            build the site, write the SEO content, and manage what comes after launch. No handoffs,
+            no account manager, no junior team.
           </p>
           <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
             <Link
@@ -61,8 +61,8 @@ export default function PseoCredibility() {
                 Developer &amp; Founder
               </p>
               <p className="text-[13px] sm:text-sm text-stone-500 leading-relaxed mt-2.5">
-                Six years in software engineering, building sites and automated workflows for
-                local businesses in the Central Valley.
+                Six years in software engineering, building sites and automated workflows for local
+                businesses in the Central Valley.
               </p>
             </div>
           </div>
