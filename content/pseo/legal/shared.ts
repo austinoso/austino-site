@@ -167,9 +167,9 @@ export const faq = {
         "Most do. If it was built by a directory or hasn't been touched in years, it's probably not ranking or converting. I'll review it for free and tell you where you stand.",
     },
     {
-      q: (_city: string, _county: string) => "Why does schema markup matter for law firms?",
-      a: (city: string, _county: string) =>
-        `Schema is structured data that tells Google your site is a law firm in ${city} practicing specific areas of law. Without it, Google guesses. With it, you're eligible for star ratings and contact info right in the search listing. Most firm sites don't have this.`,
+      q: (_city: string, _county: string) => "What does this cost?",
+      a: (_city: string, _county: string) =>
+        "Projects start with a $200 deposit to get things moving, then a flat project fee depending on scope — typically 5–10 pages, practice area content, schema, and local SEO setup. I'll give you a clear number before anything starts. No hourly surprises.",
     },
     {
       q: (city: string, _county: string) =>

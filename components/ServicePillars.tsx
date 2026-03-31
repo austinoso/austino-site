@@ -275,8 +275,7 @@ export default function ServicePillars() {
                 id="website-heading"
                 className="font-display text-[2.2rem] font-bold leading-[1.04] tracking-tight text-warm-white sm:text-[2.7rem]"
               >
-                Built around your business,
-                <br className="hidden sm:block" /> not a&nbsp;template.
+                Built knowing how customers&nbsp;decide.
               </h2>
 
               <p className="mt-5 max-w-[42ch] text-[16px] leading-relaxed text-stone-600">
@@ -341,7 +340,7 @@ export default function ServicePillars() {
                 <cite className="mt-1 block text-[13px] not-italic text-stone-400">HubSpot</cite>
               </blockquote>
 
-              <p className="mt-5 text-[16px] leading-relaxed text-stone-600">
+              <p className="mt-5 max-w-[42ch] text-[16px] leading-relaxed text-stone-600">
                 Search is where buying decisions start. If your business isn&apos;t showing up,
                 someone else is getting that&nbsp;call.
               </p>
@@ -446,16 +445,31 @@ export default function ServicePillars() {
                 Keep good leads from slipping&nbsp;through.
               </h3>
 
-              <p className="mt-5 text-[16px] leading-relaxed text-emerald-100/75 sm:text-[17px]">
-                Most of the tools I set up already handle the basics: appointment reminders, review
-                requests, intake follow-ups. For businesses that need more, I build custom workflows
-                too. Dashboards, backend scripts, whatever cuts the repetitive work out of
-                your&nbsp;week.
+              <p className="mt-5 max-w-[42ch] text-[16px] leading-relaxed text-emerald-100/75 sm:text-[17px]">
+                A missed follow-up is a missed job. I handle the repeatable work automatically — and
+                build custom workflows when your business needs&nbsp;more.
               </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {[
+                  "Appointment reminders",
+                  "Review requests",
+                  "Intake follow-ups",
+                  "Custom workflows",
+                  "Backend scripts",
+                ].map((chip) => (
+                  <span
+                    key={chip}
+                    className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[13px] font-medium text-emerald-100/80"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
 
               <Link
                 href="/services/automation"
-                className="group mt-8 inline-flex items-center gap-2 text-[15px] font-semibold text-[#FCA5A5] transition-colors duration-200 hover:text-[#FCD6D6]"
+                className="group mt-7 inline-flex items-center gap-2 text-[15px] font-semibold text-[#FCA5A5] transition-colors duration-200 hover:text-[#FCD6D6]"
               >
                 Explore automation
                 <ArrowRight

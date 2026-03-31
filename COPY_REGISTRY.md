@@ -45,7 +45,7 @@ Each headline is "claimed" by its page. No other page should use the same line o
 | Transition      | Showing up is one part. Being chosen is the rest.    |
 | Services        | What I actually do for a business.                   |
 | Visibility      | Get found when they search.                          |
-| Website         | Give them a site worth trusting.                     |
+| Website         | Built knowing how customers decide.                  |
 | Mid-page CTA    | *(no heading — body copy only)*                      |
 | Automation      | Fix the work that keeps slipping through.            |
 | About           | One person. **The whole picture.**                   |
