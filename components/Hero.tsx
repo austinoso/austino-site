@@ -546,7 +546,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-0 w-full max-w-[1600px] mx-auto px-4 sm:px-10 md:px-16 lg:px-20 pt-16 sm:pt-20 2xl:pt-28 pb-10 sm:pb-14 2xl:pb-24 flex flex-col">
+      <div className="relative z-0 w-full max-w-[1600px] mx-auto px-4 sm:px-10 md:px-16 lg:px-20 pt-24 sm:pt-20 2xl:pt-28 pb-10 sm:pb-14 2xl:pb-24 flex flex-col">
         {/* Visual — mockup with ambient back-glow */}
         <div
           className="order-2 sm:order-1 w-full max-w-[960px] mx-auto mb-4 sm:mb-6 2xl:mb-10 mt-4 sm:mt-0"
