@@ -15,8 +15,7 @@ export default function MidCTA() {
         <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-16">
           <div className="border-l-[3px] border-[#004D3A]/40 pl-5">
             <p className="max-w-[28ch] text-[1.35rem] sm:text-[1.6rem] font-semibold text-[#114232] leading-[1.3] tracking-tight">
-              You&apos;ll know what I&apos;m doing at each step &mdash; and why it matters for
-              your&nbsp;rankings.
+              Getting found is step one. <br /> Getting chosen is the whole&nbsp;point.
             </p>
           </div>
 

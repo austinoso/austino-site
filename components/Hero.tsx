@@ -343,7 +343,7 @@ function SearchDemo({ onPhaseChange }: { onPhaseChange?: (phase: Phase) => void 
         </div>
 
         {/* Results area -- all three panels stacked, opacity-driven */}
-        <div className="relative h-[220px] sm:h-[240px] mt-4">
+        <div className="relative h-[180px] sm:h-[200px] xl:h-[240px] mt-4">
           {/* Organic results */}
           <div
             className={`absolute inset-0 transition-all duration-300 ease-out ${
@@ -546,10 +546,10 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-0 w-full max-w-[1600px] mx-auto px-4 sm:px-10 md:px-16 lg:px-20 pt-28 sm:pt-28 pb-16 sm:pb-24 flex flex-col">
+      <div className="relative z-0 w-full max-w-[1600px] mx-auto px-4 sm:px-10 md:px-16 lg:px-20 pt-16 sm:pt-20 2xl:pt-28 pb-10 sm:pb-14 2xl:pb-24 flex flex-col">
         {/* Visual — mockup with ambient back-glow */}
         <div
-          className="order-2 sm:order-1 w-full max-w-[960px] mx-auto mb-8 sm:mb-10 mt-8 sm:mt-0"
+          className="order-2 sm:order-1 w-full max-w-[960px] mx-auto mb-4 sm:mb-6 2xl:mb-10 mt-4 sm:mt-0"
           style={fadeAnim(0.05)}
         >
           {/* Mobile/tablet: single chip above demo, shuffle animation */}
@@ -601,7 +601,7 @@ export default function Hero() {
           <h1
             id="hero-heading"
             className="font-display tracking-tight"
-            style={{ fontSize: "clamp(1.9rem, 5.6vw, 4.7rem)", lineHeight: 0.99 }}
+            style={{ fontSize: "clamp(1.9rem, 4.6vw, 4.7rem)", lineHeight: 0.99 }}
           >
             <span className="block overflow-hidden">
               <span
@@ -625,13 +625,13 @@ export default function Hero() {
             className="text-[0.95rem] sm:text-[1.2rem] text-emerald-100/80 leading-relaxed font-sans mt-3 sm:mt-4 max-w-[620px] mx-auto text-pretty"
             style={fadeAnim(0.5)}
           >
-            Websites and local SEO for Central Valley service businesses that want more visibility,
+            Websites and local SEO for service businesses that want more visibility,
             more calls, and a site customers actually&nbsp;trust.
           </p>
 
           {/* CTA row */}
           <div
-            className="mt-5 sm:mt-7 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4"
+            className="mt-3 sm:mt-5 2xl:mt-7 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4"
             style={fadeAnim(0.55)}
           >
             <PrimaryButton
@@ -673,7 +673,7 @@ export default function Hero() {
             href="https://maps.app.goo.gl/Sb9a7rGdK6r6eVzE7"
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-4 sm:mt-5 inline-flex flex-col items-center gap-1.5 sm:gap-2 transition-opacity duration-200 hover:opacity-90"
+            className="group mt-3 sm:mt-4 inline-flex flex-col items-center gap-1.5 sm:gap-2 transition-opacity duration-200 hover:opacity-90"
             style={fadeAnim(0.7)}
             aria-label="Read Shannon's Google review"
           >
